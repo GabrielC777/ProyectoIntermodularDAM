@@ -1,0 +1,77 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+             xmlns:misPestania="clr-namespace:BetaProyecto.Views.WindowsRising.PanelRising"
+             xmlns:admins="using:BetaProyecto.Views.WindowsRising.PanelRising.Admins"
+             xmlns:vm="using:BetaProyecto.ViewModels"
+             x:Class="BetaProyecto.Views.WindowsRising.PanelRising.PanelUsuario"
+             x:DataType="vm:PanelUsuarioViewModel"
+             Background="{DynamicResource Brush_PanelUser_Fondo}">
+
+    <UserControl.Styles>
+    <!--Estilos para las pestañas sin seleccionar-->
+         <Style Selector="TabItem">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="22"/> 
+            <Setter Property="Foreground" Value="{DynamicResource Brush_PanelUser_Tab_Normal_Texto}"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Padding" Value="20,10,20,10"/> 
+        </Style>
+
+    <!--Estilos para las pestañas seleccionada-->
+       <Style Selector="TabItem:selected /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource Brush_PanelUser_Tab_Selected_Fondo}"/>
+            <Setter Property="TextBlock.Foreground" Value="{DynamicResource Brush_PanelUser_Tab_Selected_Texto}"/>
+            <Setter Property="Padding" Value="30,15,30,15"/>
+            <Setter Property="CornerRadius" Value="20,20,0,0"/>
+        </Style>
+
+    <!--Estilos para las pestañas con un cursor encima-->
+       <Style Selector="TabItem:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource Brush_PanelUser_Tab_Hover_Fondo}"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="TextBlock.Foreground" Value="{DynamicResource Brush_PanelUser_Tab_Hover_Texto}"/>
+            <Setter Property="Padding" Value="30,15,30,15"/>
+            <Setter Property="CornerRadius" Value="20,20,0,0"/>
+        </Style>
+    </UserControl.Styles>
+             
+    <Grid>
+        <TabControl Padding="0" SelectedIndex="{Binding IndiceTab}">
+            <TabItem Header="{DynamicResource Tab_Perfil}"
+                     AutomationProperties.Name="{DynamicResource Tab_Perfil}"
+                     AutomationProperties.HelpText="{DynamicResource Acc_Help_Perfil}">
+                <misPestania:ViewPerfil DataContext="{Binding ViewPerfilVM}"/>
+            </TabItem>
+            <TabItem Header="{DynamicResource Tab_Cuenta}"
+                     AutomationProperties.Name="{DynamicResource Tab_Cuenta}"
+                     AutomationProperties.HelpText="{DynamicResource Acc_Help_Cuenta}">
+                <misPestania:ViewCuenta DataContext="{Binding ViewCuentaVM}"/>
+            </TabItem>
+            <TabItem Header="{DynamicResource Tab_Gestionar}"
+                     AutomationProperties.Name="{DynamicResource Tab_Gestionar}"
+                     AutomationProperties.HelpText="{DynamicResource Acc_Help_Gestionar}">
+                <misPestania:ViewGestionarCuenta DataContext="{Binding ViewGestionarCuentaVM}"/>
+            </TabItem>
+            <TabItem Header="{DynamicResource Tab_Configuracion}"
+                     AutomationProperties.Name="{DynamicResource Tab_Configuracion}"
+                     AutomationProperties.HelpText="{DynamicResource Acc_Help_Configuracion}">
+                <misPestania:ViewConfiguracion DataContext="{Binding ViewConfiguracionVM}"/>
+            </TabItem>
+            <TabItem Header="{DynamicResource Tab_ReportesAdmin}"
+                     IsVisible="{Binding PuedeVerReportes}"
+                     AutomationProperties.Name="{DynamicResource Tab_ReportesAdmin}"
+                     AutomationProperties.HelpText="{DynamicResource Acc_Help_Reportes}">
+                <admins:ViewGestionarReporter DataContext="{Binding ViewGestionarReportesVM}"/>
+            </TabItem>
+            <TabItem Header="{DynamicResource Tab_BDDev}" 
+                     IsVisible="{Binding PuedeVerBD}"
+                     AutomationProperties.Name="{DynamicResource Tab_BDDev}"
+                     AutomationProperties.HelpText="{DynamicResource Acc_Help_BD}">
+                <admins:ViewGestionarBD DataContext="{Binding ViewGestionarBDVM}"/>
+            </TabItem>
+        </TabControl>
+     </Grid>
+</UserControl>

@@ -1,0 +1,307 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodels="using:BetaProyecto.ViewModels"
+             xmlns:helpers="using:BetaProyecto.Helpers"
+             xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+             xmlns:local="using:BetaProyecto.Views.TabControlApp"
+             x:DataType="viewmodels:TabItemInicioViewModel"
+             x:Class="BetaProyecto.Views.TabControlApp.TabItemInicio"
+             AutomationProperties.Name="{DynamicResource Acc_Inicio_Pagina}">
+    <UserControl.Resources>
+        <helpers:TextoTraducidoConverter x:Key="Traductor"/>
+    </UserControl.Resources>
+
+    <Design.DataContext>
+        <viewmodels:TabItemInicioViewModel/>
+    </Design.DataContext>
+    
+   <UserControl.Styles>
+        <Style Selector="Border.Tarjeta">
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Brush_Inicio_Tarjeta_Borde}"/>
+            <Setter Property="Background" Value="{DynamicResource Brush_Inicio_Tarjeta_Fondo}"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="Margin" Value="0,20"/>
+            <Setter Property="BoxShadow" Value="3 3 10 0 #33000000"/>
+        </Style>
+        <Style Selector="Image.PointerOverButton">
+            <Setter Property="Opacity" Value="0"/>
+        </Style>
+        <Style Selector="Image.PointerOverButton:pointerover">
+            <Setter Property="Opacity" Value="0.4"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Stretch" Value="UniformToFill"/>
+        </Style>
+        <Style Selector="ScrollBar">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition Property="Height" Duration="0:0:0.2"/>
+                    <DoubleTransition Property="Width" Duration="0:0:0.2"/>
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="ScrollBar:horizontal">
+            <Setter Property="Height" Value="10"/>
+            <Setter Property="Opacity" Value="0.3"/>
+        </Style>
+        <Style Selector="ScrollBar:vertical">
+            <Setter Property="Width" Value="10"/>
+            <Setter Property="Opacity" Value="0.3"/>
+        </Style>
+        <Style Selector="ScrollBar:horizontal /template/ Thumb">
+            <Setter Property="Background" Value="{DynamicResource Brush_Inicio_Scroll_Thumb}"/>
+            <Setter Property="CornerRadius" Value="10"/>
+        </Style>
+        <Style Selector="ScrollBar:vertical /template/ Thumb">
+            <Setter Property="Background" Value="{DynamicResource Brush_Inicio_Scroll_Thumb}"/>
+            <Setter Property="CornerRadius" Value="10"/>
+        </Style>
+    </UserControl.Styles>
+    <Grid RowDefinitions="Auto, *">
+        
+        <Grid Grid.Row="0" Margin="30,20,30,0">
+             <Button Command="{Binding BtnRefrescar}"
+                    HorizontalAlignment="Right"
+                    Background="{DynamicResource Brush_Inicio_BtnRefrescar_Fondo}"
+                    CornerRadius="20"
+                    Padding="15,8"
+                    Cursor="Hand"
+                    ToolTip.Tip="{DynamicResource Inicio_TipRefrescar}"
+                    AutomationProperties.Name="{DynamicResource Inicio_BtnActualizar}"
+                    AutomationProperties.HelpText="{DynamicResource Acc_Inicio_BtnRefrescar_Help}">
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <TextBlock Text="🔄" FontSize="16" VerticalAlignment="Center" 
+                               Foreground="{DynamicResource Brush_Inicio_BtnRefrescar_Texto}"/>
+                    <TextBlock Text="{DynamicResource Inicio_BtnActualizar}" FontWeight="Bold" 
+                               Foreground="{DynamicResource Brush_Inicio_BtnRefrescar_Texto}" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel Margin="10">
+
+                <ItemsControl ItemsSource="{Binding Playlists}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" Margin="0,0,0,30">
+                            
+                                <TextBlock Text="{Binding TituloSeccion, Converter={StaticResource Traductor}}" 
+                                           FontSize="35" FontWeight="Bold" 
+                                           Foreground="{DynamicResource Brush_Inicio_Titulo_Seccion}" Margin="0,0,0,20"/>
+
+                                <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled">
+                                    <ItemsControl ItemsSource="{Binding Listas}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel Orientation="Horizontal" Spacing="20"/>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                    
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border Classes="Tarjeta" Width="200" Height="250" 
+                                                        Background="{DynamicResource Brush_Inicio_Playlist_Fondo}">
+                                                   <Grid RowDefinitions="*, Auto">
+        
+                                                        <Border Grid.Row="0" Margin="10" CornerRadius="5" ClipToBounds="True">
+                                                            <Button Background="Transparent" Padding="0" Cursor="Hand"
+                                                                    x:CompileBindings="False"
+                                                                    Command="{Binding DataContext.BtnReproducirPlaylist, RelativeSource={RelativeSource AncestorType={x:Type local:TabItemInicio}}}"
+                                                                    CommandParameter="{Binding}">
+                                                                <Grid>
+                                                                    <Image asyncImageLoader:ImageLoader.Source="{Binding UrlPortada}" Stretch="UniformToFill"/>
+                                                                    <Image Classes="PointerOverButton" Source="/Assets/Imagenes/Play.png" Stretch="Uniform"/>
+                                                                </Grid>
+                                                            </Button>
+                                                        </Border>
+
+                                                        <Grid Grid.Row="1" ColumnDefinitions="*, Auto" Margin="10,0,10,15">
+            
+                                                            <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="0,0,5,0">
+                                                                <TextBlock Text="{Binding Nombre}" FontWeight="Bold" FontSize="16" TextTrimming="CharacterEllipsis"
+                                                                           Foreground="{DynamicResource Brush_Inicio_Texto_Principal}"/>
+                                                                <TextBlock Text="{Binding Descripcion}" FontSize="12" TextTrimming="CharacterEllipsis"
+                                                                           Foreground="{DynamicResource Brush_Inicio_Texto_Secundario}"/>
+                                                            </StackPanel>
+
+                                                            <Button Grid.Column="1" 
+                                                                    VerticalAlignment="Center" 
+                                                                    HorizontalAlignment="Right"
+                                                                    Background="Transparent" 
+                                                                    Padding="5" 
+                                                                    Cursor="Hand"
+                                                                    x:Name="BotonMenu"
+                                                                    Tag="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type local:TabItemInicio}}}"
+                                                                    AutomationProperties.Name="{Binding Nombre}"
+                                                                    AutomationProperties.HelpText="{DynamicResource Acc_Inicio_BtnOpciones_Help}">
+                                                            
+                                                                <PathIcon Data="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z"
+                                                                          Foreground="{DynamicResource Brush_Inicio_Icono_Menu}"/>
+
+                                                                <Button.Flyout>
+                                                                    <Flyout Placement="BottomEdgeAlignedRight" ShowMode="Transient">
+                                                                        <StackPanel Width="150">
+                                                                            <Button HorizontalAlignment="Stretch" 
+                                                                                    Background="Transparent" 
+                                                                                    Content="{DynamicResource Inicio_Menu_VerDetalles}"
+                                                                                    x:CompileBindings="False"
+                                                                                    Command="{Binding #BotonMenu.Tag.BtnIrADetallesPlaylist}" 
+                                                                                    CommandParameter="{Binding #BotonMenu.DataContext}"
+                                                                                    Click="CerrarMenu_Click"
+                                                                                    Foreground="{DynamicResource Brush_Texto_Principal}"/>
+                                                                        </StackPanel>
+                                                                    </Flyout>
+                                                                </Button.Flyout>
+                                                            </Button>
+                                                        </Grid>
+                                                    </Grid>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </ScrollViewer>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <ItemsControl ItemsSource="{Binding Tarjetas}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" Margin="0,0,0,30">
+                            
+                               <TextBlock Text="{Binding TituloSeccion, Converter={StaticResource Traductor}}" 
+                                           FontSize="35" FontWeight="Bold" 
+                                           Foreground="{DynamicResource Brush_Inicio_Titulo_Seccion}" Margin="0,0,0,20"/>
+
+                                <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled">
+                                    <ItemsControl ItemsSource="{Binding ListaCanciones}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel Orientation="Horizontal" Spacing="20"/>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                    
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                               <Border Classes="Tarjeta" Width="350" Height="180">
+                                                    <Grid ColumnDefinitions="Auto, *">
+                                                    
+                                                        <Border Grid.Column="0" Margin="15" Padding="0" 
+                                                                BorderBrush="{DynamicResource Brush_Inicio_Tarjeta_Borde}" BorderThickness="1">
+                                                            <Button Background="Transparent" Padding="0" Cursor="Hand"
+                                                                    x:CompileBindings="False"
+                                                                    Command="{Binding DataContext.BtnReproducirDesdeTarjeta, RelativeSource={RelativeSource AncestorType={x:Type local:TabItemInicio}}}"
+                                                                    Tag="{Binding $parent[ItemsControl].ItemsSource}" 
+                                                                    CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
+                                                                    AutomationProperties.Name="{Binding Titulo}"
+                                                                    AutomationProperties.HelpText="{DynamicResource Acc_Inicio_BtnPlay_Help}">
+                                                                <!--Cuando usamos Tag apuntamos al ItemsSource para obtener la lista de canciones-->
+                                                                <Grid>
+                                                                    <Image asyncImageLoader:ImageLoader.Source="{Binding ImagenPortadaUrl}" Stretch="UniformToFill"
+                                                                           AutomationProperties.AccessibilityView="Raw"/>
+                                                                    <Image Classes="PointerOverButton" Source="/Assets/Imagenes/Play.png" Stretch="Uniform"
+                                                                           AutomationProperties.AccessibilityView="Raw"/>
+                                                                </Grid>
+                                                            </Button>
+                                                        </Border>
+
+                                                        <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="10,0,35,0">
+                                                            <TextBlock Text="{Binding Titulo}" FontWeight="Bold" FontSize="18" TextWrapping="Wrap" MaxLines="2" TextTrimming="CharacterEllipsis"
+                                                                       Foreground="{DynamicResource Brush_Inicio_Texto_Principal}"/>
+                                                            <TextBlock Text="{Binding NombreArtista}" FontSize="14" Margin="0,5,0,0" TextTrimming="CharacterEllipsis"
+                                                                       Foreground="{DynamicResource Brush_Inicio_Texto_Secundario}"/>
+                                                        </StackPanel>
+                                                        <!--Botón de tres puntos -->
+                                                        <Button Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Right"
+                                                                Background="Transparent" Width="35" Height="35" Padding="0" Margin="5"
+                                                                Cursor="Hand" CornerRadius="20"
+                                                                x:Name="BotonMenu"
+                                                                Tag="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type local:TabItemInicio}}}"
+                                                                AutomationProperties.Name="{Binding Titulo}"
+                                                                AutomationProperties.HelpText="{DynamicResource Acc_Inicio_BtnOpciones_Help}">
+
+                                                            <PathIcon Data="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z"
+                                                                      Foreground="{DynamicResource Brush_Inicio_Icono_Menu}"/>
+
+                                                            <Button.Flyout>
+                                                                <Flyout Placement="BottomEdgeAlignedRight" ShowMode="Transient">
+                                                                    <StackPanel Width="180" Spacing="5">
+                                                                        <!--Botón ver detalles-->
+                                                                        <Button HorizontalAlignment="Stretch" 
+                                                                                Background="Transparent" 
+                                                                                Content="{DynamicResource Inicio_Menu_VerDetalles}"
+                                                                                x:CompileBindings="False"
+                                                                                Command="{Binding #BotonMenu.Tag.BtnIrADetalleCancion}" 
+                                                                                CommandParameter="{Binding #BotonMenu.DataContext}"
+                                                                                Click="CerrarMenu_Click"
+                                                                                Foreground="{DynamicResource Brush_Texto_Principal}"/>
+                                                                        <Separator Background="#E0E0E0" Height="1"/>
+                                                                    
+                                                                        <!--Botón reportar-->
+                                                                        <Button HorizontalAlignment="Stretch"
+                                                                                Background="Transparent"
+                                                                                x:CompileBindings="False"
+                                                                                Command="{Binding #BotonMenu.Tag.BtnIrAReportar}"
+                                                                                CommandParameter="{Binding #BotonMenu.DataContext}"
+                                                                                Click="CerrarMenu_Click"
+                                                                                Content="{DynamicResource Inicio_Menu_Reportar}"
+                                                                                Foreground="Red"/>
+                                                                        <Separator Background="#E0E0E0" Height="1"/>
+
+                                                                        <!--Botón ver artistas-->
+                                                                        <Button HorizontalAlignment="Stretch"
+                                                                                Background="Transparent"
+                                                                                Content="{DynamicResource Inicio_Menu_VerArtistas}"
+                                                                                FontSize="13"
+                                                                                Foreground="{DynamicResource Brush_Texto_Principal}"
+                                                                                x:CompileBindings="False">
+                                                                            <Button.Flyout>
+                                                                                <Flyout Placement="RightEdgeAlignedTop">
+                                                                                    <StackPanel x:Name="PanelMenu" Spacing="5" MinWidth="150">
+                                                                                        <TextBlock Text="{DynamicResource Inicio_Menu_SelArtista}" FontWeight="Bold" Margin="5" Foreground="{DynamicResource Brush_Texto_Principal}"/>
+                                                                                        <ItemsControl ItemsSource="{Binding ListaArtistasIndividuales}">
+                                                                                            <ItemsControl.ItemTemplate>
+                                                                                                <DataTemplate>
+                                                                                                    <Button Content="{Binding}" 
+                                                                                                            Command="{Binding #BotonMenu.Tag.BtnIrAArtista}"
+                                                                                                            CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
+                                                                                                            Tag="{Binding #BotonMenu}"
+                                                                                                            HorizontalAlignment="Stretch"
+                                                                                                            Background="Transparent"
+                                                                                                            Foreground="{DynamicResource Brush_Texto_Principal}"/>
+                                                                                                    <!--Aqui en el le decimos que nos pase el DataContext del padre actual entonces como ahora mismo
+                                                                                                    el datacontext es de Canciones nos pasa la canción actual con ello todos los datos que queremos 
+                                                                                                    en este caso la lista de ids y propia de ListaArtistasIndividuales que usamos aqui para generar 
+                                                                                                    los botones-->
+                                                                                                </DataTemplate>
+                                                                                            </ItemsControl.ItemTemplate>
+                                                                                        </ItemsControl>
+                
+                                                                                    </StackPanel>
+                                                                                </Flyout>
+                                                                            </Button.Flyout>
+                                                                        </Button>
+                                                                    </StackPanel>
+                                                                </Flyout>
+                                                            </Button.Flyout>
+                                                        </Button>
+                                                    </Grid>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </ScrollViewer>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+            </StackPanel>
+        </ScrollViewer>
+     </Grid>
+</UserControl>

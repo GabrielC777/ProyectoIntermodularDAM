@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="BetaProyecto.API/BetaProyecto.API.csproj" Id="4657205e-906b-48aa-b567-bf9d4eab96f1" />
+  <Project Path="BetaProyecto/BetaProyecto.csproj" />
+</Solution>

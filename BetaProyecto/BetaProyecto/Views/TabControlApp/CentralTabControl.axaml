@@ -1,0 +1,164 @@
+﻿ <UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:asyncImageLoader="using:AsyncImageLoader"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+             xmlns:misPestania="clr-namespace:BetaProyecto.Views.TabControlApp"
+             xmlns:vm="using:BetaProyecto.ViewModels"
+             x:Class="BetaProyecto.Views.TabControlApp.CentralTabControl"
+             x:DataType="vm:CentralTabControlViewModel"
+             Background="{DynamicResource Brush_Central_Fondo}">
+ 
+    <Design.DataContext>
+        <vm:CentralTabControlViewModel/>
+    </Design.DataContext>
+     
+    <UserControl.Styles>
+         
+    <!--Estilos para las pestañas sin seleccionar-->
+         <Style Selector="TabItem">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="22"/> 
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Central_Tab_Texto}"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Padding" Value="20,10,20,10"/>
+        </Style>
+
+    <!--Estilos para las pestañas seleccionada-->
+        <Style Selector="TabItem:selected /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource Brush_Central_Tab_Selected_Fondo}"/>
+            <Setter Property="TextBlock.Foreground" Value="{DynamicResource Brush_Central_Tab_Selected_Texto}"/>
+            <Setter Property="Padding" Value="30,15,30,15"/>
+            <Setter Property="CornerRadius" Value="20,20,0,0"/>
+        </Style>
+
+    <!--Estilos para las pestañas con un cursor encima-->
+        <Style Selector="TabItem:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource Brush_Central_Tab_Hover_Fondo}"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="TextBlock.Foreground" Value="{DynamicResource Brush_Central_Tab_Hover_Texto}"/>
+            <Setter Property="Padding" Value="30,15,30,15"/>
+            <Setter Property="CornerRadius" Value="20,20,0,0"/>
+        </Style>
+
+     <!--Estilos botones del menu-->
+         <Style Selector="Button.BtnMenu">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Central_BtnMenu_Texto}"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="Transparent"/>
+         </Style>
+
+         <Style Selector="Button.BtnMenu:pointerover /template/ ContentPresenter">
+             <Setter Property="Background" Value="{DynamicResource Brush_Central_Tab_Hover_Fondo}"/> <Setter Property="Foreground" Value="White"/>
+         </Style>
+
+         <Style Selector="FlyoutPresenter">
+             <Setter Property="Background" Value="{DynamicResource Brush_Central_Flyout_Fondo}"/>
+             <Setter Property="Padding" Value="10"/>
+             <Setter Property="CornerRadius" Value="10"/>
+             <Setter Property="TextBlock.Foreground" Value="{DynamicResource Brush_Central_BtnMenu_Texto}"/>
+         </Style>
+    </UserControl.Styles>
+
+    <!--Tabcontrol y pestañas-->
+    <Grid >
+        <TabControl Margin="0,20,0,170" >
+            <TabItem Header="{DynamicResource Main_Tab_Inicio}"
+                     AutomationProperties.Name="{DynamicResource Main_Tab_Inicio}"
+                     AutomationProperties.HelpText="{DynamicResource Acc_Main_TabInicio_Help}">
+                <misPestania:TabItemInicio DataContext="{Binding InicioVM}"/>
+            </TabItem>
+            <TabItem Header="{DynamicResource Main_Tab_Buscador}"
+                     AutomationProperties.Name="{DynamicResource Main_Tab_Buscador}"
+                     AutomationProperties.HelpText="{DynamicResource Acc_Main_TabBuscador_Help}">
+                <misPestania:TabItemBuscador DataContext="{Binding BuscadorVM}"/>
+            </TabItem>
+            <TabItem Header="{DynamicResource Main_Tab_Populares}"
+                     AutomationProperties.Name="{DynamicResource Main_Tab_Populares}"
+                     AutomationProperties.HelpText="{DynamicResource Acc_Main_TabPopulares_Help}">
+                <misPestania:TabItemPopulares DataContext="{Binding PopularesVM}"/>
+            </TabItem>
+        </TabControl>
+        <StackPanel Spacing="15"        
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right" 
+                    VerticalAlignment="Top"
+                    Margin="20">
+            <!--Boton para crear canciones o listas-->
+            <Button Width="60" Height="60"
+                    Background="Transparent"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                    Padding="0"
+                    CornerRadius="40"
+                    Cursor="Hand"
+                    ToolTip.Tip="{DynamicResource Main_Tooltip_Crear}"
+                    AutomationProperties.Name="{DynamicResource Acc_Main_BtnCrear}"
+                    AutomationProperties.HelpText="{DynamicResource Acc_Main_BtnCrear_Help}">
+            
+                <Image Source="{DynamicResource Img_Anadir}" Stretch="UniformToFill"
+                       AutomationProperties.AccessibilityView="Raw"/>
+
+                <Button.Flyout>
+                    <Flyout Placement="BottomEdgeAlignedRight" ShowMode="Transient">
+                        <StackPanel Width="150" Spacing="5">
+
+                            <TextBlock Text="Crear" FontWeight="Bold" Margin="5" Foreground="{DynamicResource Brush_Central_BtnMenu_Texto}"/>
+
+                            <Separator Background="{DynamicResource Brush_Central_BtnMenu_Texto}" Height="1" Margin="0,0,0,5" Opacity="0.3"/>
+
+                            <Button Classes="BtnMenu" Content="{DynamicResource Main_Btn_Publicar}" Command="{Binding BtnPublicarCancion}" />
+
+                            <Button Classes="BtnMenu"  Content="{DynamicResource Main_Btn_CrearPlaylist}" Command="{Binding BtnCrearPlaylist}" />
+                        
+                        </StackPanel>
+                    </Flyout>
+                </Button.Flyout>
+            </Button>
+
+            <!--Botón de perfil con menú desplegable-->
+            <Border ClipToBounds="True" BorderThickness="2" CornerRadius="40" 
+                    BorderBrush="{DynamicResource Brush_Central_Borde_Perfil}"
+                    Width="80" Height="80">
+                <Button                 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"
+                        Width="100" Height="100"
+                        Background="Transparent"
+                        CornerRadius="40"
+                        Padding="0"
+                        Cursor="Hand"
+                        AutomationProperties.Name="{DynamicResource Acc_Main_BtnPerfil}"
+                        AutomationProperties.HelpText="{DynamicResource Acc_Main_BtnPerfil_Help}">
+                    <Image asyncImageLoader:ImageLoader.Source="{Binding ImagenPerfil}" Stretch="UniformToFill"
+                           AutomationProperties.Name="{DynamicResource Acc_Main_ImgPerfil}"/>
+                    <Button.Flyout >
+                        <Flyout Placement="TopEdgeAlignedRight" ShowMode="Transient">
+                            <StackPanel Width="150">
+                                <TextBlock Text="{DynamicResource Main_Menu_MiCuenta}" FontWeight="Bold" Margin="10,5" 
+                                           Foreground="{DynamicResource Brush_Central_BtnMenu_Texto}"/>
+                                
+                                <Separator Background="{DynamicResource Brush_Central_BtnMenu_Texto}" Height="1" Opacity="0.3" 
+                                           AutomationProperties.AccessibilityView="Raw"/>
+                                
+                                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
+                                    <Button Grid.Row="0" Content="{DynamicResource Tab_Perfil}" Classes="BtnMenu" Command="{Binding BtnPerfil}"/>
+                                    <Button Grid.Row="1" Content="{DynamicResource Tab_Cuenta}" Classes="BtnMenu" Command="{Binding BtnCuenta}"/>
+                                    <Button Grid.Row="2" Content="{DynamicResource Tab_Gestionar}" Classes="BtnMenu" Command="{Binding BtnGestionarCuenta}"/>
+                                    <Button Grid.Row="3" Content="{DynamicResource Tab_Configuracion}" Classes="BtnMenu" Command="{Binding BtnConfiguracion}"/>
+                                    
+                                    <Button Grid.Row="4" Content="{DynamicResource Main_Menu_SobreNosotros}" Classes="BtnMenu" Command="{Binding BtnSobreNosotros}"/>
+                                    <Button Grid.Row="5" Content="{DynamicResource Main_Menu_Ayuda}" Classes="BtnMenu" Command="{Binding BtnAyuda}"/>
+                                </Grid>
+                            </StackPanel>
+                        </Flyout>
+                    </Button.Flyout>
+                </Button>
+            </Border>
+        </StackPanel>
+    </Grid>
+
+</UserControl>

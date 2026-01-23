@@ -1,0 +1,248 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:asyncImageLoader="using:AsyncImageLoader"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:BetaProyecto.ViewModels"
+        xmlns:viewsLogin="using:BetaProyecto.Views.Login"
+        xmlns:viewsTab="using:BetaProyecto.Views.TabControlApp"
+        xmlns:misPanelRising="clr-namespace:BetaProyecto.Views.WindowsRising.PanelRising"
+        xmlns:misWindowsRising="clr-namespace:BetaProyecto.Views.WindowsRising"
+        xmlns:viewsCrear="using:BetaProyecto.Views.Crear"
+        xmlns:viewsEditar="using:BetaProyecto.Views.Editar"
+        xmlns:viewsVisores="using:BetaProyecto.Views.Visores"
+        xmlns:helpers="using:BetaProyecto.Helpers"
+        x:DataType="vm:MarcoAppViewModel"
+        mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+        x:Class="BetaProyecto.Views.MarcoApp.MarcoApp"
+        FontFamily="{DynamicResource FuenteApp}"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen"
+        Icon="/Assets/Imagenes/LogoApp.ico"
+        Title="MusicSearch">
+    <Window.Resources>
+        <helpers:TextoTraducidoConverter x:Key="Traductor"/>
+        <x:Double x:Key="SliderTrackThemeHeight">8</x:Double>
+    </Window.Resources>
+    <Design.DataContext>
+        <vm:MarcoAppViewModel/>
+    </Design.DataContext>
+    <Window.Styles>
+		
+    <!--Estilos para slider parte de la bola(Thumb)-->
+        <Style Selector="Slider:horizontal /template/ Thumb">
+           <Setter Property="Width" Value="25"/>  
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="CornerRadius" Value="14.5"/> 
+            <Setter Property="Background" Value="{DynamicResource Brush_Player_Slider_Thumb_Fondo}"/> 
+            <Setter Property="BorderBrush" Value="{DynamicResource Brush_Player_Slider_Thumb_Borde}"/>
+            <Setter Property="BorderThickness" Value="2"/> 
+            <Setter Property="Margin" Value="0"/>
+        </Style>
+        
+    <!--Estilos para slider parte de la bola(Thumb) con el cursor encima-->
+        <Style Selector="Slider:horizontal:pointerover /template/ Thumb">
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="CornerRadius" Value="14.5"/>
+            <Setter Property="Background" Value="{DynamicResource Brush_Player_Slider_Thumb_Borde}"/>
+        </Style>
+    <!--Estilos para slider parte de la Track (pista) por donde el Thumb ya ha pasado-->
+        <Style Selector="Slider:horizontal /template/ RepeatButton#PART_DecreaseButton">
+            <Setter Property="Height" Value="8"/>  
+            <Setter Property="Background" Value="{DynamicResource Brush_Player_Slider_Track_Fill}"/>
+            <Setter Property="CornerRadius" Value="4"/>
+        </Style>
+        
+    <!--Estilos para slider parte de la Track (pista) por donde el Thumb no ha pasado aún-->
+        <Style Selector="Slider:horizontal /template/ RepeatButton#PART_IncreaseButton">
+            <Setter Property="Height" Value="8"/>  
+            <Setter Property="Background" Value="{DynamicResource Brush_Player_Slider_Track_Empty}"/>
+            <Setter Property="CornerRadius" Value="4"/>
+        </Style>
+
+    </Window.Styles>
+    <!--Aqui conectamos las vistas/xaml con sus respectivos viewmodel-->
+    <Window.DataTemplates>
+        <!--Login-->
+        <DataTemplate DataType="{x:Type vm:LoginViewModel}">
+            <viewsLogin:Login/>
+        </DataTemplate>
+        <!--TabControl-->
+        <DataTemplate DataType="{x:Type vm:CentralTabControlViewModel}">
+            <viewsTab:CentralTabControl/>
+        </DataTemplate>
+
+        <!--PanelControl-->
+        <DataTemplate DataType="{x:Type vm:PanelUsuarioViewModel}">
+            <misPanelRising:PanelUsuario/>
+        </DataTemplate>
+
+        <!--WindowsRising-->
+        <DataTemplate DataType="{x:Type vm:ViewSobreNosotrosViewModel}">
+            <misWindowsRising:ViewSobreNosotros/>
+        </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type vm:ViewAyudaViewModel}">
+            <misWindowsRising:ViewAyuda/>
+        </DataTemplate>
+
+        <!--ViewCrear-->
+        <DataTemplate DataType="{x:Type vm:ViewPublicarCancionViewModel}">
+			<viewsCrear:ViewPublicarCancion/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:ViewCrearListaPersonalizadaViewModel}">
+			<viewsCrear:ViewCrearListaPersonalizada/>			
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:ViewCrearReporteViewModel}">
+			<viewsCrear:ViewCrearReporte/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:ViewCrearUsuarioViewModel }">
+			<viewsCrear:ViewCrearUsuario/>
+        </DataTemplate>
+
+        <!--ViewEditar-->
+        <DataTemplate DataType="{x:Type vm:ViewEditarCancionViewModel}">
+			<viewsEditar:ViewEditarCancion/>
+        </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type vm:ViewEditarListaPersonalizadaViewModel}">
+			<viewsEditar:ViewEditarListaPersonalizada/>
+        </DataTemplate>
+
+        <!--ViewVisores-->
+        <DataTemplate DataType="{x:Type vm:ViewCancionesViewModel}">
+			<viewsVisores:ViewCanciones/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:ViewUsuariosViewModel}">
+			<viewsVisores:ViewUsuarios/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:ViewListaPersonalizadaViewModel}">
+			<viewsVisores:ViewListaPersonalizada/>
+        </DataTemplate>
+
+    </Window.DataTemplates>
+
+    <Grid>
+        
+        <Grid IsHitTestVisible="{Binding !PopupVisible}">
+            <TransitioningContentControl Content="{Binding VistaActual}" />
+            <!--Controlador de canciones-->
+            <Border IsVisible="{Binding BarraVisible}" 
+                    VerticalAlignment="Bottom"
+                    Background="{DynamicResource Brush_Player_Fondo}" 
+                    Padding="15,10" 
+                    Margin="20,0,20,15" 
+                    CornerRadius="15" 
+                    Height="155">
+            
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <!--Tiempo de canción-->
+                    <Grid Grid.Row="0" ColumnDefinitions="Auto, *" Margin="0,0,0,5">
+                        <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,15,0">
+                            <TextBlock Text="{Binding TiempoActualCancion}" FontSize="14" 
+                                       Foreground="{DynamicResource Brush_Player_Texto_Tiempo}"/>
+                            <TextBlock Text=" / " FontSize="14" 
+                                       Foreground="{DynamicResource Brush_Player_Texto_Tiempo}"/>
+                            <TextBlock Text="{Binding TiempoTotalCancion}" FontSize="14" 
+                                       Foreground="{DynamicResource Brush_Player_Texto_Tiempo}"/>
+                        </StackPanel>
+                        <!--Slider de canción-->
+                        <Slider Grid.Column="1" 
+                                x:Name="sliderSong"
+                                VerticalAlignment="Center"
+                                Minimum="0" Maximum="100" 
+                                IsHitTestVisible="False"
+                                Value="{Binding ValorSliderCancion}"
+                                AutomationProperties.Name="{DynamicResource Acc_Player_SliderTiempo}"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                    <!--Info canción-->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Image asyncImageLoader:ImageLoader.Source="{Binding ImagenCancionActual}"
+                                   Width="60" Height="60" Margin="0,0,15,0"
+                                   AutomationProperties.Name="{DynamicResource Acc_Player_Caratula}"/> 
+                            <StackPanel VerticalAlignment="Center" Margin="0,0,20,0">
+                                <Panel>
+                                    <TextBlock Text="{DynamicResource Player_DefaultTitle}" 
+                                               FontWeight="Bold" FontSize="16"
+                                               Foreground="{DynamicResource Brush_Player_Texto_Titulo}"
+                                               IsVisible="{Binding NombreCancionActual, Converter={x:Static StringConverters.IsNullOrEmpty}}"/>
+                                    
+                                    <TextBlock Text="{Binding NombreCancionActual}" 
+                                               FontWeight="Bold" FontSize="16"
+                                               Foreground="{DynamicResource Brush_Player_Texto_Titulo}"
+                                               IsVisible="{Binding NombreCancionActual, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"/>
+                                </Panel>                                    
+                                <TextBlock Text="{Binding NombreArtistaActual}" FontSize="14" 
+                                           Foreground="{DynamicResource Brush_Player_Texto_Artista}"/> 
+                            </StackPanel>
+                        </StackPanel>
+                        <!--Botones de control para la canción-->
+                       <StackPanel Orientation="Horizontal" Spacing="10" 
+                                   HorizontalAlignment="Center" VerticalAlignment="Center">
+        
+                            <Button Background="Transparent" Height="65" Width="65" CornerRadius="32.5"
+                                    Command="{Binding BtnAleatorioCommand}">
+                                <Image Source="{Binding IconoAleatorio, Converter={StaticResource Traductor}}" 
+                                       AutomationProperties.AccessibilityView="Raw"/>    
+                            </Button>
+        
+                            <Button Background="Transparent" Height="65" Width="65" CornerRadius="32.5"
+                                    Command="{Binding BtnBackCommand}">
+                                 <Image Source="{Binding IconoBack, Converter={StaticResource Traductor}}" 
+                                        AutomationProperties.AccessibilityView="Raw"/>   
+                            </Button>
+        
+                            <Button Background="Transparent" Height="90" Width="90" CornerRadius="45"
+                                    Command="{Binding BtnPlayPauseCommand}">
+                                <Image Source="{Binding IconoPlayPause, Converter={StaticResource Traductor}}" 
+                                       AutomationProperties.AccessibilityView="Raw"/> 
+                            </Button>    
+        
+                            <Button Background="Transparent" Height="65" Width="65" CornerRadius="32.5"
+                                    Command="{Binding BtnNextCommand}">
+                                <Image Source="{Binding IconoNext, Converter={StaticResource Traductor}}" 
+                                       AutomationProperties.AccessibilityView="Raw"/> 
+                            </Button>
+        
+                            <Button Background="Transparent" Height="65" Width="65" CornerRadius="32.5"
+                                    Command="{Binding BtnFavCommand}">
+                                <Image Source="{Binding IconoLike, Converter={StaticResource Traductor}}" 
+                                       AutomationProperties.AccessibilityView="Raw"/> 
+                            </Button>
+                        </StackPanel>
+                        <!--Slider sonido-->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10,0,0,0">
+                            <TextBlock Text="🔊" FontSize="16" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                            <Slider Minimum="0" Maximum="100" 
+                                    Value="{Binding ValorSliderVolumen}"                                   
+                                    Width="100"
+                                    VerticalAlignment="Center"
+                                    Foreground="Gray"/>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+        
+        <Border Background="Black" Opacity="0.4" 
+                IsVisible="{Binding PopupVisible}"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+        <ContentControl Content="{Binding PopupActual}" 
+                        IsVisible="{Binding PopupVisible}"
+                        HorizontalAlignment="Stretch" 
+                        VerticalAlignment="Stretch"/>
+    </Grid>
+</Window>

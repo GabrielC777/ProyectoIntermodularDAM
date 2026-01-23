@@ -1,0 +1,1202 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:asyncImageLoader="using:AsyncImageLoader"
+             xmlns:vm="using:BetaProyecto.ViewModels"
+             xmlns:helpers="using:BetaProyecto.Helpers"
+             mc:Ignorable="d" d:DesignWidth="1400" d:DesignHeight="800"
+             x:Class="BetaProyecto.Views.WindowsRising.PanelRising.Admins.ViewGestionarBD"
+             x:DataType="vm:ViewGestionarBDViewModel">
+    <UserControl.Resources>
+        <helpers:TextoTraducidoConverter x:Key="Traductor"/>
+    </UserControl.Resources>
+
+    <UserControl.Styles>
+        <Style Selector="TabItem">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="0,0,10,0"/>
+            <Setter Property="Padding" Value="20,10"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_BD_Tab_Texto}"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="TabItem:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource Brush_BD_Tab_Hover}"/>
+            <Setter Property="TextBlock.Foreground" Value="{DynamicResource Brush_Texto_Principal}"/>
+        </Style>
+
+        <Style Selector="TabItem:selected /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource Brush_BD_Tab_Selected_Fondo}"/>
+            <Setter Property="TextBlock.Foreground" Value="{DynamicResource Brush_BD_Tab_Selected_Texto}"/>
+        </Style>
+
+        <Style Selector="TabControl.CrudTabs">
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+        </Style>
+
+        <Style Selector="TabControl.CrudTabs TabItem">
+            <Setter Property="FontSize" Value="11"/> <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="MinHeight" Value="26"/> <Setter Property="Padding" Value="10,4"/> 
+            <Setter Property="CornerRadius" Value="8,8,0,0"/> 
+            <Setter Property="Margin" Value="0,0,2,0"/> 
+            <Setter Property="Background" Value="{DynamicResource Brush_BD_CrudTab_Fondo}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_BD_CrudTab_Texto}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+
+        <Style Selector="TabControl.CrudTabs TabItem:selected /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource Brush_BD_CrudTab_Selected_Fondo}"/>
+            <Setter Property="TextBlock.Foreground" Value="{DynamicResource Brush_BD_CrudTab_Selected_Texto}"/>
+        </Style>
+
+        <Style Selector="DataGridColumnHeader">
+            <Setter Property="Background" Value="{DynamicResource Brush_BD_Grid_Header_Fondo}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_BD_Grid_Header_Texto}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="MinHeight" Value="40"/> 
+            <Setter Property="Padding" Value="10,0"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        </Style>
+
+        <Style Selector="DataGridCell">
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_BD_Grid_Fila_Texto}"/>
+        </Style>
+
+        <Style Selector="ScrollViewer.CeldaScroll">
+            <Setter Property="VerticalScrollBarVisibility" Value="Disabled"/> 
+            <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="Padding" Value="8,5"/> 
+        </Style>
+        
+        <Style Selector="TextBlock.TextoCelda">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Foreground" Value="{Binding $parent[DataGridCell].Foreground}"/>
+        </Style>
+        
+        <Style Selector="TextBlock.TituloCrud">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        
+        <Style Selector="TextBox">
+            <Setter Property="Background" Value="{DynamicResource Brush_BD_Input_Fondo}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_BD_Input_Texto}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Brush_BD_Input_Borde}"/>
+            <Setter Property="CaretBrush" Value="{DynamicResource Brush_BD_Input_Texto}"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid RowDefinitions="Auto, *" Margin="20">
+        <!--Titulos-->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="20" Margin="0,0,0,20">
+            <TextBlock Text="{DynamicResource BD_Titulo}" FontSize="30" FontWeight="Black" 
+                       Foreground="{DynamicResource Brush_BD_Titulo}"/>
+            <Button Command="{Binding BtnRecargar}" 
+                    Content="{DynamicResource BD_BtnRefrescar}" 
+                    Background="{DynamicResource Brush_BD_BtnRefrescar_Fondo}" 
+                    Foreground="{DynamicResource Brush_BD_BtnRefrescar_Texto}" 
+                    CornerRadius="8" Padding="20,10"
+                    VerticalAlignment="Center" Cursor="Hand" FontWeight="Bold"/>
+        </StackPanel>
+
+        <TabControl Grid.Row="1" SelectedIndex="{Binding IndiceTab}" IsHitTestVisible="{Binding NoEstaCargando}">
+            <!--Pestaña Usuarios-->
+            <TabItem Header="{DynamicResource BD_TabUsuarios}">
+                <Grid ColumnDefinitions="*, 400">
+                    <!--Parte del datagrid-->
+                    <DataGrid Grid.Column="0" ItemsSource="{Binding ListaUsuarios}" 
+                              SelectedItem="{Binding SelectedUsuario}"
+                              IsReadOnly="True"
+                              CanUserResizeColumns="True"
+                              HorizontalGridLinesBrush="{DynamicResource Brush_BD_Grid_Lines}"
+                              VerticalGridLinesBrush="{DynamicResource Brush_BD_Grid_Lines}"
+                              AutomationProperties.Name="{DynamicResource Acc_BD_DataGridUsuarios}">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="ID" Width="220">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ScrollViewer Classes="CeldaScroll"><TextBlock Text="{Binding Id}" Classes="TextoCelda" FontFamily="Consolas"/></ScrollViewer></DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Usuario}" Width="200">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Username}" Classes="TextoCelda" FontWeight="Bold" Margin="8,0"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Email}" Width="250">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate><ScrollViewer Classes="CeldaScroll"><TextBlock Text="{Binding Email}" Classes="TextoCelda"/></ScrollViewer></DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Pass}" Width="140">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate><ScrollViewer Classes="CeldaScroll"><TextBlock Text="{Binding Password}" FontSize="11" FontFamily="Consolas" TextWrapping="Wrap"/></ScrollViewer></DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Rol}" Width="120">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate><ScrollViewer Classes="CeldaScroll"><TextBlock Text="{Binding Rol}" Classes="TextoCelda"/></ScrollViewer></DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Canciones}" Width="130">
+	                            <DataGridTemplateColumn.CellTemplate>
+		                            <DataTemplate>
+			                            <ScrollViewer Classes="CeldaScroll">
+				                            <TextBlock Text="{Binding Estadisticas.NumCancionesSubidas}" Classes="TextoCelda" HorizontalAlignment="Center" />
+			                            </ScrollViewer>
+		                            </DataTemplate>
+	                            </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Registro}" Width="120">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate><ScrollViewer Classes="CeldaScroll"><TextBlock Text="{Binding FechaRegistro, StringFormat='{}{0:dd/MM/yy}'}" Classes="TextoCelda"/></ScrollViewer></DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Pais}" Width="120">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate><ScrollViewer Classes="CeldaScroll"><TextBlock Text="{Binding Perfil.Pais}" Classes="TextoCelda"/></ScrollViewer></DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                             <DataGridTemplateColumn Header="{DynamicResource Col_Privado}" Width="120">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate><CheckBox IsChecked="{Binding Perfil.EsPrivada}" HorizontalAlignment="Center" IsEnabled="False"/></DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Foto}" Width="160">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate><ScrollViewer Classes="CeldaScroll"><TextBlock Text="{Binding Perfil.ImagenUrl}" Classes="TextoCelda" FontSize="10" Foreground="Blue"/></ScrollViewer></DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                   <!--Parte del Crear, Editar, Eliminar-->
+                   <Border Grid.Column="1" Margin="15,0,0,0" 
+                            BorderBrush="{DynamicResource Brush_BD_Panel_Borde}" BorderThickness="1" 
+                            CornerRadius="8" Padding="10" 
+                            Background="{DynamicResource Brush_BD_Panel_Fondo}">
+                        <TabControl Classes="CrudTabs">
+                            <TabItem Header="{DynamicResource BD_CrudCrear}">
+                             <ScrollViewer>
+                                    <StackPanel Spacing="10" Margin="10,0">
+                                        <TextBlock Text="{DynamicResource BD_Usr_TituloNuevo}" Classes="TituloCrud" Foreground="{DynamicResource Brush_BD_BtnCrear_Fondo}"/>
+                                    
+                                        <TextBlock Text="{DynamicResource BD_Usr_LblUser}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <TextBox Text="{Binding NuevoUsuario.Username}" Watermark="{DynamicResource BD_Water_Nombre}"/>
+                                    
+                                        <TextBlock Text="{DynamicResource BD_LblEmail}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <TextBox Text="{Binding NuevoUsuario.Email}" Watermark="{DynamicResource Col_Email}"/>
+                                    
+                                        <TextBlock Text="{DynamicResource BD_LblPass}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <TextBox Text="{Binding NuevoUsuario.Password}" Watermark="{DynamicResource Col_Pass}" PasswordChar="*"/>
+                                    
+                                        <TextBlock Text="{DynamicResource BD_Usr_LblRol}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <ComboBox ItemsSource="{Binding RolesDisponibles}" 
+                                                  SelectedItem="{Binding NuevoUsuario.Rol}" 
+                                                  PlaceholderText="{DynamicResource BD_Usr_ComboxRol}" 
+                                                  HorizontalAlignment="Stretch"/>
+
+                                        <TextBlock Text="{DynamicResource BD_LblFecha}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <CalendarDatePicker SelectedDate="{Binding NuevoUsuario.Perfil.FechaNacimiento}" HorizontalAlignment="Stretch"/>
+                                    
+                                        <TextBlock Text="{DynamicResource BD_LblPais}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <TextBox Text="{Binding NuevoUsuario.Perfil.Pais}" Watermark="{DynamicResource Col_Pais}"/>
+                                    
+                                        <TextBlock Text="Foto perfil:" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <Grid ColumnDefinitions="*, 10, Auto">
+                                            <TextBox Grid.Column="0" x:Name="TxtImagenUserCrear" Text="{Binding NuevoUsuario.Perfil.ImagenUrl}" Watermark="{DynamicResource BD_Water_RutaFoto}"/>
+                                            <Button Grid.Column="2" Content="📁" Click="BtnImgUserCrear_Click" ToolTip.Tip="{DynamicResource BD_BtnBuscarImagen}"/>
+                                        </Grid>
+
+                                        <CheckBox IsChecked="{Binding NuevoUsuario.Perfil.EsPrivada}" Content="{DynamicResource Col_Privado}" Margin="0,5" Foreground="{DynamicResource Brush_BD_Input_Texto}"/>
+
+                                        <Button Command="{Binding BtnCrearUsuario}" Content="{DynamicResource Col_Privado}" 
+                                                Background="{DynamicResource Brush_BD_BtnCrear_Fondo}" Foreground="{DynamicResource Brush_BD_BtnCrear_Texto}" 
+                                                HorizontalAlignment="Stretch" Margin="0,10,0,0"/>
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </TabItem>
+
+                            <TabItem Header="{DynamicResource BD_CrudEditar}">
+                                <Panel>
+                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="15"
+                                                IsVisible="{Binding SelectedUsuario, Converter={x:Static ObjectConverters.IsNull}}">
+                                        <TextBlock Text="👈" FontSize="40" HorizontalAlignment="Center" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <TextBlock Text="{DynamicResource BD_MsgSelecciona}" 
+                                                   FontSize="18" FontWeight="Bold" Foreground="{DynamicResource Brush_BD_Label}" 
+                                                   HorizontalAlignment="Center"/>
+                                    </StackPanel>
+
+                                   <ScrollViewer IsVisible="{Binding SelectedUsuario, Converter={x:Static ObjectConverters.IsNotNull}}">
+                                        <StackPanel Spacing="10" Margin="10,0">
+                                            <TextBlock Text="{DynamicResource BD_Usr_TituloEditar}" Classes="TituloCrud" Foreground="#FFA000"/>
+                                            
+                                            <TextBlock Text="{DynamicResource BD_LblID}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <TextBox Text="{Binding SelectedUsuario.Id}" IsReadOnly="True" Background="#EEE"/>
+                                            
+                                            <TextBlock Text="{DynamicResource BD_Usr_LblUser}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <TextBox Text="{Binding SelectedUsuario.Username}" Watermark="{DynamicResource BD_Water_Nombre}"/>
+
+                                            <TextBlock Text="{DynamicResource BD_LblEmail}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <TextBox Text="{Binding SelectedUsuario.Email}" Watermark="{DynamicResource Col_Email}"/>
+                                            
+                                            <TextBlock Text="{DynamicResource BD_Usr_LblRol}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <ComboBox ItemsSource="{Binding RolesDisponibles}" 
+                                                      SelectedItem="{Binding SelectedUsuario.Rol}" 
+                                                      PlaceholderText="{DynamicResource BD_Usr_ComboxRol}" 
+                                                      HorizontalAlignment="Stretch"/>
+                                            
+                                            <TextBlock Text="{DynamicResource BD_LblFecha}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <CalendarDatePicker SelectedDate="{Binding SelectedUsuario.Perfil.FechaNacimiento}" HorizontalAlignment="Stretch"/>
+                                            
+                                            <TextBlock Text="{DynamicResource BD_LblPais}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <TextBox Text="{Binding SelectedUsuario.Perfil.Pais}" Watermark="País"/>
+
+                                            <TextBlock Text="{DynamicResource BD_LblFotoPerfil}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <Grid ColumnDefinitions="*, 10, Auto">
+                                                <TextBox x:Name="TxtImagenUserEditar" Grid.Column="0" Text="{Binding SelectedUsuario.Perfil.ImagenUrl}" Watermark="{DynamicResource BD_Water_RutaFoto}"/>
+                                                <Button Grid.Column="2" Content="📁" Click="BtnImgUserEditar_Click"/>
+                                            </Grid>
+
+                                            <CheckBox IsChecked="{Binding SelectedUsuario.Perfil.EsPrivada}" Content="{DynamicResource Col_Privado}" Margin="0,5" Foreground="{DynamicResource Brush_BD_Input_Texto}"/>
+
+                                            <Button Command="{Binding BtnGuardarCambios}" Content="{DynamicResource BD_BtnGuardar}" Background="Black" Foreground="White" HorizontalAlignment="Stretch" Margin="0,10,0,0"/>
+                                        </StackPanel>
+                                    </ScrollViewer>
+                                </Panel>
+                            </TabItem>
+                            
+                            <TabItem Header="{DynamicResource BD_CrudBorrar}">
+                                <StackPanel Spacing="15" VerticalAlignment="Center">
+                                    <TextBlock Text="{DynamicResource BD_Usr_lblEliminar}" Classes="TituloCrud" Foreground="{DynamicResource Brush_BD_BtnEliminar_Fondo}"/>
+                                    <Panel>
+                                        <StackPanel IsVisible="{Binding SelectedUsuario, Converter={x:Static ObjectConverters.IsNull}}" HorizontalAlignment="Center">
+                                            <TextBlock Text="👈" FontSize="40" HorizontalAlignment="Center" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <TextBlock Text="{DynamicResource BD_MsgSelecciona}" Foreground="{DynamicResource Brush_BD_Label}" FontWeight="Bold" FontSize="20"/>
+                                        </StackPanel>
+                                        <TextBlock Text="{Binding SelectedUsuario.Username}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Foreground="{DynamicResource Brush_BD_Input_Texto}"/>
+                                    </Panel>
+                                    <Button Command="{Binding BtnEliminarUsuario}" Content="{DynamicResource BD_BtnEliminar}" Background="{DynamicResource Brush_BD_BtnEliminar_Fondo}" Foreground="White" HorizontalAlignment="Stretch" Padding="20"/>
+                                </StackPanel>
+                            </TabItem>
+                        </TabControl>
+                    </Border>
+                </Grid>
+            </TabItem>
+            <!--Pestaña Canciones-->
+            <TabItem Header="{DynamicResource BD_TabCanciones}">
+                <Grid ColumnDefinitions="*, 400">
+                    <!--Parte del datagrid-->
+                    <DataGrid Grid.Column="0" ItemsSource="{Binding ListaCanciones}" 
+                              SelectedItem="{Binding SelectedCancion}" IsReadOnly="True"
+                              CanUserResizeColumns="True"
+                              HorizontalGridLinesBrush="{DynamicResource Brush_BD_Grid_Lines}"
+                              VerticalGridLinesBrush="{DynamicResource Brush_BD_Grid_Lines}"
+                              AutomationProperties.Name="{DynamicResource Acc_BD_DataGridCanciones}">
+                        <DataGrid.Columns>
+
+                            <DataGridTemplateColumn Header="{DynamicResource Col_ID}" Width="220">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ScrollViewer Classes="CeldaScroll">
+                                            <TextBlock Text="{Binding Id}" Classes="TextoCelda" FontFamily="Consolas"/>
+                                        </ScrollViewer>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Titulo}" Width="260">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ScrollViewer Classes="CeldaScroll">
+                                            <TextBlock Text="{Binding Titulo}" Classes="TextoCelda" FontWeight="Bold"/>
+                                        </ScrollViewer>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Artista}" Width="220">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ScrollViewer Classes="CeldaScroll">
+                                            <TextBlock Text="{Binding NombreArtista}" Classes="TextoCelda"/>
+                                        </ScrollViewer>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Generos}" Width="180">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ScrollViewer Classes="CeldaScroll">
+                                            <TextBlock Text="{Binding Datos.GenerosTexto}" Classes="TextoCelda"/>
+                                        </ScrollViewer>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Lanzamiento}" Width="140">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ScrollViewer Classes="CeldaScroll">
+                                            <TextBlock Text="{Binding Datos.FechaLanzamiento, StringFormat='{}{0:dd/MM/yyyy}'}" Classes="TextoCelda"/>
+                                        </ScrollViewer>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Plays}" Width="100">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ScrollViewer Classes="CeldaScroll">
+                                            <TextBlock Text="{Binding Metricas.TotalReproducciones}" Classes="TextoCelda"/>
+                                        </ScrollViewer>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Likes}" Width="100">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ScrollViewer Classes="CeldaScroll">
+                                            <TextBlock Text="{Binding Metricas.TotalMegustas}" Classes="TextoCelda"/>
+                                        </ScrollViewer>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Duracion}" Width="100">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ScrollViewer Classes="CeldaScroll">
+                                            <TextBlock Text="{Binding Datos.DuracionSegundos}" Classes="TextoCelda"/>
+                                        </ScrollViewer>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            
+                            <DataGridTemplateColumn Header="{DynamicResource Col_UrlAudio}" Width="150">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ScrollViewer Classes="CeldaScroll">
+                                            <TextBlock Text="{Binding UrlCancion}" Classes="TextoCelda" FontSize="10" Foreground="Blue"/>
+                                        </ScrollViewer>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Foto}" Width="150">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ScrollViewer Classes="CeldaScroll">
+                                            <TextBlock Text="{Binding ImagenPortadaUrl}" Classes="TextoCelda" FontSize="10" Foreground="Blue"/>
+                                        </ScrollViewer>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>                            
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                      </DataGrid>
+                      <!--Parte del Crear, Editar, Eliminar-->
+                      <Border Grid.Column="1" Margin="15,0,0,0" BorderBrush="{DynamicResource Brush_BD_Panel_Borde}" BorderThickness="1" CornerRadius="8" Padding="10" Background="{DynamicResource Brush_BD_Panel_Fondo}">
+                        <TabControl Classes="CrudTabs">
+                            <TabItem Header="{DynamicResource BD_CrudCrear}">
+                                <ScrollViewer>
+                                    <StackPanel Spacing="10" Margin="10,0"> 
+                                        <TextBlock Text="{DynamicResource BD_Song_TituloNueva}" Classes="TituloCrud" Foreground="{DynamicResource Brush_BD_BtnCrear_Fondo}"/>
+                                        <TextBlock Text="{DynamicResource BD_Song_LblTitulo}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <TextBox Text="{Binding NuevaCancion.Titulo}" Watermark="{DynamicResource BD_Water_Nombre}"/>
+                                        <TextBlock Text="{DynamicResource BD_Song_LblArtistas}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <Grid RowDefinitions="Auto, Auto">
+                                            <Grid ColumnDefinitions="*, 10, Auto">
+                                                <TextBox Text="{Binding TxtBusquedaCrear}" Watermark="{DynamicResource BD_Water_BuscarArtista}" CornerRadius="8"/>
+                                                <Button Grid.Column="2" Command="{Binding BtnBuscarUsuariosCrear}" Padding="10,5">🔍</Button>
+                                            </Grid>
+                                            <Border Grid.Row="1" Background="{DynamicResource Brush_BD_Panel_Fondo}" BorderBrush="#CCC" BorderThickness="1" CornerRadius="5" Margin="0,5,0,0" MaxHeight="200"
+                                                    IsVisible="{Binding HayResultadosCrear}" ZIndex="99">
+                                                <ScrollViewer>
+                                                    <ItemsControl ItemsSource="{Binding ListaResultadosCrear}">
+                                                        <ItemsControl.ItemTemplate>
+                                                            <DataTemplate>
+                                                                <Button Background="Transparent" HorizontalAlignment="Stretch" Cursor="Hand"
+                                                                        Command="{Binding $parent[UserControl].DataContext.BtnAgregarUsuarioCrear}" CommandParameter="{Binding}">
+                                                                    <Grid ColumnDefinitions="40, *">
+                                                                        <Image asyncImageLoader:ImageLoader.Source="{Binding Perfil.ImagenUrl}" Width="30" Height="30" Stretch="UniformToFill" ClipToBounds="True">
+                                                                            <Image.Clip><EllipseGeometry Rect="0,0,30,30"/></Image.Clip>
+                                                                        </Image>
+                                                                        <TextBlock Grid.Column="1" Text="{Binding Username}" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{DynamicResource Brush_BD_Input_Texto}"/>
+                                                                    </Grid>
+                                                                </Button>
+                                                            </DataTemplate>
+                                                        </ItemsControl.ItemTemplate>
+                                                    </ItemsControl>
+                                                </ScrollViewer>
+                                            </Border>
+                                        </Grid>
+
+                                        <ItemsControl ItemsSource="{Binding ListaArtistasCrear}">
+                                            <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <WrapPanel Orientation="Horizontal" />
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Background="#E3F2FD" CornerRadius="15" Padding="4,2,8,2" Margin="0,0,5,5" BorderBrush="#BBDEFB" BorderThickness="1">
+                                                        <StackPanel Orientation="Horizontal" Spacing="6" VerticalAlignment="Center">
+                                                            <Image asyncImageLoader:ImageLoader.Source="{Binding Perfil.ImagenUrl}" Width="20" Height="20" Stretch="UniformToFill" ClipToBounds="True">
+                                                                <Image.Clip><EllipseGeometry Rect="0,0,20,20"/></Image.Clip>
+                                                            </Image>
+                                                            <TextBlock Text="{Binding Username}" Foreground="#1565C0" FontWeight="Bold" FontSize="11" VerticalAlignment="Center"/>
+                                                            <Button Content="✕" Background="Transparent" Foreground="#D32F2F" Padding="0" FontSize="10" 
+                                                                    Command="{Binding $parent[UserControl].DataContext.BtnEliminarUsuarioCrear}" CommandParameter="{Binding}" VerticalAlignment="Center"/>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+
+                                        <TextBlock Text="{DynamicResource BD_Song_LblGeneros}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <Grid ColumnDefinitions="*, 10, Auto">
+                                            <ComboBox Grid.Column="0" ItemsSource="{Binding ListaGenerosCombox}" SelectedItem="{Binding GeneroSeleccionadoCrear}" PlaceholderText="Selecciona..." HorizontalAlignment="Stretch"/>
+                                            <Button Grid.Column="2" Content="➕" Command="{Binding BtnAgregarGeneroCrear}"/>
+                                        </Grid>
+                                        <ItemsControl ItemsSource="{Binding ListaGenerosSeleccionadosCrear}">
+                                            <ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel Orientation="Horizontal"/></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Background="#F3E5F5" CornerRadius="15" Padding="6,2" Margin="0,0,5,5" BorderBrush="#CE93D8" BorderThickness="1">
+                                                        <StackPanel Orientation="Horizontal" Spacing="5">
+                                                            <TextBlock Text="{Binding}" FontSize="11" Foreground="#7B1FA2" VerticalAlignment="Center"/>
+                                                            <Button Content="✕" Background="Transparent" Foreground="#7B1FA2" Padding="0" FontSize="10"
+                                                                    Command="{Binding $parent[UserControl].DataContext.BtnEliminarGeneroCrear}" CommandParameter="{Binding}"/>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+
+                                        <TextBlock Text="{DynamicResource BD_LblPortada}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <Grid ColumnDefinitions="*, 10, Auto">
+                                            <TextBox Grid.Column="0" x:Name="TxtImageSongCrear" Text="{Binding NuevaCancion.ImagenPortadaUrl}" Watermark="{DynamicResource BD_Water_RutaFoto}"/>
+                                            <Button Grid.Column="2" Content="📁" Click="BtnImgSongCrear_Click"/>
+                                        </Grid>
+                                        
+                                        <TextBlock Text="{DynamicResource BD_Song_LblFuente}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <StackPanel Orientation="Horizontal" Spacing="15" Margin="0,5">
+                                            <RadioButton Content="Archivo Local" IsChecked="{Binding EsArchivoLocal}" Foreground="{DynamicResource Brush_BD_Input_Texto}"/>
+                                            <RadioButton Content="YouTube" IsChecked="{Binding EsYoutube}" Foreground="{DynamicResource Brush_BD_Input_Texto}"/>
+                                        </StackPanel>
+                                        
+                                        <Grid ColumnDefinitions="*, 10, Auto" IsVisible="{Binding EsArchivoLocal}">
+                                            <TextBox Grid.Column="0" x:Name="TxtAudioSongCrear" Text="{Binding NuevaCancion.UrlCancion}" Watermark="{DynamicResource BD_Water_RutaAudio}" IsReadOnly="True"/>
+                                            <Button Grid.Column="2" Content="🎵" Click="BtnAudioSongCrear_Click"/>
+                                        </Grid>
+                                        
+                                        <TextBox Text="{Binding NuevaCancion.UrlCancion}" Watermark="{DynamicResource BD_Water_EnlaceYouTube}" IsVisible="{Binding EsYoutube}"/>
+
+                                        <Button Command="{Binding BtnCrearCancion}" Content="{DynamicResource BD_Song_BtnSubir}" Background="{DynamicResource Brush_BD_BtnCrear_Fondo}" Foreground="{DynamicResource Brush_BD_BtnCrear_Texto}" HorizontalAlignment="Stretch" Margin="0,15,0,0"/>
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </TabItem>
+
+                            <TabItem Header="{DynamicResource BD_CrudEditar}">
+                                <Panel>
+                                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="15"
+                                                 IsVisible="{Binding SelectedCancion, Converter={x:Static ObjectConverters.IsNull}}">
+                                        <TextBlock Text="👈" FontSize="40" HorizontalAlignment="Center" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <TextBlock Text="{DynamicResource BD_MsgSelecciona}" FontSize="18" FontWeight="Bold" Foreground="{DynamicResource Brush_BD_Label}" HorizontalAlignment="Center" TextAlignment="Center"/>
+                                    </StackPanel>
+
+                                    <ScrollViewer IsVisible="{Binding SelectedCancion, Converter={x:Static ObjectConverters.IsNotNull}}">
+                                        <StackPanel Spacing="10" Margin="10,0">
+                                            <TextBlock Text="Editar Canción" Classes="TituloCrud" Foreground="#FFA000"/>
+                                            
+                                            <TextBlock Text="{DynamicResource BD_LblID}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <TextBox Text="{Binding SelectedCancion.Id}" IsReadOnly="True" Background="#EEE"/>
+                                            
+                                            <TextBlock Text="{DynamicResource BD_Song_LblTitulo}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <TextBox Text="{Binding SelectedCancion.Titulo}" Watermark="{DynamicResource BD_Water_Nombre}"/>
+                                            
+                                            <TextBlock Text="{DynamicResource BD_Song_LblArtistas}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <Grid RowDefinitions="Auto, Auto">
+                                                <Grid ColumnDefinitions="*, 10, Auto">
+                                                    <TextBox Text="{Binding TxtBusquedaEditar}" Watermark="{DynamicResource BD_Water_BuscarArtista}" CornerRadius="8"/>
+                                                    <Button Grid.Column="2" Command="{Binding BtnBuscarUsuariosEditar}" Padding="10,5">🔍</Button>
+                                                </Grid>
+                                                <Border Grid.Row="1" Background="{DynamicResource Brush_BD_Panel_Fondo}" BorderBrush="#CCC" BorderThickness="1" CornerRadius="5" Margin="0,5,0,0" MaxHeight="200" IsVisible="{Binding HayResultadosEditar}" ZIndex="99">
+                                                    <ScrollViewer>
+                                                        <ItemsControl ItemsSource="{Binding ListaResultadosEditar}">
+                                                            <ItemsControl.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <Button Background="Transparent" HorizontalAlignment="Stretch" Cursor="Hand" Command="{Binding $parent[UserControl].DataContext.BtnAgregarUsuarioEditar}" CommandParameter="{Binding}">
+                                                                        <Grid ColumnDefinitions="40, *">
+                                                                            <Image asyncImageLoader:ImageLoader.Source="{Binding Perfil.ImagenUrl}" Width="30" Height="30" Stretch="UniformToFill" ClipToBounds="True">
+                                                                                <Image.Clip><EllipseGeometry Rect="0,0,30,30"/></Image.Clip>
+                                                                            </Image>
+                                                                            <TextBlock Grid.Column="1" Text="{Binding Username}" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{DynamicResource Brush_BD_Input_Texto}"/>
+                                                                        </Grid>
+                                                                    </Button>
+                                                                </DataTemplate>
+                                                            </ItemsControl.ItemTemplate>
+                                                        </ItemsControl>
+                                                    </ScrollViewer>
+                                                </Border>
+                                            </Grid>
+                                            <ItemsControl ItemsSource="{Binding ListaArtistasEditar}">
+                                                <ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel Orientation="Horizontal"/></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Border Background="#E3F2FD" CornerRadius="15" Padding="5,2,8,2" Margin="0,0,5,5" BorderBrush="#90CAF9" BorderThickness="1">
+                                                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                                                <Image asyncImageLoader:ImageLoader.Source="{Binding Perfil.ImagenUrl}" Width="20" Height="20" Stretch="UniformToFill" ClipToBounds="True">
+                                                                    <Image.Clip><EllipseGeometry Rect="0,0,20,20"/></Image.Clip>
+                                                                </Image>
+                                                                <TextBlock Text="{Binding Username}" VerticalAlignment="Center" FontWeight="SemiBold" Foreground="#1565C0"/>
+                                                                <Button Content="✕" Background="Transparent" Foreground="#D32F2F" Padding="0" FontSize="10" Command="{Binding $parent[UserControl].DataContext.BtnEliminarUsuarioEditar}" CommandParameter="{Binding}"/>
+                                                            </StackPanel>
+                                                        </Border>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+
+                                            <TextBlock Text="{DynamicResource BD_Song_LblGeneros}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <Grid ColumnDefinitions="*, 10, Auto">
+                                                <ComboBox Grid.Column="0" ItemsSource="{Binding ListaGenerosCombox}" SelectedItem="{Binding GeneroSeleccionadoEditar}" HorizontalAlignment="Stretch"/>
+                                                <Button Grid.Column="2" Content="➕" Command="{Binding BtnAgregarGeneroEditar}"/>
+                                            </Grid>
+                                            <ItemsControl ItemsSource="{Binding ListaGenerosSeleccionadosEditar}">
+                                                <ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel Orientation="Horizontal"/></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Border Background="#F3E5F5" CornerRadius="15" Padding="6,2" Margin="0,0,5,5" BorderBrush="#CE93D8" BorderThickness="1">
+                                                            <StackPanel Orientation="Horizontal" Spacing="5">
+                                                                <TextBlock Text="{Binding}" FontSize="11" Foreground="#7B1FA2" VerticalAlignment="Center"/>
+                                                                <Button Content="✕" Background="Transparent" Foreground="#7B1FA2" Padding="0" FontSize="10" Command="{Binding $parent[UserControl].DataContext.BtnEliminarGeneroEditar}" CommandParameter="{Binding}"/>
+                                                            </StackPanel>
+                                                        </Border>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+
+                                            <TextBlock Text="{DynamicResource BD_LblPortada}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <Grid ColumnDefinitions="*, 10, Auto">
+                                                <TextBox Grid.Column="0" x:Name="TxtImageSongEditar" Text="{Binding SelectedCancion.ImagenPortadaUrl}" Watermark="{DynamicResource BD_Water_RutaFoto}"/>
+                                                <Button Grid.Column="2" Content="📁" Click="BtnImgSongEditar_Click"/>
+                                            </Grid>
+
+                                            <TextBlock Text="{DynamicResource BD_Song_LblFuente}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <StackPanel Orientation="Horizontal" Spacing="15" Margin="0,5">
+                                                <RadioButton Content="Archivo Local" IsChecked="{Binding EsArchivoLocalEditar}" Foreground="{DynamicResource Brush_BD_Input_Texto}"/>
+                                                <RadioButton Content="YouTube" IsChecked="{Binding EsYoutubeEditar}" Foreground="{DynamicResource Brush_BD_Input_Texto}"/>
+                                            </StackPanel>
+
+                                            <Grid ColumnDefinitions="*, 10, Auto" IsVisible="{Binding EsArchivoLocalEditar}">
+                                                <TextBox Grid.Column="0" x:Name="TxtAudioSongEditar" Text="{Binding TxtRutaArchivoEditar}" Watermark="{DynamicResource BD_Water_RutaAudio}" IsReadOnly="True"/>
+                                                <Button Grid.Column="2" Content="🎵" Click="BtnAudioSongEditar_Click" ToolTip.Tip="Cambiar archivo"/>
+                                            </Grid>
+
+                                            <TextBox Text="{Binding TxtUrlYoutubeEditar}" Watermark="{DynamicResource BD_Water_EnlaceYouTube}" IsVisible="{Binding EsYoutubeEditar}"/>
+
+                                            <Button Command="{Binding BtnGuardarCambios}" Content="{DynamicResource BD_BtnGuardar}" Background="{DynamicResource Brush_BD_BtnRefrescar_Fondo}" Foreground="{DynamicResource Brush_BD_BtnRefrescar_Texto}" HorizontalAlignment="Stretch" Margin="0,10,0,0"/>
+                                        </StackPanel>
+                                    </ScrollViewer>
+                                </Panel>
+                            </TabItem>
+                            
+                            <TabItem Header="{DynamicResource BD_CrudBorrar}">
+                                <StackPanel Spacing="15" VerticalAlignment="Center">
+                                    <TextBlock Text="{DynamicResource BD_Song_lblEliminar}" Classes="TituloCrud" Foreground="{DynamicResource Brush_BD_BtnEliminar_Fondo}"/>
+                                    <Panel>
+                                        <StackPanel IsVisible="{Binding SelectedCancion, Converter={x:Static ObjectConverters.IsNull}}" HorizontalAlignment="Center">
+                                            <TextBlock Text="👈" FontSize="40" HorizontalAlignment="Center" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <TextBlock Text="{DynamicResource BD_MsgSelecciona}" Foreground="{DynamicResource Brush_BD_Label}" FontWeight="Bold" FontSize="20" TextWrapping="Wrap" TextAlignment="Center"/>
+                                        </StackPanel>
+                                        <TextBlock Text="{Binding SelectedCancion.Titulo}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Foreground="{DynamicResource Brush_BD_Input_Texto}"/>
+                                    </Panel>
+                                    <Button Command="{Binding BtnEliminarCancion}" Content="{DynamicResource BD_BtnEliminar}" Background="{DynamicResource Brush_BD_BtnEliminar_Fondo}" Foreground="White" HorizontalAlignment="Stretch" Padding="15"/>
+                                </StackPanel>
+                            </TabItem>
+                        </TabControl>
+                    </Border>
+                </Grid>
+            </TabItem>
+            <!--Pestaña Géneros-->
+            <TabItem Header="{DynamicResource BD_TabGeneros}">
+                <Grid ColumnDefinitions="*, 400">
+                    <!--Parte del datagrid-->
+                    <DataGrid Grid.Column="0" ItemsSource="{Binding ListaGeneros}" SelectedItem="{Binding SelectedGenero}" 
+                              IsReadOnly="True" CanUserResizeColumns="True"
+                              HorizontalGridLinesBrush="{DynamicResource Brush_BD_Grid_Lines}"
+                              VerticalGridLinesBrush="{DynamicResource Brush_BD_Grid_Lines}"
+                              AutomationProperties.Name="{DynamicResource Acc_BD_DataGridGeneros}">
+                        <DataGrid.Columns>
+                            
+                            <DataGridTemplateColumn Header="{DynamicResource Col_ID}" Width="220">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ScrollViewer Classes="CeldaScroll">
+                                            <TextBlock Text="{Binding Id}" Classes="TextoCelda" FontFamily="Consolas"/>
+                                        </ScrollViewer>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Nombre}" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ScrollViewer Classes="CeldaScroll">
+                                            <TextBlock Text="{Binding Nombre}" Classes="TextoCelda" FontWeight="Bold"/>
+                                        </ScrollViewer>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+
+                   </DataGrid>
+                   <!--Parte del Crear, Editar, Eliminar-->
+                   <Border Grid.Column="1" Margin="15,0,0,0" BorderBrush="{DynamicResource Brush_BD_Panel_Borde}" BorderThickness="1" CornerRadius="8" Padding="10" Background="{DynamicResource Brush_BD_Panel_Fondo}">
+                        <TabControl Classes="CrudTabs">
+                            <TabItem Header="{DynamicResource BD_CrudCrear}">
+                                <ScrollViewer>
+                                    <StackPanel Spacing="10" Margin="10,0">
+                                        <TextBlock Text="{DynamicResource BD_Gen_TituloNuevo}" Classes="TituloCrud" Foreground="{DynamicResource Brush_BD_BtnCrear_Fondo}"/>
+                                        <TextBlock Text="{DynamicResource Col_Nombre}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <TextBox Text="{Binding NuevoGeneroTxt}" Watermark="{DynamicResource BD_Water_Nombre}"/>
+                                        <Button Command="{Binding BtnCrearGenero}" Content="{DynamicResource BD_Gen_BtnCrear}" Background="{DynamicResource Brush_BD_BtnCrear_Fondo}" Foreground="{DynamicResource Brush_BD_BtnCrear_Texto}" HorizontalAlignment="Stretch" Margin="0,10,0,0"/>
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </TabItem>
+
+                            <TabItem Header="{DynamicResource BD_CrudEditar}">
+                                <Panel>
+                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="15" IsVisible="{Binding SelectedGenero, Converter={x:Static ObjectConverters.IsNull}}">
+                                        <TextBlock Text="👈" FontSize="40" HorizontalAlignment="Center" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <TextBlock Text="{DynamicResource BD_MsgSelecciona}" FontSize="18" FontWeight="Bold" Foreground="{DynamicResource Brush_BD_Label}" HorizontalAlignment="Center" TextAlignment="Center"/>
+                                    </StackPanel>
+
+                                    <ScrollViewer IsVisible="{Binding SelectedGenero, Converter={x:Static ObjectConverters.IsNotNull}}">
+                                        <StackPanel Spacing="10" Margin="10,0">
+                                            <TextBlock Text="{DynamicResource BD_Gen_TituloEditar}" Classes="TituloCrud" Foreground="#FFA000"/>
+                                            
+                                            <TextBlock Text="{DynamicResource BD_LblID}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <TextBox Text="{Binding SelectedGenero.Id}" IsReadOnly="True" Background="#EEE"/>
+                                            
+                                            <TextBlock Text="{DynamicResource Col_Nombre}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <TextBox Text="{Binding SelectedGenero.Nombre}" Watermark="{DynamicResource BD_Water_Nombre}"/>
+                                            
+                                            <Button Command="{Binding BtnGuardarCambios}" Content="{DynamicResource BD_BtnGuardar}" Background="{DynamicResource Brush_BD_BtnRefrescar_Fondo}" Foreground="{DynamicResource Brush_BD_BtnRefrescar_Texto}" HorizontalAlignment="Stretch" Margin="0,10,0,0"/>
+                                        </StackPanel>
+                                    </ScrollViewer>
+                                </Panel>
+                            </TabItem>
+
+                            <TabItem Header="{DynamicResource BD_CrudBorrar}">
+                                <StackPanel Spacing="15" VerticalAlignment="Center">
+                                    <TextBlock Text="¿ELIMINAR GÉNERO?" Classes="TituloCrud" Foreground="{DynamicResource Brush_BD_BtnEliminar_Fondo}"/>
+                                    <Panel>
+                                        <StackPanel IsVisible="{Binding SelectedGenero, Converter={x:Static ObjectConverters.IsNull}}" HorizontalAlignment="Center">
+                                            <TextBlock Text="👈" FontSize="40" HorizontalAlignment="Center" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <TextBlock Text="{DynamicResource BD_MsgSelecciona}" Foreground="{DynamicResource Brush_BD_Label}" FontWeight="Bold" FontSize="20" TextWrapping="Wrap" TextAlignment="Center"/>
+                                        </StackPanel>
+                                        <TextBlock Text="{Binding SelectedGenero.Nombre}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Foreground="{DynamicResource Brush_BD_Input_Texto}"/>
+                                    </Panel>
+                                    <Button Command="{Binding BtnEliminarGenero}" Content="{DynamicResource BD_BtnEliminar}" Background="{DynamicResource Brush_BD_BtnEliminar_Fondo}" Foreground="White" HorizontalAlignment="Stretch" Padding="15"/>
+                                </StackPanel>
+                            </TabItem>
+                        </TabControl>
+                    </Border>
+                </Grid>
+            </TabItem>
+            <!--Pestaña Playlist-->
+            <TabItem Header="{DynamicResource BD_TabPlaylists}">
+                <Grid ColumnDefinitions="*, 400">
+                    <DataGrid Grid.Column="0" ItemsSource="{Binding ListaPlaylists}" SelectedItem="{Binding SelectedPlaylist}" 
+                              IsReadOnly="True" CanUserResizeColumns="True"
+                              HorizontalGridLinesBrush="{DynamicResource Brush_BD_Grid_Lines}"
+                              VerticalGridLinesBrush="{DynamicResource Brush_BD_Grid_Lines}"
+                              AutomationProperties.Name="{DynamicResource Acc_BD_DataGridPlaylists}">
+                        <DataGrid.Columns>
+                            
+                            <DataGridTemplateColumn Header="{DynamicResource Col_ID}" Width="220">
+	                            <DataGridTemplateColumn.CellTemplate>
+		                            <DataTemplate>
+			                            <ScrollViewer Classes="CeldaScroll">
+				                            <TextBlock Text="{Binding Id}" Classes="TextoCelda" FontFamily="Consolas" />
+			                            </ScrollViewer>
+		                            </DataTemplate>
+	                            </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Nombre}" Width="250">
+	                            <DataGridTemplateColumn.CellTemplate>
+		                            <DataTemplate>
+			                            <ScrollViewer Classes="CeldaScroll">
+				                            <TextBlock Text="{Binding Nombre}" Classes="TextoCelda" FontWeight="Bold" />
+			                            </ScrollViewer>
+		                            </DataTemplate>
+	                            </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Propietario}" Width="180">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                       <ScrollViewer Classes="CeldaScroll">
+				                            <TextBlock Text="{Binding IdUsuario}" Classes="TextoCelda" FontFamily="Consolas" />
+			                            </ScrollViewer>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Canciones}" Width="130">
+	                            <DataGridTemplateColumn.CellTemplate>
+		                            <DataTemplate>
+			                            <ScrollViewer Classes="CeldaScroll">
+				                            <TextBlock Text="{Binding IdsCanciones.Count}" Classes="TextoCelda" HorizontalAlignment="Center" />
+			                            </ScrollViewer>
+		                            </DataTemplate>
+	                            </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Descripcion}" Width="250">
+	                            <DataGridTemplateColumn.CellTemplate>
+		                            <DataTemplate>
+			                            <ScrollViewer Classes="CeldaScroll">
+				                            <TextBlock Text="{Binding Descripcion}" Classes="TextoCelda" />
+			                            </ScrollViewer>
+		                            </DataTemplate>
+	                            </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Foto}" Width="150">
+	                            <DataGridTemplateColumn.CellTemplate>
+		                            <DataTemplate>
+			                            <ScrollViewer Classes="CeldaScroll">
+				                            <TextBlock Text="{Binding UrlPortada}" Classes="TextoCelda" FontSize="10" Foreground="Blue" />
+			                            </ScrollViewer>
+		                            </DataTemplate>
+	                            </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <!--Parte del Crear, Editar, Eliminar-->
+                    <Border Grid.Column="1" Margin="15,0,0,0" BorderBrush="{DynamicResource Brush_BD_Panel_Borde}" BorderThickness="1" CornerRadius="8" Padding="10" Background="{DynamicResource Brush_BD_Panel_Fondo}">
+                        <TabControl Classes="CrudTabs">
+                            
+                            <TabItem Header="{DynamicResource BD_CrudCrear}">
+                                <ScrollViewer>
+                                    <StackPanel Spacing="10" Margin="10,0">
+                                        <TextBlock Text="{DynamicResource BD_Gen_TituloNuevo}" Classes="TituloCrud" Foreground="#1976D2"/>
+                                        
+                                        <TextBlock Text="{DynamicResource BD_Ply_LblNombre}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <TextBox Text="{Binding NuevaPlaylist.Nombre}" Watermark="{DynamicResource BD_Water_Nombre}"/>
+
+                                        <TextBlock Text="{DynamicResource BD_Ply_LblDescripcion}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <TextBox Text="{Binding NuevaPlaylist.Descripcion}" Watermark="{DynamicResource Col_Descripcion}"/>
+                                        
+                                        <TextBlock Text="{DynamicResource BD_LblPortada}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <Grid ColumnDefinitions="*, 10, Auto">
+                                            <TextBox Grid.Column="0" x:Name="TxtImagePlaylistCrear" Text="{Binding NuevaPlaylist.UrlPortada}" Watermark="{DynamicResource BD_Water_RutaFoto}"/>
+                                            <Button Grid.Column="2" Content="📁" Click="BtnImgPlaylistCrear_Click"/>
+                                        </Grid>
+
+                                        <TextBlock Text="{DynamicResource BD_Ply_Canciones}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <Grid RowDefinitions="Auto, Auto">
+                                            <Grid ColumnDefinitions="*, 10, Auto">
+                                                <TextBox x:Name="TxtBusquedaCancionCrear" Text="{Binding TxtBusquedaCancionCrear}" Watermark="{DynamicResource BD_Ply_BuscarCancion}" CornerRadius="8"/>
+                                                <Button Grid.Column="2" Command="{Binding BtnBuscarCancionesCrear}" Padding="10,5">🔍</Button>
+                                            </Grid>
+
+                                            <Popup IsOpen="{Binding HayResultadosCancionCrear}" PlacementTarget="{Binding ElementName=TxtBusquedaCancionCrear}" Placement="BottomEdgeAlignedLeft" MinWidth="250" MaxHeight="200">
+                                                <Border Background="White" BorderBrush="#DDD" BorderThickness="1" CornerRadius="4" Padding="0" BoxShadow="0 4 8 #40000000">
+                                                    <ScrollViewer>
+                                                        <ItemsControl ItemsSource="{Binding ListaResultadosCancionesCrear}">
+                                                            <ItemsControl.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Cursor="Hand"
+                                                                            Command="{Binding $parent[UserControl].DataContext.BtnAgregarCancionPlaylistCrear}" CommandParameter="{Binding}">
+                                                                        <Grid ColumnDefinitions="30, *">
+                                                                            <Image asyncImageLoader:ImageLoader.Source="{Binding ImagenPortadaUrl}" Width="24" Height="24" Stretch="UniformToFill"/>
+                                                                            <StackPanel Grid.Column="1" Margin="10,0,0,0" VerticalAlignment="Center">
+                                                                                <TextBlock Text="{Binding Titulo}" FontWeight="Bold" FontSize="11" Foreground="Black"/>
+                                                                                <TextBlock Text="{Binding NombreArtista}" FontSize="10" Foreground="Gray"/>
+                                                                            </StackPanel>
+                                                                        </Grid>
+                                                                    </Button>
+                                                                </DataTemplate>
+                                                            </ItemsControl.ItemTemplate>
+                                                        </ItemsControl>
+                                                    </ScrollViewer>
+                                                </Border>
+                                            </Popup>
+                                        </Grid>
+                                        <ScrollViewer Height="140">
+                                            <ItemsControl ItemsSource="{Binding ListaCancionesPlaylistCrear}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Border Background="#F1F8E9" CornerRadius="4" Padding="5" Margin="0,2">
+                                                            <Grid ColumnDefinitions="30, *, Auto">
+                                                                <Image asyncImageLoader:ImageLoader.Source="{Binding ImagenPortadaUrl}" Width="24" Height="24" Stretch="UniformToFill"/>
+                                                                <StackPanel Grid.Column="1" Margin="10,0" VerticalAlignment="Center">
+                                                                    <TextBlock Text="{Binding Titulo}" FontWeight="SemiBold" FontSize="12" Foreground="Black"/>
+                                                                    <TextBlock Text="{Binding NombreArtista}" FontSize="10" Foreground="Gray"/>
+                                                                </StackPanel>
+                                                                <Button Grid.Column="2" Content="🗑️" Background="Transparent" Foreground="Red" Padding="5"
+                                                                        Command="{Binding $parent[UserControl].DataContext.BtnEliminarCancionPlaylistCrear}" CommandParameter="{Binding}"/>
+                                                            </Grid>
+                                                        </Border>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </ScrollViewer>
+                                        <TextBlock Text="{DynamicResource Col_Propietario}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <TextBox Text="{Binding NuevaPlaylist.IdUsuario}" Watermark="ID Propietario (Usuario)"/>
+                                        
+                                        <Button Command="{Binding BtnCrearPlaylist}" Content="{DynamicResource BD_Ply_BtnCrear}" Background="{DynamicResource Brush_BD_BtnCrear_Fondo}" Foreground="{DynamicResource Brush_BD_BtnCrear_Texto}" HorizontalAlignment="Stretch" Margin="0,15,0,0"/>
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </TabItem>
+
+                            <TabItem Header="{DynamicResource BD_CrudEditar}">
+                                <Panel>
+                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" IsVisible="{Binding SelectedPlaylist, Converter={x:Static ObjectConverters.IsNull}}">
+                                        <TextBlock Text="👈" FontSize="40" HorizontalAlignment="Center" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <TextBlock Text="{DynamicResource BD_MsgSelecciona}" Foreground="{DynamicResource Brush_BD_Label}" FontWeight="Bold" FontSize="16" TextAlignment="Center"/>
+                                    </StackPanel>
+                                    
+                                    <ScrollViewer IsVisible="{Binding SelectedPlaylist, Converter={x:Static ObjectConverters.IsNotNull}}">
+                                        <StackPanel Spacing="10" Margin="10,0">
+                                            <TextBlock Text="{DynamicResource BD_Gen_TituloEditar}" Classes="TituloCrud" Foreground="#FFA000"/>
+                                            
+                                            <TextBlock Text="{DynamicResource BD_LblID}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <TextBox Text="{Binding SelectedPlaylist.Id}" IsReadOnly="True" Background="#EEE"/>
+                                            
+                                            <TextBlock Text="{DynamicResource Col_Nombre}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <TextBox Text="{Binding SelectedPlaylist.Nombre}" Watermark="{DynamicResource BD_Water_Nombre}"/>
+
+                                            <TextBlock Text="{DynamicResource Col_Descripcion}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <TextBox Text="{Binding SelectedPlaylist.Descripcion}" Watermark="{DynamicResource Col_Descripcion}" Height="60" AcceptsReturn="True"/>
+                                            
+                                            <TextBlock Text="{DynamicResource BD_Ply_Canciones}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <Grid RowDefinitions="Auto, Auto">
+                                                <Grid ColumnDefinitions="*, 10, Auto">
+                                                    <TextBox x:Name="TxtBusquedaCancionEditar" Text="{Binding TxtBusquedaCancionEditar}" Watermark="{DynamicResource BD_Ply_BuscarCancion}" CornerRadius="8"/>
+                                                    <Button Grid.Column="2" Command="{Binding BtnBuscarCancionesEditar}" Padding="10,5">🔍</Button>
+                                                </Grid>
+                                                
+                                                <Popup IsOpen="{Binding HayResultadosCancionEditar}" PlacementTarget="{Binding ElementName=TxtBusquedaCancionEditar}" Placement="BottomEdgeAlignedLeft" MinWidth="250" MaxHeight="200">
+                                                    <Border Background="White" BorderBrush="#DDD" BorderThickness="1" CornerRadius="4" Padding="0" BoxShadow="0 4 8 #40000000">
+                                                        <ScrollViewer>
+                                                            <ItemsControl ItemsSource="{Binding ListaResultadosCancionesEditar}">
+                                                                <ItemsControl.ItemTemplate>
+                                                                    <DataTemplate>
+                                                                        <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Cursor="Hand"
+                                                                                Command="{Binding $parent[UserControl].DataContext.BtnAgregarCancionPlaylistEditar}" CommandParameter="{Binding}">
+                                                                            <Grid ColumnDefinitions="30, *">
+                                                                                <Image asyncImageLoader:ImageLoader.Source="{Binding ImagenPortadaUrl}" Width="24" Height="24" Stretch="UniformToFill"/>
+                                                                                <StackPanel Grid.Column="1" Margin="10,0,0,0" VerticalAlignment="Center">
+                                                                                    <TextBlock Text="{Binding Titulo}" FontWeight="Bold" FontSize="11" Foreground="Black"/>
+                                                                                    <TextBlock Text="{Binding NombreArtista}" FontSize="10" Foreground="Gray"/>
+                                                                                </StackPanel>
+                                                                            </Grid>
+                                                                        </Button>
+                                                                    </DataTemplate>
+                                                                </ItemsControl.ItemTemplate>
+                                                            </ItemsControl>
+                                                        </ScrollViewer>
+                                                    </Border>
+                                                </Popup>
+                                            </Grid>
+                                            <ScrollViewer Height="140">
+                                                <ItemsControl ItemsSource="{Binding ListaCancionesPlaylistEditar}">
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Border Background="#F1F8E9" CornerRadius="4" Padding="5" Margin="0,2">
+                                                                <Grid ColumnDefinitions="30, *, Auto">
+                                                                    <Image asyncImageLoader:ImageLoader.Source="{Binding ImagenPortadaUrl}" Width="24" Height="24" Stretch="UniformToFill"/>
+                                                                    <StackPanel Grid.Column="1" Margin="10,0" VerticalAlignment="Center">
+                                                                        <TextBlock Text="{Binding Titulo}" FontWeight="SemiBold" FontSize="12" Foreground="Black"/>
+                                                                        <TextBlock Text="{Binding NombreArtista}" FontSize="10" Foreground="Gray"/>
+                                                                    </StackPanel>
+                                                                    <Button Grid.Column="2" Content="🗑️" Background="Transparent" Foreground="Red" Padding="5"
+                                                                            Command="{Binding $parent[UserControl].DataContext.BtnEliminarCancionPlaylistEditar}" CommandParameter="{Binding}"/>
+                                                                </Grid>
+                                                            </Border>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+                                            </ScrollViewer>
+                                            <TextBlock Text="{DynamicResource BD_LblPortada}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <Grid ColumnDefinitions="*, 10, Auto">
+                                                <TextBox Grid.Column="0" x:Name="TxtImagePlaylistEditar" Text="{Binding SelectedPlaylist.UrlPortada}" Watermark="{DynamicResource BD_Water_RutaFoto}"/>
+                                                <Button Grid.Column="2" Content="📁" Click="BtnImgPlaylistEditar_Click"/>
+                                            </Grid>
+                                            
+                                            <TextBlock Text="{DynamicResource Col_Propietario}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <TextBox Text="{Binding SelectedPlaylist.IdUsuario}" IsReadOnly="True" Background="#EEE"/>
+                                            
+                                            <Button Command="{Binding BtnGuardarCambios}" Content="{DynamicResource BD_BtnGuardar}" Background="{DynamicResource Brush_BD_BtnRefrescar_Fondo}" Foreground="{DynamicResource Brush_BD_BtnRefrescar_Texto}" HorizontalAlignment="Stretch" Margin="0,10,0,0"/>
+                                        </StackPanel>
+                                    </ScrollViewer>
+                                </Panel>
+                            </TabItem>
+                            
+                            <TabItem Header="{DynamicResource BD_CrudBorrar}">
+                                <StackPanel Spacing="15" VerticalAlignment="Center">
+                                    <TextBlock Text="{DynamicResource BD_Ply_lblEliminar}" Classes="TituloCrud" Foreground="{DynamicResource Brush_BD_BtnEliminar_Fondo}"/>
+                                    <Panel>
+                                        <StackPanel IsVisible="{Binding SelectedPlaylist, Converter={x:Static ObjectConverters.IsNull}}" HorizontalAlignment="Center">
+                                            <TextBlock Text="👈" FontSize="40" HorizontalAlignment="Center" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <TextBlock Text="{DynamicResource BD_MsgSelecciona}" Foreground="{DynamicResource Brush_BD_Label}" FontWeight="Bold" FontSize="20" TextWrapping="Wrap" TextAlignment="Center"/>
+                                        </StackPanel>
+                                        <TextBlock Text="{Binding SelectedPlaylist.Nombre}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Foreground="{DynamicResource Brush_BD_Input_Texto}"/>
+                                    </Panel>
+                                    <Button Command="{Binding BtnEliminarPlaylist}" Content="{DynamicResource BD_BtnEliminar}" Background="{DynamicResource Brush_BD_BtnEliminar_Fondo}" Foreground="White" HorizontalAlignment="Stretch" Padding="15"/>
+                                </StackPanel>
+                            </TabItem>
+                        </TabControl>
+                    </Border>
+                </Grid>
+            </TabItem>
+
+           <TabItem Header="{DynamicResource BD_TabReportes}">
+                <Grid ColumnDefinitions="*, 400">
+                    <DataGrid Grid.Column="0" ItemsSource="{Binding ListaReportes}" SelectedItem="{Binding SelectedReporte}" 
+                              IsReadOnly="True" CanUserResizeColumns="True"
+                              HorizontalGridLinesBrush="{DynamicResource Brush_BD_Grid_Lines}"
+                              VerticalGridLinesBrush="{DynamicResource Brush_BD_Grid_Lines}"
+                              AutomationProperties.Name="{DynamicResource Acc_BD_DataGridReportes}">
+                        <DataGrid.Columns>
+                            
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Estado}" Width="130">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ScrollViewer Classes="CeldaScroll">
+                                            <TextBlock Text="{Binding Estado}" Classes="TextoCelda" FontWeight="Bold"/>
+                                        </ScrollViewer>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Width="220">
+                                <DataGridTemplateColumn.Header>
+                                    <TextBlock>
+                                        <Run Text="{DynamicResource Col_ID}"/> Canción
+                                    </TextBlock>
+                                </DataGridTemplateColumn.Header>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ScrollViewer Classes="CeldaScroll">
+                                            <TextBlock Text="{Binding Referencias.CancionReportadaId}" 
+                                                       Classes="TextoCelda" 
+                                                       FontFamily="Consolas"/>
+                                        </ScrollViewer>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Problema}" Width="200">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ScrollViewer Classes="CeldaScroll">
+                                            <TextBlock Text="{Binding TipoProblema}" Classes="TextoCelda" Foreground="#D32F2F"/>
+                                        </ScrollViewer>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Descripcion}" Width="250">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ScrollViewer Classes="CeldaScroll">
+                                            <TextBlock Text="{Binding Descripcion}" Classes="TextoCelda"/>
+                                        </ScrollViewer>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Width="220">
+                                <DataGridTemplateColumn.Header>
+                                    <TextBlock>
+                                        <Run Text="{DynamicResource Col_Resolucion}"/> Admin
+                                    </TextBlock>
+                                </DataGridTemplateColumn.Header>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ScrollViewer Classes="CeldaScroll">
+                                            <TextBlock Text="{Binding Resolucion}" Classes="TextoCelda" FontStyle="Italic"/>
+                                        </ScrollViewer>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Reportante}" Width="180">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ScrollViewer Classes="CeldaScroll">
+                                            <TextBlock Text="{Binding Referencias.UsuarioReportanteId}" 
+                                                       Classes="TextoCelda" FontFamily="Consolas"/>
+                                        </ScrollViewer>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{DynamicResource Col_Fecha}" Width="110">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ScrollViewer Classes="CeldaScroll">
+                                            <TextBlock Text="{Binding FechaCreacion, StringFormat='{}{0:dd/MM/yy}'}" 
+                                                       Classes="TextoCelda" Foreground="Gray"/>
+                                        </ScrollViewer>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Border Grid.Column="1" Margin="15,0,0,0" BorderBrush="{DynamicResource Brush_BD_Panel_Borde}" BorderThickness="1" CornerRadius="8" Padding="15" Background="{DynamicResource Brush_BD_Panel_Fondo}">
+                        <TabControl Classes="CrudTabs">
+                            
+                            <TabItem Header="{DynamicResource BD_CrudCrear}">
+                                <ScrollViewer>
+                                    <StackPanel Spacing="10">
+                                        <TextBlock Text="{DynamicResource BD_Rep_TituloNuevo}" Classes="TituloCrud" Foreground="#1976D2"/>
+
+                                        <TextBlock Text="{DynamicResource BD_Rep_LblReportante}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <TextBox Text="{Binding NuevoReporte.Referencias.UsuarioReportanteId}" Watermark="{DynamicResource BD_Water_UsrReporto}" FontFamily="Consolas" Height="30"/>
+
+                                        <TextBlock Text="{DynamicResource BD_Rep_LblContenido}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <TextBox Text="{Binding NuevoReporte.Referencias.CancionReportadaId}" Watermark="{DynamicResource BD_Water_CancionReport}"  FontFamily="Consolas" Height="30"/>
+                                        
+                                        <TextBlock Text="{DynamicResource BD_Rep_LblProblema}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <ComboBox ItemsSource="{Binding TipoProblema}" SelectedItem="{Binding NuevoReporte.TipoProblema}" HorizontalAlignment="Stretch" PlaceholderText="{DynamicResource BD_Water_SelProblema}"/>
+
+                                        <TextBlock Text="{DynamicResource BD_Rep_LblDescrip}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <TextBox Text="{Binding NuevoReporte.Descripcion}" Watermark="{DynamicResource BD_Water_Detalles}" Height="80" AcceptsReturn="True"/>
+                                        
+                                        <TextBlock Text="{DynamicResource BD_Rep_LblEstado}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                        <ComboBox ItemsSource="{Binding EstadosReporte}"
+                                                  SelectedItem="{Binding NuevoReporte.Estado}" 
+                                                  HorizontalAlignment="Stretch"
+                                                  PlaceholderText="{DynamicResource BD_Water_SelEstado}"/>
+
+                                        <Button Command="{Binding BtnCrearReporte}" Content="{DynamicResource BD_Rep_BtnCrear}" Background="{DynamicResource Brush_BD_BtnCrear_Fondo}" Foreground="{DynamicResource Brush_BD_BtnCrear_Texto}" HorizontalAlignment="Stretch" Margin="0,10,0,0"/>
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </TabItem>
+
+                            <TabItem Header="{DynamicResource BD_CrudEditar}">
+                                <ScrollViewer>
+                                    <Panel>
+                                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="15"
+                                                    IsVisible="{Binding SelectedPlaylist, Converter={x:Static ObjectConverters.IsNull}}">
+                                            <TextBlock Text="👈" FontSize="40" HorizontalAlignment="Center" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <TextBlock Text="{DynamicResource BD_MsgSelecciona}" Foreground="{DynamicResource Brush_BD_Label}" FontWeight="Bold" FontSize="16" TextAlignment="Center"/>
+                                        </StackPanel>
+                                        <StackPanel Spacing="10" IsVisible="{Binding SelectedReporte, Converter={x:Static ObjectConverters.IsNotNull}}">
+                                            <TextBlock Text="{DynamicResource BD_Rep_TituloEditar}" Classes="TituloCrud" Foreground="#FFA000"/>
+                                            
+                                            <TextBlock Text="{DynamicResource BD_LblID}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <TextBox Text="{Binding SelectedReporte.Id}" IsReadOnly="True" Background="#EEE" FontFamily="Consolas"/>
+                                            
+                                            <TextBlock Text="{DynamicResource BD_Rep_LblReportante}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <TextBox Text="{Binding SelectedReporte.Referencias.UsuarioReportanteId}" IsReadOnly="True" Background="#EEE" FontFamily="Consolas" Height="30"/>
+
+                                            <TextBlock Text="{DynamicResource BD_Rep_LblContenido}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <TextBox Text="{Binding SelectedReporte.Referencias.CancionReportadaId}" IsReadOnly="True" Background="#EEE" FontFamily="Consolas"  Height="30"/>
+
+                                            <TextBlock Text="{DynamicResource BD_Rep_LblProblema}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <TextBox Text="{Binding SelectedReporte.TipoProblema}" IsReadOnly="True" Background="#EEE" FontWeight="Bold"/>
+                                            
+                                            <TextBlock Text="{DynamicResource BD_Rep_LblDescrip}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <TextBox Text="{Binding SelectedReporte.Descripcion}" IsReadOnly="True" Background="#FAFAFA" Height="60" TextWrapping="Wrap" AcceptsReturn="True"/>
+
+                                            <TextBlock Text="{DynamicResource BD_Rep_LblResolucion}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <TextBox Text="{Binding SelectedReporte.Resolucion}" Watermark="{DynamicResource BD_Water_Solucion}" Height="80" AcceptsReturn="True"/>
+                                            
+                                            <TextBlock Text="{DynamicResource BD_Rep_LblEstado}" FontSize="10" Foreground="{DynamicResource Brush_BD_Label}"/>
+
+                                            <ComboBox ItemsSource="{Binding EstadosReporte}" SelectedItem="{Binding SelectedReporte.Estado}" 
+                                                      HorizontalAlignment="Stretch"/>
+                                            
+                                            <Button Command="{Binding BtnGuardarCambios}" Content="{DynamicResource BD_BtnGuardar}" Background="{DynamicResource Brush_BD_BtnRefrescar_Fondo}" Foreground="{DynamicResource Brush_BD_BtnRefrescar_Texto}" HorizontalAlignment="Stretch" Margin="0,10,0,0"/>
+                                        </StackPanel>
+                                    </Panel>
+                                </ScrollViewer>
+                            </TabItem>
+
+                            <TabItem Header="{DynamicResource BD_CrudBorrar}">
+                                <StackPanel Spacing="15" VerticalAlignment="Center">
+                                    <TextBlock Text="{DynamicResource BD_Rep_TituloBorrar}" Classes="TituloCrud" Foreground="{DynamicResource Brush_BD_BtnEliminar_Fondo}"/>                                    
+                                    <Panel>
+                                        <StackPanel IsVisible="{Binding SelectedReporte, Converter={x:Static ObjectConverters.IsNull}}" 
+                                                    HorizontalAlignment="Center">
+                                            <TextBlock Text="👈" FontSize="40" HorizontalAlignment="Center" Foreground="{DynamicResource Brush_BD_Label}"/>
+                                            <TextBlock Text="{DynamicResource BD_MsgSelecciona}" 
+                                                       Foreground="{DynamicResource Brush_BD_Label}" FontWeight="Bold" FontSize="20" 
+                                                       TextWrapping="Wrap" TextAlignment="Center"/>
+                                        </StackPanel>
+                                        <TextBlock Text="{DynamicResource BD_Rep_Advertencia}" 
+                                                   IsVisible="{Binding SelectedReporte, Converter={x:Static ObjectConverters.IsNotNull}}" 
+                                                   Foreground="{DynamicResource Brush_BD_Input_Texto}"
+                                                   TextWrapping="Wrap" TextAlignment="Center" Margin="0,10,0,0"/>
+                                    </Panel>
+                                    <Button Command="{Binding BtnEliminarReporte}" 
+                                            Content="{DynamicResource BD_BtnEliminar}" 
+                                            Background="{DynamicResource Brush_BD_BtnEliminar_Fondo}" Foreground="White" 
+                                            HorizontalAlignment="Stretch" Padding="15"/>
+                                </StackPanel>
+                            </TabItem>
+                        </TabControl>
+                    </Border>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        
+        <Grid Grid.Row="0" Grid.RowSpan="2" IsVisible="{Binding EstaCargando}" ZIndex="9999">
+            <Border Background="{DynamicResource Brush_BD_Loader_Fondo}" CornerRadius="12" Padding="40" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    BoxShadow="0 10 30 0 #40000000"
+                    MinWidth="300">
+                <StackPanel Spacing="25">
+                    <ProgressBar IsIndeterminate="True" 
+                                 Width="200" Height="8" 
+                                 Foreground="#1976D2"
+                                 HorizontalAlignment="Center"/>
+                    
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="{Binding MensajeCarga, Converter={StaticResource Traductor}}" 
+                                   FontWeight="Bold" FontSize="18" 
+                                   Foreground="{DynamicResource Brush_BD_Loader_Texto}" 
+                                   TextWrapping="Wrap"
+                                   HorizontalAlignment="Center" TextAlignment="Center"/>
+                        
+                        <TextBlock Text="{DynamicResource BD_MsgEspera}" 
+                                   FontSize="12" Foreground="{DynamicResource Brush_BD_Label}" 
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,150 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:BetaProyecto.ViewModels"
+             xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="800"
+             x:Class="BetaProyecto.Views.Visores.ViewListaPersonalizada"
+             x:DataType="vm:ViewListaPersonalizadaViewModel"
+             Background="Transparent"
+             AutomationProperties.Name="{DynamicResource Acc_VisorPlay_Pagina}">
+
+    <UserControl.Styles>
+        
+        <Style Selector="Border.TarjetaMetrica">
+            <Setter Property="Background" Value="{DynamicResource Brush_VisorPlay_Tarjeta_Fondo}"/>
+            <Setter Property="CornerRadius" Value="15"/>
+            <Setter Property="Padding" Value="15"/>
+            <Setter Property="BoxShadow" Value="0 4 10 0 #20000000"/>
+            <Setter Property="Margin" Value="0,0,20,0"/>
+        </Style>
+        
+        <Style Selector="TextBlock.TituloMetrica">
+            <Setter Property="Foreground" Value="{DynamicResource Brush_VisorPlay_Texto_MetricaTitulo}"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        
+        <Style Selector="TextBlock.ValorMetrica">
+            <Setter Property="Foreground" Value="{DynamicResource Brush_VisorPlay_Texto_MetricaValor}"/>
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontWeight" Value="Black"/>
+        </Style>
+
+        <Style Selector="Button.BtnVolver">
+            <Setter Property="Background" Value="{DynamicResource Brush_VisorPlay_BtnVolver_Fondo}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="20,10"/>
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style Selector="Button.BtnVolver:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource Brush_VisorPlay_BtnVolver_Hover}"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+        <Style Selector="Border.FilaCancion">
+            <Setter Property="Background" Value="{DynamicResource Brush_VisorPlay_Fila_Fondo}"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="0,0,10,10"/>
+        </Style>
+        <Style Selector="Border.FilaCancion:pointerover">
+            <Setter Property="Background" Value="{DynamicResource Brush_VisorPlay_Fila_Hover}"/>
+        </Style>
+
+    </UserControl.Styles>
+
+    <Grid RowDefinitions="Auto, *" Margin="40">
+        
+        <Button Command="{Binding BtnVolver}" Classes="BtnVolver" Margin="0,0,0,20"
+                AutomationProperties.Name="{DynamicResource Global_BtnVolver}"
+                AutomationProperties.HelpText="{DynamicResource Acc_Btn_Volver_Help}">
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <Image Source="{DynamicResource Img_Volver}" Width="20" Stretch="Uniform" AutomationProperties.AccessibilityView="Raw"/> 
+                <TextBlock Text="{DynamicResource VisorCan_BtnVolver}" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
+        <Grid Grid.Row="1" ColumnDefinitions="400, *" MinHeight="600">
+            
+            <StackPanel Grid.Column="0" Spacing="25" VerticalAlignment="Top">
+                <Border CornerRadius="20" ClipToBounds="True" BoxShadow="0 10 30 0 #40000000" Background="Gray">
+                    <Image asyncImageLoader:ImageLoader.Source="{Binding Playlist.UrlPortada}" 
+                           Stretch="UniformToFill" Height="400" Width="400"
+                           AutomationProperties.Name="{DynamicResource Acc_VisorPlay_Caratula}"/>
+                </Border>
+            </StackPanel>
+
+            <Border Grid.Column="1" 
+                    Background="{DynamicResource Brush_VisorPlay_PanelDerecho_Fondo}" 
+                    CornerRadius="25" 
+                    BoxShadow="0 4 20 0 #20000000" 
+                    Padding="40" 
+                    Margin="40,0,0,0" 
+                    VerticalAlignment="Stretch">
+                
+                <Grid RowDefinitions="Auto, Auto, *">
+                    
+                    <StackPanel Grid.Row="0" Spacing="5" Margin="0,0,0,20">
+                        <TextBlock Text="{DynamicResource VisorPlay_LblPlaylist}" 
+                                   Foreground="{DynamicResource Brush_VisorPlay_Texto_Label}" 
+                                   FontSize="16" FontWeight="ExtraBold" LetterSpacing="3"/>
+                        
+                        <TextBlock Text="{Binding Playlist.Nombre}" 
+                                   FontSize="45" FontWeight="Black" TextWrapping="Wrap" LineHeight="50" 
+                                   Foreground="{DynamicResource Brush_VisorPlay_Texto_Titulo}"
+                                   AutomationProperties.Name="{DynamicResource Acc_VisorPlay_Titulo_Help}"/>
+                        
+                        <TextBlock Text="{Binding Playlist.Descripcion}" 
+                                   FontSize="16" TextWrapping="Wrap" Margin="0,5,0,0"
+                                   Foreground="{DynamicResource Brush_VisorPlay_Texto_Subtitulo}"
+                                   AutomationProperties.Name="{DynamicResource Acc_VisorPlay_Desc_Help}"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,30">
+                        <Border Classes="TarjetaMetrica" Width="220" AutomationProperties.Name="{DynamicResource Acc_VisorPlay_Cantidad_Help}">
+                            <StackPanel Spacing="5" HorizontalAlignment="Center">
+                                <TextBlock Text="{DynamicResource VisorPlay_LblCanciones}" Classes="TituloMetrica"/>
+                                <TextBlock Text="{Binding CantidadCanciones}" Classes="ValorMetrica" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+
+                    <Grid Grid.Row="2" RowDefinitions="Auto, *">
+                        <TextBlock Grid.Row="0" Text="{DynamicResource VisorPlay_LblContenido}" 
+                                   FontSize="20" FontWeight="Bold" Margin="0,0,0,15"
+                                   Foreground="{DynamicResource Brush_VisorPlay_Texto_Seccion}"/>
+                        
+                        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                            <ItemsControl ItemsSource="{Binding Playlist.CancionesCompletas}" AutomationProperties.Name="{DynamicResource Acc_VisorPlay_Lista_Help}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Classes="FilaCancion">
+                                            <Grid ColumnDefinitions="50, *, Auto">
+                                                <Border Grid.Column="0" CornerRadius="8" Width="40" Height="40" ClipToBounds="True">
+                                                    <Image asyncImageLoader:ImageLoader.Source="{Binding ImagenPortadaUrl}" Stretch="UniformToFill" AutomationProperties.AccessibilityView="Raw"/>
+                                                </Border>
+                                                
+                                                <StackPanel Grid.Column="1" Margin="15,0,0,0" VerticalAlignment="Center">
+                                                    <TextBlock Text="{Binding Titulo}" FontWeight="Bold" 
+                                                               Foreground="{DynamicResource Brush_VisorPlay_Fila_TextoTitulo}"/>
+                                                    <TextBlock Text="{Binding NombreArtista}" FontSize="12" 
+                                                               Foreground="{DynamicResource Brush_VisorPlay_Fila_TextoArtista}"/>
+                                                </StackPanel>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </Grid>
+                    
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

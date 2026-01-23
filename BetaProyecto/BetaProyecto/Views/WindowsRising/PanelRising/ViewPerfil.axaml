@@ -1,0 +1,147 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:BetaProyecto.ViewModels"
+             xmlns:asyncImageLoader="using:AsyncImageLoader"
+             xmlns:helpers="using:BetaProyecto.Helpers"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+             x:Class="BetaProyecto.Views.WindowsRising.PanelRising.ViewPerfil"
+             x:DataType="vm:ViewPerfilViewModel">
+
+    <UserControl.Resources>
+        <helpers:TextoTraducidoConverter x:Key="Traductor"/>
+    </UserControl.Resources>
+
+    <Design.DataContext>
+        <vm:ViewPerfilViewModel />
+    </Design.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/> 
+            <RowDefinition Height="*"/>    
+        </Grid.RowDefinitions >
+
+        <Separator Grid.Row="0" Height="3" 
+                   Background="{DynamicResource Brush_Borde_General}" 
+                   Margin="0" VerticalAlignment="Top"/>
+
+        <Viewbox Stretch="Uniform" Grid.Row="1">
+            <Grid Width="1920" Height="1080">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="70*"/>
+                </Grid.ColumnDefinitions>
+    
+                <!--Imagen Perfil-->
+                <Viewbox Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Margin="50,100,20,0">
+                    <Border Width="400" Height="400" CornerRadius="200" ClipToBounds="True" 
+                            BorderBrush="{DynamicResource Brush_Perfil_Borde_Avatar}" 
+                            BorderThickness="2" 
+                            Background="{DynamicResource Brush_Perfil_Fondo_Avatar}">
+                        <Image asyncImageLoader:ImageLoader.Source="{Binding ImagenPerfil}" 
+                               Stretch="UniformToFill"
+                               Width="420" Height="420"/>
+                    </Border>
+                </Viewbox>
+
+                <Border Grid.Column="1" Grid.Row="1"
+                        Background="{DynamicResource Brush_Perfil_Fondo_Tarjeta}" 
+                        BorderBrush="{DynamicResource Brush_Borde_General}" 
+                        BorderThickness="2" 
+                        CornerRadius="15" Margin="20,50,80,50">
+                
+                    <ScrollViewer VerticalScrollBarVisibility="Visible">
+                        <Grid Margin="40">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/> 
+                                <RowDefinition Height="Auto"/> 
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                          <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="20" Margin="0,0,0,10">
+                                <!--Nombre Usuario-->
+                               <TextBlock Text="{Binding NombreUsuario}" 
+                                           FontSize="50" 
+                                           FontWeight="Bold" 
+                                           VerticalAlignment="Center"
+                                           Foreground="{DynamicResource Brush_Perfil_Titulo}"/>
+                                <!--Botón de refrescar-->
+                                <Button Command="{Binding BtnRefrescar}"
+                                        Background="Transparent"
+                                        BorderThickness="0"
+                                        Cursor="Hand"
+                                        VerticalAlignment="Center"
+                                        ToolTip.Tip="Recargar datos">
+                                    <TextBlock Text="🔄" FontSize="35" Foreground="{DynamicResource Brush_Perfil_BtnRefrescar}"/>
+                                </Button>
+
+                            </StackPanel>
+                        
+                            <Separator Grid.Row="1" Height="3" Background="{DynamicResource Brush_Borde_General}" Margin="0,0,0,30"/>                            
+                            <ItemsControl Grid.Row="2" ItemsSource="{Binding Secciones}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Spacing="10" Margin="0,0,0,30">
+                
+                                               <TextBlock Text="{Binding Titulo, Converter={StaticResource Traductor}}" 
+                                                       AutomationProperties.Name="{Binding Titulo, Converter={StaticResource Traductor}}"
+                                                       AutomationProperties.HelpText="Sección de usuarios" 
+                                                       FontSize="30" FontWeight="Bold"
+                                                       Foreground="{DynamicResource Brush_Perfil_Titulo}"/>
+
+                                                <ScrollViewer HorizontalScrollBarVisibility="Auto" 
+                                                          VerticalScrollBarVisibility="Disabled"
+                                                          Padding="0,0,0,25">
+                    
+                                                <ItemsControl ItemsSource="{Binding Lista}"> 
+                                                    <ItemsControl.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <StackPanel Orientation="Horizontal" Spacing="25"/>
+                                                        </ItemsPanelTemplate>
+                                                    </ItemsControl.ItemsPanel>
+                        
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Border Width="200" Height="200" 
+                                                                    CornerRadius="100" 
+                                                                    ClipToBounds="True" 
+                                                                    Background="{DynamicResource Brush_Perfil_Item_Fondo}"
+                                                                    Margin="0,0,0,30" 
+                                                                    BorderBrush="{DynamicResource Brush_Perfil_Item_Borde}"       
+                                                                    BorderThickness="2"       
+                                                                    BoxShadow="5 5 15 0 #66000000"> <Grid>
+                                                                    <Image asyncImageLoader:ImageLoader.Source="{Binding Perfil.ImagenUrl}" 
+                                                                           Stretch="UniformToFill"
+                                                                           Width="220" Height="220"/>
+                                                            
+                                                                    <Border VerticalAlignment="Bottom" 
+                                                                            Background="{DynamicResource Brush_Perfil_Item_Texto_Fondo}"
+                                                                            Margin="0,0,0,-2">
+                                                                        <TextBlock Text="{Binding Username}" 
+                                                                                   Padding="5, 10, 5, 20" 
+                                                                                   Foreground="{DynamicResource Brush_Perfil_Item_Texto}" 
+                                                                                   FontWeight="Bold" 
+                                                                                   FontSize="13"
+                                                                                   HorizontalAlignment="Center" 
+                                                                                   VerticalAlignment="Center"
+                                                                                   TextWrapping="Wrap" 
+                                                                                   TextAlignment="Center"/>
+                                                                    </Border>
+                                                                </Grid>
+                                                            </Border>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+                                            </ScrollViewer>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </Grid>
+                    </ScrollViewer>
+                </Border>
+            </Grid>
+        </Viewbox>
+    </Grid>
+</UserControl>

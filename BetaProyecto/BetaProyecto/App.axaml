@@ -1,0 +1,28 @@
+﻿<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="BetaProyecto.App"
+             xmlns:local="using:BetaProyecto"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="/Assets/Styles/FuenteLexend.axaml"/>
+                <ResourceInclude Source="/Assets/Interfaces/ModoClaro.axaml"/>
+                <ResourceInclude Source="/Assets/Language/Spanish.axaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+
+    <Application.Styles>
+        <!-- Paquete prefabricado que tiene avalonia (Botones mas modernos...)-->
+        <FluentTheme />
+        <StyleInclude Source="/Assets/Styles/EstilosGlobales.axaml"/>
+        <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
+    </Application.Styles>
+
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+
+</Application>

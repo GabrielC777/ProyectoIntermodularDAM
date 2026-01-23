@@ -1,0 +1,127 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+        xmlns:vm="using:BetaProyecto.ViewModels"
+        x:Class="BetaProyecto.Views.Login.Login"
+        x:DataType="vm:LoginViewModel"
+        Background="{DynamicResource Brush_Log_Fondo }"
+        AutomationProperties.Name="{DynamicResource Acc_Log_Pagina}">
+  <!--Estilos para los border de las figuras-->
+  <UserControl.Styles>
+        <Style Selector="Border.Figura">
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Brush_Log_Borde_Figuras}"/>
+        </Style>
+        
+        <Style Selector="TextBox">
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Background" Value="{DynamicResource Brush_Log_Input_Fondo}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Log_Input_Texto}"/>
+            <Setter Property="CaretBrush" Value="{DynamicResource Brush_Log_Input_Texto}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Brush_Log_Input_Borde}"/>
+        </Style>
+        
+        <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
+            <Setter Property="Background" Value="{DynamicResource Brush_Log_Input_Fondo}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Brush_Log_Titulo}"/> </Style>
+        <Style Selector="TextBox:pointerover /template/ Border#PART_BorderElement">
+            <Setter Property="Background" Value="{DynamicResource Brush_Log_Input_Fondo}"/>
+        </Style>
+        <Style Selector="TextBox:focus">
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Log_Input_Texto}"/>
+        </Style>
+
+    </UserControl.Styles>
+
+    <Design.DataContext>
+        <vm:LoginViewModel/>
+    </Design.DataContext>
+
+    <Viewbox Stretch="Uniform">
+        <Grid Width="1000" Height="700">
+            <!--Los dos rectangulos-->
+            <StackPanel VerticalAlignment="Center" Spacing="40" Margin="70,250,70,0"
+                        AutomationProperties.AccessibilityView="Raw">
+                <Border Classes="Figura">
+                    <Rectangle Fill="{DynamicResource Brush_Log_Figura_Rojo}" Height="80"/>
+                </Border>
+                <Border Classes="Figura">
+                    <Rectangle Fill="{DynamicResource Brush_Log_Figura_Rojo}" Height="80"/>
+                </Border>
+            </StackPanel>
+            <!--Icono de la aplicación, triangulo-->
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-200,0,0"
+                         AutomationProperties.AccessibilityView="Raw">
+                <Viewbox>
+                <!--Logo-->
+                    <Image Source="/Assets/Imagenes/LogoApp.png" 
+                           Width="550" Height="420" 
+                           Stretch="Uniform"
+                           Margin="0,2,0,-170"/>
+                </Viewbox>
+                <!--Triangulo-->
+                <Grid Width="550" Height="300">
+                    <Polygon Points="0,0 450,0 225,300"
+                                Width="750"    
+                                Height="330"
+                                Margin="0,0,0,230"
+                                Fill="{DynamicResource Brush_Log_Figura_Azul}" 
+                                Stroke="{DynamicResource Brush_Log_Borde_Figuras}" StrokeThickness="2" 
+                                Stretch="Fill"/>
+                </Grid>
+              </StackPanel>
+            <!--Cuadro de login-->
+              <Grid Width="250" Height="230">
+                  <StackPanel Spacing="15">
+                      <!--Usuario-->
+                      <StackPanel>
+                          <TextBlock Text="{DynamicResource Log_LblUsuario}" 
+                                     Foreground="{DynamicResource Brush_Log_Texto_Principal}" 
+                                     FontSize="18"/>
+                          <TextBox Watermark="{DynamicResource Log_WaterUsuario}"
+                                   Text="{Binding TxtUsuario}"
+                                   AutomationProperties.Name="{DynamicResource Log_LblUsuario}"
+                                   AutomationProperties.HelpText="{DynamicResource Acc_Log_User_Help}"/> 
+                      </StackPanel>
+                      <!--Contraseña-->
+                      <StackPanel>
+                          <TextBlock Text="{DynamicResource Log_LblPass}" 
+                                     Foreground="{DynamicResource Brush_Log_Texto_Principal}" 
+                                     FontSize="18"/>
+                          <TextBox Watermark="{DynamicResource Log_WaterPass}" 
+                                   PasswordChar="*"
+                                   Text="{Binding TxtPass}"
+                                   AutomationProperties.Name="{DynamicResource Log_LblPass}"
+                                   AutomationProperties.HelpText="{DynamicResource Acc_Log_Pass_Help}"/>
+                      </StackPanel>
+                      <!--Botón-->
+                      <StackPanel>
+                          <Button Content="{DynamicResource Log_BtnLogin}" 
+                                  Background="{DynamicResource Brush_Log_BtnMain_Fondo}" 
+                                  Foreground="{DynamicResource Brush_Log_BtnMain_Texto}"
+                                  BorderBrush="{DynamicResource Brush_Log_Borde_Figuras}"
+                                  HorizontalAlignment="Center" Width="175" Height="55" FontSize="20"
+                                  CornerRadius="30" Margin="10,10,10,10" HorizontalContentAlignment ="Center"
+                                  VerticalContentAlignment="Center" BorderThickness="2" 
+                                  Padding="10,10,10,10" Command="{Binding Login}"
+                                  Cursor="Hand"
+                                  AutomationProperties.HelpText="{DynamicResource Acc_Log_BtnLogin_Help}"/>
+
+                          <Button Content="{DynamicResource Log_BtnRegistro}" 
+                                  Classes="Link" CornerRadius="20"
+                                  Background="{DynamicResource Brush_Log_BtnMain_Fondo}" 
+                                  Foreground="{DynamicResource Brush_Log_Texto_Principal}"
+                                  BorderBrush="{DynamicResource Brush_Log_BtnSec_Borde}" 
+                                  HorizontalAlignment="Center" 
+                                  FontSize="14" BorderThickness="1"
+                                  Cursor="Hand"
+                                  Command="{Binding BtnRegistarUser}"
+                                  AutomationProperties.HelpText="{DynamicResource Acc_Log_BtnRegistro_Help}"/>
+                       </StackPanel>
+                  </StackPanel>
+              </Grid>
+          </Grid>
+     </Viewbox>
+</UserControl>

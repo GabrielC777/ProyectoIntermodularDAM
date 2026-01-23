@@ -1,0 +1,53 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <!-- Add Controls for Previewer Here -->
+      <TextBlock>HOLA</TextBlock>
+    </Border>
+  </Design.PreviewWith>
+
+  <Style Selector="Window">
+        <Setter Property="FontFamily" Value="{DynamicResource FuenteApp}"/>
+    </Style>
+
+    <Style Selector="UserControl">
+        <Setter Property="FontFamily" Value="{DynamicResource FuenteApp}"/>
+    </Style>
+
+    <Style Selector="TextBlock">
+        <Setter Property="FontFamily" Value="{DynamicResource FuenteApp}"/>
+    </Style>
+
+    <Style Selector="Button">
+        <Setter Property="FontFamily" Value="{DynamicResource FuenteApp}"/>
+    </Style>
+
+    <Style Selector="ComboBox">
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource Brush_Global_Combo_Placeholder}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+    </Style>
+
+    <Style Selector="ComboBoxItem">
+        <Setter Property="Foreground" Value="{DynamicResource Brush_Global_Combo_Texto}"/>
+        <Setter Property="Padding" Value="10,5"/>
+        <Setter Property="CornerRadius" Value="4"/>
+        <Setter Property="Margin" Value="2"/>
+    </Style>
+
+    <Style Selector="ComboBoxItem:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource Brush_Global_Combo_Hover}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Brush_Global_Combo_Texto}"/>
+    </Style>
+
+    <Style Selector="ComboBoxItem:selected /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource Brush_Global_Combo_Selected}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Brush_Global_Combo_Texto}"/>
+    </Style>
+
+    <Style Selector="ComboBox /template/ Border#PopupBorder">
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Brush_Global_Combo_Placeholder}"/>
+    </Style>
+
+</Styles>

@@ -1,0 +1,218 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+             x:Class="BetaProyecto.Views.WindowsRising.PanelRising.ViewConfiguracion"
+             xmlns:vm="using:BetaProyecto.ViewModels"
+             x:DataType="vm:ViewConfiguracionViewModel"
+             AutomationProperties.Name="{DynamicResource Acc_Config_Pagina}">    
+
+    <UserControl.Styles>
+        <Style Selector="Button.BotonConfig">
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Padding" Value="20,5"/>
+            <Setter Property="CornerRadius" Value="15"/>
+            <Setter Property="Background" Value="{DynamicResource Brush_BtnConfig_Fondo}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_BtnConfig_Texto}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Brush_Borde_General}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Width" Value="350"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="Button.BotonConfig:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource Brush_BtnConfig_Hover}"/> 
+            <Setter Property="BorderBrush" Value="{DynamicResource Brush_Borde_General}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_BtnConfig_Texto}"/>
+        </Style>
+
+    </UserControl.Styles>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Separator Grid.Row="0" Height="3" Background="{DynamicResource Brush_Borde_General}" 
+                   Margin="0" VerticalAlignment="Top"
+                   AutomationProperties.AccessibilityView="Raw"/>
+
+        <Viewbox Grid.Row="1" Stretch="Uniform">
+            <Grid Width="1920" Height="1080">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/> 
+                    <RowDefinition Height="*"/>    
+                    <RowDefinition Height="Auto"/> 
+                </Grid.RowDefinitions>
+                <!--Título-->
+                <StackPanel Grid.Row="0" HorizontalAlignment="Left" Margin="50,40,0,30">
+                    <TextBlock Text="{DynamicResource Config_Titulo}" AutomationProperties.Name="{DynamicResource Config_Titulo}"
+                               FontSize="50" FontWeight="Bold" 
+                               Foreground="{DynamicResource Brush_Texto_Principal}"/>
+                    
+                    <Border Background="{DynamicResource Brush_Borde_General}" 
+                            Height="5" Width="350" HorizontalAlignment="Left" Margin="0,5,0,0"
+                            AutomationProperties.AccessibilityView="Raw"/>
+                </StackPanel>
+
+                <Border Grid.Row="1"
+                        Background="{DynamicResource Brush_Fondo_Marco}"
+                        Margin="50,0,50,0" 
+                        BorderBrush="{DynamicResource Brush_Borde_General}" 
+                        BorderThickness="5" 
+                        CornerRadius="40"
+                        ClipToBounds="True">
+                    
+                    <Grid ColumnDefinitions="*, *" RowDefinitions="*" ColumnSpacing="3">
+                        
+                        <Border Grid.Column="0" 
+                                Background="{DynamicResource Brush_Fondo_Panel}" 
+                                CornerRadius="40,0,0,40" BorderThickness="10">
+                            <Grid RowDefinitions="*, *">
+                                <!--Interfaz-->
+                                <StackPanel Grid.Row="0" VerticalAlignment="Top">
+                                    <TextBlock Text="{DynamicResource Config_SecInterfaz}" 
+                                               FontSize="40" FontWeight="Bold" 
+                                               Foreground="{DynamicResource Brush_Texto_Principal}" Margin="40,30,0,0"/>
+                                    
+                                    <Border Background="{DynamicResource Brush_Borde_General}" 
+                                            Height="5" Width="300" HorizontalAlignment="Left" Margin="0,5,0,30"/>
+                                    
+                                    <StackPanel Spacing="30" Margin="40,0,0,0">
+                                        <StackPanel Orientation="Horizontal" Spacing="20">
+                                            <RadioButton GroupName="SeleccionInterfaz" 
+                                                         IsChecked="{Binding IndiceTema}"
+                                                         Margin="0,0,10,0"
+                                                         AutomationProperties.Name="{DynamicResource Config_OptClaro}"
+                                                         AutomationProperties.HelpText="{DynamicResource Acc_Config_RadioClaro_Help}">
+                                                <RadioButton.RenderTransform>
+                                                    <ScaleTransform ScaleX="2.0" ScaleY="2.0"/>
+                                                </RadioButton.RenderTransform>
+                                            </RadioButton>
+                                            <TextBlock Text="{DynamicResource Config_OptClaro}" FontSize="30" VerticalAlignment="Center"
+                                                       Foreground="{DynamicResource Brush_Texto_Principal}"
+                                                       AutomationProperties.AccessibilityView="Raw"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Spacing="20">
+                                            <RadioButton GroupName="SeleccionInterfaz" 
+                                                         Margin="0,0,10,0"
+                                                         IsChecked="{Binding IndiceTemaOscuro}"
+                                                         AutomationProperties.Name="{DynamicResource Config_OptOscuro}"
+                                                         AutomationProperties.HelpText="{DynamicResource Acc_Config_RadioOscuro_Help}">
+                                                <RadioButton.RenderTransform>
+                                                    <ScaleTransform ScaleX="2.0" ScaleY="2.0"/>
+                                                </RadioButton.RenderTransform>
+                                            </RadioButton>
+                                            <TextBlock Text="{DynamicResource Config_OptOscuro}" FontSize="30" VerticalAlignment="Center"
+                                                       Foreground="{DynamicResource Brush_Texto_Principal}"
+                                                       AutomationProperties.AccessibilityView="Raw"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="1" VerticalAlignment="Top">
+                                    <TextBlock Text="{DynamicResource Config_SecFuente}" 
+                                               FontSize="40" FontWeight="Bold" 
+                                               Foreground="{DynamicResource Brush_Texto_Principal}" Margin="40,20,0,0"/>
+                                    
+                                    <Border Background="{DynamicResource Brush_Borde_General}" 
+                                            Height="5" Width="300" HorizontalAlignment="Left" Margin="0,5,0,30"
+                                            AutomationProperties.AccessibilityView="Raw"/>
+                                    
+                                    <ComboBox SelectedIndex="{Binding IndiceFuente}" Width="350" FontSize="30" 
+                                              HorizontalAlignment="Left" Margin="20,0,0,0"
+                                              AutomationProperties.Name="{DynamicResource Config_SecFuente}"
+                                              AutomationProperties.HelpText="{DynamicResource Acc_Config_ComboFuente_Help}">
+                                        <ComboBoxItem>Lexend</ComboBoxItem>
+                                        <ComboBoxItem>Carlito</ComboBoxItem>
+                                        <ComboBoxItem>Arial</ComboBoxItem>
+                                        <ComboBoxItem>GloriaHallelujah</ComboBoxItem>
+                                        <ComboBoxItem>OpenSans</ComboBoxItem>
+                                        <ComboBoxItem>Roboto</ComboBoxItem>
+                                    </ComboBox>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+
+                        <Border Grid.Column="1" 
+                                Background="{DynamicResource Brush_Fondo_Panel}" 
+                                CornerRadius="0,40,40,0" BorderThickness="10">
+                            <Grid RowDefinitions="*, *">
+                                
+                                <StackPanel Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Right">
+                                    <TextBlock Text="{DynamicResource Config_SecIdioma}" 
+                                               FontSize="40" FontWeight="Bold" 
+                                               Foreground="{DynamicResource Brush_Texto_Principal}" 
+                                               HorizontalAlignment="Right" Margin="0,30,40,0"/>
+                                    
+                                    <Border Background="{DynamicResource Brush_Borde_General}" 
+                                            Height="5" Width="300" HorizontalAlignment="Right" Margin="0,5,0,30" 
+                                            AutomationProperties.AccessibilityView="Raw"/>
+                                    
+                                    <ComboBox SelectedIndex="{Binding IndiceIdioma}" Width="350" FontSize="30"
+                                              HorizontalAlignment="Right" Margin="0,0,20,0" 
+                                              AutomationProperties.Name="{DynamicResource Config_SecIdioma}"
+                                              AutomationProperties.HelpText="{DynamicResource Acc_Config_ComboIdioma_Help}">
+
+                                        <ComboBoxItem Content="{DynamicResource Config_ValIdiomaEsp}"
+                                                      AutomationProperties.Name="{DynamicResource Config_ValIdiomaEsp}"/>
+    
+                                        <ComboBoxItem Content="{DynamicResource Config_ValIdiomaIng}"
+                                                      AutomationProperties.Name="{DynamicResource Config_ValIdiomaIng}"/>
+                                    </ComboBox>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Right">
+                                    <TextBlock Text="{DynamicResource Config_SecAcercaDe}" 
+                                               FontSize="40" FontWeight="Bold" 
+                                               Foreground="{DynamicResource Brush_Texto_Principal}" 
+                                               HorizontalAlignment="Right" Margin="0,20,30,0"/>
+                                    
+                                    <Border Background="{DynamicResource Brush_Borde_General}" 
+                                            Height="5" Width="300" HorizontalAlignment="Right" Margin="0,5,0,30"
+                                            AutomationProperties.AccessibilityView="Raw"/>
+                                    
+                                    <TextBlock Text="{DynamicResource Config_Version}" FontSize="30" 
+                                               HorizontalAlignment="Right" Margin="0,20,40,0"
+                                               Foreground="{DynamicResource Brush_Texto_Principal}"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+
+                    </Grid>
+                </Border>
+
+                <StackPanel Grid.Row="2" 
+                            Orientation="Vertical" 
+                            HorizontalAlignment="Right" 
+                            Spacing="20" 
+                            Margin="0,20,50,40">
+                    
+                    <Button Content="{DynamicResource Global_BtnVolver}"
+                            Classes="BotonConfig"
+                            AutomationProperties.Name="{DynamicResource Global_BtnVolver}"
+                            AutomationProperties.HelpText="{DynamicResource Acc_Btn_Volver_Help}"
+                            Command="{Binding BtnVolverAtras}"
+                            />
+
+                    <Button Content="{DynamicResource Global_BtnCerrarSesion}"
+                            Classes="BotonConfig"
+                            AutomationProperties.Name="{DynamicResource Global_BtnCerrarSesion}"
+                            AutomationProperties.HelpText="{DynamicResource Acc_Btn_Cerrar_Help}"
+                            Command="{Binding BtnCerrarSesion}"/>
+
+                    <Button Content="{DynamicResource Global_BtnSalir}"
+                            Classes="BotonConfig"
+                            AutomationProperties.Name="{DynamicResource Global_BtnSalir}"
+                            AutomationProperties.HelpText="{DynamicResource Acc_Btn_Salir_Help}"
+                            Command="{Binding BtnSalirApp}"/>
+                </StackPanel>
+
+            </Grid>
+        </Viewbox>
+    </Grid>
+</UserControl>

@@ -1,0 +1,6 @@
+﻿@BetaProyecto.API_HostAddress = http://localhost:5017
+
+GET {{BetaProyecto.API_HostAddress}}
+Accept: application/json
+
+###

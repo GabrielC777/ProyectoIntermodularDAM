@@ -1,0 +1,5 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--Aqui tenemos que usar la ruta completa para que funcione la fuente ademas de especificar el nombre correcto de la fuente despues del #-->
+    <FontFamily x:Key="FuenteApp">avares://BetaProyecto/Assets/Fonts/Lexend.ttf#Lexend</FontFamily>
+</ResourceDictionary>

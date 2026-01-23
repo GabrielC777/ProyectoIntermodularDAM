@@ -1,0 +1,101 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:BetaProyecto.ViewModels"
+        xmlns:helpers="using:BetaProyecto.Helpers" 
+        x:Class="BetaProyecto.Views.WindowsRising.VentanaConfirmacion"
+        x:DataType="vm:VentanaConfirmacionViewModel"
+        Title="Confirmación"
+        Width="450" SizeToContent="Height"
+        SystemDecorations="None"
+        WindowStartupLocation="CenterOwner"
+        CanResize="False"
+        TransparencyLevelHint="Transparent"
+        Background="{x:Null}">
+
+    <Window.Resources>
+        <helpers:TextoTraducidoConverter x:Key="Traductor"/>
+    </Window.Resources>
+
+    <Window.Styles>
+        <Style Selector="Border.TarjetaAlerta">
+            <Setter Property="Background" Value="{DynamicResource Brush_Confirm_Fondo_Tarjeta}"/>
+            <Setter Property="CornerRadius" Value="15"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Brush_Confirm_Borde}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BoxShadow" Value="0 10 30 0 #66000000"/>
+            <Setter Property="Padding" Value="25"/>
+            <Setter Property="Margin" Value="30"/> 
+        </Style>
+
+        <Style Selector="TextBlock.Cabecera">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Confirm_Texto_Titulo}"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="TextBlock.Cuerpo">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Confirm_Texto_Cuerpo}"/>
+        </Style>
+
+        <Style Selector="Button">
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="45"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+
+        <Style Selector="Button.BtnCancelar">
+            <Setter Property="Background" Value="{DynamicResource Brush_Confirm_BtnCancel_Fondo}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Confirm_BtnCancel_Texto}"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+        <Style Selector="Button.BtnCancelar:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource Brush_Confirm_BtnCancel_Hover}"/> 
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Confirm_BtnCancel_Texto}"/>
+        </Style>
+
+        <Style Selector="Button.BtnConfirmar">
+            <Setter Property="Background" Value="{DynamicResource Brush_Confirm_BtnOk_Fondo}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Confirm_BtnOk_Texto}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style Selector="Button.BtnConfirmar:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource Brush_Confirm_BtnOk_Hover}"/> 
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Confirm_BtnOk_Texto}"/>
+        </Style>
+
+    </Window.Styles>
+
+    <Grid Background="Transparent">
+        
+        <Border Classes="TarjetaAlerta">
+            <StackPanel Spacing="20">
+                
+                <TextBlock Text="{Binding TituloCabecera, Converter={StaticResource Traductor}}" 
+                           Classes="Cabecera"/>
+
+                <TextBlock Text="{Binding MensajeCuerpo, Converter={StaticResource Traductor}}" 
+                           Classes="Cuerpo"/>
+
+                <StackPanel Orientation="Horizontal" Spacing="20" HorizontalAlignment="Center" Margin="0,10,0,0">
+                    
+                    <Button Content="{Binding TextoBotonNo, Converter={StaticResource Traductor}}" 
+                            Command="{Binding BtnNo}"
+                            Classes="BtnCancelar"/>
+
+                    <Button Content="{Binding TextoBotonSi, Converter={StaticResource Traductor}}" 
+                            Command="{Binding BtnSi}"
+                            Classes="BtnConfirmar"/>
+                    
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+    </Grid>
+</Window>

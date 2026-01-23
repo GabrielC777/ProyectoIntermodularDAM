@@ -1,0 +1,144 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodels="using:BetaProyecto.ViewModels"
+             xmlns:helpers="using:BetaProyecto.Helpers"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:asyncImageLoader="using:AsyncImageLoader"
+             x:Class="BetaProyecto.Views.TabControlApp.TabItemBuscador"
+             x:DataType="viewmodels:TabItemBuscadorViewModel"
+             AutomationProperties.Name="{DynamicResource Acc_Bus_Pagina}">
+    <UserControl.Resources>
+        <helpers:TextoTraducidoConverter x:Key="Traductor"/>
+    </UserControl.Resources>
+   <UserControl.Styles>
+        <Style Selector="ListBoxItem">
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Brush_Bus_Borde_Item}"/>
+            <Setter Property="Margin" Value="0,0,30,0"/>
+        </Style>
+
+        <Style Selector="TextBox.BuscadorStyle">
+            <Setter Property="Background" Value="Transparent"/> 
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Bus_Texto_Principal}"/>
+            <Setter Property="CaretBrush" Value="{DynamicResource Brush_Bus_Texto_Principal}"/> <Setter Property="BorderBrush" Value="{DynamicResource Brush_Bus_Texto_Principal}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
+
+        <Style Selector="TextBox.BuscadorStyle:pointerover /template/ Border#PART_BorderElement">
+            <Setter Property="Background" Value="{DynamicResource Brush_Bus_Fondo_Item}"/> 
+            <Setter Property="BorderBrush" Value="{DynamicResource Brush_Bus_BtnBuscar_Texto}"/> 
+        </Style>
+        <Style Selector="TextBox.BuscadorStyle:pointerover">
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Bus_Texto_Principal}"/>
+        </Style>
+
+        <Style Selector="TextBox.BuscadorStyle:focus /template/ Border#PART_BorderElement">
+            <Setter Property="Background" Value="{DynamicResource Brush_Bus_Fondo_Item}"/> 
+            <Setter Property="BorderBrush" Value="{DynamicResource Brush_Bus_BtnBuscar_Texto}"/> 
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+        
+        <Style Selector="TextBox.BuscadorStyle:focus">
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Bus_Texto_Principal}"/>
+            <Setter Property="CaretBrush" Value="{DynamicResource Brush_Bus_Texto_Principal}"/>
+        </Style>
+
+        <Style Selector="Button.BtnBuscarStyle:disabled /template/ ContentPresenter">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="TextBlock.Foreground" Value="#888888"/> 
+        </Style>
+
+    </UserControl.Styles>
+        <Grid Margin="10,10,10,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <!--Buscador-->
+            <TextBox Grid.Row="0"
+                 Classes="BuscadorStyle"
+                 Text="{Binding TxtBusqueda}"
+                 FontSize="20"
+                 HorizontalAlignment="Stretch" 
+                 Padding="10,15,0,0"
+                 VerticalAlignment="Center"
+                 Watermark="{DynamicResource Bus_Watermark}"
+                 AutomationProperties.Name="{DynamicResource Acc_Bus_Caja}"
+                 AutomationProperties.HelpText="{DynamicResource Acc_Bus_Caja_Help}"
+                 Foreground="{DynamicResource Brush_Bus_Texto_Principal}"
+                 CaretBrush="{DynamicResource Brush_Bus_Texto_Principal}">
+                
+                <TextBox.KeyBindings>
+                    <KeyBinding Gesture="Enter" Command="{Binding BtnBuscar}"/> 
+                </TextBox.KeyBindings>
+                
+                <TextBox.InnerLeftContent>
+                    <Image Source="{DynamicResource Img_Buscar}"  Stretch="Uniform" 
+                           Width="50" Height="50" Margin="0,0,0,5"
+                           AutomationProperties.Name="{DynamicResource Acc_Bus_Lupa}"/>
+                </TextBox.InnerLeftContent>
+                <TextBox.InnerRightContent>
+                <Button Command="{Binding BtnBuscar}" 
+                        Classes="BtnBuscarStyle"
+                        Background="Transparent" 
+                        Cursor="Hand" Margin="0,0,5,0"
+                        AutomationProperties.HelpText="{DynamicResource Acc_Bus_BtnBuscar_Help}">
+                    <TextBlock Text="{DynamicResource Bus_BtnBuscar}" 
+                               FontWeight="Bold"
+                               Foreground="{DynamicResource Brush_Bus_BtnBuscar_Texto}"/> 
+                </Button>
+            </TextBox.InnerRightContent>
+            </TextBox>
+            <!--Numero de resultados-->
+            <TextBlock Grid.Row="1" 
+                   FontSize="20"
+                   FontWeight="Bold"
+                   VerticalAlignment="Center"
+                   Foreground="{DynamicResource Brush_Bus_Texto_Principal}">
+                <Run Text="{Binding TxtInfoResultado, Converter={StaticResource Traductor},Mode=OneWay}"/>
+                <Run Text="{Binding TxtContador}"/>
+            </TextBlock>
+            <!--Listado que devulve la busqueda-->
+            <ListBox Grid.Row="2" 
+                 Background="Transparent"
+                 ItemsSource="{Binding ListaBusqueda}"
+                 AutomationProperties.Name="{DynamicResource Acc_Bus_ListaResultados}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="Auto, *, Auto">
+                        
+                        <Border Grid.Column="0" CornerRadius="5" ClipToBounds="True" Width="60" Height="60">
+                            <Image asyncImageLoader:ImageLoader.Source="{Binding ImagenPortadaUrl}" Stretch="UniformToFill"
+                                   AutomationProperties.Name="{DynamicResource Acc_Bus_Caratula}"/>
+                        </Border>
+
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="20,0,0,0">
+                            <TextBlock Text="{Binding Titulo}" FontWeight="Bold" FontSize="18"
+                                       Foreground="{DynamicResource Brush_Bus_Texto_Principal}"/>
+                            <TextBlock Text="{Binding NombreArtista}" FontSize="14" 
+                                       Foreground="{DynamicResource Brush_Bus_Texto_Secundario}"/>
+                        </StackPanel>
+
+                        <Button Grid.Column="2"
+                                Background="Transparent" 
+                                Cursor="Hand"
+                                x:CompileBindings="False"
+                                Command="{Binding $parent[TabControl].DataContext.BtnReproducir}"
+                                CommandParameter="{Binding}"
+                                AutomationProperties.Name="{Binding Titulo}"
+                                AutomationProperties.HelpText="{DynamicResource Acc_Bus_BtnPlay_Help}">
+                            
+                            <Image Source="/Assets/Imagenes/Play.png" Width="40" Height="40"
+                                   AutomationProperties.AccessibilityView="Raw"/>
+                        </Button>
+
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

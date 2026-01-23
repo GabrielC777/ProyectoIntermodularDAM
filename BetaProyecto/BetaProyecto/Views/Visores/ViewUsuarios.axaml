@@ -1,0 +1,244 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:BetaProyecto.ViewModels"
+             xmlns:asyncImageLoader="using:AsyncImageLoader"
+             xmlns:helpers="using:BetaProyecto.Helpers"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+             x:Class="BetaProyecto.Views.Visores.ViewUsuarios"
+             x:DataType="vm:ViewUsuariosViewModel"
+             Background="Transparent"
+             AutomationProperties.Name="{DynamicResource Acc_VisorUser_Pagina}">
+    <UserControl.Resources>
+        <helpers:TextoTraducidoConverter x:Key="Traductor"/>
+    </UserControl.Resources>
+    <UserControl.Styles>
+        <Style Selector="Border.TarjetaMetrica">
+            <Setter Property="Background" Value="{DynamicResource Brush_VisorUser_Tarjeta_Fondo}"/>
+            <Setter Property="CornerRadius" Value="15"/>
+            <Setter Property="Padding" Value="20"/>
+            <Setter Property="BoxShadow" Value="0 4 15 0 #20000000"/>
+            <Setter Property="Margin" Value="0,0,20,0"/>
+        </Style>
+        
+        <Style Selector="TextBlock.TituloMetrica">
+            <Setter Property="Foreground" Value="{DynamicResource Brush_VisorUser_Texto_MetricaTitulo}"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+        
+        <Style Selector="TextBlock.ValorMetrica">
+            <Setter Property="Foreground" Value="{DynamicResource Brush_VisorUser_Texto_MetricaValor}"/>
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+        <Style Selector="Border.TarjetaItem">
+            <Setter Property="Background" Value="{DynamicResource Brush_VisorUser_Item_Fondo}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Brush_VisorUser_Item_Borde}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="BoxShadow" Value="0 4 8 0 #15000000"/>
+        </Style>
+        
+        <Style Selector="Button.BtnVolver">
+            <Setter Property="Background" Value="{DynamicResource Brush_VisorUser_BtnVolver_Fondo}"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="0,0,0,20"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style Selector="Button.BtnVolver:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource Brush_VisorUser_BtnVolver_Hover}"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid RowDefinitions="Auto, *" Margin="40,40,40,20">
+        <!--Boton de volver-->
+        <Button Command="{Binding BtnVolver}" Classes="BtnVolver" Grid.Row="0"
+                AutomationProperties.Name="{DynamicResource VisorUser_BtnVolver}"
+                AutomationProperties.HelpText="{DynamicResource Acc_Btn_Volver_Help}">
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <Image Source="{DynamicResource Img_Volver}" Width="30" Stretch="Uniform" AutomationProperties.AccessibilityView="Raw"/>
+                <TextBlock Text="{DynamicResource VisorUser_BtnVolver}" VerticalAlignment="Center" FontWeight="Bold" Foreground="White"/>
+            </StackPanel>
+        </Button>
+
+        <Grid Grid.Row="1" ColumnDefinitions="400, *">
+            <!--Imagen perfil-->
+            <StackPanel Grid.Column="0" Spacing="25" VerticalAlignment="Top">
+                
+                <TextBlock Foreground="{DynamicResource Brush_VisorUser_Texto_Timer}" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,0">
+                    <Run Text="{Binding TxtMensajeTimer, Converter={StaticResource Traductor}, Mode=OneWay}"/>
+                    <Run Text="{Binding TxtVariableTimer, Mode=OneWay}"/>
+                </TextBlock>
+                
+                <Border Width="380" Height="380" CornerRadius="190" ClipToBounds="True" 
+                        BoxShadow="0 10 30 0 #40000000" Background="Gray">
+                    <Image asyncImageLoader:ImageLoader.Source="{Binding Usuario.Perfil.ImagenUrl}" 
+                           Stretch="UniformToFill" Width="380" Height="380"
+                           AutomationProperties.Name="{DynamicResource Acc_VisorUser_Avatar}"/>
+                </Border>
+
+                <StackPanel Spacing="10" HorizontalAlignment="Center">
+                    <Border Background="{DynamicResource Brush_VisorUser_InfoCard_Fondo}" CornerRadius="20" Padding="15">
+                        <StackPanel Spacing="15">
+                             <!--Pais-->
+                             <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Center">
+                                <TextBlock Text="🌍" FontSize="20" AutomationProperties.AccessibilityView="Raw"/>
+                                <TextBlock Text="{Binding Usuario.Perfil.Pais}" FontSize="16" 
+                                           Foreground="{DynamicResource Brush_VisorUser_Texto_Info}" FontWeight="SemiBold"/>
+                            </StackPanel>
+                    
+                            <!--Email-->
+                            <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Center">
+                                <TextBlock Text="✉️" FontSize="20" AutomationProperties.AccessibilityView="Raw"/>
+                                <TextBlock Text="{Binding Usuario.Email}" FontSize="14" 
+                                           Foreground="{DynamicResource Brush_VisorUser_Texto_Info}"/>
+                            </StackPanel>
+                        </StackPanel>
+                     </Border>
+                    <Button Command="{Binding BtnSeguir}"
+                            HorizontalAlignment="Center"
+                            Margin="0,20,0,0"
+                            CornerRadius="20"
+                            Padding="30,10"
+                            Cursor="Hand"
+                            Background="{Binding ColorBotonSeguir}"
+                            AutomationProperties.HelpText="{DynamicResource Acc_VisorUser_BtnSeguir_Help}">
+                        <TextBlock Text="{Binding TextoBotonSeguir ,Converter={StaticResource Traductor}}" Foreground="White" FontWeight="Bold" FontSize="16"/>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+
+            <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <Border Background="{DynamicResource Brush_VisorUser_PanelDerecho_Fondo}" 
+                            CornerRadius="20" 
+                            BoxShadow="0 4 20 0 #20000000" 
+                            Margin="40,0,0,0" 
+                            Padding="40">
+                        <!--Datos-->
+                        <StackPanel Spacing="30">
+                            <StackPanel Spacing="5">
+                                <TextBlock Text="{DynamicResource VisorUser_LblPerfil}" 
+                                           Foreground="{DynamicResource Brush_VisorUser_Texto_Label}" FontSize="20" FontWeight="ExtraBold" LetterSpacing="2"/>
+                                
+                                <TextBlock Text="{Binding Usuario.Username}" 
+                                           FontSize="50" FontWeight="Black" TextWrapping="Wrap" LineHeight="55" 
+                                           Foreground="{DynamicResource Brush_VisorUser_Texto_Titulo}"/>
+                                
+                                <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,5,0,0">
+                                    <TextBlock Text="{DynamicResource VisorUser_LblNacido}" 
+                                               Foreground="{DynamicResource Brush_VisorUser_Texto_Sublabel}" FontSize="16"/>
+                                    <TextBlock Text="{Binding FechaNacimientoFormateada}" FontSize="16" FontWeight="SemiBold" 
+                                               Foreground="{DynamicResource Brush_VisorUser_Texto_Sublabel}"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <Separator Height="1" Background="{DynamicResource Brush_VisorUser_Texto_Sublabel}" Opacity="0.3" AutomationProperties.AccessibilityView="Raw"/>
+
+                            <TextBlock Text="{DynamicResource VisorUser_SecEstadisticas}" FontWeight="Bold" FontSize="20" 
+                                       Foreground="{DynamicResource Brush_VisorUser_Texto_Titulo}"
+                                       AutomationProperties.Name="{DynamicResource Acc_VisorUser_Stats_Help}"/>
+                            
+                            <StackPanel Orientation="Horizontal">
+                                <Border Classes="TarjetaMetrica" Width="200">
+                                    <StackPanel Spacing="5">
+                                        <TextBlock Text="{DynamicResource VisorUser_LblCanciones}" Classes="TituloMetrica"/>
+                                        <TextBlock Text="{Binding CantidadCanciones}" Classes="ValorMetrica"/>
+                                    </StackPanel>
+                                </Border>
+                                <Border Classes="TarjetaMetrica" Width="200">
+                                    <StackPanel Spacing="5">
+                                        <TextBlock Text="{DynamicResource VisorUser_LblPlaylists}" Classes="TituloMetrica"/>
+                                        <TextBlock Text="{Binding PlaylistsCreadas.Count}" Classes="ValorMetrica"/>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                            
+                            <Separator Height="1" Background="{DynamicResource Brush_VisorUser_Texto_Sublabel}" Opacity="0.3" Margin="0,10" AutomationProperties.AccessibilityView="Raw"/>
+                            
+                            <!--Canciones subidas del usuarios-->
+                            <StackPanel Spacing="15">
+                                <TextBlock Text="{DynamicResource VisorUser_SecCancionesSubidas}" FontSize="22" FontWeight="Bold" 
+                                           Foreground="{DynamicResource Brush_VisorUser_Texto_Seccion}"/>
+                                
+                                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+                                    <ItemsControl ItemsSource="{Binding CancionesSubidas}" AutomationProperties.Name="{DynamicResource Acc_VisorUser_ListaCanciones_Help}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel Orientation="Horizontal"/>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border Classes="TarjetaItem" Width="180" Height="240" Margin="0,5,20,25">
+                                                    <Grid RowDefinitions="*, Auto">
+                                                        <Border Grid.Row="0" Margin="10" CornerRadius="8" ClipToBounds="True">
+                                                            <Image asyncImageLoader:ImageLoader.Source="{Binding ImagenPortadaUrl}" Stretch="UniformToFill" AutomationProperties.AccessibilityView="Raw"/>
+                                                        </Border>
+                                                        <StackPanel Grid.Row="1" Margin="12,0,12,12">
+                                                            <TextBlock Text="{Binding Titulo}" FontWeight="Bold" TextTrimming="CharacterEllipsis" 
+                                                                       Foreground="{DynamicResource Brush_VisorUser_Item_TextoTitulo}"/>
+                                                            <TextBlock Text="{Binding Datos.FechaLanzamiento, StringFormat='{}{0:yyyy}'}" FontSize="12" 
+                                                                       Foreground="{DynamicResource Brush_VisorUser_Item_TextoFecha}"/>
+                                                        </StackPanel>
+                                                    </Grid>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </ScrollViewer>
+                            </StackPanel>
+                            <!--Playlist creadas del usuarios-->
+                            <StackPanel Spacing="15">
+                                <TextBlock Text="{DynamicResource VisorUser_SecPlaylistsPublicas}" FontSize="22" FontWeight="Bold" 
+                                           Foreground="{DynamicResource Brush_VisorUser_Texto_Seccion}"/>
+                                
+                                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+                                    <ItemsControl ItemsSource="{Binding PlaylistsCreadas}" AutomationProperties.Name="{DynamicResource Acc_VisorUser_ListaPlaylists_Help}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel Orientation="Horizontal"/>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border Classes="TarjetaItem" Width="180" Height="180" Margin="0,5,20,25"
+                                                        CornerRadius="15" ClipToBounds="True"> 
+                                                    <Grid>
+                                                        <Image asyncImageLoader:ImageLoader.Source="{Binding UrlPortada}" Stretch="UniformToFill" AutomationProperties.AccessibilityView="Raw"/>
+
+                                                        <StackPanel VerticalAlignment="Bottom" Margin="15">
+                                                            <TextBlock Text="{Binding Nombre}"
+                                                                       FontWeight="Bold"
+                                                                       FontSize="16"
+                                                                       Foreground="White"
+                                                                       TextTrimming="CharacterEllipsis"/>
+
+                                                            <TextBlock Text="{Binding Descripcion}"
+                                                                       FontSize="12"
+                                                                       TextTrimming="CharacterEllipsis"
+                                                                       Foreground="#E0E0E0"
+                                                                       Margin="0,4,0,0"
+                                                                       MaxLines="2"/> 
+                                                        </StackPanel>
+                                                    </Grid>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </ScrollViewer>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>    
+        </Grid>
+    </Grid>
+</UserControl>

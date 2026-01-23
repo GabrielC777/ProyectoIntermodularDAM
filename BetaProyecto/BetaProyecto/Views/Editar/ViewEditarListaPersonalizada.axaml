@@ -1,0 +1,217 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:asyncImageLoader="using:AsyncImageLoader"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:BetaProyecto.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+             x:Class="BetaProyecto.Views.Editar.ViewEditarListaPersonalizada"
+             x:DataType="vm:ViewEditarListaPersonalizadaViewModel"
+             x:Name="RaizEdit"
+             Background="Transparent"
+             AutomationProperties.Name="{DynamicResource Acc_EditPlay_Pagina}">
+
+    <UserControl.Styles>
+        <Style Selector="TextBox">
+            <Setter Property="Background" Value="{DynamicResource Brush_EditPlay_Input_Fondo}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_EditPlay_Input_Texto}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Brush_EditPlay_Input_Borde}"/>
+            <Setter Property="CaretBrush" Value="{DynamicResource Brush_EditPlay_Input_Texto}"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="Height" Value="45"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        
+        <Style Selector="Button.Design">
+            <Setter Property="Background" Value="#999396"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="CornerRadius" Value="20"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Panel>
+        
+        <Grid ColumnDefinitions="400, *" Margin="30">
+            
+            <Border Grid.Column="0" Background="{DynamicResource Brush_EditPlay_Fondo_Panel}" 
+                    CornerRadius="15" Padding="25" BoxShadow="0 0 15 0 #22000000">
+                <StackPanel Spacing="20">
+                    
+                    <Button Command="{Binding BtnAtras}" 
+                            Background="{DynamicResource Brush_EditPlay_BtnVolver_Fondo}" 
+                            Padding="0" Width="100" Height="40" Classes="Design" HorizontalAlignment="Left"
+                            AutomationProperties.Name="{DynamicResource EditPlay_BtnCancelar}"
+                            AutomationProperties.HelpText="{DynamicResource Acc_Rep_BtnCancelar_Help}">
+                        <StackPanel Orientation="Horizontal" Spacing="5">
+                            <TextBlock Text="{DynamicResource EditPlay_BtnCancelar}" VerticalAlignment="Center" 
+                                       Foreground="{DynamicResource Brush_EditPlay_BtnVolver_Texto}"/>
+                        </StackPanel>
+                    </Button>
+
+                    <TextBlock Text="{DynamicResource EditPlay_Titulo}" FontSize="28" FontWeight="Bold" Margin="0,0,0,10"
+                               Foreground="{DynamicResource Brush_EditPlay_Texto_Principal}"/>
+
+                    <StackPanel Spacing="15">
+                        <TextBlock Text="{DynamicResource EditPlay_LblPortada}" FontSize="15" 
+                                   Foreground="{DynamicResource Brush_EditPlay_Texto_Secundario}"/>
+                        <Grid RowDefinitions="Auto, 10, Auto">
+                            <Grid Grid.Row="0" ColumnDefinitions="*, 10, Auto">
+                                <TextBox Grid.Column="0" Text="{Binding RutaImagen}" 
+                                         IsReadOnly="True" Watermark="{DynamicResource EditPlay_WaterImagen}"
+                                         VerticalAlignment="Center" Height="40" CornerRadius="8"
+                                         AutomationProperties.HelpText="{DynamicResource Acc_EditPlay_RutaImg_Help}"/>
+                                
+                                <Button Grid.Column="2" Content="{DynamicResource EditPlay_BtnCambiarImg}" 
+                                        Click="BtnSelectImagen_Click"
+                                        Height="40" Classes="Design"
+                                        AutomationProperties.HelpText="{DynamicResource Acc_EditPlay_BtnImg_Help}"/>
+                            </Grid>
+                            <Panel Grid.Row="2" Height="150">
+                                <Border CornerRadius="8" 
+                                        BorderBrush="{DynamicResource Brush_EditPlay_Input_Borde}" BorderThickness="2" 
+                                        Background="{DynamicResource Brush_EditPlay_Input_Fondo}"
+                                        IsVisible="{Binding !TieneImagen}">
+                                    <TextBlock Text="{DynamicResource EditPlay_TxtSinImagen}" 
+                                               Foreground="{DynamicResource Brush_EditPlay_Texto_Secundario}" 
+                                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <Border CornerRadius="8" ClipToBounds="True" IsVisible="{Binding TieneImagen}">
+                                    <Image Source="{Binding ImagenPortada}" Stretch="Uniform" AutomationProperties.AccessibilityView="Raw"/>
+                                </Border>
+                            </Panel>
+                        </Grid>
+                    </StackPanel>
+
+                    <StackPanel Spacing="5">
+                        <TextBlock Text="{DynamicResource EditPlay_LblNombre}" FontWeight="Medium" 
+                                   Foreground="{DynamicResource Brush_EditPlay_Texto_Secundario}"/>
+                        <TextBox Text="{Binding TxtNombre}"
+                                 AutomationProperties.Name="{DynamicResource EditPlay_LblNombre}"
+                                 AutomationProperties.HelpText="{DynamicResource Acc_EditPlay_Nombre_Help}"/>
+                    </StackPanel>
+
+                    <StackPanel Spacing="5">
+                        <TextBlock Text="{DynamicResource EditPlay_LblDesc}" FontWeight="Medium" 
+                                   Foreground="{DynamicResource Brush_EditPlay_Texto_Secundario}"/>
+                        <TextBox Text="{Binding TxtDescripcion}" Height="80" AcceptsReturn="True" TextWrapping="Wrap"
+                                 AutomationProperties.Name="{DynamicResource EditPlay_LblDesc}"
+                                 AutomationProperties.HelpText="{DynamicResource Acc_EditPlay_Desc_Help}"/>
+                    </StackPanel>
+
+                    <Button Classes="Design" 
+                            Command="{Binding BtnGuardar}"
+                            Content="{DynamicResource EditPlay_BtnGuardar}"
+                            HorizontalAlignment="Stretch"
+                            Height="50" 
+                            Margin="0,20,0,0"
+                            Background="{DynamicResource Brush_EditPlay_BtnGuardar_Fondo}"
+                            Foreground="{DynamicResource Brush_EditPlay_BtnGuardar_Texto}"
+                            AutomationProperties.HelpText="{DynamicResource Acc_EditPlay_BtnGuardar_Help}"/>
+                </StackPanel>
+            </Border>
+
+            <Grid Grid.Column="1" RowDefinitions="Auto, *" Margin="30,0,0,0">
+                
+                <Grid Grid.Row="0" ColumnDefinitions="*, Auto" Margin="0,0,0,20">
+                    <TextBox Grid.Column="0" Text="{Binding TxtBusqueda}" 
+                             Watermark="{DynamicResource EditPlay_WaterBusqueda}" 
+                             Classes="SearchBox"
+                             AutomationProperties.HelpText="{DynamicResource Acc_EditPlay_Busqueda_Help}"/>
+                    
+                    <Button Grid.Column="1" Command="{Binding BtnBuscarCanciones}" Width="50" Height="45" Margin="10,0,0,0" Classes="Design"
+                            AutomationProperties.HelpText="{DynamicResource Acc_EditPlay_BtnBuscar_Help}">
+                        <TextBlock Text="🔍" AutomationProperties.AccessibilityView="Raw"/>
+                    </Button>
+                </Grid>
+
+                <Grid Grid.Row="1" ColumnDefinitions="*, 20, *">
+                    
+                    <Border Grid.Column="0" Background="{DynamicResource Brush_EditPlay_Fondo_Panel}" CornerRadius="10" Padding="15">
+                        <Grid RowDefinitions="Auto, *">
+                            <TextBlock Grid.Row="0" Text="{DynamicResource EditPlay_Resultados}" FontWeight="Bold" Margin="0,0,0,10"
+                                       Foreground="{DynamicResource Brush_EditPlay_Texto_Principal}"/>
+                            <ScrollViewer Grid.Row="1">
+                                <ItemsControl ItemsSource="{Binding ListaResultados}" AutomationProperties.Name="{DynamicResource Acc_EditPlay_ListaResultados}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Padding="10" Margin="0,0,0,5" 
+                                                    Background="{DynamicResource Brush_EditPlay_ListaResultados_Fondo}" CornerRadius="8">
+                                                <Grid ColumnDefinitions="Auto, *, Auto">
+                                                    <Image Grid.Column="0" asyncImageLoader:ImageLoader.Source="{Binding ImagenPortadaUrl}" Width="50" Height="50" Margin="0,0,10,0" AutomationProperties.AccessibilityView="Raw"/>
+                                                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                                        <TextBlock Text="{Binding Titulo}" FontWeight="Bold" Foreground="{DynamicResource Brush_EditPlay_Texto_Principal}"/>
+                                                        <TextBlock Text="{Binding NombreArtista}" FontSize="12" Foreground="{DynamicResource Brush_EditPlay_Texto_Secundario}"/>
+                                                    </StackPanel>
+                                                    
+                                                    <Button Grid.Column="2" 
+                                                            Command="{ReflectionBinding #RaizEdit.DataContext.BtnAgregarCancion}" 
+                                                            CommandParameter="{Binding}" Content="+" 
+                                                            Background="{DynamicResource Brush_EditPlay_BtnAdd_Fondo}" Classes="Design" Width="35" Height="35"
+                                                            AutomationProperties.Name="{Binding Titulo}"
+                                                            AutomationProperties.HelpText="{DynamicResource Acc_EditPlay_BtnAdd_Help}"/>
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </ScrollViewer>
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Column="2" Background="{DynamicResource Brush_EditPlay_Fondo_Panel}" 
+                            CornerRadius="10" Padding="15" 
+                            BorderBrush="{DynamicResource Brush_EditPlay_Borde_ListaActual}" BorderThickness="2">
+                        <Grid RowDefinitions="Auto, *">
+                            <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="10" Margin="0,0,0,10">
+                                <TextBlock Text="{DynamicResource EditPlay_LblCancionesActuales}" FontWeight="Bold"
+                                           Foreground="{DynamicResource Brush_EditPlay_Texto_Principal}"/>
+                                <TextBlock Text="{Binding ListaCancionesSeleccionadas.Count}" 
+                                           Foreground="{DynamicResource Brush_EditPlay_Borde_ListaActual}" FontWeight="Bold"/>
+                            </StackPanel>
+                            <ScrollViewer Grid.Row="1">
+                                <ItemsControl ItemsSource="{Binding ListaCancionesSeleccionadas}" AutomationProperties.Name="{DynamicResource Acc_EditPlay_ListaActual}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Padding="10" Margin="0,0,0,5" 
+                                                    Background="{DynamicResource Brush_EditPlay_ListaActual_Fondo}" CornerRadius="8">
+                                                <Grid ColumnDefinitions="Auto, *, Auto">
+                                                    <Image Grid.Column="0" asyncImageLoader:ImageLoader.Source="{Binding ImagenPortadaUrl}" Width="50" Height="50" Margin="0,0,10,0" AutomationProperties.AccessibilityView="Raw"/>
+                                                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                                        <TextBlock Text="{Binding Titulo}" FontWeight="Bold" Foreground="{DynamicResource Brush_EditPlay_Texto_Principal}"/>
+                                                        <TextBlock Text="{Binding NombreArtista}" FontSize="12" Foreground="{DynamicResource Brush_EditPlay_Texto_Secundario}"/>
+                                                    </StackPanel>
+                                                    
+                                                    <Button Grid.Column="2" 
+                                                            Command="{ReflectionBinding #RaizEdit.DataContext.BtnEliminarCancion}" 
+                                                            CommandParameter="{Binding}" Content="x" 
+                                                            Background="{DynamicResource Brush_EditPlay_BtnRemove_Fondo}" 
+                                                            Foreground="Red" Classes="Design" Width="35" Height="35"
+                                                            AutomationProperties.Name="{Binding Titulo}"
+                                                            AutomationProperties.HelpText="{DynamicResource Acc_EditPlay_BtnRemove_Help}"/>
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </ScrollViewer>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid Background="#CC000000" IsVisible="{Binding EstaCargando}">
+            <Border Background="{DynamicResource Brush_EditPlay_Fondo_Panel}" CornerRadius="20" Padding="40" HorizontalAlignment="Center" VerticalAlignment="Center" BoxShadow="0 10 30 0 #30000000">
+                <StackPanel Spacing="25">
+                    <ProgressBar IsIndeterminate="True" Width="250" Height="10"/>
+                    <TextBlock Text="{DynamicResource EditPlay_Load_Actualizando}" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"
+                               Foreground="{DynamicResource Brush_EditPlay_Texto_Principal}"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+    </Panel>
+</UserControl>

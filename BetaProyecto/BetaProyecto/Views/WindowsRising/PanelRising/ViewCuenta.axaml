@@ -1,0 +1,186 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:BetaProyecto.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+             x:Class="BetaProyecto.Views.WindowsRising.PanelRising.ViewCuenta"
+             x:DataType="vm:ViewCuentaViewModel">
+
+    <Design.DataContext>
+        <vm:ViewCuentaViewModel />
+    </Design.DataContext>
+
+    <UserControl.Styles>
+        <Style Selector="Border.Celda">
+            <Setter Property="Background" Value="{DynamicResource Brush_Cuenta_Celda}"/>
+            <Setter Property="Padding" Value="20"/>
+        </Style>
+        <Style Selector="TextBlock.Etiqueta">
+            <Setter Property="FontSize" Value="35"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Texto_Principal}"/>
+        </Style>
+        <Style Selector="TextBox.Input">
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Texto_Principal}"/>
+        </Style>
+
+        <Style Selector="Border.InfoBadge">
+            <Setter Property="Background" Value="{DynamicResource Brush_Cuenta_Badge_Fondo}"/>
+            <Setter Property="CornerRadius" Value="15"/>
+            <Setter Property="Width" Value="30"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+            <Setter Property="Cursor" Value="Help"/>
+            <Setter Property="ToolTip.ShowDelay" Value="0"/> 
+        </Style>
+        
+        <Style Selector="Border.InfoBadge:pointerover">
+            <Setter Property="Background" Value="{DynamicResource Brush_Cuenta_Badge_Hover}"/> 
+        </Style>
+    </UserControl.Styles>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Separator Grid.Row="0" Height="3" Background="{DynamicResource Brush_Borde_General}" Margin="0" VerticalAlignment="Top"/>
+
+        <Viewbox Grid.Row="1" Stretch="Uniform">
+            <Grid Width="1920" Height="1080">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" HorizontalAlignment="Left" Margin="50,40,0,50">
+                    <StackPanel Orientation="Horizontal" Spacing="20">
+                        <TextBlock Text="{DynamicResource Cuenta_Titulo}" 
+                                   AutomationProperties.Name="{DynamicResource Cuenta_Titulo}"
+                                   FontSize="50" FontWeight="Bold" 
+                                   Foreground="{DynamicResource Brush_Texto_Principal}"/>
+                        
+                        <Button Command="{Binding BtnRefrescar}"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Cursor="Hand"
+                                VerticalAlignment="Center"
+                                ToolTip.Tip="{DynamicResource Acc_Cuenta_BtnRefrescar}"
+                                AutomationProperties.Name="{DynamicResource Acc_Cuenta_BtnRefrescar}">
+                            <TextBlock Text="🔄" FontSize="35" Foreground="{DynamicResource Brush_Cuenta_BtnRefrescar}"/>
+                        </Button>
+                    </StackPanel>
+                    <Border Background="{DynamicResource Brush_Borde_General}" Height="5" Width="250" HorizontalAlignment="Left" Margin="0,5,0,0"/>
+                </StackPanel>
+
+                <Border Grid.Row="1" 
+                        Classes="Tabla"
+                        BorderBrush="{DynamicResource Brush_Borde_General}" 
+                        BorderThickness="2" 
+                        CornerRadius="20"
+                        ClipToBounds="True"
+                        Margin="40"
+                        HorizontalAlignment="Left" 
+                        Width="1400" 
+                        Background="{DynamicResource Brush_Cuenta_Tabla_Fondo}">
+                    
+                    <Grid ColumnDefinitions="450, *" 
+                          RowDefinitions="Auto,Auto,Auto,Auto,Auto" 
+                          ColumnSpacing="3" 
+                          RowSpacing="3">
+                        
+                        <Border Grid.Row="0" Grid.Column="0" Classes="Celda" CornerRadius="20,0,0,0">
+                            <TextBlock Text="{DynamicResource Cuenta_LblNombre}" Classes="Etiqueta"/>
+                        </Border>
+                        <Border Grid.Row="0" Grid.Column="1" Classes="Celda">
+                            <TextBox Text="{Binding NombreUsuario}" 
+                                     Classes="Input"
+                                     AutomationProperties.Name="{DynamicResource Cuenta_LblNombre}"
+                                     AutomationProperties.HelpText="{DynamicResource Acc_Cuenta_CajaNombre}"/>
+                        </Border>
+
+                        <Border Grid.Row="1" Grid.Column="0" Classes="Celda">
+                            <TextBlock Text="{DynamicResource Cuenta_LblCorreo}" Classes="Etiqueta"/>
+                        </Border>
+                        <Border Grid.Row="1" Grid.Column="1" Classes="Celda">
+                            <TextBox Text="{Binding Email}" 
+                                     Classes="Input"
+                                     AutomationProperties.Name="{DynamicResource Cuenta_LblCorreo}"
+                                     AutomationProperties.HelpText="{DynamicResource Acc_Cuenta_CajaCorreo}"/>
+                        </Border>
+
+                        <Border Grid.Row="2" Grid.Column="0" Classes="Celda">
+                            <TextBlock Text="{DynamicResource Cuenta_LblFecha}" Classes="Etiqueta"/>
+                        </Border>
+                        <Border Grid.Row="2" Grid.Column="1" Classes="Celda" Padding="10">
+                            <DatePicker SelectedDate="{Binding FechaNacimiento}" 
+                                        FontSize="30" 
+                                        VerticalAlignment="Center" 
+                                        HorizontalAlignment="Stretch"
+                                        AutomationProperties.Name="{DynamicResource Cuenta_LblFecha}"
+                                        AutomationProperties.HelpText="{DynamicResource Acc_Cuenta_CajaFecha}"/>
+                        </Border>
+
+                        <Border Grid.Row="3" Grid.Column="0" Classes="Celda">
+                            <TextBlock Text="{DynamicResource Cuenta_LblPais}" Classes="Etiqueta"/>
+                        </Border>
+                        <Border Grid.Row="3" Grid.Column="1" Classes="Celda">
+                            <TextBox Text="{Binding Pais}" 
+                                     Classes="Input"
+                                     AutomationProperties.Name="{DynamicResource Cuenta_LblPais}"
+                                     AutomationProperties.HelpText="{DynamicResource Acc_Cuenta_CajaPais}"/>
+                        </Border>
+
+                        <Border Grid.Row="4" Grid.Column="0" Classes="Celda" CornerRadius="0,0,0,20">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                
+                                <TextBlock Text="{DynamicResource Cuenta_LblTipo}" Classes="Etiqueta"/>
+                                
+                                <Border Classes="InfoBadge" 
+                                        ToolTip.Tip="{DynamicResource Info_Cuenta_Tipo}">
+                                    <TextBlock Text="?" 
+                                               Foreground="{DynamicResource Brush_Cuenta_Badge_Texto}" 
+                                               FontWeight="Bold" 
+                                               FontSize="20"
+                                               HorizontalAlignment="Center" 
+                                               VerticalAlignment="Center"/>
+                                </Border>
+                                
+                            </StackPanel>
+                        </Border>
+                        <Border Grid.Row="4" Grid.Column="1" Classes="Celda" CornerRadius="0,0,20,0">
+                            <ComboBox SelectedIndex="{Binding IndexPrivacidad}" 
+                                      HorizontalAlignment="Stretch" 
+                                      FontSize="30"
+                                      AutomationProperties.Name="{DynamicResource Cuenta_LblTipo}"
+                                      AutomationProperties.HelpText="{DynamicResource Acc_Cuenta_ComboTipo}">
+                                
+                                <ComboBoxItem Content="{DynamicResource Cuenta_OptPrivada}"/>
+                                <ComboBoxItem Content="{DynamicResource Cuenta_OptPublica}"/>
+                            </ComboBox>
+                        </Border>
+
+                    </Grid>
+                </Border>
+
+                <Button Grid.Row="2" 
+                        Content="{DynamicResource Cuenta_BtnGuardar}" 
+                        Command="{Binding BtnGuardar}"
+                        HorizontalAlignment="Center" Margin="0,30,0,0"
+                        FontSize="30" Padding="30,15" CornerRadius="15"
+                        Background="{DynamicResource Brush_Cuenta_BtnGuardar_Fondo}" 
+                        Foreground="{DynamicResource Brush_Cuenta_BtnGuardar_Texto}"
+                        AutomationProperties.Name="{DynamicResource Cuenta_BtnGuardar}"/>
+            </Grid>
+        </Viewbox>
+    </Grid>
+</UserControl>

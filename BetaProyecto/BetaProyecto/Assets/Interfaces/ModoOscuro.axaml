@@ -1,0 +1,476 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+
+    <!-- General -->
+    <Bitmap x:Key="Img_Volver">/Assets/Imagenes/FechaIzquierdaModoOscuro.png</Bitmap>
+    <Bitmap x:Key="Img_FlechaDerecha">/Assets/Imagenes/FlechaDerechaModoOscuro.png</Bitmap>
+    
+    <Bitmap x:Key="Img_Anadir">/Assets/Imagenes/PlusModoOscuro.png</Bitmap>
+    <Bitmap x:Key="Img_Eliminar">/Assets/Imagenes/EliminarModoOscuro.png</Bitmap>
+    
+    <Bitmap x:Key="Img_Buscar">/Assets/Imagenes/LupaModoOscuro.png</Bitmap>
+    <Bitmap x:Key="Img_BuscarLleno">/Assets/Imagenes/LupaLlenaModoOscuro.png</Bitmap>
+    <SolidColorBrush x:Key="ComboBoxDropDownBackground" Color="#1E1E1E"/>
+    <SolidColorBrush x:Key="ComboBoxDropDownBorderBrush" Color="#555555"/>
+    <SolidColorBrush x:Key="Brush_Global_Combo_Texto" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Global_Combo_Hover" Color="#333333"/>
+    <SolidColorBrush x:Key="Brush_Global_Combo_Selected" Color="#AFB42B"/>
+    <SolidColorBrush x:Key="Brush_Global_Combo_Placeholder" Color="#B0BEC5"/>
+    
+    
+    <!-- ViewCrearListaPersonalizada.axaml -->
+    <SolidColorBrush x:Key="Brush_Play_Fondo_Pagina" Color="#121212"/>
+    <SolidColorBrush x:Key="Brush_Play_Fondo_Tarjeta" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="Brush_Play_Texto_Titulo" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Play_Texto_Subtitulo" Color="#B0B0B0"/>
+    <SolidColorBrush x:Key="Brush_Play_Texto_Label" Color="#B0B0B0"/>
+    
+    <SolidColorBrush x:Key="Brush_Play_Input_Fondo" Color="#1E1E1E"/>
+    <SolidColorBrush x:Key="Brush_Play_Input_Texto" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Play_Input_Borde" Color="#555555"/>
+    
+    <SolidColorBrush x:Key="Brush_Play_BtnVolver_Fondo" Color="Transparent"/>
+    <SolidColorBrush x:Key="Brush_Play_BtnVolver_Texto" Color="#B0B0B0"/>
+    <SolidColorBrush x:Key="Brush_Play_BtnAccion_Fondo" Color="#424242"/>
+    <SolidColorBrush x:Key="Brush_Play_BtnAccion_Texto" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Play_BtnGuardar_Fondo" Color="#AFB42B"/>
+    
+    <SolidColorBrush x:Key="Brush_Play_ListaResultados_Fondo" Color="#1E1E1E"/>
+    <SolidColorBrush x:Key="Brush_Play_ListaActual_Fondo" Color="#33691E"/> 
+    <SolidColorBrush x:Key="Brush_Play_Borde_ListaActual" Color="#AFB42B"/>
+    
+    <SolidColorBrush x:Key="Brush_Play_BtnAdd_Fondo" Color="#AFB42B"/>
+    <SolidColorBrush x:Key="Brush_Play_BtnRemove_Fondo" Color="#C62828"/> 
+    <SolidColorBrush x:Key="Brush_Play_BtnRemove_Icono" Color="White"/>
+
+    <!-- ViewCrearReporte.axaml -->
+    <SolidColorBrush x:Key="Brush_Rep_Fondo_Tarjeta" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="Brush_Rep_Titulo" Color="#EF5350"/>
+    <SolidColorBrush x:Key="Brush_Rep_Texto_Principal" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Rep_Texto_Secundario" Color="#B0B0B0"/>
+    
+    <SolidColorBrush x:Key="Brush_Rep_Input_Fondo" Color="#1E1E1E"/>
+    <SolidColorBrush x:Key="Brush_Rep_Input_Texto" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Rep_Input_Borde" Color="#555555"/>
+    
+    <SolidColorBrush x:Key="Brush_Rep_BtnCancelar_Texto" Color="#B0B0B0"/>
+    <SolidColorBrush x:Key="Brush_Rep_BtnEnviar_Fondo" Color="#C62828"/> 
+    <SolidColorBrush x:Key="Brush_Rep_BtnEnviar_Texto" Color="White"/>
+    
+    <SolidColorBrush x:Key="Brush_Rep_Separador" Color="#444444"/>
+
+    <!-- ViewCrearUsuario.axaml -->
+    <SolidColorBrush x:Key="Brush_Reg_Fondo_Tarjeta" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="Brush_Reg_Sombra_Tarjeta" Color="Black"/>
+    <SolidColorBrush x:Key="Brush_Reg_Titulo" Color="#29B6F6"/> 
+    <SolidColorBrush x:Key="Brush_Reg_Input_Texto_Label" Color="#B0B0B0"/>
+    <SolidColorBrush x:Key="Brush_Reg_Input_Fondo" Color="#1E1E1E"/>
+    <SolidColorBrush x:Key="Brush_Reg_Input_Texto" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Reg_Input_Borde" Color="#555555"/>
+    
+    <SolidColorBrush x:Key="Brush_Reg_Texto_Principal" Color="White"/>
+    
+    <SolidColorBrush x:Key="Brush_Reg_BtnRegistrar_Fondo" Color="#D32F2F"/> 
+    <SolidColorBrush x:Key="Brush_Reg_BtnRegistrar_Texto" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Reg_BtnCancelar_Texto" Color="#B0B0B0"/>
+    <SolidColorBrush x:Key="Brush_Reg_BtnExaminar_Fondo" Color="#424242"/>
+    <SolidColorBrush x:Key="Brush_Reg_BtnExaminar_Texto" Color="White"/>
+    
+    <SolidColorBrush x:Key="Brush_Reg_ImgPreview_Fondo" Color="#424242"/>
+    
+    <!-- ViewPublicarCancion.axaml -->
+    <SolidColorBrush x:Key="Brush_Pub_Fondo_Pagina" Color="#121212"/> 
+    <SolidColorBrush x:Key="Brush_Pub_Fondo_Tarjeta" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="Brush_Pub_Texto_Titulo" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Pub_Texto_Subtitulo" Color="#B0B0B0"/>
+    <SolidColorBrush x:Key="Brush_Pub_Texto_Seccion" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Pub_Texto_Label" Color="#B0B0B0"/>
+    
+    <SolidColorBrush x:Key="Brush_Pub_Panel_Seccion_Fondo" Color="#1E1E1E"/>
+    
+    <SolidColorBrush x:Key="Brush_Pub_Input_Fondo" Color="#1E1E1E"/>
+    <SolidColorBrush x:Key="Brush_Pub_Input_Texto" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Pub_Input_Borde" Color="#555555"/>
+    
+    <SolidColorBrush x:Key="Brush_Pub_Tag_Fondo" Color="#0D47A1"/>
+    <SolidColorBrush x:Key="Brush_Pub_Tag_Borde" Color="#1976D2"/>
+    <SolidColorBrush x:Key="Brush_Pub_Tag_Texto" Color="#E3F2FD"/>
+    
+    <SolidColorBrush x:Key="Brush_Pub_BtnVolver_Fondo" Color="#424242"/>
+    <SolidColorBrush x:Key="Brush_Pub_BtnAccion_Fondo" Color="#424242"/>
+    <SolidColorBrush x:Key="Brush_Pub_BtnAccion_Texto" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Pub_BtnPublicar_Fondo" Color="#AFB42B"/>
+    <SolidColorBrush x:Key="Brush_Pub_BtnPublicar_Texto" Color="Black"/>
+    
+    <SolidColorBrush x:Key="Brush_Pub_Icono_Youtube" Color="#FF5252"/>
+    <SolidColorBrush x:Key="Brush_Pub_Icono_Local" Color="#448AFF"/>
+    
+    <SolidColorBrush x:Key="Brush_Pub_Loader_Overlay" Color="#CC000000"/>
+    <SolidColorBrush x:Key="Brush_Pub_Loader_Tarjeta" Color="#2D2D30"/>
+
+    <!-- ViewEditarCancion.axaml -->
+    <SolidColorBrush x:Key="Brush_Edit_Fondo_Panel" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="Brush_Edit_Texto_Principal" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Edit_Texto_Secundario" Color="#B0B0B0"/>
+    
+    <SolidColorBrush x:Key="Brush_Edit_Input_Fondo" Color="#1E1E1E"/>
+    <SolidColorBrush x:Key="Brush_Edit_Input_Texto" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Edit_Input_Borde" Color="#555555"/>
+    
+    <SolidColorBrush x:Key="Brush_Edit_Tag_Fondo" Color="#0D47A1"/>
+    <SolidColorBrush x:Key="Brush_Edit_Tag_Texto" Color="#E3F2FD"/>
+    <SolidColorBrush x:Key="Brush_Edit_Tag_Borde" Color="#1976D2"/>
+    
+    <SolidColorBrush x:Key="Brush_Edit_Portada_Fondo" Color="#1E1E1E"/>
+    
+    <SolidColorBrush x:Key="Brush_Edit_Alerta_Fondo" Color="#1A237E"/>
+    <SolidColorBrush x:Key="Brush_Edit_Alerta_Borde" Color="#5C6BC0"/>
+    <SolidColorBrush x:Key="Brush_Edit_Alerta_Texto" Color="#C5CAE9"/>
+    
+    <SolidColorBrush x:Key="Brush_Edit_BtnGuardar_Fondo" Color="#AFB42B"/> 
+    <SolidColorBrush x:Key="Brush_Edit_BtnGuardar_Texto" Color="Black"/>
+    
+    
+    <!-- ViewEditarListaPersonalizada.axaml -->
+    <SolidColorBrush x:Key="Brush_EditPlay_Fondo_Panel" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="Brush_EditPlay_Texto_Principal" Color="White"/>
+    <SolidColorBrush x:Key="Brush_EditPlay_Texto_Secundario" Color="#B0B0B0"/>
+    
+    <SolidColorBrush x:Key="Brush_EditPlay_Input_Fondo" Color="#1E1E1E"/>
+    <SolidColorBrush x:Key="Brush_EditPlay_Input_Texto" Color="White"/>
+    <SolidColorBrush x:Key="Brush_EditPlay_Input_Borde" Color="#555555"/>
+    
+    <SolidColorBrush x:Key="Brush_EditPlay_BtnVolver_Fondo" Color="Transparent"/>
+    <SolidColorBrush x:Key="Brush_EditPlay_BtnVolver_Texto" Color="#B0B0B0"/>
+    <SolidColorBrush x:Key="Brush_EditPlay_BtnGuardar_Fondo" Color="#AFB42B"/>
+    <SolidColorBrush x:Key="Brush_EditPlay_BtnGuardar_Texto" Color="Black"/>
+    
+    <SolidColorBrush x:Key="Brush_EditPlay_ListaResultados_Fondo" Color="#1E1E1E"/> 
+    <SolidColorBrush x:Key="Brush_EditPlay_ListaActual_Fondo" Color="#33691E"/> 
+    <SolidColorBrush x:Key="Brush_EditPlay_Borde_ListaActual" Color="#AFB42B"/> 
+    <SolidColorBrush x:Key="Brush_EditPlay_BtnAdd_Fondo" Color="#AFB42B"/>
+    <SolidColorBrush x:Key="Brush_EditPlay_BtnRemove_Fondo" Color="#C62828"/>
+
+    <!-- MarcoApp.axaml -->
+    <SolidColorBrush x:Key="Brush_Player_Fondo" Color="#1E1E1E"/> 
+    <SolidColorBrush x:Key="Brush_Player_Texto_Tiempo" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Player_Texto_Titulo" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Player_Texto_Artista" Color="#B0B0B0"/>
+    
+    <SolidColorBrush x:Key="Brush_Player_Slider_Thumb_Borde" Color="#FF5252"/> 
+    <SolidColorBrush x:Key="Brush_Player_Slider_Thumb_Fondo" Color="#121212"/>
+    <SolidColorBrush x:Key="Brush_Player_Slider_Track_Fill" Color="#FF5252"/> 
+    <SolidColorBrush x:Key="Brush_Player_Slider_Track_Empty" Color="#424242"/>
+
+    <Bitmap x:Key="Img_Play">/Assets/Imagenes/PlayModoOscuro.png</Bitmap>
+    <Bitmap x:Key="Img_Pause">/Assets/Imagenes/PauseModoOscuro.png</Bitmap>
+    
+    <Bitmap x:Key="Img_Aleatorio_OFF">/Assets/Imagenes/AleatorioOFFModoOscuro.png</Bitmap>
+    <Bitmap x:Key="Img_Aleatorio_ON">/Assets/Imagenes/AleatorioONModoOscuro.png</Bitmap>
+    <Bitmap x:Key="Img_Aleatorio_Disabled">/Assets/Imagenes/AleatorioDisable.png</Bitmap> 
+    <Bitmap x:Key="Img_Like_OFF">/Assets/Imagenes/LikeModoOscuro.png</Bitmap>
+    <Bitmap x:Key="Img_Like_ON">/Assets/Imagenes/LikeSelectModoOscuro.png</Bitmap>
+    
+    <Bitmap x:Key="Img_Next">/Assets/Imagenes/NextModoOscuro.png</Bitmap>
+    <Bitmap x:Key="Img_Next_Disabled">/Assets/Imagenes/NextDisable.png</Bitmap>
+    
+    <Bitmap x:Key="Img_Back">/Assets/Imagenes/BackModoOscuro.png</Bitmap>
+    <Bitmap x:Key="Img_Back_Disabled">/Assets/Imagenes/BackDisable.png</Bitmap>
+    
+    <!-- Login.axaml -->
+    <SolidColorBrush x:Key="Brush_Log_Fondo" Color="#5C78D6"/> 
+    
+    <SolidColorBrush x:Key="Brush_Log_Borde_Figuras" Color="Black"/> 
+    
+    <SolidColorBrush x:Key="Brush_Log_Figura_Rojo" Color="#8B1915"/>
+    <SolidColorBrush x:Key="Brush_Log_Figura_Azul" Color="#7D8226"/> 
+    <SolidColorBrush x:Key="Brush_Log_Texto_Principal" Color="White"/> 
+    <SolidColorBrush x:Key="Brush_Log_Titulo" Color="Black"/> 
+    <SolidColorBrush x:Key="Brush_Log_Input_Fondo" Color="Black"/> 
+    <SolidColorBrush x:Key="Brush_Log_Input_Texto" Color="White"/> 
+    <SolidColorBrush x:Key="Brush_Log_Input_Borde" Color="White"/> 
+    <SolidColorBrush x:Key="Brush_Log_BtnMain_Fondo" Color="Black"/> 
+    <SolidColorBrush x:Key="Brush_Log_BtnMain_Texto" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Log_BtnSec_Borde" Color="White"/>
+
+    <!-- CentralTabControl.axaml -->
+    <SolidColorBrush x:Key="Brush_Central_Fondo" Color="#121212"/> 
+    <SolidColorBrush x:Key="Brush_Central_Tab_Texto" Color="#AAAAAA"/>
+    <SolidColorBrush x:Key="Brush_Central_Tab_Selected_Fondo" Color="#B71C1C"/>
+    <SolidColorBrush x:Key="Brush_Central_Tab_Selected_Texto" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Central_Tab_Hover_Fondo" Color="#D32F2F"/> 
+    <SolidColorBrush x:Key="Brush_Central_Tab_Hover_Texto" Color="White"/>
+    
+    <SolidColorBrush x:Key="Brush_Central_BtnMenu_Texto" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Central_Borde_Perfil" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Central_Flyout_Fondo" Color="#2D2D30"/>
+
+    <!-- TabItemInicio.axaml -->
+    <SolidColorBrush x:Key="Brush_Inicio_Titulo_Seccion" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Inicio_BtnRefrescar_Fondo" Color="#333333"/>
+    <SolidColorBrush x:Key="Brush_Inicio_BtnRefrescar_Texto" Color="#CDDC39"/>
+    
+    <SolidColorBrush x:Key="Brush_Inicio_Scroll_Thumb" Color="#3C453C"/>
+    
+    <SolidColorBrush x:Key="Brush_Inicio_Tarjeta_Fondo" Color="#1E1E1E"/>
+    <SolidColorBrush x:Key="Brush_Inicio_Tarjeta_Borde" Color="#555555"/>
+    
+    <SolidColorBrush x:Key="Brush_Inicio_Playlist_Fondo" Color="#33691E"/>
+    
+    <SolidColorBrush x:Key="Brush_Inicio_Texto_Principal" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Inicio_Texto_Secundario" Color="#B0B0B0"/>
+    <SolidColorBrush x:Key="Brush_Inicio_Icono_Menu" Color="#AAAAAA"/>
+
+    <!-- TabItemBuscador.axaml -->
+    <SolidColorBrush x:Key="Brush_Bus_Texto_Principal" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Bus_Texto_Secundario" Color="#B0B0B0"/>
+    <SolidColorBrush x:Key="Brush_Bus_Borde_Item" Color="#69F0AE"/>
+    
+    <SolidColorBrush x:Key="Brush_Bus_Fondo_Item" Color="#1E1E1E"/> 
+    
+    <SolidColorBrush x:Key="Brush_Bus_BtnBuscar_Texto" Color="#CDDC39"/>
+
+    <!-- TabItemPopulares.axaml -->
+    <SolidColorBrush x:Key="Brush_Pop_Texto_Filtro" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Pop_Borde_Filtro" Color="White"/> 
+    <SolidColorBrush x:Key="Brush_Pop_Fondo_Item" Color="#2D2D30"/> 
+    <SolidColorBrush x:Key="Brush_Pop_Texto_Principal" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Pop_Texto_Secundario" Color="#B0B0B0"/>
+
+    <!-- ViewListaPersonalizada.axaml -->
+    <SolidColorBrush x:Key="Brush_VisorPlay_PanelDerecho_Fondo" Color="#1E1E1E"/> 
+    <SolidColorBrush x:Key="Brush_VisorPlay_Texto_Titulo" Color="White"/>
+    <SolidColorBrush x:Key="Brush_VisorPlay_Texto_Subtitulo" Color="#B0B0B0"/>
+    <SolidColorBrush x:Key="Brush_VisorPlay_Texto_Label" Color="#9FA8DA"/> 
+    <SolidColorBrush x:Key="Brush_VisorPlay_Texto_Seccion" Color="White"/>
+    
+    <SolidColorBrush x:Key="Brush_VisorPlay_Tarjeta_Fondo" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="Brush_VisorPlay_Texto_MetricaTitulo" Color="#9FA8DA"/>
+    <SolidColorBrush x:Key="Brush_VisorPlay_Texto_MetricaValor" Color="#B388FF"/>
+    
+    <SolidColorBrush x:Key="Brush_VisorPlay_Fila_Fondo" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="Brush_VisorPlay_Fila_Hover" Color="#383838"/>
+    <SolidColorBrush x:Key="Brush_VisorPlay_Fila_TextoTitulo" Color="White"/>
+    <SolidColorBrush x:Key="Brush_VisorPlay_Fila_TextoArtista" Color="#B0B0B0"/>
+    
+    <SolidColorBrush x:Key="Brush_VisorPlay_BtnVolver_Fondo" Color="#5C6BC0"/>
+    <SolidColorBrush x:Key="Brush_VisorPlay_BtnVolver_Hover" Color="#3949AB"/>
+    
+    <!-- ViewCancion.axaml -->
+    <SolidColorBrush x:Key="Brush_VisorCan_PanelDerecho_Fondo" Color="#1E1E1E"/> 
+    <SolidColorBrush x:Key="Brush_VisorCan_Tarjeta_Fondo" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="Brush_VisorCan_Texto_MetricaTitulo" Color="#9FA8DA"/> 
+    <SolidColorBrush x:Key="Brush_VisorCan_Texto_MetricaValor" Color="#B388FF"/> 
+    <SolidColorBrush x:Key="Brush_VisorCan_Texto_Titulo" Color="White"/>
+    <SolidColorBrush x:Key="Brush_VisorCan_Texto_Subtitulo" Color="#B0B0B0"/>
+    <SolidColorBrush x:Key="Brush_VisorCan_Texto_Etiqueta" Color="#9FA8DA"/>
+    <SolidColorBrush x:Key="Brush_VisorCan_Texto_Timer" Color="#FF5252"/> 
+    <SolidColorBrush x:Key="Brush_VisorCan_BtnVolver_Fondo" Color="#5C6BC0"/>
+    <SolidColorBrush x:Key="Brush_VisorCan_BtnVolver_Hover" Color="#3949AB"/>
+    
+    <SolidColorBrush x:Key="Brush_VisorCan_BtnPlay_Fondo" Color="#673AB7"/> 
+    <SolidColorBrush x:Key="Brush_VisorCan_BtnPlay_Borde" Color="#9575CD"/>
+    <SolidColorBrush x:Key="Brush_VisorCan_BtnPlay_Hover" Color="#512DA8"/>
+    
+    <SolidColorBrush x:Key="Brush_VisorCan_BtnFav_Fondo" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="Brush_VisorCan_BtnFav_Icono" Color="#EF5350"/>
+    <SolidColorBrush x:Key="Brush_VisorCan_BtnFav_Borde" Color="#424242"/>
+    
+    <SolidColorBrush x:Key="Brush_VisorCan_Tag_Fondo" Color="#33691E"/> 
+    <SolidColorBrush x:Key="Brush_VisorCan_Tag_Texto" Color="#DCEDC8"/>
+
+    <!-- ViewUsuario.axaml -->
+    <SolidColorBrush x:Key="Brush_VisorUser_PanelDerecho_Fondo" Color="#1E1E1E"/>
+    
+    <SolidColorBrush x:Key="Brush_VisorUser_InfoCard_Fondo" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="Brush_VisorUser_Texto_Info" Color="#B0B0B0"/>
+    
+    <SolidColorBrush x:Key="Brush_VisorUser_Texto_Titulo" Color="White"/>
+    <SolidColorBrush x:Key="Brush_VisorUser_Texto_Label" Color="#9FA8DA"/>
+    <SolidColorBrush x:Key="Brush_VisorUser_Texto_Sublabel" Color="#B0B0B0"/>
+    <SolidColorBrush x:Key="Brush_VisorUser_Texto_Seccion" Color="White"/>
+    <SolidColorBrush x:Key="Brush_VisorUser_Texto_Timer" Color="#FF5252"/>
+    
+    <SolidColorBrush x:Key="Brush_VisorUser_Tarjeta_Fondo" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="Brush_VisorUser_Texto_MetricaTitulo" Color="#9FA8DA"/>
+    <SolidColorBrush x:Key="Brush_VisorUser_Texto_MetricaValor" Color="#B388FF"/>
+    
+    <SolidColorBrush x:Key="Brush_VisorUser_Item_Fondo" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="Brush_VisorUser_Item_Borde" Color="#424242"/>
+    <SolidColorBrush x:Key="Brush_VisorUser_Item_TextoTitulo" Color="White"/>
+    <SolidColorBrush x:Key="Brush_VisorUser_Item_TextoFecha" Color="#B0B0B0"/>
+    
+    <SolidColorBrush x:Key="Brush_VisorUser_BtnVolver_Fondo" Color="#5C6BC0"/>
+    <SolidColorBrush x:Key="Brush_VisorUser_BtnVolver_Hover" Color="#3949AB"/>
+    
+    <!-- PanelUsuario.axaml -->
+    <SolidColorBrush x:Key="Brush_PanelUser_Fondo" Color="#121212"/> 
+    <SolidColorBrush x:Key="Brush_PanelUser_Tab_Normal_Texto" Color="#AAAAAA"/>
+    <SolidColorBrush x:Key="Brush_PanelUser_Tab_Selected_Fondo" Color="#B71C1C"/> 
+    <SolidColorBrush x:Key="Brush_PanelUser_Tab_Selected_Texto" Color="White"/>
+    <SolidColorBrush x:Key="Brush_PanelUser_Tab_Hover_Fondo" Color="#D32F2F"/> 
+    <SolidColorBrush x:Key="Brush_PanelUser_Tab_Hover_Texto" Color="White"/>
+
+    <!-- ViewPerfl.axaml  -->
+    <SolidColorBrush x:Key="Brush_Perfil_Fondo_Tarjeta" Color="#1E1E1E"/> 
+    <SolidColorBrush x:Key="Brush_Perfil_Titulo" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Perfil_BtnRefrescar" Color="#E0E0E0"/>
+    <SolidColorBrush x:Key="Brush_Perfil_Borde_Avatar" Color="#555555"/>
+    <SolidColorBrush x:Key="Brush_Perfil_Fondo_Avatar" Color="#333333"/>
+    
+    <SolidColorBrush x:Key="Brush_Perfil_Item_Fondo" Color="#333333"/>
+    <SolidColorBrush x:Key="Brush_Perfil_Item_Borde" Color="#555555"/>
+    <SolidColorBrush x:Key="Brush_Perfil_Item_Sombra" Color="#AA000000"/> 
+    <SolidColorBrush x:Key="Brush_Perfil_Item_Texto_Fondo" Color="#CC000000"/> 
+    <SolidColorBrush x:Key="Brush_Perfil_Item_Texto" Color="White"/>
+
+    <!-- ViewCuenta.axaml -->
+    <SolidColorBrush x:Key="Brush_Cuenta_Celda" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="Brush_Cuenta_Tabla_Fondo" Color="#555555"/> 
+    <SolidColorBrush x:Key="Brush_Cuenta_BtnRefrescar" Color="#E0E0E0"/>
+    
+    <SolidColorBrush x:Key="Brush_Cuenta_Badge_Fondo" Color="#CDDC39"/> 
+    <SolidColorBrush x:Key="Brush_Cuenta_Badge_Texto" Color="Black"/>
+    <SolidColorBrush x:Key="Brush_Cuenta_Badge_Hover" Color="#AFB42B"/>
+    
+    <SolidColorBrush x:Key="Brush_Cuenta_BtnGuardar_Fondo" Color="#F5F5F5"/>
+    <SolidColorBrush x:Key="Brush_Cuenta_BtnGuardar_Texto" Color="Black"/>
+
+    <!-- ViewConfiguracion.axaml -->
+    <SolidColorBrush x:Key="Brush_Texto_Principal" Color="#F5F5F5"/> 
+    <SolidColorBrush x:Key="Brush_Borde_General" Color="#F5F5F5"/>
+    <SolidColorBrush x:Key="Brush_Fondo_Panel" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="Brush_Fondo_Marco" Color="#1E1E1E"/> 
+    <SolidColorBrush x:Key="Brush_BtnConfig_Fondo" Color="#333333"/>
+    <SolidColorBrush x:Key="Brush_BtnConfig_Texto" Color="White"/>
+    <SolidColorBrush x:Key="Brush_BtnConfig_Hover" Color="#4D4D4D"/>
+
+    <!-- ViewGestionarCuenta.axaml -->
+    <SolidColorBrush x:Key="Brush_Gestion_Titulo" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Gestion_Fondo_Lista" Color="#1E1E1E"/>
+    <SolidColorBrush x:Key="Brush_Gestion_Titulo_Seccion" Color="#C5E1A5"/> 
+    <SolidColorBrush x:Key="Brush_Gestion_Tarjeta_Fondo" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="Brush_Gestion_Tarjeta_Borde" Color="#556B2F"/>
+    <SolidColorBrush x:Key="Brush_Gestion_Texto_Titulo" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Gestion_Texto_Subtitulo" Color="#B0B0B0"/>
+    <SolidColorBrush x:Key="Brush_Gestion_Texto_Info" Color="#DCE775"/> 
+    <SolidColorBrush x:Key="Brush_Btn_Editar_Fondo" Color="#4E342E"/>
+    <SolidColorBrush x:Key="Brush_Btn_Editar_Texto" Color="#FFB74D"/>
+    <SolidColorBrush x:Key="Brush_Btn_Eliminar_Fondo" Color="#4E2C2C"/>
+    <SolidColorBrush x:Key="Brush_Btn_Eliminar_Texto" Color="#E57373"/>
+    <SolidColorBrush x:Key="Brush_Playlist_Placeholder" Color="#424242"/>
+
+    <!-- ViewGestionarReportes.axaml -->
+    <SolidColorBrush x:Key="Brush_Reportes_Titulo" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Reportes_BtnRefrescar_Fondo" Color="#333333"/>
+    <SolidColorBrush x:Key="Brush_Reportes_BtnRefrescar_Icono" Color="White"/>
+    
+    <SolidColorBrush x:Key="Brush_Reportes_Item_Fondo" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="Brush_Reportes_Item_Texto_Titulo" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Reportes_Item_Texto_Sub" Color="#B0B0B0"/>
+    <SolidColorBrush x:Key="Brush_Reportes_Item_Fecha" Color="#666666"/>
+    
+    <SolidColorBrush x:Key="Brush_Reportes_Panel_Fondo" Color="#1E1E1E"/>
+    <SolidColorBrush x:Key="Brush_Reportes_Panel_Texto_Titulo" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Reportes_Panel_Texto_Sub" Color="#888888"/>
+    <SolidColorBrush x:Key="Brush_Reportes_Panel_Label" Color="#AAAAAA"/>
+    
+    <SolidColorBrush x:Key="Brush_Reportes_Nota_Fondo" Color="#4E342E"/>
+    <SolidColorBrush x:Key="Brush_Reportes_Nota_Borde" Color="#5D4037"/>
+    <SolidColorBrush x:Key="Brush_Reportes_Nota_Texto" Color="#FFECB3"/> 
+    <SolidColorBrush x:Key="Brush_Reportes_Resolucion_Fondo" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="Brush_Reportes_Resolucion_Texto" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Reportes_Resolucion_Borde" Color="#555555"/>
+    
+    <SolidColorBrush x:Key="Brush_Reportes_BtnGuardar_Fondo" Color="#F5F5F5"/>
+    <SolidColorBrush x:Key="Brush_Reportes_BtnGuardar_Texto" Color="Black"/>
+    
+    <SolidColorBrush x:Key="Brush_Reportes_Tab_Texto" Color="#888888"/>
+    <SolidColorBrush x:Key="Brush_Reportes_Tab_Hover" Color="#333333"/>
+    <SolidColorBrush x:Key="Brush_Reportes_Tab_Selected_Fondo" Color="#E0E0E0"/>
+    <SolidColorBrush x:Key="Brush_Reportes_Tab_Selected_Texto" Color="Black"/>
+
+    <!-- ViewGestionarBD.axaml -->
+    <SolidColorBrush x:Key="Brush_BD_Titulo" Color="White"/>
+    <SolidColorBrush x:Key="Brush_BD_BtnRefrescar_Fondo" Color="#E0E0E0"/>
+    <SolidColorBrush x:Key="Brush_BD_BtnRefrescar_Texto" Color="Black"/>
+    
+    <SolidColorBrush x:Key="Brush_BD_Grid_Header_Fondo" Color="#333333"/>
+    <SolidColorBrush x:Key="Brush_BD_Grid_Header_Texto" Color="#E0E0E0"/>
+    <SolidColorBrush x:Key="Brush_BD_Grid_Fila_Texto" Color="#F0F0F0"/>
+    <SolidColorBrush x:Key="Brush_BD_Grid_Fila_Fondo" Color="#1E1E1E"/>
+    <SolidColorBrush x:Key="Brush_BD_Grid_Fila_Alt" Color="#252525"/>
+    <SolidColorBrush x:Key="Brush_BD_Grid_Lines" Color="#444444"/>
+    <SolidColorBrush x:Key="Brush_BD_Grid_Texto_Azul" Color="#64B5F6"/> 
+    <SolidColorBrush x:Key="Brush_BD_Tab_Texto" Color="#AAAAAA"/>
+    <SolidColorBrush x:Key="Brush_BD_Tab_Hover" Color="#333333"/>
+    <SolidColorBrush x:Key="Brush_BD_Tab_Selected_Fondo" Color="#E0E0E0"/>
+    <SolidColorBrush x:Key="Brush_BD_Tab_Selected_Texto" Color="Black"/>
+    
+    <SolidColorBrush x:Key="Brush_BD_CrudTab_Fondo" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="Brush_BD_CrudTab_Texto" Color="#BBBBBB"/>
+    <SolidColorBrush x:Key="Brush_BD_CrudTab_Selected_Fondo" Color="#1565C0"/>
+    <SolidColorBrush x:Key="Brush_BD_CrudTab_Selected_Texto" Color="White"/>
+    
+    <SolidColorBrush x:Key="Brush_BD_Panel_Fondo" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="Brush_BD_Panel_Borde" Color="#444444"/>
+    <SolidColorBrush x:Key="Brush_BD_Label" Color="#AAAAAA"/>
+    <SolidColorBrush x:Key="Brush_BD_Input_Fondo" Color="#1E1E1E"/>
+    <SolidColorBrush x:Key="Brush_BD_Input_Texto" Color="White"/>
+    <SolidColorBrush x:Key="Brush_BD_Input_Borde" Color="#555555"/>
+    
+    <SolidColorBrush x:Key="Brush_BD_BtnCrear_Fondo" Color="#1565C0"/>
+    <SolidColorBrush x:Key="Brush_BD_BtnCrear_Texto" Color="White"/>
+    <SolidColorBrush x:Key="Brush_BD_BtnEliminar_Fondo" Color="#B71C1C"/>
+    
+    <SolidColorBrush x:Key="Brush_BD_Loader_Fondo" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="Brush_BD_Loader_Texto" Color="White"/>
+    
+    <!-- VentanaAviso.axaml -->
+    <SolidColorBrush x:Key="Brush_Aviso_Fondo" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="Brush_Aviso_Borde" Color="#00AEEF"/>
+    <SolidColorBrush x:Key="Brush_Aviso_Titulo" Color="#29B6F6"/> 
+    <SolidColorBrush x:Key="Brush_Aviso_Mensaje" Color="#F0F0F0"/>
+
+    <SolidColorBrush x:Key="Brush_Aviso_Btn_Fondo" Color="#00AEEF"/>
+    <SolidColorBrush x:Key="Brush_Aviso_Btn_Texto" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Aviso_Btn_Hover" Color="#007BB6"/>
+
+    <!-- VentanaConfirmacion.axaml -->
+    <SolidColorBrush x:Key="Brush_Confirm_Fondo_Tarjeta" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="Brush_Confirm_Borde" Color="#EF5350"/> 
+    <SolidColorBrush x:Key="Brush_Confirm_Texto_Titulo" Color="#EF5350"/>
+    <SolidColorBrush x:Key="Brush_Confirm_Texto_Cuerpo" Color="White"/>
+    
+    <SolidColorBrush x:Key="Brush_Confirm_BtnCancel_Fondo" Color="#424242"/>
+    <SolidColorBrush x:Key="Brush_Confirm_BtnCancel_Texto" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Confirm_BtnCancel_Hover" Color="#616161"/>
+    
+    <SolidColorBrush x:Key="Brush_Confirm_BtnOk_Fondo" Color="#C62828"/> 
+    <SolidColorBrush x:Key="Brush_Confirm_BtnOk_Texto" Color="White"/>
+    <SolidColorBrush x:Key="Brush_Confirm_BtnOk_Hover" Color="#D32F2F"/>
+    
+    <!--ViewAyuda.axaml-->
+    <SolidColorBrush x:Key="Brush_Ayuda_Fondo_Tarjeta" Color="#3E2723"/>
+    <SolidColorBrush x:Key="Brush_Ayuda_Borde_Tarjeta" Color="#D9532C"/> 
+    <SolidColorBrush x:Key="Brush_Ayuda_Texto_Principal" Color="#FFCCBC"/> 
+    <SolidColorBrush x:Key="Brush_Ayuda_BtnVolver_Fondo" Color="#333333"/>
+    <SolidColorBrush x:Key="Brush_Ayuda_BtnVolver_Texto" Color="White"/>
+    
+    <!--ViewSobreNosotros.axaml-->
+    <SolidColorBrush x:Key="Brush_Sobre_Fondo_Tarjeta" Color="#B71C1C"/> 
+    <SolidColorBrush x:Key="Brush_Sobre_Borde_Tarjeta" Color="#EE4036"/> 
+    <SolidColorBrush x:Key="Brush_Sobre_Texto_Principal" Color="#FFCDD2"/> 
+    <SolidColorBrush x:Key="Brush_Sobre_BtnGitHub_Fondo" Color="#212121"/>
+    <SolidColorBrush x:Key="Brush_Sobre_BtnGitHub_Texto" Color="White"/>
+    
+    <SolidColorBrush x:Key="Brush_Sobre_BtnVolver_Fondo" Color="#333333"/>
+    <SolidColorBrush x:Key="Brush_Sobre_BtnVolver_Texto" Color="White"/>
+
+    <!--pointhover botones volver de ayuda y sobrenosotros-->
+    <SolidColorBrush x:Key="Brush_Ayuda_BtnVolver_Hover_Fondo" Color="#424242"/>
+    <SolidColorBrush x:Key="Brush_Sobre_BtnGitHub_Hover_Fondo" Color="#333333"/> 
+    <SolidColorBrush x:Key="Brush_Sobre_BtnVolver_Hover_Fondo" Color="#424242"/>
+
+</ResourceDictionary>

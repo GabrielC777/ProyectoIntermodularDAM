@@ -1,0 +1,273 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:BetaProyecto.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1400" d:DesignHeight="800"
+             x:Class="BetaProyecto.Views.WindowsRising.PanelRising.Admins.ViewGestionarReporter"
+             x:DataType="vm:ViewGestionarReportesViewModel">
+
+   <UserControl.Styles>
+        <Style Selector="Border.ItemReporte">
+            <Setter Property="Background" Value="{DynamicResource Brush_Reportes_Item_Fondo}"/>
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="Padding" Value="15"/>
+            <Setter Property="Margin" Value="0,0,15,15"/>
+            <Setter Property="BoxShadow" Value="0 4 10 0 #10000000"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <!--Animacion suave al pasar el ratón por encima-->
+            <Setter Property="Transitions">
+                <Transitions>
+                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.1"/>
+                </Transitions>
+            </Setter>
+        </Style>
+            <!-- Animacion que hace que creca un poco y añada sombra al pasar el ratón por encima-->
+            <Style Selector="Border.ItemReporte:pointerover">
+            <Setter Property="RenderTransform" Value="scale(1.02)"/>
+            <Setter Property="BoxShadow" Value="0 8 15 0 #20000000"/>
+        </Style>
+
+        <Style Selector="TabItem">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Reportes_Tab_Texto}"/>
+            <Setter Property="Padding" Value="25,12"/> 
+            <Setter Property="Margin" Value="0,0,10,0"/>
+            <Setter Property="CornerRadius" Value="30"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="MinHeight" Value="50"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="TabItem:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource Brush_Reportes_Tab_Hover}"/>
+            <Setter Property="TextBlock.Foreground" Value="{DynamicResource Brush_Texto_Principal}"/>
+        </Style>
+
+        <Style Selector="TabItem:selected /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource Brush_Reportes_Tab_Selected_Fondo}"/>
+            <Setter Property="TextBlock.Foreground" Value="{DynamicResource Brush_Reportes_Tab_Selected_Texto}"/>
+        </Style>
+        
+        <Style Selector="TabItem:selected /template/ Border#PART_SelectedPipe">
+            <Setter Property="IsVisible" Value="False"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid RowDefinitions="Auto, *">
+        <Separator Grid.Row="0" Height="3" Background="{DynamicResource Brush_Borde_General}" Margin="0" VerticalAlignment="Top"/>
+        
+        <Grid Margin="40,30,40,30" MinHeight="600" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="600"/> 
+                <ColumnDefinition Width="*"/>   
+            </Grid.ColumnDefinitions>
+        
+            <Grid Grid.Column="0" RowDefinitions="Auto, *">
+                <StackPanel Orientation="Horizontal" Spacing="15" Margin="0,0,0,25">
+                    <TextBlock Text="{DynamicResource Reportes_Titulo}" 
+                               AutomationProperties.Name="{DynamicResource Reportes_Titulo}"
+                               FontSize="40" FontWeight="Black" LetterSpacing="-1" VerticalAlignment="Center"
+                               Foreground="{DynamicResource Brush_Reportes_Titulo}"/>
+                    
+                    <Button Command="{Binding BtnRefrescar}" 
+                            Background="{DynamicResource Brush_Reportes_BtnRefrescar_Fondo}" 
+                            CornerRadius="50" Width="40" Height="40"
+                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                            Cursor="Hand" ToolTip.Tip="{DynamicResource Acc_Reportes_BtnRefrescar}"
+                            AutomationProperties.Name="{DynamicResource Acc_Reportes_BtnRefrescar}">
+                        <TextBlock Text="🔄" FontSize="16" Foreground="{DynamicResource Brush_Reportes_BtnRefrescar_Icono}"/>
+                    </Button>
+                </StackPanel>
+                <!--Pestañas pendientes, investigando y finalizados-->
+                <TabControl Grid.Row="1" Padding="0">
+                    <!--Pendientes-->
+                    <TabItem Header="{DynamicResource Reportes_TabPendientes}">
+                        <ScrollViewer Padding="0,20,0,0"> 
+                            <ListBox ItemsSource="{Binding ListaPendientes}" 
+                                     SelectedItem="{Binding SelectedPendiente}" Background="Transparent"
+                                     AutomationProperties.Name="{DynamicResource Acc_Reportes_ListaPendientes}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Classes="ItemReporte" BorderBrush="{Binding ColorEstado}" BorderThickness="4,0,0,0">
+                                            <Grid ColumnDefinitions="*, Auto">
+                                                <StackPanel Spacing="6" Grid.Column="0">
+                                                    <TextBlock Text="{Binding TipoProblema}" FontWeight="Bold" FontSize="18" 
+                                                               Foreground="{DynamicResource Brush_Reportes_Item_Texto_Titulo}"/>
+                                                    <TextBlock Text="{Binding TituloCancionReportada}" FontSize="14" 
+                                                               Foreground="{DynamicResource Brush_Reportes_Item_Texto_Sub}" TextTrimming="CharacterEllipsis"/>
+                                                </StackPanel>
+                                                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                                    <TextBlock Text="{Binding FechaCreacion, StringFormat='{}{0:dd MMM}'}" FontSize="12" 
+                                                               Foreground="{DynamicResource Brush_Reportes_Item_Fecha}" FontWeight="Bold"/>
+                                                </StackPanel>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </ScrollViewer>
+                    </TabItem>
+                    <!--Investigando-->
+                    <TabItem Header="{DynamicResource Reportes_TabInvestigando}">
+                        <ScrollViewer Padding="0,20,0,0">
+                            <ListBox ItemsSource="{Binding ListaInvestigando}" 
+                                     SelectedItem="{Binding SelectedInvestigando}" 
+                                     Background="Transparent"
+                                     AutomationProperties.Name="{DynamicResource Acc_Reportes_ListaInvest}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Classes="ItemReporte" BorderBrush="{Binding ColorEstado}" BorderThickness="4,0,0,0">
+                                            <StackPanel Spacing="6">
+                                                <TextBlock Text="{Binding TipoProblema}" FontWeight="Bold" FontSize="18" 
+                                                           Foreground="{DynamicResource Brush_Reportes_Item_Texto_Titulo}"/>
+                                                <StackPanel Orientation="Horizontal" Spacing="5">
+                                                    <TextBlock Text="👤" FontSize="12" Foreground="{DynamicResource Brush_Reportes_Item_Texto_Sub}"/>
+                                                    <TextBlock Text="{Binding NombreReportante}" FontSize="14" 
+                                                               Foreground="{DynamicResource Brush_Reportes_Item_Texto_Sub}"/>
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </ScrollViewer>
+                    </TabItem>
+                    <!--Finalizados-->
+                    <TabItem Header="{DynamicResource Reportes_TabFinalizados}">
+                        <ScrollViewer Padding="0,20,0,0">
+                            <ListBox ItemsSource="{Binding ListaFinalizados}" 
+                                     SelectedItem="{Binding SelectedFinalizado}" 
+                                     Background="Transparent"
+                                     AutomationProperties.Name="{DynamicResource Acc_Reportes_ListaFin}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Classes="ItemReporte" BorderBrush="{Binding ColorEstado}" BorderThickness="4,0,0,0" Opacity="0.7">
+                                            <StackPanel Spacing="6">
+                                                <TextBlock Text="{Binding TipoProblema}" FontWeight="Bold" TextDecorations="Strikethrough" 
+                                                           Foreground="{DynamicResource Brush_Reportes_Item_Texto_Sub}" FontSize="18"/>
+                                                <Border Background="#E8F5E9" HorizontalAlignment="Left" CornerRadius="4" Padding="8,2">
+                                                    <TextBlock Text="{DynamicResource Reportes_BadgeResuelto}" FontSize="10" Foreground="#2E7D32" FontWeight="Bold"/>
+                                                </Border>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </ScrollViewer>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+            <!--Panel para editar el reporte seleccionado-->
+            <Grid Grid.Column="1">
+                <Border Width="500"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Stretch"
+                        Background="{DynamicResource Brush_Reportes_Panel_Fondo}" 
+                        CornerRadius="20" 
+                        Padding="35" 
+                        Margin="20,0,0,0"
+                        BoxShadow="0 10 40 0 #1A000000">
+                
+                    <Grid>
+                        <StackPanel IsVisible="{Binding ReporteSeleccionado, Converter={x:Static ObjectConverters.IsNull}}"
+                                    HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="20" Opacity="0.4">
+                            <TextBlock Text="👈" FontSize="60" HorizontalAlignment="Center" Foreground="{DynamicResource Brush_Reportes_Panel_Label}"/>
+                            <TextBlock Text="{DynamicResource Reportes_VacioTitulo}" 
+                                       FontSize="18" FontWeight="SemiBold" TextAlignment="Center"
+                                       Foreground="{DynamicResource Brush_Reportes_Panel_Label}"/>
+                        </StackPanel>
+
+                        <ScrollViewer IsVisible="{Binding ReporteSeleccionado, Converter={x:Static ObjectConverters.IsNotNull}}">
+                            <StackPanel Spacing="25" Margin="18">
+                            
+                                <StackPanel>
+                                    <Border Background="{DynamicResource Brush_Reportes_BtnRefrescar_Fondo}" HorizontalAlignment="Left" CornerRadius="6" Padding="8,4" Margin="0,0,0,10">
+                                        <TextBlock Text="{Binding ReporteSeleccionado.Id}" FontSize="11" Foreground="{DynamicResource Brush_Reportes_Panel_Label}" FontFamily="Consolas"/>
+                                    </Border>
+                                    <TextBlock Text="{Binding ReporteSeleccionado.TipoProblema}" FontSize="28" FontWeight="Black" 
+                                               Foreground="{DynamicResource Brush_Reportes_Panel_Texto_Titulo}" LineHeight="32" TextWrapping="Wrap"/>
+                                </StackPanel>
+
+                                <Grid ColumnDefinitions="*,Auto,*" RowDefinitions="Auto, Auto">
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock Text="{DynamicResource Reportes_LblReportante}" FontSize="10" FontWeight="Bold" 
+                                                   Foreground="{DynamicResource Brush_Reportes_Panel_Label}" LetterSpacing="1"/>
+                                        <TextBlock Text="{Binding ReporteSeleccionado.NombreReportante}" FontSize="16" FontWeight="SemiBold" Margin="0,5,0,0"
+                                                   Foreground="{DynamicResource Brush_Reportes_Panel_Texto_Titulo}"/>
+                                    </StackPanel>
+                                
+                                    <Border Grid.Column="1" Width="1" Background="{DynamicResource Brush_Borde_General}" Margin="15,5"/>
+
+                                    <StackPanel Grid.Column="2">
+                                        <TextBlock Text="{DynamicResource Reportes_LblCancion}" FontSize="10" FontWeight="Bold" 
+                                                   Foreground="{DynamicResource Brush_Reportes_Panel_Label}" LetterSpacing="1"/>
+                                        <TextBlock Text="{Binding ReporteSeleccionado.TituloCancionReportada}" FontSize="16" FontWeight="SemiBold" Margin="0,5,0,0" 
+                                                   TextTrimming="CharacterEllipsis"
+                                                   Foreground="{DynamicResource Brush_Reportes_Panel_Texto_Titulo}"/>
+                                    </StackPanel>
+                                </Grid>
+
+                                <Separator Background="{DynamicResource Brush_Borde_General}" Height="2"/>
+
+                                <Border Background="{DynamicResource Brush_Reportes_Nota_Fondo}" 
+                                        Padding="20" CornerRadius="12" 
+                                        BorderBrush="{DynamicResource Brush_Reportes_Nota_Borde}" BorderThickness="1">
+                                    <StackPanel Spacing="5">
+                                        <TextBlock Text="{DynamicResource Reportes_LblDescripcion}" FontSize="12" FontWeight="Bold" Foreground="#FBC02D"/>
+                                        <TextBlock Text="{Binding ReporteSeleccionado.Descripcion}" TextWrapping="Wrap" FontSize="15" 
+                                                   Foreground="{DynamicResource Brush_Reportes_Nota_Texto}" LineHeight="22"/>
+                                    </StackPanel>
+                                </Border>
+
+                                <Separator Background="{DynamicResource Brush_Borde_General}" Height="2"/>
+
+                                <StackPanel Spacing="15">
+                                    <TextBlock Text="{DynamicResource Reportes_LblEstado}" FontSize="14" FontWeight="Bold" 
+                                               Foreground="{DynamicResource Brush_Reportes_Panel_Texto_Titulo}"/>
+
+                                    <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto">
+                                        <TextBlock Text="Estado:" VerticalAlignment="Center" Margin="0,0,15,0" FontWeight="SemiBold" 
+                                                   Foreground="{DynamicResource Brush_Reportes_Panel_Texto_Sub}"/>
+                                        <ComboBox Grid.Column="1" ItemsSource="{Binding OpcionesEstado}" 
+                                                  SelectedItem="{Binding EstadoEdit}" HorizontalAlignment="Stretch"
+                                                  CornerRadius="8" Height="40"
+                                                  AutomationProperties.Name="{DynamicResource Reportes_LblEstado}"
+                                                  AutomationProperties.HelpText="{DynamicResource Acc_Reportes_ComboEstado}"/>
+                                    </Grid>
+
+                                    <TextBox Text="{Binding ResolucionEdit}" 
+                                             Height="120" 
+                                             AcceptsReturn="True" 
+                                             TextWrapping="Wrap"
+                                             Watermark="{DynamicResource Reportes_HolderResolucion}"
+                                             CornerRadius="10" 
+                                             BorderBrush="{DynamicResource Brush_Reportes_Resolucion_Borde}"
+                                             Background="{DynamicResource Brush_Reportes_Resolucion_Fondo}"
+                                             Foreground="{DynamicResource Brush_Reportes_Resolucion_Texto}"
+                                             Padding="15"
+                                             AutomationProperties.Name="{DynamicResource Reportes_SecResolucion}"
+                                             AutomationProperties.HelpText="{DynamicResource Acc_Reportes_CajaResolucion}"/>
+                                </StackPanel>
+
+                                <Button Command="{Binding BtnGuardar}"
+                                        Content="{DynamicResource Reportes_BtnGuardar}"
+                                        HorizontalAlignment="Stretch" 
+                                        HorizontalContentAlignment="Center"
+                                        Background="{DynamicResource Brush_Reportes_BtnGuardar_Fondo}" 
+                                        Foreground="{DynamicResource Brush_Reportes_BtnGuardar_Texto}" 
+                                        FontWeight="Bold"
+                                        Padding="18" 
+                                        CornerRadius="12" 
+                                        Cursor="Hand"
+                                        Margin="0,10,0,0"
+                                        AutomationProperties.Name="{DynamicResource Reportes_BtnGuardar}"/>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+     </Grid>
+</UserControl>

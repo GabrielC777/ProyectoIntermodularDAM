@@ -1,0 +1,384 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:BetaProyecto.ViewModels"
+             xmlns:asyncImageLoader="using:AsyncImageLoader"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+             x:Class="BetaProyecto.Views.Crear.ViewPublicarCancion"
+             x:Name="Raiz"
+             x:DataType="vm:ViewPublicarCancionViewModel"
+             Background="{DynamicResource Brush_Pub_Fondo_Pagina}"   
+             AutomationProperties.Name="{DynamicResource Acc_Pub_Pagina}">
+    
+   <UserControl.Styles>
+        <Style Selector="Button.Design">
+            <Setter Property="Background" Value="{DynamicResource Brush_Pub_BtnAccion_Fondo}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Pub_BtnAccion_Texto}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="CornerRadius" Value="20"/>
+        </Style>
+
+        <Style Selector="TextBox">
+            <Setter Property="Background" Value="{DynamicResource Brush_Pub_Input_Fondo}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Pub_Input_Texto}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Brush_Pub_Input_Borde}"/>
+            <Setter Property="CaretBrush" Value="{DynamicResource Brush_Pub_Input_Texto}"/>
+        </Style>
+    </UserControl.Styles>
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            
+            <Border Background="{DynamicResource Brush_Pub_Fondo_Tarjeta}"
+                    CornerRadius="15"
+                    BoxShadow="0 4 15 0 #20000000"
+                    Margin="40"
+                    MaxWidth="1100"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+                <Grid RowDefinitions="Auto, *" Margin="40">
+                    <!-- Cabezera -->
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="20" Margin="0,0,0,30">
+                    
+                        <!-- Boton volver atrás-->
+                        <Button Command="{Binding BtnVolverAtras}"
+                                CornerRadius="50" Width="50" Height="50" Padding="0"
+                                Background="{DynamicResource Brush_Pub_BtnVolver_Fondo}" Cursor="Hand"
+                                ToolTip.Tip="{DynamicResource Global_BtnVolver}"
+                                AutomationProperties.Name="{DynamicResource Global_BtnVolver}"
+                                AutomationProperties.HelpText="{DynamicResource Acc_Pub_BtnVolver_Help}">
+                            <Image Source="{DynamicResource Img_Volver}" Stretch="UniformToFill"
+                                   AutomationProperties.AccessibilityView="Raw"/>
+                        </Button>
+                        <!-- Titulo de la pagina-->
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Text="{DynamicResource Pub_Titulo}" FontSize="32" FontWeight="Bold"
+                                       Foreground="{DynamicResource Brush_Pub_Texto_Titulo}"/>
+                            <TextBlock Text="{DynamicResource Pub_Subtitulo}" FontSize="16" 
+                                       Foreground="{DynamicResource Brush_Pub_Texto_Subtitulo}"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <Grid Grid.Row="1" ColumnDefinitions="*, 50, *">
+                        <!-- Celda Información Básica-->
+                        <StackPanel Grid.Column="0" Spacing="25">
+
+                            <StackPanel Spacing="15">
+                                <TextBlock Text="{DynamicResource Pub_Sec1_Titulo}" FontSize="20" FontWeight="SemiBold" 
+                                           Foreground="{DynamicResource Brush_Pub_Texto_Seccion}"/>
+                                
+                               <Border Background="{DynamicResource Brush_Pub_Panel_Seccion_Fondo}" CornerRadius="10" Padding="20">
+                                    <StackPanel Spacing="15">
+                                        <!-- Titulo de la canción-->             
+                                        <StackPanel Spacing="5">
+                                            <TextBlock Text="{DynamicResource Pub_LblTitulo}" FontWeight="Medium" 
+                                                       Foreground="{DynamicResource Brush_Pub_Texto_Label}"/>
+                                            <TextBox Text="{Binding TxtTitulo}" 
+                                                     Watermark="{DynamicResource Pub_WaterTitulo}" 
+                                                     Height="45" CornerRadius="8" FontSize="16"
+                                                     AutomationProperties.Name="{DynamicResource Pub_LblTitulo}"
+                                                     AutomationProperties.HelpText="{DynamicResource Acc_Pub_Titulo_Help}"/>
+                                        </StackPanel>
+                                        <!--Genero musical-->
+                                        <StackPanel Spacing="5">
+                                           <TextBlock Text="{DynamicResource Pub_LblGeneros}" FontWeight="Medium" 
+                                                      Foreground="{DynamicResource Brush_Pub_Texto_Label}"/>
+    
+                                            <Grid ColumnDefinitions="*, 10, Auto">
+                                                <ComboBox Grid.Column="0" 
+                                                          ItemsSource="{Binding ListaGeneros}" 
+                                                          SelectedItem="{Binding GeneroSeleccionado}"
+                                                          PlaceholderText="{DynamicResource Pub_WaterGenero}"
+                                                          HorizontalAlignment="Stretch"
+                                                          Height="45"
+                                                          CornerRadius="8"
+                                                          AutomationProperties.Name="{DynamicResource Pub_LblGeneros}"
+                                                          AutomationProperties.HelpText="{DynamicResource Acc_Pub_ComboGenero_Help}"/>
+                                                
+                                                <Button Grid.Column="2" 
+                                                        Command="{Binding BtnAgregarGenero}"
+                                                        Content="+"
+                                                        Classes="Design"
+                                                        Padding="0"
+                                                        FontSize="30" 
+                                                        Height="45" 
+                                                        Width="45"
+                                                        AutomationProperties.Name="{DynamicResource Pub_BtnAddGenero_Help}"
+                                                        AutomationProperties.HelpText="{DynamicResource Acc_Pub_BtnAddGenero_Help}"/>
+                                            </Grid>
+          
+                                            <TextBlock Text="{DynamicResource Pub_Msg_UnGenero}" FontWeight="Medium" 
+                                                       Foreground="{DynamicResource Brush_Pub_Texto_Label}" FontSize="12"/>
+          
+                                            <ItemsControl ItemsSource="{Binding ListaGenerosSeleccionados}" Margin="0,5,0,0">
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <WrapPanel Orientation="Horizontal" />
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Border Background="{DynamicResource Brush_Pub_Tag_Fondo}" CornerRadius="15" Padding="10,5" Margin="0,0,8,8"
+                                                                BorderBrush="{DynamicResource Brush_Pub_Tag_Borde}" BorderThickness="1">
+                                                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                                                <TextBlock Text="{Binding}" FontWeight="SemiBold" 
+                                                                           Foreground="{DynamicResource Brush_Pub_Tag_Texto}" VerticalAlignment="Center"/>
+                        
+                                                                <Button Background="Transparent" Padding="0" Width="20" Height="20" Cursor="Hand"
+                                                                        Command="{ReflectionBinding #Raiz.DataContext.BtnEliminarGenero}"
+                                                                        CommandParameter="{Binding}"
+                                                                        AutomationProperties.Name="{DynamicResource Acc_Pub_BtnDelGenero_Help}"
+                                                                        AutomationProperties.HelpText="{DynamicResource Acc_Pub_BtnDelGenero_Help}">
+                                                                    <PathIcon Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+                                                                            Width="10" Height="10" 
+                                                                            Foreground="{DynamicResource Brush_Pub_Tag_Texto}" AutomationProperties.AccessibilityView="Raw"/>
+                                                                </Button>
+                                                            </StackPanel>
+                                                        </Border>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </StackPanel>
+                                        <!-- Añadir más artitas/colaboradores-->   
+                                        <StackPanel Spacing="10">
+                                            <TextBlock Text="{DynamicResource Pub_LblArtistas}" FontWeight="Medium" 
+                                                       Foreground="{DynamicResource Brush_Pub_Texto_Label}"/>
+                                            <Grid RowDefinitions="Auto, Auto">
+                                                <!-- Buscador de usuarios-->             
+                                                <Grid ColumnDefinitions="*, Auto">
+                                                    <TextBox Text="{Binding TxtBusqueda}" 
+                                                           Watermark="{DynamicResource Pub_WaterBuscaArtista}" 
+                                                           Height="40" CornerRadius="8"
+                                                           AutomationProperties.Name="{DynamicResource Pub_LblArtistas}"
+                                                           AutomationProperties.HelpText="{DynamicResource Acc_Pub_BuscaArtista_Help}"/>
+                                                    
+                                                    <Button Grid.Column="1" Margin="10,0,0,0" Padding="4" Height="40" Width="40" 
+                                                            Classes="Design"
+                                                            Command="{Binding BtnBuscarUsuarios}"
+                                                            AutomationProperties.HelpText="{DynamicResource Acc_Pub_BtnBuscaArtista_Help}">
+                                                        <Image Source="/Assets/Imagenes/LupaLlena.png" Stretch="UniformToFill"
+                                                               AutomationProperties.AccessibilityView="Raw"/>
+                                                    </Button>
+                                                </Grid>
+                                                <!--Resultado de usuarios buscados-->            
+                                                <Border Grid.Row="1" Background="{DynamicResource Brush_Pub_Input_Fondo}" BorderBrush="#CCC" BorderThickness="1"
+                                                        CornerRadius="5" Margin="0,5,0,0" MaxHeight="200"
+                                                        IsVisible="{Binding ListaResultados.Count}" ZIndex="99">
+                                                    <ScrollViewer>
+                                                        <ItemsControl ItemsSource="{Binding ListaResultados}">
+                                                            <ItemsControl.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <!-- Usamos ReflectionBinding para poder usar la raiz ya que aqui el DataType es Usuarios no el que tenemos declarado en el documento-->             
+                                                                    <Button Background="Transparent" HorizontalAlignment="Stretch"
+                                                                            Command="{ReflectionBinding #Raiz.DataContext.BtnAgregarUsuario}"
+                                                                            CommandParameter="{Binding}"
+                                                                            Cursor="Hand"
+                                                                            AutomationProperties.HelpText="{DynamicResource Acc_Pub_BtnAddArtista_Help}">
+                                                                        <Grid ColumnDefinitions="40, *">
+                                                                            <Image asyncImageLoader:ImageLoader.Source="{Binding Perfil.ImagenUrl}"
+                                                                                   Width="30" Height="30" Stretch="UniformToFill"
+                                                                                   ClipToBounds="True"
+                                                                                   AutomationProperties.AccessibilityView="Raw">
+                                                                                <Image.Clip>
+                                                                                    <EllipseGeometry Rect="0,0,30,30"/>
+                                                                                </Image.Clip>
+                                                                            </Image>
+                                                                            <TextBlock Grid.Column="1" Text="{Binding Username}" VerticalAlignment="Center" Margin="10,0,0,0"
+                                                                                       Foreground="{DynamicResource Brush_Pub_Input_Texto}"/>
+                                                                        </Grid>
+                                                                    </Button>
+                                                                </DataTemplate>
+                                                            </ItemsControl.ItemTemplate>
+                                                        </ItemsControl>
+                                                    </ScrollViewer>
+                                                </Border>
+                                            </Grid>
+                                            <!--Usuarios añadidos-->             
+                                            <StackPanel IsVisible="{Binding !!ListaArtistas.Count}" Margin="0,10,0,0">
+                                                <TextBlock Text="{DynamicResource Pub_LblArtistasAnadidos}" FontSize="12" 
+                                                           Foreground="{DynamicResource Brush_Pub_Texto_Label}" Margin="0,0,0,5"/>
+                                                <ItemsControl ItemsSource="{Binding ListaArtistas}">
+                                                    <ItemsControl.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel Orientation="Horizontal" />
+                                                        </ItemsPanelTemplate>
+                                                    </ItemsControl.ItemsPanel>
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Border Background="{DynamicResource Brush_Pub_Input_Fondo}" CornerRadius="20" Padding="5" Margin="0,0,8,8"
+                                                                    BorderBrush="{DynamicResource Brush_Pub_Input_Borde}" BorderThickness="1" BoxShadow="0 2 4 0 #10000000">
+                                                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                                                    <Border CornerRadius="20" ClipToBounds="True" Width="30" Height="30">
+                                                                        <Image asyncImageLoader:ImageLoader.Source="{Binding Perfil.ImagenUrl}"
+                                                                               Stretch="UniformToFill"
+                                                                               AutomationProperties.AccessibilityView="Raw"/>
+                                                                    </Border>
+
+                                                                    <TextBlock Text="{Binding Username}" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="14"
+                                                                               Foreground="{DynamicResource Brush_Pub_Input_Texto}"/>
+
+                                                                    <Button Classes="Design" Width="24" Height="24" CornerRadius="12" Background="Transparent"
+                                                                            Cursor="Hand"
+                                                                            Command="{ReflectionBinding #Raiz.DataContext.BtnEliminarUsuario}"
+                                                                            CommandParameter="{Binding}"
+                                                                            AutomationProperties.Name="{DynamicResource Acc_Pub_BtnDelArtista_Help}"
+                                                                            AutomationProperties.HelpText="{DynamicResource Acc_Pub_BtnDelArtista_Help}">
+                                                                        <PathIcon Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+                                                                                  Width="10" Height="10" Foreground="#FF5252"
+                                                                                  AutomationProperties.AccessibilityView="Raw"/>
+                                                                    </Button>
+                                                                </StackPanel>
+                                                            </Border>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+                                            </StackPanel>
+
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2" Spacing="25">
+                            <!--Celda Portada Canción-->                          
+                            <StackPanel Spacing="15">
+                                <TextBlock Text="{DynamicResource Pub_Sec2_Titulo}" FontSize="20" FontWeight="SemiBold" 
+                                           Foreground="{DynamicResource Brush_Pub_Texto_Seccion}"/>
+                                <Border Background="{DynamicResource Brush_Pub_Panel_Seccion_Fondo}" CornerRadius="10" Padding="20">
+                                    <Grid RowDefinitions="Auto, 10, Auto">
+                                        <!--Boton para buscar imagen con textbox-->
+                                        <Grid Grid.Row="0" ColumnDefinitions="*, 10, Auto">
+                                            <TextBox Grid.Column="0" Text="{Binding RutaImagen}"
+                                                     IsReadOnly="True" 
+                                                     Watermark="{DynamicResource Pub_WaterImagen}"
+                                                     VerticalAlignment="Center" Height="40" CornerRadius="8"
+                                                     AutomationProperties.HelpText="{DynamicResource Acc_Pub_RutaImg_Help}"/>
+                                            
+                                            <Button Grid.Column="2" 
+                                                    Content="{DynamicResource Pub_BtnBuscarImg}" 
+                                                    Click="BtnSelectImagen_Click"
+                                                    Height="40" Classes="Design"
+                                                    AutomationProperties.HelpText="{DynamicResource Acc_Pub_BtnImg_Help}"/>
+                                        </Grid>
+                                        <!--Vista previa de la imagen selecionada-->
+                                        <Panel Grid.Row="2" Height="150">
+
+                                            <!--Cuando no hay nada selaccionado-->
+                                            <Border CornerRadius="8"
+                                                    BorderBrush="#E0E0E0" BorderThickness="2"
+                                                    Background="{DynamicResource Brush_Pub_Input_Fondo}"
+                                                    IsVisible="{Binding !TieneImagen}">
+                                                <TextBlock Text="{DynamicResource Pub_PreviewVacia}" 
+                                                           Foreground="{DynamicResource Brush_Pub_Texto_Label}" 
+                                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>    
+                                            </Border>
+                                             <!--Cuando la imagen esta selacionada-->
+                                            <Border CornerRadius="8" ClipToBounds="True" IsVisible="{Binding TieneImagen}">
+                                                <Image Source="{Binding ImagenPortada}" Stretch="Uniform" AutomationProperties.AccessibilityView="Raw"/>
+                                            </Border>
+                                        </Panel>
+                                    </Grid>
+                                </Border>
+                            </StackPanel>
+                            <!--Celda Fuente de Audio-->
+                            <StackPanel Spacing="15">
+                                <TextBlock Text="{DynamicResource Pub_Sec3_Titulo}" FontSize="20" FontWeight="SemiBold" 
+                                           Foreground="{DynamicResource Brush_Pub_Texto_Seccion}"/>
+                                <Border Background="{DynamicResource Brush_Pub_Panel_Seccion_Fondo}" CornerRadius="10" Padding="20">
+                                    <StackPanel Spacing="20">
+                                        <StackPanel Orientation="Horizontal" Spacing="30" HorizontalAlignment="Center">
+                                            <RadioButton Content="{DynamicResource Pub_RadioYoutube}" 
+                                                      IsChecked="{Binding EsYoutube}" FontWeight="Bold" FontSize="15"
+                                                      Foreground="{DynamicResource Brush_Pub_Texto_Titulo}"
+                                                      AutomationProperties.HelpText="{DynamicResource Acc_Pub_RadioYoutube_Help}"/>
+                                            <RadioButton Content="{DynamicResource Pub_RadioLocal}" 
+                                                      IsChecked="{Binding EsArchivo}" FontWeight="Bold" FontSize="15"
+                                                      Foreground="{DynamicResource Brush_Pub_Texto_Titulo}"
+                                                      AutomationProperties.HelpText="{DynamicResource Acc_Pub_RadioLocal_Help}"/>
+                                        </StackPanel>
+
+                                        <Separator Background="#E0E0E0" AutomationProperties.AccessibilityView="Raw"/>
+
+                                        <StackPanel IsVisible="{Binding EsYoutube}" Spacing="10">
+                                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                                <PathIcon Data="M19.615 3.184c-2.369-.184-12.861-.184-15.23 0-2.83.219-4.385 1.774-4.385 4.385v8.862c0 2.611 1.555 4.166 4.385 4.385 2.369.184 12.861.184 15.23 0 2.83-.219 4.385-1.774 4.385-4.385v-8.862c0-2.611-1.555-4.166-4.385-4.385zm-10.615 12.816v-8l8 4-8 4z"
+                                                          Foreground="{DynamicResource Brush_Pub_Icono_Youtube}" Width="24" Height="24" AutomationProperties.AccessibilityView="Raw"/>
+                                                <TextBlock Text="{DynamicResource Pub_LblPegarLink}" VerticalAlignment="Center" FontWeight="SemiBold" 
+                                                           Foreground="{DynamicResource Brush_Pub_Texto_Seccion}"/>
+                                            </StackPanel>
+                                            <TextBox Text="{Binding LinkYoutube}" 
+                                                     Watermark="{DynamicResource Pub_WaterLink}" 
+                                                     Height="45" CornerRadius="8"
+                                                     AutomationProperties.Name="{DynamicResource Pub_LblPegarLink}"
+                                                     AutomationProperties.HelpText="{DynamicResource Acc_Pub_Link_Help}"/>
+                                            <TextBlock Text="{DynamicResource Pub_HelpLink}" FontSize="12" 
+                                                       Foreground="{DynamicResource Brush_Pub_Texto_Label}" FontStyle="Italic"/>
+                                        </StackPanel>
+
+                                        <StackPanel IsVisible="{Binding EsArchivo}" Spacing="10">
+                                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                                <PathIcon Data="M9,3L9,5H19V3L9,3M9,7L9,9H19V7L9,7M6,3L6,13C5.37,12.47 4.47,12.37 3.5,12.72C1.04,13.61 0.17,16.64 1.05,18.5C1.65,19.74 3.19,20.41 4.5,20C6.96,19.11 7.83,16.08 6.95,14.22L7,3H6Z"
+                                                          Foreground="{DynamicResource Brush_Pub_Icono_Local}" Width="24" Height="24" AutomationProperties.AccessibilityView="Raw"/>
+                                                <TextBlock Text="{DynamicResource Pub_LblSelectLocal}" VerticalAlignment="Center" FontWeight="SemiBold" 
+                                                           Foreground="{DynamicResource Brush_Pub_Texto_Seccion}"/>
+                                            </StackPanel>
+                                            <Grid ColumnDefinitions="*, 10, Auto">
+                                                <TextBox Grid.Column="0" Text="{Binding RutaMp3}" IsReadOnly="True" 
+                                                         Watermark="{DynamicResource Pub_WaterLocal}" Height="45" CornerRadius="8"
+                                                         AutomationProperties.HelpText="{DynamicResource Acc_Pub_RutaMp3_Help}"/>
+                                                
+                                                <Button Grid.Column="2" 
+                                                        Content="{DynamicResource Pub_BtnExaminar}" 
+                                                        Click="BtnSelectMp3_Click" Height="45" Classes="Design"
+                                                        AutomationProperties.HelpText="{DynamicResource Acc_Pub_BtnMp3_Help}"/>
+                                            </Grid>
+                                            <TextBlock Text="{DynamicResource Pub_HelpLocal}" FontSize="12" 
+                                                       Foreground="{DynamicResource Brush_Pub_Texto_Label}" FontStyle="Italic"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+
+                            <Panel Height="20"/>
+
+                            <Button Command="{Binding BtnPublicar}"
+                                    Background="{DynamicResource Brush_Pub_BtnPublicar_Fondo}"
+                                    Foreground="{DynamicResource Brush_Pub_BtnPublicar_Texto}"
+                                    HorizontalAlignment="Stretch"
+                                    Height="60"
+                                    CornerRadius="10"
+                                    IsEnabled="{Binding !EstaCargando}"
+                                    Cursor="Hand"
+                                    AutomationProperties.Name="{DynamicResource Pub_BtnPublicar}"
+                                    AutomationProperties.HelpText="{DynamicResource Acc_Pub_BtnPublicar_Help}">
+                                <StackPanel Orientation="Horizontal" Spacing="15" HorizontalAlignment="Center">
+                                    <TextBlock Text="{DynamicResource Pub_BtnPublicar}" FontWeight="Bold" FontSize="18" VerticalAlignment="Center"/>
+                                    <PathIcon Data="M2,21L23,12L2,3V10L17,12L2,14V21Z" Width="24" Height="24" VerticalAlignment="Center" AutomationProperties.AccessibilityView="Raw"/>
+                                </StackPanel>
+                            </Button>
+
+                        </StackPanel>
+
+                    </Grid>
+                </Grid>
+            </Border>
+        </ScrollViewer>
+
+        <Grid Background="{DynamicResource Brush_Pub_Loader_Overlay}" IsVisible="{Binding EstaCargando}">
+            <Border Background="{DynamicResource Brush_Pub_Loader_Tarjeta}" CornerRadius="20" Padding="40" HorizontalAlignment="Center" VerticalAlignment="Center" BoxShadow="0 10 30 0 #30000000">
+                <StackPanel Spacing="25">
+                    <ProgressBar IsIndeterminate="True" Width="250" Height="10" Foreground="{DynamicResource SystemAccentColor}"/>
+                    <TextBlock Text="{DynamicResource Pub_Load_Subiendo}" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" 
+                               Foreground="{DynamicResource Brush_Pub_Texto_Titulo}"/>
+                    <TextBlock Text="{DynamicResource Pub_Load_Espera}" FontSize="14" 
+                               Foreground="{DynamicResource Brush_Pub_Texto_Label}" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,236 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:BetaProyecto.ViewModels"
+             xmlns:helpers="using:BetaProyecto.Helpers"
+             xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="800"
+             x:Class="BetaProyecto.Views.Visores.ViewCanciones"
+             x:DataType="vm:ViewCancionesViewModel"
+             Background="Transparent"
+             AutomationProperties.Name="{DynamicResource Acc_VisorCan_Pagina}">
+    <UserControl.Resources>
+        <helpers:TextoTraducidoConverter x:Key="Traductor"/>
+    </UserControl.Resources>
+    <UserControl.Styles>
+        
+        <Style Selector="Border.TarjetaMetrica">
+            <Setter Property="Background" Value="{DynamicResource Brush_VisorCan_Tarjeta_Fondo}"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Padding" Value="15"/>
+            <Setter Property="BoxShadow" Value="0 2 10 0 #10000000"/>
+        </Style>
+        
+        <Style Selector="TextBlock.TextoMetrica">
+            <Setter Property="FontWeight" Value="Bold"/> 
+        </Style>
+        
+        <Style Selector="TextBlock.Titulo">
+            <Setter Property="Foreground" Value="{DynamicResource Brush_VisorCan_Texto_MetricaTitulo}"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+        
+        <Style Selector="TextBlock.Valor">
+            <Setter Property="Foreground" Value="{DynamicResource Brush_VisorCan_Texto_MetricaValor}"/>
+            <Setter Property="FontSize" Value="22"/>
+        </Style>
+
+        <Style Selector="Button.BotonGeneral">
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="CornerRadius" Value="25"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="Button.Play">
+            <Setter Property="Background" Value="{DynamicResource Brush_VisorCan_BtnPlay_Fondo}"/>
+            <Setter Property="Foreground" Value="White"/> <Setter Property="BorderBrush" Value="{DynamicResource Brush_VisorCan_BtnPlay_Borde}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+        <Style Selector="Button.Play:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource Brush_VisorCan_BtnPlay_Hover}"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+        <Style Selector="Button.Fav">
+            <Setter Property="Background" Value="{DynamicResource Brush_VisorCan_BtnFav_Fondo}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_VisorCan_BtnFav_Icono}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Brush_VisorCan_BtnFav_Borde}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+        <Style Selector="Button.Fav:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource Brush_VisorCan_PanelDerecho_Fondo}"/> 
+            <Setter Property="BorderBrush" Value="{DynamicResource Brush_VisorCan_BtnFav_Icono}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_VisorCan_BtnFav_Icono}"/> 
+        </Style>
+
+        <Style Selector="Button.BtnVolver">
+            <Setter Property="Background" Value="{DynamicResource Brush_VisorCan_BtnVolver_Fondo}"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="0,0,0,20"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style Selector="Button.BtnVolver:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource Brush_VisorCan_BtnVolver_Hover}"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </UserControl.Styles>
+        <Grid RowDefinitions="Auto, *" Margin="40">
+            <!--Boton de volver-->
+            <Button Command="{Binding BtnVolver}" Classes="BtnVolver"
+                    AutomationProperties.Name="{DynamicResource VisorCan_BtnVolver}"
+                    AutomationProperties.HelpText="{DynamicResource Acc_Btn_Volver_Help}">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <Image Source="{DynamicResource Img_Volver}" Width="30" Stretch="Uniform"/>
+                    <TextBlock Text="{DynamicResource VisorCan_BtnVolver}" VerticalAlignment="Center" FontWeight="Bold" Foreground="White"/>
+                </StackPanel>
+            </Button>
+
+            <Grid Grid.Row="1" ColumnDefinitions="400, *" MinHeight="600">
+                <!--Portada canción-->
+                <StackPanel Grid.Column="0" Spacing="25" VerticalAlignment="Top">
+                    <TextBlock Foreground="{DynamicResource Brush_VisorCan_Texto_Timer}" 
+                               FontWeight="Bold"
+                               HorizontalAlignment="Center" 
+                               Margin="0,10,0,0">
+                        <Run Text="{Binding TxtMensajeTimer, Converter={StaticResource Traductor}, Mode=OneWay}"/>
+                        <Run Text="{Binding TxtVariableTimer, Mode=OneWay}"/>
+                    </TextBlock>
+                
+                    <Border CornerRadius="20" ClipToBounds="True" BoxShadow="0 10 30 0 #40000000" Background="Gray">
+                        <Image asyncImageLoader:ImageLoader.Source="{Binding Cancion.ImagenPortadaUrl}" 
+                               Stretch="UniformToFill" Height="400"
+                               AutomationProperties.Name="{DynamicResource Acc_VisorCan_Caratula}"/>
+                    </Border>
+                    
+                    <Grid ColumnDefinitions="*, 60, *" HorizontalAlignment="Center">
+                        <!--Botón para reproducir canción-->
+                        <Button Grid.Column="0" Content="{DynamicResource VisorCan_BtnReproducir}" 
+                            Classes="BotonGeneral Play"  
+                            Command="{Binding BtnReproducir}"
+                            AutomationProperties.HelpText="{DynamicResource Acc_VisorCan_BtnPlay_Help}"/>
+                        <!--Botón para añadir y eleminar de favorito-->
+                        <Button Grid.Column="2" Classes="BotonGeneral Fav"
+                            Command="{Binding BtnLike}"
+                            AutomationProperties.Name="{DynamicResource Tip_Player_Fav}"
+                            AutomationProperties.HelpText="{DynamicResource Acc_VisorCan_BtnFav_Help}">
+
+                            <StackPanel Orientation="Horizontal" Spacing="10" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Image Source="{Binding ImagenLike}" 
+                                       Height="35" 
+                                       Stretch="Uniform"
+                                       VerticalAlignment="Center"
+                                       AutomationProperties.AccessibilityView="Raw"/>
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </StackPanel>
+               <Border Grid.Column="1" 
+                    Background="{DynamicResource Brush_VisorCan_PanelDerecho_Fondo}" 
+                    CornerRadius="20" 
+                    BoxShadow="0 4 20 0 #20000000" 
+                    Padding="30" 
+                    Margin="30,0,0,0" 
+                    VerticalAlignment="Top">
+                    <StackPanel  Margin="50,0,0,0" Spacing="30">
+                  
+                        <StackPanel Spacing="5">
+                            <!--Titulo de la canción y nombre artistas-->
+                            <TextBlock Text="{DynamicResource VisorCan_LblCancion}" 
+                                   Foreground="{DynamicResource Brush_VisorCan_Texto_Etiqueta}" 
+                                   FontSize="25" FontWeight="ExtraBold" LetterSpacing="2"/>
+                        
+                            <TextBlock Text="{Binding Cancion.Titulo}" 
+                                       FontSize="45" FontWeight="Black" TextWrapping="Wrap" LineHeight="50"
+                                       Foreground="{DynamicResource Brush_VisorCan_Texto_Titulo}"
+                                       AutomationProperties.Name="{DynamicResource Acc_VisorCan_Titulo_Help}"/>
+                        
+                            <TextBlock Text="{Binding Cancion.NombreArtista}" 
+                                       FontSize="24" 
+                                       Foreground="{DynamicResource Brush_VisorCan_Texto_Subtitulo}"
+                                       AutomationProperties.Name="{DynamicResource Acc_VisorCan_Artista_Help}"/>
+                         </StackPanel>
+
+                        <Separator Height="1" Background="{DynamicResource Brush_VisorCan_Texto_Subtitulo}" Opacity="0.3"
+                               AutomationProperties.AccessibilityView="Raw"/>
+                        <!--Estadísticas-->
+                        <TextBlock Text="{DynamicResource VisorCan_SecEstadisticas}" FontWeight="Bold" FontSize="18"
+                               Foreground="{DynamicResource Brush_VisorCan_Texto_Titulo}"
+                               AutomationProperties.Name="{DynamicResource Acc_VisorCan_Stats_Help}"/>
+                        <Grid ColumnDefinitions="*, 20, *, 20, *">
+                            <!--Reproducciones--> 
+                            <Border Grid.Column="0" Classes="TarjetaMetrica">
+                                <StackPanel Spacing="5">
+                                    <TextBlock Text="{DynamicResource VisorCan_LblReproducciones}" Classes="TextoMetrica Titulo"/>
+                                    <TextBlock Text="{Binding Cancion.Metricas.TotalReproducciones}" Classes="TextoMetrica Valor"/>
+                                </StackPanel>
+                            </Border>
+                            <!--Me gustas-->
+                            <Border Grid.Column="2" Classes="TarjetaMetrica">
+                                <StackPanel Spacing="5">
+                                    <TextBlock Text="{DynamicResource VisorCan_LblMeGustas}" Classes="TextoMetrica Titulo"/>
+                                    <TextBlock Text="{Binding Cancion.Metricas.TotalMegustas}" Classes="TextoMetrica Valor"/>
+                                </StackPanel>
+                            </Border>
+                            <!--Puntaje de tendencia-->
+                            <Border Grid.Column="4" Classes="TarjetaMetrica">
+                                <StackPanel Spacing="5">
+                                    <TextBlock Text="{DynamicResource VisorCan_LblTendencia}" Classes="TextoMetrica Titulo"/>
+                                    <TextBlock Text="{Binding Cancion.Metricas.PuntuacionTendencia}" Classes="TextoMetrica Valor"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                        <!--Detalles-->
+                        <StackPanel Spacing="15">
+                        <TextBlock Text="{DynamicResource VisorCan_SecDetalles}" FontWeight="Bold" FontSize="18"
+                                   Foreground="{DynamicResource Brush_VisorCan_Texto_Titulo}"/>
+                        
+                            <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="150, *">
+                               <!--Duración-->
+                               <TextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource VisorCan_LblDuracion}" 
+                                      Foreground="{DynamicResource Brush_VisorCan_Texto_Etiqueta}" Margin="0,0,0,10"/>
+                               <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding DuracionFormateada}" FontWeight="SemiBold"
+                                          Foreground="{DynamicResource Brush_VisorCan_Texto_Titulo}"/>
+                               <!--Lanzamiento-->
+                               <TextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource VisorCan_LblLanzamiento}" 
+                                      Foreground="{DynamicResource Brush_VisorCan_Texto_Etiqueta}"/>
+                               <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding FechaLanzamientoFormateada}" FontWeight="SemiBold"
+                                          Foreground="{DynamicResource Brush_VisorCan_Texto_Titulo}"/>
+                            </Grid>
+                        </StackPanel>
+                        <!--Generos-->
+                        <StackPanel Spacing="10">
+                        <TextBlock Text="{DynamicResource VisorCan_SecGeneros}" FontWeight="Bold" FontSize="18"
+                                   Foreground="{DynamicResource Brush_VisorCan_Texto_Titulo}"/>
+                        <ItemsControl ItemsSource="{Binding Cancion.Datos.Generos}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Background="{DynamicResource Brush_VisorCan_Tag_Fondo}" 
+                                            CornerRadius="15" Padding="15,5" Margin="0,0,10,10">
+                                        <TextBlock Text="{Binding}" 
+                                                   Foreground="{DynamicResource Brush_VisorCan_Tag_Texto}" 
+                                                   FontWeight="Bold"/>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,100 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodels="using:BetaProyecto.ViewModels"
+             xmlns:helpers="using:BetaProyecto.Helpers"
+             xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+             x:DataType="viewmodels:TabItemPopularesViewModel"
+             x:Class="BetaProyecto.Views.TabControlApp.TabItemPopulares"
+             AutomationProperties.Name="{DynamicResource Acc_Pop_Pagina}"> 
+    
+    <UserControl.Resources>
+        <helpers:TextoTraducidoConverter x:Key="Traductor"/>
+    </UserControl.Resources>
+    
+    <UserControl.Styles>
+        <Style Selector="ListBoxItem">
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="0,0,15,5"/>
+            <Setter Property="Background" Value="{DynamicResource Brush_Pop_Fondo_Item}"/>
+            <Setter Property="CornerRadius" Value="8"/>
+        </Style>
+    </UserControl.Styles>
+
+
+    <Grid Margin="10,10,10,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0"
+                BorderBrush="{DynamicResource Brush_Pop_Borde_Filtro}" 
+                BorderThickness="2" Margin="0,10"
+                CornerRadius="10" HorizontalAlignment="Left" Padding="15,5">
+            
+            <StackPanel Orientation="Horizontal" Spacing="15">
+                <TextBlock VerticalAlignment="Center" 
+                           Text="{DynamicResource Pop_LblFiltro}" 
+                           FontSize="22" FontWeight="Bold"
+                           Foreground="{DynamicResource Brush_Pop_Texto_Filtro}"/>
+                
+                <ComboBox ItemsSource="{Binding ListaGeneros}" 
+                          SelectedItem="{Binding GeneroSeleccionado}"
+                          PlaceholderText="{DynamicResource Pop_ComboPlaceholder}"
+                          Width="200"
+                          VerticalAlignment="Center"
+                          AutomationProperties.Name="{DynamicResource Pop_LblFiltro}"
+                          AutomationProperties.HelpText="{DynamicResource Acc_Pop_ComboGenero_Help}"/>
+            </StackPanel>
+        </Border>
+
+        <TextBlock Grid.Row="1" 
+                   FontSize="18" FontWeight="SemiBold" 
+                   Foreground="{DynamicResource Brush_Pop_Texto_Secundario}"
+                   Margin="5,10">
+            <Run Text="{Binding TxtInfo, Converter={StaticResource Traductor},Mode=OneWay}"/>
+            <Run Text="{Binding TxtGeneroMostrado}"/> 
+        </TextBlock>
+
+        <ListBox Grid.Row="2" 
+                 Background="Transparent"
+                 ItemsSource="{Binding ListaPopulares}"
+                 AutomationProperties.Name="{DynamicResource Acc_Pop_ListaCanciones}">
+            
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="Auto, *, Auto">
+                        
+                        <Border Grid.Column="0" CornerRadius="5" ClipToBounds="True" Width="60" Height="60">
+                            <Image asyncImageLoader:ImageLoader.Source="{Binding ImagenPortadaUrl}" Stretch="UniformToFill"
+                                   AutomationProperties.Name="{DynamicResource Acc_Pop_Caratula}"/>
+                        </Border>
+
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="20,0,0,0">
+                            <TextBlock Text="{Binding Titulo}" FontWeight="Bold" FontSize="18"
+                                       Foreground="{DynamicResource Brush_Pop_Texto_Principal}"/>
+                            <TextBlock Text="{Binding NombreArtista}" FontSize="14" 
+                                       Foreground="{DynamicResource Brush_Pop_Texto_Secundario}"/>
+                        </StackPanel>
+
+                        <Button Grid.Column="2"
+                                Background="Transparent" Cursor="Hand"
+                                x:CompileBindings="False"
+                                Command="{Binding $parent[TabControl].DataContext.BtnReproducir}"
+                                CommandParameter="{Binding}"
+                                AutomationProperties.Name="{Binding Titulo}"
+                                AutomationProperties.HelpText="{DynamicResource Acc_Pop_BtnPlay_Help}">
+                            
+                            <Image Source="/Assets/Imagenes/Play.png" Width="40" Height="40" 
+                                   AutomationProperties.AccessibilityView="Raw"/>
+                        </Button>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

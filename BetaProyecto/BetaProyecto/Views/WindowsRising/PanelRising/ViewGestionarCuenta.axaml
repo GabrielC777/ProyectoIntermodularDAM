@@ -1,0 +1,190 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:BetaProyecto.ViewModels"
+             xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+             x:Class="BetaProyecto.Views.WindowsRising.PanelRising.ViewGestionarCuenta"
+             x:DataType="vm:ViewGestionarCuentaViewModel">
+
+<UserControl.Styles>
+        <Style Selector="Border.TarjetaGestion">
+            <Setter Property="Background" Value="{DynamicResource Brush_Gestion_Tarjeta_Fondo}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Brush_Gestion_Tarjeta_Borde}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="BoxShadow" Value="0 2 5 0 #15000000"/>
+            <Setter Property="Margin" Value="0,0,15,15"/>
+            <Setter Property="Padding" Value="10"/>
+        </Style>
+
+        <Style Selector="Button.BtnAccion">
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        
+        <Style Selector="Button.BtnEditar">
+            <Setter Property="Background" Value="{DynamicResource Brush_Btn_Editar_Fondo}"/> 
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Btn_Editar_Texto}"/>
+        </Style>
+        
+        <Style Selector="Button.BtnEliminar">
+            <Setter Property="Background" Value="{DynamicResource Brush_Btn_Eliminar_Fondo}"/> 
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Btn_Eliminar_Texto}"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid RowDefinitions="Auto, *">
+        <Separator Grid.Row="0" Height="3" Background="{DynamicResource Brush_Borde_General}" Margin="0" VerticalAlignment="Top"/>       
+        
+        <Grid RowDefinitions="Auto, *" Margin="40">
+            <!--Botón de refrescar-->
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="20" Margin="0,0,0,30">
+                <TextBlock Text="{DynamicResource Gestion_Titulo}" 
+                           AutomationProperties.Name="{DynamicResource Gestion_Titulo}"
+                           FontSize="40" FontWeight="Black" 
+                           Foreground="{DynamicResource Brush_Gestion_Titulo}"/>
+            
+                <Button Command="{Binding BtnRefrescar}" 
+                        Background="{DynamicResource Brush_Gestion_Fondo_Lista}" 
+                        CornerRadius="20" Padding="15,5" Cursor="Hand">
+                    <StackPanel Orientation="Horizontal" Spacing="5">
+                        <TextBlock Text="🔄" VerticalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource Gestion_BtnActualizar}" FontWeight="Bold" VerticalAlignment="Center"
+                                   Foreground="{DynamicResource Brush_Gestion_Texto_Titulo}"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+            <Grid Grid.Row="1" ColumnDefinitions="*, *" ColumnSpacing="40">
+                <!--Lista de canciones-->
+                <Border Grid.Column="0" Background="{DynamicResource Brush_Gestion_Fondo_Lista}" CornerRadius="20" Padding="30" BoxShadow="0 4 20 0 #10000000">
+                    <Grid RowDefinitions="Auto, *">
+                        <!--Título-->
+                        <TextBlock Grid.Row="0" Text="{DynamicResource Gestion_SecCanciones}"
+                                   AutomationProperties.Name="{DynamicResource Gestion_SecCanciones}"
+                                   FontSize="25" FontWeight="Bold" Margin="0,0,0,20" 
+                                   Foreground="{DynamicResource Brush_Gestion_Titulo_Seccion}"/>
+                    
+                        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                            <ItemsControl ItemsSource="{Binding MisCanciones}"
+                                          AutomationProperties.Name="{DynamicResource Acc_Gestion_ListaCanciones}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Classes="TarjetaGestion">
+                                            <Grid ColumnDefinitions="Auto, *, Auto">
+                                                <!--Imagen-->
+                                                <Border Grid.Column="0" Width="60" Height="60" CornerRadius="5" ClipToBounds="True">
+                                                    <Image asyncImageLoader:ImageLoader.Source="{Binding ImagenPortadaUrl}" Stretch="UniformToFill"/>
+                                                </Border>
+                                                <!--Información-->
+                                                <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="15,0">
+                                                    <TextBlock Text="{Binding Titulo}" FontWeight="Bold" FontSize="16" TextTrimming="CharacterEllipsis"
+                                                               Foreground="{DynamicResource Brush_Gestion_Texto_Titulo}"/>
+                                                    <TextBlock Text="{Binding NombreArtista}" FontSize="12" 
+                                                               Foreground="{DynamicResource Brush_Gestion_Texto_Subtitulo}"/>
+                                                    <TextBlock FontSize="11" Foreground="{DynamicResource Brush_Gestion_Texto_Info}">
+                                                        <Run Text="{Binding Metricas.TotalReproducciones}"/>
+                                                        <Run Text="{DynamicResource Gestion_SufijoReproducciones}"/>
+                                                    </TextBlock>                                
+                                                </StackPanel>
+
+                                                <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="10">
+                                                    <!--Botón editar canción-->
+                                                    <Button Classes="BtnAccion BtnEditar" 
+                                                            ToolTip.Tip="{DynamicResource Gestion_TipEditarCancion}"
+                                                            AutomationProperties.Name="{DynamicResource Gestion_TipEditarCancion}"
+                                                            x:CompileBindings="false"
+                                                            Command="{Binding DataContext.BtnEditarCancion, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                                            CommandParameter="{Binding}">
+                                                        <TextBlock Text="✏️" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Button>
+                                                    <!--Botón eliminar canción-->
+                                                    <Button Classes="BtnAccion BtnEliminar"
+                                                            ToolTip.Tip="{DynamicResource Gestion_TipEliminarCancion}"
+                                                            AutomationProperties.Name="{DynamicResource Gestion_TipEliminarCancion}"
+                                                            x:CompileBindings="false"
+                                                            Command="{Binding DataContext.BtnEliminarCancion, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                                            CommandParameter="{Binding}">
+                                                        <TextBlock Text="🗑️" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Button>
+                                                </StackPanel>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </Grid>
+                </Border>
+                <!--Lista de playlists-->
+                <Border Grid.Column="1" Background="{DynamicResource Brush_Gestion_Fondo_Lista}" CornerRadius="20" Padding="30" BoxShadow="0 4 20 0 #10000000">
+                    <Grid RowDefinitions="Auto, *">
+                        <!--Título-->
+                        <TextBlock Grid.Row="0" Text="{DynamicResource Gestion_SecPlaylists}" 
+                                   AutomationProperties.Name="{DynamicResource Gestion_SecPlaylists}"
+                                   FontSize="25" FontWeight="Bold" Margin="0,0,0,20" 
+                                   Foreground="{DynamicResource Brush_Gestion_Titulo_Seccion}"/>
+
+                        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                            <ItemsControl ItemsSource="{Binding MisPlaylists}"
+                                          AutomationProperties.Name="{DynamicResource Acc_Gestion_ListaPlaylists}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Classes="TarjetaGestion">
+                                            <Grid ColumnDefinitions="Auto, *, Auto">
+                                                <!--Imagen-->
+                                                <Border Grid.Column="0" Width="60" Height="60" CornerRadius="5" ClipToBounds="True" 
+                                                        Background="{DynamicResource Brush_Playlist_Placeholder}">
+                                                    <Image asyncImageLoader:ImageLoader.Source="{Binding UrlPortada}" Stretch="UniformToFill"/>
+                                                </Border>
+
+                                                <!--Información-->
+                                               <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="15,0">
+                                                    <TextBlock Text="{Binding Nombre}" FontWeight="Bold" FontSize="16" TextTrimming="CharacterEllipsis"
+                                                               Foreground="{DynamicResource Brush_Gestion_Texto_Titulo}"/>
+                                                    <TextBlock Text="{Binding Descripcion}" FontSize="12" TextTrimming="CharacterEllipsis" MaxLines="1"
+                                                               Foreground="{DynamicResource Brush_Gestion_Texto_Subtitulo}"/>
+                                                    <TextBlock FontSize="11" Foreground="{DynamicResource Brush_Gestion_Texto_Info}">
+                                                        <Run Text="{Binding CancionesCompletas.Count}"/>
+                                                        <Run Text="{DynamicResource Gestion_SufijoCanciones}"/>
+                                                    </TextBlock>
+                                                </StackPanel>
+                                                <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="10">
+                                                    <!--Botón editar playlist-->
+                                                    <Button Classes="BtnAccion BtnEditar"
+                                                            ToolTip.Tip="{DynamicResource Gestion_TipEditarPlaylist}"
+                                                            AutomationProperties.Name="{DynamicResource Gestion_TipEditarPlaylist}"
+                                                            x:CompileBindings="false"
+                                                            Command="{Binding DataContext.BtnEditarPlaylist, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                                            CommandParameter="{Binding}">
+                                                        <TextBlock Text="✏️" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Button>
+                                                    <!--Botón eliminar playlist-->
+                                                    <Button Classes="BtnAccion BtnEliminar"
+                                                            ToolTip.Tip="{DynamicResource Gestion_TipEliminarPlaylist}"
+                                                            AutomationProperties.Name="{DynamicResource Gestion_TipEliminarPlaylist}"
+                                                            x:CompileBindings="false"
+                                                            Command="{Binding DataContext.BtnEliminarPlaylist, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                                            CommandParameter="{Binding}">
+                                                        <TextBlock Text="🗑️" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Button>
+                                                </StackPanel>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </Grid>
+                </Border>
+
+            </Grid>
+        </Grid>
+     </Grid>
+</UserControl>

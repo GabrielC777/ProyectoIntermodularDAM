@@ -1,0 +1,55 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:BetaProyecto.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+             x:Class="BetaProyecto.Views.WindowsRising.ViewAyuda"
+             x:DataType="vm:ViewAyudaViewModel"
+             Background="{DynamicResource Brush_PanelUser_Fondo}"
+             AutomationProperties.Name="{DynamicResource Acc_Ayuda_Pagina}">
+
+    <UserControl.Styles>
+        <Style Selector="Button.VolverAyuda">
+            <Setter Property="Background" Value="{DynamicResource Brush_Ayuda_BtnVolver_Fondo}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Ayuda_BtnVolver_Texto}"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="30,15"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style Selector="Button.VolverAyuda:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource Brush_Ayuda_BtnVolver_Hover_Fondo}"/>
+             <Setter Property="Foreground" Value="{DynamicResource Brush_Ayuda_BtnVolver_Texto}"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Viewbox Stretch="Uniform">
+        <Grid Width="2300" Height="1300"> 
+            <Border Background="{DynamicResource Brush_Ayuda_Fondo_Tarjeta}"
+                    BorderBrush="{DynamicResource Brush_Ayuda_Borde_Tarjeta}"
+                    BorderThickness="1"
+                    Width="1400" Height="1000"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+                <Grid RowDefinitions="Auto, Auto, Auto, *">
+                    <TextBlock Text="{DynamicResource Ayuda_Titulo}" Grid.Row="0" FontSize="90" FontWeight="Bold" Foreground="{DynamicResource Brush_Ayuda_Texto_Principal}" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,100,0,0"/>
+                    <TextBlock Text="{DynamicResource Ayuda_Director}" Grid.Row="1" FontSize="50" Foreground="{DynamicResource Brush_Ayuda_Texto_Principal}" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,40,0,0" AutomationProperties.HelpText="{DynamicResource Acc_Ayuda_Info_Help}"/>
+                    <TextBlock Text="{DynamicResource Ayuda_Correo}" Grid.Row="2" FontSize="50" Foreground="{DynamicResource Brush_Ayuda_Texto_Principal}" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,40,0,0"/>
+                    <TextBlock Text="{DynamicResource Ayuda_Descripcion}" Grid.Row="3" FontSize="45" Foreground="{DynamicResource Brush_Ayuda_Texto_Principal}" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" TextWrapping="Wrap" MaxWidth="1100" Margin="0,60,0,0"/>
+                </Grid>
+            </Border>
+
+            <Button Classes="VolverAyuda"
+                    Content="{DynamicResource VisorUser_BtnVolver}"
+                    Command="{Binding btnVolverAtras}"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Margin="0,0,50,50"
+                    AutomationProperties.Name="{DynamicResource Global_BtnVolver}"
+                    AutomationProperties.HelpText="{DynamicResource Acc_Btn_Volver_Help}"/> 
+        </Grid>
+    </Viewbox>
+</UserControl>

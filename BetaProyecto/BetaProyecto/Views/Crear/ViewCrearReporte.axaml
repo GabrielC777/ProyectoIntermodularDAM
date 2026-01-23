@@ -1,0 +1,95 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:helpers="using:BetaProyecto.Helpers"
+             xmlns:vm="using:BetaProyecto.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+             x:Class="BetaProyecto.Views.Crear.ViewCrearReporte"
+             x:DataType="vm:ViewCrearReporteViewModel"
+             AutomationProperties.Name="{DynamicResource Acc_Rep_Pagina}">
+    
+    <UserControl.Resources>
+        <helpers:TextoTraducidoConverter x:Key="Traductor"/>
+    </UserControl.Resources>
+
+    <UserControl.Styles>
+        <Style Selector="TextBox">
+            <Setter Property="Background" Value="{DynamicResource Brush_Rep_Input_Fondo}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Rep_Input_Texto}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Brush_Rep_Input_Borde}"/>
+            <Setter Property="CaretBrush" Value="{DynamicResource Brush_Rep_Input_Texto}"/>
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
+        
+    </UserControl.Styles>
+
+    <Border Background="{DynamicResource Brush_Rep_Fondo_Tarjeta}" 
+            CornerRadius="20" Padding="30" Width="500"
+            BoxShadow="0 10 30 0 #55000000"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+        
+        <StackPanel Spacing="20">
+            
+            <StackPanel Spacing="5">
+                <TextBlock Text="{DynamicResource Rep_Titulo}" FontSize="24" FontWeight="Bold" 
+                           Foreground="{DynamicResource Brush_Rep_Titulo}"/>
+                
+                <StackPanel Orientation="Horizontal" Spacing="5">
+                    <TextBlock Text="{DynamicResource Rep_LblEstasReportando}" 
+                               Foreground="{DynamicResource Brush_Rep_Texto_Secundario}"/>
+                    <TextBlock Text="{Binding CancionAReportar.Titulo}" FontWeight="Bold"
+                               Foreground="{DynamicResource Brush_Rep_Texto_Principal}"/>
+                </StackPanel>
+            </StackPanel>
+
+            <Separator Background="{DynamicResource Brush_Rep_Separador}" Height="2" AutomationProperties.AccessibilityView="Raw"/>
+
+            <StackPanel Spacing="10">
+                <TextBlock Text="{DynamicResource Rep_LblProblema}" FontWeight="SemiBold"
+                           Foreground="{DynamicResource Brush_Rep_Texto_Principal}"/>
+                
+                <ComboBox ItemsSource="{Binding TiposDeProblema}" 
+                          SelectedItem="{Binding TipoSeleccionado}"
+                          HorizontalAlignment="Stretch"
+                          PlaceholderText="{DynamicResource Rep_ComboPlaceholder}"
+                          AutomationProperties.Name="{DynamicResource Rep_LblProblema}"
+                          AutomationProperties.HelpText="{DynamicResource Acc_Rep_Combo_Help}"/>
+                
+                <TextBlock Text="{DynamicResource Rep_LblDetalles}" FontWeight="SemiBold" Margin="0,10,0,0"
+                           Foreground="{DynamicResource Brush_Rep_Texto_Principal}"/>
+                
+                <TextBox Text="{Binding DescripcionTexto}" 
+                         Height="100" 
+                         AcceptsReturn="True" 
+                         TextWrapping="Wrap"
+                         Watermark="{DynamicResource Rep_WaterDetalles}"
+                         AutomationProperties.Name="{DynamicResource Rep_LblDetalles}"
+                         AutomationProperties.HelpText="{DynamicResource Acc_Rep_Desc_Help}"/>
+            </StackPanel>
+
+            <TextBlock Text="{Binding MensajeEstado, Converter={StaticResource Traductor}}" 
+                       Foreground="{DynamicResource Brush_Rep_Titulo}" 
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"/>
+
+            <StackPanel Orientation="Horizontal" Spacing="20" HorizontalAlignment="Right" Margin="0,10,0,0">
+                <Button Command="{Binding BtnCancelar}" 
+                        Content="{DynamicResource Rep_BtnCancelar}" 
+                        Background="Transparent" 
+                        Foreground="{DynamicResource Brush_Rep_BtnCancelar_Texto}"
+                        AutomationProperties.HelpText="{DynamicResource Acc_Rep_BtnCancelar_Help}"/>
+                
+                <Button Command="{Binding BtnEnviarReporte}" 
+                        Content="{DynamicResource Rep_BtnEnviar}" 
+                        Background="{DynamicResource Brush_Rep_BtnEnviar_Fondo}" 
+                        Foreground="{DynamicResource Brush_Rep_BtnEnviar_Texto}" 
+                        FontWeight="Bold"
+                        CornerRadius="5" Padding="20,10"
+                        AutomationProperties.HelpText="{DynamicResource Acc_Rep_BtnEnviar_Help}"/>
+            </StackPanel>
+
+        </StackPanel>
+    </Border>
+</UserControl>

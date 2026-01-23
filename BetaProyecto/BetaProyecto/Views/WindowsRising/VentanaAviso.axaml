@@ -1,0 +1,79 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:BetaProyecto.ViewModels"
+        xmlns:helpers="using:BetaProyecto.Helpers"
+        x:Class="BetaProyecto.Views.WindowsRising.VentanaAviso"
+        x:DataType="vm:VentanaAvisoViewModel"
+        Title="VentanaAviso"
+        Width="400" SizeToContent="Height"
+        SystemDecorations="None"
+        WindowStartupLocation="CenterOwner"
+        CanResize="False"
+        TransparencyLevelHint="Transparent"
+        Background="{x:Null}">
+
+    <Window.Resources>
+        <helpers:TextoTraducidoConverter x:Key="Traductor"/>
+    </Window.Resources>
+
+    <Window.Styles>
+        
+        <Style Selector="Border.Tarjeta">
+            <Setter Property="Background" Value="{DynamicResource Brush_Aviso_Fondo}"/>
+            <Setter Property="CornerRadius" Value="15"/>
+            <Setter Property="Margin" Value="20"/> 
+            <Setter Property="BorderBrush" Value="{DynamicResource Brush_Aviso_Borde}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BoxShadow" Value="0 5 15 0 #55000000"/>
+            <Setter Property="Padding" Value="20"/>
+        </Style>
+
+        <Style Selector="TextBlock.Titulo">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Aviso_Titulo}"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="Button.BotonAzul">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="{DynamicResource Brush_Aviso_Btn_Fondo}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Aviso_Btn_Texto}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+
+        <Style Selector="Button.BotonAzul:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource Brush_Aviso_Btn_Hover}"/> 
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Aviso_Btn_Texto}"/>
+        </Style>
+        
+    </Window.Styles>
+
+    <Grid Background="Transparent">
+        
+        <Border Classes="Tarjeta">
+            
+            <StackPanel Spacing="20">
+                
+                <TextBlock Text="{DynamicResource Global_LblAviso}" Classes="Titulo"/>
+                
+                <TextBlock Text="{Binding Mensaje, Converter={StaticResource Traductor}}" 
+                           TextWrapping="Wrap" 
+                           TextAlignment="Center"
+                           FontSize="16"
+                           Margin="10,0"
+                           Foreground="{DynamicResource Brush_Aviso_Mensaje}"/>
+
+                <Button Content="{DynamicResource Global_BtnAceptar}" 
+                        Command="{Binding BtnAceptar}"
+                        Classes="BotonAzul"/>
+                
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

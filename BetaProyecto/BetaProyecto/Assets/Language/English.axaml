@@ -1,0 +1,745 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+
+    <system:String x:Key="Global_BtnVolver">Go Back</system:String>
+    <system:String x:Key="Global_BtnCerrarSesion">Logout</system:String>
+    <system:String x:Key="Global_BtnSalir">Close App</system:String>
+    <system:String x:Key="Global_BtnAceptar">Accept</system:String>
+    <system:String x:Key="Global_LblAviso">Warning</system:String>
+    
+    <!-- Login.axaml -->
+    <system:String x:Key="Log_LblUsuario">Username</system:String>
+    <system:String x:Key="Log_WaterUsuario">Enter username</system:String>
+    <system:String x:Key="Log_LblPass">Password</system:String>
+    <system:String x:Key="Log_WaterPass">Enter password</system:String>
+    <system:String x:Key="Log_BtnLogin">Log In</system:String>
+    <system:String x:Key="Log_BtnRegistro">Sign Up</system:String>
+
+    <system:String x:Key="Acc_Log_Pagina">We are at the login page</system:String>
+    <system:String x:Key="Acc_Log_User_Help">Enter a username</system:String>
+    <system:String x:Key="Acc_Log_Pass_Help">Enter the user password</system:String>
+    <system:String x:Key="Acc_Log_BtnLogin_Help">Session started</system:String>
+    <system:String x:Key="Acc_Log_BtnRegistro_Help">Logged in with an account</system:String>
+    
+    <!-- MarcoApp.axaml -->
+    <system:String x:Key="Acc_Player_SliderTiempo">Song progress bar</system:String>
+    <system:String x:Key="Acc_Player_Caratula">Current song cover</system:String>
+    <system:String x:Key="Acc_Player_BtnAleatorio">Toggle shuffle mode</system:String>
+    <system:String x:Key="Acc_Player_BtnAnterior">Previous song</system:String>
+    <system:String x:Key="Acc_Player_BtnPlayPause">Play or pause</system:String>
+    <system:String x:Key="Acc_Player_BtnSiguiente">Next song</system:String>
+    <system:String x:Key="Acc_Player_BtnFavorito">Add or remove from favorites</system:String>
+    <system:String x:Key="Acc_Player_SliderVolumen">Volume control</system:String>
+    <system:String x:Key="Tip_Player_Shuffle">Shuffle</system:String>
+
+    <system:String x:Key="Tip_Player_Prev">Previous</system:String>
+    <system:String x:Key="Tip_Player_Play">Play / Pause</system:String>
+    <system:String x:Key="Tip_Player_Next">Next</system:String>
+    <system:String x:Key="Tip_Player_Fav">Like</system:String>
+
+    <system:String x:Key="Player_DefaultTitle">Select a Song</system:String>
+
+    <!-- ViewCrearListaPersonalizada.axaml -->
+    <system:String x:Key="Play_Titulo">Create New Playlist</system:String>
+    
+    <system:String x:Key="Play_LblPortada">Cover</system:String>
+    <system:String x:Key="Play_WaterImagen">Select an image (JPG/PNG)...</system:String>
+    <system:String x:Key="Play_BtnBuscarImg">Browse Image</system:String>
+    <system:String x:Key="Play_PreviewVacia">Cover preview</system:String>
+    
+    <system:String x:Key="Play_LblNombre">Name</system:String>
+    <system:String x:Key="Play_WaterNombre">Ex: Coding songs...</system:String>
+    
+    <system:String x:Key="Play_LblDesc">Description</system:String>
+    <system:String x:Key="Play_WaterDesc">What is this list about?</system:String>
+    
+    <system:String x:Key="Play_BtnGuardar">Save Playlist</system:String>
+
+    <system:String x:Key="Play_WaterBusqueda">Search songs to add...</system:String>
+    <system:String x:Key="Play_Resultados">Results</system:String>
+    <system:String x:Key="Play_EnLista">In the list:</system:String>
+    <system:String x:Key="Play_Load_Guardando">Saving playlist...</system:String>
+
+    <system:String x:Key="Acc_Play_Pagina">Playlist creation screen</system:String>
+    <system:String x:Key="Acc_Play_RutaImg_Help">Shows the path of the selected cover image</system:String>
+    <system:String x:Key="Acc_Play_BtnImg_Help">Open file explorer to choose an image</system:String>
+    <system:String x:Key="Acc_Play_Nombre_Help">Type the name of your new playlist</system:String>
+    <system:String x:Key="Acc_Play_Desc_Help">Type an optional description for the playlist</system:String>
+    <system:String x:Key="Acc_Play_BtnGuardar_Help">Saves the playlist to your account</system:String>
+    
+    <system:String x:Key="Acc_Play_Busqueda_Help">Search for songs in the database to add them</system:String>
+    <system:String x:Key="Acc_Play_BtnBuscar_Help">Starts searching for songs</system:String>
+    
+    <system:String x:Key="Acc_Play_ListaResultados">Song search results</system:String>
+    <system:String x:Key="Acc_Play_ListaSeleccionada">Songs added to the current list</system:String>
+    
+    <system:String x:Key="Acc_Play_BtnAdd_Help">Add this song to the list</system:String>
+    <system:String x:Key="Acc_Play_BtnRemove_Help">Remove this song from the list</system:String>
+
+    <!-- ViewCrearReporte.axaml -->
+    <system:String x:Key="Rep_Titulo">⚠️ Report Song</system:String>
+    <system:String x:Key="Rep_LblEstasReportando">You are reporting:</system:String>
+    <system:String x:Key="Rep_LblProblema">What is the problem?</system:String>
+    <system:String x:Key="Rep_ComboPlaceholder">Select an option...</system:String>
+    <system:String x:Key="Rep_LblDetalles">Additional details:</system:String>
+    <system:String x:Key="Rep_WaterDetalles">Describe the problem here...</system:String>
+    
+    <system:String x:Key="Rep_BtnCancelar">Cancel</system:String>
+    <system:String x:Key="Rep_BtnEnviar">Submit Report</system:String>
+
+    <system:String x:Key="Acc_Rep_Pagina">Song reporting form</system:String>
+    <system:String x:Key="Acc_Rep_Combo_Help">Select the reason why you want to report this song</system:String>
+    <system:String x:Key="Acc_Rep_Desc_Help">Write additional details to help administrators understand the problem</system:String>
+    <system:String x:Key="Acc_Rep_BtnCancelar_Help">Closes this window without sending the report</system:String>
+    <system:String x:Key="Acc_Rep_BtnEnviar_Help">Sends the report to administrators for review</system:String>
+
+    <system:String x:Key="Msg_Exito_Reporte">✅ Report sent successfully.</system:String>
+    <system:String x:Key="Msg_Error_Reporte">❌ Error sending report.</system:String>
+    
+    <!-- ViewCrearUsuario.axaml -->
+    <system:String x:Key="Reg_Titulo">Create New Account</system:String>
+    
+    <system:String x:Key="Reg_LblUsuario">Username</system:String>
+    <system:String x:Key="Reg_WaterUsuario">Ex: User123</system:String>
+    
+    <system:String x:Key="Reg_LblEmail">Email</system:String>
+    <system:String x:Key="Reg_WaterEmail">email@example.com</system:String>
+    
+    <system:String x:Key="Reg_LblPass">Password</system:String>
+    <system:String x:Key="Reg_LblRepetirPass">Repeat Password</system:String>
+    <system:String x:Key="Reg_WaterPass">******</system:String>
+    
+    <system:String x:Key="Reg_LblPais">Country</system:String>
+    <system:String x:Key="Reg_WaterPais">Ex: Spain</system:String>
+    
+    <system:String x:Key="Reg_LblFecha">Date of Birth</system:String>
+    
+    <system:String x:Key="Reg_LblFotoLocal">Profile Picture (Local)</system:String>
+    <system:String x:Key="Reg_WaterRutaFoto">C:\Path\Image.jpg</system:String>
+    <system:String x:Key="Reg_BtnExaminar">📁 Browse</system:String>
+    
+    <system:String x:Key="Reg_ChkPrivado">I want my profile to be private</system:String>
+    
+    <system:String x:Key="Reg_BtnRegistrar">SIGN UP</system:String>
+    <system:String x:Key="Reg_BtnCancelar">Cancel and return to Login</system:String>
+
+    <system:String x:Key="Acc_Reg_Pagina">We are on the user registration screen</system:String>
+    <system:String x:Key="Acc_Reg_FotoPreview">Preview of your profile picture</system:String>
+    <system:String x:Key="Acc_Reg_User_Help">Enter your desired username</system:String>
+    <system:String x:Key="Acc_Reg_Email_Help">Enter your email address</system:String>
+    <system:String x:Key="Acc_Reg_Pass_Help">Create a secure password</system:String>
+    <system:String x:Key="Acc_Reg_RepPass_Help">Retype the password to confirm</system:String>
+    <system:String x:Key="Acc_Reg_Pais_Help">Enter your country of residence</system:String>
+    <system:String x:Key="Acc_Reg_Fecha_Help">Select your date of birth</system:String>
+    <system:String x:Key="Acc_Reg_Ruta_Help">Shows the path of the selected image</system:String>
+    <system:String x:Key="Acc_Reg_Examinar_Help">Opens file explorer to search for a photo</system:String>
+    <system:String x:Key="Acc_Reg_ChkPrivado_Help">Check this box if you don't want your profile to be public</system:String>
+    <system:String x:Key="Acc_Reg_BtnRegistrar_Help">Finishes registration and creates your account</system:String>
+    <system:String x:Key="Acc_Reg_BtnCancelar_Help">Cancels the process and returns to the login screen</system:String>
+
+    <system:String x:Key="Reg_Error_FaltanCampos">Please fill in all fields.</system:String>
+    <system:String x:Key="Reg_Error_PassNoCoinciden">Passwords do not match.</system:String>
+    <system:String x:Key="Reg_Error_SubirImagen">Could not upload image.</system:String>
+    <system:String x:Key="Reg_Exito_CuentaCreada">Account created successfully! You can now log in.</system:String>
+    <system:String x:Key="Reg_Error_UsuarioExiste">Email or username already exists. Try another.</system:String>
+    <system:String x:Key="Msg_Error_Inesperado">An unexpected error has occurred.</system:String>
+
+    <!-- ViewPublicarCancion.axaml -->
+    <system:String x:Key="Pub_Titulo">Publish New Song</system:String>
+    <system:String x:Key="Pub_Subtitulo">Fill in the data to upload your music to the cloud</system:String>
+    
+    <system:String x:Key="Pub_Sec1_Titulo">1. Basic Information</system:String>
+    <system:String x:Key="Pub_LblTitulo">Song Title</system:String>
+    <system:String x:Key="Pub_WaterTitulo">Ex: Bohemian Rhapsody</system:String>
+    <system:String x:Key="Pub_LblGeneros">Music Genres</system:String>
+    <system:String x:Key="Pub_WaterGenero">Select a genre...</system:String>
+    <system:String x:Key="Pub_Msg_UnGenero">Add at least one genre</system:String>
+    <system:String x:Key="Pub_LblArtistas">Artists / Collaborators</system:String>
+    <system:String x:Key="Pub_WaterBuscaArtista">Search artist to add...</system:String>
+    <system:String x:Key="Pub_LblArtistasAnadidos">Added artists:</system:String>
+
+    <system:String x:Key="Pub_Sec2_Titulo">2. Song Cover</system:String>
+    <system:String x:Key="Pub_WaterImagen">Select an image (JPG/PNG)...</system:String>
+    <system:String x:Key="Pub_BtnBuscarImg">Browse Image</system:String>
+    <system:String x:Key="Pub_PreviewVacia">Cover preview</system:String>
+
+    <system:String x:Key="Pub_Sec3_Titulo">3. Audio Source</system:String>
+    <system:String x:Key="Pub_RadioYoutube">YouTube Link</system:String>
+    <system:String x:Key="Pub_RadioLocal">Local MP3 File</system:String>
+    
+    <system:String x:Key="Pub_LblPegarLink">Paste video link</system:String>
+    <system:String x:Key="Pub_WaterLink">https://www.youtube.com/watch?v=...</system:String>
+    <system:String x:Key="Pub_HelpLink">Audio will be automatically extracted from the video.</system:String>
+    
+    <system:String x:Key="Pub_LblSelectLocal">Select local file</system:String>
+    <system:String x:Key="Pub_WaterLocal">Select .mp3 file...</system:String>
+    <system:String x:Key="Pub_BtnExaminar">Browse</system:String>
+    <system:String x:Key="Pub_HelpLocal">The file will be uploaded to our secure server.</system:String>
+
+    <system:String x:Key="Pub_BtnPublicar">PUBLISH SONG</system:String>
+    <system:String x:Key="Pub_Load_Subiendo">Uploading files...</system:String>
+    <system:String x:Key="Pub_Load_Espera">Please do not close the application.</system:String>
+
+    <system:String x:Key="Acc_Pub_Pagina">Song publication screen</system:String>
+    <system:String x:Key="Acc_Pub_Titulo_Help">Type the name of your new song</system:String>
+    <system:String x:Key="Acc_Pub_ComboGenero_Help">Select a music style from the list</system:String>
+    <system:String x:Key="Acc_Pub_BtnAddGenero_Help">Adds the selected genre to the song</system:String>
+    <system:String x:Key="Acc_Pub_BtnDelGenero_Help">Removes this genre from the list</system:String>
+    <system:String x:Key="Acc_Pub_BuscaArtista_Help">Search for other users to add as collaborators</system:String>
+    <system:String x:Key="Acc_Pub_BtnBuscaArtista_Help">Start searching for users</system:String>
+    <system:String x:Key="Acc_Pub_BtnAddArtista_Help">Add this user as a collaborator</system:String>
+    <system:String x:Key="Acc_Pub_BtnDelArtista_Help">Remove collaborator</system:String>
+    <system:String x:Key="Acc_Pub_RutaImg_Help">Shows the path of the selected image</system:String>
+    <system:String x:Key="Acc_Pub_BtnImg_Help">Open file explorer to search for a cover</system:String>
+    <system:String x:Key="Acc_Pub_RadioYoutube_Help">Select this option to use a YouTube video as source</system:String>
+    <system:String x:Key="Acc_Pub_RadioLocal_Help">Select this option to upload an MP3 file from your computer</system:String>
+    <system:String x:Key="Acc_Pub_Link_Help">Paste the video URL here</system:String>
+    <system:String x:Key="Acc_Pub_RutaMp3_Help">Shows the path of the selected audio file</system:String>
+    <system:String x:Key="Acc_Pub_BtnMp3_Help">Open file explorer to search for an audio file</system:String>
+    <system:String x:Key="Acc_Pub_BtnPublicar_Help">Finishes the process and uploads the song</system:String>
+
+    <system:String x:Key="Msg_Error_InfoYoutube">Could not get YouTube video information.</system:String>
+    <system:String x:Key="Msg_Error_OperacionInvalida">The requested operation could not be completed.</system:String>
+   
+    <!-- ViewEditarCancion.axaml -->
+    <system:String x:Key="EditCan_Titulo">Edit Song</system:String>
+    <system:String x:Key="EditCan_Subtitulo">Modify your track details</system:String>
+    
+    <system:String x:Key="EditCan_LblTitulo">Title</system:String>
+    <system:String x:Key="EditCan_LblGeneros">Genres</system:String>
+    <system:String x:Key="EditCan_WaterGenero">Add genre...</system:String>
+    
+    <system:String x:Key="EditCan_LblArtistas">Artists / Collaborators</system:String>
+    <system:String x:Key="EditCan_WaterBuscaArtista">Search artist...</system:String>
+    
+    <system:String x:Key="EditCan_LblPortada">Cover</system:String>
+    <system:String x:Key="EditCan_BtnCambiarImg">Change</system:String>
+    <system:String x:Key="EditCan_TxtSinImagen">No image</system:String>
+    
+    <system:String x:Key="EditCan_AvisoAudio">The audio file cannot be modified once published. To change the song, delete this one and upload a new one.</system:String>
+    
+    <system:String x:Key="EditCan_BtnGuardar">SAVE CHANGES</system:String>
+    <system:String x:Key="EditCan_Load_Actualizando">Updating...</system:String>
+
+    <system:String x:Key="Acc_EditCan_Pagina">Song editing screen</system:String>
+    <system:String x:Key="Acc_EditCan_Titulo_Help">Modify the song title</system:String>
+    <system:String x:Key="Acc_EditCan_Aviso_Help">Important warning regarding the audio file</system:String>
+    <system:String x:Key="Acc_EditCan_BtnGuardar_Help">Save changes made to the song</system:String>
+    
+    <!-- ViewEditarListaPersonalizada.axaml -->
+    <system:String x:Key="EditPlay_Titulo">✏️ Edit Playlist</system:String>
+    <system:String x:Key="EditPlay_BtnCancelar">❌ Cancel</system:String>
+    
+    <system:String x:Key="EditPlay_LblPortada">Cover</system:String>
+    <system:String x:Key="EditPlay_WaterImagen">URL or Path...</system:String>
+    <system:String x:Key="EditPlay_BtnCambiarImg">Change</system:String>
+    <system:String x:Key="EditPlay_TxtSinImagen">No image</system:String>
+    
+    <system:String x:Key="EditPlay_LblNombre">Name</system:String>
+    <system:String x:Key="EditPlay_LblDesc">Description</system:String>
+    <system:String x:Key="EditPlay_BtnGuardar">Save Changes</system:String>
+
+    <system:String x:Key="EditPlay_WaterBusqueda">Search songs to add...</system:String>
+    <system:String x:Key="EditPlay_Resultados">Search Results</system:String>
+    <system:String x:Key="EditPlay_LblCancionesActuales">Current Songs:</system:String>
+    <system:String x:Key="EditPlay_Load_Actualizando">Updating playlist...</system:String>
+
+    <system:String x:Key="Acc_EditPlay_Pagina">Playlist editing screen</system:String>
+    <system:String x:Key="Acc_EditPlay_RutaImg_Help">Shows the path or link of the current image</system:String>
+    <system:String x:Key="Acc_EditPlay_BtnImg_Help">Open explorer to change the cover image</system:String>
+    <system:String x:Key="Acc_EditPlay_Nombre_Help">Modify the playlist name</system:String>
+    <system:String x:Key="Acc_EditPlay_Desc_Help">Modify the playlist description</system:String>
+    <system:String x:Key="Acc_EditPlay_BtnGuardar_Help">Save changes made to the playlist</system:String>
+    
+    <system:String x:Key="Acc_EditPlay_Busqueda_Help">Search for new songs to add to the list</system:String>
+    <system:String x:Key="Acc_EditPlay_BtnBuscar_Help">Starts searching for songs</system:String>
+    
+    <system:String x:Key="Acc_EditPlay_ListaResultados">Song search results</system:String>
+    <system:String x:Key="Acc_EditPlay_ListaActual">List of songs currently in the playlist</system:String>
+    
+    <system:String x:Key="Acc_EditPlay_BtnAdd_Help">Add this song to the list</system:String>
+    <system:String x:Key="Acc_EditPlay_BtnRemove_Help">Remove this song from the list</system:String>
+    <system:String x:Key="Msg_Error_ActualizarPlaylist">Error updating playlist.</system:String>    
+    
+    <!-- ViewAyuda.axaml -->
+    <system:String x:Key="Ayuda_Titulo">Help</system:String>
+    <system:String x:Key="Ayuda_Director">Director and Programmer: Gabriel Daniel Cretu</system:String>
+    <system:String x:Key="Ayuda_Correo">Email: cornelio.cretu@gmail.com</system:String>
+    <system:String x:Key="Ayuda_Descripcion">This application allows you to listen to and save your favorite songs so you can find them whenever you want</system:String>
+    
+    <system:String x:Key="Acc_Ayuda_Pagina">Help and contact screen</system:String>
+    <system:String x:Key="Acc_Ayuda_Info_Help">Developer contact information</system:String>
+
+    <!-- ViewSobreNosotros.axaml -->
+    <system:String x:Key="Sobre_Titulo">About Us</system:String>
+    <system:String x:Key="Sobre_Programador">Programmer: Gabriel Daniel Cretu</system:String>
+
+    <system:String x:Key="Sobre_BtnGitHub">View project on GitHub</system:String>
+    
+    <system:String x:Key="Acc_Sobre_Pagina">About the application screen</system:String>
+    <system:String x:Key="Acc_Sobre_Logo">Application logo</system:String>
+    <system:String x:Key="Acc_Sobre_BtnGitHub_Help">Opens the project repository on GitHub in your browser</system:String>
+
+    <!-- ViewCanciones.axaml -->
+    <system:String x:Key="VisorCan_BtnVolver">Back</system:String>
+    <system:String x:Key="VisorCan_BtnReproducir">PLAY</system:String>
+    <system:String x:Key="VisorCan_LblCancion">S O N G</system:String>
+    
+    <system:String x:Key="VisorCan_SecEstadisticas">Statistics</system:String>
+    <system:String x:Key="VisorCan_LblReproducciones">▶️ Plays</system:String>
+    <system:String x:Key="VisorCan_LblMeGustas">❤️ Likes</system:String>
+    <system:String x:Key="VisorCan_LblTendencia">🔥 Trend</system:String>
+    
+    <system:String x:Key="VisorCan_SecDetalles">Details</system:String>
+    <system:String x:Key="VisorCan_LblDuracion">Duration</system:String>
+    <system:String x:Key="VisorCan_LblLanzamiento">Release</system:String>
+    
+    <system:String x:Key="VisorCan_SecGeneros">Genres</system:String>
+
+    <system:String x:Key="Acc_VisorCan_Pagina">Song details screen</system:String>
+    <system:String x:Key="Acc_VisorCan_Caratula">Album or single cover</system:String>
+    <system:String x:Key="Acc_VisorCan_BtnPlay_Help">Play this song right now</system:String>
+    <system:String x:Key="Acc_VisorCan_BtnFav_Help">Add or remove this song from your favorites</system:String>
+    <system:String x:Key="Acc_VisorCan_Titulo_Help">Song title</system:String>
+    <system:String x:Key="Acc_VisorCan_Artista_Help">Artist or group performing the song</system:String>
+    <system:String x:Key="Acc_VisorCan_Stats_Help">Song statistics section</system:String>
+
+    <system:String x:Key="VisorCan_Timer_Actualizando">Updating in:</system:String>
+    <system:String x:Key="VisorCan_Timer_Consultando">Querying DB...</system:String>
+    <system:String x:Key="VisorCan_Timer_Exito">Data updated</system:String>
+
+    <!-- ViewListaPersonalizada.axaml -->
+    <system:String x:Key="VisorPlay_LblPlaylist">PLAYLIST</system:String>
+    <system:String x:Key="VisorPlay_LblCanciones">🎵 Songs</system:String>
+    <system:String x:Key="VisorPlay_LblContenido">Content</system:String>
+
+    <system:String x:Key="Acc_VisorPlay_Pagina">Playlist details screen</system:String>
+    <system:String x:Key="Acc_VisorPlay_Caratula">Playlist cover</system:String>
+    <system:String x:Key="Acc_VisorPlay_Titulo_Help">Playlist name</system:String>
+    <system:String x:Key="Acc_VisorPlay_Desc_Help">Playlist description</system:String>
+    <system:String x:Key="Acc_VisorPlay_Cantidad_Help">Total number of songs in this list</system:String>
+    <system:String x:Key="Acc_VisorPlay_Lista_Help">List of included songs</system:String>
+
+    <!-- ViewUsuario.axaml -->
+    <system:String x:Key="VisorUser_BtnVolver">Back</system:String>
+    <system:String x:Key="VisorUser_LblPerfil">U S E R   P R O F I L E</system:String>
+    <system:String x:Key="VisorUser_LblNacido">🎂 Born on:</system:String>
+    
+    <system:String x:Key="VisorUser_SecEstadisticas">Statistics</system:String>
+    <system:String x:Key="VisorUser_LblCanciones">🎵 Songs</system:String>
+    <system:String x:Key="VisorUser_LblPlaylists">📂 Playlists</system:String>
+    
+    <system:String x:Key="VisorUser_SecCancionesSubidas">🎵  Uploaded Songs</system:String>
+    <system:String x:Key="VisorUser_SecPlaylistsPublicas">📂  Public Playlists</system:String>
+
+    <system:String x:Key="Acc_VisorUser_Pagina">User profile</system:String>
+    <system:String x:Key="Acc_VisorUser_Avatar">User profile picture</system:String>
+    <system:String x:Key="Acc_VisorUser_BtnSeguir_Help">Follow or unfollow this user</system:String>
+    <system:String x:Key="Acc_VisorUser_Stats_Help">User statistics</system:String>
+    <system:String x:Key="Acc_VisorUser_ListaCanciones_Help">List of songs uploaded by this user</system:String>
+    <system:String x:Key="Acc_VisorUser_ListaPlaylists_Help">Playlists created by this user</system:String>
+
+    <system:String x:Key="VisorUser_Timer_Refrescando">Refreshing in:</system:String>
+    <system:String x:Key="VisorUser_Timer_Consultando">Querying DB...</system:String>
+    <system:String x:Key="VisorUser_Timer_Actualizado">Updated</system:String>
+    <system:String x:Key="VisorUser_Timer_Iniciando">Starting...</system:String>
+    
+    <system:String x:Key="VisorUser_Btn_Seguir">Follow</system:String>
+    <system:String x:Key="VisorUser_Btn_DejarSeguir">Unfollow</system:String>
+    
+    <system:String x:Key="Msg_Error_SeguirseMismo">You cannot follow yourself</system:String>
+
+    <!-- CentralTabControl.axaml -->
+    <system:String x:Key="Main_Tab_Inicio">Home</system:String>
+    <system:String x:Key="Main_Tab_Buscador">Search</system:String>
+    <system:String x:Key="Main_Tab_Populares">Popular</system:String>
+
+    <system:String x:Key="Main_Tooltip_Crear">Create content</system:String>
+    <system:String x:Key="Main_Menu_CrearTitulo">Create</system:String>
+    <system:String x:Key="Main_Btn_Publicar">Upload song</system:String>
+    <system:String x:Key="Main_Btn_CrearPlaylist">Create playlist</system:String>
+
+    <system:String x:Key="Main_Menu_MiCuenta">My Account</system:String>
+    <system:String x:Key="Main_Menu_SobreNosotros">About Us</system:String>
+    <system:String x:Key="Main_Menu_Ayuda">Help</system:String>
+
+    <system:String x:Key="Acc_Main_TabInicio_Help">Shows news and recommendations</system:String>
+    <system:String x:Key="Acc_Main_TabBuscador_Help">Search for songs, artists, or users</system:String>
+    <system:String x:Key="Acc_Main_TabPopulares_Help">Shows the most listened songs</system:String>
+    
+    <system:String x:Key="Acc_Main_BtnCrear">Creation menu</system:String>
+    <system:String x:Key="Acc_Main_BtnCrear_Help">Displays options to upload songs or create playlists</system:String>
+    
+    <system:String x:Key="Acc_Main_BtnPerfil">User menu</system:String>
+    <system:String x:Key="Acc_Main_BtnPerfil_Help">Displays account, settings, and help options</system:String>
+    <system:String x:Key="Acc_Main_ImgPerfil">Your profile picture</system:String>
+    
+    <!-- TabItemInicio.axaml -->
+    <system:String x:Key="Inicio_BtnActualizar">Update</system:String>
+    <system:String x:Key="Inicio_TipRefrescar">Refresh content</system:String>
+    
+    <system:String x:Key="Inicio_Menu_VerDetalles">🎵 View Details</system:String>
+    <system:String x:Key="Inicio_Menu_Reportar">Report</system:String>
+    <system:String x:Key="Inicio_Menu_VerArtistas">🎤 View Artists...</system:String>
+    <system:String x:Key="Inicio_Menu_SelArtista">Select an artist:</system:String>
+
+    <system:String x:Key="Acc_Inicio_Pagina">Home tab with recommendations</system:String>
+    <system:String x:Key="Acc_Inicio_BtnRefrescar_Help">Reloads playlists and suggested songs</system:String>
+    <system:String x:Key="Acc_Inicio_BtnPlay_Help">Plays this content immediately</system:String>
+    <system:String x:Key="Acc_Inicio_BtnOpciones_Help">Shows more actions and details for this item</system:String>
+    <system:String x:Key="Acc_Inicio_BtnPlayPlaylist">Play playlist</system:String>
+
+    <system:String x:Key="Sec_Favoritos">Favorites ❤️</system:String>
+    <system:String x:Key="Sec_Novedades">New Releases 🔥</system:String>
+    <system:String x:Key="Sec_Rock">Rock 🎸</system:String>
+    <system:String x:Key="Sec_ParaTi">For You 🎧</system:String>
+    
+    <system:String x:Key="Sec_MisListas">My Playlists 👤</system:String>
+    <system:String x:Key="Sec_Comunidad">Community 🌎</system:String>
+    <system:String x:Key="Sec_TodasLasListas">All Playlists</system:String>
+
+    <!-- TabItemBuscador.axaml -->
+    <system:String x:Key="Bus_Watermark">Enter a song, artist...</system:String>
+    <system:String x:Key="Bus_BtnBuscar">Search</system:String>
+    <system:String x:Key="Bus_Res_Encontrados">Results found:</system:String>
+    <system:String x:Key="Bus_Res_SinResultados">No matches found.</system:String>
+
+    <system:String x:Key="Acc_Bus_Pagina">Search tab</system:String>
+    <system:String x:Key="Acc_Bus_Caja">Search field</system:String>
+    <system:String x:Key="Acc_Bus_Caja_Help">Type the song title or artist name here to search</system:String>
+    <system:String x:Key="Acc_Bus_Lupa">Search icon</system:String>
+    <system:String x:Key="Acc_Bus_BtnBuscar_Help">Starts the search with the entered text</system:String>
+    <system:String x:Key="Acc_Bus_ListaResultados">List of found songs</system:String>
+    <system:String x:Key="Acc_Bus_Caratula">Album cover</system:String>
+    <system:String x:Key="Acc_Bus_BtnPlay_Help">Play this found song</system:String>
+
+    <system:String x:Key="Bus_Msg_Buscando">Searching...</system:String>
+    <!-- TabItemPopulares.axaml -->
+    <system:String x:Key="Pop_LblFiltro">Popular in:</system:String>
+    <system:String x:Key="Pop_ComboPlaceholder">Choose a genre...</system:String>
+    <system:String x:Key="Pop_Res_Mostrando">Showing results for:</system:String>
+
+    <system:String x:Key="Acc_Pop_Pagina">Popular songs tab</system:String>
+    <system:String x:Key="Acc_Pop_ComboGenero_Help">Expand to filter songs by music genre</system:String>
+    <system:String x:Key="Acc_Pop_ListaCanciones">List of most listened songs</system:String>
+    <system:String x:Key="Acc_Pop_Caratula">Single cover</system:String>
+    <system:String x:Key="Acc_Pop_BtnPlay_Help">Play this popular song</system:String>
+
+    <!-- PanelUsuario.axaml -->
+    <system:String x:Key="Tab_Perfil">Profile</system:String>
+    <system:String x:Key="Tab_Cuenta">Account</system:String>
+    <system:String x:Key="Tab_Gestionar">Manage</system:String>
+    <system:String x:Key="Tab_Configuracion">Settings</system:String>
+    <system:String x:Key="Tab_ReportesAdmin">Reports (ADMIN)</system:String>
+    <system:String x:Key="Tab_BDDev">Database (DEV)</system:String>
+
+    <system:String x:Key="Acc_Help_Perfil">Shows your public info and bio.</system:String>
+    <system:String x:Key="Acc_Help_Cuenta">Subscription details and account security.</system:String>
+    <system:String x:Key="Acc_Help_Gestionar">Manage your uploaded songs and playlists.</system:String>
+    <system:String x:Key="Acc_Help_Configuracion">Change language and application settings.</system:String>
+    <system:String x:Key="Acc_Help_Reportes">Admin panel to moderate content.</system:String>
+    <system:String x:Key="Acc_Help_BD">Development tool for full data management.</system:String>
+
+    <!-- ViewPerfil.axaml -->
+    <system:String x:Key="Perfil_SecDescubre">Discover Artists</system:String>
+    <system:String x:Key="Perfil_SecSiguiendo">Following</system:String>
+
+    <!-- ViewCuenta.axaml -->
+    <system:String x:Key="Cuenta_Titulo">Account</system:String>
+
+    <system:String x:Key="Cuenta_LblNombre">Username</system:String>
+    <system:String x:Key="Cuenta_LblCorreo">Email</system:String>
+    <system:String x:Key="Cuenta_LblFecha">Date of Birth</system:String>
+    <system:String x:Key="Cuenta_LblPais">Country</system:String>
+    <system:String x:Key="Cuenta_LblTipo">Account Type</system:String>
+    
+    <system:String x:Key="Info_Cuenta_Tipo">PRIVATE Account: Only you can view your profile info and playlists.&#x0a;PUBLIC Account: Other users can view your profile and playlists.</system:String>
+    <system:String x:Key="Cuenta_OptPrivada">Private</system:String>
+    <system:String x:Key="Cuenta_OptPublica">Public</system:String>
+
+    <system:String x:Key="Cuenta_BtnGuardar">SAVE CHANGES</system:String>
+
+    <system:String x:Key="Acc_Cuenta_BtnRefrescar">Refresh account data</system:String>
+    <system:String x:Key="Acc_Cuenta_CajaNombre">Edit username</system:String>
+    <system:String x:Key="Acc_Cuenta_CajaCorreo">Edit email address</system:String>
+    <system:String x:Key="Acc_Cuenta_CajaFecha">Select date of birth</system:String>
+    <system:String x:Key="Acc_Cuenta_CajaPais">Edit country of residence</system:String>
+    <system:String x:Key="Acc_Cuenta_ComboTipo">Select profile privacy</system:String>
+
+    <!-- ViewGestionCuenta.axaml -->
+    <system:String x:Key="Gestion_Titulo">Manage</system:String>
+    <system:String x:Key="Gestion_BtnActualizar">Refresh</system:String>
+
+    <system:String x:Key="Gestion_SecCanciones">🎵 My Songs</system:String>
+    <system:String x:Key="Gestion_SecPlaylists">📂 My Playlists</system:String>
+
+    <system:String x:Key="Gestion_TipEditarCancion">Edit Song</system:String>
+    <system:String x:Key="Gestion_TipEliminarCancion">Delete Song</system:String>
+    <system:String x:Key="Gestion_TipEditarPlaylist">Edit Playlist</system:String>
+    <system:String x:Key="Gestion_TipEliminarPlaylist">Delete Playlist</system:String>
+
+    <system:String x:Key="Acc_Gestion_BtnRefrescar">Refresh list of songs and playlists</system:String>
+    <system:String x:Key="Acc_Gestion_ListaCanciones">List of your uploaded songs</system:String>
+    <system:String x:Key="Acc_Gestion_ListaPlaylists">List of your playlists</system:String>
+
+    <system:String x:Key="Gestion_SufijoReproducciones">plays</system:String>
+    <system:String x:Key="Gestion_SufijoCanciones">songs</system:String>
+
+    <system:String x:Key="MsgConfirmEliminar">Confirm Deletion</system:String>
+    <system:String x:Key="MsgPreguntaEliminarCancion">Are you sure you want to delete this song?</system:String>
+    <system:String x:Key="MsgPreguntaEliminarPlaylist">Are you sure you want to delete this playlist?</system:String>
+    <system:String x:Key="BtnEliminar">Delete</system:String>
+    <system:String x:Key="BtnCancelar">Cancel</system:String>
+    <system:String x:Key="MsgErrorBorradoDB">Error deleting from database.</system:String>
+    <system:String x:Key="MsgExitoBorrado">Deleted successfully.</system:String>
+
+    <!-- ViewConfiguacion.axaml -->
+    <system:String x:Key="Config_Titulo">Settings</system:String>
+    <system:String x:Key="Config_SecInterfaz">Interface</system:String>
+    <system:String x:Key="Config_SecFuente">Font</system:String>
+    <system:String x:Key="Config_SecIdioma">Language</system:String>
+    <system:String x:Key="Config_SecAcercaDe">About</system:String>
+
+    <system:String x:Key="Config_OptClaro">Light</system:String>
+    <system:String x:Key="Config_OptOscuro">Dark</system:String>
+    <system:String x:Key="Config_ValIdiomaEsp">Spanish</system:String>
+    <system:String x:Key="Config_ValIdiomaIng">English</system:String>
+    <system:String x:Key="Config_Version">Version 1.0.0</system:String>
+
+    <system:String x:Key="Acc_Config_Pagina">We are in settings</system:String>
+    <system:String x:Key="Acc_Config_RadioClaro_Help">Select to switch to light mode</system:String>
+    <system:String x:Key="Acc_Config_RadioOscuro_Help">Select to switch to dark mode</system:String>
+    <system:String x:Key="Acc_Config_ComboFuente_Help">Expand to change typography</system:String>
+    <system:String x:Key="Acc_Config_ComboIdioma_Help">Expand to change language</system:String>
+
+    <system:String x:Key="Acc_Btn_Volver_Help">Go back to previous screen</system:String>
+    <system:String x:Key="Acc_Btn_Cerrar_Help">Log out of current session</system:String>
+    <system:String x:Key="Acc_Btn_Salir_Help">Close the application completely</system:String>
+
+    <!-- ViewGestionarReportes.axaml -->
+    <system:String x:Key="Reportes_Titulo">Reports</system:String>
+
+    <system:String x:Key="Reportes_TabPendientes">Pending</system:String>
+    <system:String x:Key="Reportes_TabInvestigando">Investigating</system:String>
+    <system:String x:Key="Reportes_TabFinalizados">Closed</system:String>
+
+    <system:String x:Key="Reportes_VacioTitulo">Select a report from the list</system:String>
+
+    <system:String x:Key="Reportes_LblReportante">REPORTER</system:String>
+    <system:String x:Key="Reportes_LblCancion">SONG</system:String>
+    <system:String x:Key="Reportes_LblDescripcion">💬 User says:</system:String>
+
+    <system:String x:Key="Reportes_SecResolucion">CASE RESOLUTION</system:String>
+    <system:String x:Key="Reportes_LblEstado">Status:</system:String>
+    <system:String x:Key="Reportes_HolderResolucion">Write internal resolution here...</system:String>
+    <system:String x:Key="Reportes_BtnGuardar">SAVE CHANGES</system:String>
+    <system:String x:Key="Reportes_BadgeResuelto">RESOLVED</system:String>
+
+    <system:String x:Key="Acc_Reportes_BtnRefrescar">Reload reports list</system:String>
+    <system:String x:Key="Acc_Reportes_ListaPendientes">List of pending reports</system:String>
+    <system:String x:Key="Acc_Reportes_ListaInvest">List of reports under investigation</system:String>
+    <system:String x:Key="Acc_Reportes_ListaFin">List of closed reports</system:String>
+    <system:String x:Key="Acc_Reportes_ComboEstado">Select new report status</system:String>
+    <system:String x:Key="Acc_Reportes_CajaResolucion">Edit resolution text</system:String>
+
+    <!-- ViewGestionarBD.axaml -->
+    <system:String x:Key="BD_Titulo">Full Database</system:String>
+    <system:String x:Key="BD_BtnRefrescar">🔄 Refresh Tables</system:String>
+
+    <system:String x:Key="BD_TabUsuarios">👥 Users</system:String>
+    <system:String x:Key="BD_TabCanciones">🎵 Songs</system:String>
+    <system:String x:Key="BD_TabGeneros">🏷️ Genres</system:String>
+    <system:String x:Key="BD_TabPlaylists">📂 Playlists</system:String>
+    <system:String x:Key="BD_TabReportes">⚠️ Reports</system:String>
+
+    <system:String x:Key="BD_CrudCrear">➕ Create</system:String>
+    <system:String x:Key="BD_CrudEditar">✏️ Edit</system:String>
+    <system:String x:Key="BD_CrudBorrar">🗑️ Delete</system:String>
+
+    <system:String x:Key="BD_LblNombre">Name:</system:String>
+    <system:String x:Key="BD_LblDescripcion">Description:</system:String>
+    <system:String x:Key="BD_LblID">ID:</system:String>
+    <system:String x:Key="BD_LblFecha">Date:</system:String>
+    <system:String x:Key="BD_LblPais">Country:</system:String>
+    <system:String x:Key="BD_LblPortada">Cover:</system:String>
+    <system:String x:Key="BD_BtnGuardar">Save Changes</system:String>
+    <system:String x:Key="BD_BtnEliminar">Delete</system:String>
+    <system:String x:Key="BD_MsgSelecciona">Select an item from the list</system:String>
+
+    <system:String x:Key="BD_Water_BuscarArtista">Search artist...</system:String>
+    <system:String x:Key="BD_Water_BuscarCancion">🔍 Search song...</system:String>
+    <system:String x:Key="BD_Water_RutaFoto">Photo Path</system:String>
+    <system:String x:Key="BD_Water_RutaAudio">Audio File Path</system:String>
+    <system:String x:Key="BD_Water_EnlaceYouTube">YouTube Link</system:String>
+    <system:String x:Key="BD_Water_Nombre">Enter name</system:String>
+    <system:String x:Key="BD_Water_UsrReporto">Reporting User ID</system:String>
+    <system:String x:Key="BD_Water_CancionReport">Reported Song ID</system:String>
+    <system:String x:Key="BD_Water_SelProblema">Select the problem...</system:String>
+    <system:String x:Key="BD_Water_Detalles">Incident details...</system:String>
+    <system:String x:Key="BD_Water_SelEstado">Select status...</system:String>
+    <system:String x:Key="BD_Water_Solucion">Write the solution...</system:String>
+
+    <system:String x:Key="BD_Usr_TituloNuevo">New User</system:String>
+    <system:String x:Key="BD_Usr_TituloEditar">Edit User</system:String>
+    <system:String x:Key="BD_Usr_LblUser">Username:</system:String>
+    <system:String x:Key="BD_Usr_LblPass">Password:</system:String>
+    <system:String x:Key="BD_Usr_LblEmail">Email:</system:String>
+    <system:String x:Key="BD_Usr_LblRol">Role:</system:String>
+    <system:String x:Key="BD_Usr_ComboxRol">Select a role</system:String>
+    <system:String x:Key="BD_Usr_BtnCrear">Create User</system:String>
+
+    <system:String x:Key="BD_Song_TituloNueva">New Song</system:String>
+    <system:String x:Key="BD_Song_TituloEditar">Edit Song</system:String>
+    <system:String x:Key="BD_Song_LblTitulo">Title:</system:String>
+    <system:String x:Key="BD_Song_LblArtistas">Artists:</system:String>
+    <system:String x:Key="BD_Song_LblGeneros">Genres:</system:String>
+    <system:String x:Key="BD_Song_LblFuente">Audio Source:</system:String>
+    <system:String x:Key="BD_Song_BtnSubir">Upload Song</system:String>
+    
+
+    <system:String x:Key="BD_Gen_TituloNuevo">New genre</system:String>
+    <system:String x:Key="BD_Gen_TituloEditar">Edit genre</system:String>
+    <system:String x:Key="BD_Gen_BtnCrear">Create Genre</system:String>
+    <system:String x:Key="BD_Gen_lblEliminar">DELETE GENRE?</system:String>
+
+    <system:String x:Key="BD_Ply_TituloNueva">New Playlist</system:String>
+    <system:String x:Key="BD_Ply_TituloEditar">Edit Playlist</system:String>
+    <system:String x:Key="BD_Ply_LblNombre">Name:</system:String>
+    <system:String x:Key="BD_Ply_LblDescripcion">Description:</system:String>
+    <system:String x:Key="BD_Ply_Canciones">Songs:</system:String>
+    <system:String x:Key="BD_Ply_BuscarCancion">🔍 Search song...</system:String>
+    <system:String x:Key="BD_Ply_BtnCrear">Create Playlist</system:String>
+    <system:String x:Key="BD_Ply_lblEliminar">DELETE LIST?</system:String>
+
+    <system:String x:Key="BD_Rep_TituloNuevo">New Report</system:String>
+    <system:String x:Key="BD_Rep_TituloEditar">Edit Report</system:String>
+    <system:String x:Key="BD_Rep_TituloBorrar">DELETE REPORT?</system:String>
+    <system:String x:Key="BD_Rep_LblReportante">Reporting User:</system:String>
+    <system:String x:Key="BD_Rep_LblContenido">Reported Content:</system:String>
+    <system:String x:Key="BD_Rep_LblCancion">Reported Song:</system:String>
+    <system:String x:Key="BD_Rep_LblProblema">Problem:</system:String>
+    <system:String x:Key="BD_Rep_LblDescrip">Description:</system:String>
+    <system:String x:Key="BD_Rep_LblEstado">Status:</system:String>
+    <system:String x:Key="BD_Rep_LblResolucion">Resolution:</system:String>
+    <system:String x:Key="BD_Rep_BtnCrear">Create Report</system:String>
+    <system:String x:Key="BD_Rep_BtnBorrar">Delete Report</system:String>
+    <system:String x:Key="BD_Rep_Advertencia">The report will be deleted forever</system:String>
+
+    <system:String x:Key="BD_MsgEspera">Please wait a moment...</system:String>
+
+    <system:String x:Key="Col_ID">ID</system:String>
+    <system:String x:Key="Col_Usuario">Username</system:String>
+    <system:String x:Key="Col_Email">Email</system:String>
+    <system:String x:Key="Col_Pass">Password</system:String>
+    <system:String x:Key="Col_Rol">Role</system:String>
+    <system:String x:Key="Col_Canciones">Songs</system:String>
+    <system:String x:Key="Col_Registro">Reg. Date</system:String>
+    <system:String x:Key="Col_Pais">Country</system:String>
+    <system:String x:Key="Col_Privado">Private</system:String>
+    <system:String x:Key="Col_Foto">Photo URL</system:String>
+    <system:String x:Key="Col_Titulo">Title</system:String>
+    <system:String x:Key="Col_Artista">Artist</system:String>
+    <system:String x:Key="Col_Generos">Genres</system:String>
+    <system:String x:Key="Col_Lanzamiento">Release</system:String>
+    <system:String x:Key="Col_Duracion">Dur.(s)</system:String>
+    <system:String x:Key="Col_Plays">Plays</system:String>
+    <system:String x:Key="Col_Likes">Likes</system:String>
+    <system:String x:Key="Col_UrlAudio">Audio URL</system:String>
+    <system:String x:Key="Col_Nombre">Name</system:String>
+    <system:String x:Key="Col_Descripcion">Description</system:String>
+    <system:String x:Key="Col_Propietario">Owner (ID)</system:String>
+    <system:String x:Key="Col_Estado">Status</system:String>
+    <system:String x:Key="Col_Problema">Issue</system:String>
+    <system:String x:Key="Col_Resolucion">Resolution</system:String>
+    <system:String x:Key="Col_Reportante">Reporter (ID)</system:String>
+    <system:String x:Key="Col_Fecha">Date</system:String>
+
+    <system:String x:Key="Msg_Carga_Guardando">Saving changes to database...</system:String>
+    <system:String x:Key="Msg_Carga_CreandoCancion">Publishing song...</system:String>
+    <system:String x:Key="Msg_Carga_CreandoUsuario">Creating user...</system:String>
+    <system:String x:Key="Msg_Carga_CreandoPlaylist">Creating playlist...</system:String>
+    <system:String x:Key="Msg_Carga_CreandoReporte">Registering report...</system:String>
+    <system:String x:Key="Msg_Carga_CreandoGenero">Saving genre...</system:String>
+    <system:String x:Key="Msg_Carga_AnalizandoDuracion">Analyzing song duration...</system:String>
+    <system:String x:Key="Msg_Error_Conexion">Database connection error.</system:String>
+    <system:String x:Key="Msg_Error_EmailDuplicado">Cannot use the same email as a registered user. Check the email.</system:String>
+    <system:String x:Key="Msg_Error_FaltanDatosUser">Missing data: Check username, email, pass, role, country, photo, and date.</system:String>
+    <system:String x:Key="Msg_Error_SubirImagen">Error uploading image:</system:String>
+    <system:String x:Key="Msg_Exito_UsuarioCreado">User created and saved to cloud.</system:String>
+    <system:String x:Key="Msg_Error_CrearUsuario">Error creating user in database.</system:String>
+    
+    <system:String x:Key="Msg_Error_FaltanDatosCancion">Missing data: Title, Audio, or Cover.</system:String>
+    <system:String x:Key="Msg_Error_FaltanArtistasGeneros">You must add at least one Artist and one Genre.</system:String>
+    <system:String x:Key="Msg_Error_GestionArchivos">Error managing files:</system:String>
+    <system:String x:Key="Msg_Exito_CancionPublicada">Song published successfully.</system:String>
+    <system:String x:Key="Msg_Error_SubirCancion">Error uploading song to database.</system:String>
+
+    <system:String x:Key="Msg_Error_NombreGeneroVacio">Enter the genre name.</system:String>
+    <system:String x:Key="Msg_Error_GeneroExiste">Error: That genre already exists.</system:String>
+    <system:String x:Key="Msg_Exito_GeneroAnadido">Genre added.</system:String>
+    <system:String x:Key="Msg_Error_CrearGenero">Error creating genre.</system:String>
+
+    <system:String x:Key="Msg_Error_FaltanDatosPlaylist">Missing data: Name, Owner (ID), Description, or Cover.</system:String>
+    <system:String x:Key="Msg_Exito_PlaylistCreada">Playlist created successfully.</system:String>
+    <system:String x:Key="Msg_Error_CrearPlaylist">Error creating playlist in database.</system:String>
+
+    <system:String x:Key="Msg_Error_FaltanDatosReporte">Missing data: Type, Description, or Status.</system:String>
+    <system:String x:Key="Msg_Error_FaltanRefReporte">Missing data: Reporting user reference or reported song.</system:String>
+    <system:String x:Key="Msg_Exito_ReporteRegistrado">Report registered.</system:String>
+    <system:String x:Key="Msg_Error_EnviarReporte">Error sending report.</system:String>
+
+    <system:String x:Key="Msg_Error_FaltanDatosObligatorios">Missing mandatory data.</system:String>
+    <system:String x:Key="Msg_Exito_UsuarioActualizado">User updated successfully.</system:String>
+    <system:String x:Key="Msg_Error_ActualizarUsuario">Could not update user.</system:String>
+    <system:String x:Key="Msg_Exito_CancionActualizada">Song updated successfully.</system:String>
+    <system:String x:Key="Msg_Error_NoCambios">No changes made or update error.</system:String>
+    <system:String x:Key="Msg_Error_ArchivoLocalNoExiste">The specified local file does not exist. Check path.</system:String>
+    <system:String x:Key="Msg_Exito_GeneroActualizado">Genre updated.</system:String>
+    <system:String x:Key="Msg_Error_ActualizarGenero">Error updating genre.</system:String>
+    <system:String x:Key="Msg_Error_PlaylistVacia">Error: Playlist must have at least one song.</system:String>
+    <system:String x:Key="Msg_Exito_PlaylistActualizada">Playlist updated successfully.</system:String>
+    <system:String x:Key="Msg_Error_FaltaEstadoReporte">Error: You must select a Status for the report.</system:String>
+    <system:String x:Key="Msg_Exito_ReporteActualizado">Report updated.</system:String>
+    <system:String x:Key="Msg_Error_ActualizarReporte">Error updating report.</system:String>
+
+    <system:String x:Key="Msg_Confirmar_Titulo">Delete</system:String>
+    <system:String x:Key="Msg_Confirmar_BtnSi">Yes, delete</system:String>
+    <system:String x:Key="Msg_Confirmar_BtnNo">Cancel</system:String>
+    <system:String x:Key="Msg_Confirmar_BorrarUsuario">Are you sure you want to delete user?</system:String>
+    <system:String x:Key="Msg_Error_BorrarPropioUser">You cannot delete your own user while logged in.</system:String>
+    <system:String x:Key="Msg_Exito_UsuarioEliminado">User deleted successfully.</system:String>
+    <system:String x:Key="Msg_Error_EliminarUsuario">Error deleting user.</system:String>
+
+    <system:String x:Key="Msg_Confirmar_BorrarCancion">Are you sure you want to delete the song ?</system:String>
+    <system:String x:Key="Msg_Error_EliminarAudioNube">Could not delete audio file from cloud. Check connection.</system:String>
+    <system:String x:Key="Msg_Exito_CancionEliminada">Song deleted successfully.</system:String>
+    <system:String x:Key="Msg_Error_EliminarCancion">Error deleting song.</system:String>
+
+    <system:String x:Key="Msg_Confirmar_BorrarPlaylist">Delete playlist?</system:String>
+    <system:String x:Key="Msg_Exito_PlaylistEliminada">Playlist deleted successfully.</system:String>
+    <system:String x:Key="Msg_Error_EliminarPlaylist">Error deleting playlist.</system:String>
+
+    <system:String x:Key="Msg_Confirmar_BorrarGenero">Delete genre?</system:String>
+    <system:String x:Key="Msg_Exito_GeneroEliminado">Genre deleted successfully.</system:String>
+    <system:String x:Key="Msg_Error_EliminarGenero">Error when deleting the genre (Could be assigned to a song?).</system:String>
+
+    <system:String x:Key="Msg_Confirmar_BorrarReporte">Are you sure you want to delete this report?</system:String>
+    <system:String x:Key="Msg_Exito_ReporteEliminado">Report deleted successfully.</system:String>
+    <system:String x:Key="Msg_Error_EliminarReporte">Error deleting report.</system:String>
+    
+    <system:String x:Key="Msg_Error_GeneroYaAnadido">That genre is already added.</system:String>
+    
+    <system:String x:Key="Msg_Carga_SubiendoAvatar">Uploading avatar...</system:String>
+    <system:String x:Key="Msg_Carga_SubiendoPortada">Uploading new cover...</system:String>
+    <system:String x:Key="Msg_Carga_SubiendoPortadaPly">Uploading playlist cover...</system:String>
+    <system:String x:Key="Msg_Carga_EliminandoUser">Deleting user...</system:String>
+    <system:String x:Key="Msg_Carga_EliminandoCancion">Deleting song...</system:String>
+    <system:String x:Key="Msg_Carga_BorrandoPlaylist">Deleting playlist...</system:String>
+    <system:String x:Key="Msg_Carga_EliminandoGenero">Deleting genre...</system:String>
+    <system:String x:Key="Msg_Carga_EliminandoReporte">Deleting report...</system:String>
+
+    <system:String x:Key="Acc_BD_DataGridUsuarios">Registered users data table</system:String>
+    <system:String x:Key="Acc_BD_DataGridCanciones">Database songs table</system:String>
+    <system:String x:Key="Acc_BD_DataGridGeneros">Musical genres table</system:String>
+</ResourceDictionary>
