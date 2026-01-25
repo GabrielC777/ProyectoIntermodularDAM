@@ -293,6 +293,7 @@ namespace BetaProyecto.ViewModels
                     ReproducirCancion(cancion, lista);
                 };
             }
+            RefrescarIconos();
             VistaActual = _centralTabVM;
         }
         public void IrAPanelUsuario(int pestania)
@@ -630,7 +631,7 @@ namespace BetaProyecto.ViewModels
                 TiempoActualCancion = "--:--";
                 TiempoTotalCancion= "--:--";
 
-                var listaFavoritos = GlobalData.Instance.favoritosGD;
+                var listaFavoritos = GlobalData.Instance.FavoritosGD;
 
                 // Comprobamos si la lista existe y si contiene el ID de la canción
                 if (listaFavoritos != null && listaFavoritos.Contains(cancion.Id))
@@ -761,8 +762,8 @@ namespace BetaProyecto.ViewModels
             {
                 return;
             }
-            var listaFavoritos = GlobalData.Instance.favoritosGD;
-            var idUsuario = GlobalData.Instance.userIdGD;
+            var listaFavoritos = GlobalData.Instance.FavoritosGD;
+            var idUsuario = GlobalData.Instance.UserIdGD;
             var idCancion = cancion.Id;
             
             if (listaFavoritos.Contains(idCancion))

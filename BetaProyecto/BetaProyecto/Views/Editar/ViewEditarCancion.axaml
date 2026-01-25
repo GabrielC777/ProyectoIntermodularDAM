@@ -28,6 +28,33 @@
             <Setter Property="BorderBrush" Value="{DynamicResource Brush_Edit_Input_Borde}"/>
             <Setter Property="CaretBrush" Value="{DynamicResource Brush_Edit_Input_Texto}"/>
         </Style>
+
+        <Style Selector="Button.Volver">
+            <Setter Property="Background" Value="{DynamicResource Brush_BtnDesign_Fondo}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Brush_BtnDesign_Borde}"/>            
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="CornerRadius" Value="25"/>
+            <Setter Property="Padding" Value="12"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="BorderThickness" Value="0"/>
+
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Property="Background" Duration="0:0:0.2"/>
+                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.1"/>
+                </Transitions>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.Volver:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource Brush_BtnDesign_Hover}"/>
+            <Setter Property="RenderTransform" Value="scale(1.1)"/> </Style>
+
+        <Style Selector="Button.Volver:pressed /template/ ContentPresenter">
+            <Setter Property="RenderTransform" Value="scale(0.90)"/>
+        </Style>
+
     </UserControl.Styles>
 
     <Grid>
@@ -37,11 +64,17 @@
                 <Grid RowDefinitions="Auto, *" >
                     <!--Botón atras-->
                     <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="20" Margin="0,0,0,30">
-                        <Button Command="{Binding BtnCancelar}" Width="50" Height="50" CornerRadius="25" Background="#F0F0F0" Padding="0"
+    
+                        <Button Command="{Binding BtnCancelar}" 
+                                Classes="Volver"
                                 AutomationProperties.Name="{DynamicResource Global_BtnVolver}"
                                 AutomationProperties.HelpText="{DynamicResource Acc_Btn_Volver_Help}">
-                             <Image Source="{DynamicResource Img_Volver}" Stretch="UniformToFill" AutomationProperties.AccessibilityView="Raw"/>
+        
+                            <Image Source="{DynamicResource Img_Volver}" 
+                                   Stretch="UniformToFill" 
+                                   AutomationProperties.AccessibilityView="Raw"/>
                         </Button>
+
                         <StackPanel VerticalAlignment="Center">
                             <TextBlock Text="{DynamicResource EditCan_Titulo}" FontSize="32" FontWeight="Bold"
                                        Foreground="{DynamicResource Brush_Edit_Texto_Principal}"/>

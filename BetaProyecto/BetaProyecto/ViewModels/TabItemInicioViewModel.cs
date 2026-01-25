@@ -176,7 +176,7 @@ namespace BetaProyecto.ViewModels
             else
             {
                 var cliente = MongoClientSingleton.Instance.Cliente;
-                var miIdUsuario = GlobalData.Instance.userIdGD;
+                var miIdUsuario = GlobalData.Instance.UserIdGD;
 
                 // Lógica de carga
                 //-Listade canciones

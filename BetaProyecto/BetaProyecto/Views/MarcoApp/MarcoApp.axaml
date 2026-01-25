@@ -62,6 +62,7 @@
         </Style>
 
     </Window.Styles>
+
     <!--Aqui conectamos las vistas/xaml con sus respectivos viewmodel-->
     <Window.DataTemplates>
         <!--Login-->

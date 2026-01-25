@@ -84,7 +84,7 @@ namespace BetaProyecto.ViewModels
         }
         private void ConfigurarPermisos()
         {
-            string rolActual = GlobalData.Instance.rolGD;
+            string rolActual = GlobalData.Instance.RolGD;
 
             // Gestión de Base de Datos -> SOLO SuperAdmin
             PuedeVerBD = (rolActual == Roles.SuperAdmin);

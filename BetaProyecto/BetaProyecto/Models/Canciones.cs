@@ -42,13 +42,12 @@ namespace BetaProyecto.Models
         [BsonElement("url_cancion")]
         public string UrlCancion { get; set; }
 
-        // --- OBJETOS ANIDADOS (Para leer 'datos' y 'metricas') ---
-
+        // OBJETOS ANIDADOS
         [BsonElement("datos")]
-        public DatosCancion Datos { get; set; }
+        public DatosCancion Datos { get; set; } = new DatosCancion();
 
         [BsonElement("metricas")]
-        public MetricasCancion Metricas { get; set; }
+        public MetricasCancion Metricas { get; set; } = new MetricasCancion();
     }
 
     public class DatosCancion
@@ -69,12 +68,13 @@ namespace BetaProyecto.Models
     public class MetricasCancion
     {
         [BsonElement("total_reproducciones")]
-        public long TotalReproducciones { get; set; }
+        public long TotalReproducciones { get; set; } = 0;
 
         [BsonElement("total_megustas")]
-        public long TotalMegustas { get; set; }
+        public long TotalMegustas { get; set; } = 0;
 
         [BsonElement("puntuacion_tendencia")]
-        public double PuntuacionTendencia { get; set; }
+        public double PuntuacionTendencia { get; set; } = 0.0;
     }
+
 }

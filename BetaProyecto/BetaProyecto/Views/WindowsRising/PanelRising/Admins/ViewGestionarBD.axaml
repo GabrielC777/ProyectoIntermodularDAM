@@ -96,6 +96,11 @@
             <Setter Property="BorderBrush" Value="{DynamicResource Brush_BD_Input_Borde}"/>
             <Setter Property="CaretBrush" Value="{DynamicResource Brush_BD_Input_Texto}"/>
         </Style>
+        <Style Selector="Button:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource Brush_BtnConfig_Hover}"/> 
+            <Setter Property="BorderBrush" Value="{DynamicResource Brush_Borde_General}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_BtnConfig_Texto}"/>
+        </Style>
     </UserControl.Styles>
 
     <Grid RowDefinitions="Auto, *" Margin="20">
@@ -192,6 +197,7 @@
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
+
                    <!--Parte del Crear, Editar, Eliminar-->
                    <Border Grid.Column="1" Margin="15,0,0,0" 
                             BorderBrush="{DynamicResource Brush_BD_Panel_Borde}" BorderThickness="1" 
@@ -232,7 +238,7 @@
 
                                         <CheckBox IsChecked="{Binding NuevoUsuario.Perfil.EsPrivada}" Content="{DynamicResource Col_Privado}" Margin="0,5" Foreground="{DynamicResource Brush_BD_Input_Texto}"/>
 
-                                        <Button Command="{Binding BtnCrearUsuario}" Content="{DynamicResource Col_Privado}" 
+                                        <Button Command="{Binding BtnCrearUsuario}" Content="{DynamicResource BD_Usr_BtnCrear}" 
                                                 Background="{DynamicResource Brush_BD_BtnCrear_Fondo}" Foreground="{DynamicResource Brush_BD_BtnCrear_Texto}" 
                                                 HorizontalAlignment="Stretch" Margin="0,10,0,0"/>
                                     </StackPanel>

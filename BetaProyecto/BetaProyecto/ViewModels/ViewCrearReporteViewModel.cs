@@ -90,7 +90,7 @@ namespace BetaProyecto.ViewModels
                     Referencias = new ReferenciasReporte
                     {
                         CancionReportadaId = _cancionAReportar.Id,
-                        UsuarioReportanteId = GlobalData.Instance.userIdGD
+                        UsuarioReportanteId = GlobalData.Instance.UserIdGD
                     }
                 };
 

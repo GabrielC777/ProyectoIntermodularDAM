@@ -23,11 +23,11 @@ namespace BetaProyecto.ViewModels
         }
 
         // Bindings
-        private Bitmap _imagenLike;
-        public Bitmap ImagenLike
+        private string _iconoLike;
+        public string IconoLike
         {
-            get => _imagenLike;
-            set => this.RaiseAndSetIfChanged(ref _imagenLike, value);
+            get => _iconoLike;
+            set => this.RaiseAndSetIfChanged(ref _iconoLike, value);
         }
 
         private string _txtMensajeTimer = "VisorCan_Timer_Consultando";
@@ -149,16 +149,16 @@ namespace BetaProyecto.ViewModels
         }
         private void ActualizarIconoLike()
         {
-            var listaFavoritos = GlobalData.Instance.favoritosGD;
+            var listaFavoritos = GlobalData.Instance.FavoritosGD;
 
             if (listaFavoritos.Contains(_cancion.Id))
             {
-                ImagenLike = CargarImagen("LikeSelect.png");
+                IconoLike = "Img_Like_ON";
             }
             else
             {
                 // Si NO está -> Icono Normal
-                ImagenLike = CargarImagen("Like.png");
+                IconoLike = "Img_Like_OFF";
             }
         }
     }

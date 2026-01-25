@@ -78,7 +78,7 @@ namespace BetaProyecto.ViewModels
 
             if (MongoClientSingleton.Instance.Cliente != null)
             {
-                var resultados = await MongoClientSingleton.Instance.Cliente.ObtenerCancionesPorGenero(genero);
+                var resultados = await MongoClientSingleton.Instance.Cliente.ObtenerMixPorGenero(genero);
 
                 if (resultados != null && resultados.Count > 0)
                 {

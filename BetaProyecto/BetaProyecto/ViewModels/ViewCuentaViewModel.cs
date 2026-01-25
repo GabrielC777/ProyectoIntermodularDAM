@@ -70,14 +70,14 @@ namespace BetaProyecto.ViewModels
         private void CargarDatos()
         {
             // Leemos del Singleton (GlobalData)
-            NombreUsuario = GlobalData.Instance.usernameGD;
-            Email = GlobalData.Instance.emailGD;
-            Pais = GlobalData.Instance.paisGD; // Ahora ya existe esta propiedad
+            NombreUsuario = GlobalData.Instance.UsernameGD;
+            Email = GlobalData.Instance.EmailGD;
+            Pais = GlobalData.Instance.PaisGD; // Ahora ya existe esta propiedad
 
             // Conversión de Fechas
-            if (GlobalData.Instance.fechaNacimientoGD != DateTime.MinValue)
+            if (GlobalData.Instance.FechaNacimientoGD != DateTime.MinValue)
             {
-                FechaNacimiento = new DateTimeOffset(GlobalData.Instance.fechaNacimientoGD);
+                FechaNacimiento = new DateTimeOffset(GlobalData.Instance.FechaNacimientoGD);
             }
             else
             {
@@ -85,7 +85,7 @@ namespace BetaProyecto.ViewModels
             }
 
             // Conversión de Privacidad (True = Privada = Index 0)
-            IndexPrivacidad = GlobalData.Instance.es_PrivadaGD ? 0 : 1;
+            IndexPrivacidad = GlobalData.Instance.Es_PrivadaGD ? 0 : 1;
         }
 
         private async Task GuardarCambios()
@@ -97,7 +97,7 @@ namespace BetaProyecto.ViewModels
                 bool esCuentaPrivada = (IndexPrivacidad == 0);
 
                 bool exito = await MongoClientSingleton.Instance.Cliente.ActualizarPerfilUsuario(
-                    GlobalData.Instance.userIdGD, 
+                    GlobalData.Instance.UserIdGD, 
                     NombreUsuario,                
                     Email,                        
                     Pais,                         
@@ -108,11 +108,11 @@ namespace BetaProyecto.ViewModels
                 // 2. COMPROBAMOS SI SE ACTUALIZÓ DE VERDAD
                 if (exito)
                 {
-                    GlobalData.Instance.usernameGD = NombreUsuario;
-                    GlobalData.Instance.emailGD = Email;
-                    GlobalData.Instance.paisGD = Pais;
-                    GlobalData.Instance.fechaNacimientoGD = fechaParaGuardar;
-                    GlobalData.Instance.es_PrivadaGD = esCuentaPrivada;
+                    GlobalData.Instance.UsernameGD = NombreUsuario;
+                    GlobalData.Instance.EmailGD = Email;
+                    GlobalData.Instance.PaisGD = Pais;
+                    GlobalData.Instance.FechaNacimientoGD = fechaParaGuardar;
+                    GlobalData.Instance.Es_PrivadaGD = esCuentaPrivada;
 
                     _dialogoService.MostrarAlerta("Perfil actualizado correctamente.");
                     System.Diagnostics.Debug.WriteLine("¡Perfil actualizado en BD y Memoria!");

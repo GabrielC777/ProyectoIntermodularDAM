@@ -95,7 +95,7 @@
                                    FontSize="16" FontWeight="ExtraBold" LetterSpacing="3"/>
                         
                         <TextBlock Text="{Binding Playlist.Nombre}" 
-                                   FontSize="45" FontWeight="Black" TextWrapping="Wrap" LineHeight="50" 
+                                   FontSize="45" FontWeight="Black" TextWrapping="Wrap" 
                                    Foreground="{DynamicResource Brush_VisorPlay_Texto_Titulo}"
                                    AutomationProperties.Name="{DynamicResource Acc_VisorPlay_Titulo_Help}"/>
                         

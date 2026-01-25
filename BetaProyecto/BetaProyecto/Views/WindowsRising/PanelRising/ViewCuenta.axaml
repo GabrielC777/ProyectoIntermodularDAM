@@ -16,6 +16,7 @@
             <Setter Property="Background" Value="{DynamicResource Brush_Cuenta_Celda}"/>
             <Setter Property="Padding" Value="20"/>
         </Style>
+        
         <Style Selector="TextBlock.Etiqueta">
             <Setter Property="FontSize" Value="35"/>
             <Setter Property="FontWeight" Value="Bold"/>
@@ -23,12 +24,32 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Foreground" Value="{DynamicResource Brush_Texto_Principal}"/>
         </Style>
+
         <Style Selector="TextBox.Input">
             <Setter Property="FontSize" Value="30"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Foreground" Value="{DynamicResource Brush_Texto_Principal}"/>
+            <Setter Property="CaretBrush" Value="{DynamicResource Brush_Texto_Principal}"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
+
+        <Style Selector="TextBox.Input:pointerover /template/ Border#PART_BorderElement">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Brush_Texto_Principal}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+
+        <Style Selector="TextBox.Input:focus /template/ Border#PART_BorderElement">
+            <Setter Property="Background" Value="{DynamicResource Brush_Cuenta_Input_Focus_Fondo}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+        
+        <Style Selector="TextBox.Input:focus">
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Texto_Principal}"/>
+            <Setter Property="Background" Value="{DynamicResource Brush_Cuenta_Textbox_Fondo}"/>
         </Style>
 
         <Style Selector="Border.InfoBadge">
@@ -44,7 +65,26 @@
         <Style Selector="Border.InfoBadge:pointerover">
             <Setter Property="Background" Value="{DynamicResource Brush_Cuenta_Badge_Hover}"/> 
         </Style>
-    </UserControl.Styles>
+
+        <Style Selector="Button.BtnGuardar">
+            <Setter Property="Background" Value="{DynamicResource Brush_Cuenta_BtnGuardar_Fondo}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_Cuenta_BtnGuardar_Texto}"/>
+            <Setter Property="BorderThickness" Value="0"/> 
+            
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Padding" Value="30,15"/>
+            <Setter Property="CornerRadius" Value="15"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,30,0,0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        
+        <Style Selector="Button.BtnGuardar:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource Brush_BtnConfig_Hover}"/> 
+            <Setter Property="BorderBrush" Value="{DynamicResource Brush_Borde_General}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush_BtnConfig_Texto}"/>
+        </Style>
+        </UserControl.Styles>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -142,11 +182,8 @@
 
                         <Border Grid.Row="4" Grid.Column="0" Classes="Celda" CornerRadius="0,0,0,20">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                                
                                 <TextBlock Text="{DynamicResource Cuenta_LblTipo}" Classes="Etiqueta"/>
-                                
-                                <Border Classes="InfoBadge" 
-                                        ToolTip.Tip="{DynamicResource Info_Cuenta_Tipo}">
+                                <Border Classes="InfoBadge" ToolTip.Tip="{DynamicResource Info_Cuenta_Tipo}">
                                     <TextBlock Text="?" 
                                                Foreground="{DynamicResource Brush_Cuenta_Badge_Texto}" 
                                                FontWeight="Bold" 
@@ -154,7 +191,6 @@
                                                HorizontalAlignment="Center" 
                                                VerticalAlignment="Center"/>
                                 </Border>
-                                
                             </StackPanel>
                         </Border>
                         <Border Grid.Row="4" Grid.Column="1" Classes="Celda" CornerRadius="0,0,20,0">
@@ -163,7 +199,6 @@
                                       FontSize="30"
                                       AutomationProperties.Name="{DynamicResource Cuenta_LblTipo}"
                                       AutomationProperties.HelpText="{DynamicResource Acc_Cuenta_ComboTipo}">
-                                
                                 <ComboBoxItem Content="{DynamicResource Cuenta_OptPrivada}"/>
                                 <ComboBoxItem Content="{DynamicResource Cuenta_OptPublica}"/>
                             </ComboBox>
@@ -173,12 +208,9 @@
                 </Border>
 
                 <Button Grid.Row="2" 
+                        Classes="BtnGuardar"
                         Content="{DynamicResource Cuenta_BtnGuardar}" 
                         Command="{Binding BtnGuardar}"
-                        HorizontalAlignment="Center" Margin="0,30,0,0"
-                        FontSize="30" Padding="30,15" CornerRadius="15"
-                        Background="{DynamicResource Brush_Cuenta_BtnGuardar_Fondo}" 
-                        Foreground="{DynamicResource Brush_Cuenta_BtnGuardar_Texto}"
                         AutomationProperties.Name="{DynamicResource Cuenta_BtnGuardar}"/>
             </Grid>
         </Viewbox>

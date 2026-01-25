@@ -113,7 +113,7 @@ namespace BetaProyecto.ViewModels
                 {
                     // PASO 3: RESTAR 1 AL CONTADOR DE CANCIONES DEL PERFIL
                     // Importante para que las estadísticas del usuario sean reales
-                    await MongoClientSingleton.Instance.Cliente.IncrementarContadorCancionesUsuario(GlobalData.Instance.userIdGD, -1);
+                    await MongoClientSingleton.Instance.Cliente.IncrementarContadorCancionesUsuario(GlobalData.Instance.UserIdGD, -1);
 
                     // PASO 4: ACTUALIZAR PANTALLA
                     MisCanciones.Remove(cancion);
@@ -157,7 +157,7 @@ namespace BetaProyecto.ViewModels
         {
             if(MongoClientSingleton.Instance.Cliente != null)
             {
-                string miId = GlobalData.Instance.userIdGD;
+                string miId = GlobalData.Instance.UserIdGD;
 
                 var listaCanciones = MongoClientSingleton.Instance.Cliente.ObtenerCancionesPorAutor(miId); 
                 var listaPlaylist = MongoClientSingleton.Instance.Cliente.ObtenerPlaylistsPorCreador(miId);

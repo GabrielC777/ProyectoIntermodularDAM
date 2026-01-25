@@ -521,7 +521,7 @@ namespace BetaProyecto.ViewModels
         private void ResetearBorradores()
         {
             NuevoUsuario = new Usuarios { Perfil = new PerfilUsuario(), Estadisticas = new EstadisticasUsuario(), Listas = new ListasUsuario() };
-            NuevaCancion = new Canciones { Datos = new DatosCancion(), Metricas = new MetricasCancion() };
+            NuevaCancion = new Canciones ();
             NuevaPlaylist = new ListaPersonalizada();
             NuevoReporte = new Reportes { Referencias = new ReferenciasReporte() };
 
@@ -1058,7 +1058,7 @@ namespace BetaProyecto.ViewModels
                         if (exito)
                         {
                             // 6. ACTUALIZAR SESIÓN ACTUAL (Si me he editado a mí mismo)
-                            if (SelectedUsuario.Id == GlobalData.Instance.userIdGD)
+                            if (SelectedUsuario.Id == GlobalData.Instance.UserIdGD)
                             {
                                 GlobalData.Instance.SetUserData(SelectedUsuario);
                                 System.Diagnostics.Debug.WriteLine("[INFO] Datos de sesión actualizados tras edición.");
@@ -1430,7 +1430,7 @@ namespace BetaProyecto.ViewModels
                 "Msg_Confirmar_BtnNo")) return;
 
             // --- BLOQUEO DE SEGURIDAD ---
-            if (SelectedUsuario.Id == GlobalData.Instance.userIdGD)
+            if (SelectedUsuario.Id == GlobalData.Instance.UserIdGD)
             {
                 _dialogoService.MostrarAlerta("Msg_Error_BorrarPropioUser"); 
                 return;

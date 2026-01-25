@@ -36,6 +36,9 @@ namespace BetaProyecto.Models
         [BsonElement("listas")]
         public ListasUsuario Listas { get; set; } = new ListasUsuario();
 
+        [BsonElement("configuracion")]
+        public ConfiguracionUser Configuracion { get; set; } = new ConfiguracionUser();
+
         [BsonElement("fecha_registro")]
         public DateTime FechaRegistro { get; set; }
     }
@@ -73,5 +76,17 @@ namespace BetaProyecto.Models
         [BsonElement("favoritos")]
         [BsonRepresentation(BsonType.ObjectId)]
         public List<string> Favoritos { get; set; } = new List<string>();
+    }
+    // SUBCLASE 4: CONFIGURACION
+    public class ConfiguracionUser
+    {
+        [BsonElement("tema")]
+        public string DiccionarioTema { get; set; } = "ModoClaro";
+
+        [BsonElement("idioma")]
+        public string DiccionarioIdioma { get; set; } = "Español";
+
+        [BsonElement("fuente")]
+        public string DiccionarioFuente { get; set; } = "Lexend";
     }
 }

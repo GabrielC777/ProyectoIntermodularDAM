@@ -55,6 +55,32 @@
             <Setter Property="Background" Value="{DynamicResource Brush_VisorUser_BtnVolver_Hover}"/>
             <Setter Property="Foreground" Value="White"/>
         </Style>
+        <Style Selector="Button.BtnSeguir">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,20,0,0"/>
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="Padding" Value="30,10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition Property="Opacity" Duration="0:0:0.2"/>
+                </Transitions>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.BtnSeguir:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{Binding $parent[Button].Background}"/>
+            
+            <Setter Property="Opacity" Value="0.7"/> 
+        </Style>
+        
+        <Style Selector="Button.BtnSeguir:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{Binding $parent[Button].Background}"/>
+            <Setter Property="Opacity" Value="0.5"/>
+            <Setter Property="RenderTransform" Value="scale(0.95)"/>
+        </Style>
     </UserControl.Styles>
 
     <Grid RowDefinitions="Auto, *" Margin="40,40,40,20">
@@ -103,14 +129,12 @@
                         </StackPanel>
                      </Border>
                     <Button Command="{Binding BtnSeguir}"
-                            HorizontalAlignment="Center"
-                            Margin="0,20,0,0"
-                            CornerRadius="20"
-                            Padding="30,10"
-                            Cursor="Hand"
+                            Classes="BtnSeguir"
                             Background="{Binding ColorBotonSeguir}"
                             AutomationProperties.HelpText="{DynamicResource Acc_VisorUser_BtnSeguir_Help}">
-                        <TextBlock Text="{Binding TextoBotonSeguir ,Converter={StaticResource Traductor}}" Foreground="White" FontWeight="Bold" FontSize="16"/>
+                        
+                        <TextBlock Text="{Binding TextoBotonSeguir, Converter={StaticResource Traductor}}" 
+                                   Foreground="White" FontWeight="Bold" FontSize="16"/>
                     </Button>
                 </StackPanel>
             </StackPanel>
@@ -129,7 +153,7 @@
                                            Foreground="{DynamicResource Brush_VisorUser_Texto_Label}" FontSize="20" FontWeight="ExtraBold" LetterSpacing="2"/>
                                 
                                 <TextBlock Text="{Binding Usuario.Username}" 
-                                           FontSize="50" FontWeight="Black" TextWrapping="Wrap" LineHeight="55" 
+                                           FontSize="50" FontWeight="Black" TextWrapping="Wrap" 
                                            Foreground="{DynamicResource Brush_VisorUser_Texto_Titulo}"/>
                                 
                                 <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,5,0,0">

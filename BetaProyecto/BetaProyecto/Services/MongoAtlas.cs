@@ -22,7 +22,7 @@ namespace BetaProyecto.Services
         private MongoClient _client;
 
         // Esta propiedad pública permitirá que los ViewModels puedan pedir datos a la BD
-        public IMongoDatabase Database { get; private set; }
+        public IMongoDatabase? Database{ get; private set; }
         public MongoAtlas()
         {
 
@@ -76,7 +76,7 @@ namespace BetaProyecto.Services
                 var usuario = await coleccionUsuarios
                                         .Find(u => u.Username == username && u.Password == passwordHash)
                                         .FirstOrDefaultAsync();
-                // 3. Devolvemos el resultado (será 'null' si no lo encuentra)
+
                 return usuario;
             }
             catch (Exception ex)
@@ -86,7 +86,6 @@ namespace BetaProyecto.Services
             }
         }
 
-
         #region Metodos Select / Obtener Datos 
         /////////////////////////////////////////
         ////METODOS SELECT O OBTENER DE DATOS////
@@ -94,7 +93,7 @@ namespace BetaProyecto.Services
         #region Para obtener canciones
         public async Task<List<Canciones>> ObtenerCancionesFavoritos()
         {
-            var listafavoritos = GlobalData.Instance.favoritosGD;
+            var listafavoritos = GlobalData.Instance.FavoritosGD;
             //Comprobarmos si en la lista de favoritos hay algo
             if (listafavoritos.Equals(null) || listafavoritos.Count == 0 )
             {
@@ -118,10 +117,8 @@ namespace BetaProyecto.Services
 
                 var listaObtenida = await coleccionCanciones.Find(filtro).ToListAsync();
                 
-                // RELLENAMOS EL NOMBRE DEL ARTISTA/S
                 await RellenarNombresDeArtistas(listaObtenida);
                 
-                //Devolvemos las canciones encontradas
                 return listaObtenida; 
 
             }
@@ -138,12 +135,10 @@ namespace BetaProyecto.Services
             {
                 System.Diagnostics.Debug.WriteLine("Error de conexión");
                 return new List<Canciones>();
-
             }
 
             try
             {
-                // Apuntamos a la colección. 
                 var coleccionCanciones = Database.GetCollection<Canciones>("canciones");
 
                 // Traemos todas las canciones
@@ -151,7 +146,6 @@ namespace BetaProyecto.Services
                                                                 .SortByDescending(c => c.Id)
                                                                 .Limit(10)
                                                                 .ToListAsync();
-                // RELLENAMOS EL NOMBRE DEL ARTISTA/S
                 await RellenarNombresDeArtistas(listaCanciones);
 
                 return listaCanciones;
@@ -174,7 +168,6 @@ namespace BetaProyecto.Services
 
             try
             {
-                // Apuntamos a la colección. 
                 var coleccionCanciones = Database.GetCollection<Canciones>("canciones");
 
                 // Hacemos el Find buscado por género
@@ -182,8 +175,6 @@ namespace BetaProyecto.Services
                                                      .Limit(15)
                                                      .ToListAsync();
 
-                // Rellenamos autores igual que antes
-                // RELLENAMOS EL NOMBRE DEL ARTISTA/S
                 await RellenarNombresDeArtistas(listaCanciones);
 
                 return listaCanciones;
@@ -194,6 +185,7 @@ namespace BetaProyecto.Services
                 return new List<Canciones>();
             }
         }
+
         //Obtener todas las canciones
         public async Task<List<Canciones>> ObtenerCanciones()
         {
@@ -206,17 +198,13 @@ namespace BetaProyecto.Services
 
             try
             {
-                // Apuntamos a la colección. 
-                // ¡IMPORTANTE! Verifica en Mongo si se llama "canciones" o "Canciones"
+                // Apuntamos a la colección
                 var coleccionCanciones = Database.GetCollection<Canciones>("canciones");
                 var coleccionUsuarios = Database.GetCollection<Usuarios>("usuarios");
 
                 // Traemos todas las canciones
                 var listaCanciones = await coleccionCanciones.Find(_ => true).ToListAsync();
 
-                // Creamos una lista temporal para guardar los nombres de los autores
-
-                // RELLENAMOS EL NOMBRE DEL ARTISTA/S
                 await RellenarNombresDeArtistas(listaCanciones);
 
                 return listaCanciones;
@@ -263,7 +251,7 @@ namespace BetaProyecto.Services
                 var filtro = Builders<Canciones>.Filter.Regex(c => c.Titulo, new BsonRegularExpression(textoBusqueda, "i"));
 
                 var listaCanciones = await coleccionCanciones.Find(filtro).ToListAsync();
-                // RELLENAMOS EL NOMBRE DEL ARTISTA/S
+
                 await RellenarNombresDeArtistas(listaCanciones);
 
                 return listaCanciones;
@@ -274,6 +262,7 @@ namespace BetaProyecto.Services
                 return new List<Canciones>();
             }
         }
+
         public async Task<List<Canciones>> ObtenerCancionesPorAutor(string idAutor)
         {
             if (!await Conectar())
@@ -328,6 +317,7 @@ namespace BetaProyecto.Services
             }
 
         }
+
         public async Task<List<Usuarios>> ObtenerUsuariosPorBusqueda(string textoBusqueda, List<string> idsExcluidos)
         {
             if (!await Conectar())
@@ -339,10 +329,10 @@ namespace BetaProyecto.Services
             {
                 var coleccionUsuarios = Database.GetCollection<Usuarios>("usuarios");
 
-                // 1. Filtro básico: Buscar por nombre (ignorando mayúsculas/minúsculas)
+                // Filtro básico: Buscar por nombre (ignorando mayúsculas/minúsculas)
                 var filtroBusqueda = Builders<Usuarios>.Filter.Regex(c => c.Username, new BsonRegularExpression(textoBusqueda, "i"));
 
-                // 2. Filtro de exclusión: Si nos pasan IDs, le decimos a Mongo "Busca X, PERO que el ID NO ESTÉ en esta lista"
+                // Filtro de exclusión: Si nos pasan IDs, le decimos a Mongo "Busca X, PERO que el ID NO ESTÉ en esta lista"
                 // 'Nin' significa "Not In" (No está en...)
                 var filtroExclusion = Builders<Usuarios>.Filter.Nin(u => u.Id, idsExcluidos);
 
@@ -363,15 +353,15 @@ namespace BetaProyecto.Services
                 return new List<Usuarios>();
             }
         }
+
         public async Task<List<Usuarios>> ObtenerUsuariosPorListaIds(List<string> listaIds)
         {
-            // 1. Si la lista está vacía, nos ahorramos el viaje a la base de datos
+            // 1. Si la lista está vacía ni nos molestamos en buscar en la base de datos
             if (listaIds == null || listaIds.Count == 0)
             {
                 return new List<Usuarios>();
             }
 
-            // 2. Aseguramos conexión
             if (!await Conectar())
             {
                 return new List<Usuarios>();
@@ -381,12 +371,11 @@ namespace BetaProyecto.Services
             {
                 var coleccionUsuarios = Database.GetCollection<Usuarios>("usuarios");
 
-                // 3. EL TRUCO DE RENDIMIENTO: Filter.In
                 // Busca cualquier usuario cuyo Id esté DENTRO de la lista 'listaIds'
                 var filtro = Builders<Usuarios>.Filter.In(u => u.Id, listaIds);
+                var listaUsuarios = await coleccionUsuarios.Find(filtro).ToListAsync();
 
-                // 4. Devolvemos la lista completa de objetos Usuario
-                return await coleccionUsuarios.Find(filtro).ToListAsync();
+                return listaUsuarios;
             }
             catch (Exception ex)
             {
@@ -397,10 +386,12 @@ namespace BetaProyecto.Services
         #endregion
  
         #region Para obtener listaspersonalizas
-        // 1. Obtener todas las listas (o las de un usuario concreto si quisieras filtrar)
+        
+        //Obtener todas las listas
         public async Task<List<ListaPersonalizada>> ObtenerListasReproduccion()
         {
-            if (!await Conectar()) { 
+            if (!await Conectar()) 
+            { 
                 System.Diagnostics.Debug.WriteLine("Error de conexión");
                 return new List<ListaPersonalizada>(); 
             }
@@ -409,7 +400,7 @@ namespace BetaProyecto.Services
                 var coleccionListas = Database.GetCollection<ListaPersonalizada>("listapersonalizada");
                 var listas = await coleccionListas.Find(_ => true).ToListAsync();
 
-                // TRUCO: Rellenamos las canciones reales para cada lista
+                // Rellenamos las canciones reales para cada lista pra poder reporducirlas o mostrarlas depende el caso
                 foreach (var lista in listas)
                 {
                     if (lista.IdsCanciones.Count > 0)
@@ -426,6 +417,7 @@ namespace BetaProyecto.Services
                 return new List<ListaPersonalizada>();
             }
         }
+
         public async Task<List<ListaPersonalizada>> ObtenerPlaylistsPorCreador(string idUsuario)
         {
             if (!await Conectar())
@@ -462,7 +454,10 @@ namespace BetaProyecto.Services
         #endregion
 
 
-        //Otros metodos select
+        /// <summary>
+        /// Se ocupa de traer todos los reportes de la base de datos
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<Reportes>> ObtenerReportes()
         {
             if (!await Conectar())
@@ -473,6 +468,7 @@ namespace BetaProyecto.Services
             try
             {
                 var coleccion = Database.GetCollection<Reportes>("reportes");
+
                 // Los traemos ordenados por fecha (los más nuevos primero)
                 var lista = await coleccion.Find(_ => true)
                                            .SortByDescending(r => r.FechaCreacion)
@@ -509,6 +505,10 @@ namespace BetaProyecto.Services
             }
         }
 
+        /// <summary>
+        /// Obtenemos la lista de nombres de géneros de la base de datos
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<string>> ObtenerNombresGeneros()
         {
             if (!await Conectar())
@@ -519,20 +519,23 @@ namespace BetaProyecto.Services
             {
                 var coleccion = Database.GetCollection<Generos>("generos");
 
-                // 2. Buscamos todos los datos de la coleccionUsuarios generos
                 var listaGeneros = await coleccion.Find(_ => true)
                                                   .SortBy(g => g.Nombre)
                                                   .ToListAsync();
 
-                // Todo OK: Devolvemos los nombres
                 return listaGeneros.Select(g => g.Nombre).ToList();
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine("Error obteniendo géneros: " + ex.Message);
-                return new List<string>(); // Devolvemos lista vacía si falla
+                return new List<string>();
             }
         }
+
+        /// <summary>
+        /// Obtenemos los objetos completos de géneros de la base de datos
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<Generos>> ObtenerGenerosCompletos()
         {
             if (!await Conectar())
@@ -548,7 +551,69 @@ namespace BetaProyecto.Services
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine("Error obteniendo géneros: " + ex.Message);
-                return new List<Generos>(); // Devolvemos lista vacía si falla
+                return new List<Generos>();
+            }
+        }
+
+        /// <summary>
+        /// Obtiene una mezcla de canciones por género (veteranos + indies) partir del puntaje de tendencia
+        /// </summary>
+        /// <param name="genero"></param>
+        /// <returns></returns>
+        public async Task<List<Canciones>> ObtenerMixPorGenero(string genero)
+        {
+            if (!await Conectar()) 
+            { 
+                return new List<Canciones>();
+            }
+
+            try
+            {
+                var coleccion = Database.GetCollection<Canciones>("canciones");
+
+                // Filtro para buscar canciones del género solicitado
+                var filtroGenero = Builders<Canciones>.Filter.Eq("datos.generos", genero);
+
+                // LOS VETERANOS
+                // Estos son los que mantienen al usuario enganchado
+                var veteranos = await coleccion.Find(filtroGenero)
+                                               .SortByDescending(c => c.Metricas.PuntuacionTendencia)
+                                               .Limit(10)
+                                               .ToListAsync();
+
+                // LOS INDIES
+                // Estos son los que nos intersa darles visibilidad
+                var indies = await coleccion.Find(filtroGenero)
+                                            .SortBy(c => c.Metricas.TotalReproducciones)
+                                            .Limit(10)
+                                            .ToListAsync();
+
+                // LA MEZCLA (Veteranos + Indies)
+                var mezcla = new List<Canciones>();
+                mezcla.AddRange(veteranos);
+
+                // Añadimos los indies (evitando que si una canción es Top y tiene pocas visitas salga repetida, aunque es raro)
+                foreach (var indie in indies)
+                {
+                    if (!mezcla.Any(c => c.Id == indie.Id))
+                    {
+                        mezcla.Add(indie);
+                    }
+                }
+
+                // 4. BARAJAMOS EL RESULTADO FINAL 
+                var random = new Random();
+                var listaFinal = mezcla.OrderBy(x => random.Next()).ToList();
+
+                // Rellenamos nombres de artistas
+                await RellenarNombresDeArtistas(listaFinal);
+
+                return listaFinal;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error en Mix Por Género: " + ex.Message);
+                return new List<Canciones>();
             }
         }
         #endregion
@@ -557,6 +622,13 @@ namespace BetaProyecto.Services
         /////////////////////////////////////////
         ////////////METODOS INSERTS//////////////
         /////////////////////////////////////////
+        
+        /// <summary>
+        /// Se ocupa de añadir una canción a la lista de favoritos del usuario en la base de datos
+        /// </summary>
+        /// <param name="idUsuario"></param>
+        /// <param name="idCancion"></param>
+        /// <returns></returns>
         public async Task<bool> AgregarAFavorito(string idUsuario, string idCancion)
         {
             if (!await Conectar()) 
@@ -566,10 +638,13 @@ namespace BetaProyecto.Services
             try
             {
                 var coleccionUsuarios = Database.GetCollection<Usuarios>("usuarios");
-                //Configuramos el filtro para encontrar el usuario a actualizar (Usuario)
+
+                //Configuramos el filtro para encontrar el usuario a actualizar
                 var filtro = Builders<Usuarios>.Filter.Eq(u => u.Id, idUsuario);
-                //Y ahora buscamos la lista de favoritos que queremos actualizar y le decimos el ID de la canción que tiene que añadir (Update configurado)
+
+                //Y ahora buscamos la lista de favoritos que queremos actualizar y le decimos el ID de la canción que tiene que añadir
                 var update = Builders<Usuarios>.Update.AddToSet("listas.favoritos", ObjectId.Parse(idCancion));
+                
                 //Ejecutamos la actualización
                 var documentosActualizados = await coleccionUsuarios.UpdateOneAsync(filtro, update);
 
@@ -583,6 +658,13 @@ namespace BetaProyecto.Services
                 return false; 
             }
         }
+
+        /// <summary>
+        /// Se ocupa de añadir un usuario a la lista de seguidores del usuario en la base de datos
+        /// </summary>
+        /// <param name="idUsuario"></param>
+        /// <param name="idUsuarioASeguir"></param>
+        /// <returns></returns>
         public async Task<bool> SeguirUsuario(string idUsuario, string idUsuarioASeguir)
         {
             if (!await Conectar())
@@ -610,6 +692,12 @@ namespace BetaProyecto.Services
                 return false; 
             }
         }
+
+        /// <summary>
+        /// Se ocupa de publicar una nueva canción en la base de datos
+        /// </summary>
+        /// <param name="nuevaCancion"></param>
+        /// <returns></returns>
         public async Task<bool> PublicarCancion(Canciones nuevaCancion)
         {
             if (!await Conectar())
@@ -629,6 +717,11 @@ namespace BetaProyecto.Services
                 return false;
             }
         }
+        /// <summary>
+        /// Se ocupa de crear una nueva listapersonalizada en la base de datos
+        /// </summary>
+        /// <param name="nuevaLista"></param>
+        /// <returns></returns>
         public async Task<bool> CrearListaReproduccion(ListaPersonalizada nuevaLista)
         {
             if (!await Conectar())
@@ -648,6 +741,12 @@ namespace BetaProyecto.Services
                 return false;
             }
         }
+
+        /// <summary>
+        /// Se ocupa de enviar un nuevo reporte a la base de datos
+        /// </summary>
+        /// <param name="nuevoReporte"></param>
+        /// <returns></returns>
         public async Task<bool> EnviarReporte(Reportes nuevoReporte)
         {
             if (!await Conectar())
@@ -667,6 +766,12 @@ namespace BetaProyecto.Services
                 return false;
             }
         }
+
+        /// <summary>
+        /// Se ocupa de crear un nuevo género en la base de datos
+        /// </summary>
+        /// <param name="nuevoGenero"></param>
+        /// <returns></returns>
         public async Task<bool> CrearGenero(string nuevoGenero)
         {
             if (!await Conectar())
@@ -698,7 +803,12 @@ namespace BetaProyecto.Services
                 return false;
             }
         }
-        // Añadir esto en la región "Metodos Inserts" de MongoAtlas.cs
+
+        /// <summary>
+        /// Se ocupa de crear un nuevo usuario en la base de datos
+        /// </summary>
+        /// <param name="nuevoUsuario"></param>
+        /// <returns></returns>
         public async Task<bool> CrearUsuario(Usuarios nuevoUsuario)
         {
             if (!await Conectar())
@@ -709,7 +819,7 @@ namespace BetaProyecto.Services
             {
                 var coleccion = Database.GetCollection<Usuarios>("usuarios");
 
-                // Opcional: Verificar si el email o username ya existen antes de insertar
+                //Verificamos que no exista ya un usuario con ese email
                 var existe = await coleccion.Find(u => u.Email == nuevoUsuario.Email).AnyAsync();
                 if (existe) return false;
 
@@ -728,6 +838,13 @@ namespace BetaProyecto.Services
         /////////////////////////////////////////
         /////////////METODOS DELETE//////////////
         /////////////////////////////////////////
+        
+        /// <summary>
+        ///     Se ocupa de eliminar una canción de la lista de favoritos del usuario en la base de datos
+        /// </summary>
+        /// <param name="idUsuario"></param>
+        /// <param name="idCancion"></param>
+        /// <returns></returns>
         public async Task<bool> EliminarDeFavorito(string idUsuario, string idCancion)
         {
             if (!await Conectar())
@@ -737,10 +854,12 @@ namespace BetaProyecto.Services
             try
             {
                 var coleccionUsuarios = Database.GetCollection<Usuarios>("usuarios");
-                //Configuramos el filtro para encontrar el usuario a actualizar (Usuario)
+                // Configuramos el filtro para encontrar el usuario a actualizar
                 var filtro = Builders<Usuarios>.Filter.Eq(u => u.Id, idUsuario);
-                //Y ahora buscamos la lista de favoritos que queremos actualizar y le decimos el ID de la canción que tiene que añadir (Update configurado)
+
+                //Y ahora buscamos la lista de favoritos que queremos actualizar y le decimos el ID de la canción que tiene que añadir
                 var update = Builders<Usuarios>.Update.Pull("listas.favoritos", ObjectId.Parse(idCancion));
+                
                 //Ejecutamos la actualización
                 var documentosActualizados = await coleccionUsuarios.UpdateOneAsync(filtro, update);
 
@@ -754,6 +873,12 @@ namespace BetaProyecto.Services
                 return false; 
             }
         }
+        /// <summary>
+        ///     Se ocupa de eliminar un usuario de la lista de seguidores del usuario en la base de datos
+        /// </summary>
+        /// <param name="idUsuario"></param>
+        /// <param name="idUsuarioADejar"></param>
+        /// <returns></returns>
         public async Task<bool> DejarDeSeguirUsuario(string idUsuario, string idUsuarioADejar)
         {
             if (!await Conectar())
@@ -780,26 +905,34 @@ namespace BetaProyecto.Services
                 return false; 
             }
         }
+
+        /// <summary>
+        ///     Se ocupa de eliminar una canción de la base de datos por id
+        /// </summary>
+        /// <param name="idCancion"></param>
+        /// <returns></returns>
         public async Task<bool> EliminarCancionPorId(string idCancion)
         {
             if(!await Conectar())
             {
                 return false;
             }
-            // 1. LIMPIAR DE LISTAS DE REPRODUCCIÓN
+            //Limpiamos de listas de reproducciones para evitar errores de referencias
             var colListas = Database.GetCollection<ListaPersonalizada>("listapersonalizada");
 
-            // El driver ve [BsonRepresentation] y convierte 'idCancion' a ObjectId solo
-            var updateListas = Builders<ListaPersonalizada>.Update.Pull(l => l.IdsCanciones, idCancion);
+            //Buscamos las listas donde se encuntras las canciones 
             var filtroListas = Builders<ListaPersonalizada>.Filter.AnyEq(l => l.IdsCanciones, idCancion);
+            
+            //Sacamos el id de las listras que hemos encontrado
+            var updateListas = Builders<ListaPersonalizada>.Update.Pull(l => l.IdsCanciones, idCancion);
 
+            //Ejecutamos la actualizacion
             await colListas.UpdateManyAsync(filtroListas, updateListas);
 
 
-            // 2. LIMPIAR DE FAVORITOS DE USUARIOS
+            // Limpiamos la cancion de las litas de favoritos para evitar errores de referencias
             var colUsuarios = Database.GetCollection<Usuarios>("usuarios");
 
-            // Aquí igual: Accedemos a la propiedad tipada y el driver hace la magia
             var updateUsuarios = Builders<Usuarios>.Update.Pull(u => u.Listas.Favoritos, idCancion);
             var filtroUsuarios = Builders<Usuarios>.Filter.AnyEq(u => u.Listas.Favoritos, idCancion);
 
@@ -814,7 +947,11 @@ namespace BetaProyecto.Services
 
             return seElimino;
         }
-
+        /// <summary>
+        ///     Eliminamos la listapersonalizada de la base de datos por id
+        /// </summary>
+        /// <param name="idPlaylist"></param>
+        /// <returns></returns>
         public async Task<bool> EliminarPlaylistPorId(string idPlaylist)
         {
             if (!await Conectar())
@@ -831,6 +968,11 @@ namespace BetaProyecto.Services
 
             return seElimino;
         }
+        /// <summary>
+        ///     Eliminamos el genero de la base de datos
+        /// </summary>
+        /// <param name="generoAEliminar"></param>
+        /// <returns></returns>
         public async Task<bool> EliminarGenero(Generos generoAEliminar)
         {
             if (!await Conectar())
@@ -867,6 +1009,11 @@ namespace BetaProyecto.Services
                 return false;
             }
         }
+        /// <summary>
+        ///     Eliminamos al usuarios de la base de datos
+        /// </summary>
+        /// <param name="idUsuario"></param>
+        /// <returns></returns>
         public async Task<bool> EliminarUsuario(string idUsuario)
         {
             if (!await Conectar())
@@ -878,30 +1025,28 @@ namespace BetaProyecto.Services
                 var colCanciones = Database.GetCollection<Canciones>("canciones");
                 var colListas = Database.GetCollection<ListaPersonalizada>("listapersonalizada");
 
-                // 1. LIMPIAR DE CANCIONES (Como Autor)
-                // 'AutoresIds' tiene el atributo, así que pasamos string directo
+                // Limpieamos el usuario de listas 
                 var updateCanciones = Builders<Canciones>.Update.Pull(c => c.AutoresIds, idUsuario);
                 var filtroCanciones = Builders<Canciones>.Filter.AnyEq(c => c.AutoresIds, idUsuario);
 
                 await colCanciones.UpdateManyAsync(filtroCanciones, updateCanciones);
 
+                //Ahora borramos las canciones que no tiene autor ya que borramos este usuario de todas 
 
-                // 2. LIMPIAR SEGUIDORES DE OTROS USUARIOS
-                // 'Seguidores' tiene el atributo, pasamos string directo
+                var filtroHuerfanas = Builders<Canciones>.Filter.Size(c => c.AutoresIds, 0);
+                await colCanciones.DeleteManyAsync(filtroHuerfanas);
+
+                // Limpiamos la usuario de las listas de seguidos de otros usaurios 
                 var updateSeguidores = Builders<Usuarios>.Update.Pull(u => u.Listas.Seguidores, idUsuario);
                 var filtroSeguidores = Builders<Usuarios>.Filter.AnyEq(u => u.Listas.Seguidores, idUsuario);
 
                 await colUsuarios.UpdateManyAsync(filtroSeguidores, updateSeguidores);
-
 
                 // 3. BORRAR SUS PLAYLISTS
                 await colListas.DeleteManyAsync(l => l.IdUsuario == idUsuario);
 
                 // 1. Borrar el usuario
                 var resUser = await Database.GetCollection<Usuarios>("usuarios").DeleteOneAsync(u => u.Id == idUsuario);
-
-                // 2. (Opcional) Borrar sus playlists para no dejar basura
-                await Database.GetCollection<ListaPersonalizada>("listapersonalizada").DeleteManyAsync(l => l.IdUsuario == idUsuario);
 
                 return resUser.DeletedCount > 0;
             }
@@ -911,6 +1056,11 @@ namespace BetaProyecto.Services
                 return false;
             }
         }
+        /// <summary>
+        ///     Elimina un reporte del la base de datos
+        /// </summary>
+        /// <param name="idReporte"></param>
+        /// <returns></returns>
         public async Task<bool> EliminarReporte(string idReporte)
         {
             if (!await Conectar())
@@ -935,6 +1085,17 @@ namespace BetaProyecto.Services
         /////////////////////////////////////////
         ////////////METODOS UPDATES//////////////
         /////////////////////////////////////////
+        
+        /// <summary>
+        ///     Actualizamos el usuario logeado mediantes comprobaciones con el singleton
+        /// </summary>
+        /// <param name="idUsuario"></param>
+        /// <param name="nuevoNombre"></param>
+        /// <param name="nuevoEmail"></param>
+        /// <param name="nuevoPais"></param>
+        /// <param name="nuevaFecha"></param>
+        /// <param name="esPrivada"></param>
+        /// <returns></returns>
         public async Task<bool> ActualizarPerfilUsuario(string idUsuario, string nuevoNombre, string nuevoEmail, string nuevoPais, DateTime nuevaFecha, bool esPrivada)
         {
             //Preparamos el contructor y una lista con para guardar los cambios
@@ -944,19 +1105,19 @@ namespace BetaProyecto.Services
             // Comparamos con lo que tenemos en memoria (GlobalData) para ver si cambió
 
             // Si el algo ha cambiado, lo añadimos a la lista de cambios 
-            if (nuevoNombre != GlobalData.Instance.usernameGD)
+            if (nuevoNombre != GlobalData.Instance.UsernameGD)
                 listaCambios.Add(builder.Set(u => u.Username, nuevoNombre));
 
-            if (nuevoEmail != GlobalData.Instance.emailGD)
+            if (nuevoEmail != GlobalData.Instance.EmailGD)
                 listaCambios.Add(builder.Set(u => u.Email, nuevoEmail));
 
-            if (nuevoPais != GlobalData.Instance.paisGD)
+            if (nuevoPais != GlobalData.Instance.PaisGD)
                 listaCambios.Add(builder.Set(u => u.Perfil.Pais, nuevoPais));
 
-            if (nuevaFecha.Date != GlobalData.Instance.fechaNacimientoGD.Date)
+            if (nuevaFecha.Date != GlobalData.Instance.FechaNacimientoGD.Date)
                 listaCambios.Add(builder.Set(u => u.Perfil.FechaNacimiento, nuevaFecha));
 
-            if (esPrivada != GlobalData.Instance.es_PrivadaGD)
+            if (esPrivada != GlobalData.Instance.Es_PrivadaGD)
                 listaCambios.Add(builder.Set(u => u.Perfil.EsPrivada, esPrivada));
 
             // Si no hay cambios no llamamos al método
@@ -982,7 +1143,22 @@ namespace BetaProyecto.Services
             var EsActualizado = resultado.MatchedCount > 0;
 
             return EsActualizado;
-        }// Método ESPECÍFICO para el Panel de Administración (Actualiza TODO)
+        }
+
+        /// <summary>
+        ///     Actualiza un usaurio de la base de datos
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nombre"></param>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <param name="rol"></param>
+        /// <param name="pais"></param>
+        /// <param name="imagenUrl"></param>
+        /// <param name="fecha"></param>
+        /// <param name="esPrivada"></param>
+        /// <returns></returns>
+
         public async Task<bool> ActualizarUsuario(string id, string nombre, string email, string password, string rol, string pais, string imagenUrl, DateTime fecha, bool esPrivada)
         {
             if (!await Conectar())
@@ -1019,6 +1195,51 @@ namespace BetaProyecto.Services
                 return false;
             }
         }
+
+        public async Task<bool> ActualizarConfiguracionUsuario(string idUsuario, ConfiguracionUser nuevaConfig)
+        {
+            // Preparamos el constructor de actualizaciones
+            var builder = Builders<Usuarios>.Update;
+            var listaCambios = new List<UpdateDefinition<Usuarios>>();
+
+            if (nuevaConfig.DiccionarioTema != GlobalData.Instance.DiccionarioTemaGD)
+            {
+                listaCambios.Add(builder.Set(u => u.Configuracion.DiccionarioTema, nuevaConfig.DiccionarioTema));
+            }
+            if (nuevaConfig.DiccionarioIdioma != GlobalData.Instance.DiccionarioIdiomaGD)
+            {
+                listaCambios.Add(builder.Set(u => u.Configuracion.DiccionarioIdioma, nuevaConfig.DiccionarioIdioma));
+            }
+            if (nuevaConfig.DiccionarioFuente != GlobalData.Instance.DiccionarioFuenteGD)
+            {
+                listaCambios.Add(builder.Set(u => u.Configuracion.DiccionarioFuente, nuevaConfig.DiccionarioFuente));
+            }
+
+            if (listaCambios.Count == 0)
+            {
+                return true;
+            }
+
+            if (!await Conectar()) 
+            { 
+                return false; 
+            }
+
+            try
+            {
+                var updateFinal = builder.Combine(listaCambios);
+
+                var resultado = await Database.GetCollection<Usuarios>("usuarios")
+                                              .UpdateOneAsync(u => u.Id == idUsuario, updateFinal);
+
+                return resultado.MatchedCount > 0;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error actualizando config: " + ex.Message);
+                return false;
+            }
+        }
         public async Task<bool> ActualizarPlaylist(string nuevoNombre, string nuevaDesc, List<string> nuevasCanciones, string nuevaPortada, ListaPersonalizada original)
         {
             try
@@ -1027,8 +1248,7 @@ namespace BetaProyecto.Services
                 var builder = Builders<ListaPersonalizada>.Update;
                 var listaCambios = new List<UpdateDefinition<ListaPersonalizada>>();
 
-                // 2. COMPARACIONES INTELIGENTES
-                // Comparamos lo que nos llega nuevo vs lo que tenía el objeto original
+                // Comparamos lo que han cambiado
 
                 if (nuevoNombre != original.Nombre)
                 {
@@ -1083,44 +1303,45 @@ namespace BetaProyecto.Services
                 var builder = Builders<Canciones>.Update;
                 var listaCambios = new List<UpdateDefinition<Canciones>>();
 
-                // 1. COMPARACIONES
+                // Comparamos lo que han cambiado
 
-                // -- Título --
                 if (nuevoTitulo != original.Titulo)
                 {
                     listaCambios.Add(builder.Set(c => c.Titulo, nuevoTitulo));
                 }
 
-                // -- Portada --
                 if (nuevaPortada != original.ImagenPortadaUrl)
                 {
                     listaCambios.Add(builder.Set(c => c.ImagenPortadaUrl, nuevaPortada));
                 }
 
-                // -- Autores (Colaboradores) --
                 // Usamos SequenceEqual para ver si la lista de IDs es idéntica
                 if (nuevosAutores != null && !nuevosAutores.SequenceEqual(original.AutoresIds))
                 {
                     listaCambios.Add(builder.Set(c => c.AutoresIds, nuevosAutores));
                 }
 
-                // -- Géneros (Dentro del objeto Datos) --
                 var generosOriginales = original.Datos?.Generos ?? new List<string>();
 
                 if (nuevosGeneros != null && !nuevosGeneros.SequenceEqual(generosOriginales))
                 {
-                    // Actualizamos la propiedad anidada "Datos.Generos"
                     listaCambios.Add(builder.Set(c => c.Datos.Generos, nuevosGeneros));
-                    System.Diagnostics.Debug.WriteLine($"[MONGO] Cambio en Géneros ({nuevosGeneros.Count})");
                 }
 
-                // 2. SI NO HAY CAMBIOS, SALIMOS
-                if (listaCambios.Count == 0) return true;
+                // Si no hay cambios salimos del método
+                if (listaCambios.Count == 0)
+                {
+                    return true; 
+                }
 
-                // 3. EJECUTAR ACTUALIZACIÓN
-                if (!await Conectar()) return false;
+                // Ejecutamos actualización
+                if (!await Conectar()) 
+                {
+                    return false;
+                }
 
                 var filtro = Builders<Canciones>.Filter.Eq(c => c.Id, original.Id);
+                
                 var updateFinal = builder.Combine(listaCambios);
 
                 var resultado = await Database.GetCollection<Canciones>("canciones")
@@ -1136,6 +1357,7 @@ namespace BetaProyecto.Services
                 return false;
             }
         }
+
         public async Task<bool> ActualizarEstadoReporte(string nuevoEstado, string nuevaResolucion, Reportes original)
         {
             if (!await Conectar())
@@ -1160,14 +1382,19 @@ namespace BetaProyecto.Services
                     listaCambios.Add(builder.Set(r => r.Resolucion, nuevaResolucion));
                 }
 
-                // 3. SI NO HAY CAMBIOS, NO HACEMOS NADA
+                // Si no hay cambios salimos del método
                 if (listaCambios.Count == 0) 
                 {
                     return true;
                 }
 
-                // 4. EJECUTAR ACTUALIZACIÓN
+                // Ejecutamos actualización
+                if (!await Conectar())
+                {
+                    return false;
+                }
                 var coleccion = Database.GetCollection<Reportes>("reportes");
+
                 var filtro = Builders<Reportes>.Filter.Eq(r => r.Id, original.Id);
 
                 var updateFinal = builder.Combine(listaCambios);
@@ -1183,36 +1410,90 @@ namespace BetaProyecto.Services
                 return false; 
             }
         }
+
         public async Task IncrementarMetricaCancion(string idCancion, string campo, int cantidad)
         {
             if (!await Conectar())
             { 
-                return; // Fallo de conexión
+                return;
             } 
 
             try
             {
                 var coleccion = Database.GetCollection<Canciones>("canciones");
                 var filtro = Builders<Canciones>.Filter.Eq(c => c.Id, idCancion);
+
                 // Usamos Inc (Increment) que es atómico y eficiente
                 var update = Builders<Canciones>.Update.Inc(campo, cantidad);
 
-                var resultado = await coleccion.UpdateOneAsync(filtro, update);
-               
+                await coleccion.UpdateOneAsync(filtro, update);
+                
+                _ = ActualizarTendencia(idCancion);
+                
+
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"Error actualizando métrica {campo}: {ex.Message}");
             }
         }
-        // Método para sumar 1 al contador de canciones subida
-        // En MongoAtlas.cs
+
+        private async Task ActualizarTendencia(string idCancion)
+        {
+            try
+            {
+                var coleccion = Database.GetCollection<Canciones>("canciones");
+                var cancion = await coleccion.Find(c => c.Id == idCancion).FirstOrDefaultAsync();
+
+                if (cancion == null) return;
+
+                long visitas = cancion.Metricas.TotalReproducciones;
+                long likes = cancion.Metricas.TotalMegustas;
+
+                DateTime fechaLanzamiento = cancion.Datos.FechaLanzamiento == DateTime.MinValue
+                                            ? DateTime.Now
+                                            : cancion.Datos.FechaLanzamiento;
+
+                // --- FÓRMULA DE GRAVEDAD / TENDENCIA 📉 ---
+
+                //Calculamos los dias de vida de la canción
+                double diasDeVida = (DateTime.Now - fechaLanzamiento).TotalDays;
+
+                //Por si la fecha de lanzamiento esta mal puesta
+                if (diasDeVida < 0) diasDeVida = 0;
+
+                // El Cálculo: (Popularidad) / (Tiempo)^Gravedad
+                // - Los Likes valen el DOBLE que una visita normal.
+                // - Sumamos +1 a los días para evitar dividir por cero el primer día.
+                // - Elevamos a 1.4 para que la puntuación baje rápido con el tiempo (necesita muchas visitas para mantenerse).
+                double rawScore = (visitas + (likes * 2)) / Math.Pow(diasDeVida + 1, 1.4);
+
+                // NORMALIZACIÓN 0 - 100 (Escala Logarítmica) 
+                // - Math.Max(1, ...) asegura que el logaritmo nunca sea negativo o error
+                // - Multiplicamos por 18: Con aprox 350.000 de rawScore llegas al 100.
+                double scoreFinal = Math.Log10(Math.Max(1, rawScore)) * 18;
+
+                // Si pasa de 100, se queda en 100
+                if (scoreFinal > 100) scoreFinal = 100;
+
+                // REDONDEO (2 decimales)
+                scoreFinal = Math.Round(scoreFinal, 2);
+
+                // Actualizamos Mongo
+                var update = Builders<Canciones>.Update.Set(c => c.Metricas.PuntuacionTendencia, scoreFinal);
+                await coleccion.UpdateOneAsync(c => c.Id == idCancion, update);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error recalcular tendencia: " + ex.Message);
+            }
+        }
 
         public async Task IncrementarContadorCancionesUsuario(string idUsuario, int cantidad)
         {
             if (!await Conectar())
             {
-                return; // Fallo de conexión
+                return;
             }
 
             try
@@ -1230,7 +1511,6 @@ namespace BetaProyecto.Services
                 System.Diagnostics.Debug.WriteLine("Error actualizando contador de usuario: " + ex.Message);
             }
         }
-        // En MongoAtlas.cs
         public async Task<bool> ActualizarGenero(string id, string nuevoNombre)
         {
             if (!await Conectar())
@@ -1291,10 +1571,9 @@ namespace BetaProyecto.Services
 
                     foreach (var idAutor in cancion.AutoresIds)
                     {
-                        // 1. EL FILTRO: Buscamos por ID
                         var filtro = Builders<Usuarios>.Filter.Eq(u => u.Id, idAutor);
 
-                        // 2. LA PROYECCIÓN (Aquí está el truco) 🔦
+                        // LA PROYECCIÓN
                         // En lugar de traer todo, hacemos: u => new Usuarios { ... }
                         // Esto crea un objeto Usuarios "vacío" y rellena SOLO el Username.
                         // El resto de campos (Email, Password...) serán null.

@@ -124,7 +124,7 @@
                             AutomationProperties.HelpText="{DynamicResource Acc_VisorCan_BtnFav_Help}">
 
                             <StackPanel Orientation="Horizontal" Spacing="10" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <Image Source="{Binding ImagenLike}" 
+                                <Image Source="{Binding IconoLike, Converter={StaticResource Traductor}}" 
                                        Height="35" 
                                        Stretch="Uniform"
                                        VerticalAlignment="Center"
@@ -149,7 +149,7 @@
                                    FontSize="25" FontWeight="ExtraBold" LetterSpacing="2"/>
                         
                             <TextBlock Text="{Binding Cancion.Titulo}" 
-                                       FontSize="45" FontWeight="Black" TextWrapping="Wrap" LineHeight="50"
+                                       FontSize="45" FontWeight="Black" TextWrapping="Wrap" 
                                        Foreground="{DynamicResource Brush_VisorCan_Texto_Titulo}"
                                        AutomationProperties.Name="{DynamicResource Acc_VisorCan_Titulo_Help}"/>
                         

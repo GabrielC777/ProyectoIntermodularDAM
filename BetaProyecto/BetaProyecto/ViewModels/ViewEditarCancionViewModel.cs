@@ -284,7 +284,7 @@ namespace BetaProyecto.ViewModels
 
         private void EliminarUsuario(Usuarios usuario)
         {
-            if (usuario.Id == GlobalData.Instance.userIdGD)
+            if (usuario.Id == GlobalData.Instance.UserIdGD)
             {
                 _dialogoService.MostrarAlerta("Msg_Error_BorrarPropioUser");
                 return;

@@ -40,11 +40,11 @@ namespace BetaProyecto.ViewModels
             try
             {
                 // Carga datos básicos
-                NombreUsuario = GlobalData.Instance.usernameGD ?? "Usuario";
-                ImagenPerfil = GlobalData.Instance.urlFotoPerfilGD ?? "https://i.ibb.co/dbQSrpB/Perfil.png";
+                NombreUsuario = GlobalData.Instance.UsernameGD ?? "Usuario";
+                ImagenPerfil = GlobalData.Instance.UrlFotoPerfilGD ?? "https://i.ibb.co/dbQSrpB/Perfil.png";
 
                 // Carga listas en paralelo
-                var listaIds = GlobalData.Instance.seguidoresGD;
+                var listaIds = GlobalData.Instance.SeguidoresGD;
                 var taskSeguidores = MongoClientSingleton.Instance.Cliente.ObtenerUsuariosPorListaIds(listaIds);
                 var taskTodos = MongoClientSingleton.Instance.Cliente.ObtenerTodosLosUsuarios();
 

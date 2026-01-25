@@ -1,4 +1,5 @@
-﻿using BetaProyecto.Services;
+﻿using BetaProyecto.Helpers;
+using BetaProyecto.Services;
 using BetaProyecto.Singleton;
 using ReactiveUI;
 using System;
@@ -63,8 +64,6 @@ namespace BetaProyecto.ViewModels
 
         private async Task IntentarLogin()
         {
-            
-
             // Conectamos a la base de datos
             bool conectado = await MongoClientSingleton.Instance.Cliente.Conectar();
 
@@ -77,12 +76,20 @@ namespace BetaProyecto.ViewModels
                 if (usuario != null)
                 {
                     // Guardamos en el Singleton
-                    GlobalData.Instance.SetUserData(usuario);    
+                    GlobalData.Instance.SetUserData(usuario);
+
+                    // Cargamos los diccionarios de configuración del usuario
+
+                    ControladorDiccionarios.CargarConfiguracionInicial(
+                        GlobalData.Instance.DiccionarioTemaGD,
+                        GlobalData.Instance.DiccionarioIdiomaGD,
+                        GlobalData.Instance.DiccionarioFuenteGD
+                    );
 
                     // Avisamos a la vista para que cambie de pantalla
                     AlCompletarLogin?.Invoke();
 
-                    _dialogoService.MostrarAlerta("Se a conectado correctamente con el usuario " + GlobalData.Instance.usernameGD.ToString());
+                    _dialogoService.MostrarAlerta("Se a conectado correctamente con el usuario " + GlobalData.Instance.UsernameGD.ToString());
                 }
                 else
                 {

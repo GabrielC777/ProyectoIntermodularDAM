@@ -117,7 +117,6 @@ namespace BetaProyecto.ViewModels
                 NuevoUsuario.Rol = Roles.Usuario;
                 NuevoUsuario.FechaRegistro = DateTime.Now;
                 NuevoUsuario.Password = Encriptador.HashPassword(NuevoUsuario.Password);
-
                 // 5. GESTIÓN DE FOTO DE PERFIL
 
                 try

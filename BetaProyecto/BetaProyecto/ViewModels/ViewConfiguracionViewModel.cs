@@ -1,42 +1,33 @@
-﻿using Avalonia;
-using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Markup.Xaml.Styling;
+﻿using Avalonia.Controls;
+using BetaProyecto.Helpers;
+using BetaProyecto.Models;
 using BetaProyecto.Singleton;
 using ReactiveUI;
 using System;
-using System.Diagnostics;
-using System.Globalization;
-using System.Linq;
 using System.Reactive;
-using System.Threading;
 
 namespace BetaProyecto.ViewModels
 {
-
     public class ViewConfiguracionViewModel : ViewModelBase
     {
-        //Variables de rastreo de diccionarios
-        private ResourceInclude? _diccionarioIdiomaActual;
-        private ResourceInclude? _diccionarioFuenteActual;
-        private ResourceInclude? _diccionarioTemaActual;
-
-        //Actions 
+        // Actions
         private readonly Action _accionRefrescarTema;
 
-        //Bindings
+        // Bindings
+
+        // FUENTE: 0=Lexend, 1=Carlito, 2=Arial, 3=Gloria, 4=OpenSans, 5=Roboto
         private int _indiceFuente;
         public int IndiceFuente
         {
             get => _indiceFuente;
             set
-            { 
+            {
                 this.RaiseAndSetIfChanged(ref _indiceFuente, value);
-                // Cuando cambia la propiedad , cambiamos el diccionario
-                CambiarFuente(value);
+                AplicarCambioFuente(value);
             }
         }
 
-        // 0 = Español, 1 = Inglés
+        // IDIOMA: 0 = Español, 1 = Inglés
         private int _indiceIdioma;
         public int IndiceIdioma
         {
@@ -44,11 +35,11 @@ namespace BetaProyecto.ViewModels
             set
             {
                 this.RaiseAndSetIfChanged(ref _indiceIdioma, value);
-                CambiarIdioma(value);
+                AplicarCambioIdioma(value);
             }
         }
 
-        // IndiceTema: Claro, Oscuro
+        // TEMA: True = Claro, False = Oscuro
         private bool _indiceTema = true;
         public bool IndiceTema
         {
@@ -56,160 +47,148 @@ namespace BetaProyecto.ViewModels
             set
             {
                 this.RaiseAndSetIfChanged(ref _indiceTema, value);
-                CambiarTema(value);
+                AplicarCambioTema(value);
                 _accionRefrescarTema?.Invoke();
-
             }
         }
+
+        //Para cuendo volvamos no veamos el radio button vacio si estamos en modo oscuro
         public bool IndiceTemaOscuro
         {
-            get => !_indiceTema; // Devuelve lo contrario (Si es Claro(true) -> devuelve False)
+            get => !_indiceTema;
             set
             {
-                // Si el usuario marca "Oscuro" (true), ponemos el tema en false (Oscuro)
-                if (value)
-                {
-                    IndiceTema = false;
-                }
+                IndiceTema = !value;
             }
         }
 
-        //Comandos Reactive
+        // Comandos Reactive
         public ReactiveCommand<Unit, Unit> BtnVolverAtras { get; }
         public ReactiveCommand<Unit, Unit> BtnCerrarSesion { get; }
         public ReactiveCommand<Unit, Unit> BtnSalirApp { get; }
 
+        // Constructor
         public ViewConfiguracionViewModel(Action accionVolver, Action accionLogout, Action accionSalir, Action accionRefrescar)
         {
             _accionRefrescarTema = accionRefrescar;
 
-            // Inicializamos referencias es decir escaneamos lo que hay en el App.xaml cargado
-            InicializarReferenciasDeDiccionarios();
+            // 1. CARGAR ESTADO ACTUAL (Desde GlobalData)
+            CargarEstadoInicial();
 
-            // Configuramos comandos reactive
-            BtnVolverAtras = ReactiveCommand.Create(() =>
-            {
-                accionVolver();
-            });
+            // 2. CONFIGURAR COMANDOS
+            BtnVolverAtras = ReactiveCommand.Create(() => accionVolver?.Invoke());
 
             BtnCerrarSesion = ReactiveCommand.Create(() =>
             {
-                //Limpiamos los datos de memoriaa
                 GlobalData.Instance.ClearUserData();
                 accionLogout?.Invoke();
             });
-            BtnSalirApp = ReactiveCommand.Create(() =>
-            {
-                accionSalir?.Invoke();
-            });
+
+            BtnSalirApp = ReactiveCommand.Create(() => accionSalir?.Invoke());
         }
-        private void InicializarReferenciasDeDiccionarios()
+
+        // Para comprobar que diccionarios hay activos configuracion
+        private void CargarEstadoInicial()
         {
-            //Cargamos todos los diccionarios en una variable local
-            var diccionarios = Application.Current.Resources.MergedDictionaries;
+            // Usamos las variables REALES de tu GlobalData
+            var tema = GlobalData.Instance.DiccionarioTemaGD ?? "ModoClaro";
+            var idioma = GlobalData.Instance.DiccionarioIdiomaGD ?? "Spanish";
+            var fuente = GlobalData.Instance.DiccionarioFuenteGD ?? "Lexend";
 
-            // Buscamos una única vez usando texto para saber qué cargó el App.axaml por defecto
+            // Sincronizar Tema
+            _indiceTema = (tema == "ModoClaro");
+            this.RaisePropertyChanged(nameof(IndiceTema));
+            this.RaisePropertyChanged(nameof(IndiceTemaOscuro));
 
-            // Idioma (Spanish.axaml)
-            _diccionarioIdiomaActual = diccionarios.FirstOrDefault(d =>
-                d is ResourceInclude ri &&
-                ri.Source != null &&
-                ri.Source.ToString().Contains("Language")) as ResourceInclude;
+            // Sincronizar Idioma
+            _indiceIdioma = (idioma == "English") ? 1 : 0;
+            this.RaisePropertyChanged(nameof(IndiceIdioma));
 
-            // Fuente (Lexend.axaml)
-            _diccionarioFuenteActual = diccionarios.FirstOrDefault(d =>
-                d is ResourceInclude ri &&
-                ri.Source != null &&
-                ri.Source.ToString().Contains("Styles")) as ResourceInclude;
-
-            // Tema (ModoClaro.axaml)
-            _diccionarioTemaActual = diccionarios.FirstOrDefault(d =>
-                d is ResourceInclude ri &&
-                ri.Source != null &&
-                ri.Source.ToString().Contains("Interfaces")) as ResourceInclude;
-
-            // SINCRONIZACIÓN AL NACER
-            if (_diccionarioTemaActual != null)
+            // Sincronizar Fuente
+            _indiceFuente = fuente switch
             {
-                bool esClaro = _diccionarioTemaActual.Source.ToString().Contains("ModoClaro");
-                _indiceTema = esClaro;
+                "Lexend" => 0,
+                "Carlito" => 1,
+                "Arial" => 2,
+                "GloriaHallelujah" => 3,
+                "OpenSans" => 4,
+                "Roboto" => 5,
+                _ => 0
+            };
+            this.RaisePropertyChanged(nameof(IndiceFuente));
+        }
 
-                // Avisamos a AMBAS propiedades
-                this.RaisePropertyChanged(nameof(IndiceTema));
-                this.RaisePropertyChanged(nameof(IndiceTemaOscuro));
+        // --- MÉTODOS DE CAMBIO Y GUARDADO ---
+
+        private void AplicarCambioTema(bool esClaro)
+        {
+            string nuevoTema = esClaro ? "ModoClaro" : "ModoOscuro";
+
+            // 1. Visual (Instantáneo)
+            ControladorDiccionarios.AplicarTema(nuevoTema);
+
+            // 2. Comprobamos si realmente cambió respecto a GlobalData
+            if (GlobalData.Instance.DiccionarioTemaGD != nuevoTema)
+            {
+                // 3. Guardamos en Mongo PRIMERO (para que detecte el cambio)
+                GuardarConfiguracionEnMongo(nuevoTema, null, null);
+
+                // 4. Actualizamos GlobalData AL FINAL
+                GlobalData.Instance.DiccionarioTemaGD = nuevoTema;
             }
         }
-        private void CambiarIdioma(int indice)
-        {
-            // 1. Definir el código de cultura (es-ES para español, en-US para inglés)
-            string codigoCultura = indice == 0 ? "es-ES" : "en-US";
-            // Elegir ruta
-            string ruta = indice == 0
-                ? "avares://BetaProyecto/Assets/Language/Spanish.axaml"
-                : "avares://BetaProyecto/Assets/Language/English.axaml";
 
-            var nuevaCultura = new CultureInfo(codigoCultura);
-            Thread.CurrentThread.CurrentCulture = nuevaCultura;
-            Thread.CurrentThread.CurrentUICulture = nuevaCultura;
-
-            // Ejecutar el cambio
-            _diccionarioIdiomaActual = AplicarCambioDiccionario(ruta, _diccionarioIdiomaActual);
-        }
-        private void CambiarFuente(int indice)
+        private void AplicarCambioIdioma(int indice)
         {
-            string ruta = indice switch
+            string nuevoIdioma = indice == 1 ? "English" : "Spanish";
+
+            ControladorDiccionarios.AplicarIdioma(nuevoIdioma);
+
+            if (GlobalData.Instance.DiccionarioIdiomaGD != nuevoIdioma)
             {
-                0 => "avares://BetaProyecto/Assets/Styles/FuenteLexend.axaml",
-                1 => "avares://BetaProyecto/Assets/Styles/FuenteCarlito.axaml",
-                2 => "avares://BetaProyecto/Assets/Styles/FuenteArial.axaml",
-                3 => "avares://BetaProyecto/Assets/Styles/FuenteGloriaHallelujah.axaml",
-                4 => "avares://BetaProyecto/Assets/Styles/FuenteOpenSans.axaml",
-                5 => "avares://BetaProyecto/Assets/Styles/FuenteRoboto.axaml",
-                _ => "avares://BetaProyecto/Assets/Styles/FuenteLexend.axaml"
+                GuardarConfiguracionEnMongo(null, nuevoIdioma, null);
+                GlobalData.Instance.DiccionarioIdiomaGD = nuevoIdioma;
+            }
+        }
+
+        private void AplicarCambioFuente(int indice)
+        {
+            string nuevaFuente = indice switch
+            {
+                0 => "Lexend",
+                1 => "Carlito",
+                2 => "Arial",
+                3 => "GloriaHallelujah",
+                4 => "OpenSans",
+                5 => "Roboto",
+                _ => "Lexend"
             };
 
-            _diccionarioFuenteActual = AplicarCambioDiccionario(ruta, _diccionarioFuenteActual);
-        }
-        private void CambiarTema(bool esClaro)
-        {
+            ControladorDiccionarios.AplicarFuente(nuevaFuente);
 
-            string ruta = esClaro
-                ? "avares://BetaProyecto/Assets/Interfaces/ModoClaro.axaml"
-                : "avares://BetaProyecto/Assets/Interfaces/ModoOscuro.axaml";
-
-            _diccionarioTemaActual = AplicarCambioDiccionario(ruta, _diccionarioTemaActual);
+            if (GlobalData.Instance.DiccionarioFuenteGD != nuevaFuente)
+            {
+                GuardarConfiguracionEnMongo(null, null, nuevaFuente);
+                GlobalData.Instance.DiccionarioFuenteGD = nuevaFuente;
+            }
         }
 
-
-
-        // Este método quita el viejo, añade el nuevo y devulve una referencia para poder cambiarlo cuando queremos
-        private ResourceInclude? AplicarCambioDiccionario(string rutaNueva, ResourceInclude? diccionarioAntiguo)
+        // Método auxiliar para construir el objeto y enviarlo
+        private void GuardarConfiguracionEnMongo(string? temaNuevo, string? idiomaNuevo, string? fuenteNuevo)
         {
-            try
+            if (string.IsNullOrEmpty(GlobalData.Instance.UserIdGD)) return;
+
+            // Construimos el objeto Configuración mezclando lo NUEVO con lo VIEJO (de GlobalData)
+            // Si pasas 'null' en un parámetro, significa que ese no cambió, así que cogemos el de GlobalData.
+            var config = new ConfiguracionUser
             {
-                var uri = new Uri(rutaNueva);
-                var diccionariosApp = Application.Current.Resources.MergedDictionaries;
+                DiccionarioTema = temaNuevo ?? GlobalData.Instance.DiccionarioTemaGD,
+                DiccionarioIdioma = idiomaNuevo ?? GlobalData.Instance.DiccionarioIdiomaGD,
+                DiccionarioFuente = fuenteNuevo ?? GlobalData.Instance.DiccionarioFuenteGD
+            };
 
-                // 1. Quitar el viejo
-                if (diccionarioAntiguo != null && diccionariosApp.Contains(diccionarioAntiguo))
-                {
-                    diccionariosApp.Remove(diccionarioAntiguo);
-                }
-
-                // 2. Crear el nuevo
-                var nuevoDiccionario = new ResourceInclude(uri) { Source = uri };
-
-                // 3. Añadir el nuevo a la App
-                diccionariosApp.Add(nuevoDiccionario);
-
-                // 4. Devolvemos la nueva para guardarlo en la variable
-                return nuevoDiccionario;
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"Error cambiando recurso ({rutaNueva}): {ex.Message}");
-                return diccionarioAntiguo; // Si falla, nos quedamos con el que teníamos
-            }
+            // Llamada asíncrona "Fire and Forget" al método inteligente de MongoAtlas
+            _ = MongoClientSingleton.Instance.Cliente.ActualizarConfiguracionUsuario(GlobalData.Instance.UserIdGD, config);
         }
     }
 }

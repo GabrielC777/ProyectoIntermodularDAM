@@ -84,7 +84,7 @@ namespace BetaProyecto.ViewModels
             PopularesVM = new TabItemPopularesViewModel();
 
             // B. DATOS GLOBALES
-            ImagenPerfil = GlobalData.Instance.urlFotoPerfilGD;
+            ImagenPerfil = GlobalData.Instance.UrlFotoPerfilGD;
 
             // CONFIGURAR COMANDOS DE NAVEGACIÓN
             BtnPerfil = ReactiveCommand.Create(() => { 

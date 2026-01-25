@@ -128,7 +128,7 @@ namespace BetaProyecto.ViewModels
         }
         private async Task AlterarSeguimiento()
         {
-            string miId = GlobalData.Instance.userIdGD;
+            string miId = GlobalData.Instance.UserIdGD;
 
             if (_idUsuarioCargado == miId)
             {
@@ -162,7 +162,7 @@ namespace BetaProyecto.ViewModels
         }
         private void ActualizarBtnSeguir()
         {
-            List<string> lista = GlobalData.Instance.seguidoresGD;
+            List<string> lista = GlobalData.Instance.SeguidoresGD;
 
             if (lista != null && lista.Contains(_idUsuarioCargado))
             {

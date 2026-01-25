@@ -196,7 +196,7 @@ namespace BetaProyecto.ViewModels
                     Nombre = TxtNombre,
                     Descripcion = TxtDescripcion,
                     UrlPortada = urlPortada,
-                    IdUsuario = GlobalData.Instance.userIdGD,
+                    IdUsuario = GlobalData.Instance.UserIdGD,
                     IdsCanciones = ListaCancionesSeleccionadas.Select(c => c.Id).ToList()
                 };
 

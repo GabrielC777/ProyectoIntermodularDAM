@@ -243,7 +243,7 @@ namespace BetaProyecto.ViewModels
 
         private void EliminarUsuario(Usuarios usuario)
         {
-            if (usuario.Id == GlobalData.Instance.userIdGD)
+            if (usuario.Id == GlobalData.Instance.UserIdGD)
             {
                 _dialogoService.MostrarAlerta("Msg_Error_BorrarPropioUser");
                 return;
@@ -369,8 +369,7 @@ namespace BetaProyecto.ViewModels
                         FechaLanzamiento = DateTime.Now,
                         DuracionSegundos = duracionFinal,
                         Generos = ListaGenerosSeleccionados.ToList() // Guardamos la lista completa
-                    },
-                    Metricas = new MetricasCancion()
+                    }
                 };
 
                 // 4. Guardar en BD
@@ -378,7 +377,7 @@ namespace BetaProyecto.ViewModels
 
                 if (exito)
                 {
-                    await MongoClientSingleton.Instance.Cliente.IncrementarContadorCancionesUsuario(GlobalData.Instance.userIdGD, 1);
+                    await MongoClientSingleton.Instance.Cliente.IncrementarContadorCancionesUsuario(GlobalData.Instance.UserIdGD, 1);
                     EstaCargando = false;
 
                     _dialogoService.MostrarAlerta("Msg_Exito_CancionPublicada");
