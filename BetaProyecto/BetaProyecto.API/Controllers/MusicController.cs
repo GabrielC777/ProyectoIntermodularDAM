@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Text.Json.Nodes;
+using System.Text; // Necesario para Encoding
 
 namespace BetaProyecto.API.Controllers
 {
@@ -13,50 +14,62 @@ namespace BetaProyecto.API.Controllers
 
         public MusicController()
         {
-            // 1. DEFINIR RUTAS SEGURAS
-            // Ruta de instalación (Solo lectura en Program Files)
+            // 1. DEFINIR RUTAS
             string appDir = AppContext.BaseDirectory;
 
-            // Ruta de datos de usuario (Lectura y Escritura permitida)
+            // Carpeta segura en AppData (donde tenemos permisos de escritura)
             string userDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "MusicSearchApi");
-
-            // Crear carpeta segura si no existe
             if (!Directory.Exists(userDir)) Directory.CreateDirectory(userDir);
 
-            // Definimos las rutas finales
+            // Rutas finales en la carpeta segura
             _ytDlpPath = Path.Combine(userDir, "yt-dlp.exe");
-            _cookiesPath = Path.Combine(appDir, "cookies.txt"); // Las cookies las leemos del origen, no pasa nada
+            _cookiesPath = Path.Combine(userDir, "cookies.txt"); // ¡OJO! Ahora usaremos la copia limpia en AppData
 
-            // 2. PREPARAR YT-DLP EN CARPETA SEGURA
-            InicializarYtDlp(appDir);
+            // 2. INSTALACIÓN Y LIMPIEZA
+            InicializarEntorno(appDir, userDir);
 
-            // 3. ACTUALIZAR (Ahora sí funcionará porque estamos en AppData)
+            // 3. ACTUALIZAR YT-DLP
             ActualizarYtDlp();
         }
 
-        private void InicializarYtDlp(string origenDir)
+        private void InicializarEntorno(string appDir, string userDir)
         {
             try
             {
-                // Si ya existe en AppData, no hacemos nada (a menos que pese 0 bytes por error)
-                if (System.IO.File.Exists(_ytDlpPath) && new FileInfo(_ytDlpPath).Length > 0) return;
-
-                string origenExe = Path.Combine(origenDir, "yt-dlp.exe");
-
-                if (System.IO.File.Exists(origenExe))
+                // A. INSTALAR YT-DLP
+                // Solo copiamos si no existe o pesa 0
+                if (!System.IO.File.Exists(_ytDlpPath) || new FileInfo(_ytDlpPath).Length == 0)
                 {
-                    // Copiamos de Program Files a AppData la primera vez
-                    Console.WriteLine($"[API] 📦 Instalando yt-dlp en: {_ytDlpPath}");
-                    System.IO.File.Copy(origenExe, _ytDlpPath, true);
+                    string origenExe = Path.Combine(appDir, "yt-dlp.exe");
+                    if (System.IO.File.Exists(origenExe))
+                    {
+                        Console.WriteLine($"[API] Instalando yt-dlp en: {_ytDlpPath}");
+                        System.IO.File.Copy(origenExe, _ytDlpPath, true);
+                    }
+                }
+
+                // B. LIMPIEZA DE COOKIES (SANITIZAR BOM) 🧼
+                // Leemos el cookies.txt original y lo guardamos SIN la marca invisible (\ufeff)
+                string origenCookies = Path.Combine(appDir, "cookies.txt");
+                if (System.IO.File.Exists(origenCookies))
+                {
+                    // Leemos el texto (esto se traga el BOM automáticamente)
+                    string contenido = System.IO.File.ReadAllText(origenCookies);
+
+                    // Lo guardamos forzando UTF8 SIN BOM (new UTF8Encoding(false))
+                    // Esto crea un archivo "cookies.txt" perfecto para yt-dlp en la carpeta AppData
+                    System.IO.File.WriteAllText(_cookiesPath, contenido, new UTF8Encoding(false));
+
+                    Console.WriteLine($"[API] Cookies saneadas y copiadas a: {_cookiesPath}");
                 }
                 else
                 {
-                    Console.WriteLine("[API] ❌ ERROR: No encuentro el yt-dlp.exe original para instalarlo.");
+                    Console.WriteLine("[API] No se encontró cookies.txt original.");
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[API] ⚠️ Error instalando yt-dlp: {ex.Message}");
+                Console.WriteLine($"[API] Error inicializando entorno: {ex.Message}");
             }
         }
 
@@ -65,10 +78,9 @@ namespace BetaProyecto.API.Controllers
             try
             {
                 if (!System.IO.File.Exists(_ytDlpPath)) return;
+                Console.WriteLine("[API] Buscando actualizaciones de yt-dlp...");
 
-                Console.WriteLine("[API] 🔄 Buscando actualizaciones de yt-dlp...");
-
-                var processStartInfo = new ProcessStartInfo
+                var psi = new ProcessStartInfo
                 {
                     FileName = _ytDlpPath,
                     Arguments = "--update",
@@ -78,16 +90,11 @@ namespace BetaProyecto.API.Controllers
                     CreateNoWindow = true
                 };
 
-                using var process = Process.Start(processStartInfo);
+                using var process = Process.Start(psi);
                 process.WaitForExit();
-
-                Console.WriteLine("[API] ✅ Proceso de actualización terminado.");
+                Console.WriteLine("[API] Actualización completada.");
             }
-            catch (Exception ex)
-            {
-                // Importante: Capturamos el error pero NO detenemos la API
-                Console.WriteLine($"[API] ⚠️ No se pudo actualizar (¿Sin internet?): {ex.Message}");
-            }
+            catch { /* Ignorar errores de red */ }
         }
 
         [HttpGet("stream")]
@@ -97,11 +104,9 @@ namespace BetaProyecto.API.Controllers
 
             try
             {
-                if (!System.IO.File.Exists(_ytDlpPath))
-                {
-                    return StatusCode(500, "FATAL: yt-dlp no está instalado en la carpeta de usuario.");
-                }
+                if (!System.IO.File.Exists(_ytDlpPath)) return StatusCode(500, "FATAL: yt-dlp no instalado.");
 
+                // Argumentos: Usamos la ruta _cookiesPath que apunta a la versión LIMPIA en AppData
                 string argumentos = $"--dump-json --no-playlist -f bestaudio \"{url}\"";
 
                 if (System.IO.File.Exists(_cookiesPath))
@@ -109,7 +114,7 @@ namespace BetaProyecto.API.Controllers
                     argumentos += $" --cookies \"{_cookiesPath}\"";
                 }
 
-                var processStartInfo = new ProcessStartInfo
+                var psi = new ProcessStartInfo
                 {
                     FileName = _ytDlpPath,
                     Arguments = argumentos,
@@ -117,27 +122,25 @@ namespace BetaProyecto.API.Controllers
                     RedirectStandardError = true,
                     UseShellExecute = false,
                     CreateNoWindow = true,
-                    StandardOutputEncoding = System.Text.Encoding.UTF8
+                    StandardOutputEncoding = Encoding.UTF8
                 };
 
-                using var process = new Process { StartInfo = processStartInfo };
-
+                using var process = new Process { StartInfo = psi };
                 process.Start();
                 string jsonOutput = await process.StandardOutput.ReadToEndAsync();
-                string errorOutput = await process.StandardError.ReadToEndAsync();
                 await process.WaitForExitAsync();
 
                 if (process.ExitCode != 0 || string.IsNullOrWhiteSpace(jsonOutput))
                 {
-                    Console.WriteLine($"[API ERROR] {errorOutput}");
-                    return StatusCode(500, "Error procesando audio. Posible bloqueo de YouTube.");
+                    return StatusCode(500, "Error obteniendo audio. Revisa cookies o bloqueo regional.");
                 }
 
                 var nodo = JsonNode.Parse(jsonOutput);
-                string? urlStream = nodo["url"]?.ToString();
-                int duracion = nodo["duration"]?.GetValue<int>() ?? 0;
-
-                return Ok(new { url = urlStream, duracion = duracion });
+                return Ok(new
+                {
+                    url = nodo["url"]?.ToString(),
+                    duracion = nodo["duration"]?.GetValue<int>() ?? 0
+                });
             }
             catch (Exception ex)
             {

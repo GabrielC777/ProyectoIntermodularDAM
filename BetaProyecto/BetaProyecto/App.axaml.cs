@@ -34,8 +34,32 @@ namespace BetaProyecto
                 desktop.Exit += (sender, args) => CerrarApi();
 
                 // 3. ARRANCAR API EN SEGUNDO PLANO
-                // Iniciamos "normal", sin matar nada previo (asumimos inicio limpio).
-                Task.Run(() => IniciarApiNormal());
+                Task.Run(() =>
+                {
+                    // PASO A: Buscar si ya existe el proceso (Puerto 7500 ocupado)
+                    try
+                    {
+                        var zombies = Process.GetProcessesByName("BetaProyecto.API");
+
+                        if (zombies.Length > 0)
+                        {
+                            Debug.WriteLine($"[App] Detectada API previa ({zombies.Length} procesos). Matando para liberar puerto 7500...");
+                            foreach (var proc in zombies)
+                            {
+                                proc.Kill();
+                                proc.WaitForExit(); // ¡VITAL! Esperamos a que Windows libere el puerto
+                            }
+                            Debug.WriteLine("[App] Limpieza completada.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine($"[App] Error al intentar matar zombies: {ex.Message}");
+                    }
+
+                    // PASO B: Iniciar la API limpia
+                    IniciarApiNormal();
+                });
             }
 
             base.OnFrameworkInitializationCompleted();
@@ -51,11 +75,9 @@ namespace BetaProyecto
 
                 // Rutas posibles
                 string rutaDev = Path.GetFullPath(Path.Combine(baseDir, @"..\..\..\..\BetaProyecto.API\bin\Debug\net9.0\BetaProyecto.API.exe"));
-                string rutaProd = Path.Combine(baseDir, "BetaProyecto.API.exe");
                 string rutaProdSubcarpeta = Path.Combine(baseDir, "API", "BetaProyecto.API.exe");
 
                 if (File.Exists(rutaDev)) apiPath = rutaDev;
-                else if (File.Exists(rutaProd)) apiPath = rutaProd;
                 else if (File.Exists(rutaProdSubcarpeta)) apiPath = rutaProdSubcarpeta;
 
                 if (!string.IsNullOrEmpty(apiPath))
@@ -67,22 +89,22 @@ namespace BetaProyecto
                     {
                         FileName = apiPath,
                         UseShellExecute = false,
-                        CreateNoWindow = true,
+                        CreateNoWindow = false,
                         WindowStyle = ProcessWindowStyle.Hidden,
                         WorkingDirectory = Path.GetDirectoryName(apiPath)
                     };
 
                     _apiProcess = Process.Start(startInfo);
-                    Debug.WriteLine($"[App] 🚀 API arrancada (PID: {_apiProcess?.Id})");
+                    Debug.WriteLine($"[App]  API arrancada (PID: {_apiProcess?.Id})");
                 }
                 else
                 {
-                    Debug.WriteLine("[App] ⚠️ No encuentro la API. ¿Compilada?");
+                    Debug.WriteLine("[App]  No encuentro la API. ¿Compilada?");
                 }
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"[App] ❌ Error arranque API: {ex.Message}");
+                Debug.WriteLine($"[App]  Error arranque API: {ex.Message}");
             }
         }
 
@@ -96,7 +118,7 @@ namespace BetaProyecto
                 {
                     _apiProcess.Kill();
                     _apiProcess = null;
-                    Debug.WriteLine("[App] 💀 API cerrada correctamente.");
+                    Debug.WriteLine("[App] API cerrada correctamente.");
                 }
 
                 // OPCIONAL: Barrido de seguridad por si acaso quedó algún zombie suelto de un crash anterior

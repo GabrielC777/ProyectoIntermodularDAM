@@ -1,5 +1,4 @@
-﻿using AngleSharp;
-using CloudinaryDotNet;
+﻿using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
