@@ -506,7 +506,7 @@
     <system:String x:Key="Config_OptOscuro">Oscuro</system:String>
     <system:String x:Key="Config_ValIdiomaEsp">Español</system:String>
     <system:String x:Key="Config_ValIdiomaIng">Inglés</system:String>
-    <system:String x:Key="Config_Version">Versión 1.1.1</system:String>
+    <system:String x:Key="Config_Version">Versión 1.1.2</system:String>
 
   
     <system:String x:Key="Acc_Config_Pagina">Estamos en la configuración</system:String>

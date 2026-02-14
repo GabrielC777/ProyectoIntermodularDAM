@@ -505,7 +505,7 @@
     <system:String x:Key="Config_OptOscuro">Dark</system:String>
     <system:String x:Key="Config_ValIdiomaEsp">Spanish</system:String>
     <system:String x:Key="Config_ValIdiomaIng">English</system:String>
-    <system:String x:Key="Config_Version">Version 1.1.1</system:String>
+    <system:String x:Key="Config_Version">Version 1.1.2</system:String>
 
     <system:String x:Key="Acc_Config_Pagina">We are in settings</system:String>
     <system:String x:Key="Acc_Config_RadioClaro_Help">Select to switch to light mode</system:String>
