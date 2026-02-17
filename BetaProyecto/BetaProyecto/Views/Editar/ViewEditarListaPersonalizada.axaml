@@ -39,7 +39,7 @@
             <Border Grid.Column="0" Background="{DynamicResource Brush_EditPlay_Fondo_Panel}" 
                     CornerRadius="15" Padding="25" BoxShadow="0 0 15 0 #22000000">
                 <StackPanel Spacing="20">
-                    
+                    <!--Botón cancelar-->
                     <Button Command="{Binding BtnAtras}" 
                             Background="{DynamicResource Brush_EditPlay_BtnVolver_Fondo}" 
                             Padding="0" Width="100" Height="40" Classes="Design" HorizontalAlignment="Left"
@@ -50,25 +50,28 @@
                                        Foreground="{DynamicResource Brush_EditPlay_BtnVolver_Texto}"/>
                         </StackPanel>
                     </Button>
-
+                    <!--Título-->
                     <TextBlock Text="{DynamicResource EditPlay_Titulo}" FontSize="28" FontWeight="Bold" Margin="0,0,0,10"
                                Foreground="{DynamicResource Brush_EditPlay_Texto_Principal}"/>
 
                     <StackPanel Spacing="15">
+                        <!--Portada-->
                         <TextBlock Text="{DynamicResource EditPlay_LblPortada}" FontSize="15" 
                                    Foreground="{DynamicResource Brush_EditPlay_Texto_Secundario}"/>
                         <Grid RowDefinitions="Auto, 10, Auto">
                             <Grid Grid.Row="0" ColumnDefinitions="*, 10, Auto">
+                                <!--Ruta imagen-->
                                 <TextBox Grid.Column="0" Text="{Binding RutaImagen}" 
                                          IsReadOnly="True" Watermark="{DynamicResource EditPlay_WaterImagen}"
                                          VerticalAlignment="Center" Height="40" CornerRadius="8"
                                          AutomationProperties.HelpText="{DynamicResource Acc_EditPlay_RutaImg_Help}"/>
-                                
+                                <!--Botón portada-->
                                 <Button Grid.Column="2" Content="{DynamicResource EditPlay_BtnCambiarImg}" 
                                         Click="BtnSelectImagen_Click"
                                         Height="40" Classes="Design"
                                         AutomationProperties.HelpText="{DynamicResource Acc_EditPlay_BtnImg_Help}"/>
                             </Grid>
+                            <!--Preview imagen-->
                             <Panel Grid.Row="2" Height="150">
                                 <Border CornerRadius="8" 
                                         BorderBrush="{DynamicResource Brush_EditPlay_Input_Borde}" BorderThickness="2" 
@@ -84,7 +87,7 @@
                             </Panel>
                         </Grid>
                     </StackPanel>
-
+                    <!--Nombre-->
                     <StackPanel Spacing="5">
                         <TextBlock Text="{DynamicResource EditPlay_LblNombre}" FontWeight="Medium" 
                                    Foreground="{DynamicResource Brush_EditPlay_Texto_Secundario}"/>
@@ -92,7 +95,7 @@
                                  AutomationProperties.Name="{DynamicResource EditPlay_LblNombre}"
                                  AutomationProperties.HelpText="{DynamicResource Acc_EditPlay_Nombre_Help}"/>
                     </StackPanel>
-
+                    <!--Descripción-->
                     <StackPanel Spacing="5">
                         <TextBlock Text="{DynamicResource EditPlay_LblDesc}" FontWeight="Medium" 
                                    Foreground="{DynamicResource Brush_EditPlay_Texto_Secundario}"/>
@@ -100,7 +103,7 @@
                                  AutomationProperties.Name="{DynamicResource EditPlay_LblDesc}"
                                  AutomationProperties.HelpText="{DynamicResource Acc_EditPlay_Desc_Help}"/>
                     </StackPanel>
-
+                    <!--Botón guardar-->
                     <Button Classes="Design" 
                             Command="{Binding BtnGuardar}"
                             Content="{DynamicResource EditPlay_BtnGuardar}"
@@ -114,7 +117,7 @@
             </Border>
 
             <Grid Grid.Column="1" RowDefinitions="Auto, *" Margin="30,0,0,0">
-                
+                <!--Buscador de canciones-->
                 <Grid Grid.Row="0" ColumnDefinitions="*, Auto" Margin="0,0,0,20">
                     <TextBox Grid.Column="0" Text="{Binding TxtBusqueda}" 
                              Watermark="{DynamicResource EditPlay_WaterBusqueda}" 
@@ -128,7 +131,7 @@
                 </Grid>
 
                 <Grid Grid.Row="1" ColumnDefinitions="*, 20, *">
-                    
+                    <!--Zona resultados de busqueda-->
                     <Border Grid.Column="0" Background="{DynamicResource Brush_EditPlay_Fondo_Panel}" CornerRadius="10" Padding="15">
                         <Grid RowDefinitions="Auto, *">
                             <TextBlock Grid.Row="0" Text="{DynamicResource EditPlay_Resultados}" FontWeight="Bold" Margin="0,0,0,10"
@@ -160,7 +163,7 @@
                             </ScrollViewer>
                         </Grid>
                     </Border>
-
+                    <!--Zona lista de canciones actual seleccionadas-->
                     <Border Grid.Column="2" Background="{DynamicResource Brush_EditPlay_Fondo_Panel}" 
                             CornerRadius="10" Padding="15" 
                             BorderBrush="{DynamicResource Brush_EditPlay_Borde_ListaActual}" BorderThickness="2">
@@ -202,7 +205,7 @@
                 </Grid>
             </Grid>
         </Grid>
-
+        <!--ProgressBar-->
         <Grid Background="#CC000000" IsVisible="{Binding EstaCargando}">
             <Border Background="{DynamicResource Brush_EditPlay_Fondo_Panel}" CornerRadius="20" Padding="40" HorizontalAlignment="Center" VerticalAlignment="Center" BoxShadow="0 10 30 0 #30000000">
                 <StackPanel Spacing="25">

@@ -1,5 +1,4 @@
-﻿using Avalonia.Media.Imaging;
-using Avalonia.Threading;
+﻿using Avalonia.Threading;
 using BetaProyecto.Models;
 using BetaProyecto.Singleton;
 using ReactiveUI;
@@ -14,7 +13,7 @@ namespace BetaProyecto.ViewModels
 {
     public class ViewCancionesViewModel : ViewModelBase
     {
-        //Cancion usamos reactive en cancion para que se actualice automaticamente con los hilos
+        //Usamos reactive en cancion para que se actualice automaticamente con los hilos
         public Canciones _cancion;
         public Canciones Cancion
         {
@@ -93,7 +92,14 @@ namespace BetaProyecto.ViewModels
                 ActualizarIconoLike();
             });
         }
-
+        /// <summary>
+        /// Inicia un bucle de actualización en segundo plano que actualiza periódicamente la información actual de la canción hasta su cancelación
+        /// es solicitado.
+        /// </summary>
+        /// <remarks>Este método ejecuta la lógica de actualización en un hilo en segundo plano y actualiza los elementos de la interfaz de usuario.
+        /// usando el despachador. El ciclo de actualización continúa hasta que se indica el token de cancelación proporcionado. Intención
+        /// para uso interno para mantener la interfaz de usuario sincronizada con los datos más recientes de las canciones. </remarks>
+        /// <param name="token">Un token de cancelación que se puede usar para solicitar la finalización del ciclo de actualización. </param>
         private void IniciarHiloActualizacion(CancellationToken token)
         {
             Task.Run(async () =>
@@ -147,11 +153,17 @@ namespace BetaProyecto.ViewModels
                 catch (TaskCanceledException) { /* Hilo detenido */ }
             });
         }
+        /// <summary>
+        /// Actualiza el icono de like para indicar si la canción actual está marcada como favorita.
+        /// </summary>
+        /// <remarks>Este método establece el icono similar en función de la presencia del identificador de la canción actual
+        /// en la lista global de favoritos. Debe llamarse siempre que haya cambiado el estado favorito de la canción
+        /// para asegurarse de que el icono siga sincronizado con los favoritos del usuario. </remarks>
         private void ActualizarIconoLike()
         {
             var listaFavoritos = GlobalData.Instance.FavoritosGD;
 
-            if (listaFavoritos.Contains(_cancion.Id))
+            if (listaFavoritos.Contains(_cancion.Id))// Si el ID de la canción actual está en favoritos 
             {
                 IconoLike = "Img_Like_ON";
             }

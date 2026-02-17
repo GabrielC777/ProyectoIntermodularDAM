@@ -21,6 +21,7 @@ namespace BetaProyecto.ViewModels
         //Dato principal 
         private string _idUsuarioCargado; // Guardamos el ID 
 
+        //El usuario completo que como lo actualizamos cada X segundos, lo hacemos reactive
         private Usuarios _usuario;
         public Usuarios Usuario
         {
@@ -43,9 +44,8 @@ namespace BetaProyecto.ViewModels
             set => this.RaiseAndSetIfChanged(ref _playlistsCreadas, value);
         }
 
-        // --- TEMPORIZADOR DE ACTUALIZACIÓN (DIVIDIDO) ---
+        // --- TEMPORIZADOR DE ACTUALIZACIÓN ---
 
-        // 1. Clave del mensaje (Ej: "VisorUser_Timer_Refrescando")
         private string _txtMensajeTimer = "VisorUser_Timer_Iniciando";
         public string TxtMensajeTimer
         {
@@ -88,7 +88,7 @@ namespace BetaProyecto.ViewModels
             set => this.RaiseAndSetIfChanged(ref _colorBotonSeguir, value);
         }
 
-        // Propiedades formateas (lo configuramos que acepte null)
+        // Propiedades formateas
         public string FechaNacimientoFormateada =>
                     _usuario?.Perfil?.FechaNacimiento.ToString("dd MMMM yyyy") ?? "";
         public int CantidadCanciones =>
@@ -113,10 +113,10 @@ namespace BetaProyecto.ViewModels
             _cancionesSubidas = new List<Canciones>();
             _playlistsCreadas = new List<ListaPersonalizada>();
 
-            // Configurar Comando Volver
+            // Configurar comandos reactive
             BtnVolver = ReactiveCommand.Create(() =>
             {
-                _cancelToken.Cancel(); // IMPORTANTE: Matar el hilo al salir
+                _cancelToken.Cancel(); // Matamos el hilo al salir
                 accionVolver();
             });
             BtnSeguir = ReactiveCommand.CreateFromTask(AlterarSeguimiento);
@@ -126,6 +126,13 @@ namespace BetaProyecto.ViewModels
             IniciarHiloActualizacion(_cancelToken.Token);
             ActualizarBtnSeguir();
         }
+        /// <summary>
+        /// Cambia el estado de seguimiento del usuario cargado actualmente para el usuario activo. Si el usuario activo ya está
+        /// siguiendo al usuario cargado, este método dejará de seguir; de lo contrario, iniciará un seguimiento.
+        /// </summary>
+        /// <remarks>Si el usuario activo intenta seguirse a sí mismo, se muestra una alerta y no hay acción
+        /// se toma. El método actualiza tanto el estado de seguimiento como la lista local de seguidores al éxito. </remarks>
+        /// <returns>Devuelve una tarea que representa la operación asíncrona. </returns>
         private async Task AlterarSeguimiento()
         {
             string miId = GlobalData.Instance.UserIdGD;
@@ -160,6 +167,13 @@ namespace BetaProyecto.ViewModels
                 }
             }
         }
+        /// <summary>
+        /// Actualiza el indicador de estado de seguimiento según si el usuario cargado está presente en los seguidores globales
+        /// lista.
+        /// </summary>
+        /// <remarks>Este método establece el valor de la propiedad EsSeguido para reflejar si el actualmente
+        /// el usuario cargado está siendo seguido. Debe llamarse cada vez que la lista de seguidores o el usuario cargado cambie a
+        /// asegúrese de que el estado de seguimiento siga siendo preciso. </remarks>
         private void ActualizarBtnSeguir()
         {
             List<string> lista = GlobalData.Instance.SeguidoresGD;
@@ -173,14 +187,21 @@ namespace BetaProyecto.ViewModels
                 EsSeguido = false;
             }
         }
-        //Aqui iniciamos el hilo de paso de que buscamos el Usuario completo mediante el idUsuario que nos han pasado
+        /// <summary>
+        /// Inicia un ciclo de actualización en segundo plano que actualiza periódicamente el usuario y las listas relacionadas hasta que se cancele
+        /// solicitado.
+        /// </summary>
+        /// <remarks>El bucle de actualización se ejecuta de forma asíncrona y actualiza los elementos de la interfaz de usuario para reflejar el estado actual.
+        /// estado de actualización. El método no bloquea el hilo de llamada. Para detener el proceso de actualización, indica
+        /// cancelación a través del token proporcionado. </remarks>
+        /// <param name="token">Un token de cancelación que se puede usar para solicitar la finalización del ciclo de actualización. </param>
         private void IniciarHiloActualizacion(CancellationToken token)
         {
             Task.Run(async () =>
             {
                 try
                 {
-                    // 1. CARGA INICIAL
+                    //Carga inicial 
                     await CargarUsuario();
 
                     // Si encontramos al usuario, cargamos sus listas
@@ -190,7 +211,7 @@ namespace BetaProyecto.ViewModels
 
                     }
 
-                    // 2. BUCLE DE ACTUALIZACIÓN (PSP)
+                    //Bucle de actualización cada 5 segundos
                     while (!token.IsCancellationRequested)
                     {
                         for (int i = 5; i > 0; i--)
@@ -225,7 +246,14 @@ namespace BetaProyecto.ViewModels
                 catch (TaskCanceledException) { }
             });
         }
-
+        /// <summary>
+        /// Carga asincrónicamente los datos de usuario del identificador de usuario seleccionado actualmente y actualiza el relacionado
+        /// propiedades.
+        /// </summary>
+        /// <remarks>Este método recupera la información del usuario de la fuente de datos basada en el usuario actual
+        /// identificador y actualiza el usuario vinculado y las propiedades calculadas relacionadas en el hilo de la interfaz. Destinado a
+        /// uso interno dentro del modelo de vista para asegurar la consistencia de la interfaz de usuario después de cambios en los datos del usuario. </remarks>
+        /// <returns>Devuelve una tarea que representa la operación de carga asíncrona. </returns>
         private async Task CargarUsuario()
         {
             var listaUnId = new List<string> { _idUsuarioCargado };
@@ -245,6 +273,16 @@ namespace BetaProyecto.ViewModels
                 });
             }
         }
+        /// <summary>
+        /// Carga de forma asíncrona las listas detalladas de canciones y listas de reproducción creadas por el usuario especificado y actualiza el
+        /// propiedades correspondientes en el hilo de la interfaz.
+        /// </summary>
+        /// <remarks>Este método recupera las canciones y listas de reproducción del usuario desde la fuente de datos y las actualizaciones
+        /// las propiedades vinculadas a la interfaz de usuario. Las actualizaciones se envían al hilo de la interfaz para garantizar la seguridad del hilo al modificarlo
+        /// elementos de la interfaz de usuario. </remarks>
+        /// <param name="idUser">El identificador único del usuario cuyas canciones cargadas y listas de reproducción creadas se deben cargar. No puede ser
+        /// nulo. </param>
+        /// <returns>Devuelve una tarea que representa la operación de carga asíncrona. </returns>
         private async Task CargarListasDetalladas(string idUser)
         {
             // Buscamos las lista que nos interesan

@@ -1,11 +1,11 @@
-﻿using Avalonia.Media.Imaging;
+﻿ using Avalonia.Media.Imaging;
 using BetaProyecto.Helpers;
 using BetaProyecto.Models;
 using BetaProyecto.Services;
 using BetaProyecto.Singleton;
 using ReactiveUI;
 using System;
-using System.IO;
+using System.Collections.Generic;
 using System.Reactive;
 using System.Threading.Tasks;
 
@@ -16,7 +16,9 @@ namespace BetaProyecto.ViewModels
         // Servicios
         private readonly IDialogoService _dialogoService;
         private readonly StorageService _storageService;
-        private readonly Action _accionVolver; // Para volver al login
+
+        //Actions 
+        private readonly Action _accionVolver;
 
         // Bidings
         private Usuarios _nuevoUsuario;
@@ -49,6 +51,9 @@ namespace BetaProyecto.ViewModels
             set => this.RaiseAndSetIfChanged(ref _fotoPerfilBitmap, value);
         }
 
+        //Propiedades
+        public List<string> ListaPaises { get; }
+
         // Comandos reactive
         public ReactiveCommand<Unit, Unit> BtnRegistrarse { get; }
         public ReactiveCommand<Unit, Unit> BtnVolver { get; }
@@ -65,16 +70,42 @@ namespace BetaProyecto.ViewModels
             // Inicializamos el objeto vacío pero con sus estructuras listas
             NuevoUsuario = new Usuarios
             {
-                Perfil = new PerfilUsuario(),
+                Perfil = new PerfilUsuario
+                {
+                    FechaNacimiento = DateTime.Today
+                },
                 Estadisticas = new EstadisticasUsuario(),
                 Listas = new ListasUsuario()
             };
 
-            // Configuramos comandos
+            //Inicalizamos propiedades
+            ListaPaises = new List<string>
+            {
+                "España",
+                "Inglaterra",
+                "Estados Unidos",
+                "Canadá",
+                "Suecia",
+                "Chile",
+                "Andorra",
+                "Francia",
+                "Alemania",
+                "Japón"
+            };
+
+            // Configuramos comandos reactive
             BtnRegistrarse = ReactiveCommand.CreateFromTask(RegistrarseTask);
             BtnVolver = ReactiveCommand.Create(() => _accionVolver?.Invoke());
         }
-
+        /// <summary>
+        /// Gestiona el proceso de registro de usuarios de forma asíncrona, incluida la validación, la carga de imágenes de perfil y
+        /// creación de cuenta.
+        /// </summary>
+        /// <remarks>Muestra las alertas apropiadas al usuario en caso de errores de validación, problemas de conexión o
+        /// resultados del registro. Si el registro es exitoso, se notifica al usuario y se lo redirige a la cuenta.
+        /// pantalla. Este método evita los intentos de registro simultáneos comprobando y configurando una carga
+        /// estado. </remarks>
+        /// <returns>Devuelve una tarea que representa la operación de registro asíncrono. </returns>
         private async Task RegistrarseTask()
         {
             if (EstaCargando) return;
@@ -82,7 +113,7 @@ namespace BetaProyecto.ViewModels
 
             try
             {
-                // 1. VALIDACIONES BÁSICAS
+                // Validaciones básicas
                 if (string.IsNullOrWhiteSpace(NuevoUsuario.Username) ||
                     string.IsNullOrWhiteSpace(NuevoUsuario.Email) ||
                     string.IsNullOrWhiteSpace(NuevoUsuario.Password) ||
@@ -96,7 +127,7 @@ namespace BetaProyecto.ViewModels
                     return;
                 }
 
-                // 2. VALIDAR CONTRASEÑAS COINCIDENTES
+                // Validar contraseñas coinicidentes 
                 if (NuevoUsuario.Password != ConfirmarPass)
                 {
                     _dialogoService.MostrarAlerta("Reg_Error_PassNoCoinciden");
@@ -104,7 +135,7 @@ namespace BetaProyecto.ViewModels
                     return;
                 }
 
-                // 3. CONEXIÓN A MONGO
+                // Conexión a mongo
                 var cliente = MongoClientSingleton.Instance.Cliente;
                 if (!await cliente.Conectar())
                 {
@@ -113,12 +144,12 @@ namespace BetaProyecto.ViewModels
                     return;
                 }
 
-                // 4. PREPARAR DATOS
+                // Preparamos datos
                 NuevoUsuario.Rol = Roles.Usuario;
                 NuevoUsuario.FechaRegistro = DateTime.Now;
                 NuevoUsuario.Password = Encriptador.HashPassword(NuevoUsuario.Password);
-                // 5. GESTIÓN DE FOTO DE PERFIL
-
+                
+                // Gestionamos foto de perfil
                 try
                 {
                     // Subimos a Imgbb
@@ -128,6 +159,7 @@ namespace BetaProyecto.ViewModels
                 {
                     _dialogoService.MostrarAlerta("Reg_Error_SubirImagen");
                     NuevoUsuario.Perfil.ImagenUrl = "";
+                    return; 
                 }
 
                 // Si no puso imagen o falló, ponemos una por defecto
@@ -158,6 +190,12 @@ namespace BetaProyecto.ViewModels
                 EstaCargando = false;
             }
         }
+        /// <summary>
+        /// Carga una imagen de vista previa desde la ruta del archivo especificada y actualiza la referencia de imagen de perfil del usuario.
+        /// </summary>
+        /// <remarks>Si el archivo no existe o no es una imagen válida, la imagen de previsualización se borra. El
+        /// método no genera una excepción si la carga falla. </remarks>
+        /// <param name="ruta">La ruta del archivo de la imagen a cargar como una vista previa. Debe hacer referencia a un archivo existente. </param>
         public void CargarImagenPrevia(string ruta)
         {
             try

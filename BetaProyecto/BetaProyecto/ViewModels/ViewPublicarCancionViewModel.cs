@@ -19,10 +19,10 @@ namespace BetaProyecto.ViewModels
         private readonly StorageService _storageService;
         private readonly AudioService _audioService;
 
-        // Action 
+        // Actions
         private readonly Action _Volver;
 
-        // --- 1. DATOS DE LA CANCIÓN ---
+        // Datos de canciones
         private string _txtTitulo;
         public string TxtTitulo
         {
@@ -53,7 +53,7 @@ namespace BetaProyecto.ViewModels
             set => this.RaiseAndSetIfChanged(ref _listaGenerosSeleccionados, value);
         }
 
-        // --- 2. GESTIÓN DE COLABORADORES ---
+        // Gestión de colaboradores
         private string _txtBusqueda;
         public string TxtBusqueda
         {
@@ -75,7 +75,7 @@ namespace BetaProyecto.ViewModels
             set => this.RaiseAndSetIfChanged(ref _listaArtitas, value);
         }
 
-        // --- 3. IMAGEN Y AUDIO ---
+        // Imagen y audio
         private string _rutaImagen;
         public string RutaImagen
         {
@@ -130,7 +130,7 @@ namespace BetaProyecto.ViewModels
         }
         private int _duracionCalculada = 0;
 
-        // --- 4. ESTADO ---
+        // Estado
         private bool _estaCargando;
         public bool EstaCargando
         {
@@ -138,7 +138,7 @@ namespace BetaProyecto.ViewModels
             set => this.RaiseAndSetIfChanged(ref _estaCargando, value);
         }
 
-        // --- COMANDOS ---
+        // Comandos reactive
         public ReactiveCommand<Unit, Unit> BtnVolverAtras { get; }
         public ReactiveCommand<Unit, Unit> BtnPublicar { get; }
         public ReactiveCommand<Unit, Unit> BtnBuscarUsuarios { get; }
@@ -147,15 +147,18 @@ namespace BetaProyecto.ViewModels
         public ReactiveCommand<Unit, Unit> BtnAgregarGenero { get; }
         public ReactiveCommand<string, Unit> BtnEliminarGenero { get; }
 
-        // --- CONSTRUCTOR ---
+        //Constructor
         public ViewPublicarCancionViewModel(Action accionVolver)
         {
+            //Heredamos actions
             _Volver = accionVolver;
 
+            //Inicializamos servicios
             _dialogoService = new DialogoService();
             _storageService = new StorageService();
             _audioService = new AudioService();
-
+            
+            //Inicializamos listas
             ListaResultados = new ObservableCollection<Usuarios>();
             ListaArtistas = new ObservableCollection<Usuarios>();
             ListaGeneros = new ObservableCollection<string>();
@@ -165,15 +168,7 @@ namespace BetaProyecto.ViewModels
             var miUsuario = GlobalData.Instance.GetUsuarioObject();
             if (miUsuario != null) ListaArtistas.Add(miUsuario);
 
-            // LÓGICA DE COMANDOS (Refactorizada en métodos abajo)
-            BtnAgregarGenero = ReactiveCommand.Create(AgregarGenero);
-            BtnEliminarGenero = ReactiveCommand.Create<string>(EliminarGenero);
-            BtnBuscarUsuarios = ReactiveCommand.Create(BuscarUsuarios);
-            BtnAgregarUsuario = ReactiveCommand.Create<Usuarios>(AgregarUsuario);
-            BtnEliminarUsuario = ReactiveCommand.Create<Usuarios>(EliminarUsuario);
-            BtnVolverAtras = ReactiveCommand.Create(accionVolver);
-
-            // 1. Configuración del Buscador Reactivo
+            // Configuración del Buscador Reactivo
             this.WhenAnyValue(x => x.TxtBusqueda)
                 .Throttle(TimeSpan.FromMilliseconds(500))
                 .Where(x => !string.IsNullOrWhiteSpace(x) && x.Length > 2)
@@ -195,12 +190,27 @@ namespace BetaProyecto.ViewModels
                     (esYt ? !string.IsNullOrWhiteSpace(link) : !string.IsNullOrWhiteSpace(mp3))
             );
 
+            // Configuramos comandos reactive
+            BtnAgregarGenero = ReactiveCommand.Create(AgregarGenero);
+            BtnEliminarGenero = ReactiveCommand.Create<string>(EliminarGenero);
+            BtnBuscarUsuarios = ReactiveCommand.Create(BuscarUsuarios);
+            BtnAgregarUsuario = ReactiveCommand.Create<Usuarios>(AgregarUsuario);
+            BtnEliminarUsuario = ReactiveCommand.Create<Usuarios>(EliminarUsuario);
+            BtnVolverAtras = ReactiveCommand.Create(accionVolver);
             BtnPublicar = ReactiveCommand.CreateFromTask(PublicarCancion, validacionPublicar);
 
             // Carga inicial
             _ = CargarGeneros();
         }
-
+        /// <summary>
+        /// Añade el género seleccionado actualmente a la lista de géneros asociados, validando que no esté vacío y que no se haya añadido previamente.
+        /// </summary>
+        /// <remarks>
+        /// El método verifica si <see cref="GeneroSeleccionado"/> contiene un valor válido. Si el género ya existe en 
+        /// <see cref="ListaGenerosSeleccionados"/> (comparación insensible a mayúsculas), se muestra una alerta de error 
+        /// a través de <see cref="_dialogoService"/>. En cualquier caso, tras el intento de adición, se restablece 
+        /// la propiedad <see cref="GeneroSeleccionado"/> a nulo para limpiar la selección de la interfaz.
+        /// </remarks>
         private void AgregarGenero()
         {
             if (string.IsNullOrWhiteSpace(GeneroSeleccionado))
@@ -221,7 +231,15 @@ namespace BetaProyecto.ViewModels
                 GeneroSeleccionado = null;
             }
         }
-
+        /// <summary>
+        /// Elimina un género específico de la lista de géneros seleccionados para la canción.
+        /// </summary>
+        /// <remarks>
+        /// Este método verifica si el género proporcionado existe dentro de <see cref="ListaGenerosSeleccionados"/>. 
+        /// Si se encuentra, lo elimina, lo que actualiza automáticamente cualquier control de la interfaz 
+        /// vinculado a esta colección.
+        /// </remarks>
+        /// <param name="genero">El nombre del género que se desea remover de la selección actual.</param>
         private void EliminarGenero(string genero)
         {
             if (ListaGenerosSeleccionados.Contains(genero))
@@ -229,7 +247,15 @@ namespace BetaProyecto.ViewModels
                 ListaGenerosSeleccionados.Remove(genero);
             }
         }
-
+        /// <summary>
+        /// Añade un usuario a la lista de artistas seleccionados, evitando duplicados y limpiando los resultados de búsqueda actuales.
+        /// </summary>
+        /// <remarks>
+        /// El método verifica mediante el ID si el <paramref name="usuario"/> ya se encuentra en <see cref="ListaArtistas"/>. 
+        /// Tras la validación, independientemente de si se añadió o no, se restablece <see cref="TxtBusqueda"/> 
+        /// y se vacía <see cref="ListaResultados"/> para limpiar la interfaz de búsqueda.
+        /// </remarks>
+        /// <param name="usuario">El objeto de tipo <see cref="Usuarios"/> que se desea vincular o añadir.</param>
         private void AgregarUsuario(Usuarios usuario)
         {
             bool yaExiste = ListaArtistas.Any(u => u.Id == usuario.Id);
@@ -240,7 +266,16 @@ namespace BetaProyecto.ViewModels
             TxtBusqueda = string.Empty;
             ListaResultados.Clear();
         }
-
+        /// <summary>
+        /// Elimina un usuario de la lista de artistas seleccionados, validando que no sea el usuario que ha iniciado sesión.
+        /// </summary>
+        /// <remarks>
+        /// El método comprueba si el <paramref name="usuario"/> a eliminar coincide con el ID del usuario actual en 
+        /// <see cref="GlobalData.Instance.UserIdGD"/>. Si coinciden, se muestra una alerta de error mediante 
+        /// <see cref="_dialogoService"/> para impedir que un usuario se elimine a sí mismo de una lista. 
+        /// Si la validación es correcta, procede a removerlo de <see cref="ListaArtistas"/>.
+        /// </remarks>
+        /// <param name="usuario">El objeto de tipo <see cref="Usuarios"/> que se desea remover de la selección.</param>
         private void EliminarUsuario(Usuarios usuario)
         {
             if (usuario.Id == GlobalData.Instance.UserIdGD)
@@ -253,7 +288,15 @@ namespace BetaProyecto.ViewModels
                 ListaArtistas.Remove(usuario);
             }
         }
-
+        /// <summary>
+        /// Realiza una búsqueda asíncrona de usuarios en la base de datos basada en el texto introducido, filtrando aquellos que ya han sido seleccionados.
+        /// </summary>
+        /// <remarks>
+        /// Este método utiliza <see cref="MongoClientSingleton"/> para consultar usuarios cuyo nombre coincida con <see cref="TxtBusqueda"/>. 
+        /// Para evitar duplicados, se envían los IDs de la <see cref="ListaArtistas"/> actual como lista de exclusión. 
+        /// Si se encuentran resultados, se actualiza <see cref="ListaResultados"/>; de lo contrario, se limpia. 
+        /// En caso de fallo en la conexión, se muestra una alerta mediante <see cref="_dialogoService"/>.
+        /// </remarks>
         private async void BuscarUsuarios()
         {
             if (MongoClientSingleton.Instance.Cliente != null)
@@ -273,7 +316,15 @@ namespace BetaProyecto.ViewModels
                 _dialogoService.MostrarAlerta("Msg_Error_Conexion");
             }
         }
-
+        /// <summary>
+        /// Carga una imagen desde una ruta local y la asigna a la propiedad ImagenPortada.
+        /// </summary>
+        /// <remarks>
+        /// Intenta crear un objeto <see cref="Bitmap"/> a partir de la ruta proporcionada. Si el archivo no existe o ocurre un error 
+        /// durante la lectura, se asigna <c>null</c> a <see cref="ImagenPortada"/> para evitar fallos visuales. 
+        /// Finalmente, notifica el cambio de la propiedad <see cref="TieneImagen"/> para actualizar la UI.
+        /// </remarks>
+        /// <param name="ruta">La ruta del sistema de archivos donde se encuentra la imagen.</param>
         private void CargarImagenLocal(string ruta)
         {
             try
@@ -293,7 +344,15 @@ namespace BetaProyecto.ViewModels
             }
             this.RaisePropertyChanged(nameof(TieneImagen));
         }
-
+        /// <summary>
+        /// Carga la lista de géneros disponibles desde la base de datos y los asigna a la propiedad ListaGeneros.
+        /// </summary>
+        /// <remarks>
+        /// Este método recupera todos los nombres de géneros registrados en MongoDB mediante el cliente singleton. 
+        /// Si la conexión es exitosa, inicializa <see cref="ListaGeneros"/>; de lo contrario, registra el error en 
+        /// el flujo de depuración del sistema.
+        /// </remarks>
+        /// <returns>Una tarea que representa la operación asíncrona.</returns>
         private async Task CargarGeneros()
         {
             if (MongoClientSingleton.Instance.Cliente != null)
@@ -306,7 +365,16 @@ namespace BetaProyecto.ViewModels
                 System.Diagnostics.Debug.WriteLine("Error en la conexión de la base de datos");
             }
         }
-
+        /// <summary>
+        /// Obtiene la duración de un archivo MP3 en segundos utilizando la biblioteca TagLib#.
+        /// </summary>
+        /// <remarks>
+        /// Accede a las propiedades del archivo en disco para extraer su duración total. Si el archivo no existe 
+        /// o se produce una excepción al intentar leer los metadatos de audio, el error se captura y el método 
+        /// devuelve 0 segundos para no interrumpir el flujo.
+        /// </remarks>
+        /// <param name="rutaArchivo">La ruta completa del archivo de audio local.</param>
+        /// <returns>La duración total en segundos.</returns>
         private int ObtenerDuracionMp3(string rutaArchivo)
         {
             try
@@ -323,20 +391,33 @@ namespace BetaProyecto.ViewModels
             }
             return 0;
         }
-
+        /// <summary>
+        /// Realiza el proceso completo de publicación de una canción, integrando subida de archivos, obtención de datos y persistencia.
+        /// </summary>
+        /// <remarks>
+        /// Este método orquesta un flujo complejo dividido en cuatro fases principales:
+        /// <list type="number">
+        /// <item><b>Subida de imagen:</b> Sube la portada seleccionada a la nube.</item>
+        /// <item><b>Gestión de audio:</b> Sube el archivo MP3 o procesa el enlace de YouTube para obtener la duración y URL final.</item>
+        /// <item><b>Creación de modelo:</b> Construye el objeto <see cref="Canciones"/> con autores y géneros seleccionados.</item>
+        /// <item><b>Persistencia:</b> Guarda la canción en la BD y actualiza el contador de canciones del usuario.</item>
+        /// </list>
+        /// Durante la ejecución, se controla la propiedad <see cref="EstaCargando"/> para feedback visual en la UI.
+        /// </remarks>
+        /// <returns>Una tarea que representa la operación de publicación asíncrona.</returns>
         private async Task PublicarCancion()
         {
             EstaCargando = true;
 
             try
             {
-                // 1. Subir Imagen
+                // Subimos Imagen
                 string urlImagenNube = await _storageService.SubirImagen(RutaImagen);
 
                 string urlAudioFinal = "";
                 int duracionFinal = 0;
 
-                // 2. Subir Audio / Obtener Info
+                // Subimos Audio / Obtenemos Info
                 if (EsYoutube)
                 {
                     var infoYoutube = await _audioService.ObtenerMp3(LinkYoutube);
@@ -357,7 +438,7 @@ namespace BetaProyecto.ViewModels
                     duracionFinal = _duracionCalculada;
                 }
 
-                // 3. Crear Objeto
+                // Creamos Objeto
                 var nuevaCancion = new Canciones
                 {
                     Titulo = TxtTitulo,
@@ -372,7 +453,7 @@ namespace BetaProyecto.ViewModels
                     }
                 };
 
-                // 4. Guardar en BD
+                // Guardamos en BD
                 bool exito = await MongoClientSingleton.Instance.Cliente.PublicarCancion(nuevaCancion);
 
                 if (exito)

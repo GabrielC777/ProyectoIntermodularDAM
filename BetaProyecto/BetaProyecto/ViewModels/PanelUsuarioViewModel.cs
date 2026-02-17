@@ -2,12 +2,6 @@
 using BetaProyecto.Singleton;
 using ReactiveUI;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Reactive;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BetaProyecto.ViewModels
 {
@@ -21,7 +15,7 @@ namespace BetaProyecto.ViewModels
         public ViewGestionarReportesViewModel ViewGestionarReportesVM { get; }
         public ViewGestionarBDViewModel ViewGestionarBDVM { get; }
 
-        //Action para conectar con el marco
+        //Actions 
         public Action VolverAtras { get; set; }
         public Action AccionLogout { get; set; }
         public Action AccionSalir { get; set; }
@@ -52,11 +46,13 @@ namespace BetaProyecto.ViewModels
             get => _puedeVerReportes;
             set => this.RaiseAndSetIfChanged(ref _puedeVerReportes, value);
         }
-        // CONSTRUCTOR: Le pasamos el índice inicial (por defecto 0 si no decimos nada)
+        // Constructor
+        // Le pasamos el índice inicial (por defecto 0 si no decimos nada) para la pestaña 
         public PanelUsuarioViewModel(int tabInicial = 0)
         {
             IndiceTab = tabInicial;
 
+            //Inicializamos los sub-ViewModels
             ViewPerfilVM = new ViewPerfilViewModel();
             ViewCuentaVM = new ViewCuentaViewModel();
             ViewGestionarCuentaVM = new ViewGestionarCuentaViewModel();
@@ -82,6 +78,14 @@ namespace BetaProyecto.ViewModels
             ViewGestionarReportesVM = new ViewGestionarReportesViewModel();
             ViewGestionarBDVM = new ViewGestionarBDViewModel();
         }
+        /// <summary>
+        /// Evalúa y establece los privilegios de acceso del usuario a las funciones administrativas del panel basándose en su rol.
+        /// </summary>
+        /// <remarks>
+        /// Este método consulta el rol actual desde <see cref="GlobalData.Instance.RolGD"/> y actualiza las propiedades 
+        /// de visibilidad de la interfaz. La gestión de base de datos se restringe exclusivamente al rol <see cref="Roles.SuperAdmin"/>, 
+        /// mientras que el acceso a reportes se habilita tanto para administradores como para superadministradores.
+        /// </remarks>
         private void ConfigurarPermisos()
         {
             string rolActual = GlobalData.Instance.RolGD;

@@ -15,6 +15,7 @@ namespace BetaProyecto.ViewModels
 {
     public class ViewEditarListaPersonalizadaViewModel : ViewModelBase
     {
+        //Variables
         private readonly ListaPersonalizada _playlistOriginal;
         
         //Sercivios
@@ -153,8 +154,20 @@ namespace BetaProyecto.ViewModels
             BtnGuardar = ReactiveCommand.CreateFromTask(GuardarCambios, validacionGuardar);
         }
 
-        // --- LÓGICA DE IMÁGENES ---
-
+        /// <summary>
+        /// Descarga de forma asíncrona una imagen desde una dirección URL y la asigna al mapa de bits de la portada.
+        /// </summary>
+        /// <remarks>
+        /// Este método gestiona la recuperación de recursos remotos mediante los siguientes pasos:
+        /// <list type="number">
+        /// <item><b>Petición HTTP:</b> Utiliza un <see cref="HttpClient"/> para obtener el flujo de bytes de la imagen desde la red.</item>
+        /// <item><b>Procesamiento de Memoria:</b> Transfiere los bytes a un <see cref="System.IO.MemoryStream"/> para su decodificación.</item>
+        /// <item><b>Asignación Visual:</b> Inicializa la propiedad <see cref="ImagenPortada"/> con el nuevo <see cref="Bitmap"/> y actualiza el estado de <see cref="TieneImagen"/>.</item>
+        /// </list>
+        /// En caso de error en la red o formato inválido, se captura la excepción y se notifica al usuario mediante <see cref="_dialogoService"/>.
+        /// </remarks>
+        /// <param name="url">La dirección URL completa de la imagen que se desea cargar.</param>
+        /// <returns>Una tarea que representa la operación de carga asíncrona.</returns>
         private async Task CargarImagenDesdeUrl(string url)
         {
             if (string.IsNullOrEmpty(url)) return;
@@ -170,9 +183,23 @@ namespace BetaProyecto.ViewModels
                     }
                 }
             }
-            catch { /* Si falla la carga visual no pasa nada grave */ }
+            catch { 
+                _dialogoService.MostrarAlerta("Msg_Error_CargarImagen");
+            }
         }
-
+        /// <summary>
+        /// Intenta cargar y asignar una imagen desde el almacenamiento local del sistema de archivos.
+        /// </summary>
+        /// <remarks>
+        /// Este método gestiona la carga de recursos gráficos locales mediante los siguientes pasos:
+        /// <list type="number">
+        /// <item><b>Validación de ruta:</b> Verifica la existencia física del archivo mediante <see cref="System.IO.File.Exists"/>.</item>
+        /// <item><b>Instanciación:</b> Si el archivo es válido, crea un nuevo objeto <see cref="Bitmap"/> y lo asigna a <see cref="ImagenPortada"/>.</item>
+        /// <item><b>Control de estado:</b> Actualiza la propiedad booleana <see cref="TieneImagen"/> para reflejar el éxito o fallo de la operación en la interfaz.</item>
+        /// </list>
+        /// El bloque <c>try-catch</c> asegura que errores de formato o permisos de lectura no interrumpan la ejecución del programa.
+        /// </remarks>
+        /// <param name="ruta">La ruta absoluta en el disco local donde se encuentra el archivo de imagen.</param>
         private void CargarImagenLocal(string ruta)
         {
             try
@@ -193,6 +220,17 @@ namespace BetaProyecto.ViewModels
             }
         }
 
+        /// <summary>
+        /// Realiza una búsqueda asíncrona de canciones en la base de datos y filtra aquellas que ya han sido seleccionadas para la lista actual.
+        /// </summary>
+        /// <remarks>
+        /// Este método gestiona el filtrado dinámico de contenido mediante los siguientes pasos:
+        /// <list type="number">
+        /// <item><b>Consulta remota:</b> Solicita al cliente de MongoDB las canciones que coincidan con el término almacenado en <see cref="TxtBusqueda"/>.</item>
+        /// <item><b>Filtrado local:</b> Aplica una operación LINQ para excluir de los resultados cualquier canción cuyo identificador ya se encuentre en <see cref="ListaCancionesSeleccionadas"/>.</item>
+        /// <item><b>Actualización de UI:</b> Inicializa la propiedad <see cref="ListaResultados"/> con una nueva colección observable, permitiendo que la interfaz muestre únicamente las opciones elegibles.</item>
+        /// </list>
+        /// </remarks>
         private async void BuscarCanciones()
         {
             if (MongoClientSingleton.Instance.Cliente != null)
@@ -205,7 +243,18 @@ namespace BetaProyecto.ViewModels
                 }
             }
         }
-
+        /// <summary>
+        /// Incorpora una canción específica a la lista de selección actual y limpia el estado de búsqueda.
+        /// </summary>
+        /// <remarks>
+        /// Este método gestiona la selección de pistas musicales mediante los siguientes pasos:
+        /// <list type="number">
+        /// <item><b>Validación de unicidad:</b> Verifica que la canción no haya sido agregada previamente comparando su identificador único.</item>
+        /// <item><b>Transferencia de estado:</b> Añade la canción a <see cref="ListaCancionesSeleccionadas"/> y la remueve simultáneamente de la lista de resultados de búsqueda para evitar duplicidad visual.</item>
+        /// <item><b>Reinicio de filtros:</b> Restablece la cadena de búsqueda <see cref="TxtBusqueda"/> para facilitar una nueva consulta.</item>
+        /// </list>
+        /// </remarks>
+        /// <param name="cancion">El objeto de tipo <see cref="Canciones"/> que se desea añadir a la lista o playlist.</param>
         private void AgregarCancion(Canciones cancion)
         {
             if (!ListaCancionesSeleccionadas.Any(c => c.Id == cancion.Id))
@@ -215,12 +264,36 @@ namespace BetaProyecto.ViewModels
                 TxtBusqueda = "";
             }
         }
-
+        /// <summary>
+        /// Remueve una canción específica de la colección de pistas seleccionadas para la lista de reproducción.
+        /// </summary>
+        /// <remarks>
+        /// Este método gestiona la edición de la lista mediante los siguientes pasos:
+        /// <list type="number">
+        /// <item><b>Identificación:</b> Localiza la instancia del objeto <see cref="Canciones"/> dentro de la colección <see cref="ListaCancionesSeleccionadas"/>.</item>
+        /// <item><b>Remoción:</b> Elimina el elemento de la lista, lo cual desencadena automáticamente la actualización de la interfaz de usuario al ser una colección observable.</item>
+        /// </list>
+        /// </remarks>
+        /// <param name="cancion">El objeto de tipo <see cref="Canciones"/> que se desea retirar de la selección actual.</param>
         private void EliminarCancion(Canciones cancion)
         {
             ListaCancionesSeleccionadas.Remove(cancion);
         }
 
+        /// <summary>
+        /// Procesa y persiste de forma asíncrona las modificaciones realizadas en una lista de reproducción existente, incluyendo la gestión de medios y la estructura de pistas.
+        /// </summary>
+        /// <remarks>
+        /// Este método orquesta la actualización de la playlist mediante el siguiente flujo de trabajo:
+        /// <list type="number">
+        /// <item><b>Sincronización de Imagen:</b> Evalúa si la ruta de la portada es local o remota. En caso de ser local, sube el archivo a la nube mediante <see cref="_storageService"/> para obtener una URL persistente.</item>
+        /// <item><b>Preparación de Metadatos:</b> Extrae y proyecta los identificadores únicos de la colección <see cref="ListaCancionesSeleccionadas"/>.</item>
+        /// <item><b>Persistencia en BD:</b> Invoca al cliente de MongoDB para actualizar el nombre, descripción, lista de IDs y URL de portada en el documento correspondiente.</item>
+        /// <item><b>Finalización:</b> Tras el éxito, libera el estado de carga y ejecuta la acción de retorno a la vista anterior.</item>
+        /// </list>
+        /// En caso de error, se notifica al usuario mediante el servicio de diálogos y se registra la excepción para depuración.
+        /// </remarks>
+        /// <returns>Una tarea que representa la operación de guardado asíncrona.</returns>
         private async Task GuardarCambios()
         {
             EstaCargando = true;
@@ -228,17 +301,16 @@ namespace BetaProyecto.ViewModels
             {
                 string urlPortadaFinal = RutaImagen;
 
-                // 1. ¿Ha cambiado la imagen? (Si es ruta local, subimos. Si es http, mantenemos)
+                //Si la imagen es local, la subimos y obtenemos la URL de la nube
                 if (!RutaImagen.StartsWith("http"))
                 {
                     urlPortadaFinal = await _storageService.SubirImagen(RutaImagen);
                 }
 
-                // 2. Extraer IDs de canciones
+                // Extraeremos IDs de canciones
                 var nuevosIds = ListaCancionesSeleccionadas.Select(c => c.Id).ToList();
 
-                // 3. Actualizar en BD
-                // (Asegúrate de que este método existe en tu MongoAtlas.cs o úsalo como te pasé antes)
+                // Actualizamos en la BD
                 await MongoClientSingleton.Instance.Cliente.ActualizarPlaylist(
                     TxtNombre,
                     TxtDescripcion,

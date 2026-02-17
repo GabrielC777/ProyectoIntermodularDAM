@@ -106,7 +106,7 @@
                     <Flyout Placement="BottomEdgeAlignedRight" ShowMode="Transient">
                         <StackPanel Width="150" Spacing="5">
 
-                            <TextBlock Text="Crear" FontWeight="Bold" Margin="5" Foreground="{DynamicResource Brush_Central_BtnMenu_Texto}"/>
+                            <TextBlock Text="{DynamicResource Main_Menu_CrearTitulo}" FontWeight="Bold" Margin="5" Foreground="{DynamicResource Brush_Central_BtnMenu_Texto}"/>
 
                             <Separator Background="{DynamicResource Brush_Central_BtnMenu_Texto}" Height="1" Margin="0,0,0,5" Opacity="0.3"/>
 

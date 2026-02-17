@@ -15,7 +15,7 @@ namespace BetaProyecto
         [STAThread]
         public static void Main(string[] args)
         {
-            // 1. INICIALIZAR EL NÚCLEO DE VLC
+            // Primero , inicializamos LibVLCSharp
             try
             {
                 Core.Initialize();
@@ -25,7 +25,8 @@ namespace BetaProyecto
                 Debug.WriteLine($"Error inicializando VLC: {ex.Message}");
             }
 
-            // 3. ARRANCAR LA APP DE AVALONIA
+
+            // Arrancamos la aplicación Avalonia
             BuildAvaloniaApp()
                 .StartWithClassicDesktopLifetime(args);
         }

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using BetaProyecto.Models; // Asegúrate de que esto apunta a donde está tu clase Usuario corregida
+using BetaProyecto.Models;
 
 namespace BetaProyecto.Singleton
 {
@@ -9,7 +9,7 @@ namespace BetaProyecto.Singleton
         private static GlobalData _instance;
         public static GlobalData Instance => _instance ??= new GlobalData();
 
-        // --- VARIABLES GLOBALES ---
+        // Variables globales
         public string UserIdGD { get; set; }
         public string UsernameGD { get; set; }
         public string EmailGD { get; set; }
@@ -27,12 +27,26 @@ namespace BetaProyecto.Singleton
         public string DiccionarioFuenteGD { get; set; }
         public DateTime Fecha_registroGD { get; set; }
 
-        // --- EL MÉTODO PARA LLENAR LOS DATOS ---
+        // Método para cargar datos del usuario en las variables globales
+        /// <summary>
+        /// Sincroniza y mapea la información completa de un objeto <see cref="Usuarios"/> hacia las propiedades globales de la sesión actual.
+        /// </summary>
+        /// <remarks>
+        /// Este método actúa como un adaptador que distribuye los datos del usuario autenticado en diferentes categorías:
+        /// <list type="bullet">
+        /// <item><b>Datos de Identidad:</b> Mapea ID, nombre, correo y rol directamente desde la raíz del objeto.</item>
+        /// <item><b>Perfil y Preferencias:</b> Extrae información geográfica, imagen de perfil y estado de privacidad.</item>
+        /// <item><b>Actividad y Social:</b> Inicializa contadores de estadísticas y asegura que las listas de seguidores y favoritos no sean nulas.</item>
+        /// <item><b>Configuración de Entorno:</b> Carga los diccionarios de tema, idioma y fuente, aplicando valores por defecto si no existen preferencias guardadas.</item>
+        /// </list>
+        /// Se utiliza principalmente durante el inicio de sesión o tras una actualización exitosa del perfil del usuario para mantener la consistencia en toda la aplicación.
+        /// </remarks>
+        /// <param name="user">El objeto <see cref="Usuarios"/> recuperado de la base de datos que contiene la información maestra.</param>
         public void SetUserData(Usuarios user)
         {
             if (user != null)
             {
-                // 1. Datos que están en la raíz (Directos)
+                // Datos que están en la raíz
                 this.UserIdGD = user.Id;
                 this.UsernameGD = user.Username;
                 this.EmailGD = user.Email;
@@ -40,7 +54,7 @@ namespace BetaProyecto.Singleton
                 this.RolGD = user.Rol;
                 this.Fecha_registroGD = user.FechaRegistro;
 
-                // 2. Datos dentro de "Perfil" (Hay que entrar en la cajita)
+                // Datos dentro de "Perfil" 
                 if (user.Perfil != null)
                 {
                     this.UrlFotoPerfilGD = user.Perfil.ImagenUrl;
@@ -49,7 +63,7 @@ namespace BetaProyecto.Singleton
                     this.PaisGD = user.Perfil.Pais;
                 }
 
-                // 3. Datos dentro de "Estadisticas"
+                // Datos dentro de "Estadisticas"
                 if (user.Estadisticas != null)
                 {
                     this.Num_canciones_subidasGD = user.Estadisticas.NumCancionesSubidas;
@@ -59,7 +73,7 @@ namespace BetaProyecto.Singleton
                     this.Num_canciones_subidasGD = 0;
                 }
 
-                // 4. Datos dentro de "Listas"
+                // Datos dentro de "Listas"
                 if (user.Listas != null)
                 {
                     this.SeguidoresGD = user.Listas.Seguidores ?? new List<string>(); ;
@@ -87,8 +101,8 @@ namespace BetaProyecto.Singleton
             }
         }
 
-        // --- IMPORTANTE: MÉTODO PARA CERRAR SESIÓN ---
-        // (Añade esto, lo necesitarás para el botón "Cerrar Sesión")
+
+        // Para limpiar los datos
         public void ClearUserData()
         {
             this.UserIdGD = string.Empty;
@@ -107,12 +121,22 @@ namespace BetaProyecto.Singleton
             this.DiccionarioIdiomaGD = string.Empty;
             this.DiccionarioFuenteGD = string.Empty;
         }
-
-        // Dentro de BetaProyecto.Singleton.GlobalData
-
+        // Para generar un objeto Usuarios completo a partir de las variables globales
+        /// <summary>
+        /// Reconstruye y devuelve un objeto de tipo <see cref="Usuarios"/> integrando todas las propiedades almacenadas en la sesión global.
+        /// </summary>
+        /// <remarks>
+        /// Este método realiza una operación de ensamblado para convertir las propiedades planas de <see cref="GlobalData"/> en una estructura jerárquica compleja. 
+        /// Es fundamental para operaciones de persistencia, permitiendo que otros servicios (como el cliente de base de datos) reciban una entidad completa 
+        /// con sus objetos anidados de <see cref="PerfilUsuario"/>, <see cref="EstadisticasUsuario"/>, <see cref="ListasUsuario"/> y <see cref="ConfiguracionUser"/>.
+        /// </remarks>
+        /// <returns>
+        /// Una nueva instancia de <see cref="Usuarios"/> que refleja el estado actual de la sesión del usuario, 
+        /// incluyendo sus preferencias de configuración y listas sociales.
+        /// </returns>
         public Usuarios GetUsuarioObject()
         {
-            // 2. Reconstruimos el objeto completo
+            // Reconstruimos el objeto completo
             var usuarioCompleto = new Usuarios
             {
                 Id = this.UserIdGD,
@@ -152,6 +176,7 @@ namespace BetaProyecto.Singleton
 
             return usuarioCompleto;
         }
+        // Constructor
         private GlobalData() { }
     }
 }

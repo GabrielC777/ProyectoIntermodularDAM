@@ -30,18 +30,19 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
+        <!--Título con el combox para filtrar por genero-->
         <Border Grid.Row="0"
                 BorderBrush="{DynamicResource Brush_Pop_Borde_Filtro}" 
                 BorderThickness="2" Margin="0,10"
                 CornerRadius="10" HorizontalAlignment="Left" Padding="15,5">
             
             <StackPanel Orientation="Horizontal" Spacing="15">
+                <!-- Título -->
                 <TextBlock VerticalAlignment="Center" 
                            Text="{DynamicResource Pop_LblFiltro}" 
                            FontSize="22" FontWeight="Bold"
                            Foreground="{DynamicResource Brush_Pop_Texto_Filtro}"/>
-                
+                <!--Combox para seleccionar-->
                 <ComboBox ItemsSource="{Binding ListaGeneros}" 
                           SelectedItem="{Binding GeneroSeleccionado}"
                           PlaceholderText="{DynamicResource Pop_ComboPlaceholder}"
@@ -52,6 +53,7 @@
             </StackPanel>
         </Border>
 
+        <!--Texto de resultado de la busqueda-->
         <TextBlock Grid.Row="1" 
                    FontSize="18" FontWeight="SemiBold" 
                    Foreground="{DynamicResource Brush_Pop_Texto_Secundario}"
@@ -59,7 +61,7 @@
             <Run Text="{Binding TxtInfo, Converter={StaticResource Traductor},Mode=OneWay}"/>
             <Run Text="{Binding TxtGeneroMostrado}"/> 
         </TextBlock>
-
+        <!--Lista de canciones filtradas por género-->
         <ListBox Grid.Row="2" 
                  Background="Transparent"
                  ItemsSource="{Binding ListaPopulares}"
@@ -68,19 +70,19 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid ColumnDefinitions="Auto, *, Auto">
-                        
+                        <!--Imagen de la canción-->
                         <Border Grid.Column="0" CornerRadius="5" ClipToBounds="True" Width="60" Height="60">
                             <Image asyncImageLoader:ImageLoader.Source="{Binding ImagenPortadaUrl}" Stretch="UniformToFill"
                                    AutomationProperties.Name="{DynamicResource Acc_Pop_Caratula}"/>
                         </Border>
-
+                        <!--Nombre y artista-->
                         <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="20,0,0,0">
                             <TextBlock Text="{Binding Titulo}" FontWeight="Bold" FontSize="18"
                                        Foreground="{DynamicResource Brush_Pop_Texto_Principal}"/>
                             <TextBlock Text="{Binding NombreArtista}" FontSize="14" 
                                        Foreground="{DynamicResource Brush_Pop_Texto_Secundario}"/>
                         </StackPanel>
-
+                        <!--Botón para reproducir la canción-->
                         <Button Grid.Column="2"
                                 Background="Transparent" Cursor="Hand"
                                 x:CompileBindings="False"

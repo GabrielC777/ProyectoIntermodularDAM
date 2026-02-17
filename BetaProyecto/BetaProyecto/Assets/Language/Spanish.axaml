@@ -110,10 +110,13 @@
     <system:String x:Key="Reg_WaterPass">******</system:String>
     
     <system:String x:Key="Reg_LblPais">País</system:String>
-    <system:String x:Key="Reg_WaterPais">Ej: España</system:String>
+    <system:String x:Key="Reg_WaterPais">Selecciona un país</system:String>
     
     <system:String x:Key="Reg_LblFecha">Fecha Nacimiento</system:String>
-    
+    <system:String x:Key="Reg_Msg_SelectFotoPerfil">Selecciona tu foto de perfil</system:String>
+    <system:String x:Key="Reg_Msg_ImagenDemasiadoGrande">La imagen seleccionada excede el límite de 32 MB. Por favor, elige una imagen más ligera.</system:String>
+    <system:String x:Key="Reg_TituloSelector">Selecciona tu foto de perfil</system:String>
+
     <system:String x:Key="Reg_LblFotoLocal">Foto de Perfil (Local)</system:String>
     <system:String x:Key="Reg_WaterRutaFoto">C:\Ruta\Imagen.jpg</system:String>
     <system:String x:Key="Reg_BtnExaminar">📁 Examinar</system:String>
@@ -262,6 +265,7 @@
     <system:String x:Key="Acc_EditPlay_BtnAdd_Help">Añadir esta canción a la lista</system:String>
     <system:String x:Key="Acc_EditPlay_BtnRemove_Help">Quitar esta canción de la lista</system:String>
     <system:String x:Key="Msg_Error_ActualizarPlaylist">Error al actualizar la playlist.</system:String>
+    <system:String x:Key="Msg_Error_CargarImagen">Error al cargar la imagen desde internet.</system:String>
 
     <!-- ViewAyuda.axaml -->
     <system:String x:Key="Ayuda_Titulo">Ayuda</system:String>
@@ -468,6 +472,9 @@
     <system:String x:Key="Acc_Cuenta_CajaPais">Editar país de residencia</system:String>
     <system:String x:Key="Acc_Cuenta_ComboTipo">Seleccionar privacidad del perfil</system:String>
 
+    <system:String x:Key="MsgExitoActualizarPerfil">Perfil actualizado correctamente</system:String>
+    <system:String x:Key="MsgErrorActualizarPerfil">No se detecto ningun cambio o ocurrio un error al actualizar el perfil</system:String>
+
     <!-- ViewGestionCuenta.axaml -->
     <system:String x:Key="Gestion_Titulo">Gestionar</system:String>
     <system:String x:Key="Gestion_BtnActualizar">Actualizar</system:String>
@@ -536,7 +543,9 @@
     <system:String x:Key="Reportes_HolderResolucion">Escribe aquí la resolución interna...</system:String>
     <system:String x:Key="Reportes_BtnGuardar">GUARDAR CAMBIOS</system:String>
     <system:String x:Key="Reportes_BadgeResuelto">RESUELTO</system:String>
-
+    <system:String x:Key="Reportes_MsgActualizado">Reporte actualizado</system:String>
+    <system:String x:Key="Reportes_MsgSinCambios">Sin cambios o error</system:String>
+    
     <system:String x:Key="Acc_Reportes_BtnRefrescar">Recargar lista de reportes</system:String>
     <system:String x:Key="Acc_Reportes_ListaPendientes">Lista de reportes pendientes</system:String>
     <system:String x:Key="Acc_Reportes_ListaInvest">Lista de reportes bajo investigación</system:String>

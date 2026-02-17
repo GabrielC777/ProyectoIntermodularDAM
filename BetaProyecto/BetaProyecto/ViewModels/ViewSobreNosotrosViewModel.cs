@@ -1,11 +1,7 @@
 ﻿using ReactiveUI;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Reactive;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BetaProyecto.ViewModels
 {
@@ -17,7 +13,7 @@ namespace BetaProyecto.ViewModels
         public ReactiveCommand<Unit, Unit> BtnAbrirGitHub { get; } 
         public ViewSobreNosotrosViewModel()
         {
-            // Configuramos el comando directamente aquí
+            // Configuramos el comando reactive
             btnVolverAtras = ReactiveCommand.Create(() =>
             {
                 Debug.WriteLine("Volviendo desde el Sobre Nosotros...");
@@ -27,6 +23,7 @@ namespace BetaProyecto.ViewModels
             {
                 try
                 {
+                    // Intentamos abrir la URL en el navegador predeterminado
                     Process.Start(new ProcessStartInfo
                     {
                         FileName = "https://github.com/GabrielC777/ProyectoIntermodularDAM.git",

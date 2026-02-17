@@ -1,5 +1,4 @@
-﻿using Avalonia.Controls;
-using BetaProyecto.Helpers;
+﻿using BetaProyecto.Helpers;
 using BetaProyecto.Models;
 using BetaProyecto.Singleton;
 using ReactiveUI;
@@ -52,7 +51,7 @@ namespace BetaProyecto.ViewModels
             }
         }
 
-        //Para cuendo volvamos no veamos el radio button vacio si estamos en modo oscuro
+        //Para cuando volvamos no veamos el radio button vacio si estamos en modo oscuro
         public bool IndiceTemaOscuro
         {
             get => !_indiceTema;
@@ -72,10 +71,10 @@ namespace BetaProyecto.ViewModels
         {
             _accionRefrescarTema = accionRefrescar;
 
-            // 1. CARGAR ESTADO ACTUAL (Desde GlobalData)
+            // Cargar el estado inicial basado en el GlobalData
             CargarEstadoInicial();
 
-            // 2. CONFIGURAR COMANDOS
+            // Configuramos comandos reactive 
             BtnVolverAtras = ReactiveCommand.Create(() => accionVolver?.Invoke());
 
             BtnCerrarSesion = ReactiveCommand.Create(() =>
@@ -87,10 +86,18 @@ namespace BetaProyecto.ViewModels
             BtnSalirApp = ReactiveCommand.Create(() => accionSalir?.Invoke());
         }
 
-        // Para comprobar que diccionarios hay activos configuracion
+        /// <summary>
+        /// Sincroniza la interfaz de configuración con las preferencias del usuario almacenadas en los datos globales.
+        /// </summary>
+        /// <remarks>
+        /// Este método recupera los valores actuales de tema, idioma y tipografía desde <see cref="GlobalData.Instance"/>. 
+        /// Posteriormente, traduce estas cadenas de texto a los índices correspondientes que utilizan los selectores de la vista 
+        /// y fuerza la notificación de cambio de propiedades mediante <c>RaisePropertyChanged</c> para que la UI 
+        /// refleje el estado real de la configuración.
+        /// </remarks>
         private void CargarEstadoInicial()
         {
-            // Usamos las variables REALES de tu GlobalData
+            // Usamos las variables de GlobalData para enseñar el estado actual de la configuración al usuario
             var tema = GlobalData.Instance.DiccionarioTemaGD ?? "ModoClaro";
             var idioma = GlobalData.Instance.DiccionarioIdiomaGD ?? "Spanish";
             var fuente = GlobalData.Instance.DiccionarioFuenteGD ?? "Lexend";
@@ -117,27 +124,47 @@ namespace BetaProyecto.ViewModels
             };
             this.RaisePropertyChanged(nameof(IndiceFuente));
         }
-
-        // --- MÉTODOS DE CAMBIO Y GUARDADO ---
-
+        /// <summary>
+        /// Ejecuta el cambio de apariencia visual de la aplicación entre modo claro y modo oscuro.
+        /// </summary>
+        /// <remarks>
+        /// Este método gestiona el cambio de tema en tres niveles:
+        /// <list type="number">
+        /// <item><b>Visual:</b> Aplica el diccionario de recursos de forma instantánea mediante <see cref="ControladorDiccionarios"/>.</item>
+        /// <item><b>Persistencia:</b> Si el tema es distinto al actual, sincroniza la preferencia en la base de datos MongoDB.</item>
+        /// <item><b>Estado Global:</b> Actualiza la propiedad en <see cref="GlobalData.Instance"/> para mantener la consistencia en toda la sesión.</item>
+        /// </list>
+        /// </remarks>
+        /// <param name="esClaro">Indica si se debe aplicar el "ModoClaro" (<c>true</c>) o el "ModoOscuro" (<c>false</c>).</param>
         private void AplicarCambioTema(bool esClaro)
         {
             string nuevoTema = esClaro ? "ModoClaro" : "ModoOscuro";
 
-            // 1. Visual (Instantáneo)
+            //Aplicamos el tema en la app
             ControladorDiccionarios.AplicarTema(nuevoTema);
 
-            // 2. Comprobamos si realmente cambió respecto a GlobalData
+            // Comprobamos si realmente cambió respecto a GlobalData
             if (GlobalData.Instance.DiccionarioTemaGD != nuevoTema)
             {
-                // 3. Guardamos en Mongo PRIMERO (para que detecte el cambio)
+                // Guardamos en Mongo
                 GuardarConfiguracionEnMongo(nuevoTema, null, null);
 
-                // 4. Actualizamos GlobalData AL FINAL
+                // Actualizamos GlobalData
                 GlobalData.Instance.DiccionarioTemaGD = nuevoTema;
             }
         }
-
+        /// <summary>
+        /// Ejecuta el cambio de idioma de la interfaz de usuario basándose en el índice seleccionado.
+        /// </summary>
+        /// <remarks>
+        /// Este método gestiona la internacionalización en tres niveles:
+        /// <list type="number">
+        /// <item><b>Visual:</b> Cambia el diccionario de strings de forma dinámica mediante <see cref="ControladorDiccionarios"/>.</item>
+        /// <item><b>Persistencia:</b> Si el idioma es diferente al actual, sincroniza la nueva preferencia en la base de datos MongoDB.</item>
+        /// <item><b>Estado Global:</b> Actualiza la referencia en <see cref="GlobalData.Instance"/> para asegurar la persistencia durante la sesión activa.</item>
+        /// </list>
+        /// </remarks>
+        /// <param name="indice">El índice del selector: <c>0</c> para "Spanish" y <c>1</c> para "English".</param>
         private void AplicarCambioIdioma(int indice)
         {
             string nuevoIdioma = indice == 1 ? "English" : "Spanish";
@@ -150,7 +177,18 @@ namespace BetaProyecto.ViewModels
                 GlobalData.Instance.DiccionarioIdiomaGD = nuevoIdioma;
             }
         }
-
+        /// <summary>
+        /// Ejecuta el cambio de la fuente tipográfica de la aplicación basándose en el índice seleccionado.
+        /// </summary>
+        /// <remarks>
+        /// Este método gestiona la personalización visual en tres niveles:
+        /// <list type="number">
+        /// <item><b>Visual:</b> Cambia el diccionario de estilos de fuente de forma dinámica mediante <see cref="ControladorDiccionarios"/>.</item>
+        /// <item><b>Persistencia:</b> Si la fuente es diferente a la actual, sincroniza la nueva preferencia en la base de datos MongoDB.</item>
+        /// <item><b>Estado Global:</b> Actualiza la referencia en <see cref="GlobalData.Instance"/> para asegurar que la tipografía se mantenga durante la sesión activa.</item>
+        /// </list>
+        /// </remarks>
+        /// <param name="indice">El índice del selector que determina la familia tipográfica (0: Lexend, 1: Carlito, 2: Arial, etc.).</param>
         private void AplicarCambioFuente(int indice)
         {
             string nuevaFuente = indice switch
@@ -173,13 +211,23 @@ namespace BetaProyecto.ViewModels
             }
         }
 
-        // Método auxiliar para construir el objeto y enviarlo
+        /// <summary>
+        /// Sincroniza de forma asíncrona las preferencias de personalización del usuario en la base de datos MongoDB.
+        /// </summary>
+        /// <remarks>
+        /// Este método implementa una lógica de actualización parcial. Construye un objeto de configuración 
+        /// combinando los nuevos valores proporcionados con los valores actuales almacenados en <see cref="GlobalData.Instance"/>. 
+        /// Si un parámetro se recibe como <c>null</c>, se preserva el valor existente. La actualización se lanza 
+        /// mediante una tarea en segundo plano para no bloquear la interfaz.
+        /// </remarks>
+        /// <param name="temaNuevo">El nombre del nuevo tema visual o <c>null</c> si no ha cambiado.</param>
+        /// <param name="idiomaNuevo">El nombre del nuevo idioma de la interfaz o <c>null</c> si no ha cambiado.</param>
+        /// <param name="fuenteNuevo">El nombre de la nueva familia tipográfica o <c>null</c> si no ha cambiado.</param>
         private void GuardarConfiguracionEnMongo(string? temaNuevo, string? idiomaNuevo, string? fuenteNuevo)
         {
             if (string.IsNullOrEmpty(GlobalData.Instance.UserIdGD)) return;
 
-            // Construimos el objeto Configuración mezclando lo NUEVO con lo VIEJO (de GlobalData)
-            // Si pasas 'null' en un parámetro, significa que ese no cambió, así que cogemos el de GlobalData.
+            // Construimos el objeto Configuración mezclando lo NUEVO con lo VIEJO para actualizarlo
             var config = new ConfiguracionUser
             {
                 DiccionarioTema = temaNuevo ?? GlobalData.Instance.DiccionarioTemaGD,
@@ -187,7 +235,7 @@ namespace BetaProyecto.ViewModels
                 DiccionarioFuente = fuenteNuevo ?? GlobalData.Instance.DiccionarioFuenteGD
             };
 
-            // Llamada asíncrona "Fire and Forget" al método inteligente de MongoAtlas
+            // Ejecutamos en segundo plano para actualizar la configuraciñon del usuario. 
             _ = MongoClientSingleton.Instance.Cliente.ActualizarConfiguracionUsuario(GlobalData.Instance.UserIdGD, config);
         }
     }

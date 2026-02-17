@@ -984,7 +984,7 @@
                     </Border>
                 </Grid>
             </TabItem>
-
+           <!--Tabla reportes-->
            <TabItem Header="{DynamicResource BD_TabReportes}">
                 <Grid ColumnDefinitions="*, 400">
                     <DataGrid Grid.Column="0" ItemsSource="{Binding ListaReportes}" SelectedItem="{Binding SelectedReporte}" 
@@ -1079,7 +1079,7 @@
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-
+                    <!--Crear , Editar, Eliminar (CRUD)-->
                     <Border Grid.Column="1" Margin="15,0,0,0" BorderBrush="{DynamicResource Brush_BD_Panel_Borde}" BorderThickness="1" CornerRadius="8" Padding="15" Background="{DynamicResource Brush_BD_Panel_Fondo}">
                         <TabControl Classes="CrudTabs">
                             
@@ -1178,7 +1178,7 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        
+        <!--ProgressBar--> 
         <Grid Grid.Row="0" Grid.RowSpan="2" IsVisible="{Binding EstaCargando}" ZIndex="9999">
             <Border Background="{DynamicResource Brush_BD_Loader_Fondo}" CornerRadius="12" Padding="40" 
                     HorizontalAlignment="Center" VerticalAlignment="Center"

@@ -10,7 +10,6 @@ namespace BetaProyecto.ViewModels
     {
 
         //Binding
-        // LISTA DE GÉNEROS (Para llenar el ComboBox)
         private ObservableCollection<string> _listaGeneros;
         public ObservableCollection<string> ListaGeneros
         {
@@ -18,7 +17,6 @@ namespace BetaProyecto.ViewModels
             set => this.RaiseAndSetIfChanged(ref _listaGeneros, value);
         }
 
-        //GÉNERO SELECCIONADO (El disparador)
         private string _generoSeleccionado;
         public string GeneroSeleccionado
         {
@@ -26,13 +24,12 @@ namespace BetaProyecto.ViewModels
             set
             {
                 this.RaiseAndSetIfChanged(ref _generoSeleccionado, value);
-                // ¡MAGIA! Al cambiar el valor, buscamos automáticamente ✨
+                // Al cambiar el valor, buscamos automáticamente 
                 if (!string.IsNullOrEmpty(value))
                     _ = CargarCancionesPorGenero(value);
             }
         }
 
-        //TEXTO INFORMATIVO (La clave del recurso, ej: "Pop_Res_Mostrando")
         private string _txtInfo;
         public string TxtInfo
         {
@@ -40,7 +37,6 @@ namespace BetaProyecto.ViewModels
             set => this.RaiseAndSetIfChanged(ref _txtInfo, value);
         }
 
-        // NUEVO: Parte dinámica del texto (Ej: " Rock") para usar con Run
         private string _txtGeneroMostrado;
         public string TxtGeneroMostrado
         {
@@ -48,7 +44,7 @@ namespace BetaProyecto.ViewModels
             set => this.RaiseAndSetIfChanged(ref _txtGeneroMostrado, value);
         }
 
-        //LISTA DE CANCIONES (Resultado)
+        //Lista de canciones
         private ObservableCollection<Canciones> _listaPopulares;
         public ObservableCollection<Canciones> ListaPopulares
         {
@@ -66,9 +62,19 @@ namespace BetaProyecto.ViewModels
             TxtInfo = "";
             TxtGeneroMostrado = "";
 
+            // Ejecutamos tarea en segndo plano para cargar géneros
             _ = CargarGeneros();
         }
 
+        /// <summary>
+        /// Carga asincrónicamente la lista de canciones populares para el género especificado y actualiza la pantalla relacionada
+        /// propiedades.
+        /// </summary>
+        /// <remarks>Si no se encuentran canciones para el género especificado, las propiedades de visualización se actualizan a
+        /// indica que no se encontraron resultados. Si la conexión a la base de datos no está disponible, se establece un mensaje de error
+        /// en su lugar. </remarks>
+        /// <param name="genero">El nombre del género para el que se recuperarán las canciones populares. No puede ser nulo ni vacío. </param>
+        /// <returns>Devuelve una tarea que representa la operación de carga asíncrona. </returns>
         private async Task CargarCancionesPorGenero(string genero)
         {
             // "Buscando..."
@@ -100,6 +106,13 @@ namespace BetaProyecto.ViewModels
                 TxtInfo = "Msg_Error_Conexion";
             }
         }
+
+        /// <summary>
+        /// Carga de forma asíncrona la lista de nombres de género desde la base de datos y actualiza la colección utilizada por la vista.
+        /// </summary>
+        /// <remarks>Si la conexión a la base de datos no está disponible, el método escribe un mensaje de error en el
+        /// salida de depuración y no se actualiza la lista de géneros. </remarks>
+        /// <returns>Devuelve una tarea que representa la operación de carga asíncrona. </returns>
         private async Task CargarGeneros()
         {
             if (MongoClientSingleton.Instance.Cliente != null)

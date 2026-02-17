@@ -1,20 +1,15 @@
 ﻿using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Markup.Xaml.Styling;
-using Avalonia.Media.Imaging;
 using Avalonia.Threading;
 using BetaProyecto.Models;
 using BetaProyecto.Services;
 using BetaProyecto.Singleton;
-using BetaProyecto.Views.Editar;
-using BetaProyecto.Views.Visores;
 using LibVLCSharp.Shared;
 using ReactiveUI;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Net.Security;
 using System.Reactive;
 using System.Threading.Tasks;
 
@@ -54,7 +49,7 @@ namespace BetaProyecto.ViewModels
         private List<Canciones> _historialAleatorio = new List<Canciones>();
         private int _indiceHistorialModoAleatorio = -1;
 
-        //Propiedades para Binding del controlador de música información canción
+        //Propiedades para Binding del controlador de música, la informacióm de la canción nombre, artista, imagen)
         private string _nombreCancion;
         public string NombreCancionActual
         {
@@ -75,7 +70,7 @@ namespace BetaProyecto.ViewModels
             get => _imagenCancion;
             set => this.RaiseAndSetIfChanged(ref _imagenCancion, value);
         }
-        //Propiedades para Binding del controlador de música iconos botones
+        //Propiedades para Binding del controlador de música iconos botones (play/pause, next, back, aleatorio, favorito)
         private string _iconoPlayPause;
         public string IconoPlayPause
         {
@@ -195,7 +190,7 @@ namespace BetaProyecto.ViewModels
         public ReactiveCommand<Unit, Unit> BtnBackCommand { get; }
         public ReactiveCommand<Unit, Unit> BtnAleatorioCommand { get; }
 
-        // --- CONSTRUCTOR (Al arrancar) ---
+        //Constructor 
         public MarcoAppViewModel()
         {
             //Inicializamos Servicios
@@ -209,7 +204,7 @@ namespace BetaProyecto.ViewModels
             _timer.Interval = TimeSpan.FromSeconds(1);
             _timer.Tick += Timer_Tick;
 
-            ///Inicializamos iconos del reproductor con recursos del diccionario(url del propio proyecto que van a /Assets/Imagenes/)
+            //Inicializamos iconos del reproductor con recursos del diccionario url del propio proyecto que van a /Assets/Imagenes/)
             IconoPlayPause = "Img_Play";
             IconoNext = "Img_Next_Disabled";
             IconoBack = "Img_Back_Disabled";
@@ -229,6 +224,7 @@ namespace BetaProyecto.ViewModels
                 IrAlCentralTabControl();
                 BarraVisible = true;
             };
+            //Action IrARegistarUser: Cuando se pulse el botón de registrar usuario
             _loginVM.IrARegistarUser = () =>
             {
                 IrACrearUsuario();
@@ -258,6 +254,13 @@ namespace BetaProyecto.ViewModels
         }
 
         #region Método para cargar las vistas
+        /// <summary>
+        /// Muestra la vista de creación del usuario como una ventana emergente, lo que permite al usuario crear una nueva cuenta.
+        /// </summary>
+        /// <remarks>
+        /// Este método reemplaza la ventana emergente actual con la vista de creación del usuario. Para cerrar el
+        /// popup y volver al estado anterior, usar la acción de retroalimentación proporcionada dentro de la creación del usuario
+        /// </remarks>
         public void IrACrearUsuario()
         {
             var viewCrearUsuarioVM = new ViewCrearUsuarioViewModel(
@@ -268,6 +271,12 @@ namespace BetaProyecto.ViewModels
             );
             PopupActual = viewCrearUsuarioVM;
         }
+        /// <summary>
+        /// Navega a la vista de control de pestaña central, inicializándola si es necesario y configurándola como la vista actual.
+        /// </summary>
+        /// <remarks>Si la vista de control de pestaña central no se ha creado, este método la inicializa y
+        /// configura sus acciones de navegación. Las llamadas posteriores reutilizarán la instancia de vista existente. Este método también
+        /// actualiza los iconos de la interfaz como parte del proceso de navegación.</remarks>
         public void IrAlCentralTabControl()
         {
             if (_centralTabVM == null)
@@ -296,9 +305,16 @@ namespace BetaProyecto.ViewModels
             RefrescarIconos();
             VistaActual = _centralTabVM;
         }
+        /// <summary>
+        /// Navega al panel de usuario y muestra la pestaña especificada.
+        /// </summary>
+        /// <remarks> Si el panel de usuario no se ha creado, este método lo inicializa y configura
+        /// acciones relacionadas. Si el panel ya existe, actualiza la pestaña mostrada. La navegación oculta los principales
+        /// barra mientras el panel de usuario está activo.</remarks>
+        /// <param name="pestania">El índice de la pestaña que se mostrará en el panel de usuario. Debe ser un índice de pestañas válido y compatible con el panel.</param>
         public void IrAPanelUsuario(int pestania)
         {
-            // REUTILIZACIÓN DE PANEL (Punto 3)
+            // Comprobamos si el panel de usuario ya existe o no
             if (_panelUsuarioVM == null)
             {
                 _panelUsuarioVM = new PanelUsuarioViewModel(pestania);
@@ -309,13 +325,12 @@ namespace BetaProyecto.ViewModels
                 _panelUsuarioVM.IndiceTab = pestania;
             }
 
-
-            //Conexiones finales del los Actions
+            //Conexiones de los Actions desde el PanelUsuario (Editar canción, editar playlist, volver atrás, logout, salir, refrescar)
             _panelUsuarioVM.IrAEditarCancion = (cancion) => IrAEditarCancion(cancion);
             _panelUsuarioVM.IrAEditarPlaylist = (playlist) => IrAEditarPlaylist(playlist);
             _panelUsuarioVM.VolverAtras = () =>
             {
-                VistaActual = _centralTabVM; // Volvemos a la caché central
+                VistaActual = _centralTabVM; // Volvemos a la vista anterior (TabControl)
                 BarraVisible = true;
             };
 
@@ -324,10 +339,17 @@ namespace BetaProyecto.ViewModels
             _panelUsuarioVM.AccionRefrescarDesdePadre = RefrescarIconos;
 
 
-            // Al entrar en Configuración/Perfil ocultamos la barra
+            // Al entrar ocultamos la barra
             BarraVisible = false;
+            // Y mostramos el panel de usuario
             VistaActual = _panelUsuarioVM;
         }
+        /// <summary>
+        /// Navega a la vista 'Sobre Nosotros', creándola y configurándola si no existe.
+        /// </summary>
+        /// <remarks>Si no se ha creado la vista 'Sobre Nosotros', este método la inicializa y
+        /// lo establece como la vista actual. Las llamadas posteriores reutilizarán la instancia de vista existente. La barra de música está oculta
+        /// mientras esta vista está activa. </remarks>
         public void IrASobreNosotros()
         {
             // Si no existe, la creamos y configuramos
@@ -341,7 +363,12 @@ namespace BetaProyecto.ViewModels
             VistaActual = _sobreNosotrosVM;
             BarraVisible = false; // Ocultamos la barra de música
         }
-
+        /// <summary>
+        /// Muestra la vista de ayuda en la aplicación, creándola y configurándola si no existe.
+        /// </summary>
+        /// <remarks>Cuando se invoca, este método cambia la vista actual a la vista de ayuda y oculta el
+        /// barra de aplicaciones. Si la vista de ayuda no se ha creado previamente, se inicializa y configura antes
+        /// se está mostrando. </remarks>
         public void IrAAyuda()
         {
             // Si no existe, la creamos y configuramos
@@ -355,9 +382,15 @@ namespace BetaProyecto.ViewModels
             VistaActual = _ayudaVM;
             BarraVisible = false;
         }
+        /// <summary>
+        /// Navega a la vista para publicar una nueva canción y actualiza el estado actual de la vista en consecuencia.
+        /// </summary>
+        /// <remarks>Este método reemplaza la vista actual con la vista de publicación de canciones y oculta los
+        /// barra de navegación. Cuando el usuario regresa desde la vista de publicación, se restaura la vista original del control de pestañas.
+        /// y la barra de navegación vuelve a ser visible. </remarks>
         private void IrAPublicarCancion()
         {
-            //Como vamos a generar una instancia nueva por cada publicacion no usamos el metodo ActivarVolverAtras
+            // Creamos una nueva instancia del ViewModel de publicar canción cada vez para asegurarnos de que se reinicia el formulario
             var publicarCancionVM = new ViewPublicarCancionViewModel(
                 accionVolver: () =>
                 {
@@ -371,9 +404,15 @@ namespace BetaProyecto.ViewModels
             VistaActual = publicarCancionVM;
 
         }
+        /// <summary>
+        /// Navega a la vista para crear una nueva lista de reproducción personalizada y restablece el formulario de creación de la lista de reproducción.
+        /// </summary>
+        /// <remarks>Este método reemplaza la vista actual con la vista de creación de listas de reproducción y oculta los
+        /// barra de navegación. Cuando el usuario regresa desde la vista de creación de listas de reproducción, la vista original y la barra de navegación
+        /// se restauran. </remarks>
         private void IrACrearPlaylist()
         {
-            //Como vamos a generar una instancia nueva por cada publicacion no usamos el metodo ActivarVolverAtras
+            // Creamos una nueva instancia del ViewModel de publicar canción cada vez para asegurarnos de que se reinicia el formulario
             var crearplaylistVM = new ViewCrearListaPersonalizadaViewModel(
                 accionVolver: () =>
                 {
@@ -387,6 +426,10 @@ namespace BetaProyecto.ViewModels
             VistaActual = crearplaylistVM;
 
         }
+        /// <summary>
+        /// Muestra la vista de detalles para la canción especificada y establece acciones relacionadas como reproducir, marcar como favorita y devolver.
+        /// </summary>
+        /// <param name="cancion">La canción para la que se muestran los detalles. No puede ser nula. </param>
         private void IrADetallesCancion(Canciones cancion)
         {
             var viewCancionesVM = new ViewCancionesViewModel(
@@ -395,13 +438,17 @@ namespace BetaProyecto.ViewModels
                 {
                     PopupActual = null;
                 },
-                // AÑADIR ESTA LÍNEA: Pasamos la función de reproducir
+                //Le pasamos las funciones de reproducción y favorito mediantes Actions para que se puedan usar en esa ventana
                 accionReproducir: (cancion) => ReproducirCancion(cancion, null),
                 accionLike: async (cancion) => await AlterarFavorito(cancion)
             );
             //Cambiamos la vista 
             PopupActual = viewCancionesVM;
         }
+        /// <summary>
+        /// Muestra los detalles del usuario especificado en una vista emergente.
+        /// </summary>
+        /// <param name="idUsuario">El identificador único del usuario cuyos detalles se deben mostrar. No puede ser nulo o vacío. </param>
         private void IrAVerArtista(string idUsuario)
         {
             var viewUsuarioVM = new ViewUsuariosViewModel(
@@ -414,6 +461,10 @@ namespace BetaProyecto.ViewModels
             //Cambiamos la vista 
             PopupActual = viewUsuarioVM;
         }
+        /// <summary>
+        /// Muestra la vista de creación del informe para la canción especificada.
+        /// </summary>
+        /// <param name="cancion">La canción para la que se mostrará la vista de creación del informe. No puede ser nula. </param>
         private void IrACrearReporte(Canciones cancion)
         {
             var viewCrearReporteVM = new ViewCrearReporteViewModel(
@@ -438,6 +489,10 @@ namespace BetaProyecto.ViewModels
             //Cambiamos la vista 
             PopupActual = viewListaPersonalizadaVM;
         }
+        /// <summary>
+        /// Muestra la vista de edición de canciones para la canción especificada.
+        /// </summary>
+        /// <param name="cancion">La canción a editar. No puede ser nula. </param>
         private void IrAEditarCancion(Canciones cancion)
         {
             var viewEditarCancionVM = new ViewEditarCancionViewModel(
@@ -450,6 +505,10 @@ namespace BetaProyecto.ViewModels
             //Cambiamos la vista 
             PopupActual = viewEditarCancionVM;
         }
+        /// <summary>
+        /// Muestra la vista de edición de la lista de reproducción personalizada especificada, permitiendo al usuario modificar sus detalles.
+        /// </summary>
+        /// <param name="playlist">La lista de reproducción personalizada que se va a editar. No puede ser nula. </param>
         private void IrAEditarPlaylist(ListaPersonalizada playlist)
         {
             var viewEditarListaPersonalizadaVM = new ViewEditarListaPersonalizadaViewModel(
@@ -465,6 +524,13 @@ namespace BetaProyecto.ViewModels
 
 
         // (Usamos una interfaz para ahorramos sobrecargar el metodo solo tendremos que añadir la interfaz)
+        /// <summary>
+        /// Asigna una llamada de retorno al modelo de vista especificado que permite la navegación de regreso a la vista principal.
+        /// </summary>
+        /// <remarks>Utilice este método para proporcionar un comportamiento de retorno estándar para los modelos de vista que admiten
+        /// navegación. Después de invocar el callback asignado, la barra de navegación principal se vuelve visible. </remarks>
+        /// <param name="vm">El modelo de vista que implementa la interfaz INavegable. El método establece su acción VolverAtras para navegar
+        /// de vuelta al control central de pestañas. </param>
         public void ActivarVolverAtras(INavegable vm)
         {
             vm.VolverAtras = () =>
@@ -475,143 +541,48 @@ namespace BetaProyecto.ViewModels
         }
         #endregion
 
-
-        // Metodos para cerrar sesión del usuario
-        private void CerrarSesion()
-        {
-            // 1. Parar música
-            if (_mediaPlayer.IsPlaying) _mediaPlayer.Stop();
-            
-            _timer.Stop();
-            IconoPlayPause= "Img_Play";
-            ValorSliderCancion = 0;
-            TiempoActualCancion = "--:--";
-            TiempoTotalCancion = "--:--";
-            NombreCancionActual = "";
-            NombreArtistaActual = "";
-            ImagenCancionActual = "https://i.ibb.co/v6CJTMX2/Icono-Musica.jpg";
-
-            // 2. Limpiar Datos Globales
-            GlobalData.Instance.ClearUserData();
-            BarraVisible = false;
-
-            // 3. LIMPIAR CACHÉ DE USUARIO (Seguridad)
-            // Destruimos las vistas que contienen datos del usuario anterior
-            _centralTabVM = null;
-            _panelUsuarioVM = null;
-            _sobreNosotrosVM = null;
-            _ayudaVM = null;         
-            // (Ayuda y SobreNosotros no hace falta borrarlos si son estáticos)
-
-            // 4. RESETEAR LOGIN
-            // Limpiamos los campos del LoginVM existente para que no salgan rellenos
-            _loginVM.TxtUsuario = "";
-            _loginVM.TxtPass = "";
-
-            // Volvemos a la vista Login original (que tiene el _dialogoService bien puesto)
-            VistaActual = _loginVM;
-        }
-        private void CerrarAplicacion()
-        {
-            try
-            {
-                // Buscamos cualquier proceso que se llame como tu API
-                var procesosApi = Process.GetProcessesByName("BetaProyecto.API");
-                foreach (var proc in procesosApi)
-                {
-                    System.Diagnostics.Debug.WriteLine($"Cerrando API: {proc.ProcessName}");
-                    proc.Kill(); // Forzamos el cierre
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine("Error al cerrar la API: " + ex.Message);
-            }
-
-            // 2. LIMPIAR RECURSOS
-            if (_mediaPlayer != null)
-            {
-                _mediaPlayer.Stop();
-                _mediaPlayer.Dispose();
-            }
-            LimpiarArchivoTemporal();
-            if (_libVLC != null) _libVLC.Dispose();
-
-            _timer.Stop();
-
-            // 3. CERRAR APP AVALONIA
-            if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
-            {
-                desktop.Shutdown();
-            }
-            else
-            {
-                Environment.Exit(0);
-            }
-        }
-        // Método que se activa cuando se cambia el tema de la aplicación
-        // Para refrescar los iconos
-        private void RefrescarIconos()
-        {
-            this.RaisePropertyChanged(nameof(IconoPlayPause));
-            this.RaisePropertyChanged(nameof(IconoNext));
-            this.RaisePropertyChanged(nameof(IconoBack));
-            this.RaisePropertyChanged(nameof(IconoAleatorio));
-            this.RaisePropertyChanged(nameof(IconoLike));
-            this.RaisePropertyChanged(nameof(ValorSliderCancion));
-        }
-        private void LimpiarArchivoTemporal()
-        {
-            try
-            {
-                // Si tenemos una ruta guardada y el archivo existe...
-                if (!string.IsNullOrEmpty(_rutaTemporalActual) && System.IO.File.Exists(_rutaTemporalActual))
-                {
-                    if (_mediaPlayer.Media != null)
-                    {
-                        _mediaPlayer.Media.Dispose(); // Destruye el enlace al archivo
-                        _mediaPlayer.Media = null;    // Limpia la propiedad del reproductor
-                    }
-
-                    // ¡Lo borramos! 🗑️
-                    System.IO.File.Delete(_rutaTemporalActual);
-                    System.Diagnostics.Debug.WriteLine($"[SEGURIDAD] Archivo temporal eliminado: {_rutaTemporalActual}");
-                    _rutaTemporalActual = "";
-                }
-            }
-            catch (Exception ex)
-            {
-                // Si falla (por ejemplo, si VLC todavía lo tiene bloqueado), no pasa nada, 
-                // Windows limpia los temporales eventualmente.
-                System.Diagnostics.Debug.WriteLine($"[AVISO] No se pudo borrar el temporal: {ex.Message}");
-            }
-        }
-
-
         #region Métodos para reproducción de música
+        /// <summary>
+        /// Inicia la reproducción de la canción especificada, opcionalmente usando una lista de reproducción proporcionada como cola de reproducción.
+        /// </summary>
+        /// <remarks>Si se proporciona una lista de reproducción, la reproducción comenzará con la canción especificada dentro de esa lista.
+        /// lista. De lo contrario, la reproducción se limita a la canción individual proporcionada. La cola de reproducción y el índice de canciones actual
+        /// se actualizan en consecuencia. </remarks>
+        /// <param name="cancion">La canción a reproducir. No puede ser nula. </param>
+        /// <param name="listaOrigen">Una lista opcional de canciones para usar como cola de reproducción. Si es nula o vacía, solo la canción especificada será
+        /// jugado. </param>
         public void ReproducirCancion(Canciones cancion, List<Canciones>? listaOrigen = null)
         {
-            // 1. GESTIÓN DE LA LISTA
-            if (listaOrigen != null && listaOrigen.Count > 0)
+            //Gestion de la cola de reproducción
+            if (listaOrigen != null && listaOrigen.Count > 0)//Si se proporciona una lista de reproducción válida, la usamos como cola
             {
                 _colaReproduccion = listaOrigen;
                 _indiceCancionActual = _colaReproduccion.IndexOf(cancion);
             }
-            else
+            else// Si no se proporciona una lista, creamos una cola artificial con solo la canción actual
             {
-                // Lista artificial de 1 canción
-                _colaReproduccion = new List<Canciones> { cancion };
+                _colaReproduccion = new List<Canciones> {cancion};
                 _indiceCancionActual = 0;
             }
 
 
-            // ACTUALIZAR LOS ICONOS
+            // Actualizamos los iconos
             ActualizarIconoAleatorio(cancion);
             ActualizarIconoNextBack();
 
-            // 3. REPRODUCIR
+            // Finalmente, cargamos y reproducimos la canción
             CargarYReproducir(cancion);
         }
+        /// <summary>
+        /// Carga la canción especificada y comienza la reproducción, actualizando la interfaz del reproductor y el estado relacionado en consecuencia.
+        /// </summary>
+        /// <remarks>Este método actualiza la información actual de la canción, los controles de reproducción y el usuario
+        /// elementos de interfaz para reflejar la canción cargada. Determina la fuente de audio apropiada en función del
+        /// URL de la canción, que admite enlaces a archivos en la nube tanto de YouTube como directos. Si la canción está marcada como favorita, el
+        /// el icono like se actualiza. La reproducción se inicia de forma asíncrona y las métricas de reproducción de canciones se incrementan en el
+        /// fondo. Si no se puede cargar el audio, se muestra una alerta al usuario. Este método es asincrónico.
+        /// pero devuelve nulo; las excepciones se capturan y registran internamente. </remarks>
+        /// <param name="cancion">La canción a cargar y reproducir. No debe ser nula y debe contener metadatos válidos y una URL reproducible.</param>
         public async void CargarYReproducir(Canciones cancion)
         {
             
@@ -645,7 +616,6 @@ namespace BetaProyecto.ViewModels
 
                 System.Diagnostics.Debug.WriteLine($"Buscando audio para: {cancion.Titulo}...");
 
-                // Pedir la URL a la API 
                 string urlStream = "";
                 // CASO 1: Es un video de YouTube
                 if (cancion.UrlCancion.Contains("youtube.com") || cancion.UrlCancion.Contains("youtu.be"))
@@ -660,7 +630,7 @@ namespace BetaProyecto.ViewModels
                         urlStream = infoAudio.Url; // Usamos la URL "traducida" temporal
                     }
                 }
-                // CASO 2: Es un archivo directo de tu Nube (Cloud)
+                // CASO 2: Es un archivo directo de nuestra nube [CLOUDNARY]
                 else
                 {
                     System.Diagnostics.Debug.WriteLine("Modo Archivo: Solicitando acceso seguro...");
@@ -671,7 +641,8 @@ namespace BetaProyecto.ViewModels
                     // 3. Descifrar a un temporal para que VLC lo lea ahora.
 
                     urlStream = await _audioService.ObtenerRutaAudioSegura(cancion.UrlCancion, cancion.Id);
-                    // GUARDA LA RUTA para borrarla luego
+
+                    // Guarda la ruta para luego borrarla
                     if (urlStream.Contains("BetaProyectoMusicTemp"))
                     {
                         System.Diagnostics.Debug.WriteLine($"[RUTAS] Carpeta temporal: {urlStream}");
@@ -682,7 +653,7 @@ namespace BetaProyecto.ViewModels
 
                 if (!string.IsNullOrEmpty(urlStream))
                 {
-                    // 3. Reproducir en VLC
+                    // Ahora que tenemos la URL/Ruta del .mp3 , la pasamos a VLC para reproducirla
                     var media = new Media(_libVLC, new Uri(urlStream));
                     _mediaPlayer.Play(media);
                     _timer.Start();
@@ -704,6 +675,13 @@ namespace BetaProyecto.ViewModels
                 System.Diagnostics.Debug.WriteLine("Error al reproducir: " + ex.Message);
             }
         }
+        /// <summary>
+        /// Cambia la reproducción del reproductor multimedia entre los estados de reproducción y pausa.
+        /// </summary>
+        /// <remarks>Si el reproductor multimedia está reproduciéndose, este método detiene la reproducción y actualiza el
+        /// reproducir/pausa el icono en consecuencia. Si el reproductor multimedia se detiene, este método inicia la reproducción y actualiza el icono,
+        /// y inicia el temporizador asociado. Este método no genera excepciones y asume que el reproductor multimedia y
+        /// los temporizadores están correctamente inicializados. </remarks>
         private void AccionarPlayPause()
         {
             if (_mediaPlayer.IsPlaying)
@@ -718,13 +696,22 @@ namespace BetaProyecto.ViewModels
                 _timer.Start();
             }
         }
+        /// <summary>
+        /// Cambia el modo de reproducción aleatoria para la lista de reproducción actual. Cuando está activado, el orden de reproducción se aleatoriza;
+        /// cuando está desactivado, la reproducción se reanuda en el orden original de la canción actual.
+        /// </summary>
+        /// <remarks>Este método no tiene efecto si la lista de reproducción es nula o contiene uno o menos elementos.
+        /// Cuando se activa el modo aleatorio, la canción actual se añade al historial de reproducción aleatoria para permitir su retorno
+        /// a ella. Cuando se desactiva, la reproducción continúa desde la posición actual de la canción en la lista de reproducción original
+        /// orden. </remarks>
         private void AlternarAleatorio()
         {
+            // Comprobamos que la cola de reproducción es válida y tiene suficientes canciones para justificar el modo aleatorio
             if (_colaReproduccion == null || _colaReproduccion.Count <= 1)
             {
                 return;
             } 
-            //Intercambiamos el estado del botón (Interruptor)
+            //Intercambiamos el estado del botón
             _btnaleatorioActivo = !_btnaleatorioActivo;
 
             if (_btnaleatorioActivo)
@@ -756,16 +743,27 @@ namespace BetaProyecto.ViewModels
             }
             ActualizarIconoNextBack();
         }
+        /// <summary>
+        /// Añade o elimina la canción especificada de la lista de favoritos del usuario, actualizando el estado favorito
+        /// en consecuencia.
+        /// </summary>
+        /// <remarks>Si la canción ya está en la lista de favoritos, se elimina; de lo contrario, se añade.
+        /// El método también actualiza el icono de like y ajusta la métrica de like count de la canción. No se realiza ninguna acción si el
+        /// la canción proporcionada es nula. </remarks>
+        /// <param name="cancion">La canción a añadir o quitar de la lista de favoritos. Si es nula, no se realiza la operación. </param>
+        /// <returns>Devuelve una tarea que representa la operación asíncrona. </returns>
         private async Task AlterarFavorito(Canciones cancion)
         {
+            // Si la canción es nula, no hacemos nada por seguridad
             if (cancion == null)
             {
                 return;
             }
+            // Obtenemos la lista de favoritos del usuario y el ID del usuario para realizar las operaciones necesarias
             var listaFavoritos = GlobalData.Instance.FavoritosGD;
             var idUsuario = GlobalData.Instance.UserIdGD;
             var idCancion = cancion.Id;
-            
+            // Comprobamos si la canción ya está en favoritos
             if (listaFavoritos.Contains(idCancion))
             {
                 // Quitar de favoritos
@@ -780,7 +778,7 @@ namespace BetaProyecto.ViewModels
                 await MongoClientSingleton.Instance.Cliente.IncrementarMetricaCancion(idCancion, "metricas.total_megustas", -1);
                 System.Diagnostics.Debug.WriteLine("Like quitado (-1)");
             }
-            else
+            else// La canción no estaba en favoritos, la añadimos
             {
                 // Añadir a favoritos
                 listaFavoritos.Add(idCancion);
@@ -795,13 +793,22 @@ namespace BetaProyecto.ViewModels
                 System.Diagnostics.Debug.WriteLine("Like añadido (+1)");
             }
         }
+        /// <summary>
+        /// Avanza a la reproducción de la siguiente canción en la lista de reproducción, manejando tanto el modo secuencial como el de mezcla.
+        /// </summary>
+        /// <remarks>En el modo de mezcla, este método selecciona aleatoriamente la siguiente canción entre las que aún no están disponibles.
+        /// jugado, manteniendo un historial para evitar repeticiones hasta que se hayan reproducido todas las canciones. En el modo secuencial,
+        /// avanza a la siguiente canción en orden si está disponible. Si todas las canciones se han reproducido en modo de mezcla, el historial
+        /// se restablece excepto para la canción actual, y la reproducción continúa. Este método no tiene efecto si la lista de reproducción es
+        /// vacío. </remarks>
         private void NextCancion()
         {
+            // Comprobamos que la cola de reproducción es válida y tiene canciones
             if (_colaReproduccion != null && _colaReproduccion.Count > 0)
             {
                 if (_btnaleatorioActivo) // --- MODO ALEATORIO ---
                 {
-                    // A. ¿Estamos navegando hacia adelante en el historial? (Habíamos dado Back antes)
+                    // Comprobamos si el usuario a usado el Back antes de avanzar, si es así, avanzamos por el historial
                     if (_indiceHistorialModoAleatorio < _historialAleatorio.Count - 1)
                     {
                         _indiceHistorialModoAleatorio++;
@@ -809,15 +816,13 @@ namespace BetaProyecto.ViewModels
                         ActualizarIconoNextBack();
                         CargarYReproducir(cancionHistorial);
                     }
-                    else
+                    else // Si el usuario no ha usado el Back o ya está al final del historial, generamos elegimos una canción aleatoria
                     {
-                        // B. Generar NUEVA canción (Que NO haya sonado ya)
-
-                        // 1. Buscamos qué canciones de la lista original NO están en el historial todavía
+                        // Buscamos qué canciones de la lista original NO están en el historial todavía
                         // Usamos LINQ: "Dame las canciones de la cola EXCEPTO las del historial"
                         var cancionesPendientes = _colaReproduccion.Except(_historialAleatorio).ToList();
 
-                        // 2. Comprobamos si quedan canciones por sonar
+                        // Comprobamos si quedan canciones por sonar
                         if (cancionesPendientes.Count > 0)
                         {
                             // Elegimos una al azar de las que FALTAN
@@ -830,9 +835,8 @@ namespace BetaProyecto.ViewModels
                             ActualizarIconoNextBack();
                             CargarYReproducir(nuevaCancion);
                         }
-                        else
+                        else // Si no quedan canciones por sonar, significa que el usuario ya ha escuchado toda la lista en modo aleatorio
                         {
-                            // ¡Se han reproducido todas las canciones!
                             // Reiniciamos el historial (salvo la canción actual)
                             var cancionActualTemp = _cancionActual;
                             _historialAleatorio.Clear();
@@ -850,17 +854,20 @@ namespace BetaProyecto.ViewModels
                     if (_indiceCancionActual < _colaReproduccion.Count - 1)
                     {
                         _indiceCancionActual++;
-
-                        // 1. Cambiamos los botones (Ahora Back se activará si estaba apagado)
                         ActualizarIconoNextBack();
-
-                        // 2. Reproducimos
                         CargarYReproducir(_colaReproduccion[_indiceCancionActual]);
                     }
                 }
             }
         }
-
+        /// <summary>
+        /// Mueve la reproducción a la pista anterior en la lista de reproducción o al historial de reproducción, dependiendo de la reproducción actual
+        /// modo.
+        /// </summary>
+        /// <remarks>En el modo de mezcla, este método navega hacia atrás a través del historial de reproducción si
+        /// posible. En el modo normal, se mueve a la pista anterior en la lista de reproducción a menos que ya esté en la primera pista.
+        /// No se toma ninguna medida si no hay pistas en la lista de reproducción o si ya está al principio del historial o
+        /// lista de reproducción. </remarks>
         private void BackCancion()
         {
             if (_colaReproduccion != null && _colaReproduccion.Count > 0)
@@ -883,16 +890,20 @@ namespace BetaProyecto.ViewModels
                     if (_indiceCancionActual > 0)
                     {
                         _indiceCancionActual--;
-
-                        // 1. Cambiamos los botones (Ahora Next se activará si estaba apagado)
                         ActualizarIconoNextBack();
-
-                        // 2. Reproducimos
                         CargarYReproducir(_colaReproduccion[_indiceCancionActual]);
                     }
                 }
             }
         }
+        /// <summary>
+        /// Actualiza los iconos de los botones de navegación Siguiente y Atrás en función del modo y la posición de reproducción actuales
+        /// en la lista de reproducción.
+        /// </summary>
+        /// <remarks>Este método habilita o deshabilita los iconos de los botones Siguiente y Atrás, dependiendo de si
+        /// la lista de reproducción está en modo de mezcla y la posición actual de la canción. En el modo de mezcla, el botón Siguiente permanece
+        /// activado, mientras que el botón Atrás solo está activado si hay un historial de reproducción. En modo normal, los botones están
+        /// activado o desactivado según si la canción actual es la primera o la última en la lista de reproducción. </remarks>
         private void ActualizarIconoNextBack()
         {
             // CASO 1: No hay lista o la lista está vacía o solo tiene 1 canción
@@ -938,6 +949,13 @@ namespace BetaProyecto.ViewModels
                 }
             }
         }
+        /// <summary>
+        /// Actualiza el icono de reproducción aleatoria según la cola de reproducción actual y el estado del modo aleatorio.
+        /// </summary>
+        /// <remarks>Si la cola de reproducción contiene una o ninguna canción, el icono aleatorio está desactivado. Cuando el
+        /// el modo aleatorio está activo y la cola cambia, el historial de reproducción aleatoria se restablece para comenzar desde el
+        /// canción especificada. </remarks>
+        /// <param name="cancionInicio">La canción que se usará como punto de partida en el historial de reproducción aleatoria cuando el modo aleatorio esté activo. </param>
         private void ActualizarIconoAleatorio(Canciones cancionInicio)
         {
             // CASO A: Lista insuficiente (1 o 0 canciones) -> SE DESHABILITA
@@ -967,21 +985,31 @@ namespace BetaProyecto.ViewModels
                 }
             }
         }
+        /// <summary>
+        /// Maneja las marcas de eventos del temporizador para actualizar el progreso de reproducción, la hora actual y la duración total del medio
+        /// reproductor, o para avanzar a la siguiente pista cuando termina la reproducción.
+        /// </summary>
+        /// <remarks>Este método está destinado a ser utilizado como un manejador de eventos para un temporizador periódico.
+        /// asociado con la reproducción de medios. Actualiza los elementos de la interfaz de usuario, como el deslizador de progreso y las pantallas de tiempo.
+        /// respuesta al estado actual del reproductor multimedia. Si la reproducción ha terminado, avanza automáticamente a la
+        /// siguiente pista o restablece la interfaz de usuario según sea apropiado. </remarks>
+        /// <param name="sender">La fuente del evento, normalmente el temporizador que activó la marca. </param>
+        /// <param name="e">Un objeto que contiene los datos del evento. </param>
         private void Timer_Tick(object? sender, EventArgs e)
         {   
-            // Solo actualizamos si VLC está reproduciendo Y si ya sabe cuánto dura la canción
+            // Solo actualizamos si VLC está reproduciendo y si ya sabe cuánto dura la canción
             if (_mediaPlayer.IsPlaying && _mediaPlayer.Length > 0)
             {
-                // ACTUALIZAR SLIDER
+                // Actualizar slider de progreso de la canción
 
                 // _mediaPlayer.Position va de 0.0 a 1.0 (es un porcentaje)
-                // Lo multiplicamos por 100 para que coincida con tu Slider (Maximum=100)
+                // Lo multiplicamos por 100 para que coincida con nuestro Slider (Maximum=100)
                 // Usamos Math.Min y Max para evitar errores raros de desbordamiento
                 double nuevoValor = _mediaPlayer.Position * 100;
                 ValorSliderCancion = Math.Clamp(nuevoValor, 0, 100);
 
-                // ACTUALIZAR TIEMPOS
-                
+                // Actualizar tiempos de la canción
+
                 // Tiempo actual
                 var tiempoActual = TimeSpan.FromMilliseconds(_mediaPlayer.Time);
                 TiempoActualCancion = tiempoActual.ToString(@"mm\:ss");
@@ -993,17 +1021,16 @@ namespace BetaProyecto.ViewModels
             }
             else
             {
-                // Si la canción ha terminado SOLA (llegó al final)
+                // Si la canción ha terminado (llegó al final)
                 if (_mediaPlayer.State == VLCState.Ended)
                 {
-                    // 1. Paramos el timer un momento para que no se repita el evento
+                    // Paramos el timer un momento para que no se repita el evento
                     _timer.Stop();
 
-                    // 2. ¡Llamamos a SIGUIENTE automáticamente!
-                    // Como NextCancion ya tiene la lógica de Aleatorio/Normal, funcionará perfecto.
+                    // Llamamos a la siguente canción automáticamente
                     NextCancion();
                 }
-                // Si la canción se detuvo manualmente (Stop) o error
+                // Si la canción se detuvo o error
                 else if (_mediaPlayer.State == VLCState.Stopped || _mediaPlayer.State == VLCState.Error)
                 {
                     _timer.Stop();
@@ -1011,6 +1038,143 @@ namespace BetaProyecto.ViewModels
                     ValorSliderCancion = 0;
                     TiempoActualCancion = "00:00";
                 }
+            }
+        }
+        #endregion
+
+        #region Métodos helpers
+
+        /// <summary>
+        /// Actualiza los iconos y las propiedades relacionadas para reflejar el tema de la aplicación actual.
+        /// </summary>
+        /// <remarks>Llame a este método después de que cambie el tema de la aplicación para asegurarse de que todos los iconos y
+        /// las propiedades del deslizador se actualizan y notifican cualquier vinculación de datos de los cambios. </remarks>
+        private void RefrescarIconos()
+        {
+            //Forzamos la actualización de los iconos para que se recarguen con el nuevo tema (Binding)
+            this.RaisePropertyChanged(nameof(IconoPlayPause));
+            this.RaisePropertyChanged(nameof(IconoNext));
+            this.RaisePropertyChanged(nameof(IconoBack));
+            this.RaisePropertyChanged(nameof(IconoAleatorio));
+            this.RaisePropertyChanged(nameof(IconoLike));
+            this.RaisePropertyChanged(nameof(ValorSliderCancion));
+        }
+
+        /// <summary>
+        /// Cierra la sesión actual del usuario y restablece el estado de la aplicación a la vista de inicio de sesión.
+        /// </summary>
+        /// <remarks>Este método detiene cualquier reproducción de medios activa, borra datos específicos del usuario y restablece la interfaz de usuario.
+        /// elementos y elimina la información de usuario almacenada en caché para mayor seguridad. Después de la ejecución, la aplicación regresa al
+        /// pantalla de inicio de sesión, asegurándose de que ningún dato de sesiones anteriores permanezca accesible. Este método debe ser llamado cuando un
+        /// el usuario se desconecta o cuando una sesión debe finalizar de forma segura. </remarks>
+        private void CerrarSesion()
+        {
+            // Parar música si esta sonando
+            if (_mediaPlayer.IsPlaying) _mediaPlayer.Stop();
+
+            //Dejamos el reproductor 
+            _timer.Stop();
+            IconoPlayPause = "Img_Play";
+            ValorSliderCancion = 0;
+            TiempoActualCancion = "--:--";
+            TiempoTotalCancion = "--:--";
+            NombreCancionActual = "";
+            NombreArtistaActual = "";
+            ImagenCancionActual = "https://i.ibb.co/v6CJTMX2/Icono-Musica.jpg";
+
+            // Limpiamos los datos globales
+            GlobalData.Instance.ClearUserData();
+            BarraVisible = false;
+
+            // Limpiamos todas las vistas que puedan contener datos del usuario  
+            _centralTabVM = null;
+            _panelUsuarioVM = null;
+
+            // Limpiamos los campos del LoginVM existente para que no salgan rellenos
+            _loginVM.TxtUsuario = "";
+            _loginVM.TxtPass = "";
+
+            // Volvemos a la vista Login original
+            VistaActual = _loginVM;
+        }
+        /// <summary>
+        /// Realiza un cierre limpio de la aplicación, finalizando los procesos relacionados, liberando recursos, y
+        /// cerrando la ventana de la aplicación.
+        /// </summary>
+        /// <remarks>Este método termina por la fuerza cualquier instancia en ejecución de 'BetaProyecto.API'
+        /// proceso, descarte de recursos multimedia, detiene temporizadores internos y cierra la aplicación. Si el
+        /// la aplicación se ejecuta con una vida útil de escritorio clásica, utiliza el mecanismo de apagado apropiado;
+        /// de lo contrario, abandona el proceso. Utilice este método para asegurarse de que todos los recursos se liberan y la aplicación
+        /// salidas limpias. </remarks>
+        private void CerrarAplicacion()
+        {
+            try
+            {
+                // Buscamos cualquier proceso que se llame como tu API
+                var procesosApi = Process.GetProcessesByName("BetaProyecto.API");
+                foreach (var proc in procesosApi)
+                {
+                    System.Diagnostics.Debug.WriteLine($"Cerrando API: {proc.ProcessName}");
+                    proc.Kill(); // Forzamos el cierre
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error al cerrar la API: " + ex.Message);
+            }
+
+            // Limpiamos recursos multimedia
+            if (_mediaPlayer != null)
+            {
+                _mediaPlayer.Stop();
+                _mediaPlayer.Dispose();
+            }
+            LimpiarArchivoTemporal();
+            if (_libVLC != null) _libVLC.Dispose();
+
+            _timer.Stop();
+
+            // Cerramos la aplicación
+            if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+            {
+                desktop.Shutdown();
+            }
+            else
+            {
+                Environment.Exit(0);
+            }
+        }
+
+        /// <summary>
+        /// Elimina el archivo temporal actual si existe y libera cualquier recurso multimedia asociado.
+        /// </summary>
+        /// <remarks>Si el archivo temporal está en uso o no se puede eliminar, el método suprime
+        /// excepciones y registra un mensaje de depuración. Este método está destinado a ser llamado cuando los archivos multimedia temporales no están
+        /// se necesita más tiempo para liberar espacio en disco y liberar atajos de archivos. </remarks>
+        private void LimpiarArchivoTemporal()
+        {
+            try
+            {
+                // Si tenemos una ruta guardada y el archivo existe...
+                if (!string.IsNullOrEmpty(_rutaTemporalActual) && System.IO.File.Exists(_rutaTemporalActual))
+                {
+                    if (_mediaPlayer.Media != null)
+                    {
+                        _mediaPlayer.Media.Dispose(); // Destruye el enlace al archivo
+                        _mediaPlayer.Media = null;    // Limpia la propiedad del reproductor
+                    }
+
+                    // Borramos el archivo temporal
+                    System.IO.File.Delete(_rutaTemporalActual);
+                    System.Diagnostics.Debug.WriteLine($"[SEGURIDAD] Archivo temporal eliminado: {_rutaTemporalActual}");
+                    _rutaTemporalActual = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                // Si falla (por ejemplo, si VLC todavía lo tiene bloqueado), no pasa nada, 
+                // Windows limpia los temporales eventualmente.
+                System.Diagnostics.Debug.WriteLine($"[AVISO] No se pudo borrar el temporal: {ex.Message}");
             }
         }
         #endregion

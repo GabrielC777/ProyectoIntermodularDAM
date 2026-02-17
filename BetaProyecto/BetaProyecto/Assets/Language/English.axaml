@@ -111,9 +111,13 @@
     <system:String x:Key="Reg_WaterPass">******</system:String>
     
     <system:String x:Key="Reg_LblPais">Country</system:String>
-    <system:String x:Key="Reg_WaterPais">Ex: Spain</system:String>
+    <system:String x:Key="Reg_WaterPais">Select a country</system:String>
+
     
     <system:String x:Key="Reg_LblFecha">Date of Birth</system:String>
+    <system:String x:Key="Reg_Msg_SelectFotoPerfil">Select your profile picture</system:String>
+    <system:String x:Key="Reg_Msg_ImagenDemasiadoGrande">The selected image exceeds the 32 MB limit. Please choose a lighter image.</system:String>
+    <system:String x:Key="Reg_TituloSelector">Select your profile picture</system:String>
     
     <system:String x:Key="Reg_LblFotoLocal">Profile Picture (Local)</system:String>
     <system:String x:Key="Reg_WaterRutaFoto">C:\Path\Image.jpg</system:String>
@@ -261,7 +265,7 @@
     <system:String x:Key="Acc_EditPlay_BtnAdd_Help">Add this song to the list</system:String>
     <system:String x:Key="Acc_EditPlay_BtnRemove_Help">Remove this song from the list</system:String>
     <system:String x:Key="Msg_Error_ActualizarPlaylist">Error updating playlist.</system:String>    
-    
+    <system:String x:Key="Msg_Error_CargarImagen">Error loading image from internet.</system:String>
     <!-- ViewAyuda.axaml -->
     <system:String x:Key="Ayuda_Titulo">Help</system:String>
     <system:String x:Key="Ayuda_Director">Director and Programmer: Gabriel Daniel Cretu</system:String>
@@ -415,6 +419,7 @@
     <system:String x:Key="Acc_Bus_BtnPlay_Help">Play this found song</system:String>
 
     <system:String x:Key="Bus_Msg_Buscando">Searching...</system:String>
+    
     <!-- TabItemPopulares.axaml -->
     <system:String x:Key="Pop_LblFiltro">Popular in:</system:String>
     <system:String x:Key="Pop_ComboPlaceholder">Choose a genre...</system:String>
@@ -466,6 +471,9 @@
     <system:String x:Key="Acc_Cuenta_CajaFecha">Select date of birth</system:String>
     <system:String x:Key="Acc_Cuenta_CajaPais">Edit country of residence</system:String>
     <system:String x:Key="Acc_Cuenta_ComboTipo">Select profile privacy</system:String>
+
+    <system:String x:Key="MsgExitoActualizarPerfil">Profile updated successfully</system:String>
+    <system:String x:Key="MsgErrorActualizarPerfil">No changes detected or an error occurred while updating the profile</system:String>
 
     <!-- ViewGestionCuenta.axaml -->
     <system:String x:Key="Gestion_Titulo">Manage</system:String>
@@ -535,6 +543,9 @@
     <system:String x:Key="Reportes_HolderResolucion">Write internal resolution here...</system:String>
     <system:String x:Key="Reportes_BtnGuardar">SAVE CHANGES</system:String>
     <system:String x:Key="Reportes_BadgeResuelto">RESOLVED</system:String>
+    <system:String x:Key="Reportes_MsgActualizado">Report updated successfully</system:String>
+    <system:String x:Key="Reportes_MsgSinCambios">No changes or error</system:String>
+
 
     <system:String x:Key="Acc_Reportes_BtnRefrescar">Reload reports list</system:String>
     <system:String x:Key="Acc_Reportes_ListaPendientes">List of pending reports</system:String>

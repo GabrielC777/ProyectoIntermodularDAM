@@ -11,14 +11,13 @@ namespace BetaProyecto.ViewModels
 {
     public class ViewPerfilViewModel : ViewModelBase
     {
-        // ... (Propiedades NombreUsuario e ImagenPerfil se quedan igual) ...
+        //Bidings 
         private string _nombreUsuario;
         public string NombreUsuario { get => _nombreUsuario; set => this.RaiseAndSetIfChanged(ref _nombreUsuario, value); }
 
         private string _imagenPerfil;
         public string ImagenPerfil { get => _imagenPerfil; set => this.RaiseAndSetIfChanged(ref _imagenPerfil, value); }
 
-        // --- CAMBIO IMPORTANTE: Usamos una lista de Secciones ---
         private ObservableCollection<ListaUsuarios> _secciones;
         public ObservableCollection<ListaUsuarios> Secciones
         {
@@ -30,11 +29,28 @@ namespace BetaProyecto.ViewModels
 
         public ViewPerfilViewModel()
         {
+            //Inicializamos listas
             Secciones = new ObservableCollection<ListaUsuarios>();
+            
+            //Configuramos comandos reactive 
             BtnRefrescar = ReactiveCommand.CreateFromTask(async () => await CargarDatos()); 
-            _ = CargarDatos();
+            
+            _ = CargarDatos(); // Cargamos los datos en segundo plano
         }
-
+        /// <summary>
+        /// Recupera y organiza de forma asíncrona la información del perfil, artistas sugeridos y usuarios seguidos.
+        /// </summary>
+        /// <remarks>
+        /// Este método gestiona la carga de la red social del usuario mediante los siguientes pasos:
+        /// <list type="number">
+        /// <item><b>Inicialización:</b> Carga la identidad básica (nombre y foto) desde <see cref="GlobalData.Instance"/>.</item>
+        /// <item><b>Carga Paralela:</b> Ejecuta simultáneamente las peticiones a MongoDB para obtener los perfiles seguidos y el catálogo global de usuarios mediante <see cref="Task.WhenAll"/>.</item>
+        /// <item><b>Categorización:</b> Estructura los resultados en secciones diferenciadas ("Descubre Artistas" y "Siguiendo") utilizando claves de traducción para los encabezados.</item>
+        /// <item><b>Asignación:</b> Actualiza la propiedad <see cref="Secciones"/>, lo que dispara la actualización de los controles agrupados en la interfaz.</item>
+        /// </list>
+        /// Cualquier fallo durante la consulta se registra en la consola de depuración para evitar el colapso de la vista.
+        /// </remarks>
+        /// <returns>Una tarea que representa la operación de carga y estructuración asíncrona.</returns>
         private async Task CargarDatos()
         {
             try
@@ -50,7 +66,6 @@ namespace BetaProyecto.ViewModels
 
                 await Task.WhenAll(taskSeguidores, taskTodos);
 
-                // --- CONSTRUIMOS LAS SECCIONES ---
                 var listaSecciones = new ObservableCollection<ListaUsuarios>();
 
                 // Sección 1: Descubre Artistas

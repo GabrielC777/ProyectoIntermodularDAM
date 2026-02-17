@@ -11,14 +11,17 @@ namespace BetaProyecto.ViewModels
 {
     public class ViewGestionarReportesViewModel : ViewModelBase
     {
+        //Servicios
         private readonly IDialogoService _dialogoService;
 
-        // --- LISTAS ---
+        // Lista
         public ObservableCollection<Reportes> ListaPendientes { get; } 
         public ObservableCollection<Reportes> ListaInvestigando { get; } 
-        public ObservableCollection<Reportes> ListaFinalizados { get; } 
+        public ObservableCollection<Reportes> ListaFinalizados { get; }
+        public ObservableCollection<string> OpcionesEstado { get; } = new()
+        { "Pendiente", "Investigando", "Finalizado" };
 
-        // --- EL JEFE (Lo que ve el formulario) ---
+        //Bindings
         private Reportes _reporteSeleccionado;
         public Reportes ReporteSeleccionado
         {
@@ -33,10 +36,8 @@ namespace BetaProyecto.ViewModels
                 }
             }
         }
-
-        // --- LOS SUBORDINADOS (Selecciones individuales para que no se peleen) ---
-
-        // 1. Selección Pendientes
+        //Hacemos selecciones individuales para cada lista para evitar conflictos al seleccionar en una y que se marque en las otras
+        // Selección Pendientes
         private Reportes _selPendiente;
         public Reportes SelectedPendiente
         {
@@ -46,14 +47,14 @@ namespace BetaProyecto.ViewModels
                 this.RaiseAndSetIfChanged(ref _selPendiente, value);
                 if (value != null)
                 {
-                    ReporteSeleccionado = value;   // Avisamos al Jefe
-                    SelectedInvestigando = null;   // Limpiamos las otras listas
+                    ReporteSeleccionado = value;
+                    SelectedInvestigando = null;   
                     SelectedFinalizado = null;
                 }
             }
         }
 
-        // 2. Selección Investigando
+        // Selección Investigando
         private Reportes _selInvestigando;
         public Reportes SelectedInvestigando
         {
@@ -70,7 +71,7 @@ namespace BetaProyecto.ViewModels
             }
         }
 
-        // 3. Selección Finalizados
+        // Selección Finalizados
         private Reportes _selFinalizado;
         public Reportes SelectedFinalizado
         {
@@ -87,7 +88,6 @@ namespace BetaProyecto.ViewModels
             }
         }
 
-        // --- RESTO IGUAL QUE ANTES ---
         private string _estadoEdit;
         public string EstadoEdit
         {
@@ -102,9 +102,7 @@ namespace BetaProyecto.ViewModels
             set => this.RaiseAndSetIfChanged(ref _resolucionEdit, value);
         }
 
-        public ObservableCollection<string> OpcionesEstado { get; } = new()
-        { "Pendiente", "Investigando", "Finalizado" };
-
+        //Comandos reactive
         public ReactiveCommand<Unit, Unit> BtnRefrescar { get; }
         public ReactiveCommand<Unit, Unit> BtnGuardar { get; }
 
@@ -122,7 +120,15 @@ namespace BetaProyecto.ViewModels
             BtnGuardar = ReactiveCommand.CreateFromTask(GuardarCambios);
             _ = CargarDatos();
         }
-
+        /// <summary>
+        /// Recupera todos los reportes de la base de datos y los clasifica en colecciones independientes según su estado actual.
+        /// </summary>
+        /// <remarks>
+        /// Este método realiza una limpieza integral de las listas y selecciones actuales para evitar duplicidad visual. 
+        /// Posteriormente, consulta MongoDB y distribuye cada reporte en las categorías de "Pendiente", "Investigando" 
+        /// o "Finalizado" basándose en el valor de su propiedad <c>Estado</c>, facilitando la organización por columnas en la interfaz.
+        /// </remarks>
+        /// <returns>Una tarea que representa la operación de carga y clasificación asíncrona.</returns>
         private async Task CargarDatos()
         {
             // Limpiamos todo
@@ -149,7 +155,18 @@ namespace BetaProyecto.ViewModels
                 }
             }
         }
-
+        /// <summary>
+        /// Persiste de forma asíncrona las modificaciones realizadas en el estado y la resolución del reporte seleccionado.
+        /// </summary>
+        /// <remarks>
+        /// Este método sincroniza los cambios con la base de datos MongoDB mediante los siguientes pasos:
+        /// <list type="number">
+        /// <item><b>Validación:</b> Verifica que exista una instancia válida en <see cref="ReporteSeleccionado"/>.</item>
+        /// <item><b>Sincronización:</b> Envía los nuevos valores de <c>EstadoEdit</c> y <c>ResolucionEdit</c> al servidor.</item>
+        /// <item><b>Refresco:</b> Si la operación es exitosa, notifica al usuario y reejecuta <see cref="CargarDatos"/> para reorganizar los reportes en sus respectivas columnas visuales.</item>
+        /// </list>
+        /// </remarks>
+        /// <returns>Una tarea que representa la operación de actualización asíncrona.</returns>
         private async Task GuardarCambios()
         {
             if (ReporteSeleccionado == null) return;
@@ -160,12 +177,12 @@ namespace BetaProyecto.ViewModels
 
             if (exito)
             {
-                _dialogoService.MostrarAlerta("Reporte actualizado.");
+                _dialogoService.MostrarAlerta("Reportes_MsgActualizado");
                 await CargarDatos();
             }
             else
             {
-                _dialogoService.MostrarAlerta("Sin cambios o error.");
+                _dialogoService.MostrarAlerta("Reportes_MsgSinCambios");
             }
         }
     }

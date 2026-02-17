@@ -74,7 +74,7 @@
                                    Stretch="UniformToFill" 
                                    AutomationProperties.AccessibilityView="Raw"/>
                         </Button>
-
+                        <!--Título página-->
                         <StackPanel VerticalAlignment="Center">
                             <TextBlock Text="{DynamicResource EditCan_Titulo}" FontSize="32" FontWeight="Bold"
                                        Foreground="{DynamicResource Brush_Edit_Texto_Principal}"/>

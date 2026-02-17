@@ -58,6 +58,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="5*"/>
             </Grid.RowDefinitions>
+
             <!--Buscador-->
             <TextBox Grid.Row="0"
                  Classes="BuscadorStyle"
@@ -93,6 +94,7 @@
                 </Button>
             </TextBox.InnerRightContent>
             </TextBox>
+
             <!--Numero de resultados-->
             <TextBlock Grid.Row="1" 
                    FontSize="20"
@@ -102,6 +104,7 @@
                 <Run Text="{Binding TxtInfoResultado, Converter={StaticResource Traductor},Mode=OneWay}"/>
                 <Run Text="{Binding TxtContador}"/>
             </TextBlock>
+
             <!--Listado que devulve la busqueda-->
             <ListBox Grid.Row="2" 
                  Background="Transparent"

@@ -4,12 +4,10 @@ using BetaProyecto.Services;
 using BetaProyecto.Singleton;
 using ReactiveUI;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reactive;
 using System.Reactive.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BetaProyecto.ViewModels
@@ -23,7 +21,7 @@ namespace BetaProyecto.ViewModels
         
         private readonly Action _Volver;
 
-        // --- DATOS DE LA LISTA ---
+        // Binding de datos
         private string _txtNombre;
         public string TxtNombre
         {
@@ -38,7 +36,7 @@ namespace BetaProyecto.ViewModels
             set => this.RaiseAndSetIfChanged(ref _txtDescripcion, value);
         }
 
-        // --- PORTADA ---
+        // Biding para la imagen
         private string _rutaImagen;
         public string RutaImagen
         {
@@ -58,7 +56,7 @@ namespace BetaProyecto.ViewModels
             set => this.RaiseAndSetIfChanged(ref _imagenPortada, value);
         }
 
-        // --- BUSCADOR DE CANCIONES ---
+        // Binding para el buscador de canciones
         private string _txtBusqueda;
         public string TxtBusqueda
         {
@@ -128,18 +126,21 @@ namespace BetaProyecto.ViewModels
                     !string.IsNullOrWhiteSpace(imagen) &&
                     count > 0 // Al menos una canción
             );
-
+            //Configuración de comandos reactive
             BtnCrear = ReactiveCommand.CreateFromTask(CrearLista, validacionCrear);
         }
-
-        // --- LÓGICA ---
-
+        /// <summary>
+        /// Realiza una búsqueda asíncrona de canciones en la base de datos utilizando el texto introducido por el usuario.
+        /// </summary>
+        /// <remarks>
+        /// Este método consulta MongoDB y filtra los resultados obtenidos para excluir aquellas canciones 
+        /// que ya están presentes en la lista de selección (<see cref="ListaCancionesSeleccionadas"/>).
+        /// Esto evita duplicados visuales y actualiza la colección de resultados disponibles para añadir.
+        /// </remarks>
         private async void BuscarCanciones()
         {
             if (MongoClientSingleton.Instance.Cliente != null)
             {
-                // NOTA: Necesitarás implementar este método en MongoAtlas.cs si no existe
-                // Es igual que buscar usuarios pero buscando canciones por título
                 var resultados = await MongoClientSingleton.Instance.Cliente.ObtenerCancionesPorBusqueda(TxtBusqueda);
 
                 if (resultados != null)
@@ -151,6 +152,18 @@ namespace BetaProyecto.ViewModels
             }
         }
 
+        /// <summary>
+        /// Agrega la canción seleccionada a la lista temporal de canciones que formarán parte de la nueva playlist.
+        /// </summary>
+        /// <remarks>
+        /// Este método realiza tres acciones clave:
+        /// <list type="number">
+        /// <item>Verifica que la canción no esté ya añadida para evitar duplicados.</item>
+        /// <item>Mueve visualmente la canción: la añade a <see cref="ListaCancionesSeleccionadas"/> y la elimina de <see cref="ListaResultados"/>.</item>
+        /// <item>Limpia el campo de búsqueda para facilitar una nueva consulta inmediata.</item>
+        /// </list>
+        /// </remarks>
+        /// <param name="cancion">El objeto <see cref="Canciones"/> que el usuario ha seleccionado para añadir.</param>
         private void AgregarCancion(Canciones cancion)
         {
             if (!ListaCancionesSeleccionadas.Any(c => c.Id == cancion.Id))
@@ -161,11 +174,34 @@ namespace BetaProyecto.ViewModels
             }
         }
 
+        /// <summary>
+        /// Elimina una canción de la lista de canciones seleccionadas para la nueva playlist.
+        /// </summary>
+        /// <remarks>
+        /// Permite al usuario rectificar su selección quitando canciones individuales de <see cref="ListaCancionesSeleccionadas"/>
+        /// antes de guardar la lista definitiva. La interfaz de usuario refleja el cambio inmediatamente.
+        /// </remarks>
+        /// <param name="cancion">El objeto <see cref="Canciones"/> que se desea descartar de la selección actual.</param>
         private void EliminarCancion(Canciones cancion)
         {
             ListaCancionesSeleccionadas.Remove(cancion);
         }
 
+        /// <summary>
+        /// Intenta cargar y visualizar una imagen local desde la ruta especificada.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Este método gestiona de forma segura la carga de archivos de imagen. Si el archivo no existe 
+        /// o el formato no es válido (lanzando una excepción), la propiedad <see cref="ImagenPortada"/> 
+        /// se establece en <c>null</c> para evitar errores visuales.
+        /// </para>
+        /// <para>
+        /// Al finalizar, fuerza una notificación de cambio en <see cref="TieneImagen"/> para que la interfaz 
+        /// actualice la visibilidad de los controles dependientes (como el botón de "Quitar imagen").
+        /// </para>
+        /// </remarks>
+        /// <param name="ruta">La ruta absoluta del sistema de archivos donde se encuentra la imagen.</param>
         private void CargarImagenLocal(string ruta)
         {
             try
@@ -181,16 +217,28 @@ namespace BetaProyecto.ViewModels
             }
             this.RaisePropertyChanged(nameof(TieneImagen));
         }
-
+        /// <summary>
+        /// Orquesta el proceso completo de creación de una nueva lista de reproducción personalizada de forma asíncrona.
+        /// </summary>
+        /// <remarks>
+        /// Este método sigue un flujo de transacciones paso a paso:
+        /// <list type="number">
+        /// <item><b>Carga de medios:</b> Sube la imagen de portada seleccionada al servicio de almacenamiento en la nube.</item>
+        /// <item><b>Construcción del modelo:</b> Crea una instancia de <see cref="ListaPersonalizada"/> con los metadatos y la selección de canciones actual.</item>
+        /// <item><b>Persistencia:</b> Invoca al cliente de MongoDB para guardar la nueva lista en la base de datos.</item>
+        /// </list>
+        /// Gestiona los estados de carga (<see cref="EstaCargando"/>) para bloquear la UI durante el proceso y maneja excepciones globales.
+        /// </remarks>
+        /// <returns>Una <see cref="Task"/> que representa la operación asíncrona.</returns>
         private async Task CrearLista()
         {
             EstaCargando = true;
             try
             {
-                // 1. Subir Imagen
+                // Subir Imagen
                 string urlPortada = await _storageService.SubirImagen(RutaImagen);
 
-                // 2. Crear Objeto
+                // Crear Objeto
                 var nuevaLista = new ListaPersonalizada
                 {
                     Nombre = TxtNombre,
@@ -200,7 +248,7 @@ namespace BetaProyecto.ViewModels
                     IdsCanciones = ListaCancionesSeleccionadas.Select(c => c.Id).ToList()
                 };
 
-                // 3. Guardar en BD (Necesitas crear este método en MongoAtlas.cs)
+                // Guardarmos en BD
                 bool exito = await MongoClientSingleton.Instance.Cliente.CrearListaReproduccion(nuevaLista);
 
                 if (exito)

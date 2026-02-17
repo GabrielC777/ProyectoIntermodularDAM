@@ -59,7 +59,7 @@
     </UserControl.Styles>
 
     <Grid RowDefinitions="Auto, *" Margin="40">
-        
+        <!--Botón volver-->
         <Button Command="{Binding BtnVolver}" Classes="BtnVolver" Margin="0,0,0,20"
                 AutomationProperties.Name="{DynamicResource Global_BtnVolver}"
                 AutomationProperties.HelpText="{DynamicResource Acc_Btn_Volver_Help}">
@@ -70,7 +70,7 @@
         </Button>
 
         <Grid Grid.Row="1" ColumnDefinitions="400, *" MinHeight="600">
-            
+            <!-- Imagen -->
             <StackPanel Grid.Column="0" Spacing="25" VerticalAlignment="Top">
                 <Border CornerRadius="20" ClipToBounds="True" BoxShadow="0 10 30 0 #40000000" Background="Gray">
                     <Image asyncImageLoader:ImageLoader.Source="{Binding Playlist.UrlPortada}" 
@@ -88,7 +88,7 @@
                     VerticalAlignment="Stretch">
                 
                 <Grid RowDefinitions="Auto, Auto, *">
-                    
+                    <!--Informacion de la playlist-->
                     <StackPanel Grid.Row="0" Spacing="5" Margin="0,0,0,20">
                         <TextBlock Text="{DynamicResource VisorPlay_LblPlaylist}" 
                                    Foreground="{DynamicResource Brush_VisorPlay_Texto_Label}" 
@@ -104,7 +104,7 @@
                                    Foreground="{DynamicResource Brush_VisorPlay_Texto_Subtitulo}"
                                    AutomationProperties.Name="{DynamicResource Acc_VisorPlay_Desc_Help}"/>
                     </StackPanel>
-
+                    <!--Número de canciones-->
                     <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,30">
                         <Border Classes="TarjetaMetrica" Width="220" AutomationProperties.Name="{DynamicResource Acc_VisorPlay_Cantidad_Help}">
                             <StackPanel Spacing="5" HorizontalAlignment="Center">
@@ -114,6 +114,7 @@
                         </Border>
                     </StackPanel>
 
+                    <!--Título de la sección y listado de canciones-->
                     <Grid Grid.Row="2" RowDefinitions="Auto, *">
                         <TextBlock Grid.Row="0" Text="{DynamicResource VisorPlay_LblContenido}" 
                                    FontSize="20" FontWeight="Bold" Margin="0,0,0,15"

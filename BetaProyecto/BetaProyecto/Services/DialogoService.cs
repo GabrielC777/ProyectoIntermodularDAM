@@ -1,11 +1,11 @@
 ﻿using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using BetaProyecto.Views.WindowsRising;
-using System.Threading.Tasks; // Asegúrate de que aquí está tu VentanaAviso
+using System.Threading.Tasks;
 
 namespace BetaProyecto.Services
 {
-    // Esta clase "firma" el contrato (: IDialogService)
+    // Esta clase implemente el servicio de diálogo
     public class DialogoService : IDialogoService
     {
         public void MostrarAlerta(string mensaje)
@@ -24,7 +24,7 @@ namespace BetaProyecto.Services
                 // Creamos la ventana pasando todos los textos personalizables
                 var ventana = new VentanaConfirmacion(titulo, mensaje, textoSi, textoNo);
 
-                // Esperamos el resultado (ShowDialogAsync devuelve lo que pasamos en this.Close(resultado))
+                // Esperamos el resultado
                 var resultado = await ventana.ShowDialog<bool>(desktop.MainWindow);
 
                 return resultado;

@@ -236,7 +236,7 @@
                 </Grid>
             </Border>
         </Grid>
-        
+        <!--Este es nuestro simulación de popup-->
         <Border Background="Black" Opacity="0.4" 
                 IsVisible="{Binding PopupVisible}"
                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>

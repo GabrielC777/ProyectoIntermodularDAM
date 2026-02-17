@@ -104,11 +104,12 @@
 
                 <StackPanel Grid.Row="0" HorizontalAlignment="Left" Margin="50,40,0,50">
                     <StackPanel Orientation="Horizontal" Spacing="20">
+                        <!-- Título -->
                         <TextBlock Text="{DynamicResource Cuenta_Titulo}" 
                                    AutomationProperties.Name="{DynamicResource Cuenta_Titulo}"
                                    FontSize="50" FontWeight="Bold" 
                                    Foreground="{DynamicResource Brush_Texto_Principal}"/>
-                        
+                        <!--Botón de refrescar-->
                         <Button Command="{Binding BtnRefrescar}"
                                 Background="Transparent"
                                 BorderThickness="0"
@@ -137,7 +138,8 @@
                           RowDefinitions="Auto,Auto,Auto,Auto,Auto" 
                           ColumnSpacing="3" 
                           RowSpacing="3">
-                        
+
+                        <!--Nombre usuario-->
                         <Border Grid.Row="0" Grid.Column="0" Classes="Celda" CornerRadius="20,0,0,0">
                             <TextBlock Text="{DynamicResource Cuenta_LblNombre}" Classes="Etiqueta"/>
                         </Border>
@@ -147,7 +149,7 @@
                                      AutomationProperties.Name="{DynamicResource Cuenta_LblNombre}"
                                      AutomationProperties.HelpText="{DynamicResource Acc_Cuenta_CajaNombre}"/>
                         </Border>
-
+                        <!--Correo-->
                         <Border Grid.Row="1" Grid.Column="0" Classes="Celda">
                             <TextBlock Text="{DynamicResource Cuenta_LblCorreo}" Classes="Etiqueta"/>
                         </Border>
@@ -157,7 +159,7 @@
                                      AutomationProperties.Name="{DynamicResource Cuenta_LblCorreo}"
                                      AutomationProperties.HelpText="{DynamicResource Acc_Cuenta_CajaCorreo}"/>
                         </Border>
-
+                        <!--Fecha de nacimiento-->
                         <Border Grid.Row="2" Grid.Column="0" Classes="Celda">
                             <TextBlock Text="{DynamicResource Cuenta_LblFecha}" Classes="Etiqueta"/>
                         </Border>
@@ -169,17 +171,18 @@
                                         AutomationProperties.Name="{DynamicResource Cuenta_LblFecha}"
                                         AutomationProperties.HelpText="{DynamicResource Acc_Cuenta_CajaFecha}"/>
                         </Border>
-
+                        <!--Pais--> 
                         <Border Grid.Row="3" Grid.Column="0" Classes="Celda">
                             <TextBlock Text="{DynamicResource Cuenta_LblPais}" Classes="Etiqueta"/>
                         </Border>
                         <Border Grid.Row="3" Grid.Column="1" Classes="Celda">
                             <TextBox Text="{Binding Pais}" 
                                      Classes="Input"
+                                     IsReadOnly="True"
                                      AutomationProperties.Name="{DynamicResource Cuenta_LblPais}"
                                      AutomationProperties.HelpText="{DynamicResource Acc_Cuenta_CajaPais}"/>
                         </Border>
-
+                        <!--Es privada o publica-->
                         <Border Grid.Row="4" Grid.Column="0" Classes="Celda" CornerRadius="0,0,0,20">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                                 <TextBlock Text="{DynamicResource Cuenta_LblTipo}" Classes="Etiqueta"/>
@@ -206,7 +209,7 @@
 
                     </Grid>
                 </Border>
-
+                <!--Botón de guardar-->
                 <Button Grid.Row="2" 
                         Classes="BtnGuardar"
                         Content="{DynamicResource Cuenta_BtnGuardar}" 

@@ -1,21 +1,19 @@
 ﻿using ReactiveUI;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Reactive;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BetaProyecto.ViewModels
 {
     public class ViewAyudaViewModel : ViewModelBase, INavegable
     {
+        //Actions 
         public Action? VolverAtras { get; set; }
+        //Comandos reactive 
         public ReactiveCommand<Unit, Unit> btnVolverAtras { get; }
         public ViewAyudaViewModel() {
             
-            // Configuramos el comando directamente aquí
+            // Configuramos el comandos reactive 
             btnVolverAtras = ReactiveCommand.Create(() =>
             {
                 Debug.WriteLine("Volviendo desde el Ayuda...");

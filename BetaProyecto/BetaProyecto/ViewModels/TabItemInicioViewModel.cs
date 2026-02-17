@@ -1,10 +1,7 @@
 ﻿using Avalonia.Controls;
-using Avalonia.Controls.Primitives;
-using Avalonia.VisualTree;
 using BetaProyecto.Models;
 using BetaProyecto.Services;
 using BetaProyecto.Singleton;
-using DynamicData;
 using ReactiveUI;
 using System;
 using System.Collections.Generic;
@@ -30,12 +27,15 @@ namespace BetaProyecto.ViewModels
         //Comandos Reactive
         public ReactiveCommand<object, Unit> BtnReproducirDesdeTarjeta { get; }
         public ReactiveCommand<ListaPersonalizada, Unit> BtnReproducirPlaylist { get; }
-        // EL MENÚ DE 3 PUNTOS
+        public ReactiveCommand<Unit, Unit> BtnRefrescar { get; }
+
+        // Menú de los 3 puntos Canciones
         public ReactiveCommand<Canciones, Unit> BtnIrADetalleCancion { get; }
         public ReactiveCommand<object, Unit> BtnIrAArtista { get; }
         public ReactiveCommand<Canciones, Unit> BtnIrAReportar { get; }
+        
+        //Menú de los 3 puntos Playlists
         public ReactiveCommand<ListaPersonalizada, Unit> BtnIrADetallesPlaylist { get; }
-        public ReactiveCommand<Unit, Unit> BtnRefrescar { get; }
 
         // Biding que contiene las listas (Novedades, Rock, etc.)
         private ObservableCollection<TarjetasCanciones> _tarjetas;
@@ -61,9 +61,10 @@ namespace BetaProyecto.ViewModels
 
         public TabItemInicioViewModel()
         {
+            // Inicializamos el servicios 
             _dialogoService = new DialogoService();
 
-            // Inicializamos el comandos reactive
+            // Configuramos los comandos reactive
             BtnReproducirDesdeTarjeta = ReactiveCommand.Create<object>(ReproducirDesdeBoton);
 
             BtnReproducirPlaylist = ReactiveCommand.Create<ListaPersonalizada>(ReproducirPlaylist);
@@ -91,62 +92,96 @@ namespace BetaProyecto.ViewModels
             {
                 await CargarDatosCanciones();
             });
-            // Al nacer, este ViewModel se pone a trabajar solo
+            // Ejecutamos la tarea en segundo plano para no bloquear la interfaz
             _ = CargarDatosCanciones();
         }
+        /// <summary>
+        /// Dirige la navegación a la vista de un artista cuando se activa mediante un botón asociado con el nombre del artista.    
+        /// </summary>
+        /// <remarks>Este método se utiliza típicamente como un manejador de comandos para elementos de la interfaz de usuario que representan
+        /// artistas dentro de un contexto de canción. Recupera el artista y la información de la canción relevante desde el botón
+        /// jerarquía y plantea una solicitud para mostrar los detalles del artista. El parámetro debe estructurarse como
+        /// descrito para que la navegación tenga éxito. </remarks>
+        /// <param name="parametro">El parametro de comando, que se espera sea un botón cuyo DataContext contiene el nombre del artista y cuya etiqueta
+        /// hace referencia al botón padre que contiene la información de la canción. </param>
         private void IrAArtistaDesdeBoton(object parametro)
         {
-            // 1. Recibimos el botón pequeño (el del nombre del artista)
+            // Recuperamos el objeto de donde viene el comando (El botón con el nombre del artista)
+            // y lo casteamos a Button para sacarle la inforamación que necesitamos
             if (parametro is Button botonPequeño)
             {
-                // Recuperamos el Nombre del Artista (DataContext del botón pequeño)
+                // Recuperamos el Nombre del Artista (DataContext del botón (Que seria un Objeto Canciones))
                 var nombreArtista = botonPequeño.DataContext as string;
 
-                // 2. Recuperamos al JEFE (El botón de los 3 puntos) desde el Tag
+                // Recuperamos el botón "jefe" (el abre el menú contextual donde esta el nombre del artistas)
+                // Que guardamos su referencia en el Tag del botón pequeño
                 if (botonPequeño.Tag is Button botonJefe)
                 {
-                    // A) ¡JEFE, CIERRE EL MENÚ! (Infalible)
+                    //Ahora le decimos que se oculte par que no se quede abierto al pasar la vista artista
                     botonJefe.Flyout?.Hide();
 
-                    // B) ¡JEFE, DEME LA CANCIÓN!
-                    // La canción vive en el DataContext del botón jefe (la fila de la lista)
+                    // Y recuperamos la canción (DataContext del botón jefe)
                     var cancion = botonJefe.DataContext as Canciones;
 
-                    // 3. Lógica de navegación (Igual que antes)
+                    // Aseguramos que no esten vacíos
                     if (!string.IsNullOrEmpty(nombreArtista) && cancion != null)
                     {
+                        // Buscamos el índice del artista en la lista del artista que queremos mostrar
                         int indice = cancion.ListaArtistasIndividuales.IndexOf(nombreArtista);
+                        // Con ese índice, buscamos el ID del artista en la lista de IDs (que es paralela a la de nombres)
                         if (indice >= 0 && cancion.AutoresIds != null && indice < cancion.AutoresIds.Count)
                         {
-                            string idUsuario = cancion.AutoresIds[indice];
-                            SolicitudVerArtista?.Invoke(idUsuario);
+                            string idUsuario = cancion.AutoresIds[indice];//Sacamos el id del artista a mostrar
+                            SolicitudVerArtista?.Invoke(idUsuario);// Enviamos la solicitud para mostrar la vista del artista con su ID
                         }
                     }
                 }
             }
         }
-
+        /// <summary>
+        /// Maneja el comando de reproducción disparado desde un botón, iniciando la reproducción de la canción seleccionada y su
+        /// colección asociada.
+        /// </summary>
+        /// <remarks>Este método se utiliza típicamente como un manejador de comandos para botones de reproducción en el usuario
+        /// interfaz. El DataContext del botón debe hacer referencia a la canción que se va a reproducir, y su etiqueta debe hacer referencia al
+        /// colección a la que pertenece la canción. Si falta alguno de los valores o es inválido, el método lo hace
+        /// nada. </remarks>
+        /// <param name="parametro">El parámetro de comando, que se espera sea un botón cuyo DataContext es una canción a reproducir y cuya etiqueta contiene
+        /// la colección de canciones. No debe ser nula y debe ser un botón con valores válidos de DataContext y Tag. </param>
         private void ReproducirDesdeBoton(object parametro)
         {
-            // 1. Buscamos el botón
+            // Recuperamos el objeto de donde viene el comando (El botón de Play)
+            // y lo casteamos a Button para sacar la información que necesitamos
             if (parametro is Button boton)
             {
-                // 2. Sacamos la CANCIÓN (está en el DataContext del botón)
+                // Recuperamos la Canción a reproducir (DataContext del botón (Que sería el Objeto Canciones))
                 var cancion = boton.DataContext as Canciones;
 
-                // 3. Sacamos la LISTA REAL (la metimos en el Tag)
-                // Viene como 'IEnumerable', así que la convertimos a List<Canciones>
+                // Recuperamos la lista completa a la que pertenece esa canción (la lista de origen)
+                // Que guardamos en el Tag del botón para saber el contexto (si viene de Populares, Buscador, etc.)
+                // Viene como 'IEnumerable', así que la casteamos para poder trabajar con ella
                 var coleccionOrigen = boton.Tag as IEnumerable<Canciones>;
 
+                // Aseguramos que hemos recuperado bien tanto la canción como su lista de origen
                 if (cancion != null && coleccionOrigen != null)
                 {
+                    // Convertimos la colección a una Lista concreta para asegurarnos de pasar una copia exacta al reproductor
                     var listaExacta = coleccionOrigen.ToList();
 
-                    // 4. Enviamos al padre: Canción + Su Lista Exacta
+                    // Enviamos la solicitud de reproducción al padre (MarcoApp) pasando:
+                    // 1. La canción concreta que se ha pulsado (para que empiece por ahí)
+                    // 2. La lista completa de contexto (para que sepa qué poner cuando acabe esta)
                     EnviarReproduccion?.Invoke(cancion, listaExacta);
                 }
             }
         }
+        /// <summary>
+        /// Inicia la reproducción de la lista de reproducción especificada, reproduciendo la primera canción y poniendo en fila las canciones restantes para
+        /// reproducción.
+        /// </summary>
+        /// <remarks>Si la lista de reproducción es nula o no contiene canciones, se muestra una alerta para informar el
+        /// usuario que la lista de reproducción está vacía. </remarks>
+        /// <param name="playlist">La lista de reproducción a reproducir. No debe ser nula y debe contener al menos una canción. </param>
         private void ReproducirPlaylist(ListaPersonalizada playlist)
         {
             if (playlist != null && playlist.CancionesCompletas.Count > 0)
@@ -166,6 +201,14 @@ namespace BetaProyecto.ViewModels
                 _dialogoService.MostrarAlerta("Msg_Error_PlaylistVacia");
             }
         }
+        /// <summary>
+        /// Carga y organiza de forma asíncrona los datos de canciones y listas de reproducción desde la base de datos, actualizando los correspondientes
+        /// colecciones para la vinculación de datos.
+        /// </summary>
+        /// <remarks>Si la conexión a la base de datos no está disponible, se muestra una alerta y no hay datos
+        /// cargado. Las canciones y listas de reproducción se agrupan en secciones como favoritas, nuevos lanzamientos, rock, personalizadas
+        /// listas y listas de comunidades, asignadas a sus respectivas colecciones para la vinculación de la interfaz. </remarks>
+        /// <returns>Devuelve una tarea que representa la operación de carga asíncrona. </returns>
         private async Task CargarDatosCanciones()
         {
             if (MongoClientSingleton.Instance.Cliente == null)
@@ -194,11 +237,12 @@ namespace BetaProyecto.ViewModels
                 var listaTarjetas = new ObservableCollection<TarjetasCanciones>();
 
                 // --- PROCESAR CANCIONES (TarjetasCanciones) ---
-                // OJO: Estas claves "Sec_..." deben ir al Diccionario o usarse con un traductor manual si el objeto no lo hace
-                // Asumimos que la vista hará el Binding con Converter o que el traductor es global.
-                // Si la vista NO usa converter en el Título, necesitarás un Helper para traducir aquí.
+                // OJO: Estas claves "Sec_..." vienen de un Diccionario si posieramos el texto directamente,
+                // se podria direcamente esa palabra pero no cambiaria entre idiomas
 
-                listaTarjetas.Add(new TarjetasCanciones("Sec_Favoritos", new ObservableCollection<Canciones>(songsFavoritos.Result))); // "Favoritos "
+                if (songsFavoritos.Result.Count > 0)
+                    listaTarjetas.Add(new TarjetasCanciones("Sec_Favoritos", new ObservableCollection<Canciones>(songsFavoritos.Result))); // "Favoritos "
+
                 listaTarjetas.Add(new TarjetasCanciones("Sec_Novedades", new ObservableCollection<Canciones>(songsNovedades.Result))); // "Novedades "
 
                 if (songsRock.Result.Count > 0)
@@ -207,34 +251,28 @@ namespace BetaProyecto.ViewModels
                 listaTarjetas.Add(new TarjetasCanciones("Sec_ParaTi", new ObservableCollection<Canciones>(songsGeneral.Result))); // "Para ti "
 
 
-                Tarjetas = listaTarjetas;
+                Tarjetas = listaTarjetas;// Asignamos la lista al Binding
 
                 // --- PROCESAR LISTAS (TarjetasListas) ---
                 // Aquí separamos las listas en secciones
                 var todasListas = taskPlaylists.Result;
                 var listaPlaylist = new ObservableCollection<TarjetasListas>();
 
-                // A. Mis Listas (Filtramos por mi ID)
+                // Mis Listas (Filtramos por mi ID)
                 var misListas = todasListas.Where(l => l.IdUsuario == miIdUsuario).ToList();
                 if (misListas.Count > 0)
                 {
                     listaPlaylist.Add(new TarjetasListas("Sec_MisListas", new ObservableCollection<ListaPersonalizada>(misListas))); // "Mis Listas 👤"
                 }
 
-                // B. Comunidad (El resto)
+                // Comunidad (El resto)
                 var otrasListas = todasListas.Where(l => l.IdUsuario != miIdUsuario).ToList();
                 if (otrasListas.Count > 0)
                 {
                     listaPlaylist.Add(new TarjetasListas("Sec_Comunidad", new ObservableCollection<ListaPersonalizada>(otrasListas))); // "De la Comunidad 🌎"
                 }
 
-                // Si no hay filtro, añadimos todas en una general
-                if (listaPlaylist.Count == 0 && todasListas.Count > 0)
-                {
-                    listaPlaylist.Add(new TarjetasListas("Sec_TodasLasListas", new ObservableCollection<ListaPersonalizada>(todasListas))); // "Listas de Reproducción"
-                }
-
-                Playlists = listaPlaylist;
+                Playlists = listaPlaylist;// Asignamos la lista al Binding
 
             }
         }

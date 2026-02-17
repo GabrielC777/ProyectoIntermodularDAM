@@ -39,6 +39,7 @@
     </UserControl.Styles>
              
     <Grid>
+        <!--Pestañas-->
         <TabControl Padding="0" SelectedIndex="{Binding IndiceTab}">
             <TabItem Header="{DynamicResource Tab_Perfil}"
                      AutomationProperties.Name="{DynamicResource Tab_Perfil}"

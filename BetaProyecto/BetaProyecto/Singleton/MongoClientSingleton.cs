@@ -9,15 +9,14 @@ namespace BetaProyecto.Singleton
 {
     public class MongoClientSingleton
     {
-        // 1. EL SINGLETON (La estructura básica)
+        //Singleton
         private static MongoClientSingleton _instance;
         public static MongoClientSingleton Instance => _instance ??= new MongoClientSingleton();
         
-        // 2. EL OBJETO GUARDADO (Tu clase lógica)
-        // Aquí es donde "guardas el objeto" para acceder a él luego.
+        // Objeto guardado 
         public MongoAtlas Cliente { get; private set; }
 
-        // 3. Constructor
+        // Constructor
         private MongoClientSingleton(){
             
             Cliente = new MongoAtlas();

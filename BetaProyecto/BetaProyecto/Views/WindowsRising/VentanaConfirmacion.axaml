@@ -76,19 +76,19 @@
         
         <Border Classes="TarjetaAlerta">
             <StackPanel Spacing="20">
-                
+                <!--Título-->
                 <TextBlock Text="{Binding TituloCabecera, Converter={StaticResource Traductor}}" 
                            Classes="Cabecera"/>
-
+                <!-- Cuerpo del mensaje-->
                 <TextBlock Text="{Binding MensajeCuerpo, Converter={StaticResource Traductor}}" 
                            Classes="Cuerpo"/>
 
                 <StackPanel Orientation="Horizontal" Spacing="20" HorizontalAlignment="Center" Margin="0,10,0,0">
-                    
+                    <!--Botón no -->
                     <Button Content="{Binding TextoBotonNo, Converter={StaticResource Traductor}}" 
                             Command="{Binding BtnNo}"
                             Classes="BtnCancelar"/>
-
+                    <!--Botón si-->
                     <Button Content="{Binding TextoBotonSi, Converter={StaticResource Traductor}}" 
                             Command="{Binding BtnSi}"
                             Classes="BtnConfirmar"/>

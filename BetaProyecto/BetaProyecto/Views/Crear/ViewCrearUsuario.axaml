@@ -28,7 +28,6 @@
 
     <Viewbox Stretch="Uniform">
         <Grid Width="1000" Height="800">
-            
             <Border Background="{DynamicResource Brush_Reg_Fondo_Tarjeta}" 
                     Width="500" 
                     CornerRadius="20" 
@@ -36,7 +35,7 @@
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center"
                     BoxShadow="0 4 10 0 #555"> <StackPanel Spacing="15">
-                    
+                    <!--Título--> 
                     <TextBlock Text="{DynamicResource Reg_Titulo}" 
                                FontSize="28" 
                                FontWeight="Bold" 
@@ -45,7 +44,7 @@
                                Margin="0,0,0,10"/>
 
                     <Grid ColumnDefinitions="*, 10, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto">
-                        
+                        <!--Usuario-->
                         <StackPanel Grid.Row="0" Grid.Column="0" Spacing="5">
                             <TextBlock Text="{DynamicResource Reg_LblUsuario}" Foreground="{DynamicResource Brush_Reg_Input_Texto_Label}" FontSize="12"/>
                             <TextBox Text="{Binding NuevoUsuario.Username}" 
@@ -53,7 +52,7 @@
                                      AutomationProperties.Name="{DynamicResource Reg_LblUsuario}"
                                      AutomationProperties.HelpText="{DynamicResource Acc_Reg_User_Help}"/>
                         </StackPanel>
-
+                        <!--Correo-->
                         <StackPanel Grid.Row="0" Grid.Column="2" Spacing="5">
                             <TextBlock Text="{DynamicResource Reg_LblEmail}" Foreground="{DynamicResource Brush_Reg_Input_Texto_Label}" FontSize="12"/>
                             <TextBox Text="{Binding NuevoUsuario.Email}" 
@@ -61,7 +60,7 @@
                                      AutomationProperties.Name="{DynamicResource Reg_LblEmail}"
                                      AutomationProperties.HelpText="{DynamicResource Acc_Reg_Email_Help}"/>
                         </StackPanel>
-
+                        <!--Contraseña-->
                         <StackPanel Grid.Row="1" Grid.Column="0" Spacing="5" Margin="0,15,0,0">
                             <TextBlock Text="{DynamicResource Reg_LblPass}" Foreground="{DynamicResource Brush_Reg_Input_Texto_Label}" FontSize="12"/>
                             <TextBox Text="{Binding NuevoUsuario.Password}" 
@@ -70,7 +69,7 @@
                                      AutomationProperties.Name="{DynamicResource Reg_LblPass}"
                                      AutomationProperties.HelpText="{DynamicResource Acc_Reg_Pass_Help}"/>
                         </StackPanel>
-
+                        <!--Repetir contraseña-->
                         <StackPanel Grid.Row="1" Grid.Column="2" Spacing="5" Margin="0,15,0,0">
                             <TextBlock Text="{DynamicResource Reg_LblRepetirPass}" Foreground="{DynamicResource Brush_Reg_Input_Texto_Label}" FontSize="12"/>
                             <TextBox Text="{Binding ConfirmarPass}" 
@@ -79,15 +78,25 @@
                                      AutomationProperties.Name="{DynamicResource Reg_LblRepetirPass}"
                                      AutomationProperties.HelpText="{DynamicResource Acc_Reg_RepPass_Help}"/>
                         </StackPanel>
-
+                        <!--Pais-->
                         <StackPanel Grid.Row="2" Grid.Column="0" Spacing="5" Margin="0,15,0,0">
-                            <TextBlock Text="{DynamicResource Reg_LblPais}" Foreground="{DynamicResource Brush_Reg_Input_Texto_Label}" FontSize="12"/>
-                            <TextBox Text="{Binding NuevoUsuario.Perfil.Pais}" 
-                                     Watermark="{DynamicResource Reg_WaterPais}"
-                                     AutomationProperties.Name="{DynamicResource Reg_LblPais}"
-                                     AutomationProperties.HelpText="{DynamicResource Acc_Reg_Pais_Help}"/>
+                            <TextBlock Text="{DynamicResource Reg_LblPais}" 
+                                       Foreground="{DynamicResource Brush_Reg_Input_Texto_Label}" 
+                                       FontSize="12"/>
+    
+                            <ComboBox ItemsSource="{Binding ListaPaises}"
+                                      SelectedItem="{Binding NuevoUsuario.Perfil.Pais}"
+                                      PlaceholderText="{DynamicResource Reg_WaterPais}"
+                                      HorizontalAlignment="Stretch"
+                                      Height="40"
+                                      CornerRadius="15"
+                                      Background="{DynamicResource Brush_Reg_Input_Fondo}"
+                                      Foreground="{DynamicResource Brush_Reg_Input_Texto}"
+                                      BorderBrush="{DynamicResource Brush_Reg_Input_Borde}"
+                                      AutomationProperties.Name="{DynamicResource Reg_LblPais}"
+                                      AutomationProperties.HelpText="{DynamicResource Acc_Reg_Pais_Help}"/>
                         </StackPanel>
-
+                        <!--Fecha de nacimiento-->
                         <StackPanel Grid.Row="2" Grid.Column="2" Spacing="5" Margin="0,15,0,0">
                             <TextBlock Text="{DynamicResource Reg_LblFecha}" Foreground="{DynamicResource Brush_Reg_Input_Texto_Label}" FontSize="12"/>
                             <CalendarDatePicker SelectedDate="{Binding NuevoUsuario.Perfil.FechaNacimiento}" 
@@ -96,7 +105,7 @@
                                                 AutomationProperties.HelpText="{DynamicResource Acc_Reg_Fecha_Help}"/>
                         </StackPanel>
                     </Grid>
-
+                    <!--Preview Imagen--> 
                     <Border Width="100" Height="100" 
                             CornerRadius="50" 
                             ClipToBounds="True" 
@@ -113,13 +122,14 @@
                     <StackPanel Spacing="5" Margin="0,10,0,0">
                         <TextBlock Text="{DynamicResource Reg_LblFotoLocal}" Foreground="{DynamicResource Brush_Reg_Input_Texto_Label}" FontSize="12"/>
                         <Grid ColumnDefinitions="*, 10, Auto">
+                            <!--Ruta imagen-->
                             <TextBox Grid.Column="0" 
                                      Text="{Binding NuevoUsuario.Perfil.ImagenUrl}" 
                                      Watermark="{DynamicResource Reg_WaterRutaFoto}"
                                      IsReadOnly="True"
                                      AutomationProperties.Name="{DynamicResource Reg_LblFotoLocal}"
                                      AutomationProperties.HelpText="{DynamicResource Acc_Reg_Ruta_Help}"/> 
-                            
+                            <!--Botón examinar--> 
                             <Button Grid.Column="2" 
                                     Content="{DynamicResource Reg_BtnExaminar}"
                                     Click="BtnSeleccionarImagen_Click"
@@ -130,14 +140,15 @@
                                     AutomationProperties.HelpText="{DynamicResource Acc_Reg_Examinar_Help}"/>
                         </Grid>
                     </StackPanel>
-
+                    <!--Es privado-->
                     <CheckBox IsChecked="{Binding NuevoUsuario.Perfil.EsPrivada}" 
                               Content="{DynamicResource Reg_ChkPrivado}"
                               Foreground="{DynamicResource Brush_Reg_Texto_Principal}"
                               AutomationProperties.Name="{DynamicResource Reg_ChkPrivado}"
                               AutomationProperties.HelpText="{DynamicResource Acc_Reg_ChkPrivado_Help}"/>
-
+                    
                     <StackPanel Margin="0,20,0,0" Spacing="10">
+                        <!--Botón registarse-->
                         <Button Command="{Binding BtnRegistrarse}"
                                 IsEnabled="{Binding !EstaCargando}"
                                 Content="{DynamicResource Reg_BtnRegistrar}"
@@ -151,7 +162,7 @@
                                 Height="45"
                                 CornerRadius="25"
                                 AutomationProperties.HelpText="{DynamicResource Acc_Reg_BtnRegistrar_Help}"/>
-
+                        <!--Botón volver-->
                         <Button Command="{Binding BtnVolver}"
                                 Content="{DynamicResource Reg_BtnCancelar}"
                                 Background="Transparent"
@@ -161,7 +172,6 @@
                                 Cursor="Hand"
                                 AutomationProperties.HelpText="{DynamicResource Acc_Reg_BtnCancelar_Help}"/>
                     </StackPanel>
-                    
                     <ProgressBar IsIndeterminate="True" 
                                  IsVisible="{Binding EstaCargando}" 
                                  Height="4" 

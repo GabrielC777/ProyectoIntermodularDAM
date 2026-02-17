@@ -3,7 +3,7 @@
              x:Class="BetaProyecto.App"
              xmlns:local="using:BetaProyecto"
              RequestedThemeVariant="Default">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+             <!-- Aqui tendremos los diccionaros por defecto de la app -->
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -17,6 +17,9 @@
     <Application.Styles>
         <!-- Paquete prefabricado que tiene avalonia (Botones mas modernos...)-->
         <FluentTheme />
+        <!-- Nuestros estilos personalizados por que en los anteriores diccionarios en algunos casos
+        por ejemplo en flyout no se aplicaban,además en casos como los combox que siempre son 
+        iguales hacemos ahorrarnos aplicarles los diccionarios cada vez que aparecen a solo una vez-->
         <StyleInclude Source="/Assets/Styles/EstilosGlobales.axaml"/>
         <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
     </Application.Styles>

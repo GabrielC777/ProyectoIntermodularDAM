@@ -10,12 +10,12 @@ namespace BetaProyecto.ViewModels
 {
     public class CentralTabControlViewModel : ViewModelBase
     {
-        // 1. LOS EMPLEADOS (Sub-ViewModels)
+        // Sub-ViewModels
         public TabItemInicioViewModel InicioVM { get; }
         public TabItemBuscadorViewModel BuscadorVM { get; }
         public TabItemPopularesViewModel PopularesVM { get; }
 
-        // 2. ACCIONES GLOBALES (Navegación y Reproductor)
+        // Actions globales (Navegación y Reproductor)
         public Action? IrAPerfil { get; set; }
         public Action? IrACuenta { get; set; }
         public Action? IrAGestionarCuenta { get; set; }
@@ -30,7 +30,7 @@ namespace BetaProyecto.ViewModels
         public Action<ListaPersonalizada>? IrADetallesPlaylist { get; set; }
         public Action<Canciones, List<Canciones>> SolicitudCancion { get; set; }
 
-        // 3. COMANDOS GLOBALES
+        //Comandos reactive 
         public ReactiveCommand<Unit, Unit> BtnPerfil { get; }
         public ReactiveCommand<Unit, Unit> BtnCuenta { get; }
         public ReactiveCommand<Unit, Unit> BtnGestionarCuenta { get; }
@@ -40,10 +40,10 @@ namespace BetaProyecto.ViewModels
         public ReactiveCommand<Unit,Unit> BtnPublicarCancion { get; }
         public ReactiveCommand<Unit, Unit> BtnCrearPlaylist { get; set; }
 
-        // El botón de Play sigue aquí porque el reproductor es Global
+        // Este comando esta aqui por es que que va a usar cada de los Sub-ViewModels 
         public ReactiveCommand<Canciones, Unit> BtnReproducir { get; }
 
-        // Propiedades Globales
+        // Bindings 
         private string _imagenPerfil;
         public string ImagenPerfil
         {
@@ -53,9 +53,10 @@ namespace BetaProyecto.ViewModels
 
         public CentralTabControlViewModel()
         {
-            // A. CONTRATAMOS AL EMPLEADO
-            InicioVM= new TabItemInicioViewModel();
+            // Preparamos los Sub-ViewModels
+            InicioVM = new TabItemInicioViewModel();
 
+            // Configuramos las acciones que el InicioVM puede solicitar a la vista principal(Puente con MarcoAppViewModel)
             InicioVM.EnviarReproduccion = (cancion, lista) =>
             {
                 SolicitudCancion?.Invoke(cancion, lista);
@@ -83,10 +84,10 @@ namespace BetaProyecto.ViewModels
             BuscadorVM = new TabItemBuscadorViewModel();
             PopularesVM = new TabItemPopularesViewModel();
 
-            // B. DATOS GLOBALES
             ImagenPerfil = GlobalData.Instance.UrlFotoPerfilGD;
 
-            // CONFIGURAR COMANDOS DE NAVEGACIÓN
+            // Configuramos los comandos reactive
+            //Menu contextual imagen del perfil
             BtnPerfil = ReactiveCommand.Create(() => { 
                 Debug.WriteLine("Pulsado Perfil"); 
                 IrAPerfil?.Invoke(); 
@@ -111,6 +112,7 @@ namespace BetaProyecto.ViewModels
                 Debug.WriteLine("Pulsado Ayuda");
                 IrAAyuda?.Invoke(); 
             });
+            //Menu contextual de +
             BtnPublicarCancion = ReactiveCommand.Create(() =>
             {
                 Debug.WriteLine("Pulsado Publicar Canción");

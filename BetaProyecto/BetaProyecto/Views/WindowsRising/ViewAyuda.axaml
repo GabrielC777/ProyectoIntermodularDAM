@@ -27,6 +27,7 @@
 
     <Viewbox Stretch="Uniform">
         <Grid Width="2300" Height="1300"> 
+            <!--Tarjeta central con la información de contacto y descripción de la ayuda-->
             <Border Background="{DynamicResource Brush_Ayuda_Fondo_Tarjeta}"
                     BorderBrush="{DynamicResource Brush_Ayuda_Borde_Tarjeta}"
                     BorderThickness="1"
@@ -41,7 +42,7 @@
                     <TextBlock Text="{DynamicResource Ayuda_Descripcion}" Grid.Row="3" FontSize="45" Foreground="{DynamicResource Brush_Ayuda_Texto_Principal}" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" TextWrapping="Wrap" MaxWidth="1100" Margin="0,60,0,0"/>
                 </Grid>
             </Border>
-
+            <!--Botón de volver -->
             <Button Classes="VolverAyuda"
                     Content="{DynamicResource VisorUser_BtnVolver}"
                     Command="{Binding btnVolverAtras}"

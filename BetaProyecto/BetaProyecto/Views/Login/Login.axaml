@@ -35,6 +35,7 @@
 
     </UserControl.Styles>
 
+    <!--Esto es para poder ver los datos en el Preview--> 
     <Design.DataContext>
         <vm:LoginViewModel/>
     </Design.DataContext>

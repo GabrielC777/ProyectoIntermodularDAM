@@ -113,7 +113,7 @@
                                         </StackPanel>
                                     </StackPanel>
                                 </StackPanel>
-
+                                <!--Fuentes-->
                                 <StackPanel Grid.Row="1" VerticalAlignment="Top">
                                     <TextBlock Text="{DynamicResource Config_SecFuente}" 
                                                FontSize="40" FontWeight="Bold" 
@@ -142,7 +142,7 @@
                                 Background="{DynamicResource Brush_Fondo_Panel}" 
                                 CornerRadius="0,40,40,0" BorderThickness="10">
                             <Grid RowDefinitions="*, *">
-                                
+                                <!--Idioma--> 
                                 <StackPanel Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Right">
                                     <TextBlock Text="{DynamicResource Config_SecIdioma}" 
                                                FontSize="40" FontWeight="Bold" 
@@ -165,7 +165,7 @@
                                                       AutomationProperties.Name="{DynamicResource Config_ValIdiomaIng}"/>
                                     </ComboBox>
                                 </StackPanel>
-
+                                <!--Acerca de -->
                                 <StackPanel Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Right">
                                     <TextBlock Text="{DynamicResource Config_SecAcercaDe}" 
                                                FontSize="40" FontWeight="Bold" 
@@ -191,20 +191,20 @@
                             HorizontalAlignment="Right" 
                             Spacing="20" 
                             Margin="0,20,50,40">
-                    
+                    <!--Botón volver--> 
                     <Button Content="{DynamicResource Global_BtnVolver}"
                             Classes="BotonConfig"
                             AutomationProperties.Name="{DynamicResource Global_BtnVolver}"
                             AutomationProperties.HelpText="{DynamicResource Acc_Btn_Volver_Help}"
                             Command="{Binding BtnVolverAtras}"
                             />
-
+                    <!--Botón cerrar sesión-->
                     <Button Content="{DynamicResource Global_BtnCerrarSesion}"
                             Classes="BotonConfig"
                             AutomationProperties.Name="{DynamicResource Global_BtnCerrarSesion}"
                             AutomationProperties.HelpText="{DynamicResource Acc_Btn_Cerrar_Help}"
                             Command="{Binding BtnCerrarSesion}"/>
-
+                    <!--Botón salir de la aplicación-->
                     <Button Content="{DynamicResource Global_BtnSalir}"
                             Classes="BotonConfig"
                             AutomationProperties.Name="{DynamicResource Global_BtnSalir}"

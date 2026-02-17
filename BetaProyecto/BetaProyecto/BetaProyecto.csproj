@@ -7,6 +7,10 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     <AssemblyName>BetaProyecto</AssemblyName>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Label="Avalonia">
+    <AvaloniaXamlReportImportance>Low</AvaloniaXamlReportImportance>
   </PropertyGroup>
 
   <ItemGroup>

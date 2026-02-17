@@ -59,16 +59,16 @@
         <Border Classes="Tarjeta">
             
             <StackPanel Spacing="20">
-                
+                <!--Título--> 
                 <TextBlock Text="{DynamicResource Global_LblAviso}" Classes="Titulo"/>
-                
+                <!--Cuerpo del mensaje-->
                 <TextBlock Text="{Binding Mensaje, Converter={StaticResource Traductor}}" 
                            TextWrapping="Wrap" 
                            TextAlignment="Center"
                            FontSize="16"
                            Margin="10,0"
                            Foreground="{DynamicResource Brush_Aviso_Mensaje}"/>
-
+                <!--Botón aceptar--> 
                 <Button Content="{DynamicResource Global_BtnAceptar}" 
                         Command="{Binding BtnAceptar}"
                         Classes="BotonAzul"/>

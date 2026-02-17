@@ -1,10 +1,6 @@
 ﻿using ReactiveUI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reactive;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BetaProyecto.ViewModels
 {
@@ -28,6 +24,7 @@ namespace BetaProyecto.ViewModels
             TextoBotonSi = textoSi;
             TextoBotonNo = textoNo;
 
+            //Configuramos comandos reactive
             BtnSi = ReactiveCommand.Create(() => cerrarConResultado(true));
             BtnNo = ReactiveCommand.Create(() => cerrarConResultado(false));
         }

@@ -4,8 +4,6 @@ using BetaProyecto.Singleton;
 using ReactiveUI;
 using System;
 using System.Reactive;
-using System.Security.Cryptography;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BetaProyecto.ViewModels
@@ -48,6 +46,7 @@ namespace BetaProyecto.ViewModels
         {
             _dialogoService = dialogoService;
 
+            // Validamos que ambos campos tengan texto para habilitar el botón de login
             var validacionLogin = this.WhenAnyValue(
                 x => x.TxtUsuario,
                 x => x.TxtPass,
@@ -61,7 +60,15 @@ namespace BetaProyecto.ViewModels
                 IrARegistarUser?.Invoke();
             });
         }
-
+        /// <summary>
+        /// Intenta iniciar sesión al usuario conectándose a la base de datos y validando las credenciales proporcionadas.
+        /// </summary>
+        /// <remarks>Si el inicio de sesión tiene éxito, se cargan los datos del usuario y la configuración, y la vista es
+        /// notificado para proceder. Si el inicio de sesión falla debido a credenciales incorrectas o problemas de conexión, una alerta es
+        /// se muestra para informar al usuario. Este método no devuelve un resultado; realiza efectos secundarios como
+        /// actualización del estado global y visualización de alertas. </remarks>
+        /// <returns>Devuelve una tarea que representa la operación de inicio de sesión asíncrono. La tarea se completa cuando el intento de inicio de sesión tiene
+        /// terminado, independientemente del éxito o el fracaso. </returns>
         private async Task IntentarLogin()
         {
             // Conectamos a la base de datos
@@ -69,7 +76,7 @@ namespace BetaProyecto.ViewModels
 
             if (conectado)
             {
-                // B) Si hay conexión procedemos a verificar si existe el usuario y si es correcta la contraseña
+                //Si hay conexión procedemos a verificar si existe el usuario y si es correcta la contraseña
                 var usuario = await MongoClientSingleton.Instance.Cliente.LoginUsuario(TxtUsuario, TxtPass);
 
                 // Comprobamos si ha encontrado el usuario

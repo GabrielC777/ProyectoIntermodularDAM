@@ -4,7 +4,6 @@ using ReactiveUI;
 using System;
 using System.Collections.Generic;
 using System.Reactive;
-using System.Reactive.Linq;
 using System.Threading.Tasks;
 
 namespace BetaProyecto.ViewModels
@@ -20,9 +19,6 @@ namespace BetaProyecto.ViewModels
 
 
         //Bidings
-        // OJO: Si quieres traducir estos tipos de problemas, lo ideal sería que fueran claves también
-        // Pero para el ComboBox, necesitarías un Converter o cargarlos ya traducidos.
-        // De momento lo dejamos así o lo cambiamos a claves si prefieres.
         public List<string> TiposDeProblema { get; } = new List<string>
         {
             "Copyright / Derechos de autor",
@@ -53,30 +49,36 @@ namespace BetaProyecto.ViewModels
             set => this.RaiseAndSetIfChanged(ref _mensajeEstado, value);
         }
 
+        //Comandos reactive
         public ReactiveCommand<Unit, Unit> BtnEnviarReporte { get; }
         public ReactiveCommand<Unit, Unit> BtnCancelar { get; }
 
-        // --- CONSTRUCTOR ---
+        // Constructor
         public ViewCrearReporteViewModel(Canciones cancion, Action accionVolver)
         {
             _cancionAReportar = cancion;
             _Volver = accionVolver;
 
-            // 1. Validación (Se queda aquí porque es configuración visual rápida)
+            // Validación
             var validacionCampos = this.WhenAnyValue(
                 x => x.TipoSeleccionado,
                 x => x.DescripcionTexto,
                 (tipo, desc) => !string.IsNullOrEmpty(tipo) && !string.IsNullOrWhiteSpace(desc)
             );
 
-            // 2. Comandos (Apuntan a métodos fuera para no ensuciar)
+            // Comandos reactive
             BtnEnviarReporte = ReactiveCommand.CreateFromTask(EnviarReporteAsync, canExecute: validacionCampos);
-
             BtnCancelar = ReactiveCommand.Create(accionVolver);
         }
-
-        // --- MÉTODOS DE LÓGICA ---
-
+        
+        /// <summary>
+        /// Envía un informe de forma asíncrona utilizando los detalles del informe actual y actualiza el mensaje de estado en función del
+        /// resultado.
+        /// </summary>
+        /// <remarks>Si el informe se envía con éxito, se actualiza el mensaje de estado para indicar que ha tenido éxito.
+        /// y el método navega de regreso después de un breve retraso. Si se produce un error, el mensaje de estado se actualiza a
+        /// indica el fallo. </remarks>
+        /// <returns>Devuelve una tarea que representa la operación asíncrona. </returns>
         private async Task EnviarReporteAsync()
         {
             try
@@ -96,7 +98,6 @@ namespace BetaProyecto.ViewModels
 
                 await MongoClientSingleton.Instance.Cliente.EnviarReporte(reporte);
 
-                // "✅ Reporte enviado correctamente."
                 MensajeEstado = "Msg_Exito_Reporte";
 
                 await Task.Delay(1500);
@@ -104,7 +105,6 @@ namespace BetaProyecto.ViewModels
             }
             catch (Exception ex)
             {
-                // "❌ Error al enviar."
                 MensajeEstado = "Msg_Error_Reporte";
                 System.Diagnostics.Debug.WriteLine(ex.Message);
             }

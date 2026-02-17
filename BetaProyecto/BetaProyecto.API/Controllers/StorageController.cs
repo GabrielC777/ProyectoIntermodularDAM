@@ -9,15 +9,10 @@ namespace BetaProyecto.API.Controllers
     [ApiController]
     public class StorageController : ControllerBase
     {
-        // ==========================================
-        // 1. CLAVES PARA IMGBB (FOTOS)
-        // ==========================================
+        // CLAVES PARA IMGBB (FOTOS)
         private const string ImgbbApiKey = "718db7c8748de9625904739b3e6a4265";
 
-        // ==========================================
-        // 2. CLAVES PARA CLOUDINARY (AUDIO)
-        // ==========================================
-        // Copialas de tu Dashboard de Cloudinary (botón View API Keys)
+        // CLAVES PARA CLOUDINARY (AUDIO)
         private const string CloudName = "dyyi9sb9v";
         private const string ApiKey = "926712452194393";
         private const string ApiSecret = "VCgQV20lLbnA5DO9I9NGMdKvjII";
@@ -26,16 +21,28 @@ namespace BetaProyecto.API.Controllers
 
         public StorageController()
         {
-            // Creamos un objeto 'Account' empaquetando tus 3 claves.
+            // Creamos un objeto 'Account' empaquetando nuestras 3 claves.
             var account = new Account(CloudName, ApiKey, ApiSecret);
             // Creamos la conexión real con Cloudinary usando esa cuenta.
             _cloudinary = new Cloudinary(account);
             // Obligamos a que la conexión use HTTPS (seguridad, candado verde).
             _cloudinary.Api.Secure = true;
         }
-        // ---------------------------------------------------------
+        /// <summary>
+        /// Recibe un archivo de imagen, lo procesa en memoria y lo carga en el servicio externo ImgBB.
+        /// </summary>
+        /// <remarks>
+        /// Este endpoint actúa como un puente (proxy) entre la aplicación cliente y ImgBB:
+        /// <list type="number">
+        /// <item><b>Validación:</b> Asegura que el archivo no sea nulo.</item>
+        /// <item><b>Conversión:</b> Transforma la imagen binaria a una cadena Base64 (texto), que es el formato requerido por la API de ImgBB.</item>
+        /// <item><b>Transmisión:</b> Realiza una petición POST segura enviando la API Key y el contenido.</item>
+        /// <item><b>Resolución:</b> Extrae la URL directa de la respuesta JSON para que la App pueda guardarla en su base de datos.</item>
+        /// </list>
+        /// </remarks>
+        /// <param name="archivo">El archivo de imagen enviado desde el formulario (IFormFile).</param>
+        /// <returns>Un objeto JSON con la URL pública de la imagen alojada.</returns>
         // ENDPOINT 1: SUBIR IMAGEN -> Va a ImgBB
-        // ---------------------------------------------------------
         [HttpPost("subir-imagen")] //ruta --> api/Storage/subir-imagen
         public async Task<IActionResult> SubirImagen(IFormFile archivo)
         {
@@ -92,9 +99,21 @@ namespace BetaProyecto.API.Controllers
                 return StatusCode(500, "Error subiendo imagen: " + ex.Message);
             }
         }
-        // ---------------------------------------------------------
+        /// <summary>
+        /// Procesa un archivo multimedia de audio y lo carga de forma asíncrona en el servicio de almacenamiento de Cloudinary.
+        /// </summary>
+        /// <remarks>
+        /// El flujo de este endpoint incluye:
+        /// <list type="number">
+        /// <item><b>Validación:</b> Comprobación de integridad del archivo recibido.</item>
+        /// <item><b>Tratamiento de Stream:</b> Apertura del archivo como flujo de datos para evitar la carga total en RAM.</item>
+        /// <item><b>Categorización:</b> Uso de parámetros de video (requeridos por Cloudinary para archivos de audio) y asignación de carpeta destino.</item>
+        /// <item><b>Persistencia:</b> Obtención de una URL segura (HTTPS) para su almacenamiento en la base de datos.</item>
+        /// </list>
+        /// </remarks>
+        /// <param name="archivo">El archivo de audio (mp3, wav, etc.) enviado a través de la petición HTTP.</param>
+        /// <returns>Un objeto JSON con la URL segura del recurso alojado o un mensaje de error detallado.</returns>
         // ENDPOINT 2: SUBIR AUDIO -> Va a Cloudinary
-        // ---------------------------------------------------------
         [HttpPost("subir-audio")]
         public async Task<IActionResult> SubirAudio(IFormFile archivo)
         {
@@ -133,7 +152,19 @@ namespace BetaProyecto.API.Controllers
                 return StatusCode(500, "Error subiendo audio: " + ex.Message);
             }
         }
-
+        /// <summary>
+        /// Solicita la eliminación permanente de un recurso multimedia alojado en Cloudinary a partir de su URL pública.
+        /// </summary>
+        /// <remarks>
+        /// Este endpoint implementa una lógica de filtrado y limpieza:
+        /// <list type="number">
+        /// <item><b>Discriminación de dominio:</b> Solo procesa eliminaciones si la URL pertenece a Cloudinary, ignorando otros proveedores (como ImgBB) para evitar errores de API.</item>
+        /// <item><b>Extracción de Identificador:</b> Procesa la URL para obtener el <c>PublicId</c>, que es la clave única que Cloudinary necesita para localizar el archivo.</item>
+        /// <item><b>Borrado por tipo de recurso:</b> Define específicamente el <c>ResourceType.Video</c> (usado para audio en tu configuración) para asegurar que el motor de búsqueda de Cloudinary encuentre el objeto.</item>
+        /// </list>
+        /// </remarks>
+        /// <param name="url">La dirección URL completa del archivo que se desea eliminar.</param>
+        /// <returns>Un mensaje de confirmación de éxito o un error detallado si la operación falla.</returns>
         [HttpDelete("eliminar")]
         public async Task<IActionResult> EliminarArchivo([FromQuery] string url)
         {
@@ -149,7 +180,7 @@ namespace BetaProyecto.API.Controllers
                 string publicId = ObtenerPublicId(url);
                 if (string.IsNullOrEmpty(publicId)) return BadRequest("URL no válida");
 
-                // 1. Intentamos borrar como si fuera un video
+                // Intentamos borrar como si fuera un video
                 var paramsVid = new DeletionParams(publicId) { ResourceType = ResourceType.Video };
                 var result = await _cloudinary.DestroyAsync(paramsVid);
 
@@ -161,8 +192,21 @@ namespace BetaProyecto.API.Controllers
                 return StatusCode(500, "Error API: " + ex.Message);
             }
         }
-
         // Metodos Helpers
+        /// <summary>
+        /// Analiza una URL de Cloudinary y extrae el identificador único (Public ID) necesario para operaciones de gestión.
+        /// </summary>
+        /// <remarks>
+        /// El método realiza un "parseo" quirúrgico de la URL siguiendo este algoritmo:
+        /// <list type="number">
+        /// <item><b>Localización:</b> Busca el segmento <c>/upload/</c> que separa la configuración del servidor de los datos del archivo.</item>
+        /// <item><b>Limpieza de Versión:</b> Omite el componente de versión (ej. <c>v17397... </c>) que Cloudinary genera automáticamente.</item>
+        /// <item><b>Extracción de Carpeta y Nombre:</b> Captura la ruta interna y el nombre del archivo.</item>
+        /// <item><b>Remoción de Extensión:</b> Elimina el sufijo del formato (ej. <c>.mp3</c>) para obtener el ID limpio que requiere la API de borrado.</item>
+        /// </list>
+        /// </remarks>
+        /// <param name="url">La dirección URL completa del recurso alojado en Cloudinary.</param>
+        /// <returns>El Public ID del recurso (incluyendo carpetas) o <c>null</c> si el formato de la URL es inválido.</returns>
         private string ObtenerPublicId(string url)
         {
             try

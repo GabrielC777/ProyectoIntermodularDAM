@@ -23,31 +23,30 @@ namespace BetaProyecto
         {
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                // 1. INICIAR VENTANA PRIMERO (Prioridad UX)
+                // Primero inicializamos la ventana que vamos a usar como si fuera un marco
                 desktop.MainWindow = new MarcoApp
                 {
-                    DataContext = new MarcoAppViewModel(),
+                    DataContext = new MarcoAppViewModel(), //Le conectamos su ViewModel 
                 };
 
-                // 2. CONFIGURAR LIMPIEZA AL CERRAR
-                // Solo cuando el usuario cierra la app, matamos la API.
+                // Configuramos el cierre de la API para que solo se ejecute cuando el usuario cierre la app
                 desktop.Exit += (sender, args) => CerrarApi();
 
-                // 3. ARRANCAR API EN SEGUNDO PLANO
+                // Arrancamos la API en segundo plano
                 Task.Run(() =>
                 {
-                    // PASO A: Buscar si ya existe el proceso (Puerto 7500 ocupado)
+                    //Buscar si ya existe el proceso (Puerto 7500 ocupado) para que no crashée al arrancar la API si ya esta ocupado
                     try
                     {
                         var zombies = Process.GetProcessesByName("BetaProyecto.API");
 
-                        if (zombies.Length > 0)
+                        if (zombies.Length > 0) // Si hay procesos previos, los matamos para liberar el puerto
                         {
                             Debug.WriteLine($"[App] Detectada API previa ({zombies.Length} procesos). Matando para liberar puerto 7500...");
                             foreach (var proc in zombies)
                             {
                                 proc.Kill();
-                                proc.WaitForExit(); // ¡VITAL! Esperamos a que Windows libere el puerto
+                                proc.WaitForExit(); // Esperamos a que Windows libere el puerto
                             }
                             Debug.WriteLine("[App] Limpieza completada.");
                         }
@@ -57,7 +56,7 @@ namespace BetaProyecto
                         Debug.WriteLine($"[App] Error al intentar matar zombies: {ex.Message}");
                     }
 
-                    // PASO B: Iniciar la API limpia
+                    // Iniciamos API una vez que comprobamos si tenemos los puertos limpios
                     IniciarApiNormal();
                 });
             }
@@ -69,32 +68,39 @@ namespace BetaProyecto
         {
             try
             {
-                // Lógica de búsqueda de rutas (Desarrollo vs Producción)
+                // Lógica de búsqueda de rutas (Desarrollo vs Producción(App real))
                 string baseDir = AppDomain.CurrentDomain.BaseDirectory;
                 string apiPath = "";
 
-                // Rutas posibles
+                // Rutas posibles (En desarrollo suele estar en la carpeta del proyecto API, en producción(App real) puede estar dentro de una subcarpeta "API" o directamente en el mismo nivel que el ejecutable)
                 string rutaDev = Path.GetFullPath(Path.Combine(baseDir, @"..\..\..\..\BetaProyecto.API\bin\Debug\net9.0\BetaProyecto.API.exe"));
                 string rutaProdSubcarpeta = Path.Combine(baseDir, "API", "BetaProyecto.API.exe");
 
-                if (File.Exists(rutaDev)) apiPath = rutaDev;
-                else if (File.Exists(rutaProdSubcarpeta)) apiPath = rutaProdSubcarpeta;
+                //Buscamos si existen las rutas para ver si estamos en desarrollo o producción(App real)
+                if (File.Exists(rutaDev))
+                {
+                    apiPath = rutaDev; 
+                } 
+                else if (File.Exists(rutaProdSubcarpeta))
+                {
+                    apiPath = rutaProdSubcarpeta;
+                }
 
-                if (!string.IsNullOrEmpty(apiPath))
+                if (!string.IsNullOrEmpty(apiPath)) // Por seguridad, solo intentamos arrancar si encontramos el .exe para evitar errores
                 {
                     // Si ya hay un proceso nuestro vivo, no arrancamos otro
                     if (_apiProcess != null && !_apiProcess.HasExited) return;
 
                     var startInfo = new ProcessStartInfo
                     {
-                        FileName = apiPath,
-                        UseShellExecute = false,
-                        CreateNoWindow = false,
-                        WindowStyle = ProcessWindowStyle.Hidden,
-                        WorkingDirectory = Path.GetDirectoryName(apiPath)
+                        FileName = apiPath, // La ruta al .exe de la API
+                        UseShellExecute = false, // Para poder controlar los detalles de la ventana
+                        CreateNoWindow = false, // Crea la ventana interna para que luego podamos ocultarla
+                        WindowStyle = ProcessWindowStyle.Hidden, // Ponemos la ventana oculta. 
+                        WorkingDirectory = Path.GetDirectoryName(apiPath) // Para que encuentre pueda encontrar la API los archivos appsettings.json y cookies.txt 
                     };
 
-                    _apiProcess = Process.Start(startInfo);
+                    _apiProcess = Process.Start(startInfo); // Arrancamos la API
                     Debug.WriteLine($"[App]  API arrancada (PID: {_apiProcess?.Id})");
                 }
                 else
@@ -110,10 +116,9 @@ namespace BetaProyecto
 
         private void CerrarApi()
         {
-            // ESTA ES LA CLAVE: Solo matamos cuando la app muere
             try
             {
-                // Matar nuestro proceso hijo
+                // Matar nuestro proceso hijo (La API)
                 if (_apiProcess != null && !_apiProcess.HasExited)
                 {
                     _apiProcess.Kill();
@@ -121,15 +126,24 @@ namespace BetaProyecto
                     Debug.WriteLine("[App] API cerrada correctamente.");
                 }
 
-                // OPCIONAL: Barrido de seguridad por si acaso quedó algún zombie suelto de un crash anterior
-                // (Solo lo hacemos al salir para dejar el PC limpio para la próxima vez)
+                // Barrido de seguridad por si acaso quedó algún zombie suelto de un crash anterior
                 var zombies = Process.GetProcessesByName("BetaProyecto.API");
                 foreach (var z in zombies)
                 {
-                    try { z.Kill(); } catch { }
+                    try 
+                    { 
+                        z.Kill(); 
+                    } 
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine($"[App] Error al matar proceso zombie: {ex.Message}");
+                    }
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[App] Error al cerrar API: {ex.Message}");
+            }
         }
     }
 }

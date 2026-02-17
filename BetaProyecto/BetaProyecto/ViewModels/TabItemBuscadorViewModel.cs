@@ -1,12 +1,8 @@
 ﻿using BetaProyecto.Models;
 using BetaProyecto.Singleton;
 using ReactiveUI;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Reactive;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BetaProyecto.ViewModels
@@ -47,14 +43,26 @@ namespace BetaProyecto.ViewModels
 
         public TabItemBuscadorViewModel()
         {
+            //Inicialización de lista
             ListaBusqueda = new ObservableCollection<Canciones>();
 
+            // Validación para habilitar el botón de búsqueda solo cuando haya texto
             var validacionBuscar = this.WhenAnyValue(
                 x => x.TxtBusqueda,
                 (textoABuscar) => !string.IsNullOrWhiteSpace(textoABuscar)
             );
+            //Configuramos comandos reactive
             BtnBuscar = ReactiveCommand.CreateFromTask(BuscarEnBD, validacionBuscar);
         }
+        
+        /// <summary>
+        /// Realiza una búsqueda asíncrona de canciones en la base de datos utilizando el texto de búsqueda actual y actualiza el
+        /// resultados de búsqueda y propiedades de estado relacionadas.
+        /// </summary>
+        /// <remarks>Si la conexión a la base de datos no está disponible, el método actualiza las propiedades de estado
+        /// para indicar un error de conexión. Los resultados de búsqueda y las propiedades de estado se actualizan en función de si hay alguno
+        /// las canciones coincidentes se encuentran. </remarks>
+        /// <returns>Devuelve una tarea que representa la operación de búsqueda asíncrona. </returns>
         private async Task BuscarEnBD()
         {
             TxtInfoResultado = "Bus_Msg_Buscando";

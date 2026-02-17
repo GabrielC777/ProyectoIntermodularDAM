@@ -33,9 +33,10 @@
         <StackPanel Spacing="20">
             
             <StackPanel Spacing="5">
+                <!--Título-->
                 <TextBlock Text="{DynamicResource Rep_Titulo}" FontSize="24" FontWeight="Bold" 
                            Foreground="{DynamicResource Brush_Rep_Titulo}"/>
-                
+                <!-- Persona que esta reportado -->
                 <StackPanel Orientation="Horizontal" Spacing="5">
                     <TextBlock Text="{DynamicResource Rep_LblEstasReportando}" 
                                Foreground="{DynamicResource Brush_Rep_Texto_Secundario}"/>
@@ -47,9 +48,10 @@
             <Separator Background="{DynamicResource Brush_Rep_Separador}" Height="2" AutomationProperties.AccessibilityView="Raw"/>
 
             <StackPanel Spacing="10">
+                
                 <TextBlock Text="{DynamicResource Rep_LblProblema}" FontWeight="SemiBold"
                            Foreground="{DynamicResource Brush_Rep_Texto_Principal}"/>
-                
+                <!--Combobox selección para problemas-->
                 <ComboBox ItemsSource="{Binding TiposDeProblema}" 
                           SelectedItem="{Binding TipoSeleccionado}"
                           HorizontalAlignment="Stretch"
@@ -59,7 +61,7 @@
                 
                 <TextBlock Text="{DynamicResource Rep_LblDetalles}" FontWeight="SemiBold" Margin="0,10,0,0"
                            Foreground="{DynamicResource Brush_Rep_Texto_Principal}"/>
-                
+                <!--Texto de descripción-->
                 <TextBox Text="{Binding DescripcionTexto}" 
                          Height="100" 
                          AcceptsReturn="True" 
@@ -68,19 +70,20 @@
                          AutomationProperties.Name="{DynamicResource Rep_LblDetalles}"
                          AutomationProperties.HelpText="{DynamicResource Acc_Rep_Desc_Help}"/>
             </StackPanel>
-
+            <!--Mensaje de estado (error o exito)-->
             <TextBlock Text="{Binding MensajeEstado, Converter={StaticResource Traductor}}" 
                        Foreground="{DynamicResource Brush_Rep_Titulo}" 
                        HorizontalAlignment="Center"
                        FontWeight="Bold"/>
 
             <StackPanel Orientation="Horizontal" Spacing="20" HorizontalAlignment="Right" Margin="0,10,0,0">
+                <!--Botón para cancelar-->
                 <Button Command="{Binding BtnCancelar}" 
                         Content="{DynamicResource Rep_BtnCancelar}" 
                         Background="Transparent" 
                         Foreground="{DynamicResource Brush_Rep_BtnCancelar_Texto}"
                         AutomationProperties.HelpText="{DynamicResource Acc_Rep_BtnCancelar_Help}"/>
-                
+                <!--Botón para reporte--> 
                 <Button Command="{Binding BtnEnviarReporte}" 
                         Content="{DynamicResource Rep_BtnEnviar}" 
                         Background="{DynamicResource Brush_Rep_BtnEnviar_Fondo}" 
