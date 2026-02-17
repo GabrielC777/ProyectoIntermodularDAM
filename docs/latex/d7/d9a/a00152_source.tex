@@ -1,0 +1,47 @@
+\doxysubsection{View\+Sobre\+Nosotros\+View\+Model.\+cs}
+\hypertarget{a00152_source}{}\label{a00152_source}\index{BetaProyecto/ViewModels/ViewSobreNosotrosViewModel.cs@{BetaProyecto/ViewModels/ViewSobreNosotrosViewModel.cs}}
+\doxymbox{\hyperlink{a00152}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00001}00001\ \textcolor{keyword}{using\ }ReactiveUI;}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00002}00002\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00003}00003\ \textcolor{keyword}{using\ }System.Diagnostics;}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00004}00004\ \textcolor{keyword}{using\ }System.Reactive;}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{a00152_source_l00006}00006\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{a00180}{BetaProyecto.ViewModels}}}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{a00152_source_l00009}\doxymbox{\hyperlink{a00465}{00009}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00465_ad797afc0376f5e48192c18d66e65dfe5}{ViewSobreNosotrosViewModel}}\ :\ \doxymbox{\hyperlink{a00453}{ViewModelBase}},\ \doxymbox{\hyperlink{a00365}{INavegable}}}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00010}00010\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00011}\doxymbox{\hyperlink{a00465_acc6f391c3d26816db2cd3de1fea3c08a}{00011}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ Action?\ \doxymbox{\hyperlink{a00465_acc6f391c3d26816db2cd3de1fea3c08a}{VolverAtras}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00012}\doxymbox{\hyperlink{a00465_a79cd6d13c9efdb620745d90b6fa2ed06}{00012}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ReactiveCommand<Unit,\ Unit>\ \doxymbox{\hyperlink{a00465_a79cd6d13c9efdb620745d90b6fa2ed06}{btnVolverAtras}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00013}\doxymbox{\hyperlink{a00465_aee07387b732660a3f41a46d7fc7b0307}{00013}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ReactiveCommand<Unit,\ Unit>\ \doxymbox{\hyperlink{a00465_aee07387b732660a3f41a46d7fc7b0307}{BtnAbrirGitHub}}\ \{\ \textcolor{keyword}{get};\ \}\ }
+\DoxyCodeLine{\Hypertarget{a00152_source_l00014}\doxymbox{\hyperlink{a00465_ad797afc0376f5e48192c18d66e65dfe5}{00014}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{a00465_ad797afc0376f5e48192c18d66e65dfe5}{ViewSobreNosotrosViewModel}}()}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00015}00015\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuramos\ el\ comando\ reactive}}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00465_a79cd6d13c9efdb620745d90b6fa2ed06}{btnVolverAtras}}\ =\ ReactiveCommand.Create(()\ =>}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Debug.WriteLine(\textcolor{stringliteral}{"{}Volviendo\ desde\ el\ Sobre\ Nosotros..."{}});}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00465_acc6f391c3d26816db2cd3de1fea3c08a}{VolverAtras}}?.Invoke();}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00465_aee07387b732660a3f41a46d7fc7b0307}{BtnAbrirGitHub}}\ =\ ReactiveCommand.Create(()\ =>}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Intentamos\ abrir\ la\ URL\ en\ el\ navegador\ predeterminado}}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Process.Start(\textcolor{keyword}{new}\ ProcessStartInfo}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FileName\ =\ \textcolor{stringliteral}{"{}https://github.com/GabrielC777/ProyectoIntermodularDAM.git"{}},}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UseShellExecute\ =\ \textcolor{keyword}{true}}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (System.Exception\ ex)}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.Diagnostics.Debug.WriteLine(\textcolor{stringliteral}{"{}Error\ al\ abrir\ GitHub:\ "{}}\ +\ ex.Message);}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{a00152_source_l00039}00039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00040}00040\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00152_source_l00041}00041\ \}}
+
+\end{DoxyCode}

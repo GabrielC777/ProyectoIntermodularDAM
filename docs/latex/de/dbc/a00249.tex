@@ -1,0 +1,106 @@
+\doxysubsection{Referencia de la clase Beta\+Proyecto.\+Helpers.\+Encriptador}
+\hypertarget{a00249}{}\label{a00249}\index{BetaProyecto.Helpers.Encriptador@{BetaProyecto.Helpers.Encriptador}}
+
+
+\doxysubsubsection{Detalles}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00008_source_l00012}{12}} del archivo \doxymbox{\hyperlink{a00008_source}{Encriptador.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{a00249_doc-func-members}
+\doxysubsubsection{Funciones}
+\Hypertarget{a00249_a22a5596da2f6e5aa5318995ed203697c}\index{BetaProyecto.Helpers.Encriptador@{BetaProyecto.Helpers.Encriptador}!DesencriptarArchivo@{DesencriptarArchivo}}
+\index{DesencriptarArchivo@{DesencriptarArchivo}!BetaProyecto.Helpers.Encriptador@{BetaProyecto.Helpers.Encriptador}}
+\doxyparagraph{\texorpdfstring{DesencriptarArchivo()}{DesencriptarArchivo()}}
+{\footnotesize\ttfamily \label{a00249_a22a5596da2f6e5aa5318995ed203697c} 
+async Task Beta\+Proyecto.\+Helpers.\+Encriptador.\+Desencriptar\+Archivo (\begin{DoxyParamCaption}\item[{string}]{ruta\+Entrada}{, }\item[{string}]{ruta\+Salida}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Lee un archivo cifrado del almacenamiento local, lo descifra utilizando el algoritmo AES y guarda el resultado en una ubicación temporal. 
+
+Este método es el pilar de la recuperación de datos protegidos y opera bajo los siguientes pasos:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Carga de Datos:\+}} Recupera los bytes cifrados del disco mediante File.\+Read\+All\+Bytes\+Async. 
+\item {\bfseries{Configuración Criptográfica:\+}} Reinstancia el motor Aes asegurando el uso de la misma clave y vector de inicialización (IV) empleados durante la encriptación. 
+\item {\bfseries{Procesamiento de Flujo:\+}} Utiliza un Crypto\+Stream en modo lectura (Crypto\+Stream\+Mode.\+Read) que actúa como un filtro de transformación, convirtiendo los bytes cifrados en datos originales. 
+\item {\bfseries{Persistencia Temporal:\+}} Vuelca el flujo descifrado en un nuevo archivo físico (normalmente un .mp3 temporal) para que sea accesible por los servicios de reproducción. 
+\end{DoxyEnumerate}Al utilizar flujos asíncronos, se garantiza que la interfaz de usuario no se bloquee durante el procesamiento de archivos de gran tamaño. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em ruta\+Entrada} & La ruta del archivo cifrado (habitualmente con extensión .enc) que se desea procesar.\\
+\hline
+{\em ruta\+Salida} & La ruta de destino donde se escribirá el archivo resultante ya descifrado.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Una tarea asíncrona que representa el proceso de lectura, descifrado y escritura.
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00008_source_l00123}{123}} del archivo \doxymbox{\hyperlink{a00008_source}{Encriptador.\+cs}}.
+
+\Hypertarget{a00249_a465982b664017a61bfd486465378b909}\index{BetaProyecto.Helpers.Encriptador@{BetaProyecto.Helpers.Encriptador}!EncriptarBytes@{EncriptarBytes}}
+\index{EncriptarBytes@{EncriptarBytes}!BetaProyecto.Helpers.Encriptador@{BetaProyecto.Helpers.Encriptador}}
+\doxyparagraph{\texorpdfstring{EncriptarBytes()}{EncriptarBytes()}}
+{\footnotesize\ttfamily \label{a00249_a465982b664017a61bfd486465378b909} 
+byte\+[$\,$]\+ Beta\+Proyecto.\+Helpers.\+Encriptador.\+Encriptar\+Bytes (\begin{DoxyParamCaption}\item[{byte\+[$\,$]\+}]{byte\+Sin\+Encrip}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Realiza un cifrado simétrico AES sobre una secuencia de bytes para proteger el contenido de archivos multimedia. 
+
+Este proceso de encriptación transforma los datos originales en un formato ilegible mediante los siguientes pasos técnicos:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Inicialización:\+}} Se instancia el algoritmo Aes y se configuran las propiedades {\ttfamily Key} (clave secreta) e {\ttfamily IV} (vector de inicialización). 
+\item {\bfseries{Canalización (Streaming):\+}} Se utiliza un Crypto\+Stream como intermediario para procesar los datos a través de un transformador de cifrado. 
+\item {\bfseries{Escritura Segura:\+}} Los bytes originales se escriben en el flujo de memoria, donde se aplican las operaciones matemáticas del estándar AES. 
+\item {\bfseries{Finalización:\+}} Se ejecuta {\ttfamily Flush\+Final\+Block} para procesar los bytes restantes y garantizar la integridad del bloque cifrado. 
+\end{DoxyEnumerate}El resultado es un array de bytes que solo puede ser recuperado mediante el método de desencriptación correspondiente utilizando la misma clave e IV. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em byte\+Sin\+Encrip} & El array de bytes original (en texto plano o formato multimedia crudo) que se desea proteger.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un array de bytes cifrados mediante el estándar AES, listos para ser almacenados de forma segura en el almacenamiento persistente.
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00008_source_l00077}{77}} del archivo \doxymbox{\hyperlink{a00008_source}{Encriptador.\+cs}}.
+
+\Hypertarget{a00249_ae4e0c05939cb5c4faf8bee21d0946f18}\index{BetaProyecto.Helpers.Encriptador@{BetaProyecto.Helpers.Encriptador}!HashPassword@{HashPassword}}
+\index{HashPassword@{HashPassword}!BetaProyecto.Helpers.Encriptador@{BetaProyecto.Helpers.Encriptador}}
+\doxyparagraph{\texorpdfstring{HashPassword()}{HashPassword()}}
+{\footnotesize\ttfamily \label{a00249_ae4e0c05939cb5c4faf8bee21d0946f18} 
+string Beta\+Proyecto.\+Helpers.\+Encriptador.\+Hash\+Password (\begin{DoxyParamCaption}\item[{string}]{password}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Aplica un algoritmo de hashing criptográfico SHA-\/256 a una cadena de texto para proteger información sensible. 
+
+Este proceso de seguridad transforma la contraseña mediante los siguientes pasos:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Codificación:\+}} Convierte la cadena original en una secuencia de bytes utilizando el estándar UTF-\/8. 
+\item {\bfseries{Cifrado:\+}} Utiliza una instancia de SHA256 para calcular un resumen único (hash) de 256 bits. 
+\item {\bfseries{Representación:\+}} Transforma los bytes resultantes en una cadena hexadecimal de longitud fija (64 caracteres) mediante un String\+Builder. 
+\item {\bfseries{Gestión de Memoria:\+}} Emplea la sentencia {\ttfamily using} para garantizar la liberación inmediata de los recursos criptográficos en la memoria RAM. 
+\end{DoxyEnumerate}Nota:\+ El hashing es una operación unidireccional; no es posible revertir el resultado para obtener la contraseña original. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em password} & La contraseña en texto plano que se desea anonimizar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Una cadena de texto en formato hexadecimal que representa el hash único de la contraseña.
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00008_source_l00036}{36}} del archivo \doxymbox{\hyperlink{a00008_source}{Encriptador.\+cs}}.
+

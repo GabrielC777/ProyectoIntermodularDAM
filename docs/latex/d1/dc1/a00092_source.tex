@@ -1,0 +1,286 @@
+\doxysubsection{Tab\+Item\+Inicio\+View\+Model.\+cs}
+\hypertarget{a00092_source}{}\label{a00092_source}\index{BetaProyecto/ViewModels/TabItemInicioViewModel.cs@{BetaProyecto/ViewModels/TabItemInicioViewModel.cs}}
+\doxymbox{\hyperlink{a00092}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00001}00001\ \textcolor{keyword}{using\ }Avalonia.Controls;}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00002}00002\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{a00177}{BetaProyecto.Models}};}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00003}00003\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{a00178}{BetaProyecto.Services}};}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00004}00004\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{a00179}{BetaProyecto.Singleton}};}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00005}00005\ \textcolor{keyword}{using\ }ReactiveUI;}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00006}00006\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00007}00007\ \textcolor{keyword}{using\ }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00008}00008\ \textcolor{keyword}{using\ }System.Collections.ObjectModel;}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00009}00009\ \textcolor{keyword}{using\ }System.Linq;}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00010}00010\ \textcolor{keyword}{using\ }System.Reactive;}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00011}00011\ \textcolor{keyword}{using\ }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00013}00013\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{a00180}{BetaProyecto.ViewModels}}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00014}00014\ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00015}\doxymbox{\hyperlink{a00385}{00015}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00385_a5d81c3feace9e665851d40c890693948}{TabItemInicioViewModel}}\ :\ \doxymbox{\hyperlink{a00453}{ViewModelBase}}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00016}00016\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Servicio\ de\ diálogo}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00018}\doxymbox{\hyperlink{a00385_a94a5e711aafd26f5ce9ff9678b7b368d}{00018}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ readonly\ \doxymbox{\hyperlink{a00337}{IDialogoService}}\ \doxymbox{\hyperlink{a00385_a94a5e711aafd26f5ce9ff9678b7b368d}{\_dialogoService}};}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Actions}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00021}\doxymbox{\hyperlink{a00385_a36d92f161a0041760bd1f55333eb5995}{00021}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ Action<Canciones,\ List<Canciones>>?\ \doxymbox{\hyperlink{a00385_a36d92f161a0041760bd1f55333eb5995}{EnviarReproduccion}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00022}\doxymbox{\hyperlink{a00385_ac055d9f1fc2e52c86000e980c2eb9c79}{00022}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ Action<Canciones>?\ \doxymbox{\hyperlink{a00385_ac055d9f1fc2e52c86000e980c2eb9c79}{SolicitudVerDetalles}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00023}\doxymbox{\hyperlink{a00385_af8902ad45eb138cca954874c911f7388}{00023}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ Action<string>?\ \doxymbox{\hyperlink{a00385_af8902ad45eb138cca954874c911f7388}{SolicitudVerArtista}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00024}\doxymbox{\hyperlink{a00385_a3845136fe1f761bd09799f9eaf1301c4}{00024}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ Action<Canciones>?\ \doxymbox{\hyperlink{a00385_a3845136fe1f761bd09799f9eaf1301c4}{SolicitudCrearReporte}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00025}\doxymbox{\hyperlink{a00385_ac8dc2042f0f032b53066ea03c16766e4}{00025}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ Action<ListaPersonalizada>?\ \doxymbox{\hyperlink{a00385_ac8dc2042f0f032b53066ea03c16766e4}{SolicitudVerDetallasPlaylist}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Comandos\ Reactive}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00028}\doxymbox{\hyperlink{a00385_a2495c169e9017a04fceaef4e0ae34482}{00028}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ReactiveCommand<object,\ Unit>\ \doxymbox{\hyperlink{a00385_a2495c169e9017a04fceaef4e0ae34482}{BtnReproducirDesdeTarjeta}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00029}\doxymbox{\hyperlink{a00385_aea491fe275eceb8700f739a178ab517e}{00029}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ReactiveCommand<ListaPersonalizada,\ Unit>\ \doxymbox{\hyperlink{a00385_aea491fe275eceb8700f739a178ab517e}{BtnReproducirPlaylist}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00030}\doxymbox{\hyperlink{a00385_a634bd188ebd6949b38c48c5e5469ab84}{00030}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ReactiveCommand<Unit,\ Unit>\ \doxymbox{\hyperlink{a00385_a634bd188ebd6949b38c48c5e5469ab84}{BtnRefrescar}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Menú\ de\ los\ 3\ puntos\ Canciones}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00033}\doxymbox{\hyperlink{a00385_ac99139d5b2436df36815de0e185dfb16}{00033}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ReactiveCommand<Canciones,\ Unit>\ \doxymbox{\hyperlink{a00385_ac99139d5b2436df36815de0e185dfb16}{BtnIrADetalleCancion}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00034}\doxymbox{\hyperlink{a00385_a8132e379a7cf757ba3d5e1f93017782a}{00034}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ReactiveCommand<object,\ Unit>\ \doxymbox{\hyperlink{a00385_a8132e379a7cf757ba3d5e1f93017782a}{BtnIrAArtista}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00035}\doxymbox{\hyperlink{a00385_ab76e46469a3d8e7dc5775cde4dea84ce}{00035}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ReactiveCommand<Canciones,\ Unit>\ \doxymbox{\hyperlink{a00385_ab76e46469a3d8e7dc5775cde4dea84ce}{BtnIrAReportar}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00036}00036\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Menú\ de\ los\ 3\ puntos\ Playlists}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00038}\doxymbox{\hyperlink{a00385_a0ade184234dc6cc99a8c3ba57238e9ee}{00038}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ReactiveCommand<ListaPersonalizada,\ Unit>\ \doxymbox{\hyperlink{a00385_a0ade184234dc6cc99a8c3ba57238e9ee}{BtnIrADetallesPlaylist}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Biding\ que\ contiene\ las\ listas\ (Novedades,\ Rock,\ etc.)}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00041}\doxymbox{\hyperlink{a00385_a3c6ea49df30e35c2ccb178f4bb58c666}{00041}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ ObservableCollection<TarjetasCanciones>\ \doxymbox{\hyperlink{a00385_a3c6ea49df30e35c2ccb178f4bb58c666}{\_tarjetas}};}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00042}\doxymbox{\hyperlink{a00385_a37291f8c91e885b0412091e8df9f239a}{00042}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ObservableCollection<TarjetasCanciones>\ \doxymbox{\hyperlink{a00385_a37291f8c91e885b0412091e8df9f239a}{Tarjetas}}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00043}00043\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \doxymbox{\hyperlink{a00385_a3c6ea49df30e35c2ccb178f4bb58c666}{\_tarjetas}};}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ this.RaiseAndSetIfChanged(ref\ \doxymbox{\hyperlink{a00385_a3c6ea49df30e35c2ccb178f4bb58c666}{\_tarjetas}},\ value);}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00046}00046\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00048}\doxymbox{\hyperlink{a00385_a5658e80be9290c1220e49a95642e17b4}{00048}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ ObservableCollection<TarjetasListas>\ \doxymbox{\hyperlink{a00385_a5658e80be9290c1220e49a95642e17b4}{\_playlists}};}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00049}\doxymbox{\hyperlink{a00385_aee945ffa43b2db790d223dd3ff1eb5bf}{00049}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ObservableCollection<TarjetasListas>\ \doxymbox{\hyperlink{a00385_aee945ffa43b2db790d223dd3ff1eb5bf}{Playlists}}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00050}00050\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \doxymbox{\hyperlink{a00385_a5658e80be9290c1220e49a95642e17b4}{\_playlists}};}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ this.RaiseAndSetIfChanged(ref\ \doxymbox{\hyperlink{a00385_a5658e80be9290c1220e49a95642e17b4}{\_playlists}},\ value);}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00054}00054\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00055}\doxymbox{\hyperlink{a00385_a12ae1a9cc26c9dd13b2ac236518670c0}{00055}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00385_a12ae1a9cc26c9dd13b2ac236518670c0}{\_txtFv}};}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00056}\doxymbox{\hyperlink{a00385_a674fc3ad8b8db5b6367160877277a362}{00056}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00385_a674fc3ad8b8db5b6367160877277a362}{TxtFav}}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00057}00057\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \doxymbox{\hyperlink{a00385_a12ae1a9cc26c9dd13b2ac236518670c0}{\_txtFv}};}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ this.RaiseAndSetIfChanged(ref\ \doxymbox{\hyperlink{a00385_a12ae1a9cc26c9dd13b2ac236518670c0}{\_txtFv}},\ value);}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00060}00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00062}\doxymbox{\hyperlink{a00385_a5d81c3feace9e665851d40c890693948}{00062}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{a00385_a5d81c3feace9e665851d40c890693948}{TabItemInicioViewModel}}()}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00063}00063\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Inicializamos\ el\ servicios\ }}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00385_a94a5e711aafd26f5ce9ff9678b7b368d}{\_dialogoService}}\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{a00333}{DialogoService}}();}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuramos\ los\ comandos\ reactive}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00385_a2495c169e9017a04fceaef4e0ae34482}{BtnReproducirDesdeTarjeta}}\ =\ ReactiveCommand.Create<\textcolor{keywordtype}{object}>(\doxymbox{\hyperlink{a00385_a735360b1dd1a66c9c09db5bbc0f299aa}{ReproducirDesdeBoton}});}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00385_aea491fe275eceb8700f739a178ab517e}{BtnReproducirPlaylist}}\ =\ ReactiveCommand.Create<\doxymbox{\hyperlink{a00273}{ListaPersonalizada}}>(\doxymbox{\hyperlink{a00385_a028abd6a76ebd085004a8a2ab986757b}{ReproducirPlaylist}});}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00385_ac99139d5b2436df36815de0e185dfb16}{BtnIrADetalleCancion}}\ =\ ReactiveCommand.Create<\doxymbox{\hyperlink{a00257}{Canciones}}>(cancion\ =>}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.Diagnostics.Debug.WriteLine(\$\textcolor{stringliteral}{"{}Solicitando\ detalles\ de:\ \{cancion.Titulo\}"{}});}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00385_ac055d9f1fc2e52c86000e980c2eb9c79}{SolicitudVerDetalles}}?.Invoke(cancion);}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00385_a8132e379a7cf757ba3d5e1f93017782a}{BtnIrAArtista}}\ =\ ReactiveCommand.Create<\textcolor{keywordtype}{object}>(\doxymbox{\hyperlink{a00385_a84d61e60d1cfd748390aab2faa8872a1}{IrAArtistaDesdeBoton}});}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00385_ab76e46469a3d8e7dc5775cde4dea84ce}{BtnIrAReportar}}\ =\ ReactiveCommand.Create<\doxymbox{\hyperlink{a00257}{Canciones}}>(cancion\ =>}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.Diagnostics.Debug.WriteLine(\$\textcolor{stringliteral}{"{}Creando\ reporte\ de:\ \{cancion.Titulo\}\ con\ el\ id\ \{cancion.Id\}"{}});}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00385_a3845136fe1f761bd09799f9eaf1301c4}{SolicitudCrearReporte}}?.Invoke(cancion);}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00385_a0ade184234dc6cc99a8c3ba57238e9ee}{BtnIrADetallesPlaylist}}\ =\ ReactiveCommand.Create<\doxymbox{\hyperlink{a00273}{ListaPersonalizada}}>(playlist\ =>}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.Diagnostics.Debug.WriteLine(\$\textcolor{stringliteral}{"{}Solicitando\ detalles\ de\ lista:\ \{playlist.Nombre\}"{}});}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00385_ac8dc2042f0f032b53066ea03c16766e4}{SolicitudVerDetallasPlaylist}}?.Invoke(playlist);}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00385_a634bd188ebd6949b38c48c5e5469ab84}{BtnRefrescar}}\ =\ ReactiveCommand.CreateFromTask(async\ ()\ =>}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ \doxymbox{\hyperlink{a00385_a562116f881fbf7994bbdf8bb0ee1ef1b}{CargarDatosCanciones}}();}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ejecutamos\ la\ tarea\ en\ segundo\ plano\ para\ no\ bloquear\ la\ interfaz}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \_\ =\ \doxymbox{\hyperlink{a00385_a562116f881fbf7994bbdf8bb0ee1ef1b}{CargarDatosCanciones}}();}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00097}00097\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00098}00098\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00099}00099\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Dirige\ la\ navegación\ a\ la\ vista\ de\ un\ artista\ cuando\ se\ activa\ mediante\ un\ botón\ asociado\ con\ el\ nombre\ del\ artista.\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00100}00100\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00101}00101\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>Este\ método\ se\ utiliza\ típicamente\ como\ un\ manejador\ de\ comandos\ para\ elementos\ de\ la\ interfaz\ de\ usuario\ que\ representan}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00102}00102\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ artistas\ dentro\ de\ un\ contexto\ de\ canción.\ Recupera\ el\ artista\ y\ la\ información\ de\ la\ canción\ relevante\ desde\ el\ botón}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00103}00103\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ jerarquía\ y\ plantea\ una\ solicitud\ para\ mostrar\ los\ detalles\ del\ artista.\ El\ parámetro\ debe\ estructurarse\ como}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00104}00104\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ descrito\ para\ que\ la\ navegación\ tenga\ éxito.\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00105}00105\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}parametro"{}>El\ parametro\ de\ comando,\ que\ se\ espera\ sea\ un\ botón\ cuyo\ DataContext\ contiene\ el\ nombre\ del\ artista\ y\ cuya\ etiqueta}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00106}00106\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ hace\ referencia\ al\ botón\ padre\ que\ contiene\ la\ información\ de\ la\ canción.\ </param>}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00107}\doxymbox{\hyperlink{a00385_a84d61e60d1cfd748390aab2faa8872a1}{00107}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{a00385_a84d61e60d1cfd748390aab2faa8872a1}{IrAArtistaDesdeBoton}}(\textcolor{keywordtype}{object}\ parametro)}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00108}00108\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Recuperamos\ el\ objeto\ de\ donde\ viene\ el\ comando\ (El\ botón\ con\ el\ nombre\ del\ artista)}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ y\ lo\ casteamos\ a\ Button\ para\ sacarle\ la\ inforamación\ que\ necesitamos}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (parametro\ is\ Button\ botonPequeño)}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Recuperamos\ el\ Nombre\ del\ Artista\ (DataContext\ del\ botón\ (Que\ seria\ un\ Objeto\ Canciones))}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ nombreArtista\ =\ botonPequeño.DataContext\ as\ string;}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Recuperamos\ el\ botón\ "{}jefe"{}\ (el\ abre\ el\ menú\ contextual\ donde\ esta\ el\ nombre\ del\ artistas)}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Que\ guardamos\ su\ referencia\ en\ el\ Tag\ del\ botón\ pequeño}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (botonPequeño.Tag\ is\ Button\ botonJefe)}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Ahora\ le\ decimos\ que\ se\ oculte\ par\ que\ no\ se\ quede\ abierto\ al\ pasar\ la\ vista\ artista}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ botonJefe.Flyout?.Hide();}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Y\ recuperamos\ la\ canción\ (DataContext\ del\ botón\ jefe)}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ cancion\ =\ botonJefe.DataContext\ as\ \doxymbox{\hyperlink{a00257}{Canciones}};}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Aseguramos\ que\ no\ esten\ vacíos}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\textcolor{keywordtype}{string}.IsNullOrEmpty(nombreArtista)\ \&\&\ cancion\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Buscamos\ el\ índice\ del\ artista\ en\ la\ lista\ del\ artista\ que\ queremos\ mostrar}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ indice\ =\ cancion.ListaArtistasIndividuales.IndexOf(nombreArtista);}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Con\ ese\ índice,\ buscamos\ el\ ID\ del\ artista\ en\ la\ lista\ de\ IDs\ (que\ es\ paralela\ a\ la\ de\ nombres)}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (indice\ >=\ 0\ \&\&\ cancion.AutoresIds\ !=\ \textcolor{keyword}{null}\ \&\&\ indice\ <\ cancion.AutoresIds.Count)}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ idUsuario\ =\ cancion.AutoresIds[indice];\textcolor{comment}{//Sacamos\ el\ id\ del\ artista\ a\ mostrar}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00385_af8902ad45eb138cca954874c911f7388}{SolicitudVerArtista}}?.Invoke(idUsuario);\textcolor{comment}{//\ Enviamos\ la\ solicitud\ para\ mostrar\ la\ vista\ del\ artista\ con\ su\ ID}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00140}00140\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00141}00141\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00142}00142\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Maneja\ el\ comando\ de\ reproducción\ disparado\ desde\ un\ botón,\ iniciando\ la\ reproducción\ de\ la\ canción\ seleccionada\ y\ su}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00143}00143\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ colección\ asociada.}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00144}00144\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00145}00145\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>Este\ método\ se\ utiliza\ típicamente\ como\ un\ manejador\ de\ comandos\ para\ botones\ de\ reproducción\ en\ el\ usuario}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00146}00146\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ interfaz.\ El\ DataContext\ del\ botón\ debe\ hacer\ referencia\ a\ la\ canción\ que\ se\ va\ a\ reproducir,\ y\ su\ etiqueta\ debe\ hacer\ referencia\ al}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00147}00147\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ colección\ a\ la\ que\ pertenece\ la\ canción.\ Si\ falta\ alguno\ de\ los\ valores\ o\ es\ inválido,\ el\ método\ lo\ hace}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00148}00148\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ nada.\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00149}00149\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}parametro"{}>El\ parámetro\ de\ comando,\ que\ se\ espera\ sea\ un\ botón\ cuyo\ DataContext\ es\ una\ canción\ a\ reproducir\ y\ cuya\ etiqueta\ contiene}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00150}00150\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ la\ colección\ de\ canciones.\ No\ debe\ ser\ nula\ y\ debe\ ser\ un\ botón\ con\ valores\ válidos\ de\ DataContext\ y\ Tag.\ </param>}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00151}\doxymbox{\hyperlink{a00385_a735360b1dd1a66c9c09db5bbc0f299aa}{00151}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{a00385_a735360b1dd1a66c9c09db5bbc0f299aa}{ReproducirDesdeBoton}}(\textcolor{keywordtype}{object}\ parametro)}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00152}00152\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Recuperamos\ el\ objeto\ de\ donde\ viene\ el\ comando\ (El\ botón\ de\ Play)}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ y\ lo\ casteamos\ a\ Button\ para\ sacar\ la\ información\ que\ necesitamos}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (parametro\ is\ Button\ boton)}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Recuperamos\ la\ Canción\ a\ reproducir\ (DataContext\ del\ botón\ (Que\ sería\ el\ Objeto\ Canciones))}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ cancion\ =\ boton.DataContext\ as\ \doxymbox{\hyperlink{a00257}{Canciones}};}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Recuperamos\ la\ lista\ completa\ a\ la\ que\ pertenece\ esa\ canción\ (la\ lista\ de\ origen)}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Que\ guardamos\ en\ el\ Tag\ del\ botón\ para\ saber\ el\ contexto\ (si\ viene\ de\ Populares,\ Buscador,\ etc.)}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Viene\ como\ 'IEnumerable',\ así\ que\ la\ casteamos\ para\ poder\ trabajar\ con\ ella}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ coleccionOrigen\ =\ boton.Tag\ as\ IEnumerable<Canciones>;}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Aseguramos\ que\ hemos\ recuperado\ bien\ tanto\ la\ canción\ como\ su\ lista\ de\ origen}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cancion\ !=\ \textcolor{keyword}{null}\ \&\&\ coleccionOrigen\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Convertimos\ la\ colección\ a\ una\ Lista\ concreta\ para\ asegurarnos\ de\ pasar\ una\ copia\ exacta\ al\ reproductor}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ listaExacta\ =\ coleccionOrigen.ToList();}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Enviamos\ la\ solicitud\ de\ reproducción\ al\ padre\ (MarcoApp)\ pasando:}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 1.\ La\ canción\ concreta\ que\ se\ ha\ pulsado\ (para\ que\ empiece\ por\ ahí)}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 2.\ La\ lista\ completa\ de\ contexto\ (para\ que\ sepa\ qué\ poner\ cuando\ acabe\ esta)}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00385_a36d92f161a0041760bd1f55333eb5995}{EnviarReproduccion}}?.Invoke(cancion,\ listaExacta);}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00177}00177\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00178}00178\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00179}00179\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Inicia\ la\ reproducción\ de\ la\ lista\ de\ reproducción\ especificada,\ reproduciendo\ la\ primera\ canción\ y\ poniendo\ en\ fila\ las\ canciones\ restantes\ para}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00180}00180\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ reproducción.}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00181}00181\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00182}00182\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>Si\ la\ lista\ de\ reproducción\ es\ nula\ o\ no\ contiene\ canciones,\ se\ muestra\ una\ alerta\ para\ informar\ el}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00183}00183\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ usuario\ que\ la\ lista\ de\ reproducción\ está\ vacía.\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00184}00184\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}playlist"{}>La\ lista\ de\ reproducción\ a\ reproducir.\ No\ debe\ ser\ nula\ y\ debe\ contener\ al\ menos\ una\ canción.\ </param>}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00185}\doxymbox{\hyperlink{a00385_a028abd6a76ebd085004a8a2ab986757b}{00185}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{a00385_a028abd6a76ebd085004a8a2ab986757b}{ReproducirPlaylist}}(\doxymbox{\hyperlink{a00273}{ListaPersonalizada}}\ playlist)}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00186}00186\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (playlist\ !=\ \textcolor{keyword}{null}\ \&\&\ playlist.\doxymbox{\hyperlink{a00273_a93dd47abf6a0f0143533e4f50017c6ba}{CancionesCompletas}}.Count\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ La\ primera\ canción\ que\ sonará}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ primeraCancion\ =\ playlist.\doxymbox{\hyperlink{a00273_a93dd47abf6a0f0143533e4f50017c6ba}{CancionesCompletas}}[0];}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ La\ lista\ completa\ (cola\ de\ reproducción)}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ cola\ =\ playlist.\doxymbox{\hyperlink{a00273_a93dd47abf6a0f0143533e4f50017c6ba}{CancionesCompletas}};}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Enviamos\ al\ MarcoApp}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00385_a36d92f161a0041760bd1f55333eb5995}{EnviarReproduccion}}?.Invoke(primeraCancion,\ cola);}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ "{}Esta\ lista\ está\ vacía."{}}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00385_a94a5e711aafd26f5ce9ff9678b7b368d}{\_dialogoService}}.MostrarAlerta(\textcolor{stringliteral}{"{}Msg\_Error\_PlaylistVacia"{}});}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00203}00203\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00204}00204\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00205}00205\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Carga\ y\ organiza\ de\ forma\ asíncrona\ los\ datos\ de\ canciones\ y\ listas\ de\ reproducción\ desde\ la\ base\ de\ datos,\ actualizando\ los\ correspondientes}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00206}00206\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ colecciones\ para\ la\ vinculación\ de\ datos.}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00207}00207\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00208}00208\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>Si\ la\ conexión\ a\ la\ base\ de\ datos\ no\ está\ disponible,\ se\ muestra\ una\ alerta\ y\ no\ hay\ datos}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00209}00209\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ cargado.\ Las\ canciones\ y\ listas\ de\ reproducción\ se\ agrupan\ en\ secciones\ como\ favoritas,\ nuevos\ lanzamientos,\ rock,\ personalizadas}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00210}00210\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ listas\ y\ listas\ de\ comunidades,\ asignadas\ a\ sus\ respectivas\ colecciones\ para\ la\ vinculación\ de\ la\ interfaz.\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00211}00211\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <returns>Devuelve\ una\ tarea\ que\ representa\ la\ operación\ de\ carga\ asíncrona.\ </returns>}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00212}\doxymbox{\hyperlink{a00385_a562116f881fbf7994bbdf8bb0ee1ef1b}{00212}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ async\ Task\ \doxymbox{\hyperlink{a00385_a562116f881fbf7994bbdf8bb0ee1ef1b}{CargarDatosCanciones}}()}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00213}00213\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{a00353}{MongoClientSingleton}}.\doxymbox{\hyperlink{a00353_ad0067cc765141c80b254d1a39395f529}{Instance}}.\doxymbox{\hyperlink{a00353_a275ea6d123352f803782b0ff26216fc6}{Cliente}}\ ==\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ "{}Error\ de\ conexión\ a\ la\ base\ de\ datos"{}}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00385_a94a5e711aafd26f5ce9ff9678b7b368d}{\_dialogoService}}.MostrarAlerta(\textcolor{stringliteral}{"{}Msg\_Error\_Conexion"{}});}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ cliente\ =\ \doxymbox{\hyperlink{a00353}{MongoClientSingleton}}.\doxymbox{\hyperlink{a00353_ad0067cc765141c80b254d1a39395f529}{Instance}}.\doxymbox{\hyperlink{a00353_a275ea6d123352f803782b0ff26216fc6}{Cliente}};}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ miIdUsuario\ =\ \doxymbox{\hyperlink{a00349}{GlobalData}}.\doxymbox{\hyperlink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Instance}}.\doxymbox{\hyperlink{a00349_adb38cdfb6b5c5f427b3a1250eca88a29}{UserIdGD}};}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Lógica\ de\ carga}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/Listade\ canciones}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ songsNovedades\ =\ cliente.ObtenerCacionesNovedades();}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ songsFavoritos\ =\ cliente.ObtenerCancionesFavoritos();}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ songsRock\ =\ cliente.ObtenerCancionesPorGenero(\textcolor{stringliteral}{"{}Rock"{}});}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ songsGeneral\ =\ cliente.ObtenerCanciones();}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/Playlist}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ taskPlaylists\ =\ cliente.ObtenerListasReproduccion();}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Esperamos\ todo\ a\ la\ vez\ (Paralelismo)}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ Task.WhenAll(songsNovedades,\ songsFavoritos,\ songsRock,\ songsGeneral,\ taskPlaylists);}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00235}00235\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Creamos\ la\ lista\ de\ secciones}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ listaTarjetas\ =\ \textcolor{keyword}{new}\ ObservableCollection<TarjetasCanciones>();}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ PROCESAR\ CANCIONES\ (TarjetasCanciones)\ -\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ OJO:\ Estas\ claves\ "{}Sec\_..."{}\ vienen\ de\ un\ Diccionario\ si\ posieramos\ el\ texto\ directamente,}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ se\ podria\ direcamente\ esa\ palabra\ pero\ no\ cambiaria\ entre\ idiomas}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (songsFavoritos.Result.Count\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listaTarjetas.Add(\textcolor{keyword}{new}\ \doxymbox{\hyperlink{a00293}{TarjetasCanciones}}(\textcolor{stringliteral}{"{}Sec\_Favoritos"{}},\ \textcolor{keyword}{new}\ ObservableCollection<Canciones>(songsFavoritos.Result)));\ \textcolor{comment}{//\ "{}Favoritos\ "{}}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listaTarjetas.Add(\textcolor{keyword}{new}\ \doxymbox{\hyperlink{a00293}{TarjetasCanciones}}(\textcolor{stringliteral}{"{}Sec\_Novedades"{}},\ \textcolor{keyword}{new}\ ObservableCollection<Canciones>(songsNovedades.Result)));\ \textcolor{comment}{//\ "{}Novedades\ "{}}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00247}00247\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (songsRock.Result.Count\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listaTarjetas.Add(\textcolor{keyword}{new}\ \doxymbox{\hyperlink{a00293}{TarjetasCanciones}}(\textcolor{stringliteral}{"{}Sec\_Rock"{}},\ \textcolor{keyword}{new}\ ObservableCollection<Canciones>(songsRock.Result)));\ \textcolor{comment}{//\ "{}Rock\ "{}}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00250}00250\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listaTarjetas.Add(\textcolor{keyword}{new}\ \doxymbox{\hyperlink{a00293}{TarjetasCanciones}}(\textcolor{stringliteral}{"{}Sec\_ParaTi"{}},\ \textcolor{keyword}{new}\ ObservableCollection<Canciones>(songsGeneral.Result)));\ \textcolor{comment}{//\ "{}Para\ ti\ "{}}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00252}00252\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00254}00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00385_a37291f8c91e885b0412091e8df9f239a}{Tarjetas}}\ =\ listaTarjetas;\textcolor{comment}{//\ Asignamos\ la\ lista\ al\ Binding}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00255}00255\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ PROCESAR\ LISTAS\ (TarjetasListas)\ -\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Aquí\ separamos\ las\ listas\ en\ secciones}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ todasListas\ =\ taskPlaylists.Result;}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ listaPlaylist\ =\ \textcolor{keyword}{new}\ ObservableCollection<TarjetasListas>();}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00260}00260\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Mis\ Listas\ (Filtramos\ por\ mi\ ID)}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ misListas\ =\ todasListas.Where(l\ =>\ l.IdUsuario\ ==\ miIdUsuario).ToList();}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (misListas.Count\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00265}00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listaPlaylist.Add(\textcolor{keyword}{new}\ \doxymbox{\hyperlink{a00297}{TarjetasListas}}(\textcolor{stringliteral}{"{}Sec\_MisListas"{}},\ \textcolor{keyword}{new}\ ObservableCollection<ListaPersonalizada>(misListas)));\ \textcolor{comment}{//\ "{}Mis\ Listas\ 👤"{}}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00266}00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00268}00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Comunidad\ (El\ resto)}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00269}00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ otrasListas\ =\ todasListas.Where(l\ =>\ l.IdUsuario\ !=\ miIdUsuario).ToList();}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00270}00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (otrasListas.Count\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listaPlaylist.Add(\textcolor{keyword}{new}\ \doxymbox{\hyperlink{a00297}{TarjetasListas}}(\textcolor{stringliteral}{"{}Sec\_Comunidad"{}},\ \textcolor{keyword}{new}\ ObservableCollection<ListaPersonalizada>(otrasListas)));\ \textcolor{comment}{//\ "{}De\ la\ Comunidad\ 🌎"{}}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00273}00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00274}00274\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00385_aee945ffa43b2db790d223dd3ff1eb5bf}{Playlists}}\ =\ listaPlaylist;\textcolor{comment}{//\ Asignamos\ la\ lista\ al\ Binding}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00276}00276\ }
+\DoxyCodeLine{\Hypertarget{a00092_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00278}00278\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00279}00279\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00092_source_l00280}00280\ \}}
+
+\end{DoxyCode}

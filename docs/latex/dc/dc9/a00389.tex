@@ -1,0 +1,145 @@
+\doxysubsection{Referencia de la clase Beta\+Proyecto.\+View\+Models.\+Tab\+Item\+Populares\+View\+Model}
+\hypertarget{a00389}{}\label{a00389}\index{BetaProyecto.ViewModels.TabItemPopularesViewModel@{BetaProyecto.ViewModels.TabItemPopularesViewModel}}
+
+
+\doxysubsubsection{Detalles}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00095_source_l00009}{9}} del archivo \doxymbox{\hyperlink{a00095_source}{Tab\+Item\+Populares\+View\+Model.\+cs}}.
+
+\doxysubsubsubsection*{Métodos}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{a00389_acc9bf1101da031192be7e868a7bc4ece}{Tab\+Item\+Populares\+View\+Model}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Propiedades}
+\begin{DoxyCompactItemize}
+\item 
+Observable\+Collection$<$ string $>$ \doxymbox{\hyperlink{a00389_a5add4c13000d16b857218c9c5321a6b4}{Lista\+Generos}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+string \doxymbox{\hyperlink{a00389_a8ee869bf17cf24171e4470dd2af8c677}{Genero\+Seleccionado}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+string \doxymbox{\hyperlink{a00389_a5de5842bca8df1a2544b8137ba2ca019}{Txt\+Info}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+string \doxymbox{\hyperlink{a00389_a41fa518eea320a32cd19cd8d1731fd17}{Txt\+Genero\+Mostrado}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+Observable\+Collection$<$ \doxymbox{\hyperlink{a00257}{Canciones}} $>$ \doxymbox{\hyperlink{a00389_ab76a0b801a326e8a124717d6e584c920}{Lista\+Populares}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{a00389_doc-constructors}
+\doxysubsubsection{Constructores}
+\Hypertarget{a00389_acc9bf1101da031192be7e868a7bc4ece}\index{BetaProyecto.ViewModels.TabItemPopularesViewModel@{BetaProyecto.ViewModels.TabItemPopularesViewModel}!TabItemPopularesViewModel@{TabItemPopularesViewModel}}
+\index{TabItemPopularesViewModel@{TabItemPopularesViewModel}!BetaProyecto.ViewModels.TabItemPopularesViewModel@{BetaProyecto.ViewModels.TabItemPopularesViewModel}}
+\doxyparagraph{\texorpdfstring{TabItemPopularesViewModel()}{TabItemPopularesViewModel()}}
+{\footnotesize\ttfamily \label{a00389_acc9bf1101da031192be7e868a7bc4ece} 
+Beta\+Proyecto.\+View\+Models.\+Tab\+Item\+Populares\+View\+Model.\+Tab\+Item\+Populares\+View\+Model (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00095_source_l00055}{55}} del archivo \doxymbox{\hyperlink{a00095_source}{Tab\+Item\+Populares\+View\+Model.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{a00389_doc-func-members}
+\doxysubsubsection{Funciones}
+\Hypertarget{a00389_a08c406f986de1f2b596dec9bf226aa62}\index{BetaProyecto.ViewModels.TabItemPopularesViewModel@{BetaProyecto.ViewModels.TabItemPopularesViewModel}!CargarCancionesPorGenero@{CargarCancionesPorGenero}}
+\index{CargarCancionesPorGenero@{CargarCancionesPorGenero}!BetaProyecto.ViewModels.TabItemPopularesViewModel@{BetaProyecto.ViewModels.TabItemPopularesViewModel}}
+\doxyparagraph{\texorpdfstring{CargarCancionesPorGenero()}{CargarCancionesPorGenero()}}
+{\footnotesize\ttfamily \label{a00389_a08c406f986de1f2b596dec9bf226aa62} 
+async Task Beta\+Proyecto.\+View\+Models.\+Tab\+Item\+Populares\+View\+Model.\+Cargar\+Canciones\+Por\+Genero (\begin{DoxyParamCaption}\item[{string}]{genero}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Carga asincrónicamente la lista de canciones populares para el género especificado y actualiza la pantalla relacionada propiedades. 
+
+Si no se encuentran canciones para el género especificado, las propiedades de visualización se actualizan a indica que no se encontraron resultados. Si la conexión a la base de datos no está disponible, se establece un mensaje de error en su lugar. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em genero} & El nombre del género para el que se recuperarán las canciones populares. No puede ser nulo ni vacío. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Devuelve una tarea que representa la operación de carga asíncrona. 
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00095_source_l00078}{78}} del archivo \doxymbox{\hyperlink{a00095_source}{Tab\+Item\+Populares\+View\+Model.\+cs}}.
+
+\Hypertarget{a00389_ae1a177e5cf3dd3eb0a0d1f7e0aa2bfff}\index{BetaProyecto.ViewModels.TabItemPopularesViewModel@{BetaProyecto.ViewModels.TabItemPopularesViewModel}!CargarGeneros@{CargarGeneros}}
+\index{CargarGeneros@{CargarGeneros}!BetaProyecto.ViewModels.TabItemPopularesViewModel@{BetaProyecto.ViewModels.TabItemPopularesViewModel}}
+\doxyparagraph{\texorpdfstring{CargarGeneros()}{CargarGeneros()}}
+{\footnotesize\ttfamily \label{a00389_ae1a177e5cf3dd3eb0a0d1f7e0aa2bfff} 
+async Task Beta\+Proyecto.\+View\+Models.\+Tab\+Item\+Populares\+View\+Model.\+Cargar\+Generos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Carga de forma asíncrona la lista de nombres de género desde la base de datos y actualiza la colección utilizada por la vista. 
+
+Si la conexión a la base de datos no está disponible, el método escribe un mensaje de error en el salida de depuración y no se actualiza la lista de géneros. 
+
+\begin{DoxyReturn}{Devuelve}
+Devuelve una tarea que representa la operación de carga asíncrona. 
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00095_source_l00116}{116}} del archivo \doxymbox{\hyperlink{a00095_source}{Tab\+Item\+Populares\+View\+Model.\+cs}}.
+
+
+
+\label{doc-property-members}
+\Hypertarget{a00389_doc-property-members}
+\doxysubsubsection{Propiedades}
+\Hypertarget{a00389_a8ee869bf17cf24171e4470dd2af8c677}\index{BetaProyecto.ViewModels.TabItemPopularesViewModel@{BetaProyecto.ViewModels.TabItemPopularesViewModel}!GeneroSeleccionado@{GeneroSeleccionado}}
+\index{GeneroSeleccionado@{GeneroSeleccionado}!BetaProyecto.ViewModels.TabItemPopularesViewModel@{BetaProyecto.ViewModels.TabItemPopularesViewModel}}
+\doxyparagraph{\texorpdfstring{GeneroSeleccionado}{GeneroSeleccionado}}
+{\footnotesize\ttfamily \label{a00389_a8ee869bf17cf24171e4470dd2af8c677} 
+string Beta\+Proyecto.\+View\+Models.\+Tab\+Item\+Populares\+View\+Model.\+Genero\+Seleccionado\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00095_source_l00021}{21}} del archivo \doxymbox{\hyperlink{a00095_source}{Tab\+Item\+Populares\+View\+Model.\+cs}}.
+
+\Hypertarget{a00389_a5add4c13000d16b857218c9c5321a6b4}\index{BetaProyecto.ViewModels.TabItemPopularesViewModel@{BetaProyecto.ViewModels.TabItemPopularesViewModel}!ListaGeneros@{ListaGeneros}}
+\index{ListaGeneros@{ListaGeneros}!BetaProyecto.ViewModels.TabItemPopularesViewModel@{BetaProyecto.ViewModels.TabItemPopularesViewModel}}
+\doxyparagraph{\texorpdfstring{ListaGeneros}{ListaGeneros}}
+{\footnotesize\ttfamily \label{a00389_a5add4c13000d16b857218c9c5321a6b4} 
+Observable\+Collection$<$string$>$ Beta\+Proyecto.\+View\+Models.\+Tab\+Item\+Populares\+View\+Model.\+Lista\+Generos\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00095_source_l00014}{14}} del archivo \doxymbox{\hyperlink{a00095_source}{Tab\+Item\+Populares\+View\+Model.\+cs}}.
+
+\Hypertarget{a00389_ab76a0b801a326e8a124717d6e584c920}\index{BetaProyecto.ViewModels.TabItemPopularesViewModel@{BetaProyecto.ViewModels.TabItemPopularesViewModel}!ListaPopulares@{ListaPopulares}}
+\index{ListaPopulares@{ListaPopulares}!BetaProyecto.ViewModels.TabItemPopularesViewModel@{BetaProyecto.ViewModels.TabItemPopularesViewModel}}
+\doxyparagraph{\texorpdfstring{ListaPopulares}{ListaPopulares}}
+{\footnotesize\ttfamily \label{a00389_ab76a0b801a326e8a124717d6e584c920} 
+Observable\+Collection$<$\doxymbox{\hyperlink{a00257}{Canciones}}$>$ Beta\+Proyecto.\+View\+Models.\+Tab\+Item\+Populares\+View\+Model.\+Lista\+Populares\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00095_source_l00049}{49}} del archivo \doxymbox{\hyperlink{a00095_source}{Tab\+Item\+Populares\+View\+Model.\+cs}}.
+
+\Hypertarget{a00389_a41fa518eea320a32cd19cd8d1731fd17}\index{BetaProyecto.ViewModels.TabItemPopularesViewModel@{BetaProyecto.ViewModels.TabItemPopularesViewModel}!TxtGeneroMostrado@{TxtGeneroMostrado}}
+\index{TxtGeneroMostrado@{TxtGeneroMostrado}!BetaProyecto.ViewModels.TabItemPopularesViewModel@{BetaProyecto.ViewModels.TabItemPopularesViewModel}}
+\doxyparagraph{\texorpdfstring{TxtGeneroMostrado}{TxtGeneroMostrado}}
+{\footnotesize\ttfamily \label{a00389_a41fa518eea320a32cd19cd8d1731fd17} 
+string Beta\+Proyecto.\+View\+Models.\+Tab\+Item\+Populares\+View\+Model.\+Txt\+Genero\+Mostrado\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00095_source_l00041}{41}} del archivo \doxymbox{\hyperlink{a00095_source}{Tab\+Item\+Populares\+View\+Model.\+cs}}.
+
+\Hypertarget{a00389_a5de5842bca8df1a2544b8137ba2ca019}\index{BetaProyecto.ViewModels.TabItemPopularesViewModel@{BetaProyecto.ViewModels.TabItemPopularesViewModel}!TxtInfo@{TxtInfo}}
+\index{TxtInfo@{TxtInfo}!BetaProyecto.ViewModels.TabItemPopularesViewModel@{BetaProyecto.ViewModels.TabItemPopularesViewModel}}
+\doxyparagraph{\texorpdfstring{TxtInfo}{TxtInfo}}
+{\footnotesize\ttfamily \label{a00389_a5de5842bca8df1a2544b8137ba2ca019} 
+string Beta\+Proyecto.\+View\+Models.\+Tab\+Item\+Populares\+View\+Model.\+Txt\+Info\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00095_source_l00034}{34}} del archivo \doxymbox{\hyperlink{a00095_source}{Tab\+Item\+Populares\+View\+Model.\+cs}}.
+

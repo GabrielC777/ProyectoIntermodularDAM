@@ -1,0 +1,159 @@
+\doxysubsection{Referencia de la clase Beta\+Proyecto.\+API.\+Controllers.\+Storage\+Controller}
+\hypertarget{a00237}{}\label{a00237}\index{BetaProyecto.API.Controllers.StorageController@{BetaProyecto.API.Controllers.StorageController}}
+
+
+\doxysubsubsection{Detalles}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00161_source_l00010}{10}} del archivo \doxymbox{\hyperlink{a00161_source}{Storage\+Controller.\+cs}}.
+
+\doxysubsubsubsection*{Métodos}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{a00237_adf96fbc4142299e5638bdff6f9fa0aad}{Storage\+Controller}} ()
+\item 
+async Task$<$ IAction\+Result $>$ \doxymbox{\hyperlink{a00237_a49f2731f9ff8882feeb00ac406d2eaa6}{Subir\+Imagen}} (IForm\+File archivo)
+\begin{DoxyCompactList}\small\item\em Recibe un archivo de imagen, lo procesa en memoria y lo carga en el servicio externo Img\+BB. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \doxymbox{\hyperlink{a00237_acb8d95a8e279bcb28931735da87e6f54}{Subir\+Audio}} (IForm\+File archivo)
+\begin{DoxyCompactList}\small\item\em Procesa un archivo multimedia de audio y lo carga de forma asíncrona en el servicio de almacenamiento de Cloudinary. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \doxymbox{\hyperlink{a00237_a9a06bf7709045c2b0a00e115900be260}{Eliminar\+Archivo}} (\+[From\+Query]\+ string url)
+\begin{DoxyCompactList}\small\item\em Solicita la eliminación permanente de un recurso multimedia alojado en Cloudinary a partir de su URL pública. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{a00237_doc-constructors}
+\doxysubsubsection{Constructores}
+\Hypertarget{a00237_adf96fbc4142299e5638bdff6f9fa0aad}\index{BetaProyecto.API.Controllers.StorageController@{BetaProyecto.API.Controllers.StorageController}!StorageController@{StorageController}}
+\index{StorageController@{StorageController}!BetaProyecto.API.Controllers.StorageController@{BetaProyecto.API.Controllers.StorageController}}
+\doxyparagraph{\texorpdfstring{StorageController()}{StorageController()}}
+{\footnotesize\ttfamily \label{a00237_adf96fbc4142299e5638bdff6f9fa0aad} 
+Beta\+Proyecto.\+API.\+Controllers.\+Storage\+Controller.\+Storage\+Controller (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00161_source_l00022}{22}} del archivo \doxymbox{\hyperlink{a00161_source}{Storage\+Controller.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{a00237_doc-func-members}
+\doxysubsubsection{Funciones}
+\Hypertarget{a00237_a9a06bf7709045c2b0a00e115900be260}\index{BetaProyecto.API.Controllers.StorageController@{BetaProyecto.API.Controllers.StorageController}!EliminarArchivo@{EliminarArchivo}}
+\index{EliminarArchivo@{EliminarArchivo}!BetaProyecto.API.Controllers.StorageController@{BetaProyecto.API.Controllers.StorageController}}
+\doxyparagraph{\texorpdfstring{EliminarArchivo()}{EliminarArchivo()}}
+{\footnotesize\ttfamily \label{a00237_a9a06bf7709045c2b0a00e115900be260} 
+async Task$<$ IAction\+Result $>$ Beta\+Proyecto.\+API.\+Controllers.\+Storage\+Controller.\+Eliminar\+Archivo (\begin{DoxyParamCaption}\item[{\+[\+From\+Query]\+ string}]{url}{}\end{DoxyParamCaption})}
+
+
+
+Solicita la eliminación permanente de un recurso multimedia alojado en Cloudinary a partir de su URL pública. 
+
+Este endpoint implementa una lógica de filtrado y limpieza:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Discriminación de dominio:\+}} Solo procesa eliminaciones si la URL pertenece a Cloudinary, ignorando otros proveedores (como Img\+BB) para evitar errores de \doxylink{a00174}{API}. 
+\item {\bfseries{Extracción de Identificador:\+}} Procesa la URL para obtener el {\ttfamily Public\+Id}, que es la clave única que Cloudinary necesita para localizar el archivo. 
+\item {\bfseries{Borrado por tipo de recurso:\+}} Define específicamente el {\ttfamily Resource\+Type.\+Video} (usado para audio en tu configuración) para asegurar que el motor de búsqueda de Cloudinary encuentre el objeto. 
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parámetros}
+{\em url} & La dirección URL completa del archivo que se desea eliminar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un mensaje de confirmación de éxito o un error detallado si la operación falla.
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00161_source_l00169}{169}} del archivo \doxymbox{\hyperlink{a00161_source}{Storage\+Controller.\+cs}}.
+
+\Hypertarget{a00237_a4c3b1ef95cd4dc240ecc29d0fcf24582}\index{BetaProyecto.API.Controllers.StorageController@{BetaProyecto.API.Controllers.StorageController}!ObtenerPublicId@{ObtenerPublicId}}
+\index{ObtenerPublicId@{ObtenerPublicId}!BetaProyecto.API.Controllers.StorageController@{BetaProyecto.API.Controllers.StorageController}}
+\doxyparagraph{\texorpdfstring{ObtenerPublicId()}{ObtenerPublicId()}}
+{\footnotesize\ttfamily \label{a00237_a4c3b1ef95cd4dc240ecc29d0fcf24582} 
+string Beta\+Proyecto.\+API.\+Controllers.\+Storage\+Controller.\+Obtener\+Public\+Id (\begin{DoxyParamCaption}\item[{string}]{url}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Analiza una URL de Cloudinary y extrae el identificador único (Public ID) necesario para operaciones de gestión. 
+
+El método realiza un "{}parseo"{} quirúrgico de la URL siguiendo este algoritmo:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Localización:\+}} Busca el segmento {\ttfamily /\+upload/\+} que separa la configuración del servidor de los datos del archivo. 
+\item {\bfseries{Limpieza de Versión:\+}} Omite el componente de versión (ej. {\ttfamily v17397... }) que Cloudinary genera automáticamente. 
+\item {\bfseries{Extracción de Carpeta y Nombre:\+}} Captura la ruta interna y el nombre del archivo. 
+\item {\bfseries{Remoción de Extensión:\+}} Elimina el sufijo del formato (ej. {\ttfamily .mp3}) para obtener el ID limpio que requiere la \doxylink{a00174}{API} de borrado. 
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parámetros}
+{\em url} & La dirección URL completa del recurso alojado en Cloudinary.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+El Public ID del recurso (incluyendo carpetas) o {\ttfamily null} si el formato de la URL es inválido.
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00161_source_l00210}{210}} del archivo \doxymbox{\hyperlink{a00161_source}{Storage\+Controller.\+cs}}.
+
+\Hypertarget{a00237_acb8d95a8e279bcb28931735da87e6f54}\index{BetaProyecto.API.Controllers.StorageController@{BetaProyecto.API.Controllers.StorageController}!SubirAudio@{SubirAudio}}
+\index{SubirAudio@{SubirAudio}!BetaProyecto.API.Controllers.StorageController@{BetaProyecto.API.Controllers.StorageController}}
+\doxyparagraph{\texorpdfstring{SubirAudio()}{SubirAudio()}}
+{\footnotesize\ttfamily \label{a00237_acb8d95a8e279bcb28931735da87e6f54} 
+async Task$<$ IAction\+Result $>$ Beta\+Proyecto.\+API.\+Controllers.\+Storage\+Controller.\+Subir\+Audio (\begin{DoxyParamCaption}\item[{IForm\+File}]{archivo}{}\end{DoxyParamCaption})}
+
+
+
+Procesa un archivo multimedia de audio y lo carga de forma asíncrona en el servicio de almacenamiento de Cloudinary. 
+
+El flujo de este endpoint incluye:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Validación:\+}} Comprobación de integridad del archivo recibido. 
+\item {\bfseries{Tratamiento de Stream:\+}} Apertura del archivo como flujo de datos para evitar la carga total en RAM. 
+\item {\bfseries{Categorización:\+}} Uso de parámetros de video (requeridos por Cloudinary para archivos de audio) y asignación de carpeta destino. 
+\item {\bfseries{Persistencia:\+}} Obtención de una URL segura (HTTPS) para su almacenamiento en la base de datos. 
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parámetros}
+{\em archivo} & El archivo de audio (mp3, wav, etc.) enviado a través de la petición HTTP.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un objeto JSON con la URL segura del recurso alojado o un mensaje de error detallado.
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00161_source_l00118}{118}} del archivo \doxymbox{\hyperlink{a00161_source}{Storage\+Controller.\+cs}}.
+
+\Hypertarget{a00237_a49f2731f9ff8882feeb00ac406d2eaa6}\index{BetaProyecto.API.Controllers.StorageController@{BetaProyecto.API.Controllers.StorageController}!SubirImagen@{SubirImagen}}
+\index{SubirImagen@{SubirImagen}!BetaProyecto.API.Controllers.StorageController@{BetaProyecto.API.Controllers.StorageController}}
+\doxyparagraph{\texorpdfstring{SubirImagen()}{SubirImagen()}}
+{\footnotesize\ttfamily \label{a00237_a49f2731f9ff8882feeb00ac406d2eaa6} 
+async Task$<$ IAction\+Result $>$ Beta\+Proyecto.\+API.\+Controllers.\+Storage\+Controller.\+Subir\+Imagen (\begin{DoxyParamCaption}\item[{IForm\+File}]{archivo}{}\end{DoxyParamCaption})}
+
+
+
+Recibe un archivo de imagen, lo procesa en memoria y lo carga en el servicio externo Img\+BB. 
+
+Este endpoint actúa como un puente (proxy) entre la aplicación cliente y Img\+BB:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Validación:\+}} Asegura que el archivo no sea nulo. 
+\item {\bfseries{Conversión:\+}} Transforma la imagen binaria a una cadena Base64 (texto), que es el formato requerido por la \doxylink{a00174}{API} de Img\+BB. 
+\item {\bfseries{Transmisión:\+}} Realiza una petición POST segura enviando la \doxylink{a00174}{API} Key y el contenido. 
+\item {\bfseries{Resolución:\+}} Extrae la URL directa de la respuesta JSON para que la App pueda guardarla en su base de datos. 
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parámetros}
+{\em archivo} & El archivo de imagen enviado desde el formulario (IForm\+File).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un objeto JSON con la URL pública de la imagen alojada.
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00161_source_l00047}{47}} del archivo \doxymbox{\hyperlink{a00161_source}{Storage\+Controller.\+cs}}.
+

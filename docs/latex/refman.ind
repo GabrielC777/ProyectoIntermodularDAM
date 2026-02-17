@@ -1,0 +1,2554 @@
+\begin{theindex}
+
+  \item {AccionarPlayPause}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{34}
+  \item {AccionLogout}
+    \subitem {BetaProyecto.ViewModels.PanelUsuarioViewModel}, 
+		\hyperpage{62}
+  \item {AccionRefrescarDesdePadre}
+    \subitem {BetaProyecto.ViewModels.PanelUsuarioViewModel}, 
+		\hyperpage{62}
+  \item {AccionSalir}
+    \subitem {BetaProyecto.ViewModels.PanelUsuarioViewModel}, 
+		\hyperpage{63}
+  \item {ActivarVolverAtras}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{34}
+  \item {ActualizarBtnSeguir}
+    \subitem {BetaProyecto.ViewModels.ViewUsuariosViewModel}, 
+		\hyperpage{157}
+  \item {ActualizarCancion}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{48}
+  \item {ActualizarConfiguracionUsuario}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{48}
+  \item {ActualizarEstadoReporte}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{48}
+  \item {ActualizarGenero}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{48}
+  \item {ActualizarIconoAleatorio}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{34}
+  \item {ActualizarIconoLike}
+    \subitem {BetaProyecto.ViewModels.ViewCancionesViewModel}, 
+		\hyperpage{91}
+  \item {ActualizarIconoNextBack}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{35}
+  \item {ActualizarPerfilUsuario}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{48}
+  \item {ActualizarPlaylist}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{49}
+  \item {ActualizarTendencia}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{49}
+  \item {ActualizarUsuario}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{49}
+  \item {ActualizarYtDlp}
+    \subitem {BetaProyecto.API.Controllers.MusicController}, 
+		\hyperpage{60}
+  \item {AgregarAFavorito}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{50}
+  \item {AgregarCancion}
+    \subitem {BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel}, 
+		\hyperpage{97}
+    \subitem {BetaProyecto.ViewModels.ViewEditarListaPersonalizadaViewModel}, 
+		\hyperpage{117}
+  \item {AgregarCancionAPlaylist}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{124}
+  \item {AgregarGenero}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{109}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{124}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{150}
+  \item {AgregarGeneroBD}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{124}
+  \item {AgregarUsuario}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{109}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{124}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{150}
+  \item {AlCompletarLogin}
+    \subitem {BetaProyecto.ViewModels.LoginViewModel}, \hyperpage{31}
+  \item {AlterarFavorito}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{35}
+  \item {AlterarSeguimiento}
+    \subitem {BetaProyecto.ViewModels.ViewUsuariosViewModel}, 
+		\hyperpage{157}
+  \item {AlternarAleatorio}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{35}
+  \item {AplicarCambioFuente}
+    \subitem {BetaProyecto.ViewModels.ViewConfiguracionViewModel}, 
+		\hyperpage{93}
+  \item {AplicarCambioIdioma}
+    \subitem {BetaProyecto.ViewModels.ViewConfiguracionViewModel}, 
+		\hyperpage{94}
+  \item {AplicarCambioTema}
+    \subitem {BetaProyecto.ViewModels.ViewConfiguracionViewModel}, 
+		\hyperpage{94}
+  \item {AplicarFuente}
+    \subitem {BetaProyecto.Helpers.ControladorDiccionarios}, 
+		\hyperpage{15}
+  \item {AplicarIdioma}
+    \subitem {BetaProyecto.Helpers.ControladorDiccionarios}, 
+		\hyperpage{15}
+  \item {AplicarTema}
+    \subitem {BetaProyecto.Helpers.ControladorDiccionarios}, 
+		\hyperpage{16}
+  \item {AudioService}
+    \subitem {BetaProyecto.Services.AudioService}, \hyperpage{6}
+  \item {AutoresIds}
+    \subitem {BetaProyecto.Models.Canciones}, \hyperpage{8}
+
+  \indexspace
+
+  \item {BackCancion}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{36}
+  \item {BarraVisible}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{42}
+  \item {BetaProyecto}, \hyperpage{6}
+  \item {BetaProyecto.API}, \hyperpage{6}
+  \item {BetaProyecto.API.Controllers}, \hyperpage{6}
+  \item {BetaProyecto.API.Controllers.MusicController}, \hyperpage{59}
+    \subitem {ActualizarYtDlp}, \hyperpage{60}
+    \subitem {GetStreamUrl}, \hyperpage{60}
+    \subitem {InicializarEntorno}, \hyperpage{61}
+    \subitem {MusicController}, \hyperpage{60}
+  \item {BetaProyecto.API.Controllers.StorageController}, 
+		\hyperpage{68}
+    \subitem {EliminarArchivo}, \hyperpage{68}
+    \subitem {ObtenerPublicId}, \hyperpage{69}
+    \subitem {StorageController}, \hyperpage{68}
+    \subitem {SubirAudio}, \hyperpage{69}
+    \subitem {SubirImagen}, \hyperpage{70}
+  \item {BetaProyecto.API/Controllers/MusicController.cs}, 
+		\hyperpage{161}
+  \item {BetaProyecto.API/Controllers/StorageController.cs}, 
+		\hyperpage{163}
+  \item {BetaProyecto.API/obj/Debug/net9.0/.NETCoreApp,Version=v9.0.AssemblyAttributes.cs}, 
+		\hyperpage{182}
+  \item {BetaProyecto.API/obj/Debug/net9.0/BetaProyecto.API.AssemblyInfo.cs}, 
+		\hyperpage{166}
+  \item {BetaProyecto.API/obj/Debug/net9.0/BetaProyecto.API.GlobalUsings.g.cs}, 
+		\hyperpage{168}
+  \item {BetaProyecto.API/obj/Debug/net9.0/BetaProyecto.API.MvcApplicationPartsAssemblyInfo.cs}, 
+		\hyperpage{169}
+  \item {BetaProyecto.API/obj/Release/net9.0/.NETCoreApp,Version=v9.0.AssemblyAttributes.cs}, 
+		\hyperpage{182}
+  \item {BetaProyecto.API/obj/Release/net9.0/BetaProyecto.API.AssemblyInfo.cs}, 
+		\hyperpage{167}
+  \item {BetaProyecto.API/obj/Release/net9.0/BetaProyecto.API.GlobalUsings.g.cs}, 
+		\hyperpage{168}
+  \item {BetaProyecto.API/obj/Release/net9.0/win-\/x64/.NETCoreApp,Version=v9.0.AssemblyAttributes.cs}, 
+		\hyperpage{183}
+  \item {BetaProyecto.API/obj/Release/net9.0/win-\/x64/BetaProyecto.API.AssemblyInfo.cs}, 
+		\hyperpage{167}
+  \item {BetaProyecto.API/obj/Release/net9.0/win-\/x64/BetaProyecto.API.GlobalUsings.g.cs}, 
+		\hyperpage{169}
+  \item {BetaProyecto.API/obj/Release/net9.0/win-\/x64/BetaProyecto.API.MvcApplicationPartsAssemblyInfo.cs}, 
+		\hyperpage{169}
+  \item {BetaProyecto.API/Program.cs}, \hyperpage{185}
+  \item {BetaProyecto.Helpers}, \hyperpage{6}
+  \item {BetaProyecto.Helpers.ControladorDiccionarios}, \hyperpage{14}
+    \subitem {AplicarFuente}, \hyperpage{15}
+    \subitem {AplicarIdioma}, \hyperpage{15}
+    \subitem {AplicarTema}, \hyperpage{16}
+    \subitem {CargarConfiguracionInicial}, \hyperpage{16}
+    \subitem {ReemplazarRecurso}, \hyperpage{16}
+  \item {BetaProyecto.Helpers.Encriptador}, \hyperpage{19}
+    \subitem {DesencriptarArchivo}, \hyperpage{19}
+    \subitem {EncriptarBytes}, \hyperpage{19}
+    \subitem {HashPassword}, \hyperpage{20}
+  \item {BetaProyecto.Helpers.TextoTraducidoConverter}, \hyperpage{84}
+    \subitem {Convert}, \hyperpage{84}
+    \subitem {ConvertBack}, \hyperpage{85}
+  \item {BetaProyecto.Models}, \hyperpage{6}
+  \item {BetaProyecto.Models.Canciones}, \hyperpage{8}
+    \subitem {AutoresIds}, \hyperpage{8}
+    \subitem {Datos}, \hyperpage{8}
+    \subitem {Id}, \hyperpage{8}
+    \subitem {ImagenPortadaUrl}, \hyperpage{9}
+    \subitem {ListaArtistasIndividuales}, \hyperpage{9}
+    \subitem {Metricas}, \hyperpage{9}
+    \subitem {NombreArtista}, \hyperpage{9}
+    \subitem {Titulo}, \hyperpage{9}
+    \subitem {UrlCancion}, \hyperpage{9}
+  \item {BetaProyecto.Models.ConfiguracionUser}, \hyperpage{14}
+    \subitem {DiccionarioFuente}, \hyperpage{14}
+    \subitem {DiccionarioIdioma}, \hyperpage{14}
+    \subitem {DiccionarioTema}, \hyperpage{14}
+  \item {BetaProyecto.Models.DatosCancion}, \hyperpage{17}
+    \subitem {DuracionSegundos}, \hyperpage{17}
+    \subitem {FechaLanzamiento}, \hyperpage{17}
+    \subitem {Generos}, \hyperpage{18}
+    \subitem {GenerosTexto}, \hyperpage{18}
+  \item {BetaProyecto.Models.EstadisticasUsuario}, \hyperpage{21}
+    \subitem {NumCancionesSubidas}, \hyperpage{21}
+  \item {BetaProyecto.Models.Generos}, \hyperpage{21}
+    \subitem {Id}, \hyperpage{22}
+    \subitem {Nombre}, \hyperpage{22}
+  \item {BetaProyecto.Models.ListaPersonalizada}, \hyperpage{28}
+    \subitem {CancionesCompletas}, \hyperpage{28}
+    \subitem {Descripcion}, \hyperpage{28}
+    \subitem {Id}, \hyperpage{28}
+    \subitem {IdsCanciones}, \hyperpage{28}
+    \subitem {IdUsuario}, \hyperpage{28}
+    \subitem {Nombre}, \hyperpage{28}
+    \subitem {UrlPortada}, \hyperpage{29}
+  \item {BetaProyecto.Models.ListasUsuario}, \hyperpage{29}
+    \subitem {Favoritos}, \hyperpage{29}
+    \subitem {Seguidores}, \hyperpage{29}
+  \item {BetaProyecto.Models.ListaUsuarios}, \hyperpage{29}
+    \subitem {Lista}, \hyperpage{30}
+    \subitem {ListaUsuarios}, \hyperpage{30}
+    \subitem {Titulo}, \hyperpage{30}
+  \item {BetaProyecto.Models.MetricasCancion}, \hyperpage{45}
+    \subitem {PuntuacionTendencia}, \hyperpage{45}
+    \subitem {TotalMegustas}, \hyperpage{45}
+    \subitem {TotalReproducciones}, \hyperpage{46}
+  \item {BetaProyecto.Models.PerfilUsuario}, \hyperpage{64}
+    \subitem {EsPrivada}, \hyperpage{65}
+    \subitem {FechaNacimiento}, \hyperpage{65}
+    \subitem {ImagenUrl}, \hyperpage{65}
+    \subitem {Pais}, \hyperpage{65}
+  \item {BetaProyecto.Models.ReferenciasReporte}, \hyperpage{65}
+    \subitem {CancionReportadaId}, \hyperpage{66}
+    \subitem {UsuarioReportanteId}, \hyperpage{66}
+  \item {BetaProyecto.Models.Reportes}, \hyperpage{66}
+    \subitem {ColorEstado}, \hyperpage{66}
+    \subitem {Descripcion}, \hyperpage{66}
+    \subitem {Estado}, \hyperpage{66}
+    \subitem {FechaCreacion}, \hyperpage{67}
+    \subitem {Id}, \hyperpage{67}
+    \subitem {NombreReportante}, \hyperpage{67}
+    \subitem {Referencias}, \hyperpage{67}
+    \subitem {Resolucion}, \hyperpage{67}
+    \subitem {TipoProblema}, \hyperpage{67}
+    \subitem {TituloCancionReportada}, \hyperpage{67}
+  \item {BetaProyecto.Models.Roles}, \hyperpage{68}
+  \item {BetaProyecto.Models.TarjetasCanciones}, \hyperpage{82}
+    \subitem {ListaCanciones}, \hyperpage{83}
+    \subitem {TarjetasCanciones}, \hyperpage{82}
+    \subitem {TituloSeccion}, \hyperpage{83}
+  \item {BetaProyecto.Models.TarjetasListas}, \hyperpage{83}
+    \subitem {Listas}, \hyperpage{83}
+    \subitem {TarjetasListas}, \hyperpage{83}
+    \subitem {TituloSeccion}, \hyperpage{83}
+  \item {BetaProyecto.Models.Usuarios}, \hyperpage{85}
+    \subitem {Configuracion}, \hyperpage{85}
+    \subitem {Email}, \hyperpage{85}
+    \subitem {Estadisticas}, \hyperpage{86}
+    \subitem {FechaRegistro}, \hyperpage{86}
+    \subitem {Id}, \hyperpage{86}
+    \subitem {Listas}, \hyperpage{86}
+    \subitem {Password}, \hyperpage{86}
+    \subitem {Perfil}, \hyperpage{86}
+    \subitem {Rol}, \hyperpage{86}
+    \subitem {Username}, \hyperpage{86}
+  \item {BetaProyecto.Services}, \hyperpage{6}
+  \item {BetaProyecto.Services.AudioService}, \hyperpage{6}
+    \subitem {AudioService}, \hyperpage{6}
+    \subitem {ObtenerMp3}, \hyperpage{7}
+    \subitem {ObtenerRutaAudioSegura}, \hyperpage{7}
+  \item {BetaProyecto.Services.AudioService.InfoCancionNube}, 
+		\hyperpage{27}
+    \subitem {DuracionSegundos}, \hyperpage{27}
+    \subitem {Url}, \hyperpage{27}
+  \item {BetaProyecto.Services.DialogoService}, \hyperpage{18}
+    \subitem {MostrarAlerta}, \hyperpage{18}
+    \subitem {Preguntar}, \hyperpage{18}
+  \item {BetaProyecto.Services.IDialogoService}, \hyperpage{26}
+    \subitem {MostrarAlerta}, \hyperpage{26}
+    \subitem {Preguntar}, \hyperpage{26}
+  \item {BetaProyecto.Services.MongoAtlas}, \hyperpage{46}
+    \subitem {ActualizarCancion}, \hyperpage{48}
+    \subitem {ActualizarConfiguracionUsuario}, \hyperpage{48}
+    \subitem {ActualizarEstadoReporte}, \hyperpage{48}
+    \subitem {ActualizarGenero}, \hyperpage{48}
+    \subitem {ActualizarPerfilUsuario}, \hyperpage{48}
+    \subitem {ActualizarPlaylist}, \hyperpage{49}
+    \subitem {ActualizarTendencia}, \hyperpage{49}
+    \subitem {ActualizarUsuario}, \hyperpage{49}
+    \subitem {AgregarAFavorito}, \hyperpage{50}
+    \subitem {Conectar}, \hyperpage{50}
+    \subitem {CrearGenero}, \hyperpage{50}
+    \subitem {CrearListaReproduccion}, \hyperpage{51}
+    \subitem {CrearUsuario}, \hyperpage{51}
+    \subitem {Database}, \hyperpage{58}
+    \subitem {DejarDeSeguirUsuario}, \hyperpage{51}
+    \subitem {EliminarCancionPorId}, \hyperpage{52}
+    \subitem {EliminarDeFavorito}, \hyperpage{52}
+    \subitem {EliminarGenero}, \hyperpage{52}
+    \subitem {EliminarPlaylistPorId}, \hyperpage{53}
+    \subitem {EliminarReporte}, \hyperpage{53}
+    \subitem {EliminarUsuario}, \hyperpage{53}
+    \subitem {EnviarReporte}, \hyperpage{54}
+    \subitem {IncrementarContadorCancionesUsuario}, \hyperpage{54}
+    \subitem {IncrementarMetricaCancion}, \hyperpage{54}
+    \subitem {LoginUsuario}, \hyperpage{54}
+    \subitem {MongoAtlas}, \hyperpage{47}
+    \subitem {ObtenerCacionesNovedades}, \hyperpage{55}
+    \subitem {ObtenerCanciones}, \hyperpage{55}
+    \subitem {ObtenerCancionesFavoritos}, \hyperpage{55}
+    \subitem {ObtenerCancionesPorAutor}, \hyperpage{55}
+    \subitem {ObtenerCancionesPorBusqueda}, \hyperpage{55}
+    \subitem {ObtenerCancionesPorGenero}, \hyperpage{55}
+    \subitem {ObtenerCancionesPorListaIds}, \hyperpage{55}
+    \subitem {ObtenerGenerosCompletos}, \hyperpage{56}
+    \subitem {ObtenerListasReproduccion}, \hyperpage{56}
+    \subitem {ObtenerMixPorGenero}, \hyperpage{56}
+    \subitem {ObtenerNombresGeneros}, \hyperpage{56}
+    \subitem {ObtenerPlaylistsPorCreador}, \hyperpage{56}
+    \subitem {ObtenerReportes}, \hyperpage{57}
+    \subitem {ObtenerTodosLosUsuarios}, \hyperpage{57}
+    \subitem {ObtenerUsuariosPorBusqueda}, \hyperpage{57}
+    \subitem {ObtenerUsuariosPorListaIds}, \hyperpage{57}
+    \subitem {PublicarCancion}, \hyperpage{57}
+    \subitem {RellenarNombresDeArtistas}, \hyperpage{58}
+    \subitem {SeguirUsuario}, \hyperpage{58}
+  \item {BetaProyecto.Services.StorageService}, \hyperpage{71}
+    \subitem {EliminarArchivo}, \hyperpage{71}
+    \subitem {EnviarA\_Api}, \hyperpage{72}
+    \subitem {SubirCancion}, \hyperpage{72}
+    \subitem {SubirImagen}, \hyperpage{73}
+  \item {BetaProyecto.Singleton}, \hyperpage{6}
+  \item {BetaProyecto.Singleton.GlobalData}, \hyperpage{22}
+    \subitem {ClearUserData}, \hyperpage{23}
+    \subitem {DiccionarioFuenteGD}, \hyperpage{24}
+    \subitem {DiccionarioIdiomaGD}, \hyperpage{24}
+    \subitem {DiccionarioTemaGD}, \hyperpage{24}
+    \subitem {EmailGD}, \hyperpage{24}
+    \subitem {Es\_PrivadaGD}, \hyperpage{24}
+    \subitem {FavoritosGD}, \hyperpage{24}
+    \subitem {Fecha\_registroGD}, \hyperpage{24}
+    \subitem {FechaNacimientoGD}, \hyperpage{25}
+    \subitem {GetUsuarioObject}, \hyperpage{23}
+    \subitem {GlobalData}, \hyperpage{23}
+    \subitem {Instance}, \hyperpage{25}
+    \subitem {Num\_canciones\_subidasGD}, \hyperpage{25}
+    \subitem {PaisGD}, \hyperpage{25}
+    \subitem {PasswordGD}, \hyperpage{25}
+    \subitem {RolGD}, \hyperpage{25}
+    \subitem {SeguidoresGD}, \hyperpage{25}
+    \subitem {SetUserData}, \hyperpage{23}
+    \subitem {UrlFotoPerfilGD}, \hyperpage{25}
+    \subitem {UserIdGD}, \hyperpage{26}
+    \subitem {UsernameGD}, \hyperpage{26}
+  \item {BetaProyecto.Singleton.MongoClientSingleton}, \hyperpage{59}
+    \subitem {Cliente}, \hyperpage{59}
+    \subitem {Instance}, \hyperpage{59}
+    \subitem {MongoClientSingleton}, \hyperpage{59}
+  \item {BetaProyecto.ViewModels}, \hyperpage{6}
+  \item {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{9}
+    \subitem {BtnAyuda}, \hyperpage{10}
+    \subitem {BtnConfiguracion}, \hyperpage{10}
+    \subitem {BtnCrearPlaylist}, \hyperpage{11}
+    \subitem {BtnCuenta}, \hyperpage{11}
+    \subitem {BtnGestionarCuenta}, \hyperpage{11}
+    \subitem {BtnPerfil}, \hyperpage{11}
+    \subitem {BtnPublicarCancion}, \hyperpage{11}
+    \subitem {BtnReproducir}, \hyperpage{11}
+    \subitem {BtnSobreNosotros}, \hyperpage{11}
+    \subitem {BuscadorVM}, \hyperpage{11}
+    \subitem {CentralTabControlViewModel}, \hyperpage{10}
+    \subitem {ImagenPerfil}, \hyperpage{12}
+    \subitem {InicioVM}, \hyperpage{12}
+    \subitem {IrAAyuda}, \hyperpage{12}
+    \subitem {IrAConfig}, \hyperpage{12}
+    \subitem {IrACrearPlaylist}, \hyperpage{12}
+    \subitem {IrACrearReporte}, \hyperpage{12}
+    \subitem {IrACuenta}, \hyperpage{12}
+    \subitem {IrADetallesCancion}, \hyperpage{12}
+    \subitem {IrADetallesPlaylist}, \hyperpage{13}
+    \subitem {IrAGestionarCuenta}, \hyperpage{13}
+    \subitem {IrAPerfil}, \hyperpage{13}
+    \subitem {IrAPublicarCancion}, \hyperpage{13}
+    \subitem {IrASobreNosotros}, \hyperpage{13}
+    \subitem {IrAVerArtista}, \hyperpage{13}
+    \subitem {PopularesVM}, \hyperpage{13}
+    \subitem {SolicitudCancion}, \hyperpage{13}
+  \item {BetaProyecto.ViewModels.INavegable}, \hyperpage{27}
+    \subitem {VolverAtras}, \hyperpage{27}
+  \item {BetaProyecto.ViewModels.LoginViewModel}, \hyperpage{30}
+    \subitem {AlCompletarLogin}, \hyperpage{31}
+    \subitem {BtnRegistarUser}, \hyperpage{31}
+    \subitem {IntentarLogin}, \hyperpage{31}
+    \subitem {IrARegistarUser}, \hyperpage{32}
+    \subitem {Login}, \hyperpage{32}
+    \subitem {LoginViewModel}, \hyperpage{31}
+    \subitem {TxtPass}, \hyperpage{32}
+    \subitem {TxtUsuario}, \hyperpage{32}
+  \item {BetaProyecto.ViewModels.MarcoAppViewModel}, \hyperpage{32}
+    \subitem {AccionarPlayPause}, \hyperpage{34}
+    \subitem {ActivarVolverAtras}, \hyperpage{34}
+    \subitem {ActualizarIconoAleatorio}, \hyperpage{34}
+    \subitem {ActualizarIconoNextBack}, \hyperpage{35}
+    \subitem {AlterarFavorito}, \hyperpage{35}
+    \subitem {AlternarAleatorio}, \hyperpage{35}
+    \subitem {BackCancion}, \hyperpage{36}
+    \subitem {BarraVisible}, \hyperpage{42}
+    \subitem {BtnAleatorioCommand}, \hyperpage{42}
+    \subitem {BtnBackCommand}, \hyperpage{43}
+    \subitem {BtnFavCommand}, \hyperpage{43}
+    \subitem {BtnNextCommand}, \hyperpage{43}
+    \subitem {BtnPlayPauseCommand}, \hyperpage{43}
+    \subitem {CargarYReproducir}, \hyperpage{36}
+    \subitem {CerrarAplicacion}, \hyperpage{36}
+    \subitem {CerrarSesion}, \hyperpage{37}
+    \subitem {IconoAleatorio}, \hyperpage{43}
+    \subitem {IconoBack}, \hyperpage{43}
+    \subitem {IconoLike}, \hyperpage{43}
+    \subitem {IconoNext}, \hyperpage{43}
+    \subitem {IconoPlayPause}, \hyperpage{44}
+    \subitem {ImagenCancionActual}, \hyperpage{44}
+    \subitem {IrAAyuda}, \hyperpage{37}
+    \subitem {IrACrearPlaylist}, \hyperpage{37}
+    \subitem {IrACrearReporte}, \hyperpage{37}
+    \subitem {IrACrearUsuario}, \hyperpage{38}
+    \subitem {IrADetallesCancion}, \hyperpage{38}
+    \subitem {IrADetallesPlaylist}, \hyperpage{38}
+    \subitem {IrAEditarCancion}, \hyperpage{38}
+    \subitem {IrAEditarPlaylist}, \hyperpage{39}
+    \subitem {IrAlCentralTabControl}, \hyperpage{39}
+    \subitem {IrAPanelUsuario}, \hyperpage{39}
+    \subitem {IrAPublicarCancion}, \hyperpage{40}
+    \subitem {IrASobreNosotros}, \hyperpage{40}
+    \subitem {IrAVerArtista}, \hyperpage{40}
+    \subitem {LimpiarArchivoTemporal}, \hyperpage{41}
+    \subitem {MarcoAppViewModel}, \hyperpage{34}
+    \subitem {NextCancion}, \hyperpage{41}
+    \subitem {NombreArtistaActual}, \hyperpage{44}
+    \subitem {NombreCancionActual}, \hyperpage{44}
+    \subitem {PopupActual}, \hyperpage{44}
+    \subitem {PopupVisible}, \hyperpage{44}
+    \subitem {RefrescarIconos}, \hyperpage{41}
+    \subitem {ReproducirCancion}, \hyperpage{41}
+    \subitem {TiempoActualCancion}, \hyperpage{44}
+    \subitem {TiempoTotalCancion}, \hyperpage{44}
+    \subitem {Timer\_Tick}, \hyperpage{42}
+    \subitem {ValorSliderCancion}, \hyperpage{45}
+    \subitem {ValorSliderVolumen}, \hyperpage{45}
+    \subitem {VistaActual}, \hyperpage{45}
+  \item {BetaProyecto.ViewModels.PanelUsuarioViewModel}, \hyperpage{61}
+    \subitem {AccionLogout}, \hyperpage{62}
+    \subitem {AccionRefrescarDesdePadre}, \hyperpage{62}
+    \subitem {AccionSalir}, \hyperpage{63}
+    \subitem {ConfigurarPermisos}, \hyperpage{62}
+    \subitem {IndiceTab}, \hyperpage{63}
+    \subitem {IrAEditarCancion}, \hyperpage{63}
+    \subitem {IrAEditarPlaylist}, \hyperpage{63}
+    \subitem {PanelUsuarioViewModel}, \hyperpage{62}
+    \subitem {PuedeVerBD}, \hyperpage{63}
+    \subitem {PuedeVerReportes}, \hyperpage{63}
+    \subitem {ViewConfiguracionVM}, \hyperpage{63}
+    \subitem {ViewCuentaVM}, \hyperpage{63}
+    \subitem {ViewGestionarBDVM}, \hyperpage{64}
+    \subitem {ViewGestionarCuentaVM}, \hyperpage{64}
+    \subitem {ViewGestionarReportesVM}, \hyperpage{64}
+    \subitem {ViewPerfilVM}, \hyperpage{64}
+    \subitem {VolverAtras}, \hyperpage{64}
+  \item {BetaProyecto.ViewModels.TabItemBuscadorViewModel}, 
+		\hyperpage{74}
+    \subitem {BtnBuscar}, \hyperpage{75}
+    \subitem {BuscarEnBD}, \hyperpage{74}
+    \subitem {ListaBusqueda}, \hyperpage{75}
+    \subitem {TabItemBuscadorViewModel}, \hyperpage{74}
+    \subitem {TxtBusqueda}, \hyperpage{75}
+    \subitem {TxtContador}, \hyperpage{75}
+    \subitem {TxtInfoResultado}, \hyperpage{75}
+  \item {BetaProyecto.ViewModels.TabItemInicioViewModel}, 
+		\hyperpage{75}
+    \subitem {BtnIrAArtista}, \hyperpage{78}
+    \subitem {BtnIrADetalleCancion}, \hyperpage{78}
+    \subitem {BtnIrADetallesPlaylist}, \hyperpage{78}
+    \subitem {BtnIrAReportar}, \hyperpage{78}
+    \subitem {BtnRefrescar}, \hyperpage{78}
+    \subitem {BtnReproducirDesdeTarjeta}, \hyperpage{78}
+    \subitem {BtnReproducirPlaylist}, \hyperpage{78}
+    \subitem {CargarDatosCanciones}, \hyperpage{76}
+    \subitem {EnviarReproduccion}, \hyperpage{79}
+    \subitem {IrAArtistaDesdeBoton}, \hyperpage{76}
+    \subitem {Playlists}, \hyperpage{79}
+    \subitem {ReproducirDesdeBoton}, \hyperpage{77}
+    \subitem {ReproducirPlaylist}, \hyperpage{77}
+    \subitem {SolicitudCrearReporte}, \hyperpage{79}
+    \subitem {SolicitudVerArtista}, \hyperpage{79}
+    \subitem {SolicitudVerDetallasPlaylist}, \hyperpage{79}
+    \subitem {SolicitudVerDetalles}, \hyperpage{79}
+    \subitem {TabItemInicioViewModel}, \hyperpage{76}
+    \subitem {Tarjetas}, \hyperpage{79}
+    \subitem {TxtFav}, \hyperpage{80}
+  \item {BetaProyecto.ViewModels.TabItemPopularesViewModel}, 
+		\hyperpage{80}
+    \subitem {CargarCancionesPorGenero}, \hyperpage{81}
+    \subitem {CargarGeneros}, \hyperpage{81}
+    \subitem {GeneroSeleccionado}, \hyperpage{81}
+    \subitem {ListaGeneros}, \hyperpage{81}
+    \subitem {ListaPopulares}, \hyperpage{82}
+    \subitem {TabItemPopularesViewModel}, \hyperpage{80}
+    \subitem {TxtGeneroMostrado}, \hyperpage{82}
+    \subitem {TxtInfo}, \hyperpage{82}
+  \item {BetaProyecto.ViewModels.VentanaAvisoViewModel}, \hyperpage{87}
+    \subitem {BtnAceptar}, \hyperpage{87}
+    \subitem {Mensaje}, \hyperpage{87}
+    \subitem {VentanaAvisoViewModel}, \hyperpage{87}
+  \item {BetaProyecto.ViewModels.VentanaConfirmacionViewModel}, 
+		\hyperpage{88}
+    \subitem {BtnNo}, \hyperpage{88}
+    \subitem {BtnSi}, \hyperpage{88}
+    \subitem {MensajeCuerpo}, \hyperpage{88}
+    \subitem {TextoBotonNo}, \hyperpage{89}
+    \subitem {TextoBotonSi}, \hyperpage{89}
+    \subitem {TituloCabecera}, \hyperpage{89}
+    \subitem {VentanaConfirmacionViewModel}, \hyperpage{88}
+  \item {BetaProyecto.ViewModels.ViewAyudaViewModel}, \hyperpage{89}
+    \subitem {btnVolverAtras}, \hyperpage{90}
+    \subitem {ViewAyudaViewModel}, \hyperpage{89}
+    \subitem {VolverAtras}, \hyperpage{90}
+  \item {BetaProyecto.ViewModels.ViewCancionesViewModel}, 
+		\hyperpage{90}
+    \subitem {ActualizarIconoLike}, \hyperpage{91}
+    \subitem {BtnLike}, \hyperpage{91}
+    \subitem {BtnReproducir}, \hyperpage{91}
+    \subitem {BtnVolver}, \hyperpage{91}
+    \subitem {Cancion}, \hyperpage{92}
+    \subitem {DuracionFormateada}, \hyperpage{92}
+    \subitem {FechaLanzamientoFormateada}, \hyperpage{92}
+    \subitem {IconoLike}, \hyperpage{92}
+    \subitem {IniciarHiloActualizacion}, \hyperpage{91}
+    \subitem {TxtMensajeTimer}, \hyperpage{92}
+    \subitem {TxtVariableTimer}, \hyperpage{92}
+    \subitem {ViewCancionesViewModel}, \hyperpage{90}
+  \item {BetaProyecto.ViewModels.ViewConfiguracionViewModel}, 
+		\hyperpage{92}
+    \subitem {AplicarCambioFuente}, \hyperpage{93}
+    \subitem {AplicarCambioIdioma}, \hyperpage{94}
+    \subitem {AplicarCambioTema}, \hyperpage{94}
+    \subitem {BtnCerrarSesion}, \hyperpage{95}
+    \subitem {BtnSalirApp}, \hyperpage{95}
+    \subitem {BtnVolverAtras}, \hyperpage{95}
+    \subitem {CargarEstadoInicial}, \hyperpage{94}
+    \subitem {GuardarConfiguracionEnMongo}, \hyperpage{95}
+    \subitem {IndiceFuente}, \hyperpage{96}
+    \subitem {IndiceIdioma}, \hyperpage{96}
+    \subitem {IndiceTema}, \hyperpage{96}
+    \subitem {IndiceTemaOscuro}, \hyperpage{96}
+    \subitem {ViewConfiguracionViewModel}, \hyperpage{93}
+  \item {BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel}, 
+		\hyperpage{96}
+    \subitem {AgregarCancion}, \hyperpage{97}
+    \subitem {BtnAgregarCancion}, \hyperpage{99}
+    \subitem {BtnBuscarCanciones}, \hyperpage{99}
+    \subitem {BtnCrear}, \hyperpage{99}
+    \subitem {BtnEliminarCancion}, \hyperpage{99}
+    \subitem {BtnVolverAtras}, \hyperpage{99}
+    \subitem {BuscarCanciones}, \hyperpage{97}
+    \subitem {CargarImagenLocal}, \hyperpage{98}
+    \subitem {CrearLista}, \hyperpage{98}
+    \subitem {EliminarCancion}, \hyperpage{98}
+    \subitem {EstaCargando}, \hyperpage{100}
+    \subitem {ImagenPortada}, \hyperpage{100}
+    \subitem {ListaCancionesSeleccionadas}, \hyperpage{100}
+    \subitem {ListaResultados}, \hyperpage{100}
+    \subitem {RutaImagen}, \hyperpage{100}
+    \subitem {TieneImagen}, \hyperpage{100}
+    \subitem {TxtBusqueda}, \hyperpage{100}
+    \subitem {TxtDescripcion}, \hyperpage{101}
+    \subitem {TxtNombre}, \hyperpage{101}
+    \subitem {ViewCrearListaPersonalizadaViewModel}, \hyperpage{97}
+  \item {BetaProyecto.ViewModels.ViewCrearReporteViewModel}, 
+		\hyperpage{101}
+    \subitem {BtnCancelar}, \hyperpage{102}
+    \subitem {BtnEnviarReporte}, \hyperpage{102}
+    \subitem {CancionAReportar}, \hyperpage{102}
+    \subitem {DescripcionTexto}, \hyperpage{102}
+    \subitem {EnviarReporteAsync}, \hyperpage{102}
+    \subitem {MensajeEstado}, \hyperpage{102}
+    \subitem {TiposDeProblema}, \hyperpage{102}
+    \subitem {TipoSeleccionado}, \hyperpage{103}
+    \subitem {ViewCrearReporteViewModel}, \hyperpage{101}
+  \item {BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}, 
+		\hyperpage{103}
+    \subitem {BtnRegistrarse}, \hyperpage{104}
+    \subitem {BtnVolver}, \hyperpage{104}
+    \subitem {CargarImagenPrevia}, \hyperpage{104}
+    \subitem {ConfirmarPass}, \hyperpage{104}
+    \subitem {EstaCargando}, \hyperpage{105}
+    \subitem {FotoPerfilBitmap}, \hyperpage{105}
+    \subitem {ListaPaises}, \hyperpage{105}
+    \subitem {NuevoUsuario}, \hyperpage{105}
+    \subitem {RegistrarseTask}, \hyperpage{104}
+    \subitem {ViewCrearUsuarioViewModel}, \hyperpage{103}
+  \item {BetaProyecto.ViewModels.ViewCuentaViewModel}, \hyperpage{105}
+    \subitem {BtnGuardar}, \hyperpage{107}
+    \subitem {BtnRefrescar}, \hyperpage{107}
+    \subitem {CargarDatos}, \hyperpage{106}
+    \subitem {Email}, \hyperpage{107}
+    \subitem {FechaNacimiento}, \hyperpage{107}
+    \subitem {GuardarCambios}, \hyperpage{106}
+    \subitem {IndexPrivacidad}, \hyperpage{107}
+    \subitem {NombreUsuario}, \hyperpage{107}
+    \subitem {Pais}, \hyperpage{107}
+    \subitem {ViewCuentaViewModel}, \hyperpage{106}
+  \item {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{108}
+    \subitem {AgregarGenero}, \hyperpage{109}
+    \subitem {AgregarUsuario}, \hyperpage{109}
+    \subitem {BtnAgregarGenero}, \hyperpage{113}
+    \subitem {BtnAgregarUsuario}, \hyperpage{113}
+    \subitem {BtnBuscarUsuarios}, \hyperpage{113}
+    \subitem {BtnCancelar}, \hyperpage{114}
+    \subitem {BtnEliminarGenero}, \hyperpage{114}
+    \subitem {BtnEliminarUsuario}, \hyperpage{114}
+    \subitem {BtnGuardar}, \hyperpage{114}
+    \subitem {BuscarUsuarios}, \hyperpage{109}
+    \subitem {CargarColaboradoresOriginales}, \hyperpage{110}
+    \subitem {CargarGenerosDisponibles}, \hyperpage{110}
+    \subitem {CargarImagenDesdeUrl}, \hyperpage{110}
+    \subitem {CargarImagenLocal}, \hyperpage{111}
+    \subitem {EliminarGenero}, \hyperpage{112}
+    \subitem {EliminarUsuario}, \hyperpage{112}
+    \subitem {EstaCargando}, \hyperpage{114}
+    \subitem {GeneroSeleccionado}, \hyperpage{114}
+    \subitem {GuardarCambios}, \hyperpage{113}
+    \subitem {ImagenPortada}, \hyperpage{114}
+    \subitem {ListaArtistas}, \hyperpage{114}
+    \subitem {ListaGeneros}, \hyperpage{115}
+    \subitem {ListaGenerosSeleccionados}, \hyperpage{115}
+    \subitem {ListaResultados}, \hyperpage{115}
+    \subitem {RutaImagen}, \hyperpage{115}
+    \subitem {TieneImagen}, \hyperpage{115}
+    \subitem {TxtBusqueda}, \hyperpage{115}
+    \subitem {TxtTitulo}, \hyperpage{115}
+    \subitem {ViewEditarCancionViewModel}, \hyperpage{108}
+  \item {BetaProyecto.ViewModels.ViewEditarListaPersonalizadaViewModel}, 
+		\hyperpage{116}
+    \subitem {AgregarCancion}, \hyperpage{117}
+    \subitem {BtnAgregarCancion}, \hyperpage{120}
+    \subitem {BtnAtras}, \hyperpage{120}
+    \subitem {BtnBuscarCanciones}, \hyperpage{120}
+    \subitem {BtnEliminarCancion}, \hyperpage{120}
+    \subitem {BtnGuardar}, \hyperpage{120}
+    \subitem {BuscarCanciones}, \hyperpage{117}
+    \subitem {CargarImagenDesdeUrl}, \hyperpage{117}
+    \subitem {CargarImagenLocal}, \hyperpage{118}
+    \subitem {EliminarCancion}, \hyperpage{119}
+    \subitem {EstaCargando}, \hyperpage{120}
+    \subitem {GuardarCambios}, \hyperpage{119}
+    \subitem {ImagenPortada}, \hyperpage{120}
+    \subitem {ListaCancionesSeleccionadas}, \hyperpage{120}
+    \subitem {ListaResultados}, \hyperpage{121}
+    \subitem {RutaImagen}, \hyperpage{121}
+    \subitem {TieneImagen}, \hyperpage{121}
+    \subitem {TxtBusqueda}, \hyperpage{121}
+    \subitem {TxtDescripcion}, \hyperpage{121}
+    \subitem {TxtNombre}, \hyperpage{121}
+    \subitem {ViewEditarListaPersonalizadaViewModel}, \hyperpage{116}
+  \item {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{122}
+    \subitem {AgregarCancionAPlaylist}, \hyperpage{124}
+    \subitem {AgregarGenero}, \hyperpage{124}
+    \subitem {AgregarGeneroBD}, \hyperpage{124}
+    \subitem {AgregarUsuario}, \hyperpage{124}
+    \subitem {BtnAgregarCancionPlaylistCrear}, \hyperpage{129}
+    \subitem {BtnAgregarCancionPlaylistEditar}, \hyperpage{129}
+    \subitem {BtnAgregarGeneroCrear}, \hyperpage{129}
+    \subitem {BtnAgregarGeneroEditar}, \hyperpage{129}
+    \subitem {BtnAgregarUsuarioCrear}, \hyperpage{129}
+    \subitem {BtnAgregarUsuarioEditar}, \hyperpage{129}
+    \subitem {BtnBuscarCancionesCrear}, \hyperpage{129}
+    \subitem {BtnBuscarCancionesEditar}, \hyperpage{129}
+    \subitem {BtnBuscarUsuariosCrear}, \hyperpage{130}
+    \subitem {BtnBuscarUsuariosEditar}, \hyperpage{130}
+    \subitem {BtnCrearCancion}, \hyperpage{130}
+    \subitem {BtnCrearGenero}, \hyperpage{130}
+    \subitem {BtnCrearPlaylist}, \hyperpage{130}
+    \subitem {BtnCrearReporte}, \hyperpage{130}
+    \subitem {BtnCrearUsuario}, \hyperpage{130}
+    \subitem {BtnEliminarCancion}, \hyperpage{130}
+    \subitem {BtnEliminarCancionPlaylistCrear}, \hyperpage{131}
+    \subitem {BtnEliminarCancionPlaylistEditar}, \hyperpage{131}
+    \subitem {BtnEliminarGenero}, \hyperpage{131}
+    \subitem {BtnEliminarGeneroCrear}, \hyperpage{131}
+    \subitem {BtnEliminarGeneroEditar}, \hyperpage{131}
+    \subitem {BtnEliminarPlaylist}, \hyperpage{131}
+    \subitem {BtnEliminarReporte}, \hyperpage{131}
+    \subitem {BtnEliminarUsuario}, \hyperpage{132}
+    \subitem {BtnEliminarUsuarioCrear}, \hyperpage{132}
+    \subitem {BtnEliminarUsuarioEditar}, \hyperpage{132}
+    \subitem {BtnGuardarCambios}, \hyperpage{132}
+    \subitem {BtnRecargar}, \hyperpage{132}
+    \subitem {BuscarCanciones}, \hyperpage{124}
+    \subitem {BuscarUsuarios}, \hyperpage{124}
+    \subitem {CargarDatosEditarCancion}, \hyperpage{125}
+    \subitem {CargarDatosEditarPlaylist}, \hyperpage{125}
+    \subitem {CargarTodo}, \hyperpage{125}
+    \subitem {CrearCancionTask}, \hyperpage{125}
+    \subitem {CrearPlaylistTask}, \hyperpage{126}
+    \subitem {CrearReporteTask}, \hyperpage{126}
+    \subitem {CrearUsuarioTask}, \hyperpage{126}
+    \subitem {EjecutarConCarga}, \hyperpage{126}
+    \subitem {EliminarCancionTask}, \hyperpage{126}
+    \subitem {EliminarGenero}, \hyperpage{127}
+    \subitem {EliminarGeneroTask}, \hyperpage{127}
+    \subitem {EliminarPlaylistTask}, \hyperpage{127}
+    \subitem {EliminarReporteTask}, \hyperpage{127}
+    \subitem {EliminarUsuario}, \hyperpage{127}
+    \subitem {EliminarUsuarioTask}, \hyperpage{127}
+    \subitem {EsArchivoLocal}, \hyperpage{132}
+    \subitem {EsArchivoLocalEditar}, \hyperpage{132}
+    \subitem {EstaCargando}, \hyperpage{133}
+    \subitem {EstadosReporte}, \hyperpage{133}
+    \subitem {EsYoutube}, \hyperpage{133}
+    \subitem {EsYoutubeEditar}, \hyperpage{133}
+    \subitem {GeneroSeleccionadoCrear}, \hyperpage{133}
+    \subitem {GeneroSeleccionadoEditar}, \hyperpage{133}
+    \subitem {GuardarSeleccionado}, \hyperpage{128}
+    \subitem {HayResultadosCancionCrear}, \hyperpage{133}
+    \subitem {HayResultadosCancionEditar}, \hyperpage{134}
+    \subitem {HayResultadosCrear}, \hyperpage{134}
+    \subitem {HayResultadosEditar}, \hyperpage{134}
+    \subitem {IndiceTab}, \hyperpage{134}
+    \subitem {ListaArtistasCrear}, \hyperpage{134}
+    \subitem {ListaArtistasEditar}, \hyperpage{134}
+    \subitem {ListaCanciones}, \hyperpage{134}
+    \subitem {ListaCancionesPlaylistCrear}, \hyperpage{134}
+    \subitem {ListaCancionesPlaylistEditar}, \hyperpage{135}
+    \subitem {ListaGeneros}, \hyperpage{135}
+    \subitem {ListaGenerosCombox}, \hyperpage{135}
+    \subitem {ListaGenerosSeleccionadosCrear}, \hyperpage{135}
+    \subitem {ListaGenerosSeleccionadosEditar}, \hyperpage{135}
+    \subitem {ListaPlaylists}, \hyperpage{135}
+    \subitem {ListaReportes}, \hyperpage{135}
+    \subitem {ListaResultadosCancionesCrear}, \hyperpage{136}
+    \subitem {ListaResultadosCancionesEditar}, \hyperpage{136}
+    \subitem {ListaResultadosCrear}, \hyperpage{136}
+    \subitem {ListaResultadosEditar}, \hyperpage{136}
+    \subitem {ListaTipoProblema}, \hyperpage{136}
+    \subitem {ListaUsuarios}, \hyperpage{136}
+    \subitem {MensajeCarga}, \hyperpage{136}
+    \subitem {NoEstaCargando}, \hyperpage{137}
+    \subitem {NuevaCancion}, \hyperpage{137}
+    \subitem {NuevaPlaylist}, \hyperpage{137}
+    \subitem {NuevoGeneroTxt}, \hyperpage{137}
+    \subitem {NuevoReporte}, \hyperpage{137}
+    \subitem {NuevoUsuario}, \hyperpage{137}
+    \subitem {ObtenerDuracionLocal}, \hyperpage{128}
+    \subitem {ResetearBorradores}, \hyperpage{128}
+    \subitem {RolesDisponibles}, \hyperpage{137}
+    \subitem {SelectedCancion}, \hyperpage{137}
+    \subitem {SelectedGenero}, \hyperpage{138}
+    \subitem {SelectedPlaylist}, \hyperpage{138}
+    \subitem {SelectedReporte}, \hyperpage{138}
+    \subitem {SelectedUsuario}, \hyperpage{138}
+    \subitem {TipoProblema}, \hyperpage{138}
+    \subitem {TxtBusquedaCancionCrear}, \hyperpage{138}
+    \subitem {TxtBusquedaCancionEditar}, \hyperpage{138}
+    \subitem {TxtBusquedaCrear}, \hyperpage{139}
+    \subitem {TxtBusquedaEditar}, \hyperpage{139}
+    \subitem {TxtRutaArchivoEditar}, \hyperpage{139}
+    \subitem {TxtUrlYoutubeEditar}, \hyperpage{139}
+    \subitem {ViewGestionarBDViewModel}, \hyperpage{123}
+  \item {BetaProyecto.ViewModels.ViewGestionarCuentaViewModel}, 
+		\hyperpage{139}
+    \subitem {BtnEditarCancion}, \hyperpage{142}
+    \subitem {BtnEditarPlaylist}, \hyperpage{142}
+    \subitem {BtnEliminarCancion}, \hyperpage{142}
+    \subitem {BtnEliminarPlaylist}, \hyperpage{142}
+    \subitem {BtnRefrescar}, \hyperpage{142}
+    \subitem {CargarContenidoUsuario}, \hyperpage{140}
+    \subitem {EliminarCancion}, \hyperpage{140}
+    \subitem {EliminarPlaylist}, \hyperpage{141}
+    \subitem {MisCanciones}, \hyperpage{142}
+    \subitem {MisPlaylists}, \hyperpage{143}
+    \subitem {SolicitudIrAEditarCanciones}, \hyperpage{143}
+    \subitem {SolicitudIrAEditarPlaylist}, \hyperpage{143}
+    \subitem {ViewGestionarCuentaViewModel}, \hyperpage{140}
+  \item {BetaProyecto.ViewModels.ViewGestionarReportesViewModel}, 
+		\hyperpage{143}
+    \subitem {BtnGuardar}, \hyperpage{145}
+    \subitem {BtnRefrescar}, \hyperpage{145}
+    \subitem {CargarDatos}, \hyperpage{144}
+    \subitem {EstadoEdit}, \hyperpage{145}
+    \subitem {GuardarCambios}, \hyperpage{144}
+    \subitem {ListaFinalizados}, \hyperpage{145}
+    \subitem {ListaInvestigando}, \hyperpage{145}
+    \subitem {ListaPendientes}, \hyperpage{145}
+    \subitem {OpcionesEstado}, \hyperpage{145}
+    \subitem {ReporteSeleccionado}, \hyperpage{145}
+    \subitem {ResolucionEdit}, \hyperpage{146}
+    \subitem {SelectedFinalizado}, \hyperpage{146}
+    \subitem {SelectedInvestigando}, \hyperpage{146}
+    \subitem {SelectedPendiente}, \hyperpage{146}
+    \subitem {ViewGestionarReportesViewModel}, \hyperpage{144}
+  \item {BetaProyecto.ViewModels.ViewListaPersonalizadaViewModel}, 
+		\hyperpage{146}
+    \subitem {BtnVolver}, \hyperpage{147}
+    \subitem {CantidadCanciones}, \hyperpage{147}
+    \subitem {Playlist}, \hyperpage{147}
+    \subitem {ViewListaPersonalizadaViewModel}, \hyperpage{147}
+  \item {BetaProyecto.ViewModels.ViewModelBase}, \hyperpage{147}
+  \item {BetaProyecto.ViewModels.ViewPerfilViewModel}, \hyperpage{147}
+    \subitem {BtnRefrescar}, \hyperpage{148}
+    \subitem {CargarDatos}, \hyperpage{148}
+    \subitem {ImagenPerfil}, \hyperpage{148}
+    \subitem {NombreUsuario}, \hyperpage{149}
+    \subitem {Secciones}, \hyperpage{149}
+    \subitem {ViewPerfilViewModel}, \hyperpage{148}
+  \item {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{149}
+    \subitem {AgregarGenero}, \hyperpage{150}
+    \subitem {AgregarUsuario}, \hyperpage{150}
+    \subitem {BtnAgregarGenero}, \hyperpage{153}
+    \subitem {BtnAgregarUsuario}, \hyperpage{153}
+    \subitem {BtnBuscarUsuarios}, \hyperpage{153}
+    \subitem {BtnEliminarGenero}, \hyperpage{153}
+    \subitem {BtnEliminarUsuario}, \hyperpage{153}
+    \subitem {BtnPublicar}, \hyperpage{153}
+    \subitem {BtnVolverAtras}, \hyperpage{153}
+    \subitem {BuscarUsuarios}, \hyperpage{150}
+    \subitem {CargarGeneros}, \hyperpage{150}
+    \subitem {CargarImagenLocal}, \hyperpage{151}
+    \subitem {EliminarGenero}, \hyperpage{151}
+    \subitem {EliminarUsuario}, \hyperpage{151}
+    \subitem {EsArchivo}, \hyperpage{154}
+    \subitem {EstaCargando}, \hyperpage{154}
+    \subitem {EsYoutube}, \hyperpage{154}
+    \subitem {GeneroSeleccionado}, \hyperpage{154}
+    \subitem {ImagenPortada}, \hyperpage{154}
+    \subitem {LinkYoutube}, \hyperpage{154}
+    \subitem {ListaArtistas}, \hyperpage{154}
+    \subitem {ListaGeneros}, \hyperpage{154}
+    \subitem {ListaGenerosSeleccionados}, \hyperpage{155}
+    \subitem {ListaResultados}, \hyperpage{155}
+    \subitem {ObtenerDuracionMp3}, \hyperpage{152}
+    \subitem {PublicarCancion}, \hyperpage{152}
+    \subitem {RutaImagen}, \hyperpage{155}
+    \subitem {RutaMp3}, \hyperpage{155}
+    \subitem {TieneImagen}, \hyperpage{155}
+    \subitem {TxtBusqueda}, \hyperpage{155}
+    \subitem {TxtTitulo}, \hyperpage{155}
+    \subitem {ViewPublicarCancionViewModel}, \hyperpage{150}
+  \item {BetaProyecto.ViewModels.ViewSobreNosotrosViewModel}, 
+		\hyperpage{156}
+    \subitem {BtnAbrirGitHub}, \hyperpage{156}
+    \subitem {btnVolverAtras}, \hyperpage{156}
+    \subitem {ViewSobreNosotrosViewModel}, \hyperpage{156}
+    \subitem {VolverAtras}, \hyperpage{156}
+  \item {BetaProyecto.ViewModels.ViewUsuariosViewModel}, 
+		\hyperpage{157}
+    \subitem {ActualizarBtnSeguir}, \hyperpage{157}
+    \subitem {AlterarSeguimiento}, \hyperpage{157}
+    \subitem {BtnSeguir}, \hyperpage{159}
+    \subitem {BtnVolver}, \hyperpage{159}
+    \subitem {CancionesSubidas}, \hyperpage{159}
+    \subitem {CantidadCanciones}, \hyperpage{159}
+    \subitem {CargarListasDetalladas}, \hyperpage{158}
+    \subitem {CargarUsuario}, \hyperpage{158}
+    \subitem {ColorBotonSeguir}, \hyperpage{159}
+    \subitem {EsSeguido}, \hyperpage{159}
+    \subitem {FechaNacimientoFormateada}, \hyperpage{160}
+    \subitem {IniciarHiloActualizacion}, \hyperpage{158}
+    \subitem {PlaylistsCreadas}, \hyperpage{160}
+    \subitem {TextoBotonSeguir}, \hyperpage{160}
+    \subitem {TxtMensajeTimer}, \hyperpage{160}
+    \subitem {TxtVariableTimer}, \hyperpage{160}
+    \subitem {Usuario}, \hyperpage{160}
+    \subitem {ViewUsuariosViewModel}, \hyperpage{157}
+  \item {BetaProyecto/App.axaml.cs}, \hyperpage{170}
+  \item {BetaProyecto/Helpers/ControladorDiccionarios.cs}, 
+		\hyperpage{171}
+  \item {BetaProyecto/Helpers/Encriptador.cs}, \hyperpage{173}
+  \item {BetaProyecto/Helpers/TextoTraducidoConverter.cs}, 
+		\hyperpage{176}
+  \item {BetaProyecto/Models/Canciones.cs}, \hyperpage{176}
+  \item {BetaProyecto/Models/Generos.cs}, \hyperpage{178}
+  \item {BetaProyecto/Models/ListaPersonalizada.cs}, \hyperpage{178}
+  \item {BetaProyecto/Models/ListaUsuarios.cs}, \hyperpage{179}
+  \item {BetaProyecto/Models/Reportes.cs}, \hyperpage{179}
+  \item {BetaProyecto/Models/Roles.cs}, \hyperpage{180}
+  \item {BetaProyecto/Models/TarjetasCanciones.cs}, \hyperpage{180}
+  \item {BetaProyecto/Models/TarjetasListas.cs}, \hyperpage{181}
+  \item {BetaProyecto/Models/Usuarios.cs}, \hyperpage{181}
+  \item {BetaProyecto/obj/Debug/net9.0/.NETCoreApp,Version=v9.0.AssemblyAttributes.cs}, 
+		\hyperpage{183}
+  \item {BetaProyecto/obj/Debug/net9.0/BetaProyecto.AssemblyInfo.cs}, 
+		\hyperpage{184}
+  \item {BetaProyecto/obj/Release/net9.0/.NETCoreApp,Version=v9.0.AssemblyAttributes.cs}, 
+		\hyperpage{183}
+  \item {BetaProyecto/obj/Release/net9.0/BetaProyecto.AssemblyInfo.cs}, 
+		\hyperpage{184}
+  \item {BetaProyecto/obj/Release/net9.0/win-\/x64/.NETCoreApp,Version=v9.0.AssemblyAttributes.cs}, 
+		\hyperpage{183}
+  \item {BetaProyecto/obj/Release/net9.0/win-\/x64/BetaProyecto.AssemblyInfo.cs}, 
+		\hyperpage{184}
+  \item {BetaProyecto/Program.cs}, \hyperpage{185}
+  \item {BetaProyecto/Services/AudioService.cs}, \hyperpage{186}
+  \item {BetaProyecto/Services/DialogoService.cs}, \hyperpage{188}
+  \item {BetaProyecto/Services/IDialogoService.cs}, \hyperpage{189}
+  \item {BetaProyecto/Services/MongoAtlas.cs}, \hyperpage{189}
+  \item {BetaProyecto/Services/StorageService.cs}, \hyperpage{208}
+  \item {BetaProyecto/Singleton/GlobalData.cs}, \hyperpage{210}
+  \item {BetaProyecto/Singleton/MongoClientSingleton.cs}, 
+		\hyperpage{212}
+  \item {BetaProyecto/ViewLocator.cs}, \hyperpage{213}
+  \item {BetaProyecto/ViewModels/CentralTabControlViewModel.cs}, 
+		\hyperpage{213}
+  \item {BetaProyecto/ViewModels/INavegable.cs}, \hyperpage{215}
+  \item {BetaProyecto/ViewModels/LoginViewModel.cs}, \hyperpage{215}
+  \item {BetaProyecto/ViewModels/MarcoAppViewModel.cs}, \hyperpage{217}
+  \item {BetaProyecto/ViewModels/PanelUsuarioViewModel.cs}, 
+		\hyperpage{231}
+  \item {BetaProyecto/ViewModels/TabItemBuscadorViewModel.cs}, 
+		\hyperpage{233}
+  \item {BetaProyecto/ViewModels/TabItemInicioViewModel.cs}, 
+		\hyperpage{234}
+  \item {BetaProyecto/ViewModels/TabItemPopularesViewModel.cs}, 
+		\hyperpage{238}
+  \item {BetaProyecto/ViewModels/VentanaAvisoViewModel.cs}, 
+		\hyperpage{239}
+  \item {BetaProyecto/ViewModels/VentanaConfirmacionViewModel.cs}, 
+		\hyperpage{240}
+  \item {BetaProyecto/ViewModels/ViewAyudaViewModel.cs}, 
+		\hyperpage{240}
+  \item {BetaProyecto/ViewModels/ViewCancionesViewModel.cs}, 
+		\hyperpage{241}
+  \item {BetaProyecto/ViewModels/ViewConfiguracionViewModel.cs}, 
+		\hyperpage{243}
+  \item {BetaProyecto/ViewModels/ViewCrearListaPersonalizadaViewModel.cs}, 
+		\hyperpage{246}
+  \item {BetaProyecto/ViewModels/ViewCrearReporteViewModel.cs}, 
+		\hyperpage{250}
+  \item {BetaProyecto/ViewModels/ViewCrearUsuarioViewModel.cs}, 
+		\hyperpage{251}
+  \item {BetaProyecto/ViewModels/ViewCuentaViewModel.cs}, 
+		\hyperpage{254}
+  \item {BetaProyecto/ViewModels/ViewEditarCancionViewModel.cs}, 
+		\hyperpage{256}
+  \item {BetaProyecto/ViewModels/ViewEditarListaPersonalizadaViewModel.cs}, 
+		\hyperpage{262}
+  \item {BetaProyecto/ViewModels/ViewGestionarBDViewModel.cs}, 
+		\hyperpage{266}
+  \item {BetaProyecto/ViewModels/ViewGestionarCuentaViewModel.cs}, 
+		\hyperpage{286}
+  \item {BetaProyecto/ViewModels/ViewGestionarReportesViewModel.cs}, 
+		\hyperpage{289}
+  \item {BetaProyecto/ViewModels/ViewListaPersonalizadaViewModel.cs}, 
+		\hyperpage{291}
+  \item {BetaProyecto/ViewModels/ViewModelBase.cs}, \hyperpage{292}
+  \item {BetaProyecto/ViewModels/ViewPerfilViewModel.cs}, 
+		\hyperpage{292}
+  \item {BetaProyecto/ViewModels/ViewPublicarCancionViewModel.cs}, 
+		\hyperpage{293}
+  \item {BetaProyecto/ViewModels/ViewSobreNosotrosViewModel.cs}, 
+		\hyperpage{299}
+  \item {BetaProyecto/ViewModels/ViewUsuariosViewModel.cs}, 
+		\hyperpage{300}
+  \item {BtnAbrirGitHub}
+    \subitem {BetaProyecto.ViewModels.ViewSobreNosotrosViewModel}, 
+		\hyperpage{156}
+  \item {BtnAceptar}
+    \subitem {BetaProyecto.ViewModels.VentanaAvisoViewModel}, 
+		\hyperpage{87}
+  \item {BtnAgregarCancion}
+    \subitem {BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel}, 
+		\hyperpage{99}
+    \subitem {BetaProyecto.ViewModels.ViewEditarListaPersonalizadaViewModel}, 
+		\hyperpage{120}
+  \item {BtnAgregarCancionPlaylistCrear}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{129}
+  \item {BtnAgregarCancionPlaylistEditar}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{129}
+  \item {BtnAgregarGenero}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{113}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{153}
+  \item {BtnAgregarGeneroCrear}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{129}
+  \item {BtnAgregarGeneroEditar}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{129}
+  \item {BtnAgregarUsuario}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{113}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{153}
+  \item {BtnAgregarUsuarioCrear}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{129}
+  \item {BtnAgregarUsuarioEditar}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{129}
+  \item {BtnAleatorioCommand}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{42}
+  \item {BtnAtras}
+    \subitem {BetaProyecto.ViewModels.ViewEditarListaPersonalizadaViewModel}, 
+		\hyperpage{120}
+  \item {BtnAyuda}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{10}
+  \item {BtnBackCommand}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{43}
+  \item {BtnBuscar}
+    \subitem {BetaProyecto.ViewModels.TabItemBuscadorViewModel}, 
+		\hyperpage{75}
+  \item {BtnBuscarCanciones}
+    \subitem {BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel}, 
+		\hyperpage{99}
+    \subitem {BetaProyecto.ViewModels.ViewEditarListaPersonalizadaViewModel}, 
+		\hyperpage{120}
+  \item {BtnBuscarCancionesCrear}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{129}
+  \item {BtnBuscarCancionesEditar}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{129}
+  \item {BtnBuscarUsuarios}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{113}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{153}
+  \item {BtnBuscarUsuariosCrear}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{130}
+  \item {BtnBuscarUsuariosEditar}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{130}
+  \item {BtnCancelar}
+    \subitem {BetaProyecto.ViewModels.ViewCrearReporteViewModel}, 
+		\hyperpage{102}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{114}
+  \item {BtnCerrarSesion}
+    \subitem {BetaProyecto.ViewModels.ViewConfiguracionViewModel}, 
+		\hyperpage{95}
+  \item {BtnConfiguracion}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{10}
+  \item {BtnCrear}
+    \subitem {BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel}, 
+		\hyperpage{99}
+  \item {BtnCrearCancion}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{130}
+  \item {BtnCrearGenero}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{130}
+  \item {BtnCrearPlaylist}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{11}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{130}
+  \item {BtnCrearReporte}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{130}
+  \item {BtnCrearUsuario}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{130}
+  \item {BtnCuenta}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{11}
+  \item {BtnEditarCancion}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarCuentaViewModel}, 
+		\hyperpage{142}
+  \item {BtnEditarPlaylist}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarCuentaViewModel}, 
+		\hyperpage{142}
+  \item {BtnEliminarCancion}
+    \subitem {BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel}, 
+		\hyperpage{99}
+    \subitem {BetaProyecto.ViewModels.ViewEditarListaPersonalizadaViewModel}, 
+		\hyperpage{120}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{130}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarCuentaViewModel}, 
+		\hyperpage{142}
+  \item {BtnEliminarCancionPlaylistCrear}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{131}
+  \item {BtnEliminarCancionPlaylistEditar}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{131}
+  \item {BtnEliminarGenero}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{114}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{131}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{153}
+  \item {BtnEliminarGeneroCrear}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{131}
+  \item {BtnEliminarGeneroEditar}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{131}
+  \item {BtnEliminarPlaylist}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{131}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarCuentaViewModel}, 
+		\hyperpage{142}
+  \item {BtnEliminarReporte}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{131}
+  \item {BtnEliminarUsuario}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{114}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{132}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{153}
+  \item {BtnEliminarUsuarioCrear}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{132}
+  \item {BtnEliminarUsuarioEditar}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{132}
+  \item {BtnEnviarReporte}
+    \subitem {BetaProyecto.ViewModels.ViewCrearReporteViewModel}, 
+		\hyperpage{102}
+  \item {BtnFavCommand}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{43}
+  \item {BtnGestionarCuenta}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{11}
+  \item {BtnGuardar}
+    \subitem {BetaProyecto.ViewModels.ViewCuentaViewModel}, 
+		\hyperpage{107}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{114}
+    \subitem {BetaProyecto.ViewModels.ViewEditarListaPersonalizadaViewModel}, 
+		\hyperpage{120}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarReportesViewModel}, 
+		\hyperpage{145}
+  \item {BtnGuardarCambios}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{132}
+  \item {BtnIrAArtista}
+    \subitem {BetaProyecto.ViewModels.TabItemInicioViewModel}, 
+		\hyperpage{78}
+  \item {BtnIrADetalleCancion}
+    \subitem {BetaProyecto.ViewModels.TabItemInicioViewModel}, 
+		\hyperpage{78}
+  \item {BtnIrADetallesPlaylist}
+    \subitem {BetaProyecto.ViewModels.TabItemInicioViewModel}, 
+		\hyperpage{78}
+  \item {BtnIrAReportar}
+    \subitem {BetaProyecto.ViewModels.TabItemInicioViewModel}, 
+		\hyperpage{78}
+  \item {BtnLike}
+    \subitem {BetaProyecto.ViewModels.ViewCancionesViewModel}, 
+		\hyperpage{91}
+  \item {BtnNextCommand}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{43}
+  \item {BtnNo}
+    \subitem {BetaProyecto.ViewModels.VentanaConfirmacionViewModel}, 
+		\hyperpage{88}
+  \item {BtnPerfil}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{11}
+  \item {BtnPlayPauseCommand}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{43}
+  \item {BtnPublicar}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{153}
+  \item {BtnPublicarCancion}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{11}
+  \item {BtnRecargar}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{132}
+  \item {BtnRefrescar}
+    \subitem {BetaProyecto.ViewModels.TabItemInicioViewModel}, 
+		\hyperpage{78}
+    \subitem {BetaProyecto.ViewModels.ViewCuentaViewModel}, 
+		\hyperpage{107}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarCuentaViewModel}, 
+		\hyperpage{142}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarReportesViewModel}, 
+		\hyperpage{145}
+    \subitem {BetaProyecto.ViewModels.ViewPerfilViewModel}, 
+		\hyperpage{148}
+  \item {BtnRegistarUser}
+    \subitem {BetaProyecto.ViewModels.LoginViewModel}, \hyperpage{31}
+  \item {BtnRegistrarse}
+    \subitem {BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}, 
+		\hyperpage{104}
+  \item {BtnReproducir}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{11}
+    \subitem {BetaProyecto.ViewModels.ViewCancionesViewModel}, 
+		\hyperpage{91}
+  \item {BtnReproducirDesdeTarjeta}
+    \subitem {BetaProyecto.ViewModels.TabItemInicioViewModel}, 
+		\hyperpage{78}
+  \item {BtnReproducirPlaylist}
+    \subitem {BetaProyecto.ViewModels.TabItemInicioViewModel}, 
+		\hyperpage{78}
+  \item {BtnSalirApp}
+    \subitem {BetaProyecto.ViewModels.ViewConfiguracionViewModel}, 
+		\hyperpage{95}
+  \item {BtnSeguir}
+    \subitem {BetaProyecto.ViewModels.ViewUsuariosViewModel}, 
+		\hyperpage{159}
+  \item {BtnSi}
+    \subitem {BetaProyecto.ViewModels.VentanaConfirmacionViewModel}, 
+		\hyperpage{88}
+  \item {BtnSobreNosotros}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{11}
+  \item {BtnVolver}
+    \subitem {BetaProyecto.ViewModels.ViewCancionesViewModel}, 
+		\hyperpage{91}
+    \subitem {BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}, 
+		\hyperpage{104}
+    \subitem {BetaProyecto.ViewModels.ViewListaPersonalizadaViewModel}, 
+		\hyperpage{147}
+    \subitem {BetaProyecto.ViewModels.ViewUsuariosViewModel}, 
+		\hyperpage{159}
+  \item {BtnVolverAtras}
+    \subitem {BetaProyecto.ViewModels.ViewConfiguracionViewModel}, 
+		\hyperpage{95}
+    \subitem {BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel}, 
+		\hyperpage{99}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{153}
+  \item {btnVolverAtras}
+    \subitem {BetaProyecto.ViewModels.ViewAyudaViewModel}, 
+		\hyperpage{90}
+    \subitem {BetaProyecto.ViewModels.ViewSobreNosotrosViewModel}, 
+		\hyperpage{156}
+  \item {BuscadorVM}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{11}
+  \item {BuscarCanciones}
+    \subitem {BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel}, 
+		\hyperpage{97}
+    \subitem {BetaProyecto.ViewModels.ViewEditarListaPersonalizadaViewModel}, 
+		\hyperpage{117}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{124}
+  \item {BuscarEnBD}
+    \subitem {BetaProyecto.ViewModels.TabItemBuscadorViewModel}, 
+		\hyperpage{74}
+  \item {BuscarUsuarios}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{109}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{124}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{150}
+
+  \indexspace
+
+  \item {Cancion}
+    \subitem {BetaProyecto.ViewModels.ViewCancionesViewModel}, 
+		\hyperpage{92}
+  \item {CancionAReportar}
+    \subitem {BetaProyecto.ViewModels.ViewCrearReporteViewModel}, 
+		\hyperpage{102}
+  \item {CancionesCompletas}
+    \subitem {BetaProyecto.Models.ListaPersonalizada}, \hyperpage{28}
+  \item {CancionesSubidas}
+    \subitem {BetaProyecto.ViewModels.ViewUsuariosViewModel}, 
+		\hyperpage{159}
+  \item {CancionReportadaId}
+    \subitem {BetaProyecto.Models.ReferenciasReporte}, \hyperpage{66}
+  \item {CantidadCanciones}
+    \subitem {BetaProyecto.ViewModels.ViewListaPersonalizadaViewModel}, 
+		\hyperpage{147}
+    \subitem {BetaProyecto.ViewModels.ViewUsuariosViewModel}, 
+		\hyperpage{159}
+  \item {CargarCancionesPorGenero}
+    \subitem {BetaProyecto.ViewModels.TabItemPopularesViewModel}, 
+		\hyperpage{81}
+  \item {CargarColaboradoresOriginales}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{110}
+  \item {CargarConfiguracionInicial}
+    \subitem {BetaProyecto.Helpers.ControladorDiccionarios}, 
+		\hyperpage{16}
+  \item {CargarContenidoUsuario}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarCuentaViewModel}, 
+		\hyperpage{140}
+  \item {CargarDatos}
+    \subitem {BetaProyecto.ViewModels.ViewCuentaViewModel}, 
+		\hyperpage{106}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarReportesViewModel}, 
+		\hyperpage{144}
+    \subitem {BetaProyecto.ViewModels.ViewPerfilViewModel}, 
+		\hyperpage{148}
+  \item {CargarDatosCanciones}
+    \subitem {BetaProyecto.ViewModels.TabItemInicioViewModel}, 
+		\hyperpage{76}
+  \item {CargarDatosEditarCancion}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{125}
+  \item {CargarDatosEditarPlaylist}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{125}
+  \item {CargarEstadoInicial}
+    \subitem {BetaProyecto.ViewModels.ViewConfiguracionViewModel}, 
+		\hyperpage{94}
+  \item {CargarGeneros}
+    \subitem {BetaProyecto.ViewModels.TabItemPopularesViewModel}, 
+		\hyperpage{81}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{150}
+  \item {CargarGenerosDisponibles}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{110}
+  \item {CargarImagenDesdeUrl}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{110}
+    \subitem {BetaProyecto.ViewModels.ViewEditarListaPersonalizadaViewModel}, 
+		\hyperpage{117}
+  \item {CargarImagenLocal}
+    \subitem {BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel}, 
+		\hyperpage{98}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{111}
+    \subitem {BetaProyecto.ViewModels.ViewEditarListaPersonalizadaViewModel}, 
+		\hyperpage{118}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{151}
+  \item {CargarImagenPrevia}
+    \subitem {BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}, 
+		\hyperpage{104}
+  \item {CargarListasDetalladas}
+    \subitem {BetaProyecto.ViewModels.ViewUsuariosViewModel}, 
+		\hyperpage{158}
+  \item {CargarTodo}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{125}
+  \item {CargarUsuario}
+    \subitem {BetaProyecto.ViewModels.ViewUsuariosViewModel}, 
+		\hyperpage{158}
+  \item {CargarYReproducir}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{36}
+  \item {CentralTabControlViewModel}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{10}
+  \item {CerrarAplicacion}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{36}
+  \item {CerrarSesion}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{37}
+  \item {ClearUserData}
+    \subitem {BetaProyecto.Singleton.GlobalData}, \hyperpage{23}
+  \item {Cliente}
+    \subitem {BetaProyecto.Singleton.MongoClientSingleton}, 
+		\hyperpage{59}
+  \item {ColorBotonSeguir}
+    \subitem {BetaProyecto.ViewModels.ViewUsuariosViewModel}, 
+		\hyperpage{159}
+  \item {ColorEstado}
+    \subitem {BetaProyecto.Models.Reportes}, \hyperpage{66}
+  \item {Conectar}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{50}
+  \item {Configuracion}
+    \subitem {BetaProyecto.Models.Usuarios}, \hyperpage{85}
+  \item {ConfigurarPermisos}
+    \subitem {BetaProyecto.ViewModels.PanelUsuarioViewModel}, 
+		\hyperpage{62}
+  \item {ConfirmarPass}
+    \subitem {BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}, 
+		\hyperpage{104}
+  \item {Convert}
+    \subitem {BetaProyecto.Helpers.TextoTraducidoConverter}, 
+		\hyperpage{84}
+  \item {ConvertBack}
+    \subitem {BetaProyecto.Helpers.TextoTraducidoConverter}, 
+		\hyperpage{85}
+  \item {CrearCancionTask}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{125}
+  \item {CrearGenero}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{50}
+  \item {CrearLista}
+    \subitem {BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel}, 
+		\hyperpage{98}
+  \item {CrearListaReproduccion}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{51}
+  \item {CrearPlaylistTask}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{126}
+  \item {CrearReporteTask}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{126}
+  \item {CrearUsuario}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{51}
+  \item {CrearUsuarioTask}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{126}
+
+  \indexspace
+
+  \item {Database}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{58}
+  \item {Datos}
+    \subitem {BetaProyecto.Models.Canciones}, \hyperpage{8}
+  \item {DejarDeSeguirUsuario}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{51}
+  \item {Descripcion}
+    \subitem {BetaProyecto.Models.ListaPersonalizada}, \hyperpage{28}
+    \subitem {BetaProyecto.Models.Reportes}, \hyperpage{66}
+  \item {DescripcionTexto}
+    \subitem {BetaProyecto.ViewModels.ViewCrearReporteViewModel}, 
+		\hyperpage{102}
+  \item {DesencriptarArchivo}
+    \subitem {BetaProyecto.Helpers.Encriptador}, \hyperpage{19}
+  \item {DiccionarioFuente}
+    \subitem {BetaProyecto.Models.ConfiguracionUser}, \hyperpage{14}
+  \item {DiccionarioFuenteGD}
+    \subitem {BetaProyecto.Singleton.GlobalData}, \hyperpage{24}
+  \item {DiccionarioIdioma}
+    \subitem {BetaProyecto.Models.ConfiguracionUser}, \hyperpage{14}
+  \item {DiccionarioIdiomaGD}
+    \subitem {BetaProyecto.Singleton.GlobalData}, \hyperpage{24}
+  \item {DiccionarioTema}
+    \subitem {BetaProyecto.Models.ConfiguracionUser}, \hyperpage{14}
+  \item {DiccionarioTemaGD}
+    \subitem {BetaProyecto.Singleton.GlobalData}, \hyperpage{24}
+  \item {DuracionFormateada}
+    \subitem {BetaProyecto.ViewModels.ViewCancionesViewModel}, 
+		\hyperpage{92}
+  \item {DuracionSegundos}
+    \subitem {BetaProyecto.Models.DatosCancion}, \hyperpage{17}
+    \subitem {BetaProyecto.Services.AudioService.InfoCancionNube}, 
+		\hyperpage{27}
+
+  \indexspace
+
+  \item {EjecutarConCarga}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{126}
+  \item {EliminarArchivo}
+    \subitem {BetaProyecto.API.Controllers.StorageController}, 
+		\hyperpage{68}
+    \subitem {BetaProyecto.Services.StorageService}, \hyperpage{71}
+  \item {EliminarCancion}
+    \subitem {BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel}, 
+		\hyperpage{98}
+    \subitem {BetaProyecto.ViewModels.ViewEditarListaPersonalizadaViewModel}, 
+		\hyperpage{119}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarCuentaViewModel}, 
+		\hyperpage{140}
+  \item {EliminarCancionPorId}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{52}
+  \item {EliminarCancionTask}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{126}
+  \item {EliminarDeFavorito}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{52}
+  \item {EliminarGenero}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{52}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{112}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{127}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{151}
+  \item {EliminarGeneroTask}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{127}
+  \item {EliminarPlaylist}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarCuentaViewModel}, 
+		\hyperpage{141}
+  \item {EliminarPlaylistPorId}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{53}
+  \item {EliminarPlaylistTask}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{127}
+  \item {EliminarReporte}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{53}
+  \item {EliminarReporteTask}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{127}
+  \item {EliminarUsuario}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{53}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{112}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{127}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{151}
+  \item {EliminarUsuarioTask}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{127}
+  \item {Email}
+    \subitem {BetaProyecto.Models.Usuarios}, \hyperpage{85}
+    \subitem {BetaProyecto.ViewModels.ViewCuentaViewModel}, 
+		\hyperpage{107}
+  \item {EmailGD}
+    \subitem {BetaProyecto.Singleton.GlobalData}, \hyperpage{24}
+  \item {EncriptarBytes}
+    \subitem {BetaProyecto.Helpers.Encriptador}, \hyperpage{19}
+  \item {EnviarA\_Api}
+    \subitem {BetaProyecto.Services.StorageService}, \hyperpage{72}
+  \item {EnviarReporte}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{54}
+  \item {EnviarReporteAsync}
+    \subitem {BetaProyecto.ViewModels.ViewCrearReporteViewModel}, 
+		\hyperpage{102}
+  \item {EnviarReproduccion}
+    \subitem {BetaProyecto.ViewModels.TabItemInicioViewModel}, 
+		\hyperpage{79}
+  \item {Es\_PrivadaGD}
+    \subitem {BetaProyecto.Singleton.GlobalData}, \hyperpage{24}
+  \item {EsArchivo}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{154}
+  \item {EsArchivoLocal}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{132}
+  \item {EsArchivoLocalEditar}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{132}
+  \item {EsPrivada}
+    \subitem {BetaProyecto.Models.PerfilUsuario}, \hyperpage{65}
+  \item {EsSeguido}
+    \subitem {BetaProyecto.ViewModels.ViewUsuariosViewModel}, 
+		\hyperpage{159}
+  \item {EstaCargando}
+    \subitem {BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel}, 
+		\hyperpage{100}
+    \subitem {BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}, 
+		\hyperpage{105}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{114}
+    \subitem {BetaProyecto.ViewModels.ViewEditarListaPersonalizadaViewModel}, 
+		\hyperpage{120}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{133}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{154}
+  \item {Estadisticas}
+    \subitem {BetaProyecto.Models.Usuarios}, \hyperpage{86}
+  \item {Estado}
+    \subitem {BetaProyecto.Models.Reportes}, \hyperpage{66}
+  \item {EstadoEdit}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarReportesViewModel}, 
+		\hyperpage{145}
+  \item {EstadosReporte}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{133}
+  \item {EsYoutube}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{133}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{154}
+  \item {EsYoutubeEditar}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{133}
+
+  \indexspace
+
+  \item {Favoritos}
+    \subitem {BetaProyecto.Models.ListasUsuario}, \hyperpage{29}
+  \item {FavoritosGD}
+    \subitem {BetaProyecto.Singleton.GlobalData}, \hyperpage{24}
+  \item {Fecha\_registroGD}
+    \subitem {BetaProyecto.Singleton.GlobalData}, \hyperpage{24}
+  \item {FechaCreacion}
+    \subitem {BetaProyecto.Models.Reportes}, \hyperpage{67}
+  \item {FechaLanzamiento}
+    \subitem {BetaProyecto.Models.DatosCancion}, \hyperpage{17}
+  \item {FechaLanzamientoFormateada}
+    \subitem {BetaProyecto.ViewModels.ViewCancionesViewModel}, 
+		\hyperpage{92}
+  \item {FechaNacimiento}
+    \subitem {BetaProyecto.Models.PerfilUsuario}, \hyperpage{65}
+    \subitem {BetaProyecto.ViewModels.ViewCuentaViewModel}, 
+		\hyperpage{107}
+  \item {FechaNacimientoFormateada}
+    \subitem {BetaProyecto.ViewModels.ViewUsuariosViewModel}, 
+		\hyperpage{160}
+  \item {FechaNacimientoGD}
+    \subitem {BetaProyecto.Singleton.GlobalData}, \hyperpage{25}
+  \item {FechaRegistro}
+    \subitem {BetaProyecto.Models.Usuarios}, \hyperpage{86}
+  \item {FotoPerfilBitmap}
+    \subitem {BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}, 
+		\hyperpage{105}
+
+  \indexspace
+
+  \item {Generos}
+    \subitem {BetaProyecto.Models.DatosCancion}, \hyperpage{18}
+  \item {GeneroSeleccionado}
+    \subitem {BetaProyecto.ViewModels.TabItemPopularesViewModel}, 
+		\hyperpage{81}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{114}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{154}
+  \item {GeneroSeleccionadoCrear}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{133}
+  \item {GeneroSeleccionadoEditar}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{133}
+  \item {GenerosTexto}
+    \subitem {BetaProyecto.Models.DatosCancion}, \hyperpage{18}
+  \item {GetStreamUrl}
+    \subitem {BetaProyecto.API.Controllers.MusicController}, 
+		\hyperpage{60}
+  \item {GetUsuarioObject}
+    \subitem {BetaProyecto.Singleton.GlobalData}, \hyperpage{23}
+  \item {GlobalData}
+    \subitem {BetaProyecto.Singleton.GlobalData}, \hyperpage{23}
+  \item {GuardarCambios}
+    \subitem {BetaProyecto.ViewModels.ViewCuentaViewModel}, 
+		\hyperpage{106}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{113}
+    \subitem {BetaProyecto.ViewModels.ViewEditarListaPersonalizadaViewModel}, 
+		\hyperpage{119}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarReportesViewModel}, 
+		\hyperpage{144}
+  \item {GuardarConfiguracionEnMongo}
+    \subitem {BetaProyecto.ViewModels.ViewConfiguracionViewModel}, 
+		\hyperpage{95}
+  \item {GuardarSeleccionado}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{128}
+
+  \indexspace
+
+  \item {HashPassword}
+    \subitem {BetaProyecto.Helpers.Encriptador}, \hyperpage{20}
+  \item {HayResultadosCancionCrear}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{133}
+  \item {HayResultadosCancionEditar}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{134}
+  \item {HayResultadosCrear}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{134}
+  \item {HayResultadosEditar}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{134}
+
+  \indexspace
+
+  \item {IconoAleatorio}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{43}
+  \item {IconoBack}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{43}
+  \item {IconoLike}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{43}
+    \subitem {BetaProyecto.ViewModels.ViewCancionesViewModel}, 
+		\hyperpage{92}
+  \item {IconoNext}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{43}
+  \item {IconoPlayPause}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{44}
+  \item {Id}
+    \subitem {BetaProyecto.Models.Canciones}, \hyperpage{8}
+    \subitem {BetaProyecto.Models.Generos}, \hyperpage{22}
+    \subitem {BetaProyecto.Models.ListaPersonalizada}, \hyperpage{28}
+    \subitem {BetaProyecto.Models.Reportes}, \hyperpage{67}
+    \subitem {BetaProyecto.Models.Usuarios}, \hyperpage{86}
+  \item {IdsCanciones}
+    \subitem {BetaProyecto.Models.ListaPersonalizada}, \hyperpage{28}
+  \item {IdUsuario}
+    \subitem {BetaProyecto.Models.ListaPersonalizada}, \hyperpage{28}
+  \item {ImagenCancionActual}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{44}
+  \item {ImagenPerfil}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{12}
+    \subitem {BetaProyecto.ViewModels.ViewPerfilViewModel}, 
+		\hyperpage{148}
+  \item {ImagenPortada}
+    \subitem {BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel}, 
+		\hyperpage{100}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{114}
+    \subitem {BetaProyecto.ViewModels.ViewEditarListaPersonalizadaViewModel}, 
+		\hyperpage{120}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{154}
+  \item {ImagenPortadaUrl}
+    \subitem {BetaProyecto.Models.Canciones}, \hyperpage{9}
+  \item {ImagenUrl}
+    \subitem {BetaProyecto.Models.PerfilUsuario}, \hyperpage{65}
+  \item {IncrementarContadorCancionesUsuario}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{54}
+  \item {IncrementarMetricaCancion}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{54}
+  \item {IndexPrivacidad}
+    \subitem {BetaProyecto.ViewModels.ViewCuentaViewModel}, 
+		\hyperpage{107}
+  \item {IndiceFuente}
+    \subitem {BetaProyecto.ViewModels.ViewConfiguracionViewModel}, 
+		\hyperpage{96}
+  \item {IndiceIdioma}
+    \subitem {BetaProyecto.ViewModels.ViewConfiguracionViewModel}, 
+		\hyperpage{96}
+  \item {IndiceTab}
+    \subitem {BetaProyecto.ViewModels.PanelUsuarioViewModel}, 
+		\hyperpage{63}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{134}
+  \item {IndiceTema}
+    \subitem {BetaProyecto.ViewModels.ViewConfiguracionViewModel}, 
+		\hyperpage{96}
+  \item {IndiceTemaOscuro}
+    \subitem {BetaProyecto.ViewModels.ViewConfiguracionViewModel}, 
+		\hyperpage{96}
+  \item {InicializarEntorno}
+    \subitem {BetaProyecto.API.Controllers.MusicController}, 
+		\hyperpage{61}
+  \item {IniciarHiloActualizacion}
+    \subitem {BetaProyecto.ViewModels.ViewCancionesViewModel}, 
+		\hyperpage{91}
+    \subitem {BetaProyecto.ViewModels.ViewUsuariosViewModel}, 
+		\hyperpage{158}
+  \item {InicioVM}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{12}
+  \item {Instance}
+    \subitem {BetaProyecto.Singleton.GlobalData}, \hyperpage{25}
+    \subitem {BetaProyecto.Singleton.MongoClientSingleton}, 
+		\hyperpage{59}
+  \item {IntentarLogin}
+    \subitem {BetaProyecto.ViewModels.LoginViewModel}, \hyperpage{31}
+  \item {IrAArtistaDesdeBoton}
+    \subitem {BetaProyecto.ViewModels.TabItemInicioViewModel}, 
+		\hyperpage{76}
+  \item {IrAAyuda}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{12}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{37}
+  \item {IrAConfig}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{12}
+  \item {IrACrearPlaylist}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{12}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{37}
+  \item {IrACrearReporte}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{12}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{37}
+  \item {IrACrearUsuario}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{38}
+  \item {IrACuenta}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{12}
+  \item {IrADetallesCancion}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{12}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{38}
+  \item {IrADetallesPlaylist}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{13}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{38}
+  \item {IrAEditarCancion}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{38}
+    \subitem {BetaProyecto.ViewModels.PanelUsuarioViewModel}, 
+		\hyperpage{63}
+  \item {IrAEditarPlaylist}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{39}
+    \subitem {BetaProyecto.ViewModels.PanelUsuarioViewModel}, 
+		\hyperpage{63}
+  \item {IrAGestionarCuenta}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{13}
+  \item {IrAlCentralTabControl}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{39}
+  \item {IrAPanelUsuario}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{39}
+  \item {IrAPerfil}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{13}
+  \item {IrAPublicarCancion}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{13}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{40}
+  \item {IrARegistarUser}
+    \subitem {BetaProyecto.ViewModels.LoginViewModel}, \hyperpage{32}
+  \item {IrASobreNosotros}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{13}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{40}
+  \item {IrAVerArtista}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{13}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{40}
+
+  \indexspace
+
+  \item {LimpiarArchivoTemporal}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{41}
+  \item {LinkYoutube}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{154}
+  \item {Lista}
+    \subitem {BetaProyecto.Models.ListaUsuarios}, \hyperpage{30}
+  \item {ListaArtistas}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{114}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{154}
+  \item {ListaArtistasCrear}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{134}
+  \item {ListaArtistasEditar}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{134}
+  \item {ListaArtistasIndividuales}
+    \subitem {BetaProyecto.Models.Canciones}, \hyperpage{9}
+  \item {ListaBusqueda}
+    \subitem {BetaProyecto.ViewModels.TabItemBuscadorViewModel}, 
+		\hyperpage{75}
+  \item {ListaCanciones}
+    \subitem {BetaProyecto.Models.TarjetasCanciones}, \hyperpage{83}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{134}
+  \item {ListaCancionesPlaylistCrear}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{134}
+  \item {ListaCancionesPlaylistEditar}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{135}
+  \item {ListaCancionesSeleccionadas}
+    \subitem {BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel}, 
+		\hyperpage{100}
+    \subitem {BetaProyecto.ViewModels.ViewEditarListaPersonalizadaViewModel}, 
+		\hyperpage{120}
+  \item {ListaFinalizados}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarReportesViewModel}, 
+		\hyperpage{145}
+  \item {ListaGeneros}
+    \subitem {BetaProyecto.ViewModels.TabItemPopularesViewModel}, 
+		\hyperpage{81}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{115}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{135}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{154}
+  \item {ListaGenerosCombox}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{135}
+  \item {ListaGenerosSeleccionados}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{115}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{155}
+  \item {ListaGenerosSeleccionadosCrear}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{135}
+  \item {ListaGenerosSeleccionadosEditar}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{135}
+  \item {ListaInvestigando}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarReportesViewModel}, 
+		\hyperpage{145}
+  \item {ListaPaises}
+    \subitem {BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}, 
+		\hyperpage{105}
+  \item {ListaPendientes}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarReportesViewModel}, 
+		\hyperpage{145}
+  \item {ListaPlaylists}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{135}
+  \item {ListaPopulares}
+    \subitem {BetaProyecto.ViewModels.TabItemPopularesViewModel}, 
+		\hyperpage{82}
+  \item {ListaReportes}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{135}
+  \item {ListaResultados}
+    \subitem {BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel}, 
+		\hyperpage{100}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{115}
+    \subitem {BetaProyecto.ViewModels.ViewEditarListaPersonalizadaViewModel}, 
+		\hyperpage{121}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{155}
+  \item {ListaResultadosCancionesCrear}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{136}
+  \item {ListaResultadosCancionesEditar}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{136}
+  \item {ListaResultadosCrear}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{136}
+  \item {ListaResultadosEditar}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{136}
+  \item {Listas}
+    \subitem {BetaProyecto.Models.TarjetasListas}, \hyperpage{83}
+    \subitem {BetaProyecto.Models.Usuarios}, \hyperpage{86}
+  \item {ListaTipoProblema}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{136}
+  \item {ListaUsuarios}
+    \subitem {BetaProyecto.Models.ListaUsuarios}, \hyperpage{30}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{136}
+  \item {Login}
+    \subitem {BetaProyecto.ViewModels.LoginViewModel}, \hyperpage{32}
+  \item {LoginUsuario}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{54}
+  \item {LoginViewModel}
+    \subitem {BetaProyecto.ViewModels.LoginViewModel}, \hyperpage{31}
+
+  \indexspace
+
+  \item {MarcoAppViewModel}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{34}
+  \item {Mensaje}
+    \subitem {BetaProyecto.ViewModels.VentanaAvisoViewModel}, 
+		\hyperpage{87}
+  \item {MensajeCarga}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{136}
+  \item {MensajeCuerpo}
+    \subitem {BetaProyecto.ViewModels.VentanaConfirmacionViewModel}, 
+		\hyperpage{88}
+  \item {MensajeEstado}
+    \subitem {BetaProyecto.ViewModels.ViewCrearReporteViewModel}, 
+		\hyperpage{102}
+  \item {Metricas}
+    \subitem {BetaProyecto.Models.Canciones}, \hyperpage{9}
+  \item {MisCanciones}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarCuentaViewModel}, 
+		\hyperpage{142}
+  \item {MisPlaylists}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarCuentaViewModel}, 
+		\hyperpage{143}
+  \item {MongoAtlas}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{47}
+  \item {MongoClientSingleton}
+    \subitem {BetaProyecto.Singleton.MongoClientSingleton}, 
+		\hyperpage{59}
+  \item {MostrarAlerta}
+    \subitem {BetaProyecto.Services.DialogoService}, \hyperpage{18}
+    \subitem {BetaProyecto.Services.IDialogoService}, \hyperpage{26}
+  \item {MusicController}
+    \subitem {BetaProyecto.API.Controllers.MusicController}, 
+		\hyperpage{60}
+
+  \indexspace
+
+  \item {NextCancion}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{41}
+  \item {NoEstaCargando}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{137}
+  \item {Nombre}
+    \subitem {BetaProyecto.Models.Generos}, \hyperpage{22}
+    \subitem {BetaProyecto.Models.ListaPersonalizada}, \hyperpage{28}
+  \item {NombreArtista}
+    \subitem {BetaProyecto.Models.Canciones}, \hyperpage{9}
+  \item {NombreArtistaActual}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{44}
+  \item {NombreCancionActual}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{44}
+  \item {NombreReportante}
+    \subitem {BetaProyecto.Models.Reportes}, \hyperpage{67}
+  \item {NombreUsuario}
+    \subitem {BetaProyecto.ViewModels.ViewCuentaViewModel}, 
+		\hyperpage{107}
+    \subitem {BetaProyecto.ViewModels.ViewPerfilViewModel}, 
+		\hyperpage{149}
+  \item {NuevaCancion}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{137}
+  \item {NuevaPlaylist}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{137}
+  \item {NuevoGeneroTxt}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{137}
+  \item {NuevoReporte}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{137}
+  \item {NuevoUsuario}
+    \subitem {BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}, 
+		\hyperpage{105}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{137}
+  \item {Num\_canciones\_subidasGD}
+    \subitem {BetaProyecto.Singleton.GlobalData}, \hyperpage{25}
+  \item {NumCancionesSubidas}
+    \subitem {BetaProyecto.Models.EstadisticasUsuario}, \hyperpage{21}
+
+  \indexspace
+
+  \item {ObtenerCacionesNovedades}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{55}
+  \item {ObtenerCanciones}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{55}
+  \item {ObtenerCancionesFavoritos}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{55}
+  \item {ObtenerCancionesPorAutor}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{55}
+  \item {ObtenerCancionesPorBusqueda}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{55}
+  \item {ObtenerCancionesPorGenero}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{55}
+  \item {ObtenerCancionesPorListaIds}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{55}
+  \item {ObtenerDuracionLocal}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{128}
+  \item {ObtenerDuracionMp3}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{152}
+  \item {ObtenerGenerosCompletos}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{56}
+  \item {ObtenerListasReproduccion}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{56}
+  \item {ObtenerMixPorGenero}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{56}
+  \item {ObtenerMp3}
+    \subitem {BetaProyecto.Services.AudioService}, \hyperpage{7}
+  \item {ObtenerNombresGeneros}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{56}
+  \item {ObtenerPlaylistsPorCreador}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{56}
+  \item {ObtenerPublicId}
+    \subitem {BetaProyecto.API.Controllers.StorageController}, 
+		\hyperpage{69}
+  \item {ObtenerReportes}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{57}
+  \item {ObtenerRutaAudioSegura}
+    \subitem {BetaProyecto.Services.AudioService}, \hyperpage{7}
+  \item {ObtenerTodosLosUsuarios}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{57}
+  \item {ObtenerUsuariosPorBusqueda}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{57}
+  \item {ObtenerUsuariosPorListaIds}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{57}
+  \item {OpcionesEstado}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarReportesViewModel}, 
+		\hyperpage{145}
+
+  \indexspace
+
+  \item {Pais}
+    \subitem {BetaProyecto.Models.PerfilUsuario}, \hyperpage{65}
+    \subitem {BetaProyecto.ViewModels.ViewCuentaViewModel}, 
+		\hyperpage{107}
+  \item {PaisGD}
+    \subitem {BetaProyecto.Singleton.GlobalData}, \hyperpage{25}
+  \item {PanelUsuarioViewModel}
+    \subitem {BetaProyecto.ViewModels.PanelUsuarioViewModel}, 
+		\hyperpage{62}
+  \item {Password}
+    \subitem {BetaProyecto.Models.Usuarios}, \hyperpage{86}
+  \item {PasswordGD}
+    \subitem {BetaProyecto.Singleton.GlobalData}, \hyperpage{25}
+  \item {Perfil}
+    \subitem {BetaProyecto.Models.Usuarios}, \hyperpage{86}
+  \item {Playlist}
+    \subitem {BetaProyecto.ViewModels.ViewListaPersonalizadaViewModel}, 
+		\hyperpage{147}
+  \item {Playlists}
+    \subitem {BetaProyecto.ViewModels.TabItemInicioViewModel}, 
+		\hyperpage{79}
+  \item {PlaylistsCreadas}
+    \subitem {BetaProyecto.ViewModels.ViewUsuariosViewModel}, 
+		\hyperpage{160}
+  \item {PopularesVM}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{13}
+  \item {PopupActual}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{44}
+  \item {PopupVisible}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{44}
+  \item {Preguntar}
+    \subitem {BetaProyecto.Services.DialogoService}, \hyperpage{18}
+    \subitem {BetaProyecto.Services.IDialogoService}, \hyperpage{26}
+  \item {PublicarCancion}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{57}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{152}
+  \item {PuedeVerBD}
+    \subitem {BetaProyecto.ViewModels.PanelUsuarioViewModel}, 
+		\hyperpage{63}
+  \item {PuedeVerReportes}
+    \subitem {BetaProyecto.ViewModels.PanelUsuarioViewModel}, 
+		\hyperpage{63}
+  \item {PuntuacionTendencia}
+    \subitem {BetaProyecto.Models.MetricasCancion}, \hyperpage{45}
+
+  \indexspace
+
+  \item {ReemplazarRecurso}
+    \subitem {BetaProyecto.Helpers.ControladorDiccionarios}, 
+		\hyperpage{16}
+  \item {Referencia del directorio BetaProyecto}, \hyperpage{1}
+  \item {Referencia del directorio BetaProyecto.API}, \hyperpage{2}
+  \item {Referencia del directorio BetaProyecto.API/Controllers}, 
+		\hyperpage{2}
+  \item {Referencia del directorio BetaProyecto.API/obj}, \hyperpage{3}
+  \item {Referencia del directorio BetaProyecto.API/obj/Debug}, 
+		\hyperpage{2}
+  \item {Referencia del directorio BetaProyecto.API/obj/Debug/net9.0}, 
+		\hyperpage{3}
+  \item {Referencia del directorio BetaProyecto.API/obj/Release}, 
+		\hyperpage{4}
+  \item {Referencia del directorio BetaProyecto.API/obj/Release/net9.0}, 
+		\hyperpage{3}
+  \item {Referencia del directorio BetaProyecto.API/obj/Release/net9.0/win-\/x64}, 
+		\hyperpage{5}
+  \item {Referencia del directorio BetaProyecto/Helpers}, \hyperpage{2}
+  \item {Referencia del directorio BetaProyecto/Models}, \hyperpage{2}
+  \item {Referencia del directorio BetaProyecto/obj}, \hyperpage{4}
+  \item {Referencia del directorio BetaProyecto/obj/Debug}, 
+		\hyperpage{2}
+  \item {Referencia del directorio BetaProyecto/obj/Debug/net9.0}, 
+		\hyperpage{3}
+  \item {Referencia del directorio BetaProyecto/obj/Release}, 
+		\hyperpage{4}
+  \item {Referencia del directorio BetaProyecto/obj/Release/net9.0}, 
+		\hyperpage{3}
+  \item {Referencia del directorio BetaProyecto/obj/Release/net9.0/win-\/x64}, 
+		\hyperpage{5}
+  \item {Referencia del directorio BetaProyecto/Services}, 
+		\hyperpage{4}
+  \item {Referencia del directorio BetaProyecto/Singleton}, 
+		\hyperpage{4}
+  \item {Referencia del directorio BetaProyecto/ViewModels}, 
+		\hyperpage{5}
+  \item {Referencias}
+    \subitem {BetaProyecto.Models.Reportes}, \hyperpage{67}
+  \item {RefrescarIconos}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{41}
+  \item {RegistrarseTask}
+    \subitem {BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}, 
+		\hyperpage{104}
+  \item {RellenarNombresDeArtistas}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{58}
+  \item {ReporteSeleccionado}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarReportesViewModel}, 
+		\hyperpage{145}
+  \item {ReproducirCancion}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{41}
+  \item {ReproducirDesdeBoton}
+    \subitem {BetaProyecto.ViewModels.TabItemInicioViewModel}, 
+		\hyperpage{77}
+  \item {ReproducirPlaylist}
+    \subitem {BetaProyecto.ViewModels.TabItemInicioViewModel}, 
+		\hyperpage{77}
+  \item {ResetearBorradores}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{128}
+  \item {Resolucion}
+    \subitem {BetaProyecto.Models.Reportes}, \hyperpage{67}
+  \item {ResolucionEdit}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarReportesViewModel}, 
+		\hyperpage{146}
+  \item {Rol}
+    \subitem {BetaProyecto.Models.Usuarios}, \hyperpage{86}
+  \item {RolesDisponibles}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{137}
+  \item {RolGD}
+    \subitem {BetaProyecto.Singleton.GlobalData}, \hyperpage{25}
+  \item {RutaImagen}
+    \subitem {BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel}, 
+		\hyperpage{100}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{115}
+    \subitem {BetaProyecto.ViewModels.ViewEditarListaPersonalizadaViewModel}, 
+		\hyperpage{121}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{155}
+  \item {RutaMp3}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{155}
+
+  \indexspace
+
+  \item {Secciones}
+    \subitem {BetaProyecto.ViewModels.ViewPerfilViewModel}, 
+		\hyperpage{149}
+  \item {Seguidores}
+    \subitem {BetaProyecto.Models.ListasUsuario}, \hyperpage{29}
+  \item {SeguidoresGD}
+    \subitem {BetaProyecto.Singleton.GlobalData}, \hyperpage{25}
+  \item {SeguirUsuario}
+    \subitem {BetaProyecto.Services.MongoAtlas}, \hyperpage{58}
+  \item {SelectedCancion}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{137}
+  \item {SelectedFinalizado}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarReportesViewModel}, 
+		\hyperpage{146}
+  \item {SelectedGenero}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{138}
+  \item {SelectedInvestigando}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarReportesViewModel}, 
+		\hyperpage{146}
+  \item {SelectedPendiente}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarReportesViewModel}, 
+		\hyperpage{146}
+  \item {SelectedPlaylist}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{138}
+  \item {SelectedReporte}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{138}
+  \item {SelectedUsuario}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{138}
+  \item {SetUserData}
+    \subitem {BetaProyecto.Singleton.GlobalData}, \hyperpage{23}
+  \item {SolicitudCancion}
+    \subitem {BetaProyecto.ViewModels.CentralTabControlViewModel}, 
+		\hyperpage{13}
+  \item {SolicitudCrearReporte}
+    \subitem {BetaProyecto.ViewModels.TabItemInicioViewModel}, 
+		\hyperpage{79}
+  \item {SolicitudIrAEditarCanciones}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarCuentaViewModel}, 
+		\hyperpage{143}
+  \item {SolicitudIrAEditarPlaylist}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarCuentaViewModel}, 
+		\hyperpage{143}
+  \item {SolicitudVerArtista}
+    \subitem {BetaProyecto.ViewModels.TabItemInicioViewModel}, 
+		\hyperpage{79}
+  \item {SolicitudVerDetallasPlaylist}
+    \subitem {BetaProyecto.ViewModels.TabItemInicioViewModel}, 
+		\hyperpage{79}
+  \item {SolicitudVerDetalles}
+    \subitem {BetaProyecto.ViewModels.TabItemInicioViewModel}, 
+		\hyperpage{79}
+  \item {StorageController}
+    \subitem {BetaProyecto.API.Controllers.StorageController}, 
+		\hyperpage{68}
+  \item {SubirAudio}
+    \subitem {BetaProyecto.API.Controllers.StorageController}, 
+		\hyperpage{69}
+  \item {SubirCancion}
+    \subitem {BetaProyecto.Services.StorageService}, \hyperpage{72}
+  \item {SubirImagen}
+    \subitem {BetaProyecto.API.Controllers.StorageController}, 
+		\hyperpage{70}
+    \subitem {BetaProyecto.Services.StorageService}, \hyperpage{73}
+
+  \indexspace
+
+  \item {TabItemBuscadorViewModel}
+    \subitem {BetaProyecto.ViewModels.TabItemBuscadorViewModel}, 
+		\hyperpage{74}
+  \item {TabItemInicioViewModel}
+    \subitem {BetaProyecto.ViewModels.TabItemInicioViewModel}, 
+		\hyperpage{76}
+  \item {TabItemPopularesViewModel}
+    \subitem {BetaProyecto.ViewModels.TabItemPopularesViewModel}, 
+		\hyperpage{80}
+  \item {Tarjetas}
+    \subitem {BetaProyecto.ViewModels.TabItemInicioViewModel}, 
+		\hyperpage{79}
+  \item {TarjetasCanciones}
+    \subitem {BetaProyecto.Models.TarjetasCanciones}, \hyperpage{82}
+  \item {TarjetasListas}
+    \subitem {BetaProyecto.Models.TarjetasListas}, \hyperpage{83}
+  \item {TextoBotonNo}
+    \subitem {BetaProyecto.ViewModels.VentanaConfirmacionViewModel}, 
+		\hyperpage{89}
+  \item {TextoBotonSeguir}
+    \subitem {BetaProyecto.ViewModels.ViewUsuariosViewModel}, 
+		\hyperpage{160}
+  \item {TextoBotonSi}
+    \subitem {BetaProyecto.ViewModels.VentanaConfirmacionViewModel}, 
+		\hyperpage{89}
+  \item {TiempoActualCancion}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{44}
+  \item {TiempoTotalCancion}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{44}
+  \item {TieneImagen}
+    \subitem {BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel}, 
+		\hyperpage{100}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{115}
+    \subitem {BetaProyecto.ViewModels.ViewEditarListaPersonalizadaViewModel}, 
+		\hyperpage{121}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{155}
+  \item {Timer\_Tick}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{42}
+  \item {TipoProblema}
+    \subitem {BetaProyecto.Models.Reportes}, \hyperpage{67}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{138}
+  \item {TiposDeProblema}
+    \subitem {BetaProyecto.ViewModels.ViewCrearReporteViewModel}, 
+		\hyperpage{102}
+  \item {TipoSeleccionado}
+    \subitem {BetaProyecto.ViewModels.ViewCrearReporteViewModel}, 
+		\hyperpage{103}
+  \item {Titulo}
+    \subitem {BetaProyecto.Models.Canciones}, \hyperpage{9}
+    \subitem {BetaProyecto.Models.ListaUsuarios}, \hyperpage{30}
+  \item {TituloCabecera}
+    \subitem {BetaProyecto.ViewModels.VentanaConfirmacionViewModel}, 
+		\hyperpage{89}
+  \item {TituloCancionReportada}
+    \subitem {BetaProyecto.Models.Reportes}, \hyperpage{67}
+  \item {TituloSeccion}
+    \subitem {BetaProyecto.Models.TarjetasCanciones}, \hyperpage{83}
+    \subitem {BetaProyecto.Models.TarjetasListas}, \hyperpage{83}
+  \item {TotalMegustas}
+    \subitem {BetaProyecto.Models.MetricasCancion}, \hyperpage{45}
+  \item {TotalReproducciones}
+    \subitem {BetaProyecto.Models.MetricasCancion}, \hyperpage{46}
+  \item {TxtBusqueda}
+    \subitem {BetaProyecto.ViewModels.TabItemBuscadorViewModel}, 
+		\hyperpage{75}
+    \subitem {BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel}, 
+		\hyperpage{100}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{115}
+    \subitem {BetaProyecto.ViewModels.ViewEditarListaPersonalizadaViewModel}, 
+		\hyperpage{121}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{155}
+  \item {TxtBusquedaCancionCrear}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{138}
+  \item {TxtBusquedaCancionEditar}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{138}
+  \item {TxtBusquedaCrear}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{139}
+  \item {TxtBusquedaEditar}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{139}
+  \item {TxtContador}
+    \subitem {BetaProyecto.ViewModels.TabItemBuscadorViewModel}, 
+		\hyperpage{75}
+  \item {TxtDescripcion}
+    \subitem {BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel}, 
+		\hyperpage{101}
+    \subitem {BetaProyecto.ViewModels.ViewEditarListaPersonalizadaViewModel}, 
+		\hyperpage{121}
+  \item {TxtFav}
+    \subitem {BetaProyecto.ViewModels.TabItemInicioViewModel}, 
+		\hyperpage{80}
+  \item {TxtGeneroMostrado}
+    \subitem {BetaProyecto.ViewModels.TabItemPopularesViewModel}, 
+		\hyperpage{82}
+  \item {TxtInfo}
+    \subitem {BetaProyecto.ViewModels.TabItemPopularesViewModel}, 
+		\hyperpage{82}
+  \item {TxtInfoResultado}
+    \subitem {BetaProyecto.ViewModels.TabItemBuscadorViewModel}, 
+		\hyperpage{75}
+  \item {TxtMensajeTimer}
+    \subitem {BetaProyecto.ViewModels.ViewCancionesViewModel}, 
+		\hyperpage{92}
+    \subitem {BetaProyecto.ViewModels.ViewUsuariosViewModel}, 
+		\hyperpage{160}
+  \item {TxtNombre}
+    \subitem {BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel}, 
+		\hyperpage{101}
+    \subitem {BetaProyecto.ViewModels.ViewEditarListaPersonalizadaViewModel}, 
+		\hyperpage{121}
+  \item {TxtPass}
+    \subitem {BetaProyecto.ViewModels.LoginViewModel}, \hyperpage{32}
+  \item {TxtRutaArchivoEditar}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{139}
+  \item {TxtTitulo}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{115}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{155}
+  \item {TxtUrlYoutubeEditar}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{139}
+  \item {TxtUsuario}
+    \subitem {BetaProyecto.ViewModels.LoginViewModel}, \hyperpage{32}
+  \item {TxtVariableTimer}
+    \subitem {BetaProyecto.ViewModels.ViewCancionesViewModel}, 
+		\hyperpage{92}
+    \subitem {BetaProyecto.ViewModels.ViewUsuariosViewModel}, 
+		\hyperpage{160}
+
+  \indexspace
+
+  \item {Url}
+    \subitem {BetaProyecto.Services.AudioService.InfoCancionNube}, 
+		\hyperpage{27}
+  \item {UrlCancion}
+    \subitem {BetaProyecto.Models.Canciones}, \hyperpage{9}
+  \item {UrlFotoPerfilGD}
+    \subitem {BetaProyecto.Singleton.GlobalData}, \hyperpage{25}
+  \item {UrlPortada}
+    \subitem {BetaProyecto.Models.ListaPersonalizada}, \hyperpage{29}
+  \item {UserIdGD}
+    \subitem {BetaProyecto.Singleton.GlobalData}, \hyperpage{26}
+  \item {Username}
+    \subitem {BetaProyecto.Models.Usuarios}, \hyperpage{86}
+  \item {UsernameGD}
+    \subitem {BetaProyecto.Singleton.GlobalData}, \hyperpage{26}
+  \item {Usuario}
+    \subitem {BetaProyecto.ViewModels.ViewUsuariosViewModel}, 
+		\hyperpage{160}
+  \item {UsuarioReportanteId}
+    \subitem {BetaProyecto.Models.ReferenciasReporte}, \hyperpage{66}
+
+  \indexspace
+
+  \item {ValorSliderCancion}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{45}
+  \item {ValorSliderVolumen}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{45}
+  \item {VentanaAvisoViewModel}
+    \subitem {BetaProyecto.ViewModels.VentanaAvisoViewModel}, 
+		\hyperpage{87}
+  \item {VentanaConfirmacionViewModel}
+    \subitem {BetaProyecto.ViewModels.VentanaConfirmacionViewModel}, 
+		\hyperpage{88}
+  \item {ViewAyudaViewModel}
+    \subitem {BetaProyecto.ViewModels.ViewAyudaViewModel}, 
+		\hyperpage{89}
+  \item {ViewCancionesViewModel}
+    \subitem {BetaProyecto.ViewModels.ViewCancionesViewModel}, 
+		\hyperpage{90}
+  \item {ViewConfiguracionViewModel}
+    \subitem {BetaProyecto.ViewModels.ViewConfiguracionViewModel}, 
+		\hyperpage{93}
+  \item {ViewConfiguracionVM}
+    \subitem {BetaProyecto.ViewModels.PanelUsuarioViewModel}, 
+		\hyperpage{63}
+  \item {ViewCrearListaPersonalizadaViewModel}
+    \subitem {BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel}, 
+		\hyperpage{97}
+  \item {ViewCrearReporteViewModel}
+    \subitem {BetaProyecto.ViewModels.ViewCrearReporteViewModel}, 
+		\hyperpage{101}
+  \item {ViewCrearUsuarioViewModel}
+    \subitem {BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}, 
+		\hyperpage{103}
+  \item {ViewCuentaViewModel}
+    \subitem {BetaProyecto.ViewModels.ViewCuentaViewModel}, 
+		\hyperpage{106}
+  \item {ViewCuentaVM}
+    \subitem {BetaProyecto.ViewModels.PanelUsuarioViewModel}, 
+		\hyperpage{63}
+  \item {ViewEditarCancionViewModel}
+    \subitem {BetaProyecto.ViewModels.ViewEditarCancionViewModel}, 
+		\hyperpage{108}
+  \item {ViewEditarListaPersonalizadaViewModel}
+    \subitem {BetaProyecto.ViewModels.ViewEditarListaPersonalizadaViewModel}, 
+		\hyperpage{116}
+  \item {ViewGestionarBDViewModel}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarBDViewModel}, 
+		\hyperpage{123}
+  \item {ViewGestionarBDVM}
+    \subitem {BetaProyecto.ViewModels.PanelUsuarioViewModel}, 
+		\hyperpage{64}
+  \item {ViewGestionarCuentaViewModel}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarCuentaViewModel}, 
+		\hyperpage{140}
+  \item {ViewGestionarCuentaVM}
+    \subitem {BetaProyecto.ViewModels.PanelUsuarioViewModel}, 
+		\hyperpage{64}
+  \item {ViewGestionarReportesViewModel}
+    \subitem {BetaProyecto.ViewModels.ViewGestionarReportesViewModel}, 
+		\hyperpage{144}
+  \item {ViewGestionarReportesVM}
+    \subitem {BetaProyecto.ViewModels.PanelUsuarioViewModel}, 
+		\hyperpage{64}
+  \item {ViewListaPersonalizadaViewModel}
+    \subitem {BetaProyecto.ViewModels.ViewListaPersonalizadaViewModel}, 
+		\hyperpage{147}
+  \item {ViewPerfilViewModel}
+    \subitem {BetaProyecto.ViewModels.ViewPerfilViewModel}, 
+		\hyperpage{148}
+  \item {ViewPerfilVM}
+    \subitem {BetaProyecto.ViewModels.PanelUsuarioViewModel}, 
+		\hyperpage{64}
+  \item {ViewPublicarCancionViewModel}
+    \subitem {BetaProyecto.ViewModels.ViewPublicarCancionViewModel}, 
+		\hyperpage{150}
+  \item {ViewSobreNosotrosViewModel}
+    \subitem {BetaProyecto.ViewModels.ViewSobreNosotrosViewModel}, 
+		\hyperpage{156}
+  \item {ViewUsuariosViewModel}
+    \subitem {BetaProyecto.ViewModels.ViewUsuariosViewModel}, 
+		\hyperpage{157}
+  \item {VistaActual}
+    \subitem {BetaProyecto.ViewModels.MarcoAppViewModel}, 
+		\hyperpage{45}
+  \item {VolverAtras}
+    \subitem {BetaProyecto.ViewModels.INavegable}, \hyperpage{27}
+    \subitem {BetaProyecto.ViewModels.PanelUsuarioViewModel}, 
+		\hyperpage{64}
+    \subitem {BetaProyecto.ViewModels.ViewAyudaViewModel}, 
+		\hyperpage{90}
+    \subitem {BetaProyecto.ViewModels.ViewSobreNosotrosViewModel}, 
+		\hyperpage{156}
+
+\end{theindex}

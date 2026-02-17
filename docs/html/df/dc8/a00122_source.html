@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MusicSearch: Archivo de código fuente BetaProyecto/ViewModels/ViewCuentaViewModel.cs</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(function() { init_search(); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../LogoApp (4).png"/></td>
+  <td id="projectalign">
+   <div id="projectname">MusicSearch<span id="projectnumber">&#160;1.1.2</span>
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('df/dc8/a00122_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ViewCuentaViewModel.cs</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../df/dc8/a00122.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">using </span><a class="code hl_namespace" href="../../d9/d90/a00178.html">BetaProyecto.Services</a>;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">using </span><a class="code hl_namespace" href="../../db/dd9/a00179.html">BetaProyecto.Singleton</a>;</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">using </span>ReactiveUI;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">using </span>System;</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">using </span>System.Reactive;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">using </span>System.Threading.Tasks;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d81/a00180.html">BetaProyecto.ViewModels</a></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="../../dc/d2f/a00425.html">   10</a></span>    <span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_function" href="../../dc/d2f/a00425.html#a320caa12098d91872bdbc51f0fccf540">ViewCuentaViewModel</a> : <a class="code hl_class" href="../../da/dc3/a00453.html">ViewModelBase</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <span class="comment">//Servicios </span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../dc/d2f/a00425.html#a35109df43e3c44d1f6bdd9246746d917">   13</a></span>        <span class="keyword">private</span> readonly <a class="code hl_interface" href="../../d4/dce/a00337.html">IDialogoService</a> <a class="code hl_variable" href="../../dc/d2f/a00425.html#a35109df43e3c44d1f6bdd9246746d917">_dialogoService</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <span class="comment">//Bidings </span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../dc/d2f/a00425.html#ace168728f7ca3fd1a1e3efd9648acbdf">   16</a></span>        <span class="keyword">private</span> <span class="keywordtype">string</span> <a class="code hl_variable" href="../../dc/d2f/a00425.html#ace168728f7ca3fd1a1e3efd9648acbdf">_nombreUsuario</a>;</div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../dc/d2f/a00425.html#a350715b7d39b7a1df9e646f79ab3873d">   17</a></span>        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="../../dc/d2f/a00425.html#a350715b7d39b7a1df9e646f79ab3873d">NombreUsuario</a></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            <span class="keyword">get</span> =&gt; <a class="code hl_variable" href="../../dc/d2f/a00425.html#ace168728f7ca3fd1a1e3efd9648acbdf">_nombreUsuario</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            <span class="keyword">set</span> =&gt; this.RaiseAndSetIfChanged(ref <a class="code hl_variable" href="../../dc/d2f/a00425.html#ace168728f7ca3fd1a1e3efd9648acbdf">_nombreUsuario</a>, value);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        }</div>
+</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../dc/d2f/a00425.html#ac7fe283cfa9a7b08c9858a42744865d7">   23</a></span>        <span class="keyword">private</span> <span class="keywordtype">string</span> <a class="code hl_variable" href="../../dc/d2f/a00425.html#ac7fe283cfa9a7b08c9858a42744865d7">_email</a>;</div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../dc/d2f/a00425.html#ab4a1f1f59cea50cc32689315ac746cc2">   24</a></span>        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="../../dc/d2f/a00425.html#ab4a1f1f59cea50cc32689315ac746cc2">Email</a></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            <span class="keyword">get</span> =&gt; <a class="code hl_variable" href="../../dc/d2f/a00425.html#ac7fe283cfa9a7b08c9858a42744865d7">_email</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            <span class="keyword">set</span> =&gt; this.RaiseAndSetIfChanged(ref <a class="code hl_variable" href="../../dc/d2f/a00425.html#ac7fe283cfa9a7b08c9858a42744865d7">_email</a>, value);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        }</div>
+</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../dc/d2f/a00425.html#a8432dc23abc03d52ab658d15469057e7">   30</a></span>        <span class="keyword">private</span> <span class="keywordtype">string</span> <a class="code hl_variable" href="../../dc/d2f/a00425.html#a8432dc23abc03d52ab658d15469057e7">_pais</a>;</div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../dc/d2f/a00425.html#a1468c98106f4adc11dbbfe1c7bf9e524">   31</a></span>        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="../../dc/d2f/a00425.html#a1468c98106f4adc11dbbfe1c7bf9e524">Pais</a></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <span class="keyword">get</span> =&gt; <a class="code hl_variable" href="../../dc/d2f/a00425.html#a8432dc23abc03d52ab658d15469057e7">_pais</a>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <span class="keyword">set</span> =&gt; this.RaiseAndSetIfChanged(ref <a class="code hl_variable" href="../../dc/d2f/a00425.html#a8432dc23abc03d52ab658d15469057e7">_pais</a>, value);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        }</div>
+</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="comment">// El DatePicker de Avalonia usa DateTimeOffset?</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../dc/d2f/a00425.html#a708e52097e829d1a3d2887ac622875eb">   38</a></span>        <span class="keyword">private</span> DateTimeOffset? <a class="code hl_variable" href="../../dc/d2f/a00425.html#a708e52097e829d1a3d2887ac622875eb">_fechaNacimiento</a>;</div>
+<div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../dc/d2f/a00425.html#a97da9c6cdd1bca3883ce37eeca4a0650">   39</a></span>        <span class="keyword">public</span> DateTimeOffset? <a class="code hl_property" href="../../dc/d2f/a00425.html#a97da9c6cdd1bca3883ce37eeca4a0650">FechaNacimiento</a></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            <span class="keyword">get</span> =&gt; <a class="code hl_variable" href="../../dc/d2f/a00425.html#a708e52097e829d1a3d2887ac622875eb">_fechaNacimiento</a>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keyword">set</span> =&gt; this.RaiseAndSetIfChanged(ref <a class="code hl_variable" href="../../dc/d2f/a00425.html#a708e52097e829d1a3d2887ac622875eb">_fechaNacimiento</a>, value);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        }</div>
+</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="comment">// 0 = Privada, 1 = Pública</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="../../dc/d2f/a00425.html#abe942fb53c523caf364c3d47e478b1e4">   46</a></span>        <span class="keyword">private</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="../../dc/d2f/a00425.html#abe942fb53c523caf364c3d47e478b1e4">_indexPrivacidad</a>;</div>
+<div class="foldopen" id="foldopen00047" data-start="{" data-end="};">
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="../../dc/d2f/a00425.html#ad68eb704d680906aca83e28df6b1b926">   47</a></span>        <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code hl_property" href="../../dc/d2f/a00425.html#ad68eb704d680906aca83e28df6b1b926">IndexPrivacidad</a></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="keyword">get</span> =&gt; <a class="code hl_variable" href="../../dc/d2f/a00425.html#abe942fb53c523caf364c3d47e478b1e4">_indexPrivacidad</a>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <span class="keyword">set</span> =&gt; this.RaiseAndSetIfChanged(ref <a class="code hl_variable" href="../../dc/d2f/a00425.html#abe942fb53c523caf364c3d47e478b1e4">_indexPrivacidad</a>, value);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        }</div>
+</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="comment">// Comandos Reactive </span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../dc/d2f/a00425.html#aebd61500ee0f39860c927fc7b9fa3db5">   54</a></span>        <span class="keyword">public</span> ReactiveCommand&lt;Unit, Unit&gt; <a class="code hl_property" href="../../dc/d2f/a00425.html#aebd61500ee0f39860c927fc7b9fa3db5">BtnGuardar</a> { <span class="keyword">get</span>; }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../dc/d2f/a00425.html#a416895d7726cb802e234a83c7e730ea6">   55</a></span>        <span class="keyword">public</span> ReactiveCommand&lt;Unit, Unit&gt; <a class="code hl_property" href="../../dc/d2f/a00425.html#a416895d7726cb802e234a83c7e730ea6">BtnRefrescar</a> { <span class="keyword">get</span>; }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="foldopen" id="foldopen00057" data-start="{" data-end="}">
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="../../dc/d2f/a00425.html#a320caa12098d91872bdbc51f0fccf540">   57</a></span>        <span class="keyword">public</span> <a class="code hl_function" href="../../dc/d2f/a00425.html#a320caa12098d91872bdbc51f0fccf540">ViewCuentaViewModel</a>()</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="comment">// Incializamos servicios</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            <a class="code hl_variable" href="../../dc/d2f/a00425.html#a35109df43e3c44d1f6bdd9246746d917">_dialogoService</a> = <span class="keyword">new</span> <a class="code hl_class" href="../../d2/d0a/a00333.html">DialogoService</a>();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            <span class="comment">// Configuramos comandos</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            <a class="code hl_property" href="../../dc/d2f/a00425.html#aebd61500ee0f39860c927fc7b9fa3db5">BtnGuardar</a> = ReactiveCommand.CreateFromTask(<a class="code hl_function" href="../../dc/d2f/a00425.html#a1a546a28e8f321cc5d95f746d583eb68">GuardarCambios</a>);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <a class="code hl_property" href="../../dc/d2f/a00425.html#a416895d7726cb802e234a83c7e730ea6">BtnRefrescar</a> = ReactiveCommand.Create(<a class="code hl_function" href="../../dc/d2f/a00425.html#a9d975c7a19f8c9833be729115ff3885e">CargarDatos</a>); </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            <span class="comment">// Cargamos datos </span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <a class="code hl_function" href="../../dc/d2f/a00425.html#a9d975c7a19f8c9833be729115ff3885e">CargarDatos</a>();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        }<span class="comment"></span></div>
+</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">        /// &lt;summary&gt;</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">        /// Recupera y sincroniza la información del perfil del usuario desde los datos globales para su edición en la interfaz.</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">        /// &lt;/summary&gt;</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">        /// &lt;remarks&gt;</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">        /// Este método actúa como un mapeador entre &lt;see cref=&quot;GlobalData.Instance&quot;/&gt; y las propiedades vinculadas de la vista. </span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">        /// Realiza conversiones de tipos necesarias, como la transformación de &lt;see cref=&quot;DateTime&quot;/&gt; a &lt;see cref=&quot;DateTimeOffset&quot;/&gt; </span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">        /// para el selector de fecha, y traduce el estado booleano de privacidad a un índice numérico compatible con </span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">        /// los controles de selección de la UI.</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">        /// &lt;/remarks&gt;</span></div>
+<div class="foldopen" id="foldopen00078" data-start="{" data-end="}">
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="../../dc/d2f/a00425.html#a9d975c7a19f8c9833be729115ff3885e">   78</a></span>        <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d2f/a00425.html#a9d975c7a19f8c9833be729115ff3885e">CargarDatos</a>()</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <span class="comment">// Leemos del Singleton (GlobalData)</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            <a class="code hl_property" href="../../dc/d2f/a00425.html#a350715b7d39b7a1df9e646f79ab3873d">NombreUsuario</a> = <a class="code hl_class" href="../../d7/dfc/a00349.html">GlobalData</a>.<a class="code hl_property" href="../../d7/dfc/a00349.html#a9e2c3551655ac39eac433318a7e87ba4">Instance</a>.<a class="code hl_property" href="../../d7/dfc/a00349.html#aab0aaf02f0ee9e57b35a60acbac54a0b">UsernameGD</a>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            <a class="code hl_property" href="../../dc/d2f/a00425.html#ab4a1f1f59cea50cc32689315ac746cc2">Email</a> = <a class="code hl_class" href="../../d7/dfc/a00349.html">GlobalData</a>.<a class="code hl_property" href="../../d7/dfc/a00349.html#a9e2c3551655ac39eac433318a7e87ba4">Instance</a>.<a class="code hl_property" href="../../d7/dfc/a00349.html#acd878323262efab79a3d7d5d7f4a28d6">EmailGD</a>;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            <a class="code hl_property" href="../../dc/d2f/a00425.html#a1468c98106f4adc11dbbfe1c7bf9e524">Pais</a> = <a class="code hl_class" href="../../d7/dfc/a00349.html">GlobalData</a>.<a class="code hl_property" href="../../d7/dfc/a00349.html#a9e2c3551655ac39eac433318a7e87ba4">Instance</a>.<a class="code hl_property" href="../../d7/dfc/a00349.html#a33b369be130f2cf47aa3a86263206441">PaisGD</a>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            <span class="comment">// Conversión de Fechas</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            <span class="keywordflow">if</span> (<a class="code hl_class" href="../../d7/dfc/a00349.html">GlobalData</a>.<a class="code hl_property" href="../../d7/dfc/a00349.html#a9e2c3551655ac39eac433318a7e87ba4">Instance</a>.<a class="code hl_property" href="../../d7/dfc/a00349.html#a5d8737c78af055cbeb734d12a15f8c2a">FechaNacimientoGD</a> != DateTime.MinValue)</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                <a class="code hl_property" href="../../dc/d2f/a00425.html#a97da9c6cdd1bca3883ce37eeca4a0650">FechaNacimiento</a> = <span class="keyword">new</span> DateTimeOffset(<a class="code hl_class" href="../../d7/dfc/a00349.html">GlobalData</a>.<a class="code hl_property" href="../../d7/dfc/a00349.html#a9e2c3551655ac39eac433318a7e87ba4">Instance</a>.<a class="code hl_property" href="../../d7/dfc/a00349.html#a5d8737c78af055cbeb734d12a15f8c2a">FechaNacimientoGD</a>);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            }</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            {</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>                <a class="code hl_property" href="../../dc/d2f/a00425.html#a97da9c6cdd1bca3883ce37eeca4a0650">FechaNacimiento</a> = DateTimeOffset.Now;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            <span class="comment">// Conversión de Privacidad (True = Privada = Index 0)</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            <a class="code hl_property" href="../../dc/d2f/a00425.html#ad68eb704d680906aca83e28df6b1b926">IndexPrivacidad</a> = GlobalData.Instance.Es_PrivadaGD ? 0 : 1;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        }<span class="comment"></span></div>
+</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">        /// &lt;summary&gt;</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">        /// Procesa y persiste de forma asíncrona las modificaciones realizadas en el perfil del usuario tanto en la base de datos como en el estado global.</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">        /// &lt;/summary&gt;</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">        /// &lt;remarks&gt;</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">        /// Este método realiza una validación y transformación de datos antes de la persistencia:</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">        /// &lt;list type=&quot;number&quot;&gt;</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Conversión:&lt;/b&gt; Transforma el objeto &lt;see cref=&quot;DateTimeOffset&quot;/&gt; de la interfaz a &lt;see cref=&quot;DateTime&quot;/&gt; y el índice de privacidad a un valor booleano.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Sincronización remota:&lt;/b&gt; Invoca al cliente de MongoDB para actualizar los documentos en la nube.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Actualización local:&lt;/b&gt; Si la operación remota es exitosa, sincroniza los nuevos valores en &lt;see cref=&quot;GlobalData.Instance&quot;/&gt; para mantener la consistencia en la sesión actual.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">        /// &lt;/list&gt;</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">        /// Notifica el resultado de la operación al usuario mediante el servicio de diálogos y registra errores críticos en la consola de depuración.</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">        /// &lt;/remarks&gt;</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment">        /// &lt;returns&gt;Una tarea que representa la operación de guardado asíncrona.&lt;/returns&gt;</span></div>
+<div class="foldopen" id="foldopen00111" data-start="{" data-end="}">
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="../../dc/d2f/a00425.html#a1a546a28e8f321cc5d95f746d583eb68">  111</a></span>        <span class="keyword">private</span> async Task <a class="code hl_function" href="../../dc/d2f/a00425.html#a1a546a28e8f321cc5d95f746d583eb68">GuardarCambios</a>()</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            <span class="keywordflow">try</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                <span class="comment">// Convertimos los datos de la vista a los formatos de BD</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                var fechaParaGuardar = <a class="code hl_property" href="../../dc/d2f/a00425.html#a97da9c6cdd1bca3883ce37eeca4a0650">FechaNacimiento</a>?.DateTime ?? DateTime.Now;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>                <span class="keywordtype">bool</span> esCuentaPrivada = (<a class="code hl_property" href="../../dc/d2f/a00425.html#ad68eb704d680906aca83e28df6b1b926">IndexPrivacidad</a> == 0);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>                <span class="keywordtype">bool</span> exito = await <a class="code hl_class" href="../../db/ddc/a00353.html">MongoClientSingleton</a>.<a class="code hl_property" href="../../db/ddc/a00353.html#ad0067cc765141c80b254d1a39395f529">Instance</a>.<a class="code hl_property" href="../../db/ddc/a00353.html#a275ea6d123352f803782b0ff26216fc6">Cliente</a>.<a class="code hl_function" href="../../d3/d93/a00341.html#a4342f5c1311b705ebdbfb545237d3796">ActualizarPerfilUsuario</a>(</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>                    <a class="code hl_class" href="../../d7/dfc/a00349.html">GlobalData</a>.<a class="code hl_property" href="../../d7/dfc/a00349.html#a9e2c3551655ac39eac433318a7e87ba4">Instance</a>.<a class="code hl_property" href="../../d7/dfc/a00349.html#adb38cdfb6b5c5f427b3a1250eca88a29">UserIdGD</a>, </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>                    <a class="code hl_property" href="../../dc/d2f/a00425.html#a350715b7d39b7a1df9e646f79ab3873d">NombreUsuario</a>,                </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>                    <a class="code hl_property" href="../../dc/d2f/a00425.html#ab4a1f1f59cea50cc32689315ac746cc2">Email</a>,                        </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                    <a class="code hl_property" href="../../dc/d2f/a00425.html#a1468c98106f4adc11dbbfe1c7bf9e524">Pais</a>,                         </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                    fechaParaGuardar,             </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>                    esCuentaPrivada               </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                );</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                <span class="comment">// Comprobamos si se actualizo correctamente y reflajamos los cambios en el Singleton (GlobalData) </span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>                <span class="keywordflow">if</span> (exito)</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>                {</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>                    GlobalData.Instance.UsernameGD = <a class="code hl_property" href="../../dc/d2f/a00425.html#a350715b7d39b7a1df9e646f79ab3873d">NombreUsuario</a>;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>                    GlobalData.Instance.EmailGD = <a class="code hl_property" href="../../dc/d2f/a00425.html#ab4a1f1f59cea50cc32689315ac746cc2">Email</a>;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>                    GlobalData.Instance.PaisGD = <a class="code hl_property" href="../../dc/d2f/a00425.html#a1468c98106f4adc11dbbfe1c7bf9e524">Pais</a>;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                    GlobalData.Instance.FechaNacimientoGD = fechaParaGuardar;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>                    GlobalData.Instance.Es_PrivadaGD = esCuentaPrivada;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>                    <a class="code hl_variable" href="../../dc/d2f/a00425.html#a35109df43e3c44d1f6bdd9246746d917">_dialogoService</a>.MostrarAlerta(<span class="stringliteral">&quot;MsgExitoActualizarPerfil&quot;</span>);</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>                    System.Diagnostics.Debug.WriteLine(<span class="stringliteral">&quot;¡Perfil actualizado en BD y Memoria!&quot;</span>);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>                }</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>                <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>                {</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>                    <a class="code hl_variable" href="../../dc/d2f/a00425.html#a35109df43e3c44d1f6bdd9246746d917">_dialogoService</a>.MostrarAlerta(<span class="stringliteral">&quot;MsgErrorActualizarPerfil&quot;</span>);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>                    System.Diagnostics.Debug.WriteLine(<span class="stringliteral">&quot;Fallo al actualizar en Mongo.&quot;</span>);</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>                }</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            }</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>            <span class="keywordflow">catch</span> (Exception ex)</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>            {</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                System.Diagnostics.Debug.WriteLine(<span class="stringliteral">&quot;Error crítico al guardar perfil: &quot;</span> + ex.Message);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>            }</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        }</div>
+</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    }</div>
+</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>}</div>
+<div class="ttc" id="aa00178_html"><div class="ttname"><a href="../../d9/d90/a00178.html">BetaProyecto.Services</a></div><div class="ttdef"><b>Definition</b> <a href="../../d5/de0/a00050_source.html#l00009">AudioService.cs:10</a></div></div>
+<div class="ttc" id="aa00179_html"><div class="ttname"><a href="../../db/dd9/a00179.html">BetaProyecto.Singleton</a></div><div class="ttdef"><b>Definition</b> <a href="../../de/de1/a00065_source.html#l00005">GlobalData.cs:6</a></div></div>
+<div class="ttc" id="aa00180_html"><div class="ttname"><a href="../../d0/d81/a00180.html">BetaProyecto.ViewModels</a></div><div class="ttdef"><b>Definition</b> <a href="../../db/db6/a00074_source.html#l00009">CentralTabControlViewModel.cs:10</a></div></div>
+<div class="ttc" id="aa00333_html"><div class="ttname"><a href="../../d2/d0a/a00333.html">BetaProyecto.Services.DialogoService</a></div><div class="ttdef"><b>Definition</b> <a href="../../dc/dee/a00053_source.html#l00009">DialogoService.cs:10</a></div></div>
+<div class="ttc" id="aa00337_html"><div class="ttname"><a href="../../d4/dce/a00337.html">BetaProyecto.Services.IDialogoService</a></div><div class="ttdef"><b>Definition</b> <a href="../../d9/d2e/a00056_source.html#l00006">IDialogoService.cs:8</a></div></div>
+<div class="ttc" id="aa00341_html_a4342f5c1311b705ebdbfb545237d3796"><div class="ttname"><a href="../../d3/d93/a00341.html#a4342f5c1311b705ebdbfb545237d3796">BetaProyecto.Services.MongoAtlas.ActualizarPerfilUsuario</a></div><div class="ttdeci">async Task&lt; bool &gt; ActualizarPerfilUsuario(string idUsuario, string nuevoNombre, string nuevoEmail, string nuevoPais, DateTime nuevaFecha, bool esPrivada)</div><div class="ttdoc">Actualizamos el usuario logeado mediantes comprobaciones con el singleton.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d8b/a00059_source.html#l01097">MongoAtlas.cs:1097</a></div></div>
+<div class="ttc" id="aa00349_html"><div class="ttname"><a href="../../d7/dfc/a00349.html">BetaProyecto.Singleton.GlobalData</a></div><div class="ttdef"><b>Definition</b> <a href="../../de/de1/a00065_source.html#l00007">GlobalData.cs:8</a></div></div>
+<div class="ttc" id="aa00349_html_a33b369be130f2cf47aa3a86263206441"><div class="ttname"><a href="../../d7/dfc/a00349.html#a33b369be130f2cf47aa3a86263206441">BetaProyecto.Singleton.GlobalData.PaisGD</a></div><div class="ttdeci">string PaisGD</div><div class="ttdef"><b>Definition</b> <a href="../../de/de1/a00065_source.html#l00021">GlobalData.cs:21</a></div></div>
+<div class="ttc" id="aa00349_html_a5d8737c78af055cbeb734d12a15f8c2a"><div class="ttname"><a href="../../d7/dfc/a00349.html#a5d8737c78af055cbeb734d12a15f8c2a">BetaProyecto.Singleton.GlobalData.FechaNacimientoGD</a></div><div class="ttdeci">DateTime FechaNacimientoGD</div><div class="ttdef"><b>Definition</b> <a href="../../de/de1/a00065_source.html#l00019">GlobalData.cs:19</a></div></div>
+<div class="ttc" id="aa00349_html_a9e2c3551655ac39eac433318a7e87ba4"><div class="ttname"><a href="../../d7/dfc/a00349.html#a9e2c3551655ac39eac433318a7e87ba4">BetaProyecto.Singleton.GlobalData.Instance</a></div><div class="ttdeci">static GlobalData Instance</div><div class="ttdef"><b>Definition</b> <a href="../../de/de1/a00065_source.html#l00010">GlobalData.cs:10</a></div></div>
+<div class="ttc" id="aa00349_html_aab0aaf02f0ee9e57b35a60acbac54a0b"><div class="ttname"><a href="../../d7/dfc/a00349.html#aab0aaf02f0ee9e57b35a60acbac54a0b">BetaProyecto.Singleton.GlobalData.UsernameGD</a></div><div class="ttdeci">string UsernameGD</div><div class="ttdef"><b>Definition</b> <a href="../../de/de1/a00065_source.html#l00014">GlobalData.cs:14</a></div></div>
+<div class="ttc" id="aa00349_html_acd878323262efab79a3d7d5d7f4a28d6"><div class="ttname"><a href="../../d7/dfc/a00349.html#acd878323262efab79a3d7d5d7f4a28d6">BetaProyecto.Singleton.GlobalData.EmailGD</a></div><div class="ttdeci">string EmailGD</div><div class="ttdef"><b>Definition</b> <a href="../../de/de1/a00065_source.html#l00015">GlobalData.cs:15</a></div></div>
+<div class="ttc" id="aa00349_html_adb38cdfb6b5c5f427b3a1250eca88a29"><div class="ttname"><a href="../../d7/dfc/a00349.html#adb38cdfb6b5c5f427b3a1250eca88a29">BetaProyecto.Singleton.GlobalData.UserIdGD</a></div><div class="ttdeci">string UserIdGD</div><div class="ttdef"><b>Definition</b> <a href="../../de/de1/a00065_source.html#l00013">GlobalData.cs:13</a></div></div>
+<div class="ttc" id="aa00353_html"><div class="ttname"><a href="../../db/ddc/a00353.html">BetaProyecto.Singleton.MongoClientSingleton</a></div><div class="ttdef"><b>Definition</b> <a href="../../da/d24/a00068_source.html#l00010">MongoClientSingleton.cs:11</a></div></div>
+<div class="ttc" id="aa00353_html_a275ea6d123352f803782b0ff26216fc6"><div class="ttname"><a href="../../db/ddc/a00353.html#a275ea6d123352f803782b0ff26216fc6">BetaProyecto.Singleton.MongoClientSingleton.Cliente</a></div><div class="ttdeci">MongoAtlas Cliente</div><div class="ttdef"><b>Definition</b> <a href="../../da/d24/a00068_source.html#l00017">MongoClientSingleton.cs:17</a></div></div>
+<div class="ttc" id="aa00353_html_ad0067cc765141c80b254d1a39395f529"><div class="ttname"><a href="../../db/ddc/a00353.html#ad0067cc765141c80b254d1a39395f529">BetaProyecto.Singleton.MongoClientSingleton.Instance</a></div><div class="ttdeci">static MongoClientSingleton Instance</div><div class="ttdef"><b>Definition</b> <a href="../../da/d24/a00068_source.html#l00014">MongoClientSingleton.cs:14</a></div></div>
+<div class="ttc" id="aa00425_html_a1468c98106f4adc11dbbfe1c7bf9e524"><div class="ttname"><a href="../../dc/d2f/a00425.html#a1468c98106f4adc11dbbfe1c7bf9e524">BetaProyecto.ViewModels.ViewCuentaViewModel.Pais</a></div><div class="ttdeci">string Pais</div><div class="ttdef"><b>Definition</b> <a href="#l00031">ViewCuentaViewModel.cs:32</a></div></div>
+<div class="ttc" id="aa00425_html_a1a546a28e8f321cc5d95f746d583eb68"><div class="ttname"><a href="../../dc/d2f/a00425.html#a1a546a28e8f321cc5d95f746d583eb68">BetaProyecto.ViewModels.ViewCuentaViewModel.GuardarCambios</a></div><div class="ttdeci">async Task GuardarCambios()</div><div class="ttdoc">Procesa y persiste de forma asíncrona las modificaciones realizadas en el perfil del usuario tanto en...</div><div class="ttdef"><b>Definition</b> <a href="#l00111">ViewCuentaViewModel.cs:111</a></div></div>
+<div class="ttc" id="aa00425_html_a320caa12098d91872bdbc51f0fccf540"><div class="ttname"><a href="../../dc/d2f/a00425.html#a320caa12098d91872bdbc51f0fccf540">BetaProyecto.ViewModels.ViewCuentaViewModel.ViewCuentaViewModel</a></div><div class="ttdeci">ViewCuentaViewModel()</div><div class="ttdef"><b>Definition</b> <a href="#l00057">ViewCuentaViewModel.cs:57</a></div></div>
+<div class="ttc" id="aa00425_html_a350715b7d39b7a1df9e646f79ab3873d"><div class="ttname"><a href="../../dc/d2f/a00425.html#a350715b7d39b7a1df9e646f79ab3873d">BetaProyecto.ViewModels.ViewCuentaViewModel.NombreUsuario</a></div><div class="ttdeci">string NombreUsuario</div><div class="ttdef"><b>Definition</b> <a href="#l00017">ViewCuentaViewModel.cs:18</a></div></div>
+<div class="ttc" id="aa00425_html_a35109df43e3c44d1f6bdd9246746d917"><div class="ttname"><a href="../../dc/d2f/a00425.html#a35109df43e3c44d1f6bdd9246746d917">BetaProyecto.ViewModels.ViewCuentaViewModel._dialogoService</a></div><div class="ttdeci">readonly IDialogoService _dialogoService</div><div class="ttdef"><b>Definition</b> <a href="#l00013">ViewCuentaViewModel.cs:13</a></div></div>
+<div class="ttc" id="aa00425_html_a416895d7726cb802e234a83c7e730ea6"><div class="ttname"><a href="../../dc/d2f/a00425.html#a416895d7726cb802e234a83c7e730ea6">BetaProyecto.ViewModels.ViewCuentaViewModel.BtnRefrescar</a></div><div class="ttdeci">ReactiveCommand&lt; Unit, Unit &gt; BtnRefrescar</div><div class="ttdef"><b>Definition</b> <a href="#l00055">ViewCuentaViewModel.cs:55</a></div></div>
+<div class="ttc" id="aa00425_html_a708e52097e829d1a3d2887ac622875eb"><div class="ttname"><a href="../../dc/d2f/a00425.html#a708e52097e829d1a3d2887ac622875eb">BetaProyecto.ViewModels.ViewCuentaViewModel._fechaNacimiento</a></div><div class="ttdeci">DateTimeOffset? _fechaNacimiento</div><div class="ttdef"><b>Definition</b> <a href="#l00038">ViewCuentaViewModel.cs:38</a></div></div>
+<div class="ttc" id="aa00425_html_a8432dc23abc03d52ab658d15469057e7"><div class="ttname"><a href="../../dc/d2f/a00425.html#a8432dc23abc03d52ab658d15469057e7">BetaProyecto.ViewModels.ViewCuentaViewModel._pais</a></div><div class="ttdeci">string _pais</div><div class="ttdef"><b>Definition</b> <a href="#l00030">ViewCuentaViewModel.cs:30</a></div></div>
+<div class="ttc" id="aa00425_html_a97da9c6cdd1bca3883ce37eeca4a0650"><div class="ttname"><a href="../../dc/d2f/a00425.html#a97da9c6cdd1bca3883ce37eeca4a0650">BetaProyecto.ViewModels.ViewCuentaViewModel.FechaNacimiento</a></div><div class="ttdeci">DateTimeOffset? FechaNacimiento</div><div class="ttdef"><b>Definition</b> <a href="#l00039">ViewCuentaViewModel.cs:40</a></div></div>
+<div class="ttc" id="aa00425_html_a9d975c7a19f8c9833be729115ff3885e"><div class="ttname"><a href="../../dc/d2f/a00425.html#a9d975c7a19f8c9833be729115ff3885e">BetaProyecto.ViewModels.ViewCuentaViewModel.CargarDatos</a></div><div class="ttdeci">void CargarDatos()</div><div class="ttdoc">Recupera y sincroniza la información del perfil del usuario desde los datos globales para su edición ...</div><div class="ttdef"><b>Definition</b> <a href="#l00078">ViewCuentaViewModel.cs:78</a></div></div>
+<div class="ttc" id="aa00425_html_ab4a1f1f59cea50cc32689315ac746cc2"><div class="ttname"><a href="../../dc/d2f/a00425.html#ab4a1f1f59cea50cc32689315ac746cc2">BetaProyecto.ViewModels.ViewCuentaViewModel.Email</a></div><div class="ttdeci">string Email</div><div class="ttdef"><b>Definition</b> <a href="#l00024">ViewCuentaViewModel.cs:25</a></div></div>
+<div class="ttc" id="aa00425_html_abe942fb53c523caf364c3d47e478b1e4"><div class="ttname"><a href="../../dc/d2f/a00425.html#abe942fb53c523caf364c3d47e478b1e4">BetaProyecto.ViewModels.ViewCuentaViewModel._indexPrivacidad</a></div><div class="ttdeci">int _indexPrivacidad</div><div class="ttdef"><b>Definition</b> <a href="#l00046">ViewCuentaViewModel.cs:46</a></div></div>
+<div class="ttc" id="aa00425_html_ac7fe283cfa9a7b08c9858a42744865d7"><div class="ttname"><a href="../../dc/d2f/a00425.html#ac7fe283cfa9a7b08c9858a42744865d7">BetaProyecto.ViewModels.ViewCuentaViewModel._email</a></div><div class="ttdeci">string _email</div><div class="ttdef"><b>Definition</b> <a href="#l00023">ViewCuentaViewModel.cs:23</a></div></div>
+<div class="ttc" id="aa00425_html_ace168728f7ca3fd1a1e3efd9648acbdf"><div class="ttname"><a href="../../dc/d2f/a00425.html#ace168728f7ca3fd1a1e3efd9648acbdf">BetaProyecto.ViewModels.ViewCuentaViewModel._nombreUsuario</a></div><div class="ttdeci">string _nombreUsuario</div><div class="ttdef"><b>Definition</b> <a href="#l00016">ViewCuentaViewModel.cs:16</a></div></div>
+<div class="ttc" id="aa00425_html_ad68eb704d680906aca83e28df6b1b926"><div class="ttname"><a href="../../dc/d2f/a00425.html#ad68eb704d680906aca83e28df6b1b926">BetaProyecto.ViewModels.ViewCuentaViewModel.IndexPrivacidad</a></div><div class="ttdeci">int IndexPrivacidad</div><div class="ttdef"><b>Definition</b> <a href="#l00047">ViewCuentaViewModel.cs:48</a></div></div>
+<div class="ttc" id="aa00425_html_aebd61500ee0f39860c927fc7b9fa3db5"><div class="ttname"><a href="../../dc/d2f/a00425.html#aebd61500ee0f39860c927fc7b9fa3db5">BetaProyecto.ViewModels.ViewCuentaViewModel.BtnGuardar</a></div><div class="ttdeci">ReactiveCommand&lt; Unit, Unit &gt; BtnGuardar</div><div class="ttdef"><b>Definition</b> <a href="#l00054">ViewCuentaViewModel.cs:54</a></div></div>
+<div class="ttc" id="aa00453_html"><div class="ttname"><a href="../../da/dc3/a00453.html">BetaProyecto.ViewModels.ViewModelBase</a></div><div class="ttdef"><b>Definition</b> <a href="../../d7/dce/a00143_source.html#l00008">ViewModelBase.cs:9</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_185e83519e12721b061570a464b09f2f.html">BetaProyecto</a></li><li class="navelem"><a href="../../dir_364cdaa78793ccd09585bb6481f10933.html">ViewModels</a></li><li class="navelem"><a href="../../df/dc8/a00122.html">ViewCuentaViewModel.cs</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

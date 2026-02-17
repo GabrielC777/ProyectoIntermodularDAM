@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['if_0',['if',['../dd/d72/a00541.html#a79a944c7f0e25196ca3c5a8638b919b9',1,'Program.cs']]],
+  ['incrementarcontadorcancionesusuario_1',['IncrementarContadorCancionesUsuario',['../d3/d93/a00341.html#a5e7fc8cdeb478bbc5c346bc94bd35f88',1,'BetaProyecto::Services::MongoAtlas']]],
+  ['incrementarmetricacancion_2',['IncrementarMetricaCancion',['../d3/d93/a00341.html#a0b45d63ab7453dcbf6d0bb258ef7abe3',1,'BetaProyecto::Services::MongoAtlas']]],
+  ['inicializarentorno_3',['InicializarEntorno',['../d6/de1/a00233.html#a7f1d65283567f15004e3e04cb72cdccc',1,'BetaProyecto::API::Controllers::MusicController']]],
+  ['iniciarhiloactualizacion_4',['IniciarHiloActualizacion',['../de/de8/a00405.html#a7ffd7c49d8c559006f13fd97a0749237',1,'BetaProyecto.ViewModels.ViewCancionesViewModel.IniciarHiloActualizacion()'],['../dc/ddf/a00469.html#adb9f01beb2635fe374b3f2304df4a235',1,'BetaProyecto.ViewModels.ViewUsuariosViewModel.IniciarHiloActualizacion()']]],
+  ['intentarlogin_5',['IntentarLogin',['../df/dee/a00369.html#a5238b81439b03429f446647f9f9fc194',1,'BetaProyecto::ViewModels::LoginViewModel']]],
+  ['iraartistadesdeboton_6',['IrAArtistaDesdeBoton',['../d5/d05/a00385.html#a84d61e60d1cfd748390aab2faa8872a1',1,'BetaProyecto::ViewModels::TabItemInicioViewModel']]],
+  ['iraayuda_7',['IrAAyuda',['../dc/de3/a00373.html#a98dfc8c0bec0d1af0652f2a624945b4b',1,'BetaProyecto::ViewModels::MarcoAppViewModel']]],
+  ['iracrearplaylist_8',['IrACrearPlaylist',['../dc/de3/a00373.html#a103456d1377816469a4b901856f7f03c',1,'BetaProyecto::ViewModels::MarcoAppViewModel']]],
+  ['iracrearreporte_9',['IrACrearReporte',['../dc/de3/a00373.html#aa00b5aeeb307a24903eb19c4ddd762e0',1,'BetaProyecto::ViewModels::MarcoAppViewModel']]],
+  ['iracrearusuario_10',['IrACrearUsuario',['../dc/de3/a00373.html#a8f0e60778a6d52d7d7b37a62c10d9248',1,'BetaProyecto::ViewModels::MarcoAppViewModel']]],
+  ['iradetallescancion_11',['IrADetallesCancion',['../dc/de3/a00373.html#a660213137d2cf49bb63d9aac57c42643',1,'BetaProyecto::ViewModels::MarcoAppViewModel']]],
+  ['iradetallesplaylist_12',['IrADetallesPlaylist',['../dc/de3/a00373.html#ac315800bb969345d5409ae52769c5bab',1,'BetaProyecto::ViewModels::MarcoAppViewModel']]],
+  ['iraeditarcancion_13',['IrAEditarCancion',['../dc/de3/a00373.html#ab8a4ad9c5de96bfccdc150001baa8f67',1,'BetaProyecto::ViewModels::MarcoAppViewModel']]],
+  ['iraeditarplaylist_14',['IrAEditarPlaylist',['../dc/de3/a00373.html#aedc88d889651d608f0faa67bd0a05299',1,'BetaProyecto::ViewModels::MarcoAppViewModel']]],
+  ['iralcentraltabcontrol_15',['IrAlCentralTabControl',['../dc/de3/a00373.html#a45d1acb6c7a53c1c750db7a118850916',1,'BetaProyecto::ViewModels::MarcoAppViewModel']]],
+  ['irapanelusuario_16',['IrAPanelUsuario',['../dc/de3/a00373.html#a6adbcbbdc48d0f4083222cacc2ecc326',1,'BetaProyecto::ViewModels::MarcoAppViewModel']]],
+  ['irapublicarcancion_17',['IrAPublicarCancion',['../dc/de3/a00373.html#af06723da21f1616a47c8abf05063d629',1,'BetaProyecto::ViewModels::MarcoAppViewModel']]],
+  ['irasobrenosotros_18',['IrASobreNosotros',['../dc/de3/a00373.html#a05e76797d80fcb2f2a68ea10203418bb',1,'BetaProyecto::ViewModels::MarcoAppViewModel']]],
+  ['iraverartista_19',['IrAVerArtista',['../dc/de3/a00373.html#a697673937efd1e71a8f1bb686749d5af',1,'BetaProyecto::ViewModels::MarcoAppViewModel']]]
+];

@@ -1,0 +1,145 @@
+\doxysubsection{Referencia de la clase Beta\+Proyecto.\+Services.\+Storage\+Service}
+\hypertarget{a00345}{}\label{a00345}\index{BetaProyecto.Services.StorageService@{BetaProyecto.Services.StorageService}}
+
+
+\doxysubsubsection{Detalles}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00062_source_l00010}{10}} del archivo \doxymbox{\hyperlink{a00062_source}{Storage\+Service.\+cs}}.
+
+\doxysubsubsubsection*{Métodos}
+\begin{DoxyCompactItemize}
+\item 
+async Task$<$ string $>$ \doxymbox{\hyperlink{a00345_ab02c765868135e40a466b6936f3f6f69}{Subir\+Imagen}} (string ruta\+Archivo\+En\+Tu\+Pc)
+\begin{DoxyCompactList}\small\item\em Carga un archivo de imagen desde el sistema de archivos local hacia el servidor de almacenamiento en la nube. \end{DoxyCompactList}\item 
+async Task$<$ string $>$ \doxymbox{\hyperlink{a00345_a93acfb9b1ba693da4cacc312b88ae681}{Subir\+Cancion}} (string ruta\+Archivo\+En\+Tu\+Pc)
+\begin{DoxyCompactList}\small\item\em Carga un archivo de audio desde el almacenamiento local hacia el servidor de distribución en la nube. \end{DoxyCompactList}\item 
+async Task$<$ bool $>$ \doxymbox{\hyperlink{a00345_a1f2e6861119f57d74e62f496de246be5}{Eliminar\+Archivo}} (string url\+Completa)
+\begin{DoxyCompactList}\small\item\em Solicita de forma asíncrona la eliminación de un recurso almacenado en la nube a través de la \doxylink{a00174}{API} de almacenamiento. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{a00345_doc-func-members}
+\doxysubsubsection{Funciones}
+\Hypertarget{a00345_a1f2e6861119f57d74e62f496de246be5}\index{BetaProyecto.Services.StorageService@{BetaProyecto.Services.StorageService}!EliminarArchivo@{EliminarArchivo}}
+\index{EliminarArchivo@{EliminarArchivo}!BetaProyecto.Services.StorageService@{BetaProyecto.Services.StorageService}}
+\doxyparagraph{\texorpdfstring{EliminarArchivo()}{EliminarArchivo()}}
+{\footnotesize\ttfamily \label{a00345_a1f2e6861119f57d74e62f496de246be5} 
+async Task$<$ bool $>$ Beta\+Proyecto.\+Services.\+Storage\+Service.\+Eliminar\+Archivo (\begin{DoxyParamCaption}\item[{string}]{url\+Completa}{}\end{DoxyParamCaption})}
+
+
+
+Solicita de forma asíncrona la eliminación de un recurso almacenado en la nube a través de la \doxylink{a00174}{API} de almacenamiento. 
+
+Este método gestiona la baja de archivos (imágenes o audio) siguiendo este flujo:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Validación:\+}} Verifica que la URL proporcionada no sea nula o vacía. 
+\item {\bfseries{Seguridad:\+}} Configura un Http\+Client\+Handler para omitir la validación de certificados SSL, permitiendo peticiones a entornos {\ttfamily localhost} con certificados autofirmados. 
+\item {\bfseries{Petición:\+}} Ejecuta un verbo HTTP {\ttfamily DELETE} enviando la URL del archivo como parámetro de consulta. 
+\item {\bfseries{Confirmación:\+}} Evalúa la respuesta de la \doxylink{a00174}{API} para confirmar si el archivo fue removido con éxito del proveedor externo (Cloudinary). 
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parámetros}
+{\em url\+Completa} & La dirección URL absoluta del recurso que se desea eliminar del almacenamiento remoto.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Una tarea que devuelve {\ttfamily true} si el servidor confirma la eliminación (Success Status Code); de lo contrario, {\ttfamily false} si el recurso no existe o hubo un fallo en la comunicación. 
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00062_source_l00074}{74}} del archivo \doxymbox{\hyperlink{a00062_source}{Storage\+Service.\+cs}}.
+
+\Hypertarget{a00345_a3613a9156b7a0808ca33f01435675521}\index{BetaProyecto.Services.StorageService@{BetaProyecto.Services.StorageService}!EnviarA\_Api@{EnviarA\_Api}}
+\index{EnviarA\_Api@{EnviarA\_Api}!BetaProyecto.Services.StorageService@{BetaProyecto.Services.StorageService}}
+\doxyparagraph{\texorpdfstring{EnviarA\_Api()}{EnviarA\_Api()}}
+{\footnotesize\ttfamily \label{a00345_a3613a9156b7a0808ca33f01435675521} 
+async Task$<$ string $>$ Beta\+Proyecto.\+Services.\+Storage\+Service.\+Enviar\+A\+\_\+\+Api (\begin{DoxyParamCaption}\item[{string}]{ruta}{, }\item[{string}]{endpoint}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Realiza la carga física de un archivo hacia la \doxylink{a00174}{API} de almacenamiento mediante una petición POST de tipo multipart/\+form-\/data. 
+
+Este método núcleo (core) orquestra la transferencia de archivos multimedia siguiendo este flujo:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Verificación local:\+}} Valida la existencia del archivo en el sistema de archivos del cliente antes de iniciar la conexión. 
+\item {\bfseries{Configuración de Seguridad:\+}} Implementa un bypass de validación SSL para permitir el desarrollo en entornos locales con certificados no firmados. 
+\item {\bfseries{Empaquetado (Multipart):\+}} Abre el archivo como un flujo de datos (Stream\+Content) y lo encapsula en un contenedor compatible con formularios web. 
+\item {\bfseries{Transmisión y Respuesta:\+}} Ejecuta la petición asíncrona hacia el {\itshape endpoint}  especificado y procesa la respuesta JSON para extraer la URL persistente generada por el servidor. 
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parámetros}
+{\em ruta} & La ruta absoluta del archivo en el disco duro local.\\
+\hline
+{\em endpoint} & El segmento final de la URL de la \doxylink{a00174}{API} (ej. "{}subir-\/imagen"{} o "{}subir-\/audio"{}).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+La URL pública del archivo cargado en el servidor de almacenamiento.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em File\+Not\+Found\+Exception} & Se lanza si la ruta especificada no apunta a un archivo válido.\\
+\hline
+{\em Exception} & Encapsula errores de conectividad, rechazos de la \doxylink{a00174}{API} (códigos 4xx o 5xx) o fallos en el análisis del JSON.\\
+\hline
+\end{DoxyExceptions}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00062_source_l00123}{123}} del archivo \doxymbox{\hyperlink{a00062_source}{Storage\+Service.\+cs}}.
+
+\Hypertarget{a00345_a93acfb9b1ba693da4cacc312b88ae681}\index{BetaProyecto.Services.StorageService@{BetaProyecto.Services.StorageService}!SubirCancion@{SubirCancion}}
+\index{SubirCancion@{SubirCancion}!BetaProyecto.Services.StorageService@{BetaProyecto.Services.StorageService}}
+\doxyparagraph{\texorpdfstring{SubirCancion()}{SubirCancion()}}
+{\footnotesize\ttfamily \label{a00345_a93acfb9b1ba693da4cacc312b88ae681} 
+async Task$<$ string $>$ Beta\+Proyecto.\+Services.\+Storage\+Service.\+Subir\+Cancion (\begin{DoxyParamCaption}\item[{string}]{ruta\+Archivo\+En\+Tu\+Pc}{}\end{DoxyParamCaption})}
+
+
+
+Carga un archivo de audio desde el almacenamiento local hacia el servidor de distribución en la nube. 
+
+Este método encapsula la lógica de transferencia de archivos multimedia utilizando el endpoint dedicado para audio. El proceso sigue el siguiente flujo:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Empaquetado:\+}} Invoca al método core {\ttfamily Enviar\+A\+\_\+\+Api} para convertir el archivo físico en un flujo de datos (Stream). 
+\item {\bfseries{Transmisión:\+}} Envía el recurso mediante una petición POST multipart/\+form-\/data al microservicio de almacenamiento. 
+\item {\bfseries{Respuesta:\+}} Retorna la URL segura (HTTPS) proporcionada por Cloudinary, necesaria para la persistencia en la base de datos. 
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parámetros}
+{\em ruta\+Archivo\+En\+Tu\+Pc} & La ruta absoluta del archivo de audio (ej. .mp3, .wav) en el disco local.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Una tarea que contiene la URL pública del archivo alojado si la operación tiene éxito; de lo contrario, devuelve una cadena vacía o nula. 
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00062_source_l00051}{51}} del archivo \doxymbox{\hyperlink{a00062_source}{Storage\+Service.\+cs}}.
+
+\Hypertarget{a00345_ab02c765868135e40a466b6936f3f6f69}\index{BetaProyecto.Services.StorageService@{BetaProyecto.Services.StorageService}!SubirImagen@{SubirImagen}}
+\index{SubirImagen@{SubirImagen}!BetaProyecto.Services.StorageService@{BetaProyecto.Services.StorageService}}
+\doxyparagraph{\texorpdfstring{SubirImagen()}{SubirImagen()}}
+{\footnotesize\ttfamily \label{a00345_ab02c765868135e40a466b6936f3f6f69} 
+async Task$<$ string $>$ Beta\+Proyecto.\+Services.\+Storage\+Service.\+Subir\+Imagen (\begin{DoxyParamCaption}\item[{string}]{ruta\+Archivo\+En\+Tu\+Pc}{}\end{DoxyParamCaption})}
+
+
+
+Carga un archivo de imagen desde el sistema de archivos local hacia el servidor de almacenamiento en la nube. 
+
+Este método actúa como un envoltorio especializado que invoca la lógica genérica de comunicación con la \doxylink{a00174}{API} utilizando el endpoint específico para el procesamiento de imágenes. Es ideal para la gestión de avatares de usuario, portadas de álbumes y miniaturas de playlists. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em ruta\+Archivo\+En\+Tu\+Pc} & La ruta absoluta del archivo de imagen en el almacenamiento local.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Una tarea que representa la operación asíncrona. El valor devuelto contiene la URL pública generada por el servicio de almacenamiento (Cloudinary) si la carga fue exitosa. 
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00062_source_l00029}{29}} del archivo \doxymbox{\hyperlink{a00062_source}{Storage\+Service.\+cs}}.
+

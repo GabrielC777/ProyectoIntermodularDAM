@@ -1,0 +1,219 @@
+\doxysubsection{Music\+Controller.\+cs}
+\hypertarget{a00158_source}{}\label{a00158_source}\index{BetaProyecto.API/Controllers/MusicController.cs@{BetaProyecto.API/Controllers/MusicController.cs}}
+\doxymbox{\hyperlink{a00158}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00001}00001\ \textcolor{keyword}{using\ }Microsoft.AspNetCore.Mvc;}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00002}00002\ \textcolor{keyword}{using\ }System.Diagnostics;}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00003}00003\ \textcolor{keyword}{using\ }System.Text.Json.Nodes;}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00004}00004\ \textcolor{keyword}{using\ }System.Text;}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{a00158_source_l00006}\doxymbox{\hyperlink{a00173}{00006}}\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{a00175}{BetaProyecto.API.Controllers}}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00008}00008\ \ \ \ \ [ApiController]}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00009}00009\ \ \ \ \ [Route(\textcolor{stringliteral}{"{}api/[controller]"{}})]}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00010}\doxymbox{\hyperlink{a00233}{00010}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00233_a5de4705dac5086b8374cd71a5217d050}{MusicController}}\ :\ ControllerBase}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00011}00011\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00012}\doxymbox{\hyperlink{a00233_a1c95a792a22efd02410effd3df65313a}{00012}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ readonly\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00233_a1c95a792a22efd02410effd3df65313a}{\_ytDlpPath}};}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00013}\doxymbox{\hyperlink{a00233_a81c63a27804cd4452cc48c1cd198102a}{00013}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ readonly\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00233_a81c63a27804cd4452cc48c1cd198102a}{\_cookiesPath}};}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{a00158_source_l00015}\doxymbox{\hyperlink{a00233_a5de4705dac5086b8374cd71a5217d050}{00015}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{a00233_a5de4705dac5086b8374cd71a5217d050}{MusicController}}()}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00016}00016\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Definimos\ rutas}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ appDir\ =\ AppContext.BaseDirectory;}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{a00158_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Carpeta\ segura\ en\ AppData\ (donde\ tenemos\ permisos\ de\ escritura)}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ userDir\ =\ Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),\ \textcolor{stringliteral}{"{}MusicSearchApi"{}});}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!Directory.Exists(userDir))\ Directory.CreateDirectory(userDir);}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{a00158_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Rutas\ finales\ en\ la\ carpeta\ segura}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00233_a1c95a792a22efd02410effd3df65313a}{\_ytDlpPath}}\ =\ Path.Combine(userDir,\ \textcolor{stringliteral}{"{}yt-\/dlp.exe"{}});}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00233_a81c63a27804cd4452cc48c1cd198102a}{\_cookiesPath}}\ =\ Path.Combine(userDir,\ \textcolor{stringliteral}{"{}cookies.txt"{}});}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{a00158_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Inicializamos\ el\ entorno\ instalando\ yt-\/dlp\ y\ preparando\ cookies}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00233_a7f1d65283567f15004e3e04cb72cdccc}{InicializarEntorno}}(appDir,\ userDir);}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{a00158_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Comprobamos\ actualizaciones\ de\ yt-\/dlp\ al\ iniciar\ la\ API\ }}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00233_a106038549c13f62c066960d422f6546b}{ActualizarYtDlp}}();}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00033}00033\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00034}00034\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00035}00035\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Configura\ el\ entorno\ de\ ejecución\ local,\ asegurando\ la\ presencia\ de\ las\ dependencias\ binarias\ y\ sanitizando\ archivos\ de\ configuración.}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00036}00036\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00037}00037\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00038}00038\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Este\ método\ de\ preparación\ realiza\ las\ siguientes\ operaciones\ críticas:}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00039}00039\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <list\ type="{}number"{}>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00040}00040\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Despliegue\ de\ Binarios:</b>\ Verifica\ la\ existencia\ de\ <c>yt-\/dlp.exe</c>\ en\ la\ ruta\ de\ ejecución.\ Si\ no\ está\ presente\ o\ el\ archivo\ está\ dañado\ (0\ bytes),\ realiza\ una\ copia\ desde\ el\ directorio\ de\ instalación.</item>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00041}00041\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Sanitización\ de\ Cookies:</b>\ Procesa\ el\ archivo\ <c>cookies.txt</c>\ para\ eliminar\ la\ marca\ de\ orden\ de\ bytes\ (BOM).\ Esto\ es\ indispensable\ ya\ que\ <c>yt-\/dlp</c>\ requiere\ una\ codificación\ UTF-\/8\ pura\ para\ validar\ sesiones\ de\ usuario.</item>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00042}00042\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Normalización\ de\ Rutas:</b>\ Centraliza\ los\ archivos\ operativos\ en\ carpetas\ de\ datos\ de\ usuario\ para\ evitar\ problemas\ de\ permisos\ de\ escritura.</item>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00043}00043\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </list>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00044}00044\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Cualquier\ error\ durante\ el\ acceso\ a\ archivos\ o\ escritura\ de\ disco\ se\ captura\ y\ se\ registra\ en\ la\ consola\ para\ facilitar\ el\ diagnóstico.}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00045}00045\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00046}00046\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}appDir"{}>Directorio\ raíz\ donde\ se\ encuentran\ los\ archivos\ originales\ de\ la\ aplicación.</param>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00047}00047\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}userDir"{}>Directorio\ de\ datos\ de\ usuario\ (AppData)\ donde\ se\ desplegará\ el\ entorno\ de\ trabajo.</param>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00048}\doxymbox{\hyperlink{a00233_a7f1d65283567f15004e3e04cb72cdccc}{00048}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{a00233_a7f1d65283567f15004e3e04cb72cdccc}{InicializarEntorno}}(\textcolor{keywordtype}{string}\ appDir,\ \textcolor{keywordtype}{string}\ userDir)}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00049}00049\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Instalar\ YT-\/DLP}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Solo\ copiamos\ si\ no\ existe\ o\ pesa\ 0\ bytes\ (por\ seguridad)}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!System.IO.File.Exists(\doxymbox{\hyperlink{a00233_a1c95a792a22efd02410effd3df65313a}{\_ytDlpPath}})\ ||\ \textcolor{keyword}{new}\ FileInfo(\doxymbox{\hyperlink{a00233_a1c95a792a22efd02410effd3df65313a}{\_ytDlpPath}}).Length\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ origenExe\ =\ Path.Combine(appDir,\ \textcolor{stringliteral}{"{}yt-\/dlp.exe"{}});}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (System.IO.File.Exists(origenExe))}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Console.WriteLine(\$\textcolor{stringliteral}{"{}[API]\ Instalando\ yt-\/dlp\ en:\ \{\_ytDlpPath\}"{}});}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.IO.File.Copy(origenExe,\ \doxymbox{\hyperlink{a00233_a1c95a792a22efd02410effd3df65313a}{\_ytDlpPath}},\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{a00158_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Limpieza\ de\ cookies\ (SANITIZAR\ BOM)}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Leemos\ el\ cookies.txt\ original\ y\ lo\ guardamos\ SIN\ la\ marca\ invisible(BOM)\ (\(\backslash\)ufeff)}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Esto\ es\ crucial\ porque\ yt-\/dlp\ no\ reconoce\ las\ cookies\ si\ el\ archivo\ tiene\ BOM,\ lo\ que\ causa\ errores\ de\ autenticación.}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ El\ bom\ es\ una\ marca\ que\ algunos\ editores\ de\ texto\ agregan\ al\ inicio\ de\ los\ archivos\ para\ indicar\ que\ están\ codificados\ en\ UTF-\/8,\ pero\ yt-\/dlp\ no\ lo\ maneja\ bien.}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ origenCookies\ =\ Path.Combine(appDir,\ \textcolor{stringliteral}{"{}cookies.txt"{}});}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (System.IO.File.Exists(origenCookies))}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Leemos\ el\ texto\ (esto\ se\ traga\ el\ BOM\ automáticamente)}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ contenido\ =\ System.IO.File.ReadAllText(origenCookies);}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{a00158_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Lo\ guardamos\ forzando\ UTF8\ SIN\ BOM\ (new\ UTF8Encoding(false))}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Esto\ crea\ un\ archivo\ "{}cookies.txt"{}\ perfecto\ para\ yt-\/dlp\ en\ la\ carpeta\ AppData}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.IO.File.WriteAllText(\doxymbox{\hyperlink{a00233_a81c63a27804cd4452cc48c1cd198102a}{\_cookiesPath}},\ contenido,\ \textcolor{keyword}{new}\ UTF8Encoding(\textcolor{keyword}{false}));}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{a00158_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Console.WriteLine(\$\textcolor{stringliteral}{"{}[API]\ Cookies\ saneadas\ y\ copiadas\ a:\ \{\_cookiesPath\}"{}});}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Console.WriteLine(\textcolor{stringliteral}{"{}[API]\ No\ se\ encontró\ cookies.txt\ original."{}});}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Console.WriteLine(\$\textcolor{stringliteral}{"{}[API]\ Error\ inicializando\ entorno:\ \{ex.Message\}"{}});}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00089}00089\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00090}00090\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00091}00091\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Ejecuta\ el\ comando\ de\ auto-\/actualización\ del\ binario\ <c>yt-\/dlp</c>\ de\ forma\ silenciosa.}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00092}00092\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00093}00093\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00094}00094\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Dado\ que\ las\ plataformas\ de\ video\ cambian\ sus\ algoritmos\ frecuentemente,\ este\ método\ asegura\ que\ la\ herramienta\ }}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00095}00095\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ de\ extracción\ esté\ en\ su\ versión\ más\ reciente\ mediante\ los\ siguientes\ pasos:}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00096}00096\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <list\ type="{}number"{}>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00097}00097\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Validación:</b>\ Comprueba\ la\ existencia\ del\ ejecutable\ antes\ de\ intentar\ la\ actualización.</item>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00098}00098\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Ejecución\ en\ segundo\ plano:</b>\ Inicia\ un\ proceso\ externo\ con\ el\ argumento\ <c>-\/-\/update</c>\ configurado\ para\ no\ mostrar\ ventanas\ (<c>CreateNoWindow</c>).</item>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00099}00099\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Redirección:</b>\ Captura\ las\ salidas\ del\ proceso\ para\ evitar\ bloqueos\ y\ espera\ su\ finalización\ síncrona.</item>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00100}00100\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Resiliencia:</b>\ El\ bloque\ <c>catch</c>\ ignora\ silenciosamente\ fallos\ (como\ falta\ de\ internet\ o\ bloqueos\ de\ firewall)\ para\ permitir\ que\ la\ aplicación\ principal\ siga\ funcionando\ incluso\ si\ la\ actualización\ falla.</item>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00101}00101\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </list>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00102}00102\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00103}\doxymbox{\hyperlink{a00233_a106038549c13f62c066960d422f6546b}{00103}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{a00233_a106038549c13f62c066960d422f6546b}{ActualizarYtDlp}}()}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00104}00104\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!System.IO.File.Exists(\doxymbox{\hyperlink{a00233_a1c95a792a22efd02410effd3df65313a}{\_ytDlpPath}}))\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Console.WriteLine(\textcolor{stringliteral}{"{}[API]\ Buscando\ actualizaciones\ de\ yt-\/dlp..."{}});}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{a00158_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ psi\ =\ \textcolor{keyword}{new}\ ProcessStartInfo}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FileName\ =\ \doxymbox{\hyperlink{a00233_a1c95a792a22efd02410effd3df65313a}{\_ytDlpPath}},}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Arguments\ =\ \textcolor{stringliteral}{"{}-\/-\/update"{}},}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RedirectStandardOutput\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RedirectStandardError\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UseShellExecute\ =\ \textcolor{keyword}{false},}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CreateNoWindow\ =\ \textcolor{keyword}{true}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{a00158_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ process\ =\ Process.Start(psi);}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ process.WaitForExit();}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Console.WriteLine(\textcolor{stringliteral}{"{}[API]\ Actualización\ completada."{}});}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ \{\ \textcolor{comment}{/*\ Ignorar\ errores\ de\ red\ */}\ \}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00125}00125\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{a00158_source_l00127}00127\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00128}00128\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00129}00129\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Procesa\ una\ solicitud\ HTTP\ GET\ para\ extraer\ la\ URL\ de\ streaming\ directo\ y\ los\ metadatos\ de\ un\ video\ de\ YouTube.}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00130}00130\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00131}00131\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00132}00132\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ El\ flujo\ de\ ejecución\ de\ este\ endpoint\ es\ el\ siguiente:}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00133}00133\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <list\ type="{}number"{}>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00134}00134\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Validación:</b>\ Comprueba\ que\ la\ URL\ recibida\ no\ sea\ nula\ y\ que\ el\ binario\ <c>yt-\/dlp</c>\ esté\ disponible\ en\ el\ servidor.</item>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00135}00135\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Preparación\ de\ Argumentos:</b>\ Configura\ <c>yt-\/dlp</c>\ con\ los\ parámetros\ <c>-\/-\/dump-\/json</c>\ (para\ obtener\ datos\ en\ lugar\ de\ descargar)\ y\ <c>-\/-\/cookies</c>\ (usando\ la\ versión\ sanitizada\ para\ evitar\ bloqueos).</item>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00136}00136\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Ejecución\ de\ Proceso:</b>\ Inicia\ un\ proceso\ externo\ de\ forma\ asíncrona,\ capturando\ la\ salida\ estándar\ codificada\ en\ UTF-\/8\ para\ evitar\ errores\ con\ caracteres\ especiales.</item>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00137}00137\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Análisis\ de\ Datos:</b>\ Parsea\ la\ salida\ JSON\ generada\ por\ la\ herramienta\ para\ extraer\ el\ enlace\ directo\ (<c>url</c>)\ y\ la\ duración\ exacta\ en\ segundos\ (<c>duration</c>).</item>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00138}00138\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </list>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00139}00139\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00140}00140\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}url"{}>La\ dirección\ URL\ del\ video\ de\ YouTube\ proporcionada\ como\ parámetro\ de\ consulta\ (query\ string).</param>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00141}00141\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <returns>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00142}00142\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Un\ objeto\ JSON\ que\ contiene\ la\ URL\ de\ streaming\ directo\ y\ la\ duración;\ }}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00143}00143\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ o\ un\ código\ de\ error\ (400\ o\ 500)\ con\ el\ detalle\ del\ fallo.}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00144}00144\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </returns>}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00145}00145\ \ \ \ \ \ \ \ \ [HttpGet(\textcolor{stringliteral}{"{}stream"{}})]}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00146}\doxymbox{\hyperlink{a00233_ab07aeabea466161dcf4a58e48eca5d72}{00146}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ async\ Task<IActionResult>\ \doxymbox{\hyperlink{a00233_ab07aeabea466161dcf4a58e48eca5d72}{GetStreamUrl}}([FromQuery]\ \textcolor{keywordtype}{string}\ url)}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00147}00147\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Validamos\ que\ la\ URL\ no\ llegue\ vacía\ o\ con\ espacios}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{string}.IsNullOrWhiteSpace(url))\ \textcolor{keywordflow}{return}\ BadRequest(\textcolor{stringliteral}{"{}Falta\ la\ URL"{}});}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{a00158_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Verificamos\ físicamente\ si\ el\ ejecutable\ yt-\/dlp\ está\ en\ la\ carpeta\ del\ servidor}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!System.IO.File.Exists(\doxymbox{\hyperlink{a00233_a1c95a792a22efd02410effd3df65313a}{\_ytDlpPath}}))\ \textcolor{keywordflow}{return}\ StatusCode(500,\ \textcolor{stringliteral}{"{}FATAL:\ yt-\/dlp\ no\ instalado."{}});}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{a00158_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Preparamos\ los\ comandos\ para\ el\ ejecutable:}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/dump-\/json:\ No\ descarga,\ solo\ devuelve\ datos\ técnicos.}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/no-\/playlist:\ Ignora\ listas,\ solo\ procesa\ el\ video\ del\ enlace.}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/f\ bestaudio:\ Busca\ el\ enlace\ con\ la\ mejor\ calidad\ de\ sonido\ disponible.}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ argumentos\ =\ \$\textcolor{stringliteral}{"{}-\/-\/dump-\/json\ -\/-\/no-\/playlist\ -\/f\ bestaudio\ \(\backslash\)"{}\{url\}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{a00158_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ tenemos\ el\ archivo\ de\ cookies\ (ya\ saneado),\ lo\ añadimos\ para\ evitar\ bloqueos\ de\ YouTube}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (System.IO.File.Exists(\doxymbox{\hyperlink{a00233_a81c63a27804cd4452cc48c1cd198102a}{\_cookiesPath}}))}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ argumentos\ +=\ \$\textcolor{stringliteral}{"{}\ -\/-\/cookies\ \(\backslash\)"{}\{\_cookiesPath\}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{a00158_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuramos\ cómo\ se\ va\ a\ lanzar\ el\ proceso\ externo\ (yt-\/dlp.exe)}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ psi\ =\ \textcolor{keyword}{new}\ ProcessStartInfo}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FileName\ =\ \doxymbox{\hyperlink{a00233_a1c95a792a22efd02410effd3df65313a}{\_ytDlpPath}},\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ruta\ del\ .exe}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Arguments\ =\ argumentos,\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Los\ comandos\ de\ arriba}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RedirectStandardOutput\ =\ \textcolor{keyword}{true},\ \ \ \textcolor{comment}{//\ Permite\ que\ la\ API\ lea\ lo\ que\ el\ programa\ escribe}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RedirectStandardError\ =\ \textcolor{keyword}{true},\ \ \ \ \textcolor{comment}{//\ Permite\ leer\ errores\ si\ los\ hay}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UseShellExecute\ =\ \textcolor{keyword}{false},\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Obligatorio\ para\ redirigir\ flujos\ de\ datos}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CreateNoWindow\ =\ \textcolor{keyword}{true},\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ No\ abre\ la\ ventana\ negra\ de\ consola}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ StandardOutputEncoding\ =\ Encoding.UTF8\ \textcolor{comment}{//\ Asegura\ que\ tildes\ y\ caracteres\ raros\ se\ lean\ bien}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Iniciamos\ el\ proceso}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ process\ =\ \textcolor{keyword}{new}\ Process\ \{\ StartInfo\ =\ psi\ \};}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ process.Start();}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{a00158_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Leemos\ de\ forma\ asíncrona\ toda\ la\ respuesta\ JSON\ que\ genera\ yt-\/dlp}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ jsonOutput\ =\ await\ process.StandardOutput.ReadToEndAsync();}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{a00158_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Esperamos\ a\ que\ el\ programa\ termine\ de\ cerrarse}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ process.WaitForExitAsync();}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{a00158_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Si\ el\ programa\ falló\ (ExitCode\ !=\ 0)\ o\ no\ devolvió\ nada,\ avisamos\ del\ error}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (process.ExitCode\ !=\ 0\ ||\ \textcolor{keywordtype}{string}.IsNullOrWhiteSpace(jsonOutput))}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ StatusCode(500,\ \textcolor{stringliteral}{"{}Error\ obteniendo\ audio.\ Revisa\ cookies\ o\ bloqueo\ regional."{}});}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{a00158_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Convertimos\ el\ texto\ JSON\ en\ un\ objeto\ manipulable\ en\ C\#}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ nodo\ =\ JsonNode.Parse(jsonOutput);}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{a00158_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Devolvemos\ un\ objeto\ limpio\ con\ solo\ los\ dos\ datos\ que\ le\ importan\ al\ cliente:}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ La\ URL\ directa\ del\ flujo\ de\ audio\ y\ la\ duración\ en\ segundos.}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Ok(\textcolor{keyword}{new}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ url\ =\ nodo[\textcolor{stringliteral}{"{}url"{}}]?.ToString(),}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ duracion\ =\ nodo[\textcolor{stringliteral}{"{}duration"{}}]?.GetValue<\textcolor{keywordtype}{int}>()\ ??\ 0}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Console.WriteLine(\$\textcolor{stringliteral}{"{}[API\ CRITICAL]\ \{ex.Message\}"{}});}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ StatusCode(500,\ ex.Message);}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00211}00211\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00212}00212\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00158_source_l00213}00213\ \}}
+
+\end{DoxyCode}

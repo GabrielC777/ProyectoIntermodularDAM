@@ -1,0 +1,48 @@
+\doxysubsection{Program.\+cs}
+\hypertarget{a00544_source}{}\label{a00544_source}\index{BetaProyecto/Program.cs@{BetaProyecto/Program.cs}}
+\doxymbox{\hyperlink{a00544}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00001}00001\ \textcolor{keyword}{using\ }Avalonia;}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00002}00002\ \textcolor{keyword}{using\ }Avalonia.ReactiveUI;}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00003}00003\ \textcolor{keyword}{using\ }LibVLCSharp.Shared;}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00004}00004\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00005}00005\ \textcolor{keyword}{using\ }System.Diagnostics;\ }
+\DoxyCodeLine{\Hypertarget{a00544_source_l00006}00006\ \textcolor{keyword}{using\ }System.IO;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{a00544_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{a00544_source_l00008}00008\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{a00173}{BetaProyecto}}}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00010}00010\ \ \ \ \ \textcolor{keyword}{internal}\ \textcolor{keyword}{sealed}\ \textcolor{keyword}{class\ }Program}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00011}00011\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initialization\ code.\ Don't\ use\ any\ Avalonia,\ third-\/party\ APIs\ or\ any}}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ SynchronizationContext-\/reliant\ code\ before\ AppMain\ is\ called:\ things\ aren't\ initialized}}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00014}00014\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ yet\ and\ stuff\ might\ break.}}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00015}00015\ \ \ \ \ \ \ \ \ [STAThread]}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ Main(\textcolor{keywordtype}{string}[]\ args)}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00017}00017\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Primero\ ,\ inicializamos\ LibVLCSharp}}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Core.Initialize();}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Debug.WriteLine(\$\textcolor{stringliteral}{"{}Error\ inicializando\ VLC:\ \{ex.Message\}"{}});}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{a00544_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{a00544_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrancamos\ la\ aplicación\ Avalonia}}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ BuildAvaloniaApp()}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .StartWithClassicDesktopLifetime(args);}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00032}00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{a00544_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Avalonia\ configuration,\ don't\ remove;\ also\ used\ by\ visual\ designer.}}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ AppBuilder\ BuildAvaloniaApp()}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ =>\ AppBuilder.Configure<App>()}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .UsePlatformDetect()}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .WithInterFont()}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .LogToTrace()}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .UseReactiveUI();}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00041}00041\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00544_source_l00042}00042\ \}}
+
+\end{DoxyCode}

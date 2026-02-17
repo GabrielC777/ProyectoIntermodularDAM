@@ -1,0 +1,164 @@
+\doxysubsection{Referencia de la clase Beta\+Proyecto.\+View\+Models.\+View\+Cuenta\+View\+Model}
+\hypertarget{a00425}{}\label{a00425}\index{BetaProyecto.ViewModels.ViewCuentaViewModel@{BetaProyecto.ViewModels.ViewCuentaViewModel}}
+
+
+\doxysubsubsection{Detalles}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00122_source_l00010}{10}} del archivo \doxymbox{\hyperlink{a00122_source}{View\+Cuenta\+View\+Model.\+cs}}.
+
+\doxysubsubsubsection*{Métodos}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{a00425_a320caa12098d91872bdbc51f0fccf540}{View\+Cuenta\+View\+Model}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Propiedades}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{a00425_a350715b7d39b7a1df9e646f79ab3873d}{Nombre\+Usuario}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+string \doxymbox{\hyperlink{a00425_ab4a1f1f59cea50cc32689315ac746cc2}{Email}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+string \doxymbox{\hyperlink{a00425_a1468c98106f4adc11dbbfe1c7bf9e524}{Pais}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+Date\+Time\+Offset? \doxymbox{\hyperlink{a00425_a97da9c6cdd1bca3883ce37eeca4a0650}{Fecha\+Nacimiento}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+int \doxymbox{\hyperlink{a00425_ad68eb704d680906aca83e28df6b1b926}{Index\+Privacidad}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+Reactive\+Command$<$ Unit, Unit $>$ \doxymbox{\hyperlink{a00425_aebd61500ee0f39860c927fc7b9fa3db5}{Btn\+Guardar}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\item 
+Reactive\+Command$<$ Unit, Unit $>$ \doxymbox{\hyperlink{a00425_a416895d7726cb802e234a83c7e730ea6}{Btn\+Refrescar}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{a00425_doc-constructors}
+\doxysubsubsection{Constructores}
+\Hypertarget{a00425_a320caa12098d91872bdbc51f0fccf540}\index{BetaProyecto.ViewModels.ViewCuentaViewModel@{BetaProyecto.ViewModels.ViewCuentaViewModel}!ViewCuentaViewModel@{ViewCuentaViewModel}}
+\index{ViewCuentaViewModel@{ViewCuentaViewModel}!BetaProyecto.ViewModels.ViewCuentaViewModel@{BetaProyecto.ViewModels.ViewCuentaViewModel}}
+\doxyparagraph{\texorpdfstring{ViewCuentaViewModel()}{ViewCuentaViewModel()}}
+{\footnotesize\ttfamily \label{a00425_a320caa12098d91872bdbc51f0fccf540} 
+Beta\+Proyecto.\+View\+Models.\+View\+Cuenta\+View\+Model.\+View\+Cuenta\+View\+Model (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00122_source_l00057}{57}} del archivo \doxymbox{\hyperlink{a00122_source}{View\+Cuenta\+View\+Model.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{a00425_doc-func-members}
+\doxysubsubsection{Funciones}
+\Hypertarget{a00425_a9d975c7a19f8c9833be729115ff3885e}\index{BetaProyecto.ViewModels.ViewCuentaViewModel@{BetaProyecto.ViewModels.ViewCuentaViewModel}!CargarDatos@{CargarDatos}}
+\index{CargarDatos@{CargarDatos}!BetaProyecto.ViewModels.ViewCuentaViewModel@{BetaProyecto.ViewModels.ViewCuentaViewModel}}
+\doxyparagraph{\texorpdfstring{CargarDatos()}{CargarDatos()}}
+{\footnotesize\ttfamily \label{a00425_a9d975c7a19f8c9833be729115ff3885e} 
+void Beta\+Proyecto.\+View\+Models.\+View\+Cuenta\+View\+Model.\+Cargar\+Datos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Recupera y sincroniza la información del perfil del usuario desde los datos globales para su edición en la interfaz. 
+
+Este método actúa como un mapeador entre \doxylink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Global\+Data.\+Instance} y las propiedades vinculadas de la vista. Realiza conversiones de tipos necesarias, como la transformación de Date\+Time a Date\+Time\+Offset para el selector de fecha, y traduce el estado booleano de privacidad a un índice numérico compatible con los controles de selección de la UI. 
+
+Definición en la línea \doxymbox{\hyperlink{a00122_source_l00078}{78}} del archivo \doxymbox{\hyperlink{a00122_source}{View\+Cuenta\+View\+Model.\+cs}}.
+
+\Hypertarget{a00425_a1a546a28e8f321cc5d95f746d583eb68}\index{BetaProyecto.ViewModels.ViewCuentaViewModel@{BetaProyecto.ViewModels.ViewCuentaViewModel}!GuardarCambios@{GuardarCambios}}
+\index{GuardarCambios@{GuardarCambios}!BetaProyecto.ViewModels.ViewCuentaViewModel@{BetaProyecto.ViewModels.ViewCuentaViewModel}}
+\doxyparagraph{\texorpdfstring{GuardarCambios()}{GuardarCambios()}}
+{\footnotesize\ttfamily \label{a00425_a1a546a28e8f321cc5d95f746d583eb68} 
+async Task Beta\+Proyecto.\+View\+Models.\+View\+Cuenta\+View\+Model.\+Guardar\+Cambios (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Procesa y persiste de forma asíncrona las modificaciones realizadas en el perfil del usuario tanto en la base de datos como en el estado global. 
+
+Este método realiza una validación y transformación de datos antes de la persistencia:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Conversión:\+}} Transforma el objeto Date\+Time\+Offset de la interfaz a Date\+Time y el índice de privacidad a un valor booleano. 
+\item {\bfseries{Sincronización remota:\+}} Invoca al cliente de Mongo\+DB para actualizar los documentos en la nube. 
+\item {\bfseries{Actualización local:\+}} Si la operación remota es exitosa, sincroniza los nuevos valores en \doxylink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Global\+Data.\+Instance} para mantener la consistencia en la sesión actual. 
+\end{DoxyEnumerate}Notifica el resultado de la operación al usuario mediante el servicio de diálogos y registra errores críticos en la consola de depuración. 
+
+\begin{DoxyReturn}{Devuelve}
+Una tarea que representa la operación de guardado asíncrona.
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00122_source_l00111}{111}} del archivo \doxymbox{\hyperlink{a00122_source}{View\+Cuenta\+View\+Model.\+cs}}.
+
+
+
+\label{doc-property-members}
+\Hypertarget{a00425_doc-property-members}
+\doxysubsubsection{Propiedades}
+\Hypertarget{a00425_aebd61500ee0f39860c927fc7b9fa3db5}\index{BetaProyecto.ViewModels.ViewCuentaViewModel@{BetaProyecto.ViewModels.ViewCuentaViewModel}!BtnGuardar@{BtnGuardar}}
+\index{BtnGuardar@{BtnGuardar}!BetaProyecto.ViewModels.ViewCuentaViewModel@{BetaProyecto.ViewModels.ViewCuentaViewModel}}
+\doxyparagraph{\texorpdfstring{BtnGuardar}{BtnGuardar}}
+{\footnotesize\ttfamily \label{a00425_aebd61500ee0f39860c927fc7b9fa3db5} 
+Reactive\+Command$<$Unit, Unit$>$ Beta\+Proyecto.\+View\+Models.\+View\+Cuenta\+View\+Model.\+Btn\+Guardar\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00122_source_l00054}{54}} del archivo \doxymbox{\hyperlink{a00122_source}{View\+Cuenta\+View\+Model.\+cs}}.
+
+\Hypertarget{a00425_a416895d7726cb802e234a83c7e730ea6}\index{BetaProyecto.ViewModels.ViewCuentaViewModel@{BetaProyecto.ViewModels.ViewCuentaViewModel}!BtnRefrescar@{BtnRefrescar}}
+\index{BtnRefrescar@{BtnRefrescar}!BetaProyecto.ViewModels.ViewCuentaViewModel@{BetaProyecto.ViewModels.ViewCuentaViewModel}}
+\doxyparagraph{\texorpdfstring{BtnRefrescar}{BtnRefrescar}}
+{\footnotesize\ttfamily \label{a00425_a416895d7726cb802e234a83c7e730ea6} 
+Reactive\+Command$<$Unit, Unit$>$ Beta\+Proyecto.\+View\+Models.\+View\+Cuenta\+View\+Model.\+Btn\+Refrescar\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00122_source_l00055}{55}} del archivo \doxymbox{\hyperlink{a00122_source}{View\+Cuenta\+View\+Model.\+cs}}.
+
+\Hypertarget{a00425_ab4a1f1f59cea50cc32689315ac746cc2}\index{BetaProyecto.ViewModels.ViewCuentaViewModel@{BetaProyecto.ViewModels.ViewCuentaViewModel}!Email@{Email}}
+\index{Email@{Email}!BetaProyecto.ViewModels.ViewCuentaViewModel@{BetaProyecto.ViewModels.ViewCuentaViewModel}}
+\doxyparagraph{\texorpdfstring{Email}{Email}}
+{\footnotesize\ttfamily \label{a00425_ab4a1f1f59cea50cc32689315ac746cc2} 
+string Beta\+Proyecto.\+View\+Models.\+View\+Cuenta\+View\+Model.\+Email\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00122_source_l00024}{24}} del archivo \doxymbox{\hyperlink{a00122_source}{View\+Cuenta\+View\+Model.\+cs}}.
+
+\Hypertarget{a00425_a97da9c6cdd1bca3883ce37eeca4a0650}\index{BetaProyecto.ViewModels.ViewCuentaViewModel@{BetaProyecto.ViewModels.ViewCuentaViewModel}!FechaNacimiento@{FechaNacimiento}}
+\index{FechaNacimiento@{FechaNacimiento}!BetaProyecto.ViewModels.ViewCuentaViewModel@{BetaProyecto.ViewModels.ViewCuentaViewModel}}
+\doxyparagraph{\texorpdfstring{FechaNacimiento}{FechaNacimiento}}
+{\footnotesize\ttfamily \label{a00425_a97da9c6cdd1bca3883ce37eeca4a0650} 
+Date\+Time\+Offset? Beta\+Proyecto.\+View\+Models.\+View\+Cuenta\+View\+Model.\+Fecha\+Nacimiento\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00122_source_l00039}{39}} del archivo \doxymbox{\hyperlink{a00122_source}{View\+Cuenta\+View\+Model.\+cs}}.
+
+\Hypertarget{a00425_ad68eb704d680906aca83e28df6b1b926}\index{BetaProyecto.ViewModels.ViewCuentaViewModel@{BetaProyecto.ViewModels.ViewCuentaViewModel}!IndexPrivacidad@{IndexPrivacidad}}
+\index{IndexPrivacidad@{IndexPrivacidad}!BetaProyecto.ViewModels.ViewCuentaViewModel@{BetaProyecto.ViewModels.ViewCuentaViewModel}}
+\doxyparagraph{\texorpdfstring{IndexPrivacidad}{IndexPrivacidad}}
+{\footnotesize\ttfamily \label{a00425_ad68eb704d680906aca83e28df6b1b926} 
+int Beta\+Proyecto.\+View\+Models.\+View\+Cuenta\+View\+Model.\+Index\+Privacidad\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00122_source_l00047}{47}} del archivo \doxymbox{\hyperlink{a00122_source}{View\+Cuenta\+View\+Model.\+cs}}.
+
+\Hypertarget{a00425_a350715b7d39b7a1df9e646f79ab3873d}\index{BetaProyecto.ViewModels.ViewCuentaViewModel@{BetaProyecto.ViewModels.ViewCuentaViewModel}!NombreUsuario@{NombreUsuario}}
+\index{NombreUsuario@{NombreUsuario}!BetaProyecto.ViewModels.ViewCuentaViewModel@{BetaProyecto.ViewModels.ViewCuentaViewModel}}
+\doxyparagraph{\texorpdfstring{NombreUsuario}{NombreUsuario}}
+{\footnotesize\ttfamily \label{a00425_a350715b7d39b7a1df9e646f79ab3873d} 
+string Beta\+Proyecto.\+View\+Models.\+View\+Cuenta\+View\+Model.\+Nombre\+Usuario\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00122_source_l00017}{17}} del archivo \doxymbox{\hyperlink{a00122_source}{View\+Cuenta\+View\+Model.\+cs}}.
+
+\Hypertarget{a00425_a1468c98106f4adc11dbbfe1c7bf9e524}\index{BetaProyecto.ViewModels.ViewCuentaViewModel@{BetaProyecto.ViewModels.ViewCuentaViewModel}!Pais@{Pais}}
+\index{Pais@{Pais}!BetaProyecto.ViewModels.ViewCuentaViewModel@{BetaProyecto.ViewModels.ViewCuentaViewModel}}
+\doxyparagraph{\texorpdfstring{Pais}{Pais}}
+{\footnotesize\ttfamily \label{a00425_a1468c98106f4adc11dbbfe1c7bf9e524} 
+string Beta\+Proyecto.\+View\+Models.\+View\+Cuenta\+View\+Model.\+Pais\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00122_source_l00031}{31}} del archivo \doxymbox{\hyperlink{a00122_source}{View\+Cuenta\+View\+Model.\+cs}}.
+

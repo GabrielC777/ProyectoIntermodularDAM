@@ -1,0 +1,121 @@
+\doxysubsection{Referencia de la clase Beta\+Proyecto.\+View\+Models.\+Tab\+Item\+Buscador\+View\+Model}
+\hypertarget{a00381}{}\label{a00381}\index{BetaProyecto.ViewModels.TabItemBuscadorViewModel@{BetaProyecto.ViewModels.TabItemBuscadorViewModel}}
+
+
+\doxysubsubsection{Detalles}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00089_source_l00010}{10}} del archivo \doxymbox{\hyperlink{a00089_source}{Tab\+Item\+Buscador\+View\+Model.\+cs}}.
+
+\doxysubsubsubsection*{Métodos}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{a00381_adebe97907fb1dc7c20888305ca4fe833}{Tab\+Item\+Buscador\+View\+Model}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Propiedades}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{a00381_abe51d159fc8dbfce1cdf4c5f164c5d3d}{Txt\+Busqueda}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+string \doxymbox{\hyperlink{a00381_a4392c21062d23d5fb99451e298eec8fc}{Txt\+Info\+Resultado}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+string \doxymbox{\hyperlink{a00381_a341260efbcd38836dfead0b651cc9e6f}{Txt\+Contador}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+Observable\+Collection$<$ \doxymbox{\hyperlink{a00257}{Canciones}} $>$ \doxymbox{\hyperlink{a00381_a346e54c19f05a7447bf7a6c67cbbf7b6}{Lista\+Busqueda}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+Reactive\+Command$<$ Unit, Unit $>$ \doxymbox{\hyperlink{a00381_ae088874b2740dc722894009b6fe3d782}{Btn\+Buscar}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{a00381_doc-constructors}
+\doxysubsubsection{Constructores}
+\Hypertarget{a00381_adebe97907fb1dc7c20888305ca4fe833}\index{BetaProyecto.ViewModels.TabItemBuscadorViewModel@{BetaProyecto.ViewModels.TabItemBuscadorViewModel}!TabItemBuscadorViewModel@{TabItemBuscadorViewModel}}
+\index{TabItemBuscadorViewModel@{TabItemBuscadorViewModel}!BetaProyecto.ViewModels.TabItemBuscadorViewModel@{BetaProyecto.ViewModels.TabItemBuscadorViewModel}}
+\doxyparagraph{\texorpdfstring{TabItemBuscadorViewModel()}{TabItemBuscadorViewModel()}}
+{\footnotesize\ttfamily \label{a00381_adebe97907fb1dc7c20888305ca4fe833} 
+Beta\+Proyecto.\+View\+Models.\+Tab\+Item\+Buscador\+View\+Model.\+Tab\+Item\+Buscador\+View\+Model (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00089_source_l00044}{44}} del archivo \doxymbox{\hyperlink{a00089_source}{Tab\+Item\+Buscador\+View\+Model.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{a00381_doc-func-members}
+\doxysubsubsection{Funciones}
+\Hypertarget{a00381_a08d28619e5f3fa7183afebcedae8edf5}\index{BetaProyecto.ViewModels.TabItemBuscadorViewModel@{BetaProyecto.ViewModels.TabItemBuscadorViewModel}!BuscarEnBD@{BuscarEnBD}}
+\index{BuscarEnBD@{BuscarEnBD}!BetaProyecto.ViewModels.TabItemBuscadorViewModel@{BetaProyecto.ViewModels.TabItemBuscadorViewModel}}
+\doxyparagraph{\texorpdfstring{BuscarEnBD()}{BuscarEnBD()}}
+{\footnotesize\ttfamily \label{a00381_a08d28619e5f3fa7183afebcedae8edf5} 
+async Task Beta\+Proyecto.\+View\+Models.\+Tab\+Item\+Buscador\+View\+Model.\+Buscar\+En\+BD (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Realiza una búsqueda asíncrona de canciones en la base de datos utilizando el texto de búsqueda actual y actualiza el resultados de búsqueda y propiedades de estado relacionadas. 
+
+Si la conexión a la base de datos no está disponible, el método actualiza las propiedades de estado para indicar un error de conexión. Los resultados de búsqueda y las propiedades de estado se actualizan en función de si hay alguno las canciones coincidentes se encuentran. 
+
+\begin{DoxyReturn}{Devuelve}
+Devuelve una tarea que representa la operación de búsqueda asíncrona. 
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00089_source_l00066}{66}} del archivo \doxymbox{\hyperlink{a00089_source}{Tab\+Item\+Buscador\+View\+Model.\+cs}}.
+
+
+
+\label{doc-property-members}
+\Hypertarget{a00381_doc-property-members}
+\doxysubsubsection{Propiedades}
+\Hypertarget{a00381_ae088874b2740dc722894009b6fe3d782}\index{BetaProyecto.ViewModels.TabItemBuscadorViewModel@{BetaProyecto.ViewModels.TabItemBuscadorViewModel}!BtnBuscar@{BtnBuscar}}
+\index{BtnBuscar@{BtnBuscar}!BetaProyecto.ViewModels.TabItemBuscadorViewModel@{BetaProyecto.ViewModels.TabItemBuscadorViewModel}}
+\doxyparagraph{\texorpdfstring{BtnBuscar}{BtnBuscar}}
+{\footnotesize\ttfamily \label{a00381_ae088874b2740dc722894009b6fe3d782} 
+Reactive\+Command$<$Unit, Unit$>$ Beta\+Proyecto.\+View\+Models.\+Tab\+Item\+Buscador\+View\+Model.\+Btn\+Buscar\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00089_source_l00042}{42}} del archivo \doxymbox{\hyperlink{a00089_source}{Tab\+Item\+Buscador\+View\+Model.\+cs}}.
+
+\Hypertarget{a00381_a346e54c19f05a7447bf7a6c67cbbf7b6}\index{BetaProyecto.ViewModels.TabItemBuscadorViewModel@{BetaProyecto.ViewModels.TabItemBuscadorViewModel}!ListaBusqueda@{ListaBusqueda}}
+\index{ListaBusqueda@{ListaBusqueda}!BetaProyecto.ViewModels.TabItemBuscadorViewModel@{BetaProyecto.ViewModels.TabItemBuscadorViewModel}}
+\doxyparagraph{\texorpdfstring{ListaBusqueda}{ListaBusqueda}}
+{\footnotesize\ttfamily \label{a00381_a346e54c19f05a7447bf7a6c67cbbf7b6} 
+Observable\+Collection$<$\doxymbox{\hyperlink{a00257}{Canciones}}$>$ Beta\+Proyecto.\+View\+Models.\+Tab\+Item\+Buscador\+View\+Model.\+Lista\+Busqueda\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00089_source_l00035}{35}} del archivo \doxymbox{\hyperlink{a00089_source}{Tab\+Item\+Buscador\+View\+Model.\+cs}}.
+
+\Hypertarget{a00381_abe51d159fc8dbfce1cdf4c5f164c5d3d}\index{BetaProyecto.ViewModels.TabItemBuscadorViewModel@{BetaProyecto.ViewModels.TabItemBuscadorViewModel}!TxtBusqueda@{TxtBusqueda}}
+\index{TxtBusqueda@{TxtBusqueda}!BetaProyecto.ViewModels.TabItemBuscadorViewModel@{BetaProyecto.ViewModels.TabItemBuscadorViewModel}}
+\doxyparagraph{\texorpdfstring{TxtBusqueda}{TxtBusqueda}}
+{\footnotesize\ttfamily \label{a00381_abe51d159fc8dbfce1cdf4c5f164c5d3d} 
+string Beta\+Proyecto.\+View\+Models.\+Tab\+Item\+Buscador\+View\+Model.\+Txt\+Busqueda\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00089_source_l00014}{14}} del archivo \doxymbox{\hyperlink{a00089_source}{Tab\+Item\+Buscador\+View\+Model.\+cs}}.
+
+\Hypertarget{a00381_a341260efbcd38836dfead0b651cc9e6f}\index{BetaProyecto.ViewModels.TabItemBuscadorViewModel@{BetaProyecto.ViewModels.TabItemBuscadorViewModel}!TxtContador@{TxtContador}}
+\index{TxtContador@{TxtContador}!BetaProyecto.ViewModels.TabItemBuscadorViewModel@{BetaProyecto.ViewModels.TabItemBuscadorViewModel}}
+\doxyparagraph{\texorpdfstring{TxtContador}{TxtContador}}
+{\footnotesize\ttfamily \label{a00381_a341260efbcd38836dfead0b651cc9e6f} 
+string Beta\+Proyecto.\+View\+Models.\+Tab\+Item\+Buscador\+View\+Model.\+Txt\+Contador\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00089_source_l00028}{28}} del archivo \doxymbox{\hyperlink{a00089_source}{Tab\+Item\+Buscador\+View\+Model.\+cs}}.
+
+\Hypertarget{a00381_a4392c21062d23d5fb99451e298eec8fc}\index{BetaProyecto.ViewModels.TabItemBuscadorViewModel@{BetaProyecto.ViewModels.TabItemBuscadorViewModel}!TxtInfoResultado@{TxtInfoResultado}}
+\index{TxtInfoResultado@{TxtInfoResultado}!BetaProyecto.ViewModels.TabItemBuscadorViewModel@{BetaProyecto.ViewModels.TabItemBuscadorViewModel}}
+\doxyparagraph{\texorpdfstring{TxtInfoResultado}{TxtInfoResultado}}
+{\footnotesize\ttfamily \label{a00381_a4392c21062d23d5fb99451e298eec8fc} 
+string Beta\+Proyecto.\+View\+Models.\+Tab\+Item\+Buscador\+View\+Model.\+Txt\+Info\+Resultado\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00089_source_l00020}{20}} del archivo \doxymbox{\hyperlink{a00089_source}{Tab\+Item\+Buscador\+View\+Model.\+cs}}.
+

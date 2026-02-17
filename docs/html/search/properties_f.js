@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['secciones_0',['Secciones',['../d1/dbd/a00457.html#afd899af6a120353b28a4a9effdc0d8d2',1,'BetaProyecto::ViewModels::ViewPerfilViewModel']]],
+  ['seguidores_1',['Seguidores',['../dd/db3/a00313.html#a0d937e52cd7886daa41a6136214942eb',1,'BetaProyecto::Models::ListasUsuario']]],
+  ['seguidoresgd_2',['SeguidoresGD',['../d7/dfc/a00349.html#a68c2f59413aaa6f436a33384fdaaefc0',1,'BetaProyecto::Singleton::GlobalData']]],
+  ['selectedcancion_3',['SelectedCancion',['../d4/da8/a00437.html#a21ba1f22924b2c86cac92e6e2435541b',1,'BetaProyecto::ViewModels::ViewGestionarBDViewModel']]],
+  ['selectedfinalizado_4',['SelectedFinalizado',['../dd/d47/a00445.html#a36bc13320b30ca2e35cb5f3c52e2dacb',1,'BetaProyecto::ViewModels::ViewGestionarReportesViewModel']]],
+  ['selectedgenero_5',['SelectedGenero',['../d4/da8/a00437.html#a4b6dfff80d12f14d5b21c72fecc9088f',1,'BetaProyecto::ViewModels::ViewGestionarBDViewModel']]],
+  ['selectedinvestigando_6',['SelectedInvestigando',['../dd/d47/a00445.html#ac8e0d932449bd87e476726c80ac53988',1,'BetaProyecto::ViewModels::ViewGestionarReportesViewModel']]],
+  ['selectedpendiente_7',['SelectedPendiente',['../dd/d47/a00445.html#acb576f7632c61208306fd420732b7df0',1,'BetaProyecto::ViewModels::ViewGestionarReportesViewModel']]],
+  ['selectedplaylist_8',['SelectedPlaylist',['../d4/da8/a00437.html#aa81994712b1203f329cd28423d4809e8',1,'BetaProyecto::ViewModels::ViewGestionarBDViewModel']]],
+  ['selectedreporte_9',['SelectedReporte',['../d4/da8/a00437.html#afdb202836175667fc6b3b6b4653d5a31',1,'BetaProyecto::ViewModels::ViewGestionarBDViewModel']]],
+  ['selectedusuario_10',['SelectedUsuario',['../d4/da8/a00437.html#aa74a011b5d25ebebc038be960c0716e4',1,'BetaProyecto::ViewModels::ViewGestionarBDViewModel']]],
+  ['solicitudcancion_11',['SolicitudCancion',['../d7/ddb/a00361.html#a226f76d183df9ddf2dc889f3c2d1e800',1,'BetaProyecto::ViewModels::CentralTabControlViewModel']]],
+  ['solicitudcrearreporte_12',['SolicitudCrearReporte',['../d5/d05/a00385.html#a3845136fe1f761bd09799f9eaf1301c4',1,'BetaProyecto::ViewModels::TabItemInicioViewModel']]],
+  ['solicitudiraeditarcanciones_13',['SolicitudIrAEditarCanciones',['../d6/d66/a00441.html#a0424b823747273d7898b98e944abde5b',1,'BetaProyecto::ViewModels::ViewGestionarCuentaViewModel']]],
+  ['solicitudiraeditarplaylist_14',['SolicitudIrAEditarPlaylist',['../d6/d66/a00441.html#a875e41ce781277498b7bdfff57da558e',1,'BetaProyecto::ViewModels::ViewGestionarCuentaViewModel']]],
+  ['solicitudverartista_15',['SolicitudVerArtista',['../d5/d05/a00385.html#af8902ad45eb138cca954874c911f7388',1,'BetaProyecto::ViewModels::TabItemInicioViewModel']]],
+  ['solicitudverdetallasplaylist_16',['SolicitudVerDetallasPlaylist',['../d5/d05/a00385.html#ac8dc2042f0f032b53066ea03c16766e4',1,'BetaProyecto::ViewModels::TabItemInicioViewModel']]],
+  ['solicitudverdetalles_17',['SolicitudVerDetalles',['../d5/d05/a00385.html#ac055d9f1fc2e52c86000e980c2eb9c79',1,'BetaProyecto::ViewModels::TabItemInicioViewModel']]]
+];

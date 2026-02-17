@@ -1,0 +1,146 @@
+\doxysubsection{Controlador\+Diccionarios.\+cs}
+\hypertarget{a00005_source}{}\label{a00005_source}\index{BetaProyecto/Helpers/ControladorDiccionarios.cs@{BetaProyecto/Helpers/ControladorDiccionarios.cs}}
+\doxymbox{\hyperlink{a00005}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00001}00001\ \textcolor{keyword}{using\ }Avalonia;}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00002}00002\ \textcolor{keyword}{using\ }Avalonia.Controls;}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00003}00003\ \textcolor{keyword}{using\ }Avalonia.Markup.Xaml.Styling;}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00004}00004\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00005}00005\ \textcolor{keyword}{using\ }System.Linq;}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00007}\doxymbox{\hyperlink{a00176}{00007}}\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{a00176}{BetaProyecto.Helpers}}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00009}\doxymbox{\hyperlink{a00245}{00009}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00245}{ControladorDiccionarios}}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00010}00010\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00011}00011\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Carga\ inicial\ }\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00012}00012\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00013}00013\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Establece\ el\ entorno\ visual\ y\ regional\ de\ la\ aplicación\ al\ iniciar.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00014}00014\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00015}00015\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00016}00016\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Este\ método\ centraliza\ la\ carga\ de\ preferencias\ del\ usuario,\ invocando\ secuencialmente\ }}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00017}00017\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ las\ funciones\ de\ localización\ (idioma),\ estilo\ (tema\ oscuro/claro)\ y\ tipografía.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00018}00018\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00019}00019\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}tema"{}>Nombre\ del\ recurso\ de\ estilo\ a\ aplicar\ (ej.\ "{}Dark"{}\ o\ "{}Light"{}).</param>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00020}00020\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}idioma"{}>Código\ de\ cultura\ o\ nombre\ del\ archivo\ de\ traducción.</param>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00021}00021\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}fuente"{}>Nombre\ de\ la\ familia\ tipográfica\ global\ de\ la\ interfaz.</param>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00022}\doxymbox{\hyperlink{a00245_a59f7cfd7fe3bbb82eb4441a8078c8fbc}{00022}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{a00245_a59f7cfd7fe3bbb82eb4441a8078c8fbc}{CargarConfiguracionInicial}}(\textcolor{keywordtype}{string}\ tema,\ \textcolor{keywordtype}{string}\ idioma,\ \textcolor{keywordtype}{string}\ fuente)}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00023}00023\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00245_a84b8ae19949c6228d3972f9209f846f8}{AplicarIdioma}}(idioma);}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00245_a2c2c44aab8ee7d5f0c0189ed70d000d0}{AplicarTema}}(tema);}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00245_a0de7c906a49bff85b84afd4e5191c53a}{AplicarFuente}}(fuente);}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00027}00027\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Métodos\ publicos\ }}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00030}00030\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00031}00031\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00032}00032\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Cambia\ dinámicamente\ el\ aspecto\ visual\ de\ la\ aplicación\ cargando\ y\ aplicando\ un\ diccionario\ de\ recursos\ de\ tema\ específico.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00033}00033\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00034}00034\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00035}00035\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Este\ método\ gestiona\ el\ motor\ de\ estilos\ mediante\ los\ siguientes\ pasos:}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00036}00036\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <list\ type="{}number"{}>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00037}00037\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Validación:</b>\ Si\ el\ parámetro\ <paramref\ name="{}tema"{}/>\ es\ nulo\ o\ vacío,\ se\ establece\ "{}ModoClaro"{}\ como\ valor\ predeterminado\ por\ seguridad.</item>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00038}00038\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Construcción\ de\ URI:</b>\ Genera\ una\ ruta\ de\ recurso\ de\ Avalonia\ (URI)\ apuntando\ a\ los\ archivos\ <c>.axaml</c>\ de\ la\ carpeta\ <c>Assets/Interfaces/</c>.</item>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00039}00039\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Inyección\ de\ Estilos:</b>\ Delega\ en\ <see\ cref="{}ReemplazarRecurso"{}/>\ para\ sustituir\ el\ diccionario\ actual\ identificado\ con\ el\ alias\ "{}Interfaces"{}\ por\ el\ nuevo\ tema\ cargado.</item>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00040}00040\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </list>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00041}00041\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00042}00042\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}tema"{}>El\ nombre\ del\ tema\ que\ se\ desea\ aplicar\ (ej.\ "{}ModoOscuro"{},\ "{}ModoClaro"{}).\ Este\ debe\ coincidir\ con\ el\ nombre\ del\ archivo\ .axaml\ en\ los\ activos.</param>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00043}\doxymbox{\hyperlink{a00245_a2c2c44aab8ee7d5f0c0189ed70d000d0}{00043}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{a00245_a2c2c44aab8ee7d5f0c0189ed70d000d0}{AplicarTema}}(\textcolor{keywordtype}{string}\ tema)}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00044}00044\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{string}.IsNullOrEmpty(tema))\ tema\ =\ \textcolor{stringliteral}{"{}ModoClaro"{}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ uri\ =\ \$\textcolor{stringliteral}{"{}avares://BetaProyecto/Assets/Interfaces/\{tema\}.axaml"{}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00245_ae5a6df67be09829681950fe814550363}{ReemplazarRecurso}}(uri,\ \textcolor{stringliteral}{"{}Interfaces"{}});}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00048}00048\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00049}00049\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00050}00050\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Cambia\ dinámicamente\ el\ idioma\ de\ la\ interfaz\ de\ usuario\ cargando\ el\ diccionario\ de\ recursos\ de\ traducción\ correspondiente.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00051}00051\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00052}00052\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00053}00053\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Este\ método\ orquestra\ la\ localización\ de\ la\ aplicación\ mediante\ los\ siguientes\ pasos:}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00054}00054\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <list\ type="{}number"{}>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00055}00055\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Normalización:</b>\ Si\ el\ parámetro\ <paramref\ name="{}idioma"{}/>\ no\ está\ definido,\ se\ establece\ "{}Spanish"{}\ como\ idioma\ base\ predeterminado.</item>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00056}00056\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Construcción\ de\ Ruta:</b>\ Genera\ una\ URI\ de\ recurso\ de\ Avalonia\ que\ apunta\ a\ los\ diccionarios\ de\ idiomas\ situados\ en\ la\ carpeta\ <c>Assets/Language/</c>.</item>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00057}00057\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Actualización\ de\ Recursos:</b>\ Invoca\ a\ <see\ cref="{}ReemplazarRecurso"{}/>\ para\ sustituir\ el\ diccionario\ identificado\ con\ la\ clave\ "{}Language"{},\ desencadenando\ la\ actualización\ inmediata\ de\ todas\ las\ etiquetas\ vinculadas\ mediante\ el\ convertidor\ de\ localización.</item>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00058}00058\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </list>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00059}00059\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00060}00060\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}idioma"{}>El\ nombre\ del\ archivo\ de\ idioma\ (sin\ extensión)\ que\ se\ desea\ aplicar\ (ej.\ "{}Spanish"{},\ "{}English"{}).</param>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00061}\doxymbox{\hyperlink{a00245_a84b8ae19949c6228d3972f9209f846f8}{00061}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{a00245_a84b8ae19949c6228d3972f9209f846f8}{AplicarIdioma}}(\textcolor{keywordtype}{string}\ idioma)}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00062}00062\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{string}.IsNullOrEmpty(idioma))\ idioma\ =\ \textcolor{stringliteral}{"{}Spanish"{}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ uri\ =\ \$\textcolor{stringliteral}{"{}avares://BetaProyecto/Assets/Language/\{idioma\}.axaml"{}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00245_ae5a6df67be09829681950fe814550363}{ReemplazarRecurso}}(uri,\ \textcolor{stringliteral}{"{}Language"{}});}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00066}00066\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00067}00067\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00068}00068\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Cambia\ dinámicamente\ la\ familia\ tipográfica\ global\ de\ la\ aplicación\ cargando\ el\ diccionario\ de\ estilos\ correspondiente.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00069}00069\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00070}00070\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00071}00071\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Este\ método\ gestiona\ la\ identidad\ visual\ a\ través\ de\ las\ fuentes\ mediante\ los\ siguientes\ pasos:}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00072}00072\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <list\ type="{}number"{}>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00073}00073\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Asignación\ por\ Defecto:</b>\ Si\ el\ parámetro\ <paramref\ name="{}fuente"{}/>\ es\ nulo\ o\ vacío,\ se\ utiliza\ "{}Lexend"{}\ como\ tipografía\ base\ del\ sistema.</item>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00074}00074\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Normalización\ de\ Nombre:</b>\ Verifica\ si\ el\ nombre\ de\ la\ fuente\ incluye\ el\ prefijo\ "{}Fuente"{}.\ Si\ no\ es\ así,\ lo\ concatena\ para\ coincidir\ con\ la\ nomenclatura\ de\ los\ archivos\ <c>.axaml</c>\ de\ estilos.</item>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00075}00075\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Construcción\ de\ URI:</b>\ Genera\ la\ ruta\ de\ acceso\ al\ recurso\ dentro\ de\ la\ carpeta\ <c>Assets/Styles/</c>.</item>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00076}00076\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Aplicación\ de\ Estilo:</b>\ Invoca\ a\ <see\ cref="{}ReemplazarRecurso"{}/>\ para\ sustituir\ el\ diccionario\ con\ el\ alias\ "{}Styles"{},\ actualizando\ la\ fuente\ en\ toda\ la\ interfaz\ de\ usuario\ en\ tiempo\ de\ ejecución.</item>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00077}00077\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </list>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00078}00078\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00079}00079\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}fuente"{}>El\ nombre\ de\ la\ fuente\ o\ del\ archivo\ de\ estilo\ (ej.\ "{}Lexend"{},\ "{}Roboto"{},\ "{}FuenteInter"{}).</param>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00080}\doxymbox{\hyperlink{a00245_a0de7c906a49bff85b84afd4e5191c53a}{00080}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{a00245_a0de7c906a49bff85b84afd4e5191c53a}{AplicarFuente}}(\textcolor{keywordtype}{string}\ fuente)}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00081}00081\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{string}.IsNullOrEmpty(fuente))\ fuente\ =\ \textcolor{stringliteral}{"{}Lexend"{}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ajuste\ de\ nombre\ por\ si\ viene\ sin\ prefijo}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ nombreArchivo\ =\ fuente.StartsWith(\textcolor{stringliteral}{"{}Fuente"{}})\ ?\ fuente\ :\ \textcolor{stringliteral}{"{}Fuente"{}}\ +\ fuente;}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ uri\ =\ \$\textcolor{stringliteral}{"{}avares://BetaProyecto/Assets/Styles/\{nombreArchivo\}.axaml"{}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00245_ae5a6df67be09829681950fe814550363}{ReemplazarRecurso}}(uri,\ \textcolor{stringliteral}{"{}Styles"{}});}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00089}00089\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Motor\ de\ reemplazo\ de\ recursos}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00092}00092\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00093}00093\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Localiza\ y\ sustituye\ un\ diccionario\ de\ recursos\ específico\ dentro\ de\ la\ colección\ global\ de\ la\ aplicación.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00094}00094\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00095}00095\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00096}00096\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Este\ método\ es\ el\ motor\ de\ la\ personalización\ dinámica\ y\ opera\ mediante\ los\ siguientes\ pasos:}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00097}00097\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <list\ type="{}number"{}>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00098}00098\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Acceso\ Global:</b>\ Obtiene\ la\ instancia\ actual\ de\ la\ aplicación\ y\ accede\ a\ su\ colección\ <see\ cref="{}ResourceDictionary.MergedDictionaries"{}/>.</item>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00099}00099\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Identificación:</b>\ Escanea\ los\ diccionarios\ cargados\ buscando\ un\ objeto\ <see\ cref="{}ResourceInclude"{}/>\ cuya\ propiedad\ <c>Source</c>\ contenga\ la\ cadena\ definida\ en\ <paramref\ name="{}carpetaIdentificadora"{}/>\ (ej.\ "{}Language"{},\ "{}Interfaces"{},\ "{}Styles"{}).</item>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00100}00100\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Limpieza:</b>\ Si\ se\ encuentra\ un\ recurso\ previo\ del\ mismo\ tipo,\ se\ elimina\ de\ la\ colección\ para\ evitar\ conflictos\ de\ claves\ de\ recursos.</item>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00101}00101\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Inyección:</b>\ Instancia\ un\ nuevo\ <see\ cref="{}ResourceInclude"{}/>\ con\ la\ <paramref\ name="{}uriNueva"{}/>\ y\ lo\ añade\ a\ la\ colección\ global.</item>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00102}00102\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </list>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00103}00103\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Si\ la\ URI\ es\ inválida\ o\ el\ archivo\ no\ existe,\ el\ error\ se\ captura\ en\ el\ bloque\ <c>catch</c>\ para\ mantener\ la\ estabilidad\ de\ la\ interfaz\ de\ usuario.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00104}00104\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00105}00105\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}uriNueva"{}>La\ ruta\ absoluta\ del\ nuevo\ archivo\ AXAML\ que\ se\ desea\ cargar.</param>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00106}00106\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}carpetaIdentificadora"{}>La\ palabra\ clave\ (nombre\ de\ la\ subcarpeta)\ que\ identifica\ qué\ tipo\ de\ recurso\ se\ está\ reemplazando.</param>}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00107}\doxymbox{\hyperlink{a00245_ae5a6df67be09829681950fe814550363}{00107}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{a00245_ae5a6df67be09829681950fe814550363}{ReemplazarRecurso}}(\textcolor{keywordtype}{string}\ uriNueva,\ \textcolor{keywordtype}{string}\ carpetaIdentificadora)}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00108}00108\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ var\ \doxymbox{\hyperlink{a00541_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}}\ =\ Application.Current;}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{a00541_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}}\ ==\ \textcolor{keyword}{null})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ var\ diccionarios\ =\ \doxymbox{\hyperlink{a00541_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}}.Resources.MergedDictionaries;}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Buscar\ y\ eliminar\ el\ viejo\ (buscando\ por\ la\ carpeta\ en\ la\ ruta)}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ var\ recursoViejo\ =\ diccionarios.FirstOrDefault(d\ =>}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\ is\ ResourceInclude\ include\ \&\&}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ include.Source\ !=\ \textcolor{keyword}{null}\ \&\&}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ include.Source.ToString().Contains(carpetaIdentificadora));}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (recursoViejo\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ diccionarios.Remove(recursoViejo);}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Añadimos\ el\ nuevo\ recurso}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ nuevoRecurso\ =\ \textcolor{keyword}{new}\ ResourceInclude(\textcolor{keyword}{new}\ Uri(\textcolor{stringliteral}{"{}avares://BetaProyecto/"{}}))}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Source\ =\ \textcolor{keyword}{new}\ Uri(uriNueva)}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ diccionarios.Add(nuevoRecurso);}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.Diagnostics.Debug.WriteLine(\$\textcolor{stringliteral}{"{}Error\ cargando\ RECURSO\ \{uriNueva\}:\ \{ex.Message\}"{}});}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00138}00138\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00139}00139\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00140}00140\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,31 @@
+\doxysubsection{Mongo\+Client\+Singleton.\+cs}
+\hypertarget{a00068_source}{}\label{a00068_source}\index{BetaProyecto/Singleton/MongoClientSingleton.cs@{BetaProyecto/Singleton/MongoClientSingleton.cs}}
+\doxymbox{\hyperlink{a00068}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{a00068_source_l00001}00001\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{a00178}{BetaProyecto.Services}};}
+\DoxyCodeLine{\Hypertarget{a00068_source_l00002}00002\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{a00068_source_l00003}00003\ \textcolor{keyword}{using\ }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{a00068_source_l00004}00004\ \textcolor{keyword}{using\ }System.Linq;}
+\DoxyCodeLine{\Hypertarget{a00068_source_l00005}00005\ \textcolor{keyword}{using\ }System.Text;}
+\DoxyCodeLine{\Hypertarget{a00068_source_l00006}00006\ \textcolor{keyword}{using\ }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{a00068_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{a00068_source_l00008}00008\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{a00179}{BetaProyecto.Singleton}}}
+\DoxyCodeLine{\Hypertarget{a00068_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{a00068_source_l00010}\doxymbox{\hyperlink{a00353}{00010}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00353_ad898ba07f15cb9a762b0eed9876e8353}{MongoClientSingleton}}}
+\DoxyCodeLine{\Hypertarget{a00068_source_l00011}00011\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00068_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Singleton}}
+\DoxyCodeLine{\Hypertarget{a00068_source_l00013}\doxymbox{\hyperlink{a00353_a6bb830040197cdbafef73ad20ac0792c}{00013}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{a00353_ad898ba07f15cb9a762b0eed9876e8353}{MongoClientSingleton}}\ \doxymbox{\hyperlink{a00353_a6bb830040197cdbafef73ad20ac0792c}{\_instance}};}
+\DoxyCodeLine{\Hypertarget{a00068_source_l00014}\doxymbox{\hyperlink{a00353_ad0067cc765141c80b254d1a39395f529}{00014}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{a00353_ad898ba07f15cb9a762b0eed9876e8353}{MongoClientSingleton}}\ \doxymbox{\hyperlink{a00353_ad0067cc765141c80b254d1a39395f529}{Instance}}\ =>\ \doxymbox{\hyperlink{a00353_a6bb830040197cdbafef73ad20ac0792c}{\_instance}}\ ??=\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{a00353_ad898ba07f15cb9a762b0eed9876e8353}{MongoClientSingleton}}();}
+\DoxyCodeLine{\Hypertarget{a00068_source_l00015}00015\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{a00068_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Objeto\ guardado\ }}
+\DoxyCodeLine{\Hypertarget{a00068_source_l00017}\doxymbox{\hyperlink{a00353_a275ea6d123352f803782b0ff26216fc6}{00017}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{a00341}{MongoAtlas}}\ \doxymbox{\hyperlink{a00353_a275ea6d123352f803782b0ff26216fc6}{Cliente}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{private}\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00068_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{a00068_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Constructor}}
+\DoxyCodeLine{\Hypertarget{a00068_source_l00020}\doxymbox{\hyperlink{a00353_ad898ba07f15cb9a762b0eed9876e8353}{00020}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \doxymbox{\hyperlink{a00353_ad898ba07f15cb9a762b0eed9876e8353}{MongoClientSingleton}}()\{}
+\DoxyCodeLine{\Hypertarget{a00068_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{a00068_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00353_a275ea6d123352f803782b0ff26216fc6}{Cliente}}\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{a00341}{MongoAtlas}}();}
+\DoxyCodeLine{\Hypertarget{a00068_source_l00023}00023\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00068_source_l00024}00024\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00068_source_l00025}00025\ \}}
+
+\end{DoxyCode}

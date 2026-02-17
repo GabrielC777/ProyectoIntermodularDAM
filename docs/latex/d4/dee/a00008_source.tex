@@ -1,0 +1,160 @@
+\doxysubsection{Encriptador.\+cs}
+\hypertarget{a00008_source}{}\label{a00008_source}\index{BetaProyecto/Helpers/Encriptador.cs@{BetaProyecto/Helpers/Encriptador.cs}}
+\doxymbox{\hyperlink{a00008}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00001}00001\ \textcolor{keyword}{using\ }Avalonia.Controls;}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00002}00002\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00003}00003\ \textcolor{keyword}{using\ }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00004}00004\ \textcolor{keyword}{using\ }System.IO;}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00005}00005\ \textcolor{keyword}{using\ }System.Linq;}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00006}00006\ \textcolor{keyword}{using\ }System.Security.Cryptography;}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00007}00007\ \textcolor{keyword}{using\ }System.Text;}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00008}00008\ \textcolor{keyword}{using\ }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{a00008_source_l00010}00010\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{a00176}{BetaProyecto.Helpers}}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00011}00011\ \{}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00012}\doxymbox{\hyperlink{a00249}{00012}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00249}{Encriptador}}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00013}00013\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00014}00014\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ CLAVES\ PARA\ EL\ CIFRADO\ SIMÉTRICO(AES)\ -\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ En\ criptografía\ simétrica,\ la\ MISMA\ clave\ sirve\ para\ cerrar\ y\ abrir.}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \_claveAes:\ La\ "{}llave"{}\ principal\ (16\ bytes\ =\ 128\ bits).}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \_ivAes:\ Vector\ de\ Inicialización\ (añade\ aleatoriedad\ al\ primer\ bloque\ para\ más\ seguridad).}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00018}\doxymbox{\hyperlink{a00249_aeb8eda77f069d22115d057b4e5480b78}{00018}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ readonly\ \textcolor{keywordtype}{byte}[]\ \doxymbox{\hyperlink{a00249_aeb8eda77f069d22115d057b4e5480b78}{\_claveAes}}\ =\ Encoding.UTF8.GetBytes(\textcolor{stringliteral}{"{}1234567890123456"{}});}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00019}\doxymbox{\hyperlink{a00249_af61f5f7641d20ba2464905ba300bb7f1}{00019}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ readonly\ \textcolor{keywordtype}{byte}[]\ \doxymbox{\hyperlink{a00249_af61f5f7641d20ba2464905ba300bb7f1}{\_ivAes}}\ =\ Encoding.UTF8.GetBytes(\textcolor{stringliteral}{"{}mi\_vector\_inicio"{}});}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00020}00020\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00021}00021\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00022}00022\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Aplica\ un\ algoritmo\ de\ hashing\ criptográfico\ SHA-\/256\ a\ una\ cadena\ de\ texto\ para\ proteger\ información\ sensible.}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00023}00023\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00024}00024\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00025}00025\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Este\ proceso\ de\ seguridad\ transforma\ la\ contraseña\ mediante\ los\ siguientes\ pasos:}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00026}00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <list\ type="{}number"{}>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00027}00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Codificación:</b>\ Convierte\ la\ cadena\ original\ en\ una\ secuencia\ de\ bytes\ utilizando\ el\ estándar\ UTF-\/8.</item>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00028}00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Cifrado:</b>\ Utiliza\ una\ instancia\ de\ <see\ cref="{}SHA256"{}/>\ para\ calcular\ un\ resumen\ único\ (hash)\ de\ 256\ bits.</item>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00029}00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Representación:</b>\ Transforma\ los\ bytes\ resultantes\ en\ una\ cadena\ hexadecimal\ de\ longitud\ fija\ (64\ caracteres)\ mediante\ un\ <see\ cref="{}StringBuilder"{}/>.</item>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00030}00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Gestión\ de\ Memoria:</b>\ Emplea\ la\ sentencia\ <c>using</c>\ para\ garantizar\ la\ liberación\ inmediata\ de\ los\ recursos\ criptográficos\ en\ la\ memoria\ RAM.</item>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00031}00031\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </list>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00032}00032\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Nota:\ El\ hashing\ es\ una\ operación\ unidireccional;\ no\ es\ posible\ revertir\ el\ resultado\ para\ obtener\ la\ contraseña\ original.}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00033}00033\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00034}00034\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}password"{}>La\ contraseña\ en\ texto\ plano\ que\ se\ desea\ anonimizar.</param>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00035}00035\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <returns>Una\ cadena\ de\ texto\ en\ formato\ hexadecimal\ que\ representa\ el\ hash\ único\ de\ la\ contraseña.</returns>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00036}\doxymbox{\hyperlink{a00249_ae4e0c05939cb5c4faf8bee21d0946f18}{00036}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00249_ae4e0c05939cb5c4faf8bee21d0946f18}{HashPassword}}(\textcolor{keywordtype}{string}\ password)}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00037}00037\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Creamos\ un\ objeto\ Sha257}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Usamos\ 'using'\ para\ que\ se\ limpie\ de\ la\ memoria\ RAM\ automáticamente\ al\ terminar}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (SHA256\ sha256\ =\ SHA256.Create())}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Convertimos\ de\ string\ a\ array\ de\ byte\ }}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{byte}[]\ bytesPassword\ =\ Encoding.UTF8.GetBytes(password);}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{a00008_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calculamos\ el\ hash\ }}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{byte}[]\ bytesDelHash\ =\ sha256.ComputeHash(bytesPassword);}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{a00008_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Preparamos\ el\ StringBuilder\ para\ el\ foreach}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ StringBuilder\ \doxymbox{\hyperlink{a00541_a2f78352277081c620fd4cf92a5ce15e5}{builder}}\ =\ \textcolor{keyword}{new}\ StringBuilder();}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{a00008_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Y\ convertimos\ los\ bytes\ del\ hash\ a\ hexadecimal}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (\textcolor{keywordtype}{byte}\ b\ \textcolor{keywordflow}{in}\ bytesDelHash)}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00541_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.Append(b.ToString(\textcolor{stringliteral}{"{}x2"{}}));}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Y\ devolvermos\ el\ stringbuilder\ como\ string\ para\ compararlo}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{a00541_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.ToString();}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00059}00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Encriptar}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Recibe\ los\ bytes\ "{}limpios"{}\ de\ la\ canción\ y\ devuelve\ una\ "{}papilla"{}\ ilegible.}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00062}00062\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00063}00063\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Realiza\ un\ cifrado\ simétrico\ AES\ sobre\ una\ secuencia\ de\ bytes\ para\ proteger\ el\ contenido\ de\ archivos\ multimedia.}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00064}00064\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00065}00065\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00066}00066\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Este\ proceso\ de\ encriptación\ transforma\ los\ datos\ originales\ en\ un\ formato\ ilegible\ mediante\ los\ siguientes\ pasos\ técnicos:}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00067}00067\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <list\ type="{}number"{}>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00068}00068\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Inicialización:</b>\ Se\ instancia\ el\ algoritmo\ <see\ cref="{}Aes"{}/>\ y\ se\ configuran\ las\ propiedades\ <c>Key</c>\ (clave\ secreta)\ e\ <c>IV</c>\ (vector\ de\ inicialización).</item>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00069}00069\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Canalización\ (Streaming):</b>\ Se\ utiliza\ un\ <see\ cref="{}CryptoStream"{}/>\ como\ intermediario\ para\ procesar\ los\ datos\ a\ través\ de\ un\ transformador\ de\ cifrado.</item>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00070}00070\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Escritura\ Segura:</b>\ Los\ bytes\ originales\ se\ escriben\ en\ el\ flujo\ de\ memoria,\ donde\ se\ aplican\ las\ operaciones\ matemáticas\ del\ estándar\ AES.</item>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00071}00071\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Finalización:</b>\ Se\ ejecuta\ <c>FlushFinalBlock</c>\ para\ procesar\ los\ bytes\ restantes\ y\ garantizar\ la\ integridad\ del\ bloque\ cifrado.</item>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00072}00072\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </list>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00073}00073\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ El\ resultado\ es\ un\ array\ de\ bytes\ que\ solo\ puede\ ser\ recuperado\ mediante\ el\ método\ de\ desencriptación\ correspondiente\ utilizando\ la\ misma\ clave\ e\ IV.}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00074}00074\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00075}00075\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}byteSinEncrip"{}>El\ array\ de\ bytes\ original\ (en\ texto\ plano\ o\ formato\ multimedia\ crudo)\ que\ se\ desea\ proteger.</param>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00076}00076\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <returns>Un\ array\ de\ bytes\ cifrados\ mediante\ el\ estándar\ AES,\ listos\ para\ ser\ almacenados\ de\ forma\ segura\ en\ el\ almacenamiento\ persistente.</returns>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00077}\doxymbox{\hyperlink{a00249_a465982b664017a61bfd486465378b909}{00077}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{byte}[]\ \doxymbox{\hyperlink{a00249_a465982b664017a61bfd486465378b909}{EncriptarBytes}}(\textcolor{keywordtype}{byte}[]\ byteSinEncrip)}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00078}00078\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Creamos\ el\ algoritmo\ AES\ (Estándar\ de\ cifrado\ simétrico)}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (Aes\ aes\ =\ Aes.Create())}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aes.Key\ =\ \doxymbox{\hyperlink{a00249_aeb8eda77f069d22115d057b4e5480b78}{\_claveAes}};\ \textcolor{comment}{//\ Asignamos\ nuestra\ clave\ secreta}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aes.IV\ =\ \doxymbox{\hyperlink{a00249_af61f5f7641d20ba2464905ba300bb7f1}{\_ivAes}};\ \ \ \ \ \textcolor{comment}{//\ Y\ el\ vector\ de\ inicio}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{a00008_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Preparamos\ un\ flujo\ en\ memoria\ para\ guardar\ el\ resultado}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ memoryStream\ =\ \textcolor{keyword}{new}\ MemoryStream())}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ CryptoStream\ es\ un\ "{}túnel"{}\ que\ cifra\ todo\ lo\ que\ pasa\ por\ él.}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ CryptoStreamMode.Write:\ Lo\ usamos\ para\ ESCRIBIR\ datos\ y\ que\ salgan\ cifrados.}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ cryptoStream\ =\ \textcolor{keyword}{new}\ CryptoStream(memoryStream,\ aes.CreateEncryptor(),\ CryptoStreamMode.Write))}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Escribimos\ los\ datos\ de\ la\ canción\ en\ el\ túnel}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cryptoStream.Write(byteSinEncrip,\ 0,\ byteSinEncrip.Length);}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{a00008_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ "{}FlushFinalBlock"{}\ asegura\ que\ el\ último\ trocito\ de\ datos\ se\ escriba\ bien}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cryptoStream.FlushFinalBlock();}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{a00008_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Devolvemos\ el\ array\ de\ bytes\ cifrados\ (ilegibles)}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ memoryStream.ToArray();}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00103}00103\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{a00008_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Desencriptar}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Lee\ el\ archivo\ cifrado\ del\ disco\ y\ crea\ uno\ temporal\ limpio\ que\ VLC\ pueda\ entender.}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00107}00107\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00108}00108\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Lee\ un\ archivo\ cifrado\ del\ almacenamiento\ local,\ lo\ descifra\ utilizando\ el\ algoritmo\ AES\ y\ guarda\ el\ resultado\ en\ una\ ubicación\ temporal.}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00109}00109\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00110}00110\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00111}00111\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Este\ método\ es\ el\ pilar\ de\ la\ recuperación\ de\ datos\ protegidos\ y\ opera\ bajo\ los\ siguientes\ pasos:}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00112}00112\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <list\ type="{}number"{}>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00113}00113\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Carga\ de\ Datos:</b>\ Recupera\ los\ bytes\ cifrados\ del\ disco\ mediante\ <see\ cref="{}File.ReadAllBytesAsync"{}/>.</item>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00114}00114\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Configuración\ Criptográfica:</b>\ Reinstancia\ el\ motor\ <see\ cref="{}Aes"{}/>\ asegurando\ el\ uso\ de\ la\ misma\ clave\ y\ vector\ de\ inicialización\ (IV)\ empleados\ durante\ la\ encriptación.</item>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00115}00115\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Procesamiento\ de\ Flujo:</b>\ Utiliza\ un\ <see\ cref="{}CryptoStream"{}/>\ en\ modo\ lectura\ (<see\ cref="{}CryptoStreamMode.Read"{}/>)\ que\ actúa\ como\ un\ filtro\ de\ transformación,\ convirtiendo\ los\ bytes\ cifrados\ en\ datos\ originales.</item>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00116}00116\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Persistencia\ Temporal:</b>\ Vuelca\ el\ flujo\ descifrado\ en\ un\ nuevo\ archivo\ físico\ (normalmente\ un\ .mp3\ temporal)\ para\ que\ sea\ accesible\ por\ los\ servicios\ de\ reproducción.</item>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00117}00117\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </list>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00118}00118\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Al\ utilizar\ flujos\ asíncronos,\ se\ garantiza\ que\ la\ interfaz\ de\ usuario\ no\ se\ bloquee\ durante\ el\ procesamiento\ de\ archivos\ de\ gran\ tamaño.}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00119}00119\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00120}00120\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}rutaEntrada"{}>La\ ruta\ del\ archivo\ cifrado\ (habitualmente\ con\ extensión\ .enc)\ que\ se\ desea\ procesar.</param>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00121}00121\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}rutaSalida"{}>La\ ruta\ de\ destino\ donde\ se\ escribirá\ el\ archivo\ resultante\ ya\ descifrado.</param>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00122}00122\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <returns>Una\ tarea\ asíncrona\ que\ representa\ el\ proceso\ de\ lectura,\ descifrado\ y\ escritura.</returns>}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00123}\doxymbox{\hyperlink{a00249_a22a5596da2f6e5aa5318995ed203697c}{00123}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ async\ Task\ \doxymbox{\hyperlink{a00249_a22a5596da2f6e5aa5318995ed203697c}{DesencriptarArchivo}}(\textcolor{keywordtype}{string}\ rutaEntrada,\ \textcolor{keywordtype}{string}\ rutaSalida)}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00124}00124\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Volvemos\ a\ crear\ AES\ con\ la\ MISMA\ CLAVE\ (imprescindible\ en\ simétrico)}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (Aes\ aes\ =\ Aes.Create())}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aes.Key\ =\ \doxymbox{\hyperlink{a00249_aeb8eda77f069d22115d057b4e5480b78}{\_claveAes}};}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aes.IV\ =\ \doxymbox{\hyperlink{a00249_af61f5f7641d20ba2464905ba300bb7f1}{\_ivAes}};}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{a00008_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 1.\ Leemos\ el\ archivo\ cifrado\ del\ disco\ (son\ bytes\ "{}basura"{}\ para\ un\ humano)}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{byte}[]\ bytesCifrados\ =\ await\ File.ReadAllBytesAsync(rutaEntrada);}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{a00008_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 2.\ Preparamos\ los\ flujos\ (Streams)\ para\ procesar\ los\ datos}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ memoryStreamEntrada\ =\ \textcolor{keyword}{new}\ MemoryStream(bytesCifrados))}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ memoryStreamSalida\ =\ \textcolor{keyword}{new}\ MemoryStream())}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 3.\ Creamos\ el\ túnel\ de\ descifrado.}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ CryptoStreamMode.Read:\ Al\ LEER\ del\ túnel,\ los\ datos\ salen\ limpios.}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ cryptoStream\ =\ \textcolor{keyword}{new}\ CryptoStream(memoryStreamEntrada,\ aes.CreateDecryptor(),\ CryptoStreamMode.Read))}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Copiamos\ los\ datos\ a\ través\ del\ túnel\ hacia\ la\ salida}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ cryptoStream.CopyToAsync(memoryStreamSalida);}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{a00008_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 4.\ Guardamos\ el\ resultado\ "{}limpio"{}\ en\ el\ archivo\ de\ salida\ (temp)}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ File.WriteAllBytesAsync(rutaSalida,\ memoryStreamSalida.ToArray());}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00152}00152\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00153}00153\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00008_source_l00154}00154\ \}}
+
+\end{DoxyCode}

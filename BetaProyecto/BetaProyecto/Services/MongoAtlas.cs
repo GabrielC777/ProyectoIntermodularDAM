@@ -1452,7 +1452,7 @@ namespace BetaProyecto.Services
                                             ? DateTime.Now
                                             : cancion.Datos.FechaLanzamiento;
 
-                // --- FÓRMULA DE GRAVEDAD / TENDENCIA 📉 ---
+                // --- FÓRMULA DE GRAVEDAD / TENDENCIA ---
 
                 //Calculamos los dias de vida de la canción
                 double diasDeVida = (DateTime.Now - fechaLanzamiento).TotalDays;

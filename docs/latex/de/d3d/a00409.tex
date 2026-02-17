@@ -1,0 +1,243 @@
+\doxysubsection{Referencia de la clase Beta\+Proyecto.\+View\+Models.\+View\+Configuracion\+View\+Model}
+\hypertarget{a00409}{}\label{a00409}\index{BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}}
+
+
+\doxysubsubsection{Detalles}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00110_source_l00010}{10}} del archivo \doxymbox{\hyperlink{a00110_source}{View\+Configuracion\+View\+Model.\+cs}}.
+
+\doxysubsubsubsection*{Métodos}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{a00409_a70d984954730fa1e7cc57e8a4c462a07}{View\+Configuracion\+View\+Model}} (Action accion\+Volver, Action accion\+Logout, Action accion\+Salir, Action accion\+Refrescar)
+\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Propiedades}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{a00409_a8cf26f763cd09f01d74c953cb6a0ff01}{Indice\+Fuente}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+int \doxymbox{\hyperlink{a00409_a33eebd14ac5a9d5110bdde0d41ba1e94}{Indice\+Idioma}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+bool \doxymbox{\hyperlink{a00409_a28b388283f4ec2dabd4bb8698ff9b0a9}{Indice\+Tema}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+bool \doxymbox{\hyperlink{a00409_a98199cdbdb0c1cd35e89979b78e03ebc}{Indice\+Tema\+Oscuro}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+Reactive\+Command$<$ Unit, Unit $>$ \doxymbox{\hyperlink{a00409_a9777d8d56581c25237596f664aff677b}{Btn\+Volver\+Atras}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\item 
+Reactive\+Command$<$ Unit, Unit $>$ \doxymbox{\hyperlink{a00409_a23af4a0d5f0537683cecab5c26e6c550}{Btn\+Cerrar\+Sesion}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\item 
+Reactive\+Command$<$ Unit, Unit $>$ \doxymbox{\hyperlink{a00409_a3ab4d191a3882bfed045bc9d7cb3abaf}{Btn\+Salir\+App}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{a00409_doc-constructors}
+\doxysubsubsection{Constructores}
+\Hypertarget{a00409_a70d984954730fa1e7cc57e8a4c462a07}\index{BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}!ViewConfiguracionViewModel@{ViewConfiguracionViewModel}}
+\index{ViewConfiguracionViewModel@{ViewConfiguracionViewModel}!BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}}
+\doxyparagraph{\texorpdfstring{ViewConfiguracionViewModel()}{ViewConfiguracionViewModel()}}
+{\footnotesize\ttfamily \label{a00409_a70d984954730fa1e7cc57e8a4c462a07} 
+Beta\+Proyecto.\+View\+Models.\+View\+Configuracion\+View\+Model.\+View\+Configuracion\+View\+Model (\begin{DoxyParamCaption}\item[{Action}]{accion\+Volver}{, }\item[{Action}]{accion\+Logout}{, }\item[{Action}]{accion\+Salir}{, }\item[{Action}]{accion\+Refrescar}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00110_source_l00070}{70}} del archivo \doxymbox{\hyperlink{a00110_source}{View\+Configuracion\+View\+Model.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{a00409_doc-func-members}
+\doxysubsubsection{Funciones}
+\Hypertarget{a00409_a5a63baa1f2eba5d6f1819d0d91d2d7ab}\index{BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}!AplicarCambioFuente@{AplicarCambioFuente}}
+\index{AplicarCambioFuente@{AplicarCambioFuente}!BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}}
+\doxyparagraph{\texorpdfstring{AplicarCambioFuente()}{AplicarCambioFuente()}}
+{\footnotesize\ttfamily \label{a00409_a5a63baa1f2eba5d6f1819d0d91d2d7ab} 
+void Beta\+Proyecto.\+View\+Models.\+View\+Configuracion\+View\+Model.\+Aplicar\+Cambio\+Fuente (\begin{DoxyParamCaption}\item[{int}]{indice}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Ejecuta el cambio de la fuente tipográfica de la aplicación basándose en el índice seleccionado. 
+
+Este método gestiona la personalización visual en tres niveles:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Visual:\+}} Cambia el diccionario de estilos de fuente de forma dinámica mediante \doxylink{a00245}{Controlador\+Diccionarios}. 
+\item {\bfseries{Persistencia:\+}} Si la fuente es diferente a la actual, sincroniza la nueva preferencia en la base de datos Mongo\+DB. 
+\item {\bfseries{Estado Global:\+}} Actualiza la referencia en \doxylink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Global\+Data.\+Instance} para asegurar que la tipografía se mantenga durante la sesión activa. 
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parámetros}
+{\em indice} & El índice del selector que determina la familia tipográfica (0:\+ Lexend, 1:\+ Carlito, 2:\+ Arial, etc.).\\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00110_source_l00192}{192}} del archivo \doxymbox{\hyperlink{a00110_source}{View\+Configuracion\+View\+Model.\+cs}}.
+
+\Hypertarget{a00409_ab17c562c2770a187425b819b637c53cc}\index{BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}!AplicarCambioIdioma@{AplicarCambioIdioma}}
+\index{AplicarCambioIdioma@{AplicarCambioIdioma}!BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}}
+\doxyparagraph{\texorpdfstring{AplicarCambioIdioma()}{AplicarCambioIdioma()}}
+{\footnotesize\ttfamily \label{a00409_ab17c562c2770a187425b819b637c53cc} 
+void Beta\+Proyecto.\+View\+Models.\+View\+Configuracion\+View\+Model.\+Aplicar\+Cambio\+Idioma (\begin{DoxyParamCaption}\item[{int}]{indice}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Ejecuta el cambio de idioma de la interfaz de usuario basándose en el índice seleccionado. 
+
+Este método gestiona la internacionalización en tres niveles:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Visual:\+}} Cambia el diccionario de strings de forma dinámica mediante \doxylink{a00245}{Controlador\+Diccionarios}. 
+\item {\bfseries{Persistencia:\+}} Si el idioma es diferente al actual, sincroniza la nueva preferencia en la base de datos Mongo\+DB. 
+\item {\bfseries{Estado Global:\+}} Actualiza la referencia en \doxylink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Global\+Data.\+Instance} para asegurar la persistencia durante la sesión activa. 
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parámetros}
+{\em indice} & El índice del selector:\+ {\ttfamily 0} para "{}\+Spanish"{} y {\ttfamily 1} para "{}\+English"{}.\\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00110_source_l00168}{168}} del archivo \doxymbox{\hyperlink{a00110_source}{View\+Configuracion\+View\+Model.\+cs}}.
+
+\Hypertarget{a00409_aae7c47bfcea448cc22e60b4a1a24fab8}\index{BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}!AplicarCambioTema@{AplicarCambioTema}}
+\index{AplicarCambioTema@{AplicarCambioTema}!BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}}
+\doxyparagraph{\texorpdfstring{AplicarCambioTema()}{AplicarCambioTema()}}
+{\footnotesize\ttfamily \label{a00409_aae7c47bfcea448cc22e60b4a1a24fab8} 
+void Beta\+Proyecto.\+View\+Models.\+View\+Configuracion\+View\+Model.\+Aplicar\+Cambio\+Tema (\begin{DoxyParamCaption}\item[{bool}]{es\+Claro}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Ejecuta el cambio de apariencia visual de la aplicación entre modo claro y modo oscuro. 
+
+Este método gestiona el cambio de tema en tres niveles:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Visual:\+}} Aplica el diccionario de recursos de forma instantánea mediante \doxylink{a00245}{Controlador\+Diccionarios}. 
+\item {\bfseries{Persistencia:\+}} Si el tema es distinto al actual, sincroniza la preferencia en la base de datos Mongo\+DB. 
+\item {\bfseries{Estado Global:\+}} Actualiza la propiedad en \doxylink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Global\+Data.\+Instance} para mantener la consistencia en toda la sesión. 
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parámetros}
+{\em es\+Claro} & Indica si se debe aplicar el "{}\+Modo\+Claro"{} ({\ttfamily true}) o el "{}\+Modo\+Oscuro"{} ({\ttfamily false}).\\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00110_source_l00139}{139}} del archivo \doxymbox{\hyperlink{a00110_source}{View\+Configuracion\+View\+Model.\+cs}}.
+
+\Hypertarget{a00409_a18a1b53ba12f6fffe6b2f3c9bec5f870}\index{BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}!CargarEstadoInicial@{CargarEstadoInicial}}
+\index{CargarEstadoInicial@{CargarEstadoInicial}!BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}}
+\doxyparagraph{\texorpdfstring{CargarEstadoInicial()}{CargarEstadoInicial()}}
+{\footnotesize\ttfamily \label{a00409_a18a1b53ba12f6fffe6b2f3c9bec5f870} 
+void Beta\+Proyecto.\+View\+Models.\+View\+Configuracion\+View\+Model.\+Cargar\+Estado\+Inicial (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sincroniza la interfaz de configuración con las preferencias del usuario almacenadas en los datos globales. 
+
+Este método recupera los valores actuales de tema, idioma y tipografía desde \doxylink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Global\+Data.\+Instance}. Posteriormente, traduce estas cadenas de texto a los índices correspondientes que utilizan los selectores de la vista y fuerza la notificación de cambio de propiedades mediante {\ttfamily Raise\+Property\+Changed} para que la UI refleje el estado real de la configuración. 
+
+Definición en la línea \doxymbox{\hyperlink{a00110_source_l00098}{98}} del archivo \doxymbox{\hyperlink{a00110_source}{View\+Configuracion\+View\+Model.\+cs}}.
+
+\Hypertarget{a00409_afb5a4aabf6c3a37d41fdf11396143adb}\index{BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}!GuardarConfiguracionEnMongo@{GuardarConfiguracionEnMongo}}
+\index{GuardarConfiguracionEnMongo@{GuardarConfiguracionEnMongo}!BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}}
+\doxyparagraph{\texorpdfstring{GuardarConfiguracionEnMongo()}{GuardarConfiguracionEnMongo()}}
+{\footnotesize\ttfamily \label{a00409_afb5a4aabf6c3a37d41fdf11396143adb} 
+void Beta\+Proyecto.\+View\+Models.\+View\+Configuracion\+View\+Model.\+Guardar\+Configuracion\+En\+Mongo (\begin{DoxyParamCaption}\item[{string?}]{tema\+Nuevo}{, }\item[{string?}]{idioma\+Nuevo}{, }\item[{string?}]{fuente\+Nuevo}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sincroniza de forma asíncrona las preferencias de personalización del usuario en la base de datos Mongo\+DB. 
+
+Este método implementa una lógica de actualización parcial. Construye un objeto de configuración combinando los nuevos valores proporcionados con los valores actuales almacenados en \doxylink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Global\+Data.\+Instance}. Si un parámetro se recibe como {\ttfamily null}, se preserva el valor existente. La actualización se lanza mediante una tarea en segundo plano para no bloquear la interfaz. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em tema\+Nuevo} & El nombre del nuevo tema visual o {\ttfamily null} si no ha cambiado.\\
+\hline
+{\em idioma\+Nuevo} & El nombre del nuevo idioma de la interfaz o {\ttfamily null} si no ha cambiado.\\
+\hline
+{\em fuente\+Nuevo} & El nombre de la nueva familia tipográfica o {\ttfamily null} si no ha cambiado.\\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00110_source_l00226}{226}} del archivo \doxymbox{\hyperlink{a00110_source}{View\+Configuracion\+View\+Model.\+cs}}.
+
+
+
+\label{doc-property-members}
+\Hypertarget{a00409_doc-property-members}
+\doxysubsubsection{Propiedades}
+\Hypertarget{a00409_a23af4a0d5f0537683cecab5c26e6c550}\index{BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}!BtnCerrarSesion@{BtnCerrarSesion}}
+\index{BtnCerrarSesion@{BtnCerrarSesion}!BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}}
+\doxyparagraph{\texorpdfstring{BtnCerrarSesion}{BtnCerrarSesion}}
+{\footnotesize\ttfamily \label{a00409_a23af4a0d5f0537683cecab5c26e6c550} 
+Reactive\+Command$<$Unit, Unit$>$ Beta\+Proyecto.\+View\+Models.\+View\+Configuracion\+View\+Model.\+Btn\+Cerrar\+Sesion\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00110_source_l00066}{66}} del archivo \doxymbox{\hyperlink{a00110_source}{View\+Configuracion\+View\+Model.\+cs}}.
+
+\Hypertarget{a00409_a3ab4d191a3882bfed045bc9d7cb3abaf}\index{BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}!BtnSalirApp@{BtnSalirApp}}
+\index{BtnSalirApp@{BtnSalirApp}!BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}}
+\doxyparagraph{\texorpdfstring{BtnSalirApp}{BtnSalirApp}}
+{\footnotesize\ttfamily \label{a00409_a3ab4d191a3882bfed045bc9d7cb3abaf} 
+Reactive\+Command$<$Unit, Unit$>$ Beta\+Proyecto.\+View\+Models.\+View\+Configuracion\+View\+Model.\+Btn\+Salir\+App\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00110_source_l00067}{67}} del archivo \doxymbox{\hyperlink{a00110_source}{View\+Configuracion\+View\+Model.\+cs}}.
+
+\Hypertarget{a00409_a9777d8d56581c25237596f664aff677b}\index{BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}!BtnVolverAtras@{BtnVolverAtras}}
+\index{BtnVolverAtras@{BtnVolverAtras}!BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}}
+\doxyparagraph{\texorpdfstring{BtnVolverAtras}{BtnVolverAtras}}
+{\footnotesize\ttfamily \label{a00409_a9777d8d56581c25237596f664aff677b} 
+Reactive\+Command$<$Unit, Unit$>$ Beta\+Proyecto.\+View\+Models.\+View\+Configuracion\+View\+Model.\+Btn\+Volver\+Atras\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00110_source_l00065}{65}} del archivo \doxymbox{\hyperlink{a00110_source}{View\+Configuracion\+View\+Model.\+cs}}.
+
+\Hypertarget{a00409_a8cf26f763cd09f01d74c953cb6a0ff01}\index{BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}!IndiceFuente@{IndiceFuente}}
+\index{IndiceFuente@{IndiceFuente}!BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}}
+\doxyparagraph{\texorpdfstring{IndiceFuente}{IndiceFuente}}
+{\footnotesize\ttfamily \label{a00409_a8cf26f763cd09f01d74c953cb6a0ff01} 
+int Beta\+Proyecto.\+View\+Models.\+View\+Configuracion\+View\+Model.\+Indice\+Fuente\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00110_source_l00019}{19}} del archivo \doxymbox{\hyperlink{a00110_source}{View\+Configuracion\+View\+Model.\+cs}}.
+
+\Hypertarget{a00409_a33eebd14ac5a9d5110bdde0d41ba1e94}\index{BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}!IndiceIdioma@{IndiceIdioma}}
+\index{IndiceIdioma@{IndiceIdioma}!BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}}
+\doxyparagraph{\texorpdfstring{IndiceIdioma}{IndiceIdioma}}
+{\footnotesize\ttfamily \label{a00409_a33eebd14ac5a9d5110bdde0d41ba1e94} 
+int Beta\+Proyecto.\+View\+Models.\+View\+Configuracion\+View\+Model.\+Indice\+Idioma\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00110_source_l00031}{31}} del archivo \doxymbox{\hyperlink{a00110_source}{View\+Configuracion\+View\+Model.\+cs}}.
+
+\Hypertarget{a00409_a28b388283f4ec2dabd4bb8698ff9b0a9}\index{BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}!IndiceTema@{IndiceTema}}
+\index{IndiceTema@{IndiceTema}!BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}}
+\doxyparagraph{\texorpdfstring{IndiceTema}{IndiceTema}}
+{\footnotesize\ttfamily \label{a00409_a28b388283f4ec2dabd4bb8698ff9b0a9} 
+bool Beta\+Proyecto.\+View\+Models.\+View\+Configuracion\+View\+Model.\+Indice\+Tema\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00110_source_l00043}{43}} del archivo \doxymbox{\hyperlink{a00110_source}{View\+Configuracion\+View\+Model.\+cs}}.
+
+\Hypertarget{a00409_a98199cdbdb0c1cd35e89979b78e03ebc}\index{BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}!IndiceTemaOscuro@{IndiceTemaOscuro}}
+\index{IndiceTemaOscuro@{IndiceTemaOscuro}!BetaProyecto.ViewModels.ViewConfiguracionViewModel@{BetaProyecto.ViewModels.ViewConfiguracionViewModel}}
+\doxyparagraph{\texorpdfstring{IndiceTemaOscuro}{IndiceTemaOscuro}}
+{\footnotesize\ttfamily \label{a00409_a98199cdbdb0c1cd35e89979b78e03ebc} 
+bool Beta\+Proyecto.\+View\+Models.\+View\+Configuracion\+View\+Model.\+Indice\+Tema\+Oscuro\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00110_source_l00055}{55}} del archivo \doxymbox{\hyperlink{a00110_source}{View\+Configuracion\+View\+Model.\+cs}}.
+

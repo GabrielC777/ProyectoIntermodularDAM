@@ -1,0 +1,465 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MusicSearch: Archivo de código fuente BetaProyecto/ViewModels/ViewCrearListaPersonalizadaViewModel.cs</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(function() { init_search(); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../LogoApp (4).png"/></td>
+  <td id="projectalign">
+   <div id="projectname">MusicSearch<span id="projectnumber">&#160;1.1.2</span>
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d3/d00/a00113_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ViewCrearListaPersonalizadaViewModel.cs</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d3/d00/a00113.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">using </span>Avalonia.Media.Imaging;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">using </span><a class="code hl_namespace" href="../../dd/d4c/a00177.html">BetaProyecto.Models</a>;</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">using </span><a class="code hl_namespace" href="../../d9/d90/a00178.html">BetaProyecto.Services</a>;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">using </span><a class="code hl_namespace" href="../../db/dd9/a00179.html">BetaProyecto.Singleton</a>;</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">using </span>ReactiveUI;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">using </span>System;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">using </span>System.Collections.ObjectModel;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">using </span>System.Linq;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">using </span>System.Reactive;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">using </span>System.Reactive.Linq;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">using </span>System.Threading.Tasks;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d81/a00180.html">BetaProyecto.ViewModels</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html">   15</a></span>    <span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_function" href="../../da/d9c/a00413.html#a7f34056644d961093eb9a6bd87ba0a3f">ViewCrearListaPersonalizadaViewModel</a> : <a class="code hl_class" href="../../da/dc3/a00453.html">ViewModelBase</a></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="comment">//Servicios</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#a42929afd4a16efbd186fbfc8bdebe171">   18</a></span>        <span class="keyword">private</span> readonly <a class="code hl_interface" href="../../d4/dce/a00337.html">IDialogoService</a> <a class="code hl_variable" href="../../da/d9c/a00413.html#a42929afd4a16efbd186fbfc8bdebe171">_dialogoService</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#ae851beb945a68343d340e9f73c6653b1">   19</a></span>        <span class="keyword">private</span> readonly <a class="code hl_class" href="../../d9/d48/a00345.html">StorageService</a> <a class="code hl_variable" href="../../da/d9c/a00413.html#ae851beb945a68343d340e9f73c6653b1">_storageService</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>       </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#abcda06ed4fbaeddaedcbb7552e942ac3">   22</a></span>        <span class="keyword">private</span> readonly Action <a class="code hl_variable" href="../../da/d9c/a00413.html#abcda06ed4fbaeddaedcbb7552e942ac3">_Volver</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="comment">// Binding de datos</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#a1129828bb9397ae57f8eb54e8dec568c">   25</a></span>        <span class="keyword">private</span> <span class="keywordtype">string</span> <a class="code hl_variable" href="../../da/d9c/a00413.html#a1129828bb9397ae57f8eb54e8dec568c">_txtNombre</a>;</div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#a2b5fffbcfb4a00e652c31656a62a431f">   26</a></span>        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="../../da/d9c/a00413.html#a2b5fffbcfb4a00e652c31656a62a431f">TxtNombre</a></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <span class="keyword">get</span> =&gt; <a class="code hl_variable" href="../../da/d9c/a00413.html#a1129828bb9397ae57f8eb54e8dec568c">_txtNombre</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            <span class="keyword">set</span> =&gt; this.RaiseAndSetIfChanged(ref <a class="code hl_variable" href="../../da/d9c/a00413.html#a1129828bb9397ae57f8eb54e8dec568c">_txtNombre</a>, value);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        }</div>
+</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#a834305878d7fe4885fa5bb69d19cbee9">   32</a></span>        <span class="keyword">private</span> <span class="keywordtype">string</span> <a class="code hl_variable" href="../../da/d9c/a00413.html#a834305878d7fe4885fa5bb69d19cbee9">_txtDescripcion</a>;</div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#a7de8821aa6e349ec5992fee870f8c179">   33</a></span>        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="../../da/d9c/a00413.html#a7de8821aa6e349ec5992fee870f8c179">TxtDescripcion</a></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            <span class="keyword">get</span> =&gt; <a class="code hl_variable" href="../../da/d9c/a00413.html#a834305878d7fe4885fa5bb69d19cbee9">_txtDescripcion</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            <span class="keyword">set</span> =&gt; this.RaiseAndSetIfChanged(ref <a class="code hl_variable" href="../../da/d9c/a00413.html#a834305878d7fe4885fa5bb69d19cbee9">_txtDescripcion</a>, value);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        }</div>
+</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="comment">// Biding para la imagen</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#ac82d50231dcddb23fc0b1aa1d04231db">   40</a></span>        <span class="keyword">private</span> <span class="keywordtype">string</span> <a class="code hl_variable" href="../../da/d9c/a00413.html#ac82d50231dcddb23fc0b1aa1d04231db">_rutaImagen</a>;</div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="};">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#aac71b812866b942dc6afbeb14551fc18">   41</a></span>        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="../../da/d9c/a00413.html#aac71b812866b942dc6afbeb14551fc18">RutaImagen</a></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            <span class="keyword">get</span> =&gt; <a class="code hl_variable" href="../../da/d9c/a00413.html#ac82d50231dcddb23fc0b1aa1d04231db">_rutaImagen</a>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <span class="keyword">set</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                this.RaiseAndSetIfChanged(ref <a class="code hl_variable" href="../../da/d9c/a00413.html#ac82d50231dcddb23fc0b1aa1d04231db">_rutaImagen</a>, value);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                <a class="code hl_function" href="../../da/d9c/a00413.html#a1a2acb2b0c1a170d274435622bb2a22a">CargarImagenLocal</a>(value);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        }</div>
+</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#a5d8d77ca7284fb0569325ddb319431af">   50</a></span>        <span class="keyword">public</span> <span class="keywordtype">bool</span> <a class="code hl_property" href="../../da/d9c/a00413.html#a5d8d77ca7284fb0569325ddb319431af">TieneImagen</a> =&gt; !<span class="keywordtype">string</span>.IsNullOrEmpty(<a class="code hl_property" href="../../da/d9c/a00413.html#aac71b812866b942dc6afbeb14551fc18">RutaImagen</a>);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#adeb143adead40a1c79ff4ffa05628753">   52</a></span>        <span class="keyword">private</span> Bitmap? <a class="code hl_variable" href="../../da/d9c/a00413.html#adeb143adead40a1c79ff4ffa05628753">_imagenPortada</a>;</div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="};">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#ab72b5443a1afdbdfe324e1d12f6a48c9">   53</a></span>        <span class="keyword">public</span> Bitmap? <a class="code hl_property" href="../../da/d9c/a00413.html#ab72b5443a1afdbdfe324e1d12f6a48c9">ImagenPortada</a></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            <span class="keyword">get</span> =&gt; <a class="code hl_variable" href="../../da/d9c/a00413.html#adeb143adead40a1c79ff4ffa05628753">_imagenPortada</a>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            <span class="keyword">set</span> =&gt; this.RaiseAndSetIfChanged(ref <a class="code hl_variable" href="../../da/d9c/a00413.html#adeb143adead40a1c79ff4ffa05628753">_imagenPortada</a>, value);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        }</div>
+</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="comment">// Binding para el buscador de canciones</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#ac06735c3a792ef38e2ab74459eb63a40">   60</a></span>        <span class="keyword">private</span> <span class="keywordtype">string</span> <a class="code hl_variable" href="../../da/d9c/a00413.html#ac06735c3a792ef38e2ab74459eb63a40">_txtBusqueda</a>;</div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="};">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#ab66bb37c3f6ce70ed589140453051037">   61</a></span>        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="../../da/d9c/a00413.html#ab66bb37c3f6ce70ed589140453051037">TxtBusqueda</a></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            <span class="keyword">get</span> =&gt; <a class="code hl_variable" href="../../da/d9c/a00413.html#ac06735c3a792ef38e2ab74459eb63a40">_txtBusqueda</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="keyword">set</span> =&gt; this.RaiseAndSetIfChanged(ref <a class="code hl_variable" href="../../da/d9c/a00413.html#ac06735c3a792ef38e2ab74459eb63a40">_txtBusqueda</a>, value);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        }</div>
+</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#a11109f2d1524d1707e4d0717bca6356f">   67</a></span>        <span class="keyword">private</span> ObservableCollection&lt;Canciones&gt; <a class="code hl_variable" href="../../da/d9c/a00413.html#a11109f2d1524d1707e4d0717bca6356f">_listaResultados</a>;</div>
+<div class="foldopen" id="foldopen00068" data-start="{" data-end="};">
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#a2cb4e7f3d3c13858c3669941b906120d">   68</a></span>        <span class="keyword">public</span> ObservableCollection&lt;Canciones&gt; <a class="code hl_property" href="../../da/d9c/a00413.html#a2cb4e7f3d3c13858c3669941b906120d">ListaResultados</a></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <span class="keyword">get</span> =&gt; <a class="code hl_variable" href="../../da/d9c/a00413.html#a11109f2d1524d1707e4d0717bca6356f">_listaResultados</a>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            <span class="keyword">set</span> =&gt; this.RaiseAndSetIfChanged(ref <a class="code hl_variable" href="../../da/d9c/a00413.html#a11109f2d1524d1707e4d0717bca6356f">_listaResultados</a>, value);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        }</div>
+</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#a04c603c1fc4cb3cdd2fb48634966bd58">   74</a></span>        <span class="keyword">private</span> ObservableCollection&lt;Canciones&gt; <a class="code hl_variable" href="../../da/d9c/a00413.html#a04c603c1fc4cb3cdd2fb48634966bd58">_listaCancionesSeleccionadas</a>;</div>
+<div class="foldopen" id="foldopen00075" data-start="{" data-end="};">
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#a71619f269624eb3955bc5b67a25e7d94">   75</a></span>        <span class="keyword">public</span> ObservableCollection&lt;Canciones&gt; <a class="code hl_property" href="../../da/d9c/a00413.html#a71619f269624eb3955bc5b67a25e7d94">ListaCancionesSeleccionadas</a></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            <span class="keyword">get</span> =&gt; <a class="code hl_variable" href="../../da/d9c/a00413.html#a04c603c1fc4cb3cdd2fb48634966bd58">_listaCancionesSeleccionadas</a>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="keyword">set</span> =&gt; this.RaiseAndSetIfChanged(ref <a class="code hl_variable" href="../../da/d9c/a00413.html#a04c603c1fc4cb3cdd2fb48634966bd58">_listaCancionesSeleccionadas</a>, value);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        }</div>
+</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="comment">// Para le progressbar</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#aed2ac8e7a175467727e2456101bceb52">   82</a></span>        <span class="keyword">private</span> <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../da/d9c/a00413.html#aed2ac8e7a175467727e2456101bceb52">_estaCargando</a>;</div>
+<div class="foldopen" id="foldopen00083" data-start="{" data-end="};">
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#a9537c9602d86250ff0a72c807e69c0ec">   83</a></span>        <span class="keyword">public</span> <span class="keywordtype">bool</span> <a class="code hl_property" href="../../da/d9c/a00413.html#a9537c9602d86250ff0a72c807e69c0ec">EstaCargando</a></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            <span class="keyword">get</span> =&gt; <a class="code hl_variable" href="../../da/d9c/a00413.html#aed2ac8e7a175467727e2456101bceb52">_estaCargando</a>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            <span class="keyword">set</span> =&gt; this.RaiseAndSetIfChanged(ref <a class="code hl_variable" href="../../da/d9c/a00413.html#aed2ac8e7a175467727e2456101bceb52">_estaCargando</a>, value);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        }</div>
+</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="comment">// Comandos Reactive</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#a1488a2343ae965bb763e3c2c3407a822">   90</a></span>        <span class="keyword">public</span> ReactiveCommand&lt;Unit, Unit&gt; <a class="code hl_property" href="../../da/d9c/a00413.html#a1488a2343ae965bb763e3c2c3407a822">BtnVolverAtras</a> { <span class="keyword">get</span>; }</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#a4d6c80d2ea5f4c36095fda0cf129333f">   91</a></span>        <span class="keyword">public</span> ReactiveCommand&lt;Unit, Unit&gt; <a class="code hl_property" href="../../da/d9c/a00413.html#a4d6c80d2ea5f4c36095fda0cf129333f">BtnCrear</a> { <span class="keyword">get</span>; }</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#afc0840494275d47f678f9cc04bd1d787">   92</a></span>        <span class="keyword">public</span> ReactiveCommand&lt;Unit, Unit&gt; <a class="code hl_property" href="../../da/d9c/a00413.html#afc0840494275d47f678f9cc04bd1d787">BtnBuscarCanciones</a> { <span class="keyword">get</span>; }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#a357582d1d36af192b169f2aba6374b84">   93</a></span>        <span class="keyword">public</span> ReactiveCommand&lt;Canciones, Unit&gt; <a class="code hl_property" href="../../da/d9c/a00413.html#a357582d1d36af192b169f2aba6374b84">BtnAgregarCancion</a> { <span class="keyword">get</span>; }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#addfd70a73282ef1e909c00cc1224844d">   94</a></span>        <span class="keyword">public</span> ReactiveCommand&lt;Canciones, Unit&gt; <a class="code hl_property" href="../../da/d9c/a00413.html#addfd70a73282ef1e909c00cc1224844d">BtnEliminarCancion</a> { <span class="keyword">get</span>; }</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="foldopen" id="foldopen00097" data-start="{" data-end="}">
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#a7f34056644d961093eb9a6bd87ba0a3f">   97</a></span>        <span class="keyword">public</span> <a class="code hl_function" href="../../da/d9c/a00413.html#a7f34056644d961093eb9a6bd87ba0a3f">ViewCrearListaPersonalizadaViewModel</a>(Action accionVolver)</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            <a class="code hl_variable" href="../../da/d9c/a00413.html#abcda06ed4fbaeddaedcbb7552e942ac3">_Volver</a> = accionVolver;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            <a class="code hl_variable" href="../../da/d9c/a00413.html#a42929afd4a16efbd186fbfc8bdebe171">_dialogoService</a> = <span class="keyword">new</span> <a class="code hl_class" href="../../d2/d0a/a00333.html">DialogoService</a>();</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            <a class="code hl_variable" href="../../da/d9c/a00413.html#ae851beb945a68343d340e9f73c6653b1">_storageService</a> = <span class="keyword">new</span> <a class="code hl_class" href="../../d9/d48/a00345.html">StorageService</a>();</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            <a class="code hl_property" href="../../da/d9c/a00413.html#a2cb4e7f3d3c13858c3669941b906120d">ListaResultados</a> = <span class="keyword">new</span> ObservableCollection&lt;Canciones&gt;();</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            <a class="code hl_property" href="../../da/d9c/a00413.html#a71619f269624eb3955bc5b67a25e7d94">ListaCancionesSeleccionadas</a> = <span class="keyword">new</span> ObservableCollection&lt;Canciones&gt;();</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            <span class="comment">// Comandos</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            <a class="code hl_property" href="../../da/d9c/a00413.html#a1488a2343ae965bb763e3c2c3407a822">BtnVolverAtras</a> = ReactiveCommand.Create(accionVolver);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            <a class="code hl_property" href="../../da/d9c/a00413.html#afc0840494275d47f678f9cc04bd1d787">BtnBuscarCanciones</a> = ReactiveCommand.Create(<a class="code hl_function" href="../../da/d9c/a00413.html#a6908de90a36201274f758d612d13b8d1">BuscarCanciones</a>);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            <a class="code hl_property" href="../../da/d9c/a00413.html#a357582d1d36af192b169f2aba6374b84">BtnAgregarCancion</a> = ReactiveCommand.Create&lt;<a class="code hl_class" href="../../d9/d39/a00257.html">Canciones</a>&gt;(<a class="code hl_function" href="../../da/d9c/a00413.html#a25527852f8be67bce5ab74776ca38c85">AgregarCancion</a>);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            <a class="code hl_property" href="../../da/d9c/a00413.html#addfd70a73282ef1e909c00cc1224844d">BtnEliminarCancion</a> = ReactiveCommand.Create&lt;<a class="code hl_class" href="../../d9/d39/a00257.html">Canciones</a>&gt;(<a class="code hl_function" href="../../da/d9c/a00413.html#a87d37b02fecf568aab208bf5418d1577">EliminarCancion</a>);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            <span class="comment">// Buscador Reactivo</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            this.WhenAnyValue(x =&gt; x.TxtBusqueda)</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                .Throttle(TimeSpan.FromMilliseconds(500))</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                .Where(x =&gt; !<span class="keywordtype">string</span>.IsNullOrWhiteSpace(x) &amp;&amp; x.Length &gt; 2)</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                .ObserveOn(RxApp.MainThreadScheduler)</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>                .Subscribe(_ =&gt; <a class="code hl_function" href="../../da/d9c/a00413.html#a6908de90a36201274f758d612d13b8d1">BuscarCanciones</a>());</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            <span class="comment">// Validación para Crear</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            var validacionCrear = this.WhenAnyValue(</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>                x =&gt; x.TxtNombre,</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>                x =&gt; x.RutaImagen,</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                x =&gt; x.ListaCancionesSeleccionadas.Count,</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                (nombre, imagen, count) =&gt;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>                    !<span class="keywordtype">string</span>.IsNullOrWhiteSpace(nombre) &amp;&amp;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                    !<span class="keywordtype">string</span>.IsNullOrWhiteSpace(imagen) &amp;&amp;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>                    count &gt; 0 <span class="comment">// Al menos una canción</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            );</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            <span class="comment">//Configuración de comandos reactive</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            <a class="code hl_property" href="../../da/d9c/a00413.html#a4d6c80d2ea5f4c36095fda0cf129333f">BtnCrear</a> = ReactiveCommand.CreateFromTask(<a class="code hl_function" href="../../da/d9c/a00413.html#ab676299eeacfdbbbd1fbb1752a63bb58">CrearLista</a>, validacionCrear);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        }<span class="comment"></span></div>
+</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment">        /// &lt;summary&gt;</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment">        /// Realiza una búsqueda asíncrona de canciones en la base de datos utilizando el texto introducido por el usuario.</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment">        /// &lt;/summary&gt;</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment">        /// &lt;remarks&gt;</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment">        /// Este método consulta MongoDB y filtra los resultados obtenidos para excluir aquellas canciones </span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="comment">        /// que ya están presentes en la lista de selección (&lt;see cref=&quot;ListaCancionesSeleccionadas&quot;/&gt;).</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="comment">        /// Esto evita duplicados visuales y actualiza la colección de resultados disponibles para añadir.</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment">        /// &lt;/remarks&gt;</span></div>
+<div class="foldopen" id="foldopen00140" data-start="{" data-end="}">
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#a6908de90a36201274f758d612d13b8d1">  140</a></span>        <span class="keyword">private</span> async <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d9c/a00413.html#a6908de90a36201274f758d612d13b8d1">BuscarCanciones</a>()</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        {</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            <span class="keywordflow">if</span> (<a class="code hl_class" href="../../db/ddc/a00353.html">MongoClientSingleton</a>.<a class="code hl_property" href="../../db/ddc/a00353.html#ad0067cc765141c80b254d1a39395f529">Instance</a>.<a class="code hl_property" href="../../db/ddc/a00353.html#a275ea6d123352f803782b0ff26216fc6">Cliente</a> != <span class="keyword">null</span>)</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            {</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>                var resultados = await <a class="code hl_class" href="../../db/ddc/a00353.html">MongoClientSingleton</a>.<a class="code hl_property" href="../../db/ddc/a00353.html#ad0067cc765141c80b254d1a39395f529">Instance</a>.<a class="code hl_property" href="../../db/ddc/a00353.html#a275ea6d123352f803782b0ff26216fc6">Cliente</a>.<a class="code hl_function" href="../../d3/d93/a00341.html#a9e1cd3a3a1a14d1fcea59e15a36ad0d9">ObtenerCancionesPorBusqueda</a>(<a class="code hl_property" href="../../da/d9c/a00413.html#ab66bb37c3f6ce70ed589140453051037">TxtBusqueda</a>);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>                <span class="keywordflow">if</span> (resultados != <span class="keyword">null</span>)</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>                {</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                    <span class="comment">// Filtramos las que ya están seleccionadas para no duplicar visualmente</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                    var filtradas = resultados.Where(c =&gt; !<a class="code hl_property" href="../../da/d9c/a00413.html#a71619f269624eb3955bc5b67a25e7d94">ListaCancionesSeleccionadas</a>.Any(sel =&gt; sel.Id == c.Id));</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                    <a class="code hl_property" href="../../da/d9c/a00413.html#a2cb4e7f3d3c13858c3669941b906120d">ListaResultados</a> = <span class="keyword">new</span> ObservableCollection&lt;Canciones&gt;(filtradas);</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                }</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>            }</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        }</div>
+</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment"></span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment">        /// &lt;summary&gt;</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="comment">        /// Agrega la canción seleccionada a la lista temporal de canciones que formarán parte de la nueva playlist.</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment">        /// &lt;/summary&gt;</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment">        /// &lt;remarks&gt;</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment">        /// Este método realiza tres acciones clave:</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment">        /// &lt;list type=&quot;number&quot;&gt;</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="comment">        /// &lt;item&gt;Verifica que la canción no esté ya añadida para evitar duplicados.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="comment">        /// &lt;item&gt;Mueve visualmente la canción: la añade a &lt;see cref=&quot;ListaCancionesSeleccionadas&quot;/&gt; y la elimina de &lt;see cref=&quot;ListaResultados&quot;/&gt;.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="comment">        /// &lt;item&gt;Limpia el campo de búsqueda para facilitar una nueva consulta inmediata.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="comment">        /// &lt;/list&gt;</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="comment">        /// &lt;/remarks&gt;</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="comment">        /// &lt;param name=&quot;cancion&quot;&gt;El objeto &lt;see cref=&quot;Canciones&quot;/&gt; que el usuario ha seleccionado para añadir.&lt;/param&gt;</span></div>
+<div class="foldopen" id="foldopen00167" data-start="{" data-end="}">
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#a25527852f8be67bce5ab74776ca38c85">  167</a></span>        <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d9c/a00413.html#a25527852f8be67bce5ab74776ca38c85">AgregarCancion</a>(<a class="code hl_class" href="../../d9/d39/a00257.html">Canciones</a> cancion)</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        {</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>            <span class="keywordflow">if</span> (!<a class="code hl_property" href="../../da/d9c/a00413.html#a71619f269624eb3955bc5b67a25e7d94">ListaCancionesSeleccionadas</a>.Any(c =&gt; c.Id == cancion.<a class="code hl_property" href="../../d9/d39/a00257.html#a4d66c1dd540dd4e30cf0502ed2dc2973">Id</a>))</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            {</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>                <a class="code hl_property" href="../../da/d9c/a00413.html#a71619f269624eb3955bc5b67a25e7d94">ListaCancionesSeleccionadas</a>.Add(cancion);</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>                <a class="code hl_property" href="../../da/d9c/a00413.html#a2cb4e7f3d3c13858c3669941b906120d">ListaResultados</a>.Remove(cancion); <span class="comment">// La quitamos de resultados para que quede limpio</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>                <a class="code hl_property" href="../../da/d9c/a00413.html#ab66bb37c3f6ce70ed589140453051037">TxtBusqueda</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            }</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        }</div>
+</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="comment"></span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="comment">        /// &lt;summary&gt;</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="comment">        /// Elimina una canción de la lista de canciones seleccionadas para la nueva playlist.</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment">        /// &lt;/summary&gt;</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment">        /// &lt;remarks&gt;</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment">        /// Permite al usuario rectificar su selección quitando canciones individuales de &lt;see cref=&quot;ListaCancionesSeleccionadas&quot;/&gt;</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="comment">        /// antes de guardar la lista definitiva. La interfaz de usuario refleja el cambio inmediatamente.</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="comment">        /// &lt;/remarks&gt;</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="comment">        /// &lt;param name=&quot;cancion&quot;&gt;El objeto &lt;see cref=&quot;Canciones&quot;/&gt; que se desea descartar de la selección actual.&lt;/param&gt;</span></div>
+<div class="foldopen" id="foldopen00185" data-start="{" data-end="}">
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#a87d37b02fecf568aab208bf5418d1577">  185</a></span>        <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d9c/a00413.html#a87d37b02fecf568aab208bf5418d1577">EliminarCancion</a>(<a class="code hl_class" href="../../d9/d39/a00257.html">Canciones</a> cancion)</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        {</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>            <a class="code hl_property" href="../../da/d9c/a00413.html#a71619f269624eb3955bc5b67a25e7d94">ListaCancionesSeleccionadas</a>.Remove(cancion);</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        }</div>
+</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="comment"></span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="comment">        /// &lt;summary&gt;</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="comment">        /// Intenta cargar y visualizar una imagen local desde la ruta especificada.</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="comment">        /// &lt;/summary&gt;</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="comment">        /// &lt;remarks&gt;</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="comment">        /// &lt;para&gt;</span></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="comment">        /// Este método gestiona de forma segura la carga de archivos de imagen. Si el archivo no existe </span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="comment">        /// o el formato no es válido (lanzando una excepción), la propiedad &lt;see cref=&quot;ImagenPortada&quot;/&gt; </span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="comment">        /// se establece en &lt;c&gt;null&lt;/c&gt; para evitar errores visuales.</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="comment">        /// &lt;/para&gt;</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="comment">        /// &lt;para&gt;</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment">        /// Al finalizar, fuerza una notificación de cambio en &lt;see cref=&quot;TieneImagen&quot;/&gt; para que la interfaz </span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="comment">        /// actualice la visibilidad de los controles dependientes (como el botón de &quot;Quitar imagen&quot;).</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="comment">        /// &lt;/para&gt;</span></div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="comment">        /// &lt;/remarks&gt;</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="comment">        /// &lt;param name=&quot;ruta&quot;&gt;La ruta absoluta del sistema de archivos donde se encuentra la imagen.&lt;/param&gt;</span></div>
+<div class="foldopen" id="foldopen00205" data-start="{" data-end="}">
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#a1a2acb2b0c1a170d274435622bb2a22a">  205</a></span>        <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d9c/a00413.html#a1a2acb2b0c1a170d274435622bb2a22a">CargarImagenLocal</a>(<span class="keywordtype">string</span> ruta)</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        {</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>            <span class="keywordflow">try</span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>            {</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>                <span class="keywordflow">if</span> (System.IO.File.Exists(ruta))</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>                    <a class="code hl_property" href="../../da/d9c/a00413.html#ab72b5443a1afdbdfe324e1d12f6a48c9">ImagenPortada</a> = <span class="keyword">new</span> Bitmap(ruta);</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>                <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>                    <a class="code hl_property" href="../../da/d9c/a00413.html#ab72b5443a1afdbdfe324e1d12f6a48c9">ImagenPortada</a> = <span class="keyword">null</span>;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>            }</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>            <span class="keywordflow">catch</span></div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>            {</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>                <a class="code hl_property" href="../../da/d9c/a00413.html#ab72b5443a1afdbdfe324e1d12f6a48c9">ImagenPortada</a> = <span class="keyword">null</span>;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>            }</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>            this.RaisePropertyChanged(nameof(<a class="code hl_property" href="../../da/d9c/a00413.html#a5d8d77ca7284fb0569325ddb319431af">TieneImagen</a>));</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        }<span class="comment"></span></div>
+</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span><span class="comment">        /// &lt;summary&gt;</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="comment">        /// Orquesta el proceso completo de creación de una nueva lista de reproducción personalizada de forma asíncrona.</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="comment">        /// &lt;/summary&gt;</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="comment">        /// &lt;remarks&gt;</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="comment">        /// Este método sigue un flujo de transacciones paso a paso:</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="comment">        /// &lt;list type=&quot;number&quot;&gt;</span></div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Carga de medios:&lt;/b&gt; Sube la imagen de portada seleccionada al servicio de almacenamiento en la nube.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Construcción del modelo:&lt;/b&gt; Crea una instancia de &lt;see cref=&quot;ListaPersonalizada&quot;/&gt; con los metadatos y la selección de canciones actual.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Persistencia:&lt;/b&gt; Invoca al cliente de MongoDB para guardar la nueva lista en la base de datos.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="comment">        /// &lt;/list&gt;</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="comment">        /// Gestiona los estados de carga (&lt;see cref=&quot;EstaCargando&quot;/&gt;) para bloquear la UI durante el proceso y maneja excepciones globales.</span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="comment">        /// &lt;/remarks&gt;</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="comment">        /// &lt;returns&gt;Una &lt;see cref=&quot;Task&quot;/&gt; que representa la operación asíncrona.&lt;/returns&gt;</span></div>
+<div class="foldopen" id="foldopen00233" data-start="{" data-end="}">
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno"><a class="line" href="../../da/d9c/a00413.html#ab676299eeacfdbbbd1fbb1752a63bb58">  233</a></span>        <span class="keyword">private</span> async Task <a class="code hl_function" href="../../da/d9c/a00413.html#ab676299eeacfdbbbd1fbb1752a63bb58">CrearLista</a>()</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        {</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>            <a class="code hl_property" href="../../da/d9c/a00413.html#a9537c9602d86250ff0a72c807e69c0ec">EstaCargando</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>            <span class="keywordflow">try</span></div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>            {</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>                <span class="comment">// Subir Imagen</span></div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>                <span class="keywordtype">string</span> urlPortada = await <a class="code hl_variable" href="../../da/d9c/a00413.html#ae851beb945a68343d340e9f73c6653b1">_storageService</a>.SubirImagen(<a class="code hl_property" href="../../da/d9c/a00413.html#aac71b812866b942dc6afbeb14551fc18">RutaImagen</a>);</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>                <span class="comment">// Crear Objeto</span></div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>                var nuevaLista = <span class="keyword">new</span> <a class="code hl_class" href="../../d0/d19/a00273.html">ListaPersonalizada</a></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>                {</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>                    Nombre = <a class="code hl_property" href="../../da/d9c/a00413.html#a2b5fffbcfb4a00e652c31656a62a431f">TxtNombre</a>,</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>                    Descripcion = <a class="code hl_property" href="../../da/d9c/a00413.html#a7de8821aa6e349ec5992fee870f8c179">TxtDescripcion</a>,</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>                    UrlPortada = urlPortada,</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>                    IdUsuario = <a class="code hl_class" href="../../d7/dfc/a00349.html">GlobalData</a>.<a class="code hl_property" href="../../d7/dfc/a00349.html#a9e2c3551655ac39eac433318a7e87ba4">Instance</a>.<a class="code hl_property" href="../../d7/dfc/a00349.html#adb38cdfb6b5c5f427b3a1250eca88a29">UserIdGD</a>,</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>                    IdsCanciones = <a class="code hl_property" href="../../da/d9c/a00413.html#a71619f269624eb3955bc5b67a25e7d94">ListaCancionesSeleccionadas</a>.Select(c =&gt; c.Id).ToList()</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>                };</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>                <span class="comment">// Guardarmos en BD</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>                <span class="keywordtype">bool</span> exito = await <a class="code hl_class" href="../../db/ddc/a00353.html">MongoClientSingleton</a>.<a class="code hl_property" href="../../db/ddc/a00353.html#ad0067cc765141c80b254d1a39395f529">Instance</a>.<a class="code hl_property" href="../../db/ddc/a00353.html#a275ea6d123352f803782b0ff26216fc6">Cliente</a>.<a class="code hl_function" href="../../d3/d93/a00341.html#a4d25cd09073e5d97baa79b201e7fda68">CrearListaReproduccion</a>(nuevaLista);</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>                <span class="keywordflow">if</span> (exito)</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>                {</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>                    <a class="code hl_property" href="../../da/d9c/a00413.html#a9537c9602d86250ff0a72c807e69c0ec">EstaCargando</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>                    <a class="code hl_variable" href="../../da/d9c/a00413.html#abcda06ed4fbaeddaedcbb7552e942ac3">_Volver</a>();</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>                }</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>                <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>                {</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>                    <a class="code hl_property" href="../../da/d9c/a00413.html#a9537c9602d86250ff0a72c807e69c0ec">EstaCargando</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>                    <a class="code hl_variable" href="../../da/d9c/a00413.html#a42929afd4a16efbd186fbfc8bdebe171">_dialogoService</a>.MostrarAlerta(<span class="stringliteral">&quot;Msg_Error_CrearPlaylist&quot;</span>);</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>                }</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>            }</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            <span class="keywordflow">catch</span> (Exception ex)</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>            {</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>                <a class="code hl_property" href="../../da/d9c/a00413.html#a9537c9602d86250ff0a72c807e69c0ec">EstaCargando</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>                <a class="code hl_variable" href="../../da/d9c/a00413.html#a42929afd4a16efbd186fbfc8bdebe171">_dialogoService</a>.MostrarAlerta(<span class="stringliteral">&quot;Msg_Error_Inesperado&quot;</span>);</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>                System.Diagnostics.Debug.WriteLine(<span class="stringliteral">&quot;Error crear lista: &quot;</span> + ex.Message);</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>            }</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>        }</div>
+</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    }</div>
+</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>}</div>
+<div class="ttc" id="aa00177_html"><div class="ttname"><a href="../../dd/d4c/a00177.html">BetaProyecto.Models</a></div><div class="ttdef"><b>Definition</b> <a href="../../d2/de7/a00014_source.html#l00007">Canciones.cs:8</a></div></div>
+<div class="ttc" id="aa00178_html"><div class="ttname"><a href="../../d9/d90/a00178.html">BetaProyecto.Services</a></div><div class="ttdef"><b>Definition</b> <a href="../../d5/de0/a00050_source.html#l00009">AudioService.cs:10</a></div></div>
+<div class="ttc" id="aa00179_html"><div class="ttname"><a href="../../db/dd9/a00179.html">BetaProyecto.Singleton</a></div><div class="ttdef"><b>Definition</b> <a href="../../de/de1/a00065_source.html#l00005">GlobalData.cs:6</a></div></div>
+<div class="ttc" id="aa00180_html"><div class="ttname"><a href="../../d0/d81/a00180.html">BetaProyecto.ViewModels</a></div><div class="ttdef"><b>Definition</b> <a href="../../db/db6/a00074_source.html#l00009">CentralTabControlViewModel.cs:10</a></div></div>
+<div class="ttc" id="aa00257_html"><div class="ttname"><a href="../../d9/d39/a00257.html">BetaProyecto.Models.Canciones</a></div><div class="ttdef"><b>Definition</b> <a href="../../d2/de7/a00014_source.html#l00009">Canciones.cs:10</a></div></div>
+<div class="ttc" id="aa00257_html_a4d66c1dd540dd4e30cf0502ed2dc2973"><div class="ttname"><a href="../../d9/d39/a00257.html#a4d66c1dd540dd4e30cf0502ed2dc2973">BetaProyecto.Models.Canciones.Id</a></div><div class="ttdeci">string Id</div><div class="ttdef"><b>Definition</b> <a href="../../d2/de7/a00014_source.html#l00013">Canciones.cs:13</a></div></div>
+<div class="ttc" id="aa00273_html"><div class="ttname"><a href="../../d0/d19/a00273.html">BetaProyecto.Models.ListaPersonalizada</a></div><div class="ttdef"><b>Definition</b> <a href="../../db/db2/a00020_source.html#l00011">ListaPersonalizada.cs:12</a></div></div>
+<div class="ttc" id="aa00333_html"><div class="ttname"><a href="../../d2/d0a/a00333.html">BetaProyecto.Services.DialogoService</a></div><div class="ttdef"><b>Definition</b> <a href="../../dc/dee/a00053_source.html#l00009">DialogoService.cs:10</a></div></div>
+<div class="ttc" id="aa00337_html"><div class="ttname"><a href="../../d4/dce/a00337.html">BetaProyecto.Services.IDialogoService</a></div><div class="ttdef"><b>Definition</b> <a href="../../d9/d2e/a00056_source.html#l00006">IDialogoService.cs:8</a></div></div>
+<div class="ttc" id="aa00341_html_a4d25cd09073e5d97baa79b201e7fda68"><div class="ttname"><a href="../../d3/d93/a00341.html#a4d25cd09073e5d97baa79b201e7fda68">BetaProyecto.Services.MongoAtlas.CrearListaReproduccion</a></div><div class="ttdeci">async Task&lt; bool &gt; CrearListaReproduccion(ListaPersonalizada nuevaLista)</div><div class="ttdoc">Se ocupa de crear una nueva listapersonalizada en la base de datos.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d8b/a00059_source.html#l00723">MongoAtlas.cs:723</a></div></div>
+<div class="ttc" id="aa00341_html_a9e1cd3a3a1a14d1fcea59e15a36ad0d9"><div class="ttname"><a href="../../d3/d93/a00341.html#a9e1cd3a3a1a14d1fcea59e15a36ad0d9">BetaProyecto.Services.MongoAtlas.ObtenerCancionesPorBusqueda</a></div><div class="ttdeci">async Task&lt; List&lt; Canciones &gt; &gt; ObtenerCancionesPorBusqueda(string textoBusqueda)</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d8b/a00059_source.html#l00236">MongoAtlas.cs:236</a></div></div>
+<div class="ttc" id="aa00345_html"><div class="ttname"><a href="../../d9/d48/a00345.html">BetaProyecto.Services.StorageService</a></div><div class="ttdef"><b>Definition</b> <a href="../../df/d03/a00062_source.html#l00010">StorageService.cs:11</a></div></div>
+<div class="ttc" id="aa00349_html"><div class="ttname"><a href="../../d7/dfc/a00349.html">BetaProyecto.Singleton.GlobalData</a></div><div class="ttdef"><b>Definition</b> <a href="../../de/de1/a00065_source.html#l00007">GlobalData.cs:8</a></div></div>
+<div class="ttc" id="aa00349_html_a9e2c3551655ac39eac433318a7e87ba4"><div class="ttname"><a href="../../d7/dfc/a00349.html#a9e2c3551655ac39eac433318a7e87ba4">BetaProyecto.Singleton.GlobalData.Instance</a></div><div class="ttdeci">static GlobalData Instance</div><div class="ttdef"><b>Definition</b> <a href="../../de/de1/a00065_source.html#l00010">GlobalData.cs:10</a></div></div>
+<div class="ttc" id="aa00349_html_adb38cdfb6b5c5f427b3a1250eca88a29"><div class="ttname"><a href="../../d7/dfc/a00349.html#adb38cdfb6b5c5f427b3a1250eca88a29">BetaProyecto.Singleton.GlobalData.UserIdGD</a></div><div class="ttdeci">string UserIdGD</div><div class="ttdef"><b>Definition</b> <a href="../../de/de1/a00065_source.html#l00013">GlobalData.cs:13</a></div></div>
+<div class="ttc" id="aa00353_html"><div class="ttname"><a href="../../db/ddc/a00353.html">BetaProyecto.Singleton.MongoClientSingleton</a></div><div class="ttdef"><b>Definition</b> <a href="../../da/d24/a00068_source.html#l00010">MongoClientSingleton.cs:11</a></div></div>
+<div class="ttc" id="aa00353_html_a275ea6d123352f803782b0ff26216fc6"><div class="ttname"><a href="../../db/ddc/a00353.html#a275ea6d123352f803782b0ff26216fc6">BetaProyecto.Singleton.MongoClientSingleton.Cliente</a></div><div class="ttdeci">MongoAtlas Cliente</div><div class="ttdef"><b>Definition</b> <a href="../../da/d24/a00068_source.html#l00017">MongoClientSingleton.cs:17</a></div></div>
+<div class="ttc" id="aa00353_html_ad0067cc765141c80b254d1a39395f529"><div class="ttname"><a href="../../db/ddc/a00353.html#ad0067cc765141c80b254d1a39395f529">BetaProyecto.Singleton.MongoClientSingleton.Instance</a></div><div class="ttdeci">static MongoClientSingleton Instance</div><div class="ttdef"><b>Definition</b> <a href="../../da/d24/a00068_source.html#l00014">MongoClientSingleton.cs:14</a></div></div>
+<div class="ttc" id="aa00413_html_a04c603c1fc4cb3cdd2fb48634966bd58"><div class="ttname"><a href="../../da/d9c/a00413.html#a04c603c1fc4cb3cdd2fb48634966bd58">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel._listaCancionesSeleccionadas</a></div><div class="ttdeci">ObservableCollection&lt; Canciones &gt; _listaCancionesSeleccionadas</div><div class="ttdef"><b>Definition</b> <a href="#l00074">ViewCrearListaPersonalizadaViewModel.cs:74</a></div></div>
+<div class="ttc" id="aa00413_html_a11109f2d1524d1707e4d0717bca6356f"><div class="ttname"><a href="../../da/d9c/a00413.html#a11109f2d1524d1707e4d0717bca6356f">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel._listaResultados</a></div><div class="ttdeci">ObservableCollection&lt; Canciones &gt; _listaResultados</div><div class="ttdef"><b>Definition</b> <a href="#l00067">ViewCrearListaPersonalizadaViewModel.cs:67</a></div></div>
+<div class="ttc" id="aa00413_html_a1129828bb9397ae57f8eb54e8dec568c"><div class="ttname"><a href="../../da/d9c/a00413.html#a1129828bb9397ae57f8eb54e8dec568c">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel._txtNombre</a></div><div class="ttdeci">string _txtNombre</div><div class="ttdef"><b>Definition</b> <a href="#l00025">ViewCrearListaPersonalizadaViewModel.cs:25</a></div></div>
+<div class="ttc" id="aa00413_html_a1488a2343ae965bb763e3c2c3407a822"><div class="ttname"><a href="../../da/d9c/a00413.html#a1488a2343ae965bb763e3c2c3407a822">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel.BtnVolverAtras</a></div><div class="ttdeci">ReactiveCommand&lt; Unit, Unit &gt; BtnVolverAtras</div><div class="ttdef"><b>Definition</b> <a href="#l00090">ViewCrearListaPersonalizadaViewModel.cs:90</a></div></div>
+<div class="ttc" id="aa00413_html_a1a2acb2b0c1a170d274435622bb2a22a"><div class="ttname"><a href="../../da/d9c/a00413.html#a1a2acb2b0c1a170d274435622bb2a22a">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel.CargarImagenLocal</a></div><div class="ttdeci">void CargarImagenLocal(string ruta)</div><div class="ttdoc">Intenta cargar y visualizar una imagen local desde la ruta especificada.</div><div class="ttdef"><b>Definition</b> <a href="#l00205">ViewCrearListaPersonalizadaViewModel.cs:205</a></div></div>
+<div class="ttc" id="aa00413_html_a25527852f8be67bce5ab74776ca38c85"><div class="ttname"><a href="../../da/d9c/a00413.html#a25527852f8be67bce5ab74776ca38c85">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel.AgregarCancion</a></div><div class="ttdeci">void AgregarCancion(Canciones cancion)</div><div class="ttdoc">Agrega la canción seleccionada a la lista temporal de canciones que formarán parte de la nueva playli...</div><div class="ttdef"><b>Definition</b> <a href="#l00167">ViewCrearListaPersonalizadaViewModel.cs:167</a></div></div>
+<div class="ttc" id="aa00413_html_a2b5fffbcfb4a00e652c31656a62a431f"><div class="ttname"><a href="../../da/d9c/a00413.html#a2b5fffbcfb4a00e652c31656a62a431f">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel.TxtNombre</a></div><div class="ttdeci">string TxtNombre</div><div class="ttdef"><b>Definition</b> <a href="#l00026">ViewCrearListaPersonalizadaViewModel.cs:27</a></div></div>
+<div class="ttc" id="aa00413_html_a2cb4e7f3d3c13858c3669941b906120d"><div class="ttname"><a href="../../da/d9c/a00413.html#a2cb4e7f3d3c13858c3669941b906120d">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel.ListaResultados</a></div><div class="ttdeci">ObservableCollection&lt; Canciones &gt; ListaResultados</div><div class="ttdef"><b>Definition</b> <a href="#l00068">ViewCrearListaPersonalizadaViewModel.cs:69</a></div></div>
+<div class="ttc" id="aa00413_html_a357582d1d36af192b169f2aba6374b84"><div class="ttname"><a href="../../da/d9c/a00413.html#a357582d1d36af192b169f2aba6374b84">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel.BtnAgregarCancion</a></div><div class="ttdeci">ReactiveCommand&lt; Canciones, Unit &gt; BtnAgregarCancion</div><div class="ttdef"><b>Definition</b> <a href="#l00093">ViewCrearListaPersonalizadaViewModel.cs:93</a></div></div>
+<div class="ttc" id="aa00413_html_a42929afd4a16efbd186fbfc8bdebe171"><div class="ttname"><a href="../../da/d9c/a00413.html#a42929afd4a16efbd186fbfc8bdebe171">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel._dialogoService</a></div><div class="ttdeci">readonly IDialogoService _dialogoService</div><div class="ttdef"><b>Definition</b> <a href="#l00018">ViewCrearListaPersonalizadaViewModel.cs:18</a></div></div>
+<div class="ttc" id="aa00413_html_a4d6c80d2ea5f4c36095fda0cf129333f"><div class="ttname"><a href="../../da/d9c/a00413.html#a4d6c80d2ea5f4c36095fda0cf129333f">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel.BtnCrear</a></div><div class="ttdeci">ReactiveCommand&lt; Unit, Unit &gt; BtnCrear</div><div class="ttdef"><b>Definition</b> <a href="#l00091">ViewCrearListaPersonalizadaViewModel.cs:91</a></div></div>
+<div class="ttc" id="aa00413_html_a5d8d77ca7284fb0569325ddb319431af"><div class="ttname"><a href="../../da/d9c/a00413.html#a5d8d77ca7284fb0569325ddb319431af">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel.TieneImagen</a></div><div class="ttdeci">bool TieneImagen</div><div class="ttdef"><b>Definition</b> <a href="#l00050">ViewCrearListaPersonalizadaViewModel.cs:50</a></div></div>
+<div class="ttc" id="aa00413_html_a6908de90a36201274f758d612d13b8d1"><div class="ttname"><a href="../../da/d9c/a00413.html#a6908de90a36201274f758d612d13b8d1">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel.BuscarCanciones</a></div><div class="ttdeci">async void BuscarCanciones()</div><div class="ttdoc">Realiza una búsqueda asíncrona de canciones en la base de datos utilizando el texto introducido por e...</div><div class="ttdef"><b>Definition</b> <a href="#l00140">ViewCrearListaPersonalizadaViewModel.cs:140</a></div></div>
+<div class="ttc" id="aa00413_html_a71619f269624eb3955bc5b67a25e7d94"><div class="ttname"><a href="../../da/d9c/a00413.html#a71619f269624eb3955bc5b67a25e7d94">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel.ListaCancionesSeleccionadas</a></div><div class="ttdeci">ObservableCollection&lt; Canciones &gt; ListaCancionesSeleccionadas</div><div class="ttdef"><b>Definition</b> <a href="#l00075">ViewCrearListaPersonalizadaViewModel.cs:76</a></div></div>
+<div class="ttc" id="aa00413_html_a7de8821aa6e349ec5992fee870f8c179"><div class="ttname"><a href="../../da/d9c/a00413.html#a7de8821aa6e349ec5992fee870f8c179">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel.TxtDescripcion</a></div><div class="ttdeci">string TxtDescripcion</div><div class="ttdef"><b>Definition</b> <a href="#l00033">ViewCrearListaPersonalizadaViewModel.cs:34</a></div></div>
+<div class="ttc" id="aa00413_html_a7f34056644d961093eb9a6bd87ba0a3f"><div class="ttname"><a href="../../da/d9c/a00413.html#a7f34056644d961093eb9a6bd87ba0a3f">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel.ViewCrearListaPersonalizadaViewModel</a></div><div class="ttdeci">ViewCrearListaPersonalizadaViewModel(Action accionVolver)</div><div class="ttdef"><b>Definition</b> <a href="#l00097">ViewCrearListaPersonalizadaViewModel.cs:97</a></div></div>
+<div class="ttc" id="aa00413_html_a834305878d7fe4885fa5bb69d19cbee9"><div class="ttname"><a href="../../da/d9c/a00413.html#a834305878d7fe4885fa5bb69d19cbee9">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel._txtDescripcion</a></div><div class="ttdeci">string _txtDescripcion</div><div class="ttdef"><b>Definition</b> <a href="#l00032">ViewCrearListaPersonalizadaViewModel.cs:32</a></div></div>
+<div class="ttc" id="aa00413_html_a87d37b02fecf568aab208bf5418d1577"><div class="ttname"><a href="../../da/d9c/a00413.html#a87d37b02fecf568aab208bf5418d1577">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel.EliminarCancion</a></div><div class="ttdeci">void EliminarCancion(Canciones cancion)</div><div class="ttdoc">Elimina una canción de la lista de canciones seleccionadas para la nueva playlist.</div><div class="ttdef"><b>Definition</b> <a href="#l00185">ViewCrearListaPersonalizadaViewModel.cs:185</a></div></div>
+<div class="ttc" id="aa00413_html_a9537c9602d86250ff0a72c807e69c0ec"><div class="ttname"><a href="../../da/d9c/a00413.html#a9537c9602d86250ff0a72c807e69c0ec">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel.EstaCargando</a></div><div class="ttdeci">bool EstaCargando</div><div class="ttdef"><b>Definition</b> <a href="#l00083">ViewCrearListaPersonalizadaViewModel.cs:84</a></div></div>
+<div class="ttc" id="aa00413_html_aac71b812866b942dc6afbeb14551fc18"><div class="ttname"><a href="../../da/d9c/a00413.html#aac71b812866b942dc6afbeb14551fc18">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel.RutaImagen</a></div><div class="ttdeci">string RutaImagen</div><div class="ttdef"><b>Definition</b> <a href="#l00041">ViewCrearListaPersonalizadaViewModel.cs:42</a></div></div>
+<div class="ttc" id="aa00413_html_ab66bb37c3f6ce70ed589140453051037"><div class="ttname"><a href="../../da/d9c/a00413.html#ab66bb37c3f6ce70ed589140453051037">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel.TxtBusqueda</a></div><div class="ttdeci">string TxtBusqueda</div><div class="ttdef"><b>Definition</b> <a href="#l00061">ViewCrearListaPersonalizadaViewModel.cs:62</a></div></div>
+<div class="ttc" id="aa00413_html_ab676299eeacfdbbbd1fbb1752a63bb58"><div class="ttname"><a href="../../da/d9c/a00413.html#ab676299eeacfdbbbd1fbb1752a63bb58">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel.CrearLista</a></div><div class="ttdeci">async Task CrearLista()</div><div class="ttdoc">Orquesta el proceso completo de creación de una nueva lista de reproducción personalizada de forma as...</div><div class="ttdef"><b>Definition</b> <a href="#l00233">ViewCrearListaPersonalizadaViewModel.cs:233</a></div></div>
+<div class="ttc" id="aa00413_html_ab72b5443a1afdbdfe324e1d12f6a48c9"><div class="ttname"><a href="../../da/d9c/a00413.html#ab72b5443a1afdbdfe324e1d12f6a48c9">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel.ImagenPortada</a></div><div class="ttdeci">Bitmap? ImagenPortada</div><div class="ttdef"><b>Definition</b> <a href="#l00053">ViewCrearListaPersonalizadaViewModel.cs:54</a></div></div>
+<div class="ttc" id="aa00413_html_abcda06ed4fbaeddaedcbb7552e942ac3"><div class="ttname"><a href="../../da/d9c/a00413.html#abcda06ed4fbaeddaedcbb7552e942ac3">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel._Volver</a></div><div class="ttdeci">readonly Action _Volver</div><div class="ttdef"><b>Definition</b> <a href="#l00022">ViewCrearListaPersonalizadaViewModel.cs:22</a></div></div>
+<div class="ttc" id="aa00413_html_ac06735c3a792ef38e2ab74459eb63a40"><div class="ttname"><a href="../../da/d9c/a00413.html#ac06735c3a792ef38e2ab74459eb63a40">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel._txtBusqueda</a></div><div class="ttdeci">string _txtBusqueda</div><div class="ttdef"><b>Definition</b> <a href="#l00060">ViewCrearListaPersonalizadaViewModel.cs:60</a></div></div>
+<div class="ttc" id="aa00413_html_ac82d50231dcddb23fc0b1aa1d04231db"><div class="ttname"><a href="../../da/d9c/a00413.html#ac82d50231dcddb23fc0b1aa1d04231db">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel._rutaImagen</a></div><div class="ttdeci">string _rutaImagen</div><div class="ttdef"><b>Definition</b> <a href="#l00040">ViewCrearListaPersonalizadaViewModel.cs:40</a></div></div>
+<div class="ttc" id="aa00413_html_addfd70a73282ef1e909c00cc1224844d"><div class="ttname"><a href="../../da/d9c/a00413.html#addfd70a73282ef1e909c00cc1224844d">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel.BtnEliminarCancion</a></div><div class="ttdeci">ReactiveCommand&lt; Canciones, Unit &gt; BtnEliminarCancion</div><div class="ttdef"><b>Definition</b> <a href="#l00094">ViewCrearListaPersonalizadaViewModel.cs:94</a></div></div>
+<div class="ttc" id="aa00413_html_adeb143adead40a1c79ff4ffa05628753"><div class="ttname"><a href="../../da/d9c/a00413.html#adeb143adead40a1c79ff4ffa05628753">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel._imagenPortada</a></div><div class="ttdeci">Bitmap? _imagenPortada</div><div class="ttdef"><b>Definition</b> <a href="#l00052">ViewCrearListaPersonalizadaViewModel.cs:52</a></div></div>
+<div class="ttc" id="aa00413_html_ae851beb945a68343d340e9f73c6653b1"><div class="ttname"><a href="../../da/d9c/a00413.html#ae851beb945a68343d340e9f73c6653b1">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel._storageService</a></div><div class="ttdeci">readonly StorageService _storageService</div><div class="ttdef"><b>Definition</b> <a href="#l00019">ViewCrearListaPersonalizadaViewModel.cs:19</a></div></div>
+<div class="ttc" id="aa00413_html_aed2ac8e7a175467727e2456101bceb52"><div class="ttname"><a href="../../da/d9c/a00413.html#aed2ac8e7a175467727e2456101bceb52">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel._estaCargando</a></div><div class="ttdeci">bool _estaCargando</div><div class="ttdef"><b>Definition</b> <a href="#l00082">ViewCrearListaPersonalizadaViewModel.cs:82</a></div></div>
+<div class="ttc" id="aa00413_html_afc0840494275d47f678f9cc04bd1d787"><div class="ttname"><a href="../../da/d9c/a00413.html#afc0840494275d47f678f9cc04bd1d787">BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel.BtnBuscarCanciones</a></div><div class="ttdeci">ReactiveCommand&lt; Unit, Unit &gt; BtnBuscarCanciones</div><div class="ttdef"><b>Definition</b> <a href="#l00092">ViewCrearListaPersonalizadaViewModel.cs:92</a></div></div>
+<div class="ttc" id="aa00453_html"><div class="ttname"><a href="../../da/dc3/a00453.html">BetaProyecto.ViewModels.ViewModelBase</a></div><div class="ttdef"><b>Definition</b> <a href="../../d7/dce/a00143_source.html#l00008">ViewModelBase.cs:9</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_185e83519e12721b061570a464b09f2f.html">BetaProyecto</a></li><li class="navelem"><a href="../../dir_364cdaa78793ccd09585bb6481f10933.html">ViewModels</a></li><li class="navelem"><a href="../../d3/d00/a00113.html">ViewCrearListaPersonalizadaViewModel.cs</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

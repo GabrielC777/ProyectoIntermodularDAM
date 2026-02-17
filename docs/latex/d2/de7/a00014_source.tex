@@ -1,0 +1,86 @@
+\doxysubsection{Canciones.\+cs}
+\hypertarget{a00014_source}{}\label{a00014_source}\index{BetaProyecto/Models/Canciones.cs@{BetaProyecto/Models/Canciones.cs}}
+\doxymbox{\hyperlink{a00014}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00001}00001\ \textcolor{keyword}{using\ }MongoDB.Bson;}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00002}00002\ \textcolor{keyword}{using\ }MongoDB.Bson.Serialization.Attributes;}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00003}00003\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00004}00004\ \textcolor{keyword}{using\ }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00005}00005\ \textcolor{keyword}{using\ }System.Linq;}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{a00014_source_l00007}\doxymbox{\hyperlink{a00177}{00007}}\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{a00177}{BetaProyecto.Models}}}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00009}\doxymbox{\hyperlink{a00257}{00009}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00257}{Canciones}}}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00010}00010\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00011}00011\ \ \ \ \ \ \ \ \ [BsonId]}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00012}00012\ \ \ \ \ \ \ \ \ [BsonRepresentation(BsonType.ObjectId)]}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00013}\doxymbox{\hyperlink{a00257_a4d66c1dd540dd4e30cf0502ed2dc2973}{00013}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00257_a4d66c1dd540dd4e30cf0502ed2dc2973}{Id}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{a00014_source_l00015}00015\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}titulo"{}})]}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00016}\doxymbox{\hyperlink{a00257_afb4ca843dda3474623114565e601c2dc}{00016}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00257_afb4ca843dda3474623114565e601c2dc}{Titulo}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{a00014_source_l00018}00018\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}autores\_ids"{}})]}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00019}00019\ \ \ \ \ \ \ \ \ [BsonRepresentation(BsonType.ObjectId)]}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00020}\doxymbox{\hyperlink{a00257_a419b366cdf8540198dbd2071dca0a2d2}{00020}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ List<string>\ \doxymbox{\hyperlink{a00257_a419b366cdf8540198dbd2071dca0a2d2}{AutoresIds}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00021}00021\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{a00014_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ [BsonIgnore]\ le\ dice\ a\ mongo\ que\ ignore\ la\ propiedad}}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00023}00023\ \ \ \ \ \ \ \ \ [BsonIgnore]}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00024}\doxymbox{\hyperlink{a00257_a3c7c23d435e5ad00a9f0a0c00bb657ec}{00024}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00257_a3c7c23d435e5ad00a9f0a0c00bb657ec}{NombreArtista}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \textcolor{stringliteral}{"{}Artista\ Desconocido"{}};}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00025}00025\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{a00014_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{comment}{//La\ necesitamos\ para\ los\ botones\ flyout\ de\ la\ tarjetas\ }}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00027}00027\ \ \ \ \ \ \ \ \ [BsonIgnore]}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00028}\doxymbox{\hyperlink{a00257_a17c137c572efb8d790e4fbf8ebd05759}{00028}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ List<string>\ \doxymbox{\hyperlink{a00257_a17c137c572efb8d790e4fbf8ebd05759}{ListaArtistasIndividuales}}}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00029}00029\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{string}.IsNullOrEmpty(\doxymbox{\hyperlink{a00257_a3c7c23d435e5ad00a9f0a0c00bb657ec}{NombreArtista}}))\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ List<string>();}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{a00014_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Cortamos\ por\ la\ coma\ y\ quitamos\ espacios}}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{a00257_a3c7c23d435e5ad00a9f0a0c00bb657ec}{NombreArtista}}.Split(\textcolor{charliteral}{','}).Select(a\ =>\ a.Trim()).ToList();}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00037}00037\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{a00014_source_l00039}00039\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}imagen\_portada\_url"{}})]}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00040}\doxymbox{\hyperlink{a00257_a3e4cc9e97f07cbc7be445cc71806c788}{00040}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00257_a3e4cc9e97f07cbc7be445cc71806c788}{ImagenPortadaUrl}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{a00014_source_l00042}00042\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}url\_cancion"{}})]}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00043}\doxymbox{\hyperlink{a00257_ab1c33a951dfc7dc8d8f5e5b1e71c80f8}{00043}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00257_ab1c33a951dfc7dc8d8f5e5b1e71c80f8}{UrlCancion}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{a00014_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ OBJETOS\ ANIDADOS}}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00046}00046\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}datos"{}})]}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00047}\doxymbox{\hyperlink{a00257_ac98aa4bdeeaf4ac397caed365e6ca378}{00047}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{a00261}{DatosCancion}}\ \doxymbox{\hyperlink{a00257_ac98aa4bdeeaf4ac397caed365e6ca378}{Datos}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{a00261}{DatosCancion}}();}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{a00014_source_l00049}00049\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}metricas"{}})]}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00050}\doxymbox{\hyperlink{a00257_a4cf3261d1f83f1f318c1e8b61ef5a89f}{00050}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{a00265}{MetricasCancion}}\ \doxymbox{\hyperlink{a00257_a4cf3261d1f83f1f318c1e8b61ef5a89f}{Metricas}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{a00265}{MetricasCancion}}();}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00051}00051\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{a00014_source_l00053}\doxymbox{\hyperlink{a00261}{00053}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00261}{DatosCancion}}}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00054}00054\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00055}00055\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}duracion\_segundos"{}})]}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00056}\doxymbox{\hyperlink{a00261_a74e76409662b41c579f50ee0e753979a}{00056}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{a00261_a74e76409662b41c579f50ee0e753979a}{DuracionSegundos}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{a00014_source_l00058}00058\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}generos"{}})]}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00059}\doxymbox{\hyperlink{a00261_a17f1a062f333ce40003e3dcd63c0818d}{00059}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ List<string>\ \doxymbox{\hyperlink{a00261_a17f1a062f333ce40003e3dcd63c0818d}{Generos}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \textcolor{keyword}{new}\ List<string>();}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{a00014_source_l00061}00061\ \ \ \ \ \ \ \ \ [BsonIgnore]}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00062}\doxymbox{\hyperlink{a00261_a18510043376163dd532692e1315fc372}{00062}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00261_a18510043376163dd532692e1315fc372}{GenerosTexto}}\ =>\ \textcolor{keywordtype}{string}.Join(\textcolor{stringliteral}{"{},\ "{}},\ \doxymbox{\hyperlink{a00261_a17f1a062f333ce40003e3dcd63c0818d}{Generos}});}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{a00014_source_l00064}00064\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}fecha\_lanzamiento"{}})]}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00065}\doxymbox{\hyperlink{a00261_a246e824e6d470154c4c64c4a02e40944}{00065}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ DateTime\ \doxymbox{\hyperlink{a00261_a246e824e6d470154c4c64c4a02e40944}{FechaLanzamiento}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00066}00066\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{a00014_source_l00068}\doxymbox{\hyperlink{a00265}{00068}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00265}{MetricasCancion}}}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00069}00069\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00070}00070\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}total\_reproducciones"{}})]}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00071}\doxymbox{\hyperlink{a00265_aa22d41cbdf711fbdcd6fe7fa54ab1700}{00071}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{long}\ \doxymbox{\hyperlink{a00265_aa22d41cbdf711fbdcd6fe7fa54ab1700}{TotalReproducciones}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{a00014_source_l00073}00073\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}total\_megustas"{}})]}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00074}\doxymbox{\hyperlink{a00265_ab03bc85c4bd5529017737c8b2fee7fb4}{00074}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{long}\ \doxymbox{\hyperlink{a00265_ab03bc85c4bd5529017737c8b2fee7fb4}{TotalMegustas}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{a00014_source_l00076}00076\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}puntuacion\_tendencia"{}})]}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00077}\doxymbox{\hyperlink{a00265_a5021d546b0ac07305ee43577fe19acdb}{00077}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{a00265_a5021d546b0ac07305ee43577fe19acdb}{PuntuacionTendencia}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00078}00078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00014_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{a00014_source_l00080}00080\ \}}
+
+\end{DoxyCode}

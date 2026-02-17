@@ -1,0 +1,825 @@
+\doxysubsection{Referencia de la clase Beta\+Proyecto.\+Services.\+Mongo\+Atlas}
+\hypertarget{a00341}{}\label{a00341}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+
+
+\doxysubsubsection{Detalles}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00013}{13}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\doxysubsubsubsection*{Métodos}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{a00341_aaf0d372a419870e4069263665968b9f8}{Mongo\+Atlas}} ()
+\item 
+async Task$<$ bool $>$ \doxymbox{\hyperlink{a00341_a835455d58efc82784facaa3ed7d85ebe}{Conectar}} ()
+\item 
+async Task$<$ \doxymbox{\hyperlink{a00301}{Usuarios}} $>$ \doxymbox{\hyperlink{a00341_a6d8ba1f32e260236a1b7eae9db558d84}{Login\+Usuario}} (string username, string password)
+\item 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00257}{Canciones}} $>$ $>$ \doxymbox{\hyperlink{a00341_aff88c646fe54fe223cce1b65df8ae46d}{Obtener\+Canciones\+Favoritos}} ()
+\item 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00257}{Canciones}} $>$ $>$ \doxymbox{\hyperlink{a00341_a43e7075d77d5614b2a44278070287678}{Obtener\+Caciones\+Novedades}} ()
+\item 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00257}{Canciones}} $>$ $>$ \doxymbox{\hyperlink{a00341_ad94222735daff4ead92649645928c8b5}{Obtener\+Canciones\+Por\+Genero}} (string genero)
+\item 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00257}{Canciones}} $>$ $>$ \doxymbox{\hyperlink{a00341_ac8e61caf0a93f90f99e9ce573bd01a5a}{Obtener\+Canciones}} ()
+\item 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00257}{Canciones}} $>$ $>$ \doxymbox{\hyperlink{a00341_a6adc826a3a2077d0bcecf593f726ace6}{Obtener\+Canciones\+Por\+Lista\+Ids}} (List$<$ string $>$ ids)
+\item 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00257}{Canciones}} $>$ $>$ \doxymbox{\hyperlink{a00341_a9e1cd3a3a1a14d1fcea59e15a36ad0d9}{Obtener\+Canciones\+Por\+Busqueda}} (string texto\+Busqueda)
+\item 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00257}{Canciones}} $>$ $>$ \doxymbox{\hyperlink{a00341_a5ea7eec2b0189b4d78dfa52f10a29add}{Obtener\+Canciones\+Por\+Autor}} (string id\+Autor)
+\item 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00301}{Usuarios}} $>$ $>$ \doxymbox{\hyperlink{a00341_a45e99c3e0723f4bf4afb7812b46fcc0f}{Obtener\+Todos\+Los\+Usuarios}} ()
+\item 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00301}{Usuarios}} $>$ $>$ \doxymbox{\hyperlink{a00341_a9f802e6629b4ac6853bc439b2bc9d38d}{Obtener\+Usuarios\+Por\+Busqueda}} (string texto\+Busqueda, List$<$ string $>$ ids\+Excluidos)
+\item 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00301}{Usuarios}} $>$ $>$ \doxymbox{\hyperlink{a00341_a87698d483367c5aa67cb4d3a6fc2def2}{Obtener\+Usuarios\+Por\+Lista\+Ids}} (List$<$ string $>$ lista\+Ids)
+\item 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00273}{Lista\+Personalizada}} $>$ $>$ \doxymbox{\hyperlink{a00341_adf30dd79b8d13c64e47a8024a7db2b02}{Obtener\+Listas\+Reproduccion}} ()
+\item 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00273}{Lista\+Personalizada}} $>$ $>$ \doxymbox{\hyperlink{a00341_a02b5755f4d1e38e31897c6b99b1c4669}{Obtener\+Playlists\+Por\+Creador}} (string id\+Usuario)
+\item 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00281}{Reportes}} $>$ $>$ \doxymbox{\hyperlink{a00341_acebd6beb5817ff2365be22bf07a690df}{Obtener\+Reportes}} ()
+\begin{DoxyCompactList}\small\item\em Se ocupa de traer todos los reportes de la base de datos. \end{DoxyCompactList}\item 
+async Task$<$ List$<$ string $>$ $>$ \doxymbox{\hyperlink{a00341_a831b1f89de8363f28fdf2a25a3440fff}{Obtener\+Nombres\+Generos}} ()
+\begin{DoxyCompactList}\small\item\em Obtenemos la lista de nombres de géneros de la base de datos. \end{DoxyCompactList}\item 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00269}{Generos}} $>$ $>$ \doxymbox{\hyperlink{a00341_ad12a39c2cd4d2e273d669be8681a81b7}{Obtener\+Generos\+Completos}} ()
+\begin{DoxyCompactList}\small\item\em Obtenemos los objetos completos de géneros de la base de datos. \end{DoxyCompactList}\item 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00257}{Canciones}} $>$ $>$ \doxymbox{\hyperlink{a00341_a6992907ff50bf8a92a611e2324e9eb8a}{Obtener\+Mix\+Por\+Genero}} (string genero)
+\begin{DoxyCompactList}\small\item\em Obtiene una mezcla de canciones por género (veteranos + indies) partir del puntaje de tendencia. \end{DoxyCompactList}\item 
+async Task$<$ bool $>$ \doxymbox{\hyperlink{a00341_ac6c5aec3c4e864c28fe273b4fca26265}{Agregar\+AFavorito}} (string id\+Usuario, string id\+Cancion)
+\begin{DoxyCompactList}\small\item\em Se ocupa de añadir una canción a la lista de favoritos del usuario en la base de datos. \end{DoxyCompactList}\item 
+async Task$<$ bool $>$ \doxymbox{\hyperlink{a00341_a3c85bf91526a3716c7abf03b0fdf2eb2}{Seguir\+Usuario}} (string id\+Usuario, string id\+Usuario\+ASeguir)
+\begin{DoxyCompactList}\small\item\em Se ocupa de añadir un usuario a la lista de seguidores del usuario en la base de datos. \end{DoxyCompactList}\item 
+async Task$<$ bool $>$ \doxymbox{\hyperlink{a00341_a58a656044a3ddda050959ab21d1d1f9b}{Publicar\+Cancion}} (\doxymbox{\hyperlink{a00257}{Canciones}} nueva\+Cancion)
+\begin{DoxyCompactList}\small\item\em Se ocupa de publicar una nueva canción en la base de datos. \end{DoxyCompactList}\item 
+async Task$<$ bool $>$ \doxymbox{\hyperlink{a00341_a4d25cd09073e5d97baa79b201e7fda68}{Crear\+Lista\+Reproduccion}} (\doxymbox{\hyperlink{a00273}{Lista\+Personalizada}} nueva\+Lista)
+\begin{DoxyCompactList}\small\item\em Se ocupa de crear una nueva listapersonalizada en la base de datos. \end{DoxyCompactList}\item 
+async Task$<$ bool $>$ \doxymbox{\hyperlink{a00341_a1150c7087a0f30d2e2ae5668c68219f9}{Enviar\+Reporte}} (\doxymbox{\hyperlink{a00281}{Reportes}} nuevo\+Reporte)
+\begin{DoxyCompactList}\small\item\em Se ocupa de enviar un nuevo reporte a la base de datos. \end{DoxyCompactList}\item 
+async Task$<$ bool $>$ \doxymbox{\hyperlink{a00341_a11fcba92ac586e43a7c7b310ffc89d8b}{Crear\+Genero}} (string nuevo\+Genero)
+\begin{DoxyCompactList}\small\item\em Se ocupa de crear un nuevo género en la base de datos. \end{DoxyCompactList}\item 
+async Task$<$ bool $>$ \doxymbox{\hyperlink{a00341_a92a4cd06a566f780bceda46f4027473b}{Crear\+Usuario}} (\doxymbox{\hyperlink{a00301}{Usuarios}} nuevo\+Usuario)
+\begin{DoxyCompactList}\small\item\em Se ocupa de crear un nuevo usuario en la base de datos. \end{DoxyCompactList}\item 
+async Task$<$ bool $>$ \doxymbox{\hyperlink{a00341_a005c2409a612977ab20af26a5896960e}{Eliminar\+De\+Favorito}} (string id\+Usuario, string id\+Cancion)
+\begin{DoxyCompactList}\small\item\em Se ocupa de eliminar una canción de la lista de favoritos del usuario en la base de datos. \end{DoxyCompactList}\item 
+async Task$<$ bool $>$ \doxymbox{\hyperlink{a00341_a57ac24550ab4739bbdf4b0dced6aaa90}{Dejar\+De\+Seguir\+Usuario}} (string id\+Usuario, string id\+Usuario\+ADejar)
+\begin{DoxyCompactList}\small\item\em Se ocupa de eliminar un usuario de la lista de seguidores del usuario en la base de datos. \end{DoxyCompactList}\item 
+async Task$<$ bool $>$ \doxymbox{\hyperlink{a00341_a9b1d80b7894adb7554cf0ffbdc2cfedf}{Eliminar\+Cancion\+Por\+Id}} (string id\+Cancion)
+\begin{DoxyCompactList}\small\item\em Se ocupa de eliminar una canción de la base de datos por id. \end{DoxyCompactList}\item 
+async Task$<$ bool $>$ \doxymbox{\hyperlink{a00341_a362afdbc16d7db79934edbffc39d7bfc}{Eliminar\+Playlist\+Por\+Id}} (string id\+Playlist)
+\begin{DoxyCompactList}\small\item\em Eliminamos la listapersonalizada de la base de datos por id. \end{DoxyCompactList}\item 
+async Task$<$ bool $>$ \doxymbox{\hyperlink{a00341_aa1fb8b91a0ab9b0a154a5edc3ccfd26b}{Eliminar\+Genero}} (\doxymbox{\hyperlink{a00269}{Generos}} genero\+AEliminar)
+\begin{DoxyCompactList}\small\item\em Eliminamos el genero de la base de datos. \end{DoxyCompactList}\item 
+async Task$<$ bool $>$ \doxymbox{\hyperlink{a00341_a62bd6a7f7a6b40f01b537945215e664c}{Eliminar\+Usuario}} (string id\+Usuario)
+\begin{DoxyCompactList}\small\item\em Eliminamos al usuarios de la base de datos. \end{DoxyCompactList}\item 
+async Task$<$ bool $>$ \doxymbox{\hyperlink{a00341_a894b3e6ae15af24ba3eb8ef2aa72c86a}{Eliminar\+Reporte}} (string id\+Reporte)
+\begin{DoxyCompactList}\small\item\em Elimina un reporte del la base de datos. \end{DoxyCompactList}\item 
+async Task$<$ bool $>$ \doxymbox{\hyperlink{a00341_a4342f5c1311b705ebdbfb545237d3796}{Actualizar\+Perfil\+Usuario}} (string id\+Usuario, string nuevo\+Nombre, string nuevo\+Email, string nuevo\+Pais, Date\+Time nueva\+Fecha, bool es\+Privada)
+\begin{DoxyCompactList}\small\item\em Actualizamos el usuario logeado mediantes comprobaciones con el singleton. \end{DoxyCompactList}\item 
+async Task$<$ bool $>$ \doxymbox{\hyperlink{a00341_a7dac9e55f18b1db110a44e67912a9f14}{Actualizar\+Usuario}} (string id, string nombre, string email, string password, string rol, string pais, string imagen\+Url, Date\+Time fecha, bool es\+Privada)
+\begin{DoxyCompactList}\small\item\em Actualiza un usaurio de la base de datos. \end{DoxyCompactList}\item 
+async Task$<$ bool $>$ \doxymbox{\hyperlink{a00341_a1004b24100c7c10cf109d933721dee9b}{Actualizar\+Configuracion\+Usuario}} (string id\+Usuario, \doxymbox{\hyperlink{a00317}{Configuracion\+User}} nueva\+Config)
+\item 
+async Task$<$ bool $>$ \doxymbox{\hyperlink{a00341_a0ccd7d3106be180fb4956c4f184cbc44}{Actualizar\+Playlist}} (string nuevo\+Nombre, string nueva\+Desc, List$<$ string $>$ nuevas\+Canciones, string nueva\+Portada, \doxymbox{\hyperlink{a00273}{Lista\+Personalizada}} original)
+\item 
+async Task$<$ bool $>$ \doxymbox{\hyperlink{a00341_a107d53c80d67c2ec71e2c4f75d7bee2a}{Actualizar\+Cancion}} (string nuevo\+Titulo, string nueva\+Portada, List$<$ string $>$ nuevos\+Autores, List$<$ string $>$ nuevos\+Generos, \doxymbox{\hyperlink{a00257}{Canciones}} original)
+\item 
+async Task$<$ bool $>$ \doxymbox{\hyperlink{a00341_a9bd1f30014acfed4fdd5633833269689}{Actualizar\+Estado\+Reporte}} (string nuevo\+Estado, string nueva\+Resolucion, \doxymbox{\hyperlink{a00281}{Reportes}} original)
+\item 
+async Task \doxymbox{\hyperlink{a00341_a0b45d63ab7453dcbf6d0bb258ef7abe3}{Incrementar\+Metrica\+Cancion}} (string id\+Cancion, string campo, int cantidad)
+\item 
+async Task \doxymbox{\hyperlink{a00341_a5e7fc8cdeb478bbc5c346bc94bd35f88}{Incrementar\+Contador\+Canciones\+Usuario}} (string id\+Usuario, int cantidad)
+\item 
+async Task$<$ bool $>$ \doxymbox{\hyperlink{a00341_a977c5f1f5f8f23eb086636484f6acd3d}{Actualizar\+Genero}} (string id, string nuevo\+Nombre)
+\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Propiedades}
+\begin{DoxyCompactItemize}
+\item 
+IMongo\+Database? \doxymbox{\hyperlink{a00341_a0b88342936f68c62a5136938881779c9}{Database}}\hspace{0.3cm}{\ttfamily  \+[get, private set]\+}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{a00341_doc-constructors}
+\doxysubsubsection{Constructores}
+\Hypertarget{a00341_aaf0d372a419870e4069263665968b9f8}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!MongoAtlas@{MongoAtlas}}
+\index{MongoAtlas@{MongoAtlas}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{MongoAtlas()}{MongoAtlas()}}
+{\footnotesize\ttfamily \label{a00341_aaf0d372a419870e4069263665968b9f8} 
+Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Mongo\+Atlas (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00024}{24}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{a00341_doc-func-members}
+\doxysubsubsection{Funciones}
+\Hypertarget{a00341_a107d53c80d67c2ec71e2c4f75d7bee2a}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!ActualizarCancion@{ActualizarCancion}}
+\index{ActualizarCancion@{ActualizarCancion}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{ActualizarCancion()}{ActualizarCancion()}}
+{\footnotesize\ttfamily \label{a00341_a107d53c80d67c2ec71e2c4f75d7bee2a} 
+async Task$<$ bool $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Actualizar\+Cancion (\begin{DoxyParamCaption}\item[{string}]{nuevo\+Titulo}{, }\item[{string}]{nueva\+Portada}{, }\item[{List$<$ string $>$}]{nuevos\+Autores}{, }\item[{List$<$ string $>$}]{nuevos\+Generos}{, }\item[{\doxymbox{\hyperlink{a00257}{Canciones}}}]{original}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l01297}{1297}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a1004b24100c7c10cf109d933721dee9b}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!ActualizarConfiguracionUsuario@{ActualizarConfiguracionUsuario}}
+\index{ActualizarConfiguracionUsuario@{ActualizarConfiguracionUsuario}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{ActualizarConfiguracionUsuario()}{ActualizarConfiguracionUsuario()}}
+{\footnotesize\ttfamily \label{a00341_a1004b24100c7c10cf109d933721dee9b} 
+async Task$<$ bool $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Actualizar\+Configuracion\+Usuario (\begin{DoxyParamCaption}\item[{string}]{id\+Usuario}{, }\item[{\doxymbox{\hyperlink{a00317}{Configuracion\+User}}}]{nueva\+Config}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l01197}{1197}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a9bd1f30014acfed4fdd5633833269689}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!ActualizarEstadoReporte@{ActualizarEstadoReporte}}
+\index{ActualizarEstadoReporte@{ActualizarEstadoReporte}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{ActualizarEstadoReporte()}{ActualizarEstadoReporte()}}
+{\footnotesize\ttfamily \label{a00341_a9bd1f30014acfed4fdd5633833269689} 
+async Task$<$ bool $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Actualizar\+Estado\+Reporte (\begin{DoxyParamCaption}\item[{string}]{nuevo\+Estado}{, }\item[{string}]{nueva\+Resolucion}{, }\item[{\doxymbox{\hyperlink{a00281}{Reportes}}}]{original}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l01359}{1359}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a977c5f1f5f8f23eb086636484f6acd3d}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!ActualizarGenero@{ActualizarGenero}}
+\index{ActualizarGenero@{ActualizarGenero}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{ActualizarGenero()}{ActualizarGenero()}}
+{\footnotesize\ttfamily \label{a00341_a977c5f1f5f8f23eb086636484f6acd3d} 
+async Task$<$ bool $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Actualizar\+Genero (\begin{DoxyParamCaption}\item[{string}]{id}{, }\item[{string}]{nuevo\+Nombre}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l01512}{1512}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a4342f5c1311b705ebdbfb545237d3796}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!ActualizarPerfilUsuario@{ActualizarPerfilUsuario}}
+\index{ActualizarPerfilUsuario@{ActualizarPerfilUsuario}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{ActualizarPerfilUsuario()}{ActualizarPerfilUsuario()}}
+{\footnotesize\ttfamily \label{a00341_a4342f5c1311b705ebdbfb545237d3796} 
+async Task$<$ bool $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Actualizar\+Perfil\+Usuario (\begin{DoxyParamCaption}\item[{string}]{id\+Usuario}{, }\item[{string}]{nuevo\+Nombre}{, }\item[{string}]{nuevo\+Email}{, }\item[{string}]{nuevo\+Pais}{, }\item[{Date\+Time}]{nueva\+Fecha}{, }\item[{bool}]{es\+Privada}{}\end{DoxyParamCaption})}
+
+
+
+Actualizamos el usuario logeado mediantes comprobaciones con el singleton. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id\+Usuario} & \\
+\hline
+{\em nuevo\+Nombre} & \\
+\hline
+{\em nuevo\+Email} & \\
+\hline
+{\em nuevo\+Pais} & \\
+\hline
+{\em nueva\+Fecha} & \\
+\hline
+{\em es\+Privada} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l01097}{1097}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a0ccd7d3106be180fb4956c4f184cbc44}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!ActualizarPlaylist@{ActualizarPlaylist}}
+\index{ActualizarPlaylist@{ActualizarPlaylist}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{ActualizarPlaylist()}{ActualizarPlaylist()}}
+{\footnotesize\ttfamily \label{a00341_a0ccd7d3106be180fb4956c4f184cbc44} 
+async Task$<$ bool $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Actualizar\+Playlist (\begin{DoxyParamCaption}\item[{string}]{nuevo\+Nombre}{, }\item[{string}]{nueva\+Desc}{, }\item[{List$<$ string $>$}]{nuevas\+Canciones}{, }\item[{string}]{nueva\+Portada}{, }\item[{\doxymbox{\hyperlink{a00273}{Lista\+Personalizada}}}]{original}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l01241}{1241}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a3669d940bea92f40b0573c907c3c2b26}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!ActualizarTendencia@{ActualizarTendencia}}
+\index{ActualizarTendencia@{ActualizarTendencia}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{ActualizarTendencia()}{ActualizarTendencia()}}
+{\footnotesize\ttfamily \label{a00341_a3669d940bea92f40b0573c907c3c2b26} 
+async Task Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Actualizar\+Tendencia (\begin{DoxyParamCaption}\item[{string}]{id\+Cancion}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l01439}{1439}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a7dac9e55f18b1db110a44e67912a9f14}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!ActualizarUsuario@{ActualizarUsuario}}
+\index{ActualizarUsuario@{ActualizarUsuario}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{ActualizarUsuario()}{ActualizarUsuario()}}
+{\footnotesize\ttfamily \label{a00341_a7dac9e55f18b1db110a44e67912a9f14} 
+async Task$<$ bool $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Actualizar\+Usuario (\begin{DoxyParamCaption}\item[{string}]{id}{, }\item[{string}]{nombre}{, }\item[{string}]{email}{, }\item[{string}]{password}{, }\item[{string}]{rol}{, }\item[{string}]{pais}{, }\item[{string}]{imagen\+Url}{, }\item[{Date\+Time}]{fecha}{, }\item[{bool}]{es\+Privada}{}\end{DoxyParamCaption})}
+
+
+
+Actualiza un usaurio de la base de datos. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id} & \\
+\hline
+{\em nombre} & \\
+\hline
+{\em email} & \\
+\hline
+{\em password} & \\
+\hline
+{\em rol} & \\
+\hline
+{\em pais} & \\
+\hline
+{\em imagen\+Url} & \\
+\hline
+{\em fecha} & \\
+\hline
+{\em es\+Privada} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l01160}{1160}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_ac6c5aec3c4e864c28fe273b4fca26265}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!AgregarAFavorito@{AgregarAFavorito}}
+\index{AgregarAFavorito@{AgregarAFavorito}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{AgregarAFavorito()}{AgregarAFavorito()}}
+{\footnotesize\ttfamily \label{a00341_ac6c5aec3c4e864c28fe273b4fca26265} 
+async Task$<$ bool $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Agregar\+AFavorito (\begin{DoxyParamCaption}\item[{string}]{id\+Usuario}{, }\item[{string}]{id\+Cancion}{}\end{DoxyParamCaption})}
+
+
+
+Se ocupa de añadir una canción a la lista de favoritos del usuario en la base de datos. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id\+Usuario} & \\
+\hline
+{\em id\+Cancion} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00630}{630}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a835455d58efc82784facaa3ed7d85ebe}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!Conectar@{Conectar}}
+\index{Conectar@{Conectar}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{Conectar()}{Conectar()}}
+{\footnotesize\ttfamily \label{a00341_a835455d58efc82784facaa3ed7d85ebe} 
+async Task$<$ bool $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Conectar (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00030}{30}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a11fcba92ac586e43a7c7b310ffc89d8b}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!CrearGenero@{CrearGenero}}
+\index{CrearGenero@{CrearGenero}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{CrearGenero()}{CrearGenero()}}
+{\footnotesize\ttfamily \label{a00341_a11fcba92ac586e43a7c7b310ffc89d8b} 
+async Task$<$ bool $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Crear\+Genero (\begin{DoxyParamCaption}\item[{string}]{nuevo\+Genero}{}\end{DoxyParamCaption})}
+
+
+
+Se ocupa de crear un nuevo género en la base de datos. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em nuevo\+Genero} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00773}{773}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a4d25cd09073e5d97baa79b201e7fda68}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!CrearListaReproduccion@{CrearListaReproduccion}}
+\index{CrearListaReproduccion@{CrearListaReproduccion}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{CrearListaReproduccion()}{CrearListaReproduccion()}}
+{\footnotesize\ttfamily \label{a00341_a4d25cd09073e5d97baa79b201e7fda68} 
+async Task$<$ bool $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Crear\+Lista\+Reproduccion (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{a00273}{Lista\+Personalizada}}}]{nueva\+Lista}{}\end{DoxyParamCaption})}
+
+
+
+Se ocupa de crear una nueva listapersonalizada en la base de datos. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em nueva\+Lista} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00723}{723}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a92a4cd06a566f780bceda46f4027473b}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!CrearUsuario@{CrearUsuario}}
+\index{CrearUsuario@{CrearUsuario}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{CrearUsuario()}{CrearUsuario()}}
+{\footnotesize\ttfamily \label{a00341_a92a4cd06a566f780bceda46f4027473b} 
+async Task$<$ bool $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Crear\+Usuario (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{a00301}{Usuarios}}}]{nuevo\+Usuario}{}\end{DoxyParamCaption})}
+
+
+
+Se ocupa de crear un nuevo usuario en la base de datos. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em nuevo\+Usuario} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00810}{810}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a57ac24550ab4739bbdf4b0dced6aaa90}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!DejarDeSeguirUsuario@{DejarDeSeguirUsuario}}
+\index{DejarDeSeguirUsuario@{DejarDeSeguirUsuario}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{DejarDeSeguirUsuario()}{DejarDeSeguirUsuario()}}
+{\footnotesize\ttfamily \label{a00341_a57ac24550ab4739bbdf4b0dced6aaa90} 
+async Task$<$ bool $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Dejar\+De\+Seguir\+Usuario (\begin{DoxyParamCaption}\item[{string}]{id\+Usuario}{, }\item[{string}]{id\+Usuario\+ADejar}{}\end{DoxyParamCaption})}
+
+
+
+Se ocupa de eliminar un usuario de la lista de seguidores del usuario en la base de datos. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id\+Usuario} & \\
+\hline
+{\em id\+Usuario\+ADejar} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00880}{880}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a9b1d80b7894adb7554cf0ffbdc2cfedf}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!EliminarCancionPorId@{EliminarCancionPorId}}
+\index{EliminarCancionPorId@{EliminarCancionPorId}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{EliminarCancionPorId()}{EliminarCancionPorId()}}
+{\footnotesize\ttfamily \label{a00341_a9b1d80b7894adb7554cf0ffbdc2cfedf} 
+async Task$<$ bool $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Eliminar\+Cancion\+Por\+Id (\begin{DoxyParamCaption}\item[{string}]{id\+Cancion}{}\end{DoxyParamCaption})}
+
+
+
+Se ocupa de eliminar una canción de la base de datos por id. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id\+Cancion} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00912}{912}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a005c2409a612977ab20af26a5896960e}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!EliminarDeFavorito@{EliminarDeFavorito}}
+\index{EliminarDeFavorito@{EliminarDeFavorito}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{EliminarDeFavorito()}{EliminarDeFavorito()}}
+{\footnotesize\ttfamily \label{a00341_a005c2409a612977ab20af26a5896960e} 
+async Task$<$ bool $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Eliminar\+De\+Favorito (\begin{DoxyParamCaption}\item[{string}]{id\+Usuario}{, }\item[{string}]{id\+Cancion}{}\end{DoxyParamCaption})}
+
+
+
+Se ocupa de eliminar una canción de la lista de favoritos del usuario en la base de datos. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id\+Usuario} & \\
+\hline
+{\em id\+Cancion} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00846}{846}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_aa1fb8b91a0ab9b0a154a5edc3ccfd26b}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!EliminarGenero@{EliminarGenero}}
+\index{EliminarGenero@{EliminarGenero}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{EliminarGenero()}{EliminarGenero()}}
+{\footnotesize\ttfamily \label{a00341_aa1fb8b91a0ab9b0a154a5edc3ccfd26b} 
+async Task$<$ bool $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Eliminar\+Genero (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{a00269}{Generos}}}]{genero\+AEliminar}{}\end{DoxyParamCaption})}
+
+
+
+Eliminamos el genero de la base de datos. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em genero\+AEliminar} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00974}{974}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a362afdbc16d7db79934edbffc39d7bfc}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!EliminarPlaylistPorId@{EliminarPlaylistPorId}}
+\index{EliminarPlaylistPorId@{EliminarPlaylistPorId}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{EliminarPlaylistPorId()}{EliminarPlaylistPorId()}}
+{\footnotesize\ttfamily \label{a00341_a362afdbc16d7db79934edbffc39d7bfc} 
+async Task$<$ bool $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Eliminar\+Playlist\+Por\+Id (\begin{DoxyParamCaption}\item[{string}]{id\+Playlist}{}\end{DoxyParamCaption})}
+
+
+
+Eliminamos la listapersonalizada de la base de datos por id. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id\+Playlist} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00953}{953}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a894b3e6ae15af24ba3eb8ef2aa72c86a}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!EliminarReporte@{EliminarReporte}}
+\index{EliminarReporte@{EliminarReporte}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{EliminarReporte()}{EliminarReporte()}}
+{\footnotesize\ttfamily \label{a00341_a894b3e6ae15af24ba3eb8ef2aa72c86a} 
+async Task$<$ bool $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Eliminar\+Reporte (\begin{DoxyParamCaption}\item[{string}]{id\+Reporte}{}\end{DoxyParamCaption})}
+
+
+
+Elimina un reporte del la base de datos. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id\+Reporte} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l01062}{1062}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a62bd6a7f7a6b40f01b537945215e664c}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!EliminarUsuario@{EliminarUsuario}}
+\index{EliminarUsuario@{EliminarUsuario}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{EliminarUsuario()}{EliminarUsuario()}}
+{\footnotesize\ttfamily \label{a00341_a62bd6a7f7a6b40f01b537945215e664c} 
+async Task$<$ bool $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Eliminar\+Usuario (\begin{DoxyParamCaption}\item[{string}]{id\+Usuario}{}\end{DoxyParamCaption})}
+
+
+
+Eliminamos al usuarios de la base de datos. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id\+Usuario} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l01015}{1015}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a1150c7087a0f30d2e2ae5668c68219f9}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!EnviarReporte@{EnviarReporte}}
+\index{EnviarReporte@{EnviarReporte}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{EnviarReporte()}{EnviarReporte()}}
+{\footnotesize\ttfamily \label{a00341_a1150c7087a0f30d2e2ae5668c68219f9} 
+async Task$<$ bool $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Enviar\+Reporte (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{a00281}{Reportes}}}]{nuevo\+Reporte}{}\end{DoxyParamCaption})}
+
+
+
+Se ocupa de enviar un nuevo reporte a la base de datos. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em nuevo\+Reporte} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00748}{748}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a5e7fc8cdeb478bbc5c346bc94bd35f88}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!IncrementarContadorCancionesUsuario@{IncrementarContadorCancionesUsuario}}
+\index{IncrementarContadorCancionesUsuario@{IncrementarContadorCancionesUsuario}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{IncrementarContadorCancionesUsuario()}{IncrementarContadorCancionesUsuario()}}
+{\footnotesize\ttfamily \label{a00341_a5e7fc8cdeb478bbc5c346bc94bd35f88} 
+async Task Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Incrementar\+Contador\+Canciones\+Usuario (\begin{DoxyParamCaption}\item[{string}]{id\+Usuario}{, }\item[{int}]{cantidad}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l01490}{1490}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a0b45d63ab7453dcbf6d0bb258ef7abe3}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!IncrementarMetricaCancion@{IncrementarMetricaCancion}}
+\index{IncrementarMetricaCancion@{IncrementarMetricaCancion}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{IncrementarMetricaCancion()}{IncrementarMetricaCancion()}}
+{\footnotesize\ttfamily \label{a00341_a0b45d63ab7453dcbf6d0bb258ef7abe3} 
+async Task Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Incrementar\+Metrica\+Cancion (\begin{DoxyParamCaption}\item[{string}]{id\+Cancion}{, }\item[{string}]{campo}{, }\item[{int}]{cantidad}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l01412}{1412}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a6d8ba1f32e260236a1b7eae9db558d84}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!LoginUsuario@{LoginUsuario}}
+\index{LoginUsuario@{LoginUsuario}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{LoginUsuario()}{LoginUsuario()}}
+{\footnotesize\ttfamily \label{a00341_a6d8ba1f32e260236a1b7eae9db558d84} 
+async Task$<$ \doxymbox{\hyperlink{a00301}{Usuarios}} $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Login\+Usuario (\begin{DoxyParamCaption}\item[{string}]{username}{, }\item[{string}]{password}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00064}{64}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a43e7075d77d5614b2a44278070287678}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!ObtenerCacionesNovedades@{ObtenerCacionesNovedades}}
+\index{ObtenerCacionesNovedades@{ObtenerCacionesNovedades}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{ObtenerCacionesNovedades()}{ObtenerCacionesNovedades()}}
+{\footnotesize\ttfamily \label{a00341_a43e7075d77d5614b2a44278070287678} 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00257}{Canciones}} $>$ $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Obtener\+Caciones\+Novedades (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00130}{130}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_ac8e61caf0a93f90f99e9ce573bd01a5a}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!ObtenerCanciones@{ObtenerCanciones}}
+\index{ObtenerCanciones@{ObtenerCanciones}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{ObtenerCanciones()}{ObtenerCanciones()}}
+{\footnotesize\ttfamily \label{a00341_ac8e61caf0a93f90f99e9ce573bd01a5a} 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00257}{Canciones}} $>$ $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Obtener\+Canciones (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00188}{188}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_aff88c646fe54fe223cce1b65df8ae46d}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!ObtenerCancionesFavoritos@{ObtenerCancionesFavoritos}}
+\index{ObtenerCancionesFavoritos@{ObtenerCancionesFavoritos}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{ObtenerCancionesFavoritos()}{ObtenerCancionesFavoritos()}}
+{\footnotesize\ttfamily \label{a00341_aff88c646fe54fe223cce1b65df8ae46d} 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00257}{Canciones}} $>$ $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Obtener\+Canciones\+Favoritos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00092}{92}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a5ea7eec2b0189b4d78dfa52f10a29add}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!ObtenerCancionesPorAutor@{ObtenerCancionesPorAutor}}
+\index{ObtenerCancionesPorAutor@{ObtenerCancionesPorAutor}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{ObtenerCancionesPorAutor()}{ObtenerCancionesPorAutor()}}
+{\footnotesize\ttfamily \label{a00341_a5ea7eec2b0189b4d78dfa52f10a29add} 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00257}{Canciones}} $>$ $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Obtener\+Canciones\+Por\+Autor (\begin{DoxyParamCaption}\item[{string}]{id\+Autor}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00264}{264}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a9e1cd3a3a1a14d1fcea59e15a36ad0d9}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!ObtenerCancionesPorBusqueda@{ObtenerCancionesPorBusqueda}}
+\index{ObtenerCancionesPorBusqueda@{ObtenerCancionesPorBusqueda}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{ObtenerCancionesPorBusqueda()}{ObtenerCancionesPorBusqueda()}}
+{\footnotesize\ttfamily \label{a00341_a9e1cd3a3a1a14d1fcea59e15a36ad0d9} 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00257}{Canciones}} $>$ $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Obtener\+Canciones\+Por\+Busqueda (\begin{DoxyParamCaption}\item[{string}]{texto\+Busqueda}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00236}{236}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_ad94222735daff4ead92649645928c8b5}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!ObtenerCancionesPorGenero@{ObtenerCancionesPorGenero}}
+\index{ObtenerCancionesPorGenero@{ObtenerCancionesPorGenero}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{ObtenerCancionesPorGenero()}{ObtenerCancionesPorGenero()}}
+{\footnotesize\ttfamily \label{a00341_ad94222735daff4ead92649645928c8b5} 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00257}{Canciones}} $>$ $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Obtener\+Canciones\+Por\+Genero (\begin{DoxyParamCaption}\item[{string}]{genero}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00158}{158}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a6adc826a3a2077d0bcecf593f726ace6}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!ObtenerCancionesPorListaIds@{ObtenerCancionesPorListaIds}}
+\index{ObtenerCancionesPorListaIds@{ObtenerCancionesPorListaIds}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{ObtenerCancionesPorListaIds()}{ObtenerCancionesPorListaIds()}}
+{\footnotesize\ttfamily \label{a00341_a6adc826a3a2077d0bcecf593f726ace6} 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00257}{Canciones}} $>$ $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Obtener\+Canciones\+Por\+Lista\+Ids (\begin{DoxyParamCaption}\item[{List$<$ string $>$}]{ids}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00216}{216}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_ad12a39c2cd4d2e273d669be8681a81b7}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!ObtenerGenerosCompletos@{ObtenerGenerosCompletos}}
+\index{ObtenerGenerosCompletos@{ObtenerGenerosCompletos}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{ObtenerGenerosCompletos()}{ObtenerGenerosCompletos()}}
+{\footnotesize\ttfamily \label{a00341_ad12a39c2cd4d2e273d669be8681a81b7} 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00269}{Generos}} $>$ $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Obtener\+Generos\+Completos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Obtenemos los objetos completos de géneros de la base de datos. 
+
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00537}{537}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_adf30dd79b8d13c64e47a8024a7db2b02}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!ObtenerListasReproduccion@{ObtenerListasReproduccion}}
+\index{ObtenerListasReproduccion@{ObtenerListasReproduccion}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{ObtenerListasReproduccion()}{ObtenerListasReproduccion()}}
+{\footnotesize\ttfamily \label{a00341_adf30dd79b8d13c64e47a8024a7db2b02} 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00273}{Lista\+Personalizada}} $>$ $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Obtener\+Listas\+Reproduccion (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00389}{389}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a6992907ff50bf8a92a611e2324e9eb8a}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!ObtenerMixPorGenero@{ObtenerMixPorGenero}}
+\index{ObtenerMixPorGenero@{ObtenerMixPorGenero}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{ObtenerMixPorGenero()}{ObtenerMixPorGenero()}}
+{\footnotesize\ttfamily \label{a00341_a6992907ff50bf8a92a611e2324e9eb8a} 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00257}{Canciones}} $>$ $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Obtener\+Mix\+Por\+Genero (\begin{DoxyParamCaption}\item[{string}]{genero}{}\end{DoxyParamCaption})}
+
+
+
+Obtiene una mezcla de canciones por género (veteranos + indies) partir del puntaje de tendencia. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em genero} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00561}{561}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a831b1f89de8363f28fdf2a25a3440fff}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!ObtenerNombresGeneros@{ObtenerNombresGeneros}}
+\index{ObtenerNombresGeneros@{ObtenerNombresGeneros}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{ObtenerNombresGeneros()}{ObtenerNombresGeneros()}}
+{\footnotesize\ttfamily \label{a00341_a831b1f89de8363f28fdf2a25a3440fff} 
+async Task$<$ List$<$ string $>$ $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Obtener\+Nombres\+Generos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Obtenemos la lista de nombres de géneros de la base de datos. 
+
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00510}{510}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a02b5755f4d1e38e31897c6b99b1c4669}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!ObtenerPlaylistsPorCreador@{ObtenerPlaylistsPorCreador}}
+\index{ObtenerPlaylistsPorCreador@{ObtenerPlaylistsPorCreador}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{ObtenerPlaylistsPorCreador()}{ObtenerPlaylistsPorCreador()}}
+{\footnotesize\ttfamily \label{a00341_a02b5755f4d1e38e31897c6b99b1c4669} 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00273}{Lista\+Personalizada}} $>$ $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Obtener\+Playlists\+Por\+Creador (\begin{DoxyParamCaption}\item[{string}]{id\+Usuario}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00419}{419}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_acebd6beb5817ff2365be22bf07a690df}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!ObtenerReportes@{ObtenerReportes}}
+\index{ObtenerReportes@{ObtenerReportes}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{ObtenerReportes()}{ObtenerReportes()}}
+{\footnotesize\ttfamily \label{a00341_acebd6beb5817ff2365be22bf07a690df} 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00281}{Reportes}} $>$ $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Obtener\+Reportes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Se ocupa de traer todos los reportes de la base de datos. 
+
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00459}{459}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a45e99c3e0723f4bf4afb7812b46fcc0f}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!ObtenerTodosLosUsuarios@{ObtenerTodosLosUsuarios}}
+\index{ObtenerTodosLosUsuarios@{ObtenerTodosLosUsuarios}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{ObtenerTodosLosUsuarios()}{ObtenerTodosLosUsuarios()}}
+{\footnotesize\ttfamily \label{a00341_a45e99c3e0723f4bf4afb7812b46fcc0f} 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00301}{Usuarios}} $>$ $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Obtener\+Todos\+Los\+Usuarios (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00295}{295}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a9f802e6629b4ac6853bc439b2bc9d38d}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!ObtenerUsuariosPorBusqueda@{ObtenerUsuariosPorBusqueda}}
+\index{ObtenerUsuariosPorBusqueda@{ObtenerUsuariosPorBusqueda}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{ObtenerUsuariosPorBusqueda()}{ObtenerUsuariosPorBusqueda()}}
+{\footnotesize\ttfamily \label{a00341_a9f802e6629b4ac6853bc439b2bc9d38d} 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00301}{Usuarios}} $>$ $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Obtener\+Usuarios\+Por\+Busqueda (\begin{DoxyParamCaption}\item[{string}]{texto\+Busqueda}{, }\item[{List$<$ string $>$}]{ids\+Excluidos}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00319}{319}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a87698d483367c5aa67cb4d3a6fc2def2}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!ObtenerUsuariosPorListaIds@{ObtenerUsuariosPorListaIds}}
+\index{ObtenerUsuariosPorListaIds@{ObtenerUsuariosPorListaIds}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{ObtenerUsuariosPorListaIds()}{ObtenerUsuariosPorListaIds()}}
+{\footnotesize\ttfamily \label{a00341_a87698d483367c5aa67cb4d3a6fc2def2} 
+async Task$<$ List$<$ \doxymbox{\hyperlink{a00301}{Usuarios}} $>$ $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Obtener\+Usuarios\+Por\+Lista\+Ids (\begin{DoxyParamCaption}\item[{List$<$ string $>$}]{lista\+Ids}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00355}{355}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a58a656044a3ddda050959ab21d1d1f9b}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!PublicarCancion@{PublicarCancion}}
+\index{PublicarCancion@{PublicarCancion}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{PublicarCancion()}{PublicarCancion()}}
+{\footnotesize\ttfamily \label{a00341_a58a656044a3ddda050959ab21d1d1f9b} 
+async Task$<$ bool $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Publicar\+Cancion (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{a00257}{Canciones}}}]{nueva\+Cancion}{}\end{DoxyParamCaption})}
+
+
+
+Se ocupa de publicar una nueva canción en la base de datos. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em nueva\+Cancion} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00699}{699}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a35633fee8abd01ba4a3fa686018e8065}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!RellenarNombresDeArtistas@{RellenarNombresDeArtistas}}
+\index{RellenarNombresDeArtistas@{RellenarNombresDeArtistas}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{RellenarNombresDeArtistas()}{RellenarNombresDeArtistas()}}
+{\footnotesize\ttfamily \label{a00341_a35633fee8abd01ba4a3fa686018e8065} 
+async Task Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Rellenar\+Nombres\+De\+Artistas (\begin{DoxyParamCaption}\item[{List$<$ \doxymbox{\hyperlink{a00257}{Canciones}} $>$}]{lista\+Canciones}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l01558}{1558}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+\Hypertarget{a00341_a3c85bf91526a3716c7abf03b0fdf2eb2}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!SeguirUsuario@{SeguirUsuario}}
+\index{SeguirUsuario@{SeguirUsuario}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{SeguirUsuario()}{SeguirUsuario()}}
+{\footnotesize\ttfamily \label{a00341_a3c85bf91526a3716c7abf03b0fdf2eb2} 
+async Task$<$ bool $>$ Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Seguir\+Usuario (\begin{DoxyParamCaption}\item[{string}]{id\+Usuario}{, }\item[{string}]{id\+Usuario\+ASeguir}{}\end{DoxyParamCaption})}
+
+
+
+Se ocupa de añadir un usuario a la lista de seguidores del usuario en la base de datos. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id\+Usuario} & \\
+\hline
+{\em id\+Usuario\+ASeguir} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00666}{666}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+
+
+
+\label{doc-property-members}
+\Hypertarget{a00341_doc-property-members}
+\doxysubsubsection{Propiedades}
+\Hypertarget{a00341_a0b88342936f68c62a5136938881779c9}\index{BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}!Database@{Database}}
+\index{Database@{Database}!BetaProyecto.Services.MongoAtlas@{BetaProyecto.Services.MongoAtlas}}
+\doxyparagraph{\texorpdfstring{Database}{Database}}
+{\footnotesize\ttfamily \label{a00341_a0b88342936f68c62a5136938881779c9} 
+IMongo\+Database? Beta\+Proyecto.\+Services.\+Mongo\+Atlas.\+Database\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00059_source_l00023}{23}} del archivo \doxymbox{\hyperlink{a00059_source}{Mongo\+Atlas.\+cs}}.
+

@@ -1,0 +1,358 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MusicSearch: Archivo de código fuente BetaProyecto/ViewModels/ViewGestionarReportesViewModel.cs</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(function() { init_search(); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../LogoApp (4).png"/></td>
+  <td id="projectalign">
+   <div id="projectname">MusicSearch<span id="projectnumber">&#160;1.1.2</span>
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d2/df5/a00137_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ViewGestionarReportesViewModel.cs</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d2/df5/a00137.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">using </span><a class="code hl_namespace" href="../../dd/d4c/a00177.html">BetaProyecto.Models</a>;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">using </span><a class="code hl_namespace" href="../../d9/d90/a00178.html">BetaProyecto.Services</a>;</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">using </span><a class="code hl_namespace" href="../../db/dd9/a00179.html">BetaProyecto.Singleton</a>;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">using </span>ReactiveUI;</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">using </span>System.Collections.ObjectModel;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">using </span>System.Linq;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">using </span>System.Reactive;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">using </span>System.Threading.Tasks;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d81/a00180.html">BetaProyecto.ViewModels</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html">   12</a></span>    <span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_function" href="../../dd/d47/a00445.html#a89ff1a6bd76390da7e7ad4de6ec3b316">ViewGestionarReportesViewModel</a> : <a class="code hl_class" href="../../da/dc3/a00453.html">ViewModelBase</a></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="comment">//Servicios</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a595ebaee7e247ab5ca0b81e5a2a88165">   15</a></span>        <span class="keyword">private</span> readonly <a class="code hl_interface" href="../../d4/dce/a00337.html">IDialogoService</a> <a class="code hl_variable" href="../../dd/d47/a00445.html#a595ebaee7e247ab5ca0b81e5a2a88165">_dialogoService</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="comment">// Lista</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a0915ff36d8a7632a77bf28ed8710aa7b">   18</a></span>        <span class="keyword">public</span> ObservableCollection&lt;Reportes&gt; <a class="code hl_property" href="../../dd/d47/a00445.html#a0915ff36d8a7632a77bf28ed8710aa7b">ListaPendientes</a> { <span class="keyword">get</span>; } </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a166c34a912bd267f41c83c6629854ba7">   19</a></span>        <span class="keyword">public</span> ObservableCollection&lt;Reportes&gt; <a class="code hl_property" href="../../dd/d47/a00445.html#a166c34a912bd267f41c83c6629854ba7">ListaInvestigando</a> { <span class="keyword">get</span>; } </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a15b2878f56f62f94c837445494d77b4d">   20</a></span>        <span class="keyword">public</span> ObservableCollection&lt;Reportes&gt; <a class="code hl_property" href="../../dd/d47/a00445.html#a15b2878f56f62f94c837445494d77b4d">ListaFinalizados</a> { <span class="keyword">get</span>; }</div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a1b276ff0012e5c6fab3f3c0945467cd2">   21</a></span>        <span class="keyword">public</span> ObservableCollection&lt;string&gt; <a class="code hl_property" href="../../dd/d47/a00445.html#a1b276ff0012e5c6fab3f3c0945467cd2">OpcionesEstado</a> { <span class="keyword">get</span>; } = <span class="keyword">new</span>()</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        { <span class="stringliteral">&quot;Pendiente&quot;</span>, <span class="stringliteral">&quot;Investigando&quot;</span>, <span class="stringliteral">&quot;Finalizado&quot;</span> };</div>
+</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="comment">//Bindings</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a7030ff1531d1b64331db24216ea99d82">   25</a></span>        <span class="keyword">private</span> <a class="code hl_class" href="../../d2/d04/a00281.html">Reportes</a> <a class="code hl_variable" href="../../dd/d47/a00445.html#a7030ff1531d1b64331db24216ea99d82">_reporteSeleccionado</a>;</div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a55660f1e4d46adbbe1deceae1d4f2fe2">   26</a></span>        <span class="keyword">public</span> <a class="code hl_class" href="../../d2/d04/a00281.html">Reportes</a> <a class="code hl_property" href="../../dd/d47/a00445.html#a55660f1e4d46adbbe1deceae1d4f2fe2">ReporteSeleccionado</a></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <span class="keyword">get</span> =&gt; <a class="code hl_variable" href="../../dd/d47/a00445.html#a7030ff1531d1b64331db24216ea99d82">_reporteSeleccionado</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            <span class="keyword">set</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>                this.RaiseAndSetIfChanged(ref <a class="code hl_variable" href="../../dd/d47/a00445.html#a7030ff1531d1b64331db24216ea99d82">_reporteSeleccionado</a>, value);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>                <span class="keywordflow">if</span> (value != <span class="keyword">null</span>)</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>                {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>                    <a class="code hl_property" href="../../dd/d47/a00445.html#a4a57124da5d1412c623b8fe151ba3c8e">EstadoEdit</a> = value.Estado;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>                    <a class="code hl_property" href="../../dd/d47/a00445.html#a80a78fbf1543e722c7c375fb5d73e13c">ResolucionEdit</a> = value.Resolucion;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>                }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            }</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        }</div>
+</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="comment">//Hacemos selecciones individuales para cada lista para evitar conflictos al seleccionar en una y que se marque en las otras</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="comment">// Selección Pendientes</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a45d324620cc50f69f885f40938bec074">   41</a></span>        <span class="keyword">private</span> <a class="code hl_class" href="../../d2/d04/a00281.html">Reportes</a> <a class="code hl_variable" href="../../dd/d47/a00445.html#a45d324620cc50f69f885f40938bec074">_selPendiente</a>;</div>
+<div class="foldopen" id="foldopen00042" data-start="{" data-end="};">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#acb576f7632c61208306fd420732b7df0">   42</a></span>        <span class="keyword">public</span> <a class="code hl_class" href="../../d2/d04/a00281.html">Reportes</a> <a class="code hl_property" href="../../dd/d47/a00445.html#acb576f7632c61208306fd420732b7df0">SelectedPendiente</a></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <span class="keyword">get</span> =&gt; <a class="code hl_variable" href="../../dd/d47/a00445.html#a45d324620cc50f69f885f40938bec074">_selPendiente</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            <span class="keyword">set</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                this.RaiseAndSetIfChanged(ref <a class="code hl_variable" href="../../dd/d47/a00445.html#a45d324620cc50f69f885f40938bec074">_selPendiente</a>, value);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                <span class="keywordflow">if</span> (value != <span class="keyword">null</span>)</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                    <a class="code hl_property" href="../../dd/d47/a00445.html#a55660f1e4d46adbbe1deceae1d4f2fe2">ReporteSeleccionado</a> = value;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                    <a class="code hl_property" href="../../dd/d47/a00445.html#ac8e0d932449bd87e476726c80ac53988">SelectedInvestigando</a> = <span class="keyword">null</span>;   </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                    <a class="code hl_property" href="../../dd/d47/a00445.html#a36bc13320b30ca2e35cb5f3c52e2dacb">SelectedFinalizado</a> = <span class="keyword">null</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        }</div>
+</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="comment">// Selección Investigando</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#af0bd0aa53773d86948b6f3016e2c2f5f">   58</a></span>        <span class="keyword">private</span> <a class="code hl_class" href="../../d2/d04/a00281.html">Reportes</a> <a class="code hl_variable" href="../../dd/d47/a00445.html#af0bd0aa53773d86948b6f3016e2c2f5f">_selInvestigando</a>;</div>
+<div class="foldopen" id="foldopen00059" data-start="{" data-end="};">
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#ac8e0d932449bd87e476726c80ac53988">   59</a></span>        <span class="keyword">public</span> <a class="code hl_class" href="../../d2/d04/a00281.html">Reportes</a> <a class="code hl_property" href="../../dd/d47/a00445.html#ac8e0d932449bd87e476726c80ac53988">SelectedInvestigando</a></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            <span class="keyword">get</span> =&gt; <a class="code hl_variable" href="../../dd/d47/a00445.html#af0bd0aa53773d86948b6f3016e2c2f5f">_selInvestigando</a>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            <span class="keyword">set</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                this.RaiseAndSetIfChanged(ref <a class="code hl_variable" href="../../dd/d47/a00445.html#af0bd0aa53773d86948b6f3016e2c2f5f">_selInvestigando</a>, value);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                <span class="keywordflow">if</span> (value != <span class="keyword">null</span>)</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                    <a class="code hl_property" href="../../dd/d47/a00445.html#a55660f1e4d46adbbe1deceae1d4f2fe2">ReporteSeleccionado</a> = value;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                    <a class="code hl_property" href="../../dd/d47/a00445.html#acb576f7632c61208306fd420732b7df0">SelectedPendiente</a> = <span class="keyword">null</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                    <a class="code hl_property" href="../../dd/d47/a00445.html#a36bc13320b30ca2e35cb5f3c52e2dacb">SelectedFinalizado</a> = <span class="keyword">null</span>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        }</div>
+</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="comment">// Selección Finalizados</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a2669604cb4bc9591a50d398daba3182e">   75</a></span>        <span class="keyword">private</span> <a class="code hl_class" href="../../d2/d04/a00281.html">Reportes</a> <a class="code hl_variable" href="../../dd/d47/a00445.html#a2669604cb4bc9591a50d398daba3182e">_selFinalizado</a>;</div>
+<div class="foldopen" id="foldopen00076" data-start="{" data-end="};">
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a36bc13320b30ca2e35cb5f3c52e2dacb">   76</a></span>        <span class="keyword">public</span> <a class="code hl_class" href="../../d2/d04/a00281.html">Reportes</a> <a class="code hl_property" href="../../dd/d47/a00445.html#a36bc13320b30ca2e35cb5f3c52e2dacb">SelectedFinalizado</a></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="keyword">get</span> =&gt; <a class="code hl_variable" href="../../dd/d47/a00445.html#a2669604cb4bc9591a50d398daba3182e">_selFinalizado</a>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            <span class="keyword">set</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                this.RaiseAndSetIfChanged(ref <a class="code hl_variable" href="../../dd/d47/a00445.html#a2669604cb4bc9591a50d398daba3182e">_selFinalizado</a>, value);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                <span class="keywordflow">if</span> (value != <span class="keyword">null</span>)</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                    <a class="code hl_property" href="../../dd/d47/a00445.html#a55660f1e4d46adbbe1deceae1d4f2fe2">ReporteSeleccionado</a> = value;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                    <a class="code hl_property" href="../../dd/d47/a00445.html#acb576f7632c61208306fd420732b7df0">SelectedPendiente</a> = <span class="keyword">null</span>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                    <a class="code hl_property" href="../../dd/d47/a00445.html#ac8e0d932449bd87e476726c80ac53988">SelectedInvestigando</a> = <span class="keyword">null</span>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                }</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            }</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        }</div>
+</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a5dfea24494e3be04896fdcb69b0677f0">   91</a></span>        <span class="keyword">private</span> <span class="keywordtype">string</span> <a class="code hl_variable" href="../../dd/d47/a00445.html#a5dfea24494e3be04896fdcb69b0677f0">_estadoEdit</a>;</div>
+<div class="foldopen" id="foldopen00092" data-start="{" data-end="};">
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a4a57124da5d1412c623b8fe151ba3c8e">   92</a></span>        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="../../dd/d47/a00445.html#a4a57124da5d1412c623b8fe151ba3c8e">EstadoEdit</a></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        {</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            <span class="keyword">get</span> =&gt; <a class="code hl_variable" href="../../dd/d47/a00445.html#a5dfea24494e3be04896fdcb69b0677f0">_estadoEdit</a>;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            <span class="keyword">set</span> =&gt; this.RaiseAndSetIfChanged(ref <a class="code hl_variable" href="../../dd/d47/a00445.html#a5dfea24494e3be04896fdcb69b0677f0">_estadoEdit</a>, value);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        }</div>
+</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a13e8d2e5dd1077db1eb5e39bf84d304f">   98</a></span>        <span class="keyword">private</span> <span class="keywordtype">string</span> <a class="code hl_variable" href="../../dd/d47/a00445.html#a13e8d2e5dd1077db1eb5e39bf84d304f">_resolucionEdit</a>;</div>
+<div class="foldopen" id="foldopen00099" data-start="{" data-end="};">
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a80a78fbf1543e722c7c375fb5d73e13c">   99</a></span>        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="../../dd/d47/a00445.html#a80a78fbf1543e722c7c375fb5d73e13c">ResolucionEdit</a></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        {</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            <span class="keyword">get</span> =&gt; <a class="code hl_variable" href="../../dd/d47/a00445.html#a13e8d2e5dd1077db1eb5e39bf84d304f">_resolucionEdit</a>;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            <span class="keyword">set</span> =&gt; this.RaiseAndSetIfChanged(ref <a class="code hl_variable" href="../../dd/d47/a00445.html#a13e8d2e5dd1077db1eb5e39bf84d304f">_resolucionEdit</a>, value);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        }</div>
+</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="comment">//Comandos reactive</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a599ac6774e5066b4bdcca0ede668b0a1">  106</a></span>        <span class="keyword">public</span> ReactiveCommand&lt;Unit, Unit&gt; <a class="code hl_property" href="../../dd/d47/a00445.html#a599ac6774e5066b4bdcca0ede668b0a1">BtnRefrescar</a> { <span class="keyword">get</span>; }</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a347aaf93dc860f452c71ba4ef127fd77">  107</a></span>        <span class="keyword">public</span> ReactiveCommand&lt;Unit, Unit&gt; <a class="code hl_property" href="../../dd/d47/a00445.html#a347aaf93dc860f452c71ba4ef127fd77">BtnGuardar</a> { <span class="keyword">get</span>; }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="foldopen" id="foldopen00109" data-start="{" data-end="}">
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a89ff1a6bd76390da7e7ad4de6ec3b316">  109</a></span>        <span class="keyword">public</span> <a class="code hl_function" href="../../dd/d47/a00445.html#a89ff1a6bd76390da7e7ad4de6ec3b316">ViewGestionarReportesViewModel</a>()</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            <span class="comment">//Inicializamos servicios </span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            <a class="code hl_variable" href="../../dd/d47/a00445.html#a595ebaee7e247ab5ca0b81e5a2a88165">_dialogoService</a> = <span class="keyword">new</span> <a class="code hl_class" href="../../d2/d0a/a00333.html">DialogoService</a>();</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            <span class="comment">// Inicializamos listas</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            <a class="code hl_property" href="../../dd/d47/a00445.html#a0915ff36d8a7632a77bf28ed8710aa7b">ListaPendientes</a> = <span class="keyword">new</span> ObservableCollection&lt;Reportes&gt;();</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            <a class="code hl_property" href="../../dd/d47/a00445.html#a166c34a912bd267f41c83c6629854ba7">ListaInvestigando</a> = <span class="keyword">new</span> ObservableCollection&lt;Reportes&gt;();</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            <a class="code hl_property" href="../../dd/d47/a00445.html#a15b2878f56f62f94c837445494d77b4d">ListaFinalizados</a> = <span class="keyword">new</span> ObservableCollection&lt;Reportes&gt;();</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            <span class="comment">// Configuramos comandos</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            <a class="code hl_property" href="../../dd/d47/a00445.html#a599ac6774e5066b4bdcca0ede668b0a1">BtnRefrescar</a> = ReactiveCommand.CreateFromTask(<a class="code hl_function" href="../../dd/d47/a00445.html#a2efc65dc00338d3797b1df6b3daa022a">CargarDatos</a>);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            <a class="code hl_property" href="../../dd/d47/a00445.html#a347aaf93dc860f452c71ba4ef127fd77">BtnGuardar</a> = ReactiveCommand.CreateFromTask(<a class="code hl_function" href="../../dd/d47/a00445.html#ac4d63a5d9ed3e53fed91b9f6fc2b9ae3">GuardarCambios</a>);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            _ = <a class="code hl_function" href="../../dd/d47/a00445.html#a2efc65dc00338d3797b1df6b3daa022a">CargarDatos</a>();</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        }<span class="comment"></span></div>
+</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment">        /// &lt;summary&gt;</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment">        /// Recupera todos los reportes de la base de datos y los clasifica en colecciones independientes según su estado actual.</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment">        /// &lt;/summary&gt;</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="comment">        /// &lt;remarks&gt;</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="comment">        /// Este método realiza una limpieza integral de las listas y selecciones actuales para evitar duplicidad visual. </span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment">        /// Posteriormente, consulta MongoDB y distribuye cada reporte en las categorías de &quot;Pendiente&quot;, &quot;Investigando&quot; </span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment">        /// o &quot;Finalizado&quot; basándose en el valor de su propiedad &lt;c&gt;Estado&lt;/c&gt;, facilitando la organización por columnas en la interfaz.</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment">        /// &lt;/remarks&gt;</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment">        /// &lt;returns&gt;Una tarea que representa la operación de carga y clasificación asíncrona.&lt;/returns&gt;</span></div>
+<div class="foldopen" id="foldopen00132" data-start="{" data-end="}">
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a2efc65dc00338d3797b1df6b3daa022a">  132</a></span>        <span class="keyword">private</span> async Task <a class="code hl_function" href="../../dd/d47/a00445.html#a2efc65dc00338d3797b1df6b3daa022a">CargarDatos</a>()</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        {</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            <span class="comment">// Limpiamos todo</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            <a class="code hl_property" href="../../dd/d47/a00445.html#a0915ff36d8a7632a77bf28ed8710aa7b">ListaPendientes</a>.Clear();</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>            <a class="code hl_property" href="../../dd/d47/a00445.html#a166c34a912bd267f41c83c6629854ba7">ListaInvestigando</a>.Clear();</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            <a class="code hl_property" href="../../dd/d47/a00445.html#a15b2878f56f62f94c837445494d77b4d">ListaFinalizados</a>.Clear();</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            <span class="comment">// Limpiamos selecciones</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            <a class="code hl_property" href="../../dd/d47/a00445.html#acb576f7632c61208306fd420732b7df0">SelectedPendiente</a> = <span class="keyword">null</span>;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            <a class="code hl_property" href="../../dd/d47/a00445.html#ac8e0d932449bd87e476726c80ac53988">SelectedInvestigando</a> = <span class="keyword">null</span>;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            <a class="code hl_property" href="../../dd/d47/a00445.html#a36bc13320b30ca2e35cb5f3c52e2dacb">SelectedFinalizado</a> = <span class="keyword">null</span>;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            <a class="code hl_property" href="../../dd/d47/a00445.html#a55660f1e4d46adbbe1deceae1d4f2fe2">ReporteSeleccionado</a> = <span class="keyword">null</span>;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            var todos = await <a class="code hl_class" href="../../db/ddc/a00353.html">MongoClientSingleton</a>.<a class="code hl_property" href="../../db/ddc/a00353.html#ad0067cc765141c80b254d1a39395f529">Instance</a>.<a class="code hl_property" href="../../db/ddc/a00353.html#a275ea6d123352f803782b0ff26216fc6">Cliente</a>.<a class="code hl_function" href="../../d3/d93/a00341.html#acebd6beb5817ff2365be22bf07a690df">ObtenerReportes</a>();</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>            <span class="keywordflow">foreach</span> (var r <span class="keywordflow">in</span> todos)</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            {</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                <span class="keywordflow">switch</span> (r.Estado?.Trim())</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                {</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                    <span class="keywordflow">case</span> <span class="stringliteral">&quot;Pendiente&quot;</span>: <a class="code hl_property" href="../../dd/d47/a00445.html#a0915ff36d8a7632a77bf28ed8710aa7b">ListaPendientes</a>.Add(r); <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>                    <span class="keywordflow">case</span> <span class="stringliteral">&quot;Investigando&quot;</span>: <a class="code hl_property" href="../../dd/d47/a00445.html#a166c34a912bd267f41c83c6629854ba7">ListaInvestigando</a>.Add(r); <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                    <span class="keywordflow">case</span> <span class="stringliteral">&quot;Finalizado&quot;</span>: <a class="code hl_property" href="../../dd/d47/a00445.html#a15b2878f56f62f94c837445494d77b4d">ListaFinalizados</a>.Add(r); <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>                    <span class="keywordflow">default</span>: <a class="code hl_property" href="../../dd/d47/a00445.html#a0915ff36d8a7632a77bf28ed8710aa7b">ListaPendientes</a>.Add(r); <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>                }</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>            }</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        }<span class="comment"></span></div>
+</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment">        /// &lt;summary&gt;</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment">        /// Persiste de forma asíncrona las modificaciones realizadas en el estado y la resolución del reporte seleccionado.</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment">        /// &lt;/summary&gt;</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="comment">        /// &lt;remarks&gt;</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="comment">        /// Este método sincroniza los cambios con la base de datos MongoDB mediante los siguientes pasos:</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="comment">        /// &lt;list type=&quot;number&quot;&gt;</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Validación:&lt;/b&gt; Verifica que exista una instancia válida en &lt;see cref=&quot;ReporteSeleccionado&quot;/&gt;.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Sincronización:&lt;/b&gt; Envía los nuevos valores de &lt;c&gt;EstadoEdit&lt;/c&gt; y &lt;c&gt;ResolucionEdit&lt;/c&gt; al servidor.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Refresco:&lt;/b&gt; Si la operación es exitosa, notifica al usuario y reejecuta &lt;see cref=&quot;CargarDatos&quot;/&gt; para reorganizar los reportes en sus respectivas columnas visuales.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="comment">        /// &lt;/list&gt;</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment">        /// &lt;/remarks&gt;</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment">        /// &lt;returns&gt;Una tarea que representa la operación de actualización asíncrona.&lt;/returns&gt;</span></div>
+<div class="foldopen" id="foldopen00170" data-start="{" data-end="}">
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#ac4d63a5d9ed3e53fed91b9f6fc2b9ae3">  170</a></span>        <span class="keyword">private</span> async Task <a class="code hl_function" href="../../dd/d47/a00445.html#ac4d63a5d9ed3e53fed91b9f6fc2b9ae3">GuardarCambios</a>()</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        {</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>            <span class="keywordflow">if</span> (<a class="code hl_property" href="../../dd/d47/a00445.html#a55660f1e4d46adbbe1deceae1d4f2fe2">ReporteSeleccionado</a> == <span class="keyword">null</span>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            <span class="keywordtype">bool</span> exito = await <a class="code hl_class" href="../../db/ddc/a00353.html">MongoClientSingleton</a>.<a class="code hl_property" href="../../db/ddc/a00353.html#ad0067cc765141c80b254d1a39395f529">Instance</a>.<a class="code hl_property" href="../../db/ddc/a00353.html#a275ea6d123352f803782b0ff26216fc6">Cliente</a>.<a class="code hl_function" href="../../d3/d93/a00341.html#a9bd1f30014acfed4fdd5633833269689">ActualizarEstadoReporte</a>(</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>                <a class="code hl_property" href="../../dd/d47/a00445.html#a4a57124da5d1412c623b8fe151ba3c8e">EstadoEdit</a>, <a class="code hl_property" href="../../dd/d47/a00445.html#a80a78fbf1543e722c7c375fb5d73e13c">ResolucionEdit</a>, <a class="code hl_property" href="../../dd/d47/a00445.html#a55660f1e4d46adbbe1deceae1d4f2fe2">ReporteSeleccionado</a></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            );</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            <span class="keywordflow">if</span> (exito)</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>            {</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>                <a class="code hl_variable" href="../../dd/d47/a00445.html#a595ebaee7e247ab5ca0b81e5a2a88165">_dialogoService</a>.MostrarAlerta(<span class="stringliteral">&quot;Reportes_MsgActualizado&quot;</span>);</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>                await <a class="code hl_function" href="../../dd/d47/a00445.html#a2efc65dc00338d3797b1df6b3daa022a">CargarDatos</a>();</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            }</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>            {</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>                <a class="code hl_variable" href="../../dd/d47/a00445.html#a595ebaee7e247ab5ca0b81e5a2a88165">_dialogoService</a>.MostrarAlerta(<span class="stringliteral">&quot;Reportes_MsgSinCambios&quot;</span>);</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>            }</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        }</div>
+</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    }</div>
+</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>}</div>
+<div class="ttc" id="aa00177_html"><div class="ttname"><a href="../../dd/d4c/a00177.html">BetaProyecto.Models</a></div><div class="ttdef"><b>Definition</b> <a href="../../d2/de7/a00014_source.html#l00007">Canciones.cs:8</a></div></div>
+<div class="ttc" id="aa00178_html"><div class="ttname"><a href="../../d9/d90/a00178.html">BetaProyecto.Services</a></div><div class="ttdef"><b>Definition</b> <a href="../../d5/de0/a00050_source.html#l00009">AudioService.cs:10</a></div></div>
+<div class="ttc" id="aa00179_html"><div class="ttname"><a href="../../db/dd9/a00179.html">BetaProyecto.Singleton</a></div><div class="ttdef"><b>Definition</b> <a href="../../de/de1/a00065_source.html#l00005">GlobalData.cs:6</a></div></div>
+<div class="ttc" id="aa00180_html"><div class="ttname"><a href="../../d0/d81/a00180.html">BetaProyecto.ViewModels</a></div><div class="ttdef"><b>Definition</b> <a href="../../db/db6/a00074_source.html#l00009">CentralTabControlViewModel.cs:10</a></div></div>
+<div class="ttc" id="aa00281_html"><div class="ttname"><a href="../../d2/d04/a00281.html">BetaProyecto.Models.Reportes</a></div><div class="ttdef"><b>Definition</b> <a href="../../d6/d5b/a00026_source.html#l00011">Reportes.cs:12</a></div></div>
+<div class="ttc" id="aa00333_html"><div class="ttname"><a href="../../d2/d0a/a00333.html">BetaProyecto.Services.DialogoService</a></div><div class="ttdef"><b>Definition</b> <a href="../../dc/dee/a00053_source.html#l00009">DialogoService.cs:10</a></div></div>
+<div class="ttc" id="aa00337_html"><div class="ttname"><a href="../../d4/dce/a00337.html">BetaProyecto.Services.IDialogoService</a></div><div class="ttdef"><b>Definition</b> <a href="../../d9/d2e/a00056_source.html#l00006">IDialogoService.cs:8</a></div></div>
+<div class="ttc" id="aa00341_html_a9bd1f30014acfed4fdd5633833269689"><div class="ttname"><a href="../../d3/d93/a00341.html#a9bd1f30014acfed4fdd5633833269689">BetaProyecto.Services.MongoAtlas.ActualizarEstadoReporte</a></div><div class="ttdeci">async Task&lt; bool &gt; ActualizarEstadoReporte(string nuevoEstado, string nuevaResolucion, Reportes original)</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d8b/a00059_source.html#l01359">MongoAtlas.cs:1359</a></div></div>
+<div class="ttc" id="aa00341_html_acebd6beb5817ff2365be22bf07a690df"><div class="ttname"><a href="../../d3/d93/a00341.html#acebd6beb5817ff2365be22bf07a690df">BetaProyecto.Services.MongoAtlas.ObtenerReportes</a></div><div class="ttdeci">async Task&lt; List&lt; Reportes &gt; &gt; ObtenerReportes()</div><div class="ttdoc">Se ocupa de traer todos los reportes de la base de datos.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d8b/a00059_source.html#l00459">MongoAtlas.cs:459</a></div></div>
+<div class="ttc" id="aa00353_html"><div class="ttname"><a href="../../db/ddc/a00353.html">BetaProyecto.Singleton.MongoClientSingleton</a></div><div class="ttdef"><b>Definition</b> <a href="../../da/d24/a00068_source.html#l00010">MongoClientSingleton.cs:11</a></div></div>
+<div class="ttc" id="aa00353_html_a275ea6d123352f803782b0ff26216fc6"><div class="ttname"><a href="../../db/ddc/a00353.html#a275ea6d123352f803782b0ff26216fc6">BetaProyecto.Singleton.MongoClientSingleton.Cliente</a></div><div class="ttdeci">MongoAtlas Cliente</div><div class="ttdef"><b>Definition</b> <a href="../../da/d24/a00068_source.html#l00017">MongoClientSingleton.cs:17</a></div></div>
+<div class="ttc" id="aa00353_html_ad0067cc765141c80b254d1a39395f529"><div class="ttname"><a href="../../db/ddc/a00353.html#ad0067cc765141c80b254d1a39395f529">BetaProyecto.Singleton.MongoClientSingleton.Instance</a></div><div class="ttdeci">static MongoClientSingleton Instance</div><div class="ttdef"><b>Definition</b> <a href="../../da/d24/a00068_source.html#l00014">MongoClientSingleton.cs:14</a></div></div>
+<div class="ttc" id="aa00445_html_a0915ff36d8a7632a77bf28ed8710aa7b"><div class="ttname"><a href="../../dd/d47/a00445.html#a0915ff36d8a7632a77bf28ed8710aa7b">BetaProyecto.ViewModels.ViewGestionarReportesViewModel.ListaPendientes</a></div><div class="ttdeci">ObservableCollection&lt; Reportes &gt; ListaPendientes</div><div class="ttdef"><b>Definition</b> <a href="#l00018">ViewGestionarReportesViewModel.cs:18</a></div></div>
+<div class="ttc" id="aa00445_html_a13e8d2e5dd1077db1eb5e39bf84d304f"><div class="ttname"><a href="../../dd/d47/a00445.html#a13e8d2e5dd1077db1eb5e39bf84d304f">BetaProyecto.ViewModels.ViewGestionarReportesViewModel._resolucionEdit</a></div><div class="ttdeci">string _resolucionEdit</div><div class="ttdef"><b>Definition</b> <a href="#l00098">ViewGestionarReportesViewModel.cs:98</a></div></div>
+<div class="ttc" id="aa00445_html_a15b2878f56f62f94c837445494d77b4d"><div class="ttname"><a href="../../dd/d47/a00445.html#a15b2878f56f62f94c837445494d77b4d">BetaProyecto.ViewModels.ViewGestionarReportesViewModel.ListaFinalizados</a></div><div class="ttdeci">ObservableCollection&lt; Reportes &gt; ListaFinalizados</div><div class="ttdef"><b>Definition</b> <a href="#l00020">ViewGestionarReportesViewModel.cs:20</a></div></div>
+<div class="ttc" id="aa00445_html_a166c34a912bd267f41c83c6629854ba7"><div class="ttname"><a href="../../dd/d47/a00445.html#a166c34a912bd267f41c83c6629854ba7">BetaProyecto.ViewModels.ViewGestionarReportesViewModel.ListaInvestigando</a></div><div class="ttdeci">ObservableCollection&lt; Reportes &gt; ListaInvestigando</div><div class="ttdef"><b>Definition</b> <a href="#l00019">ViewGestionarReportesViewModel.cs:19</a></div></div>
+<div class="ttc" id="aa00445_html_a1b276ff0012e5c6fab3f3c0945467cd2"><div class="ttname"><a href="../../dd/d47/a00445.html#a1b276ff0012e5c6fab3f3c0945467cd2">BetaProyecto.ViewModels.ViewGestionarReportesViewModel.OpcionesEstado</a></div><div class="ttdeci">ObservableCollection&lt; string &gt; OpcionesEstado</div><div class="ttdef"><b>Definition</b> <a href="#l00021">ViewGestionarReportesViewModel.cs:21</a></div></div>
+<div class="ttc" id="aa00445_html_a2669604cb4bc9591a50d398daba3182e"><div class="ttname"><a href="../../dd/d47/a00445.html#a2669604cb4bc9591a50d398daba3182e">BetaProyecto.ViewModels.ViewGestionarReportesViewModel._selFinalizado</a></div><div class="ttdeci">Reportes _selFinalizado</div><div class="ttdef"><b>Definition</b> <a href="#l00075">ViewGestionarReportesViewModel.cs:75</a></div></div>
+<div class="ttc" id="aa00445_html_a2efc65dc00338d3797b1df6b3daa022a"><div class="ttname"><a href="../../dd/d47/a00445.html#a2efc65dc00338d3797b1df6b3daa022a">BetaProyecto.ViewModels.ViewGestionarReportesViewModel.CargarDatos</a></div><div class="ttdeci">async Task CargarDatos()</div><div class="ttdoc">Recupera todos los reportes de la base de datos y los clasifica en colecciones independientes según s...</div><div class="ttdef"><b>Definition</b> <a href="#l00132">ViewGestionarReportesViewModel.cs:132</a></div></div>
+<div class="ttc" id="aa00445_html_a347aaf93dc860f452c71ba4ef127fd77"><div class="ttname"><a href="../../dd/d47/a00445.html#a347aaf93dc860f452c71ba4ef127fd77">BetaProyecto.ViewModels.ViewGestionarReportesViewModel.BtnGuardar</a></div><div class="ttdeci">ReactiveCommand&lt; Unit, Unit &gt; BtnGuardar</div><div class="ttdef"><b>Definition</b> <a href="#l00107">ViewGestionarReportesViewModel.cs:107</a></div></div>
+<div class="ttc" id="aa00445_html_a36bc13320b30ca2e35cb5f3c52e2dacb"><div class="ttname"><a href="../../dd/d47/a00445.html#a36bc13320b30ca2e35cb5f3c52e2dacb">BetaProyecto.ViewModels.ViewGestionarReportesViewModel.SelectedFinalizado</a></div><div class="ttdeci">Reportes SelectedFinalizado</div><div class="ttdef"><b>Definition</b> <a href="#l00076">ViewGestionarReportesViewModel.cs:77</a></div></div>
+<div class="ttc" id="aa00445_html_a45d324620cc50f69f885f40938bec074"><div class="ttname"><a href="../../dd/d47/a00445.html#a45d324620cc50f69f885f40938bec074">BetaProyecto.ViewModels.ViewGestionarReportesViewModel._selPendiente</a></div><div class="ttdeci">Reportes _selPendiente</div><div class="ttdef"><b>Definition</b> <a href="#l00041">ViewGestionarReportesViewModel.cs:41</a></div></div>
+<div class="ttc" id="aa00445_html_a4a57124da5d1412c623b8fe151ba3c8e"><div class="ttname"><a href="../../dd/d47/a00445.html#a4a57124da5d1412c623b8fe151ba3c8e">BetaProyecto.ViewModels.ViewGestionarReportesViewModel.EstadoEdit</a></div><div class="ttdeci">string EstadoEdit</div><div class="ttdef"><b>Definition</b> <a href="#l00092">ViewGestionarReportesViewModel.cs:93</a></div></div>
+<div class="ttc" id="aa00445_html_a55660f1e4d46adbbe1deceae1d4f2fe2"><div class="ttname"><a href="../../dd/d47/a00445.html#a55660f1e4d46adbbe1deceae1d4f2fe2">BetaProyecto.ViewModels.ViewGestionarReportesViewModel.ReporteSeleccionado</a></div><div class="ttdeci">Reportes ReporteSeleccionado</div><div class="ttdef"><b>Definition</b> <a href="#l00026">ViewGestionarReportesViewModel.cs:27</a></div></div>
+<div class="ttc" id="aa00445_html_a595ebaee7e247ab5ca0b81e5a2a88165"><div class="ttname"><a href="../../dd/d47/a00445.html#a595ebaee7e247ab5ca0b81e5a2a88165">BetaProyecto.ViewModels.ViewGestionarReportesViewModel._dialogoService</a></div><div class="ttdeci">readonly IDialogoService _dialogoService</div><div class="ttdef"><b>Definition</b> <a href="#l00015">ViewGestionarReportesViewModel.cs:15</a></div></div>
+<div class="ttc" id="aa00445_html_a599ac6774e5066b4bdcca0ede668b0a1"><div class="ttname"><a href="../../dd/d47/a00445.html#a599ac6774e5066b4bdcca0ede668b0a1">BetaProyecto.ViewModels.ViewGestionarReportesViewModel.BtnRefrescar</a></div><div class="ttdeci">ReactiveCommand&lt; Unit, Unit &gt; BtnRefrescar</div><div class="ttdef"><b>Definition</b> <a href="#l00106">ViewGestionarReportesViewModel.cs:106</a></div></div>
+<div class="ttc" id="aa00445_html_a5dfea24494e3be04896fdcb69b0677f0"><div class="ttname"><a href="../../dd/d47/a00445.html#a5dfea24494e3be04896fdcb69b0677f0">BetaProyecto.ViewModels.ViewGestionarReportesViewModel._estadoEdit</a></div><div class="ttdeci">string _estadoEdit</div><div class="ttdef"><b>Definition</b> <a href="#l00091">ViewGestionarReportesViewModel.cs:91</a></div></div>
+<div class="ttc" id="aa00445_html_a7030ff1531d1b64331db24216ea99d82"><div class="ttname"><a href="../../dd/d47/a00445.html#a7030ff1531d1b64331db24216ea99d82">BetaProyecto.ViewModels.ViewGestionarReportesViewModel._reporteSeleccionado</a></div><div class="ttdeci">Reportes _reporteSeleccionado</div><div class="ttdef"><b>Definition</b> <a href="#l00025">ViewGestionarReportesViewModel.cs:25</a></div></div>
+<div class="ttc" id="aa00445_html_a80a78fbf1543e722c7c375fb5d73e13c"><div class="ttname"><a href="../../dd/d47/a00445.html#a80a78fbf1543e722c7c375fb5d73e13c">BetaProyecto.ViewModels.ViewGestionarReportesViewModel.ResolucionEdit</a></div><div class="ttdeci">string ResolucionEdit</div><div class="ttdef"><b>Definition</b> <a href="#l00099">ViewGestionarReportesViewModel.cs:100</a></div></div>
+<div class="ttc" id="aa00445_html_a89ff1a6bd76390da7e7ad4de6ec3b316"><div class="ttname"><a href="../../dd/d47/a00445.html#a89ff1a6bd76390da7e7ad4de6ec3b316">BetaProyecto.ViewModels.ViewGestionarReportesViewModel.ViewGestionarReportesViewModel</a></div><div class="ttdeci">ViewGestionarReportesViewModel()</div><div class="ttdef"><b>Definition</b> <a href="#l00109">ViewGestionarReportesViewModel.cs:109</a></div></div>
+<div class="ttc" id="aa00445_html_ac4d63a5d9ed3e53fed91b9f6fc2b9ae3"><div class="ttname"><a href="../../dd/d47/a00445.html#ac4d63a5d9ed3e53fed91b9f6fc2b9ae3">BetaProyecto.ViewModels.ViewGestionarReportesViewModel.GuardarCambios</a></div><div class="ttdeci">async Task GuardarCambios()</div><div class="ttdoc">Persiste de forma asíncrona las modificaciones realizadas en el estado y la resolución del reporte se...</div><div class="ttdef"><b>Definition</b> <a href="#l00170">ViewGestionarReportesViewModel.cs:170</a></div></div>
+<div class="ttc" id="aa00445_html_ac8e0d932449bd87e476726c80ac53988"><div class="ttname"><a href="../../dd/d47/a00445.html#ac8e0d932449bd87e476726c80ac53988">BetaProyecto.ViewModels.ViewGestionarReportesViewModel.SelectedInvestigando</a></div><div class="ttdeci">Reportes SelectedInvestigando</div><div class="ttdef"><b>Definition</b> <a href="#l00059">ViewGestionarReportesViewModel.cs:60</a></div></div>
+<div class="ttc" id="aa00445_html_acb576f7632c61208306fd420732b7df0"><div class="ttname"><a href="../../dd/d47/a00445.html#acb576f7632c61208306fd420732b7df0">BetaProyecto.ViewModels.ViewGestionarReportesViewModel.SelectedPendiente</a></div><div class="ttdeci">Reportes SelectedPendiente</div><div class="ttdef"><b>Definition</b> <a href="#l00042">ViewGestionarReportesViewModel.cs:43</a></div></div>
+<div class="ttc" id="aa00445_html_af0bd0aa53773d86948b6f3016e2c2f5f"><div class="ttname"><a href="../../dd/d47/a00445.html#af0bd0aa53773d86948b6f3016e2c2f5f">BetaProyecto.ViewModels.ViewGestionarReportesViewModel._selInvestigando</a></div><div class="ttdeci">Reportes _selInvestigando</div><div class="ttdef"><b>Definition</b> <a href="#l00058">ViewGestionarReportesViewModel.cs:58</a></div></div>
+<div class="ttc" id="aa00453_html"><div class="ttname"><a href="../../da/dc3/a00453.html">BetaProyecto.ViewModels.ViewModelBase</a></div><div class="ttdef"><b>Definition</b> <a href="../../d7/dce/a00143_source.html#l00008">ViewModelBase.cs:9</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_185e83519e12721b061570a464b09f2f.html">BetaProyecto</a></li><li class="navelem"><a href="../../dir_364cdaa78793ccd09585bb6481f10933.html">ViewModels</a></li><li class="navelem"><a href="../../d2/df5/a00137.html">ViewGestionarReportesViewModel.cs</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

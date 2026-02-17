@@ -1,0 +1,779 @@
+\doxysubsection{Referencia de la clase Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model}
+\hypertarget{a00373}{}\label{a00373}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+
+
+\doxysubsubsection{Detalles}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00018}{18}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\doxysubsubsubsection*{Métodos}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{a00373_a88209ffb7d8d60fe50d230a01d9f75ea}{Marco\+App\+View\+Model}} ()
+\item 
+void \doxymbox{\hyperlink{a00373_a8f0e60778a6d52d7d7b37a62c10d9248}{Ir\+ACrear\+Usuario}} ()
+\begin{DoxyCompactList}\small\item\em Muestra la vista de creación del usuario como una ventana emergente, lo que permite al usuario crear una nueva cuenta. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{a00373_a45d1acb6c7a53c1c750db7a118850916}{Ir\+Al\+Central\+Tab\+Control}} ()
+\begin{DoxyCompactList}\small\item\em Navega a la vista de control de pestaña central, inicializándola si es necesario y configurándola como la vista actual. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{a00373_a6adbcbbdc48d0f4083222cacc2ecc326}{Ir\+APanel\+Usuario}} (int pestania)
+\begin{DoxyCompactList}\small\item\em Navega al panel de usuario y muestra la pestaña especificada. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{a00373_a05e76797d80fcb2f2a68ea10203418bb}{Ir\+ASobre\+Nosotros}} ()
+\begin{DoxyCompactList}\small\item\em Navega a la vista \textquotesingle{}Sobre Nosotros\textquotesingle{}, creándola y configurándola si no existe. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{a00373_a98dfc8c0bec0d1af0652f2a624945b4b}{Ir\+AAyuda}} ()
+\begin{DoxyCompactList}\small\item\em Muestra la vista de ayuda en la aplicación, creándola y configurándola si no existe. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{a00373_ac5e295dc3e912888ac46a3b97d2eb28b}{Activar\+Volver\+Atras}} (\doxymbox{\hyperlink{a00365}{INavegable}} vm)
+\begin{DoxyCompactList}\small\item\em Asigna una llamada de retorno al modelo de vista especificado que permite la navegación de regreso a la vista principal. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{a00373_a777f3ef2d46ab593af6b2e0a605cc4c3}{Reproducir\+Cancion}} (\doxymbox{\hyperlink{a00257}{Canciones}} cancion, List$<$ \doxymbox{\hyperlink{a00257}{Canciones}} $>$? lista\+Origen=null)
+\begin{DoxyCompactList}\small\item\em Inicia la reproducción de la canción especificada, opcionalmente usando una lista de reproducción proporcionada como cola de reproducción. \end{DoxyCompactList}\item 
+async void \doxymbox{\hyperlink{a00373_a53690741c26307dac0c78f58a0b1e63f}{Cargar\+YReproducir}} (\doxymbox{\hyperlink{a00257}{Canciones}} cancion)
+\begin{DoxyCompactList}\small\item\em Carga la canción especificada y comienza la reproducción, actualizando la interfaz del reproductor y el estado relacionado en consecuencia. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Propiedades}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{a00373_a3d4a8e6117e8fe33533531d32d53c0c8}{Nombre\+Cancion\+Actual}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+string \doxymbox{\hyperlink{a00373_a84baf00b599377527aea36eca806a4dc}{Nombre\+Artista\+Actual}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+string \doxymbox{\hyperlink{a00373_ab2075826b2b733771a2366ceb766784a}{Imagen\+Cancion\+Actual}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+string \doxymbox{\hyperlink{a00373_a843f1a80b0191f1ec8c3419cd5dd864e}{Icono\+Play\+Pause}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+string \doxymbox{\hyperlink{a00373_a1506a09dc8fa3310ac3d8b25cfce8810}{Icono\+Next}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+string \doxymbox{\hyperlink{a00373_aa981401cba101e7571be147e5de14f3e}{Icono\+Back}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+string \doxymbox{\hyperlink{a00373_a3f334f9d8f56a21fbc10521b8b8e0e6e}{Icono\+Aleatorio}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+string \doxymbox{\hyperlink{a00373_a5b4a727820d8306726298dd9944367e5}{Icono\+Like}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+string \doxymbox{\hyperlink{a00373_aca48f088ad847781da1a5e5ff48418da}{Tiempo\+Actual\+Cancion}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+string \doxymbox{\hyperlink{a00373_a03412666f5b6c0656b1ab5a3ab512db3}{Tiempo\+Total\+Cancion}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+double \doxymbox{\hyperlink{a00373_a59b9b05a301d7c9cb4ca86a255674c71}{Valor\+Slider\+Cancion}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+double \doxymbox{\hyperlink{a00373_adb5361467bf1f9b283a003c971ac7cae}{Valor\+Slider\+Volumen}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+\doxymbox{\hyperlink{a00453}{View\+Model\+Base}} \doxymbox{\hyperlink{a00373_a6200911c3ea00580644ec12af490277f}{Vista\+Actual}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+\doxymbox{\hyperlink{a00453}{View\+Model\+Base}} \doxymbox{\hyperlink{a00373_aedbab7233ccdfffd8c986f2efb2d3dff}{Popup\+Actual}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+bool \doxymbox{\hyperlink{a00373_adebbbe8e446946700174d21f6c783688}{Popup\+Visible}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+bool \doxymbox{\hyperlink{a00373_a7dc48ca5fd55e775607836aac89ffc62}{Barra\+Visible}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+Reactive\+Command$<$ Unit, Unit $>$ \doxymbox{\hyperlink{a00373_a0060721bd99b40ac99e0a8789e7264d9}{Btn\+Play\+Pause\+Command}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\item 
+Reactive\+Command$<$ Unit, Unit $>$ \doxymbox{\hyperlink{a00373_af6de0c9ac93bf173f8b0f016df7ba304}{Btn\+Fav\+Command}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\item 
+Reactive\+Command$<$ Unit, Unit $>$ \doxymbox{\hyperlink{a00373_a3fa79c5682dfa480a7551ff4f8f53040}{Btn\+Next\+Command}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\item 
+Reactive\+Command$<$ Unit, Unit $>$ \doxymbox{\hyperlink{a00373_a7247539e33abe34da6b45f3c94a78c41}{Btn\+Back\+Command}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\item 
+Reactive\+Command$<$ Unit, Unit $>$ \doxymbox{\hyperlink{a00373_a657cd89e83f0f6004b48084a1e2e770c}{Btn\+Aleatorio\+Command}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{a00373_doc-constructors}
+\doxysubsubsection{Constructores}
+\Hypertarget{a00373_a88209ffb7d8d60fe50d230a01d9f75ea}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!MarcoAppViewModel@{MarcoAppViewModel}}
+\index{MarcoAppViewModel@{MarcoAppViewModel}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{MarcoAppViewModel()}{MarcoAppViewModel()}}
+{\footnotesize\ttfamily \label{a00373_a88209ffb7d8d60fe50d230a01d9f75ea} 
+Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Marco\+App\+View\+Model (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00194}{194}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{a00373_doc-func-members}
+\doxysubsubsection{Funciones}
+\Hypertarget{a00373_aa5ea53a8efdc9aeeeee03e98e7fda7ea}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!AccionarPlayPause@{AccionarPlayPause}}
+\index{AccionarPlayPause@{AccionarPlayPause}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{AccionarPlayPause()}{AccionarPlayPause()}}
+{\footnotesize\ttfamily \label{a00373_aa5ea53a8efdc9aeeeee03e98e7fda7ea} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Accionar\+Play\+Pause (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Cambia la reproducción del reproductor multimedia entre los estados de reproducción y pausa. 
+
+Si el reproductor multimedia está reproduciéndose, este método detiene la reproducción y actualiza el reproducir/\+pausa el icono en consecuencia. Si el reproductor multimedia se detiene, este método inicia la reproducción y actualiza el icono, y inicia el temporizador asociado. Este método no genera excepciones y asume que el reproductor multimedia y los temporizadores están correctamente inicializados. 
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00685}{685}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_ac5e295dc3e912888ac46a3b97d2eb28b}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!ActivarVolverAtras@{ActivarVolverAtras}}
+\index{ActivarVolverAtras@{ActivarVolverAtras}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{ActivarVolverAtras()}{ActivarVolverAtras()}}
+{\footnotesize\ttfamily \label{a00373_ac5e295dc3e912888ac46a3b97d2eb28b} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Activar\+Volver\+Atras (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{a00365}{INavegable}}}]{vm}{}\end{DoxyParamCaption})}
+
+
+
+Asigna una llamada de retorno al modelo de vista especificado que permite la navegación de regreso a la vista principal. 
+
+Utilice este método para proporcionar un comportamiento de retorno estándar para los modelos de vista que admiten navegación. Después de invocar el callback asignado, la barra de navegación principal se vuelve visible. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em vm} & El modelo de vista que implementa la interfaz \doxylink{a00365}{INavegable}. El método establece su acción Volver\+Atras para navegar de vuelta al control central de pestañas. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00534}{534}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a21ab332bd4efbf37c8a54431a88ae870}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!ActualizarIconoAleatorio@{ActualizarIconoAleatorio}}
+\index{ActualizarIconoAleatorio@{ActualizarIconoAleatorio}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{ActualizarIconoAleatorio()}{ActualizarIconoAleatorio()}}
+{\footnotesize\ttfamily \label{a00373_a21ab332bd4efbf37c8a54431a88ae870} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Actualizar\+Icono\+Aleatorio (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{a00257}{Canciones}}}]{cancion\+Inicio}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Actualiza el icono de reproducción aleatoria según la cola de reproducción actual y el estado del modo aleatorio. 
+
+Si la cola de reproducción contiene una o ninguna canción, el icono aleatorio está desactivado. Cuando el el modo aleatorio está activo y la cola cambia, el historial de reproducción aleatoria se restablece para comenzar desde el canción especificada. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cancion\+Inicio} & La canción que se usará como punto de partida en el historial de reproducción aleatoria cuando el modo aleatorio esté activo. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00959}{959}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_aa8b6ac118e9e70ac8e1456f6e58a148c}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!ActualizarIconoNextBack@{ActualizarIconoNextBack}}
+\index{ActualizarIconoNextBack@{ActualizarIconoNextBack}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{ActualizarIconoNextBack()}{ActualizarIconoNextBack()}}
+{\footnotesize\ttfamily \label{a00373_aa8b6ac118e9e70ac8e1456f6e58a148c} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Actualizar\+Icono\+Next\+Back (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Actualiza los iconos de los botones de navegación Siguiente y Atrás en función del modo y la posición de reproducción actuales en la lista de reproducción. 
+
+Este método habilita o deshabilita los iconos de los botones Siguiente y Atrás, dependiendo de si la lista de reproducción está en modo de mezcla y la posición actual de la canción. En el modo de mezcla, el botón Siguiente permanece activado, mientras que el botón Atrás solo está activado si hay un historial de reproducción. En modo normal, los botones están activado o desactivado según si la canción actual es la primera o la última en la lista de reproducción. 
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00907}{907}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a631c43311db098c8bb3b2b67c7cb2746}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!AlterarFavorito@{AlterarFavorito}}
+\index{AlterarFavorito@{AlterarFavorito}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{AlterarFavorito()}{AlterarFavorito()}}
+{\footnotesize\ttfamily \label{a00373_a631c43311db098c8bb3b2b67c7cb2746} 
+async Task Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Alterar\+Favorito (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{a00257}{Canciones}}}]{cancion}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Añade o elimina la canción especificada de la lista de favoritos del usuario, actualizando el estado favorito en consecuencia. 
+
+Si la canción ya está en la lista de favoritos, se elimina; de lo contrario, se añade. El método también actualiza el icono de like y ajusta la métrica de like count de la canción. No se realiza ninguna acción si el la canción proporcionada es nula. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cancion} & La canción a añadir o quitar de la lista de favoritos. Si es nula, no se realiza la operación. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Devuelve una tarea que representa la operación asíncrona. 
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00755}{755}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a1be974c78cd23a13de76c7907b52d58f}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!AlternarAleatorio@{AlternarAleatorio}}
+\index{AlternarAleatorio@{AlternarAleatorio}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{AlternarAleatorio()}{AlternarAleatorio()}}
+{\footnotesize\ttfamily \label{a00373_a1be974c78cd23a13de76c7907b52d58f} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Alternar\+Aleatorio (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Cambia el modo de reproducción aleatoria para la lista de reproducción actual. Cuando está activado, el orden de reproducción se aleatoriza; cuando está desactivado, la reproducción se reanuda en el orden original de la canción actual. 
+
+Este método no tiene efecto si la lista de reproducción es nula o contiene uno o menos elementos. Cuando se activa el modo aleatorio, la canción actual se añade al historial de reproducción aleatoria para permitir su retorno a ella. Cuando se desactiva, la reproducción continúa desde la posición actual de la canción en la lista de reproducción original orden. 
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00707}{707}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_ab9c8822d348ebc4daf2eb34f9f3e2845}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!BackCancion@{BackCancion}}
+\index{BackCancion@{BackCancion}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{BackCancion()}{BackCancion()}}
+{\footnotesize\ttfamily \label{a00373_ab9c8822d348ebc4daf2eb34f9f3e2845} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Back\+Cancion (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Mueve la reproducción a la pista anterior en la lista de reproducción o al historial de reproducción, dependiendo de la reproducción actual modo. 
+
+En el modo de mezcla, este método navega hacia atrás a través del historial de reproducción si posible. En el modo normal, se mueve a la pista anterior en la lista de reproducción a menos que ya esté en la primera pista. No se toma ninguna medida si no hay pistas en la lista de reproducción o si ya está al principio del historial o lista de reproducción. 
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00871}{871}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a53690741c26307dac0c78f58a0b1e63f}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!CargarYReproducir@{CargarYReproducir}}
+\index{CargarYReproducir@{CargarYReproducir}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{CargarYReproducir()}{CargarYReproducir()}}
+{\footnotesize\ttfamily \label{a00373_a53690741c26307dac0c78f58a0b1e63f} 
+async void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Cargar\+YReproducir (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{a00257}{Canciones}}}]{cancion}{}\end{DoxyParamCaption})}
+
+
+
+Carga la canción especificada y comienza la reproducción, actualizando la interfaz del reproductor y el estado relacionado en consecuencia. 
+
+Este método actualiza la información actual de la canción, los controles de reproducción y el usuario elementos de interfaz para reflejar la canción cargada. Determina la fuente de audio apropiada en función del URL de la canción, que admite enlaces a archivos en la nube tanto de You\+Tube como directos. Si la canción está marcada como favorita, el el icono like se actualiza. La reproducción se inicia de forma asíncrona y las métricas de reproducción de canciones se incrementan en el fondo. Si no se puede cargar el audio, se muestra una alerta al usuario. Este método es asincrónico. pero devuelve nulo; las excepciones se capturan y registran internamente. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cancion} & La canción a cargar y reproducir. No debe ser nula y debe contener metadatos válidos y una URL reproducible.\\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00586}{586}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a1675ece7ec062b13fc744048fad87469}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!CerrarAplicacion@{CerrarAplicacion}}
+\index{CerrarAplicacion@{CerrarAplicacion}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{CerrarAplicacion()}{CerrarAplicacion()}}
+{\footnotesize\ttfamily \label{a00373_a1675ece7ec062b13fc744048fad87469} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Cerrar\+Aplicacion (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Realiza un cierre limpio de la aplicación, finalizando los procesos relacionados, liberando recursos, y cerrando la ventana de la aplicación. 
+
+Este método termina por la fuerza cualquier instancia en ejecución de \textquotesingle{}\doxylink{a00174}{Beta\+Proyecto.\+API}\textquotesingle{} proceso, descarte de recursos multimedia, detiene temporizadores internos y cierra la aplicación. Si el la aplicación se ejecuta con una vida útil de escritorio clásica, utiliza el mecanismo de apagado apropiado; de lo contrario, abandona el proceso. Utilice este método para asegurarse de que todos los recursos se liberan y la aplicación salidas limpias. 
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l01109}{1109}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_ae0ffbab1bafd2b2c53572d06461027f4}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!CerrarSesion@{CerrarSesion}}
+\index{CerrarSesion@{CerrarSesion}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{CerrarSesion()}{CerrarSesion()}}
+{\footnotesize\ttfamily \label{a00373_ae0ffbab1bafd2b2c53572d06461027f4} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Cerrar\+Sesion (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Cierra la sesión actual del usuario y restablece el estado de la aplicación a la vista de inicio de sesión. 
+
+Este método detiene cualquier reproducción de medios activa, borra datos específicos del usuario y restablece la interfaz de usuario. elementos y elimina la información de usuario almacenada en caché para mayor seguridad. Después de la ejecución, la aplicación regresa al pantalla de inicio de sesión, asegurándose de que ningún dato de sesiones anteriores permanezca accesible. Este método debe ser llamado cuando un el usuario se desconecta o cuando una sesión debe finalizar de forma segura. 
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l01070}{1070}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a98dfc8c0bec0d1af0652f2a624945b4b}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!IrAAyuda@{IrAAyuda}}
+\index{IrAAyuda@{IrAAyuda}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{IrAAyuda()}{IrAAyuda()}}
+{\footnotesize\ttfamily \label{a00373_a98dfc8c0bec0d1af0652f2a624945b4b} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Ir\+AAyuda (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Muestra la vista de ayuda en la aplicación, creándola y configurándola si no existe. 
+
+Cuando se invoca, este método cambia la vista actual a la vista de ayuda y oculta el barra de aplicaciones. Si la vista de ayuda no se ha creado previamente, se inicializa y configura antes se está mostrando. 
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00372}{372}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a103456d1377816469a4b901856f7f03c}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!IrACrearPlaylist@{IrACrearPlaylist}}
+\index{IrACrearPlaylist@{IrACrearPlaylist}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{IrACrearPlaylist()}{IrACrearPlaylist()}}
+{\footnotesize\ttfamily \label{a00373_a103456d1377816469a4b901856f7f03c} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Ir\+ACrear\+Playlist (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Navega a la vista para crear una nueva lista de reproducción personalizada y restablece el formulario de creación de la lista de reproducción. 
+
+Este método reemplaza la vista actual con la vista de creación de listas de reproducción y oculta los barra de navegación. Cuando el usuario regresa desde la vista de creación de listas de reproducción, la vista original y la barra de navegación se restauran. 
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00413}{413}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_aa00b5aeeb307a24903eb19c4ddd762e0}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!IrACrearReporte@{IrACrearReporte}}
+\index{IrACrearReporte@{IrACrearReporte}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{IrACrearReporte()}{IrACrearReporte()}}
+{\footnotesize\ttfamily \label{a00373_aa00b5aeeb307a24903eb19c4ddd762e0} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Ir\+ACrear\+Reporte (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{a00257}{Canciones}}}]{cancion}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Muestra la vista de creación del informe para la canción especificada. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cancion} & La canción para la que se mostrará la vista de creación del informe. No puede ser nula. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00468}{468}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a8f0e60778a6d52d7d7b37a62c10d9248}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!IrACrearUsuario@{IrACrearUsuario}}
+\index{IrACrearUsuario@{IrACrearUsuario}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{IrACrearUsuario()}{IrACrearUsuario()}}
+{\footnotesize\ttfamily \label{a00373_a8f0e60778a6d52d7d7b37a62c10d9248} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Ir\+ACrear\+Usuario (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Muestra la vista de creación del usuario como una ventana emergente, lo que permite al usuario crear una nueva cuenta. 
+
+Este método reemplaza la ventana emergente actual con la vista de creación del usuario. Para cerrar el popup y volver al estado anterior, usar la acción de retroalimentación proporcionada dentro de la creación del usuario 
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00264}{264}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a660213137d2cf49bb63d9aac57c42643}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!IrADetallesCancion@{IrADetallesCancion}}
+\index{IrADetallesCancion@{IrADetallesCancion}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{IrADetallesCancion()}{IrADetallesCancion()}}
+{\footnotesize\ttfamily \label{a00373_a660213137d2cf49bb63d9aac57c42643} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Ir\+ADetalles\+Cancion (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{a00257}{Canciones}}}]{cancion}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Muestra la vista de detalles para la canción especificada y establece acciones relacionadas como reproducir, marcar como favorita y devolver. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cancion} & La canción para la que se muestran los detalles. No puede ser nula. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00433}{433}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_ac315800bb969345d5409ae52769c5bab}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!IrADetallesPlaylist@{IrADetallesPlaylist}}
+\index{IrADetallesPlaylist@{IrADetallesPlaylist}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{IrADetallesPlaylist()}{IrADetallesPlaylist()}}
+{\footnotesize\ttfamily \label{a00373_ac315800bb969345d5409ae52769c5bab} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Ir\+ADetalles\+Playlist (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{a00273}{Lista\+Personalizada}}}]{playlist}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00480}{480}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_ab8a4ad9c5de96bfccdc150001baa8f67}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!IrAEditarCancion@{IrAEditarCancion}}
+\index{IrAEditarCancion@{IrAEditarCancion}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{IrAEditarCancion()}{IrAEditarCancion()}}
+{\footnotesize\ttfamily \label{a00373_ab8a4ad9c5de96bfccdc150001baa8f67} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Ir\+AEditar\+Cancion (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{a00257}{Canciones}}}]{cancion}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Muestra la vista de edición de canciones para la canción especificada. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cancion} & La canción a editar. No puede ser nula. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00496}{496}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_aedc88d889651d608f0faa67bd0a05299}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!IrAEditarPlaylist@{IrAEditarPlaylist}}
+\index{IrAEditarPlaylist@{IrAEditarPlaylist}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{IrAEditarPlaylist()}{IrAEditarPlaylist()}}
+{\footnotesize\ttfamily \label{a00373_aedc88d889651d608f0faa67bd0a05299} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Ir\+AEditar\+Playlist (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{a00273}{Lista\+Personalizada}}}]{playlist}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Muestra la vista de edición de la lista de reproducción personalizada especificada, permitiendo al usuario modificar sus detalles. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em playlist} & La lista de reproducción personalizada que se va a editar. No puede ser nula. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00512}{512}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a45d1acb6c7a53c1c750db7a118850916}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!IrAlCentralTabControl@{IrAlCentralTabControl}}
+\index{IrAlCentralTabControl@{IrAlCentralTabControl}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{IrAlCentralTabControl()}{IrAlCentralTabControl()}}
+{\footnotesize\ttfamily \label{a00373_a45d1acb6c7a53c1c750db7a118850916} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Ir\+Al\+Central\+Tab\+Control (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Navega a la vista de control de pestaña central, inicializándola si es necesario y configurándola como la vista actual. 
+
+Si la vista de control de pestaña central no se ha creado, este método la inicializa y configura sus acciones de navegación. Las llamadas posteriores reutilizarán la instancia de vista existente. Este método también actualiza los iconos de la interfaz como parte del proceso de navegación.
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00280}{280}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a6adbcbbdc48d0f4083222cacc2ecc326}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!IrAPanelUsuario@{IrAPanelUsuario}}
+\index{IrAPanelUsuario@{IrAPanelUsuario}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{IrAPanelUsuario()}{IrAPanelUsuario()}}
+{\footnotesize\ttfamily \label{a00373_a6adbcbbdc48d0f4083222cacc2ecc326} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Ir\+APanel\+Usuario (\begin{DoxyParamCaption}\item[{int}]{pestania}{}\end{DoxyParamCaption})}
+
+
+
+Navega al panel de usuario y muestra la pestaña especificada. 
+
+Si el panel de usuario no se ha creado, este método lo inicializa y configura acciones relacionadas. Si el panel ya existe, actualiza la pestaña mostrada. La navegación oculta los principales barra mientras el panel de usuario está activo.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pestania} & El índice de la pestaña que se mostrará en el panel de usuario. Debe ser un índice de pestañas válido y compatible con el panel.\\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00315}{315}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_af06723da21f1616a47c8abf05063d629}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!IrAPublicarCancion@{IrAPublicarCancion}}
+\index{IrAPublicarCancion@{IrAPublicarCancion}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{IrAPublicarCancion()}{IrAPublicarCancion()}}
+{\footnotesize\ttfamily \label{a00373_af06723da21f1616a47c8abf05063d629} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Ir\+APublicar\+Cancion (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Navega a la vista para publicar una nueva canción y actualiza el estado actual de la vista en consecuencia. 
+
+Este método reemplaza la vista actual con la vista de publicación de canciones y oculta los barra de navegación. Cuando el usuario regresa desde la vista de publicación, se restaura la vista original del control de pestañas. y la barra de navegación vuelve a ser visible. 
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00391}{391}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a05e76797d80fcb2f2a68ea10203418bb}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!IrASobreNosotros@{IrASobreNosotros}}
+\index{IrASobreNosotros@{IrASobreNosotros}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{IrASobreNosotros()}{IrASobreNosotros()}}
+{\footnotesize\ttfamily \label{a00373_a05e76797d80fcb2f2a68ea10203418bb} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Ir\+ASobre\+Nosotros (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Navega a la vista \textquotesingle{}Sobre Nosotros\textquotesingle{}, creándola y configurándola si no existe. 
+
+Si no se ha creado la vista \textquotesingle{}Sobre Nosotros\textquotesingle{}, este método la inicializa y lo establece como la vista actual. Las llamadas posteriores reutilizarán la instancia de vista existente. La barra de música está oculta mientras esta vista está activa. 
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00353}{353}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a697673937efd1e71a8f1bb686749d5af}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!IrAVerArtista@{IrAVerArtista}}
+\index{IrAVerArtista@{IrAVerArtista}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{IrAVerArtista()}{IrAVerArtista()}}
+{\footnotesize\ttfamily \label{a00373_a697673937efd1e71a8f1bb686749d5af} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Ir\+AVer\+Artista (\begin{DoxyParamCaption}\item[{string}]{id\+Usuario}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Muestra los detalles del usuario especificado en una vista emergente. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id\+Usuario} & El identificador único del usuario cuyos detalles se deben mostrar. No puede ser nulo o vacío. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00452}{452}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a182b5e6e4ab41542025be7f88db27a27}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!LimpiarArchivoTemporal@{LimpiarArchivoTemporal}}
+\index{LimpiarArchivoTemporal@{LimpiarArchivoTemporal}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{LimpiarArchivoTemporal()}{LimpiarArchivoTemporal()}}
+{\footnotesize\ttfamily \label{a00373_a182b5e6e4ab41542025be7f88db27a27} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Limpiar\+Archivo\+Temporal (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Elimina el archivo temporal actual si existe y libera cualquier recurso multimedia asociado. 
+
+Si el archivo temporal está en uso o no se puede eliminar, el método suprime excepciones y registra un mensaje de depuración. Este método está destinado a ser llamado cuando los archivos multimedia temporales no están se necesita más tiempo para liberar espacio en disco y liberar atajos de archivos. 
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l01154}{1154}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_aab0d0a268d9f0317059b9b894652ed53}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!NextCancion@{NextCancion}}
+\index{NextCancion@{NextCancion}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{NextCancion()}{NextCancion()}}
+{\footnotesize\ttfamily \label{a00373_aab0d0a268d9f0317059b9b894652ed53} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Next\+Cancion (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Avanza a la reproducción de la siguiente canción en la lista de reproducción, manejando tanto el modo secuencial como el de mezcla. 
+
+En el modo de mezcla, este método selecciona aleatoriamente la siguiente canción entre las que aún no están disponibles. jugado, manteniendo un historial para evitar repeticiones hasta que se hayan reproducido todas las canciones. En el modo secuencial, avanza a la siguiente canción en orden si está disponible. Si todas las canciones se han reproducido en modo de mezcla, el historial se restablece excepto para la canción actual, y la reproducción continúa. Este método no tiene efecto si la lista de reproducción es vacío. 
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00804}{804}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a862dd858c07a39befd300d3d91750875}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!RefrescarIconos@{RefrescarIconos}}
+\index{RefrescarIconos@{RefrescarIconos}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{RefrescarIconos()}{RefrescarIconos()}}
+{\footnotesize\ttfamily \label{a00373_a862dd858c07a39befd300d3d91750875} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Refrescar\+Iconos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Actualiza los iconos y las propiedades relacionadas para reflejar el tema de la aplicación actual. 
+
+Llame a este método después de que cambie el tema de la aplicación para asegurarse de que todos los iconos y las propiedades del deslizador se actualizan y notifican cualquier vinculación de datos de los cambios. 
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l01052}{1052}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a777f3ef2d46ab593af6b2e0a605cc4c3}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!ReproducirCancion@{ReproducirCancion}}
+\index{ReproducirCancion@{ReproducirCancion}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{ReproducirCancion()}{ReproducirCancion()}}
+{\footnotesize\ttfamily \label{a00373_a777f3ef2d46ab593af6b2e0a605cc4c3} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Reproducir\+Cancion (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{a00257}{Canciones}}}]{cancion}{, }\item[{List$<$ \doxymbox{\hyperlink{a00257}{Canciones}} $>$?}]{lista\+Origen}{ = {\ttfamily null}}\end{DoxyParamCaption})}
+
+
+
+Inicia la reproducción de la canción especificada, opcionalmente usando una lista de reproducción proporcionada como cola de reproducción. 
+
+Si se proporciona una lista de reproducción, la reproducción comenzará con la canción especificada dentro de esa lista. lista. De lo contrario, la reproducción se limita a la canción individual proporcionada. La cola de reproducción y el índice de canciones actual se actualizan en consecuencia. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cancion} & La canción a reproducir. No puede ser nula. \\
+\hline
+{\em lista\+Origen} & Una lista opcional de canciones para usar como cola de reproducción. Si es nula o vacía, solo la canción especificada será jugado. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00554}{554}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_accdbadfc9164318d3202906144d3324f}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!Timer\_Tick@{Timer\_Tick}}
+\index{Timer\_Tick@{Timer\_Tick}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{Timer\_Tick()}{Timer\_Tick()}}
+{\footnotesize\ttfamily \label{a00373_accdbadfc9164318d3202906144d3324f} 
+void Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Timer\+\_\+\+Tick (\begin{DoxyParamCaption}\item[{object?}]{sender}{, }\item[{Event\+Args}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Maneja las marcas de eventos del temporizador para actualizar el progreso de reproducción, la hora actual y la duración total del medio reproductor, o para avanzar a la siguiente pista cuando termina la reproducción. 
+
+Este método está destinado a ser utilizado como un manejador de eventos para un temporizador periódico. asociado con la reproducción de medios. Actualiza los elementos de la interfaz de usuario, como el deslizador de progreso y las pantallas de tiempo. respuesta al estado actual del reproductor multimedia. Si la reproducción ha terminado, avanza automáticamente a la siguiente pista o restablece la interfaz de usuario según sea apropiado. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em sender} & La fuente del evento, normalmente el temporizador que activó la marca. \\
+\hline
+{\em e} & Un objeto que contiene los datos del evento. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00998}{998}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+
+
+\label{doc-property-members}
+\Hypertarget{a00373_doc-property-members}
+\doxysubsubsection{Propiedades}
+\Hypertarget{a00373_a7dc48ca5fd55e775607836aac89ffc62}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!BarraVisible@{BarraVisible}}
+\index{BarraVisible@{BarraVisible}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{BarraVisible}{BarraVisible}}
+{\footnotesize\ttfamily \label{a00373_a7dc48ca5fd55e775607836aac89ffc62} 
+bool Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Barra\+Visible\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00180}{180}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a657cd89e83f0f6004b48084a1e2e770c}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!BtnAleatorioCommand@{BtnAleatorioCommand}}
+\index{BtnAleatorioCommand@{BtnAleatorioCommand}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{BtnAleatorioCommand}{BtnAleatorioCommand}}
+{\footnotesize\ttfamily \label{a00373_a657cd89e83f0f6004b48084a1e2e770c} 
+Reactive\+Command$<$Unit, Unit$>$ Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Btn\+Aleatorio\+Command\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00191}{191}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a7247539e33abe34da6b45f3c94a78c41}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!BtnBackCommand@{BtnBackCommand}}
+\index{BtnBackCommand@{BtnBackCommand}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{BtnBackCommand}{BtnBackCommand}}
+{\footnotesize\ttfamily \label{a00373_a7247539e33abe34da6b45f3c94a78c41} 
+Reactive\+Command$<$Unit, Unit$>$ Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Btn\+Back\+Command\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00190}{190}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_af6de0c9ac93bf173f8b0f016df7ba304}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!BtnFavCommand@{BtnFavCommand}}
+\index{BtnFavCommand@{BtnFavCommand}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{BtnFavCommand}{BtnFavCommand}}
+{\footnotesize\ttfamily \label{a00373_af6de0c9ac93bf173f8b0f016df7ba304} 
+Reactive\+Command$<$Unit, Unit$>$ Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Btn\+Fav\+Command\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00188}{188}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a3fa79c5682dfa480a7551ff4f8f53040}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!BtnNextCommand@{BtnNextCommand}}
+\index{BtnNextCommand@{BtnNextCommand}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{BtnNextCommand}{BtnNextCommand}}
+{\footnotesize\ttfamily \label{a00373_a3fa79c5682dfa480a7551ff4f8f53040} 
+Reactive\+Command$<$Unit, Unit$>$ Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Btn\+Next\+Command\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00189}{189}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a0060721bd99b40ac99e0a8789e7264d9}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!BtnPlayPauseCommand@{BtnPlayPauseCommand}}
+\index{BtnPlayPauseCommand@{BtnPlayPauseCommand}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{BtnPlayPauseCommand}{BtnPlayPauseCommand}}
+{\footnotesize\ttfamily \label{a00373_a0060721bd99b40ac99e0a8789e7264d9} 
+Reactive\+Command$<$Unit, Unit$>$ Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Btn\+Play\+Pause\+Command\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00187}{187}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a3f334f9d8f56a21fbc10521b8b8e0e6e}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!IconoAleatorio@{IconoAleatorio}}
+\index{IconoAleatorio@{IconoAleatorio}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{IconoAleatorio}{IconoAleatorio}}
+{\footnotesize\ttfamily \label{a00373_a3f334f9d8f56a21fbc10521b8b8e0e6e} 
+string Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Icono\+Aleatorio\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00096}{96}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_aa981401cba101e7571be147e5de14f3e}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!IconoBack@{IconoBack}}
+\index{IconoBack@{IconoBack}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{IconoBack}{IconoBack}}
+{\footnotesize\ttfamily \label{a00373_aa981401cba101e7571be147e5de14f3e} 
+string Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Icono\+Back\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00089}{89}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a5b4a727820d8306726298dd9944367e5}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!IconoLike@{IconoLike}}
+\index{IconoLike@{IconoLike}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{IconoLike}{IconoLike}}
+{\footnotesize\ttfamily \label{a00373_a5b4a727820d8306726298dd9944367e5} 
+string Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Icono\+Like\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00103}{103}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a1506a09dc8fa3310ac3d8b25cfce8810}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!IconoNext@{IconoNext}}
+\index{IconoNext@{IconoNext}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{IconoNext}{IconoNext}}
+{\footnotesize\ttfamily \label{a00373_a1506a09dc8fa3310ac3d8b25cfce8810} 
+string Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Icono\+Next\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00082}{82}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a843f1a80b0191f1ec8c3419cd5dd864e}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!IconoPlayPause@{IconoPlayPause}}
+\index{IconoPlayPause@{IconoPlayPause}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{IconoPlayPause}{IconoPlayPause}}
+{\footnotesize\ttfamily \label{a00373_a843f1a80b0191f1ec8c3419cd5dd864e} 
+string Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Icono\+Play\+Pause\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00075}{75}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_ab2075826b2b733771a2366ceb766784a}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!ImagenCancionActual@{ImagenCancionActual}}
+\index{ImagenCancionActual@{ImagenCancionActual}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{ImagenCancionActual}{ImagenCancionActual}}
+{\footnotesize\ttfamily \label{a00373_ab2075826b2b733771a2366ceb766784a} 
+string Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Imagen\+Cancion\+Actual\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00068}{68}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a84baf00b599377527aea36eca806a4dc}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!NombreArtistaActual@{NombreArtistaActual}}
+\index{NombreArtistaActual@{NombreArtistaActual}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{NombreArtistaActual}{NombreArtistaActual}}
+{\footnotesize\ttfamily \label{a00373_a84baf00b599377527aea36eca806a4dc} 
+string Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Nombre\+Artista\+Actual\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00061}{61}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a3d4a8e6117e8fe33533531d32d53c0c8}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!NombreCancionActual@{NombreCancionActual}}
+\index{NombreCancionActual@{NombreCancionActual}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{NombreCancionActual}{NombreCancionActual}}
+{\footnotesize\ttfamily \label{a00373_a3d4a8e6117e8fe33533531d32d53c0c8} 
+string Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Nombre\+Cancion\+Actual\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00054}{54}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_aedbab7233ccdfffd8c986f2efb2d3dff}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!PopupActual@{PopupActual}}
+\index{PopupActual@{PopupActual}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{PopupActual}{PopupActual}}
+{\footnotesize\ttfamily \label{a00373_aedbab7233ccdfffd8c986f2efb2d3dff} 
+\doxymbox{\hyperlink{a00453}{View\+Model\+Base}} Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Popup\+Actual\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00159}{159}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_adebbbe8e446946700174d21f6c783688}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!PopupVisible@{PopupVisible}}
+\index{PopupVisible@{PopupVisible}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{PopupVisible}{PopupVisible}}
+{\footnotesize\ttfamily \label{a00373_adebbbe8e446946700174d21f6c783688} 
+bool Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Popup\+Visible\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00171}{171}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_aca48f088ad847781da1a5e5ff48418da}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!TiempoActualCancion@{TiempoActualCancion}}
+\index{TiempoActualCancion@{TiempoActualCancion}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{TiempoActualCancion}{TiempoActualCancion}}
+{\footnotesize\ttfamily \label{a00373_aca48f088ad847781da1a5e5ff48418da} 
+string Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Tiempo\+Actual\+Cancion\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00111}{111}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a03412666f5b6c0656b1ab5a3ab512db3}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!TiempoTotalCancion@{TiempoTotalCancion}}
+\index{TiempoTotalCancion@{TiempoTotalCancion}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{TiempoTotalCancion}{TiempoTotalCancion}}
+{\footnotesize\ttfamily \label{a00373_a03412666f5b6c0656b1ab5a3ab512db3} 
+string Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Tiempo\+Total\+Cancion\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00118}{118}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a59b9b05a301d7c9cb4ca86a255674c71}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!ValorSliderCancion@{ValorSliderCancion}}
+\index{ValorSliderCancion@{ValorSliderCancion}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{ValorSliderCancion}{ValorSliderCancion}}
+{\footnotesize\ttfamily \label{a00373_a59b9b05a301d7c9cb4ca86a255674c71} 
+double Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Valor\+Slider\+Cancion\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00126}{126}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_adb5361467bf1f9b283a003c971ac7cae}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!ValorSliderVolumen@{ValorSliderVolumen}}
+\index{ValorSliderVolumen@{ValorSliderVolumen}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{ValorSliderVolumen}{ValorSliderVolumen}}
+{\footnotesize\ttfamily \label{a00373_adb5361467bf1f9b283a003c971ac7cae} 
+double Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Valor\+Slider\+Volumen\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00135}{135}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+
+\Hypertarget{a00373_a6200911c3ea00580644ec12af490277f}\index{BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}!VistaActual@{VistaActual}}
+\index{VistaActual@{VistaActual}!BetaProyecto.ViewModels.MarcoAppViewModel@{BetaProyecto.ViewModels.MarcoAppViewModel}}
+\doxyparagraph{\texorpdfstring{VistaActual}{VistaActual}}
+{\footnotesize\ttfamily \label{a00373_a6200911c3ea00580644ec12af490277f} 
+\doxymbox{\hyperlink{a00453}{View\+Model\+Base}} Beta\+Proyecto.\+View\+Models.\+Marco\+App\+View\+Model.\+Vista\+Actual\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00083_source_l00151}{151}} del archivo \doxymbox{\hyperlink{a00083_source}{Marco\+App\+View\+Model.\+cs}}.
+

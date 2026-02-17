@@ -1,0 +1,461 @@
+  % Handle batch mode
+  % to overcome problems with too many open files
+  \let\mypdfximage\pdfximage\def\pdfximage{\immediate\mypdfximage}
+  \RequirePackage{iftex}
+  \ifLuaTeX
+    \directlua{pdf.setminorversion(7)}
+  \fi
+  \ifXeTeX
+    \special{pdf:minorversion 7}
+  \fi
+  \ifPDFTeX
+    \pdfminorversion=7
+  \fi
+  % Set document class depending on configuration
+  \documentclass[twoside]{article}
+  % Packages required by doxygen
+  \makeatletter
+  \providecommand\IfFormatAtLeastTF{\@ifl@t@r\fmtversion}
+  % suppress package identification of infwarerr as it contains the word "warning"
+  \let\@@protected@wlog\protected@wlog
+  \def\protected@wlog#1{\wlog{package info suppressed}}
+  \RequirePackage{infwarerr}
+  \let\protected@wlog\@@protected@wlog
+  \makeatother
+  \IfFormatAtLeastTF{2016/01/01}{}{\usepackage{fixltx2e}} % for \textsubscript
+  \ifPDFTeX
+    \IfFormatAtLeastTF{2015/01/01}{\pdfsuppresswarningpagegroup=1}{}
+  \fi
+  \usepackage{doxygen}
+  \usepackage{graphicx}
+  \iftutex
+    \usepackage{fontspec}
+    \defaultfontfeatures{Ligatures={TeX}}
+    \usepackage{unicode-math}
+  \else
+    \usepackage[utf8]{inputenc}
+  \fi
+  \usepackage{makeidx}
+  \PassOptionsToPackage{warn}{textcomp}
+  \usepackage{textcomp}
+  \usepackage[nointegrals]{wasysym}
+  \usepackage{ifxetex}
+  % NLS support packages
+  \usepackage[spanish, es-noshorthands, shorthands=off]{babel}
+  % Define default fonts
+  % Font selection
+  \iftutex
+  \else
+    \usepackage[T1]{fontenc}
+  \fi
+  % set main and monospaced font
+  \usepackage[scaled=.90]{helvet}
+\usepackage{courier}
+\renewcommand{\familydefault}{\sfdefault}
+  \doxyallsectionsfont{%
+    \fontseries{bc}\selectfont%
+    \color{darkgray}%
+  }
+  \renewcommand{\DoxyLabelFont}{%
+    \fontseries{bc}\selectfont%
+    \color{darkgray}%
+  }
+  \newcommand{\+}{\discretionary{\mbox{\scriptsize$\hookleftarrow$}}{}{}}
+   % Arguments of doxygenemoji:
+   % 1) ':<text>:' form of the emoji, already LaTeX-escaped
+   % 2) file with the name of the emoji without the .png extension
+   % in case image exist use this otherwise use the ':<text>:' form
+   \newcommand{\doxygenemoji}[2]{%
+     \IfFileExists{./#2.png}{\raisebox{-0.1em}{\includegraphics[height=0.9em]{./#2.png}}}{#1}%
+   }
+  % Page & text layout
+  \usepackage{geometry}
+  \geometry{%
+    a4paper,%
+    top=2.5cm,%
+    bottom=2.5cm,%
+    left=2.5cm,%
+    right=2.5cm%
+  }
+  \usepackage{changepage}
+  % Allow a bit of overflow to go unnoticed by other means
+  \tolerance=750
+  \hfuzz=15pt
+  \hbadness=750
+  \setlength{\emergencystretch}{15pt}
+  \setlength{\parindent}{0cm}
+  \newcommand{\doxynormalparskip}{\setlength{\parskip}{3ex plus 2ex minus 2ex}}
+  \newcommand{\doxytocparskip}{\setlength{\parskip}{1ex plus 0ex minus 0ex}}
+  \doxynormalparskip
+  % Redefine paragraph/subparagraph environments, using sectsty fonts
+  \makeatletter
+  \renewcommand{\paragraph}{%
+    \@startsection{paragraph}{4}{0ex}{-1.0ex}{1.0ex}{%
+      \normalfont\normalsize\bfseries\SS@parafont%
+    }%
+  }
+  \renewcommand{\subparagraph}{%
+    \@startsection{subparagraph}{5}{0ex}{-1.0ex}{1.0ex}{%
+      \normalfont\normalsize\bfseries\SS@subparafont%
+    }%
+  }
+  \makeatother
+  \makeatletter
+  \newcommand\hrulefilll{\leavevmode\leaders\hrule\hskip 0pt plus 1filll\kern\z@}
+  \makeatother
+  % Headers & footers
+  \usepackage{fancyhdr}
+  \pagestyle{fancyplain}
+  \renewcommand{\footrulewidth}{0.4pt}
+  \fancypagestyle{fancyplain}{
+    \fancyhf{}
+    \fancyhead[LE, RO]{\bfseries\thepage}
+    \fancyhead[LO]{\bfseries\rightmark}
+    \fancyhead[RE]{\bfseries\leftmark}
+    \fancyfoot[LO, RE]{\bfseries\scriptsize Generado por Doxygen }
+  }
+  \fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyfoot[LO, RE]{\bfseries\scriptsize Generado por Doxygen }
+    \renewcommand{\headrulewidth}{0pt}
+  }
+  \pagestyle{fancyplain}
+  \renewcommand{\sectionmark}[1]{%
+    \markright{\thesection\ #1}%
+  }
+  % ToC, LoF, LoT, bibliography, and index
+  % Indices & bibliography
+  \usepackage[numbers]{natbib}
+  \usepackage[titles]{tocloft}
+  \setcounter{tocdepth}{3}
+  \setcounter{secnumdepth}{5}
+  % creating indexes
+  \makeindex
+  \ifPDFTeX
+\usepackage{newunicodechar}
+  \makeatletter
+    \def\doxynewunicodechar#1#2{%
+    \@tempswafalse
+    \edef\nuc@tempa{\detokenize{#1}}%
+    \if\relax\nuc@tempa\relax
+      \nuc@emptyargerr
+    \else
+      \edef\@tempb{\expandafter\@car\nuc@tempa\@nil}%
+      \nuc@check
+      \if@tempswa
+        \@namedef{u8:\nuc@tempa}{#2}%
+      \fi
+    \fi
+  }
+  \makeatother
+  \doxynewunicodechar{⁻}{${}^{-}$}% Superscript minus
+  \doxynewunicodechar{²}{${}^{2}$}% Superscript two
+  \doxynewunicodechar{³}{${}^{3}$}% Superscript three
+\fi
+  % Hyperlinks
+    % Hyperlinks (required, but should be loaded last)
+    \ifPDFTeX
+      \usepackage[pdftex,pagebackref=true]{hyperref}
+    \else
+      \ifXeTeX
+        \usepackage[xetex,pagebackref=true]{hyperref}
+      \else
+        \ifLuaTeX
+          \usepackage[luatex,pagebackref=true]{hyperref}
+        \else
+          \usepackage[ps2pdf,pagebackref=true]{hyperref}
+        \fi
+      \fi
+    \fi
+    \hypersetup{%
+      colorlinks=true,%
+      linkcolor=blue,%
+      citecolor=blue,%
+      unicode,%
+      pdftitle={Music\+Search},%
+      pdfsubject={}%
+    }
+  % Custom commands used by the header
+  % Custom commands
+  \newcommand{\clearemptydoublepage}{%
+    \newpage{\pagestyle{empty}\cleardoublepage}%
+  }
+  % caption style definition
+  \usepackage{caption}
+  \captionsetup{labelsep=space,justification=centering,font={bf},singlelinecheck=off,skip=4pt,position=top}
+  % in page table of contents
+  \IfFormatAtLeastTF{2023/05/01}{\usepackage[deeplevels]{etoc}}{\usepackage[deeplevels]{etoc_doxygen}}
+  \etocsettocstyle{\doxytocparskip}{\doxynormalparskip}
+  \etocsetlevel{subsubsubsection}{4}
+  \etocsetlevel{subsubsubsubsection}{5}
+  \etocsetlevel{subsubsubsubsubsection}{6}
+  \etocsetlevel{subsubsubsubsubsubsection}{7}
+  \etocsetlevel{paragraph}{8}
+  \etocsetlevel{subparagraph}{9}
+  % prevent numbers overlap the titles in toc
+  \renewcommand{\numberline}[1]{#1~}
+% End of preamble, now comes the document contents
+%===== C O N T E N T S =====
+\begin{document}
+  \raggedbottom
+  % Titlepage & ToC
+    % To avoid duplicate page anchors due to reuse of same numbers for
+    % the index (be it as roman numbers)
+    \hypersetup{pageanchor=false,
+                bookmarksnumbered=true,
+                pdfencoding=unicode
+               }
+  \pagenumbering{alph}
+  \begin{titlepage}
+  \vspace*{7cm}
+  \begin{center}%
+  {\Large Music\+Search}\\
+  [1ex]\large 1.\+1.\+2 \\
+  \vspace*{1cm}
+  {\large Generado por Doxygen 1.16.1}\\
+  \end{center}
+  \end{titlepage}
+  \pagenumbering{roman}
+  \tableofcontents
+  \pagenumbering{arabic}
+  % re-enable anchors again
+  \hypersetup{pageanchor=true}
+%--- Begin generated contents ---
+\doxysection{Documentación de directorios}
+\input{dir_185e83519e12721b061570a464b09f2f}
+\input{dir_f88f0160125cad872ed8beed28e70a0e}
+\input{dir_bab5435ed9a7ba81edeaf29bd3f6b4a9}
+\input{dir_f1e18bc122dfddf4364625a538a3a80e}
+\input{dir_011ce9b3cfd84be4d1571cf7e95f9ffb}
+\input{dir_3c5fc1c420b3479299d1a14aa7ad3489}
+\input{dir_511c059a34a29316872d504560faaf2a}
+\input{dir_aef61062eecb68c96c2fa2a12d8ad994}
+\input{dir_98a3787b8a8cc46a3b6b7c06b94a496e}
+\input{dir_8caab9194874eb31d4210e7fd7e15ab5}
+\input{dir_d09c09f54f3fd0917a82634f24fe0457}
+\input{dir_6f801a3343d3dbd2a5313ad5696b30b7}
+\input{dir_96eb7e0c0076c957abaf340274738185}
+\input{dir_889d4175524287c49c80c2fd4e307fa7}
+\input{dir_50d4895e36c4273facc0543e0f8585dd}
+\input{dir_8f5ffa37686e0475d6825d41448f9039}
+\input{dir_6d5d60452f18be106c8f836e975bf1a4}
+\input{dir_364cdaa78793ccd09585bb6481f10933}
+\input{dir_955cd5eaf489cf7ff262670c922077f9}
+\input{dir_ac09e83165f4433a77a5f0ff4ef566db}
+\doxysection{Documentación de espacios de nombres}
+\input{d7/d3f/a00173}
+\input{d8/df1/a00174}
+\input{de/d45/a00175}
+\input{d5/de9/a00176}
+\input{dd/d4c/a00177}
+\input{d9/d90/a00178}
+\input{db/dd9/a00179}
+\input{d0/d81/a00180}
+\doxysection{Documentación de clases}
+\input{de/dc8/a00325}
+\input{d9/d39/a00257}
+\input{d7/ddb/a00361}
+\input{da/de0/a00317}
+\input{d6/d22/a00245}
+\input{dc/d6a/a00261}
+\input{d2/d0a/a00333}
+\input{de/dbc/a00249}
+\input{d2/d71/a00309}
+\input{d5/d42/a00269}
+\input{d7/dfc/a00349}
+\input{d4/dce/a00337}
+\input{dd/db5/a00365}
+\input{dd/d4e/a00329}
+\input{d0/d19/a00273}
+\input{dd/db3/a00313}
+\input{d6/d4b/a00277}
+\input{df/dee/a00369}
+\input{dc/de3/a00373}
+\input{da/d53/a00265}
+\input{d3/d93/a00341}
+\input{db/ddc/a00353}
+\input{d6/de1/a00233}
+\input{d4/d13/a00377}
+\input{d3/d07/a00305}
+\input{d3/d58/a00285}
+\input{d2/d04/a00281}
+\input{d4/d66/a00289}
+\input{d4/d08/a00237}
+\input{d9/d48/a00345}
+\input{de/d08/a00381}
+\input{d5/d05/a00385}
+\input{dc/dc9/a00389}
+\input{d6/d82/a00293}
+\input{d3/d4a/a00297}
+\input{d0/d3e/a00253}
+\input{da/d50/a00301}
+\input{da/dbf/a00393}
+\input{d7/d93/a00397}
+\input{d7/d00/a00401}
+\input{de/de8/a00405}
+\input{de/d3d/a00409}
+\input{da/d9c/a00413}
+\input{d8/de7/a00417}
+\input{d2/de1/a00421}
+\input{dc/d2f/a00425}
+\input{d4/d53/a00429}
+\input{dd/d07/a00433}
+\input{d4/da8/a00437}
+\input{d6/d66/a00441}
+\input{dd/d47/a00445}
+\input{d9/d10/a00449}
+\input{da/dc3/a00453}
+\input{d1/dbd/a00457}
+\input{d5/d5f/a00461}
+\input{db/de0/a00465}
+\input{dc/ddf/a00469}
+\doxysection{Documentación de archivos}
+\input{d6/db8/a00158}
+\input{d6/db8/a00158_source}
+\input{d6/d7d/a00161}
+\input{d6/d7d/a00161_source}
+\input{d7/daa/a00490}
+\input{d7/daa/a00490_source}
+\input{d9/da5/a00493}
+\input{d9/da5/a00493_source}
+\input{d3/dad/a00496}
+\input{d3/dad/a00496_source}
+\input{d8/d67/a00499}
+\input{d8/d67/a00499_source}
+\input{d0/da2/a00502}
+\input{d0/da2/a00502_source}
+\input{d7/d37/a00505}
+\input{d7/d37/a00505_source}
+\input{dc/d30/a00508}
+\input{dc/d30/a00508_source}
+\input{d6/d10/a00511}
+\input{d6/d10/a00511_source}
+\input{d7/d46/a00002}
+\input{d7/d46/a00002_source}
+\input{dd/dad/a00005}
+\input{dd/dad/a00005_source}
+\input{d4/dee/a00008}
+\input{d4/dee/a00008_source}
+\input{da/d45/a00011}
+\input{da/d45/a00011_source}
+\input{d2/de7/a00014}
+\input{d2/de7/a00014_source}
+\input{d4/d51/a00017}
+\input{d4/d51/a00017_source}
+\input{db/db2/a00020}
+\input{db/db2/a00020_source}
+\input{d3/d52/a00023}
+\input{d3/d52/a00023_source}
+\input{d6/d5b/a00026}
+\input{d6/d5b/a00026_source}
+\input{d5/d16/a00029}
+\input{d5/d16/a00029_source}
+\input{dc/d87/a00032}
+\input{dc/d87/a00032_source}
+\input{d4/d8c/a00035}
+\input{d4/d8c/a00035_source}
+\input{d8/d41/a00038}
+\input{d8/d41/a00038_source}
+\input{d6/d90/a00514}
+\input{d6/d90/a00514_source}
+\input{d8/dc7/a00517}
+\input{d8/dc7/a00517_source}
+\input{d2/da3/a00520}
+\input{d2/da3/a00520_source}
+\input{d0/de7/a00523}
+\input{d0/de7/a00523_source}
+\input{d0/d35/a00526}
+\input{d0/d35/a00526_source}
+\input{d1/d0b/a00529}
+\input{d1/d0b/a00529_source}
+\input{d7/d41/a00532}
+\input{d7/d41/a00532_source}
+\input{d7/d84/a00535}
+\input{d7/d84/a00535_source}
+\input{dd/d5a/a00538}
+\input{dd/d5a/a00538_source}
+\input{dd/d72/a00541}
+\input{dd/d72/a00541_source}
+\input{d2/ddf/a00544}
+\input{d2/ddf/a00544_source}
+\input{d5/de0/a00050}
+\input{d5/de0/a00050_source}
+\input{dc/dee/a00053}
+\input{dc/dee/a00053_source}
+\input{d9/d2e/a00056}
+\input{d9/d2e/a00056_source}
+\input{d3/d8b/a00059}
+\input{d3/d8b/a00059_source}
+\input{df/d03/a00062}
+\input{df/d03/a00062_source}
+\input{de/de1/a00065}
+\input{de/de1/a00065_source}
+\input{da/d24/a00068}
+\input{da/d24/a00068_source}
+\input{d0/d89/a00071}
+\input{d0/d89/a00071_source}
+\input{db/db6/a00074}
+\input{db/db6/a00074_source}
+\input{d1/d09/a00077}
+\input{d1/d09/a00077_source}
+\input{da/dec/a00080}
+\input{da/dec/a00080_source}
+\input{d2/d1f/a00083}
+\input{d2/d1f/a00083_source}
+\input{da/d2a/a00086}
+\input{da/d2a/a00086_source}
+\input{db/dab/a00089}
+\input{db/dab/a00089_source}
+\input{d1/dc1/a00092}
+\input{d1/dc1/a00092_source}
+\input{d9/d77/a00095}
+\input{d9/d77/a00095_source}
+\input{d1/d44/a00098}
+\input{d1/d44/a00098_source}
+\input{d4/d3a/a00101}
+\input{d4/d3a/a00101_source}
+\input{d0/dc2/a00104}
+\input{d0/dc2/a00104_source}
+\input{df/d98/a00107}
+\input{df/d98/a00107_source}
+\input{d4/d81/a00110}
+\input{d4/d81/a00110_source}
+\input{d3/d00/a00113}
+\input{d3/d00/a00113_source}
+\input{d4/d3e/a00116}
+\input{d4/d3e/a00116_source}
+\input{df/d6a/a00119}
+\input{df/d6a/a00119_source}
+\input{df/dc8/a00122}
+\input{df/dc8/a00122_source}
+\input{dc/dfe/a00125}
+\input{dc/dfe/a00125_source}
+\input{d1/d88/a00128}
+\input{d1/d88/a00128_source}
+\input{d7/d06/a00131}
+\input{d7/d06/a00131_source}
+\input{de/d76/a00134}
+\input{de/d76/a00134_source}
+\input{d2/df5/a00137}
+\input{d2/df5/a00137_source}
+\input{d5/db1/a00140}
+\input{d5/db1/a00140_source}
+\input{d7/dce/a00143}
+\input{d7/dce/a00143_source}
+\input{d9/db6/a00146}
+\input{d9/db6/a00146_source}
+\input{da/d1e/a00149}
+\input{da/d1e/a00149_source}
+\input{d7/d9a/a00152}
+\input{d7/d9a/a00152_source}
+\input{d3/df8/a00155}
+\input{d3/df8/a00155_source}
+%--- End generated contents ---
+% Index
+  \newpage
+  \phantomsection
+  \clearemptydoublepage
+  \addcontentsline{toc}{section}{\indexname}
+  \printindex
+% Required for some languages (in combination with latexdocumentpre from the header)
+\end{document}

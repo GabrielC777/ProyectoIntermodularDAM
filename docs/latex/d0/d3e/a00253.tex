@@ -1,0 +1,66 @@
+\doxysubsection{Referencia de la clase Beta\+Proyecto.\+Helpers.\+Texto\+Traducido\+Converter}
+\hypertarget{a00253}{}\label{a00253}\index{BetaProyecto.Helpers.TextoTraducidoConverter@{BetaProyecto.Helpers.TextoTraducidoConverter}}
+
+
+\doxysubsubsection{Detalles}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00011_source_l00014}{14}} del archivo \doxymbox{\hyperlink{a00011_source}{Texto\+Traducido\+Converter.\+cs}}.
+
+\doxysubsubsubsection*{Métodos}
+\begin{DoxyCompactItemize}
+\item 
+object? \doxymbox{\hyperlink{a00253_a355f369100497d5c421cc4561f16b85f}{Convert}} (object? value, Type target\+Type, object? parameter, Culture\+Info culture)
+\begin{DoxyCompactList}\small\item\em Traduce dinámicamente una clave de recurso en su valor correspondiente definido en los diccionarios de la aplicación. \end{DoxyCompactList}\item 
+object? \doxymbox{\hyperlink{a00253_adf241c07c8ce56fd3469e0a06c69d4d3}{Convert\+Back}} (object? value, Type target\+Type, object? parameter, Culture\+Info culture)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{a00253_doc-func-members}
+\doxysubsubsection{Funciones}
+\Hypertarget{a00253_a355f369100497d5c421cc4561f16b85f}\index{BetaProyecto.Helpers.TextoTraducidoConverter@{BetaProyecto.Helpers.TextoTraducidoConverter}!Convert@{Convert}}
+\index{Convert@{Convert}!BetaProyecto.Helpers.TextoTraducidoConverter@{BetaProyecto.Helpers.TextoTraducidoConverter}}
+\doxyparagraph{\texorpdfstring{Convert()}{Convert()}}
+{\footnotesize\ttfamily \label{a00253_a355f369100497d5c421cc4561f16b85f} 
+object? Beta\+Proyecto.\+Helpers.\+Texto\+Traducido\+Converter.\+Convert (\begin{DoxyParamCaption}\item[{object?}]{value}{, }\item[{Type}]{target\+Type}{, }\item[{object?}]{parameter}{, }\item[{Culture\+Info}]{culture}{}\end{DoxyParamCaption})}
+
+
+
+Traduce dinámicamente una clave de recurso en su valor correspondiente definido en los diccionarios de la aplicación. 
+
+Este convertidor facilita la internacionalización (i18n) en la capa de vista mediante los siguientes pasos:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Validación:\+}} Verifica si el valor de entrada es una cadena de texto válida (la clave del recurso). 
+\item {\bfseries{Búsqueda:\+}} Consulta el diccionario de recursos activo de Application.\+Current intentando localizar la clave. 
+\item {\bfseries{Resolución:\+}} Si encuentra el recurso (ej. una traducción o una ruta de imagen), lo devuelve; de lo contrario, retorna la clave original como valor de respaldo (fallback). 
+\end{DoxyEnumerate}Es ideal para enlazar propiedades de texto en XAML que deben reaccionar a cambios de idioma en tiempo de ejecución. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em value} & La clave del recurso (string) que se desea localizar.\\
+\hline
+{\em target\+Type} & El tipo de la propiedad de destino.\\
+\hline
+{\em parameter} & Parámetro opcional (no utilizado).\\
+\hline
+{\em culture} & Información de cultura (no utilizada, se prioriza el diccionario activo).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+El objeto localizado encontrado en los recursos o el texto original si no existe coincidencia.
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00011_source_l00033}{33}} del archivo \doxymbox{\hyperlink{a00011_source}{Texto\+Traducido\+Converter.\+cs}}.
+
+\Hypertarget{a00253_adf241c07c8ce56fd3469e0a06c69d4d3}\index{BetaProyecto.Helpers.TextoTraducidoConverter@{BetaProyecto.Helpers.TextoTraducidoConverter}!ConvertBack@{ConvertBack}}
+\index{ConvertBack@{ConvertBack}!BetaProyecto.Helpers.TextoTraducidoConverter@{BetaProyecto.Helpers.TextoTraducidoConverter}}
+\doxyparagraph{\texorpdfstring{ConvertBack()}{ConvertBack()}}
+{\footnotesize\ttfamily \label{a00253_adf241c07c8ce56fd3469e0a06c69d4d3} 
+object? Beta\+Proyecto.\+Helpers.\+Texto\+Traducido\+Converter.\+Convert\+Back (\begin{DoxyParamCaption}\item[{object?}]{value}{, }\item[{Type}]{target\+Type}{, }\item[{object?}]{parameter}{, }\item[{Culture\+Info}]{culture}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00011_source_l00050}{50}} del archivo \doxymbox{\hyperlink{a00011_source}{Texto\+Traducido\+Converter.\+cs}}.
+

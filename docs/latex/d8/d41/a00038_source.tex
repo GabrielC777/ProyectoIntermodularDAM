@@ -1,0 +1,98 @@
+\doxysubsection{Usuarios.\+cs}
+\hypertarget{a00038_source}{}\label{a00038_source}\index{BetaProyecto/Models/Usuarios.cs@{BetaProyecto/Models/Usuarios.cs}}
+\doxymbox{\hyperlink{a00038}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00001}00001\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00002}00002\ \textcolor{keyword}{using\ }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00003}00003\ \textcolor{keyword}{using\ }MongoDB.Bson;}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00004}00004\ \textcolor{keyword}{using\ }MongoDB.Bson.Serialization.Attributes;}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{a00038_source_l00006}00006\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{a00177}{BetaProyecto.Models}}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00008}\doxymbox{\hyperlink{a00301}{00008}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00301}{Usuarios}}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00009}00009\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00010}00010\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 1.\ EL\ ID\ ES\ OBLIGATORIO\ (Mapea\ el\ \_id\ de\ Mongo\ a\ string)}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00011}00011\ \ \ \ \ \ \ \ \ [BsonId]}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00012}00012\ \ \ \ \ \ \ \ \ [BsonRepresentation(BsonType.ObjectId)]}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00013}\doxymbox{\hyperlink{a00301_abe3b0745ecca0b376b5db07927f14a30}{00013}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00301_abe3b0745ecca0b376b5db07927f14a30}{Id}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{a00038_source_l00015}00015\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}username"{}})]}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00016}\doxymbox{\hyperlink{a00301_abb41b5cb0ae4aaabd4c0134ddc29da89}{00016}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00301_abb41b5cb0ae4aaabd4c0134ddc29da89}{Username}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{a00038_source_l00018}00018\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}email"{}})]\ }
+\DoxyCodeLine{\Hypertarget{a00038_source_l00019}\doxymbox{\hyperlink{a00301_a2e27fa8b1ff4f406f309aaa91feb8dc2}{00019}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00301_a2e27fa8b1ff4f406f309aaa91feb8dc2}{Email}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{a00038_source_l00021}00021\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}password"{}})]}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00022}\doxymbox{\hyperlink{a00301_a7852dac6534531b7abc7ee1822d896b6}{00022}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00301_a7852dac6534531b7abc7ee1822d896b6}{Password}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{a00038_source_l00024}00024\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}rol"{}})]}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00025}\doxymbox{\hyperlink{a00301_a69a43ce19482d002c5fe5a32375edb17}{00025}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00301_a69a43ce19482d002c5fe5a32375edb17}{Rol}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{a00038_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 2.\ OBJETOS\ ANIDADOS\ (Aquí\ está\ el\ truco)}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ En\ lugar\ de\ poner\ las\ propiedades\ sueltas,\ creamos\ propiedades\ de\ tipo\ clase}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{a00038_source_l00030}00030\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}perfil"{}})]}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00031}\doxymbox{\hyperlink{a00301_a56fa1e29cb5cbc80fbd7a2478c4a41a9}{00031}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{a00305}{PerfilUsuario}}\ \doxymbox{\hyperlink{a00301_a56fa1e29cb5cbc80fbd7a2478c4a41a9}{Perfil}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{a00305}{PerfilUsuario}}();}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{a00038_source_l00033}00033\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}estadisticas"{}})]}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00034}\doxymbox{\hyperlink{a00301_a25b7b29254fff54043f6dfea1a13aad7}{00034}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{a00309}{EstadisticasUsuario}}\ \doxymbox{\hyperlink{a00301_a25b7b29254fff54043f6dfea1a13aad7}{Estadisticas}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{a00309}{EstadisticasUsuario}}();}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{a00038_source_l00036}00036\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}listas"{}})]}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00037}\doxymbox{\hyperlink{a00301_a819877867a4c971ffd60c000899b1fc2}{00037}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{a00313}{ListasUsuario}}\ \doxymbox{\hyperlink{a00301_a819877867a4c971ffd60c000899b1fc2}{Listas}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{a00313}{ListasUsuario}}();}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{a00038_source_l00039}00039\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}configuracion"{}})]}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00040}\doxymbox{\hyperlink{a00301_af5ab84bdbdd0e3ccc548332c5938e80a}{00040}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{a00317}{ConfiguracionUser}}\ \doxymbox{\hyperlink{a00301_af5ab84bdbdd0e3ccc548332c5938e80a}{Configuracion}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{a00317}{ConfiguracionUser}}();}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{a00038_source_l00042}00042\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}fecha\_registro"{}})]}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00043}\doxymbox{\hyperlink{a00301_a76f18b29a585e5ba44db243b0c871f89}{00043}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ DateTime\ \doxymbox{\hyperlink{a00301_a76f18b29a585e5ba44db243b0c871f89}{FechaRegistro}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00044}00044\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{a00038_source_l00046}00046\ \ \ \ \ \textcolor{comment}{//\ SUBCLASE\ 1:\ PERFIL}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00047}\doxymbox{\hyperlink{a00305}{00047}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00305}{PerfilUsuario}}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00048}00048\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00049}00049\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}imagen\_url"{}})]}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00050}\doxymbox{\hyperlink{a00305_a9758ba42a8086350bcf817b46672d026}{00050}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00305_a9758ba42a8086350bcf817b46672d026}{ImagenUrl}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{a00038_source_l00052}00052\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}fecha\_nacimiento"{}})]}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00053}\doxymbox{\hyperlink{a00305_a0ae38a00a15eb705eb608b3b1c3b88c4}{00053}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ DateTime\ \doxymbox{\hyperlink{a00305_a0ae38a00a15eb705eb608b3b1c3b88c4}{FechaNacimiento}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ \textcolor{comment}{//\ DateTime\ se\ lleva\ mejor\ con\ Mongo\ que\ DateOnly}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{a00038_source_l00055}00055\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}es\_privada"{}})]}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00056}\doxymbox{\hyperlink{a00305_a974e4200a868fc5c5c064be9137fe222}{00056}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{a00305_a974e4200a868fc5c5c064be9137fe222}{EsPrivada}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00057}00057\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}pais"{}})]}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00058}\doxymbox{\hyperlink{a00305_a58bcc3f8696e7ffebded7c62cf7f95c8}{00058}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00305_a58bcc3f8696e7ffebded7c62cf7f95c8}{Pais}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00059}00059\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{a00038_source_l00061}00061\ \ \ \ \ \textcolor{comment}{//\ SUBCLASE\ 2:\ ESTADISTICAS}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00062}\doxymbox{\hyperlink{a00309}{00062}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00309}{EstadisticasUsuario}}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00063}00063\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00064}00064\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}n\_canciones\_subidas"{}})]}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00065}\doxymbox{\hyperlink{a00309_a512d51e5608c045f2cb935fd9871952c}{00065}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{a00309_a512d51e5608c045f2cb935fd9871952c}{NumCancionesSubidas}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00066}00066\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{a00038_source_l00068}00068\ \ \ \ \ \textcolor{comment}{//\ SUBCLASE\ 3:\ LISTAS}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00069}\doxymbox{\hyperlink{a00313}{00069}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00313}{ListasUsuario}}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00070}00070\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Convertimos\ los\ ObjectId\ de\ la\ lista\ a\ strings\ automáticamente}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00072}00072\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}seguidores"{}})]}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00073}00073\ \ \ \ \ \ \ \ \ [BsonRepresentation(BsonType.ObjectId)]}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00074}\doxymbox{\hyperlink{a00313_a0d937e52cd7886daa41a6136214942eb}{00074}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ List<string>\ \doxymbox{\hyperlink{a00313_a0d937e52cd7886daa41a6136214942eb}{Seguidores}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \textcolor{keyword}{new}\ List<string>();}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{a00038_source_l00076}00076\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}favoritos"{}})]}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00077}00077\ \ \ \ \ \ \ \ \ [BsonRepresentation(BsonType.ObjectId)]}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00078}\doxymbox{\hyperlink{a00313_a6f874c6b31b41aea360b32f20e6b53d3}{00078}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ List<string>\ \doxymbox{\hyperlink{a00313_a6f874c6b31b41aea360b32f20e6b53d3}{Favoritos}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \textcolor{keyword}{new}\ List<string>();}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00079}00079\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00080}00080\ \ \ \ \ \textcolor{comment}{//\ SUBCLASE\ 4:\ CONFIGURACION}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00081}\doxymbox{\hyperlink{a00317}{00081}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00317}{ConfiguracionUser}}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00082}00082\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00083}00083\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}tema"{}})]}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00084}\doxymbox{\hyperlink{a00317_a4b59e2a181114ae780741c46b983c16e}{00084}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00317_a4b59e2a181114ae780741c46b983c16e}{DiccionarioTema}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \textcolor{stringliteral}{"{}ModoClaro"{}};}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{a00038_source_l00086}00086\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}idioma"{}})]}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00087}\doxymbox{\hyperlink{a00317_a1ffad53b4c6a07d20d0755bdb58bd046}{00087}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00317_a1ffad53b4c6a07d20d0755bdb58bd046}{DiccionarioIdioma}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \textcolor{stringliteral}{"{}Español"{}};}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{a00038_source_l00089}00089\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}fuente"{}})]}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00090}\doxymbox{\hyperlink{a00317_a56702e32ebff25a6accc8a91c369d8a1}{00090}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00317_a56702e32ebff25a6accc8a91c369d8a1}{DiccionarioFuente}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \textcolor{stringliteral}{"{}Lexend"{}};}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00091}00091\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00038_source_l00092}00092\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,135 @@
+\doxysubsection{Tab\+Item\+Populares\+View\+Model.\+cs}
+\hypertarget{a00095_source}{}\label{a00095_source}\index{BetaProyecto/ViewModels/TabItemPopularesViewModel.cs@{BetaProyecto/ViewModels/TabItemPopularesViewModel.cs}}
+\doxymbox{\hyperlink{a00095}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00001}00001\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{a00177}{BetaProyecto.Models}};}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00002}00002\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{a00179}{BetaProyecto.Singleton}};}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00003}00003\ \textcolor{keyword}{using\ }ReactiveUI;}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00004}00004\ \textcolor{keyword}{using\ }System.Collections.ObjectModel;}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00005}00005\ \textcolor{keyword}{using\ }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{a00095_source_l00007}00007\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{a00180}{BetaProyecto.ViewModels}}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00009}\doxymbox{\hyperlink{a00389}{00009}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00389_acc9bf1101da031192be7e868a7bc4ece}{TabItemPopularesViewModel}}\ :\ \doxymbox{\hyperlink{a00453}{ViewModelBase}}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00010}00010\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{a00095_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Binding}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00013}\doxymbox{\hyperlink{a00389_a2ea3eef49d906453b7f74a15d1251854}{00013}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ ObservableCollection<string>\ \doxymbox{\hyperlink{a00389_a2ea3eef49d906453b7f74a15d1251854}{\_listaGeneros}};}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00014}\doxymbox{\hyperlink{a00389_a5add4c13000d16b857218c9c5321a6b4}{00014}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ObservableCollection<string>\ \doxymbox{\hyperlink{a00389_a5add4c13000d16b857218c9c5321a6b4}{ListaGeneros}}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00015}00015\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \doxymbox{\hyperlink{a00389_a2ea3eef49d906453b7f74a15d1251854}{\_listaGeneros}};}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ this.RaiseAndSetIfChanged(ref\ \doxymbox{\hyperlink{a00389_a2ea3eef49d906453b7f74a15d1251854}{\_listaGeneros}},\ value);}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00018}00018\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{a00095_source_l00020}\doxymbox{\hyperlink{a00389_a5410d9c755a5be9bcfc1f3ccd491431b}{00020}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00389_a5410d9c755a5be9bcfc1f3ccd491431b}{\_generoSeleccionado}};}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00021}\doxymbox{\hyperlink{a00389_a8ee869bf17cf24171e4470dd2af8c677}{00021}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00389_a8ee869bf17cf24171e4470dd2af8c677}{GeneroSeleccionado}}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00022}00022\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \doxymbox{\hyperlink{a00389_a5410d9c755a5be9bcfc1f3ccd491431b}{\_generoSeleccionado}};}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.RaiseAndSetIfChanged(ref\ \doxymbox{\hyperlink{a00389_a5410d9c755a5be9bcfc1f3ccd491431b}{\_generoSeleccionado}},\ value);}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Al\ cambiar\ el\ valor,\ buscamos\ automáticamente\ }}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\textcolor{keywordtype}{string}.IsNullOrEmpty(value))}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\ =\ \doxymbox{\hyperlink{a00389_a08c406f986de1f2b596dec9bf226aa62}{CargarCancionesPorGenero}}(value);}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00031}00031\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{a00095_source_l00033}\doxymbox{\hyperlink{a00389_a9ec07720322da1e509210d6994d01b26}{00033}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00389_a9ec07720322da1e509210d6994d01b26}{\_txtInfo}};}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00034}\doxymbox{\hyperlink{a00389_a5de5842bca8df1a2544b8137ba2ca019}{00034}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00389_a5de5842bca8df1a2544b8137ba2ca019}{TxtInfo}}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00035}00035\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \doxymbox{\hyperlink{a00389_a9ec07720322da1e509210d6994d01b26}{\_txtInfo}};}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ this.RaiseAndSetIfChanged(ref\ \doxymbox{\hyperlink{a00389_a9ec07720322da1e509210d6994d01b26}{\_txtInfo}},\ value);}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00038}00038\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{a00095_source_l00040}\doxymbox{\hyperlink{a00389_a44e2c9d745a172ea27d04d1f57272340}{00040}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00389_a44e2c9d745a172ea27d04d1f57272340}{\_txtGeneroMostrado}};}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00041}\doxymbox{\hyperlink{a00389_a41fa518eea320a32cd19cd8d1731fd17}{00041}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00389_a41fa518eea320a32cd19cd8d1731fd17}{TxtGeneroMostrado}}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00042}00042\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \doxymbox{\hyperlink{a00389_a44e2c9d745a172ea27d04d1f57272340}{\_txtGeneroMostrado}};}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ this.RaiseAndSetIfChanged(ref\ \doxymbox{\hyperlink{a00389_a44e2c9d745a172ea27d04d1f57272340}{\_txtGeneroMostrado}},\ value);}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00045}00045\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{a00095_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Lista\ de\ canciones}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00048}\doxymbox{\hyperlink{a00389_a50ac5861dab9a0bd187f123b8f1d78f2}{00048}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ ObservableCollection<Canciones>\ \doxymbox{\hyperlink{a00389_a50ac5861dab9a0bd187f123b8f1d78f2}{\_listaPopulares}};}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00049}\doxymbox{\hyperlink{a00389_ab76a0b801a326e8a124717d6e584c920}{00049}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ObservableCollection<Canciones>\ \doxymbox{\hyperlink{a00389_ab76a0b801a326e8a124717d6e584c920}{ListaPopulares}}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00050}00050\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \doxymbox{\hyperlink{a00389_a50ac5861dab9a0bd187f123b8f1d78f2}{\_listaPopulares}};}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ this.RaiseAndSetIfChanged(ref\ \doxymbox{\hyperlink{a00389_a50ac5861dab9a0bd187f123b8f1d78f2}{\_listaPopulares}},\ value);}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00053}00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{a00095_source_l00055}\doxymbox{\hyperlink{a00389_acc9bf1101da031192be7e868a7bc4ece}{00055}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{a00389_acc9bf1101da031192be7e868a7bc4ece}{TabItemPopularesViewModel}}()}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00056}00056\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Inicializamos\ listas}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00389_a5add4c13000d16b857218c9c5321a6b4}{ListaGeneros}}\ =\ \textcolor{keyword}{new}\ ObservableCollection<string>();}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00389_ab76a0b801a326e8a124717d6e584c920}{ListaPopulares}}\ =\ \textcolor{keyword}{new}\ ObservableCollection<Canciones>();}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{a00095_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Dejamos\ esto\ vacío\ al\ inicio\ o\ con\ una\ clave\ de\ "{}Seleccione..."{}}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00389_a5de5842bca8df1a2544b8137ba2ca019}{TxtInfo}}\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00389_a41fa518eea320a32cd19cd8d1731fd17}{TxtGeneroMostrado}}\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{a00095_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ejecutamos\ tarea\ en\ segndo\ plano\ para\ cargar\ géneros}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \_\ =\ \doxymbox{\hyperlink{a00389_ae1a177e5cf3dd3eb0a0d1f7e0aa2bfff}{CargarGeneros}}();}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00067}00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00068}00068\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00069}00069\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00070}00070\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Carga\ asincrónicamente\ la\ lista\ de\ canciones\ populares\ para\ el\ género\ especificado\ y\ actualiza\ la\ pantalla\ relacionada}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00071}00071\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ propiedades.}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00072}00072\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00073}00073\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>Si\ no\ se\ encuentran\ canciones\ para\ el\ género\ especificado,\ las\ propiedades\ de\ visualización\ se\ actualizan\ a}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00074}00074\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ indica\ que\ no\ se\ encontraron\ resultados.\ Si\ la\ conexión\ a\ la\ base\ de\ datos\ no\ está\ disponible,\ se\ establece\ un\ mensaje\ de\ error}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00075}00075\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ en\ su\ lugar.\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00076}00076\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}genero"{}>El\ nombre\ del\ género\ para\ el\ que\ se\ recuperarán\ las\ canciones\ populares.\ No\ puede\ ser\ nulo\ ni\ vacío.\ </param>}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00077}00077\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <returns>Devuelve\ una\ tarea\ que\ representa\ la\ operación\ de\ carga\ asíncrona.\ </returns>}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00078}\doxymbox{\hyperlink{a00389_a08c406f986de1f2b596dec9bf226aa62}{00078}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ async\ Task\ \doxymbox{\hyperlink{a00389_a08c406f986de1f2b596dec9bf226aa62}{CargarCancionesPorGenero}}(\textcolor{keywordtype}{string}\ genero)}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00079}00079\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ "{}Buscando..."{}}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00389_a5de5842bca8df1a2544b8137ba2ca019}{TxtInfo}}\ =\ \textcolor{stringliteral}{"{}Bus\_Msg\_Buscando"{}};}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00389_a41fa518eea320a32cd19cd8d1731fd17}{TxtGeneroMostrado}}\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00389_ab76a0b801a326e8a124717d6e584c920}{ListaPopulares}}.Clear();}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{a00095_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{a00353}{MongoClientSingleton}}.\doxymbox{\hyperlink{a00353_ad0067cc765141c80b254d1a39395f529}{Instance}}.\doxymbox{\hyperlink{a00353_a275ea6d123352f803782b0ff26216fc6}{Cliente}}\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ resultados\ =\ await\ \doxymbox{\hyperlink{a00353}{MongoClientSingleton}}.\doxymbox{\hyperlink{a00353_ad0067cc765141c80b254d1a39395f529}{Instance}}.\doxymbox{\hyperlink{a00353_a275ea6d123352f803782b0ff26216fc6}{Cliente}}.ObtenerMixPorGenero(genero);}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{a00095_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (resultados\ !=\ \textcolor{keyword}{null}\ \&\&\ resultados.Count\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00389_ab76a0b801a326e8a124717d6e584c920}{ListaPopulares}}\ =\ \textcolor{keyword}{new}\ ObservableCollection<Canciones>(resultados);}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{a00095_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ "{}Mostrando\ resultados\ de:"{}\ +\ "{}\ Rock"{}}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00389_a5de5842bca8df1a2544b8137ba2ca019}{TxtInfo}}\ =\ \textcolor{stringliteral}{"{}Pop\_Res\_Mostrando"{}};}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00389_a41fa518eea320a32cd19cd8d1731fd17}{TxtGeneroMostrado}}\ =\ \$\textcolor{stringliteral}{"{}\ \{genero\}"{}};}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ "{}No\ se\ encontraron\ coincidencias."{}}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00389_a5de5842bca8df1a2544b8137ba2ca019}{TxtInfo}}\ =\ \textcolor{stringliteral}{"{}Bus\_Res\_SinResultados"{}};}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00389_a41fa518eea320a32cd19cd8d1731fd17}{TxtGeneroMostrado}}\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00389_a5de5842bca8df1a2544b8137ba2ca019}{TxtInfo}}\ =\ \textcolor{stringliteral}{"{}Msg\_Error\_Conexion"{}};}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00108}00108\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00109}00109\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00110}00110\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00111}00111\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Carga\ de\ forma\ asíncrona\ la\ lista\ de\ nombres\ de\ género\ desde\ la\ base\ de\ datos\ y\ actualiza\ la\ colección\ utilizada\ por\ la\ vista.}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00112}00112\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00113}00113\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>Si\ la\ conexión\ a\ la\ base\ de\ datos\ no\ está\ disponible,\ el\ método\ escribe\ un\ mensaje\ de\ error\ en\ el}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00114}00114\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ salida\ de\ depuración\ y\ no\ se\ actualiza\ la\ lista\ de\ géneros.\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00115}00115\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <returns>Devuelve\ una\ tarea\ que\ representa\ la\ operación\ de\ carga\ asíncrona.\ </returns>}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00116}\doxymbox{\hyperlink{a00389_ae1a177e5cf3dd3eb0a0d1f7e0aa2bfff}{00116}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ async\ Task\ \doxymbox{\hyperlink{a00389_ae1a177e5cf3dd3eb0a0d1f7e0aa2bfff}{CargarGeneros}}()}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00117}00117\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{a00353}{MongoClientSingleton}}.\doxymbox{\hyperlink{a00353_ad0067cc765141c80b254d1a39395f529}{Instance}}.\doxymbox{\hyperlink{a00353_a275ea6d123352f803782b0ff26216fc6}{Cliente}}\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ listadeGeneros\ =\ await\ \doxymbox{\hyperlink{a00353}{MongoClientSingleton}}.\doxymbox{\hyperlink{a00353_ad0067cc765141c80b254d1a39395f529}{Instance}}.\doxymbox{\hyperlink{a00353_a275ea6d123352f803782b0ff26216fc6}{Cliente}}.ObtenerNombresGeneros();}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00389_a5add4c13000d16b857218c9c5321a6b4}{ListaGeneros}}\ =\ \textcolor{keyword}{new}\ ObservableCollection<string>(listadeGeneros);}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.Diagnostics.Debug.WriteLine(\textcolor{stringliteral}{"{}Error\ en\ la\ conexion\ de\ la\ base\ de\ datos"{}});}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00127}00127\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00128}00128\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00095_source_l00129}00129\ \}}
+
+\end{DoxyCode}

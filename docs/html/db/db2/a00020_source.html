@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MusicSearch: Archivo de código fuente BetaProyecto/Models/ListaPersonalizada.cs</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(function() { init_search(); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../LogoApp (4).png"/></td>
+  <td id="projectalign">
+   <div id="projectname">MusicSearch<span id="projectnumber">&#160;1.1.2</span>
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('db/db2/a00020_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ListaPersonalizada.cs</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../db/db2/a00020.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">using </span>MongoDB.Bson;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">using </span>MongoDB.Bson.Serialization.Attributes;</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">using </span>System;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">using </span>System.Collections.Generic;</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">using </span>System.Linq;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">using </span>System.Text;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">using </span>System.Threading.Tasks;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../dd/d4c/a00177.html">BetaProyecto.Models</a></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="../../d0/d19/a00273.html">   11</a></span>    <span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="../../d0/d19/a00273.html">ListaPersonalizada</a></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        [BsonId]</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        [BsonRepresentation(BsonType.ObjectId)]</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../d0/d19/a00273.html#a4c21e54834cbd9021de89e9ed2c62cb6">   15</a></span>        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="../../d0/d19/a00273.html#a4c21e54834cbd9021de89e9ed2c62cb6">Id</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        [BsonElement(<span class="stringliteral">&quot;nombre&quot;</span>)]</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d0/d19/a00273.html#a28b7f89c23dfd89d8b6dd5556a4b06c4">   18</a></span>        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="../../d0/d19/a00273.html#a28b7f89c23dfd89d8b6dd5556a4b06c4">Nombre</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        [BsonElement(<span class="stringliteral">&quot;descripcion&quot;</span>)]</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d0/d19/a00273.html#a385496fe2f1c51c87e93245e8237ebd6">   21</a></span>        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="../../d0/d19/a00273.html#a385496fe2f1c51c87e93245e8237ebd6">Descripcion</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        [BsonElement(<span class="stringliteral">&quot;urlportada&quot;</span>)]</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d0/d19/a00273.html#a1d7c0c26d71876d0c17b03cc0147739b">   24</a></span>        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="../../d0/d19/a00273.html#a1d7c0c26d71876d0c17b03cc0147739b">UrlPortada</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="comment">// Aquí guardamos solo los IDs de las canciones</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        [BsonElement(<span class="stringliteral">&quot;listacanciones&quot;</span>)]</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        [BsonRepresentation(BsonType.ObjectId)]</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../d0/d19/a00273.html#a77dbf502bd6dbfc0822f1ca295fd52c0">   29</a></span>        <span class="keyword">public</span> List&lt;string&gt; <a class="code hl_property" href="../../d0/d19/a00273.html#a77dbf502bd6dbfc0822f1ca295fd52c0">IdsCanciones</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="keyword">new</span> List&lt;string&gt;();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        [BsonElement(<span class="stringliteral">&quot;id_usuario&quot;</span>)]</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        [BsonRepresentation(BsonType.ObjectId)]</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../d0/d19/a00273.html#a2d97561f1631fe994afe1802b45a4160">   33</a></span>        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="../../d0/d19/a00273.html#a2d97561f1631fe994afe1802b45a4160">IdUsuario</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="comment">// Esta propiedad NO se guarda en BD, la rellenamos nosotros después</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        [BsonIgnore]</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../d0/d19/a00273.html#a93dd47abf6a0f0143533e4f50017c6ba">   37</a></span>        <span class="keyword">public</span> List&lt;Canciones&gt; <a class="code hl_property" href="../../d0/d19/a00273.html#a93dd47abf6a0f0143533e4f50017c6ba">CancionesCompletas</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="keyword">new</span> List&lt;Canciones&gt;();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
+</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>}</div>
+<div class="ttc" id="aa00177_html"><div class="ttname"><a href="../../dd/d4c/a00177.html">BetaProyecto.Models</a></div><div class="ttdef"><b>Definition</b> <a href="../../d2/de7/a00014_source.html#l00007">Canciones.cs:8</a></div></div>
+<div class="ttc" id="aa00273_html"><div class="ttname"><a href="../../d0/d19/a00273.html">BetaProyecto.Models.ListaPersonalizada</a></div><div class="ttdef"><b>Definition</b> <a href="#l00011">ListaPersonalizada.cs:12</a></div></div>
+<div class="ttc" id="aa00273_html_a1d7c0c26d71876d0c17b03cc0147739b"><div class="ttname"><a href="../../d0/d19/a00273.html#a1d7c0c26d71876d0c17b03cc0147739b">BetaProyecto.Models.ListaPersonalizada.UrlPortada</a></div><div class="ttdeci">string UrlPortada</div><div class="ttdef"><b>Definition</b> <a href="#l00024">ListaPersonalizada.cs:24</a></div></div>
+<div class="ttc" id="aa00273_html_a28b7f89c23dfd89d8b6dd5556a4b06c4"><div class="ttname"><a href="../../d0/d19/a00273.html#a28b7f89c23dfd89d8b6dd5556a4b06c4">BetaProyecto.Models.ListaPersonalizada.Nombre</a></div><div class="ttdeci">string Nombre</div><div class="ttdef"><b>Definition</b> <a href="#l00018">ListaPersonalizada.cs:18</a></div></div>
+<div class="ttc" id="aa00273_html_a2d97561f1631fe994afe1802b45a4160"><div class="ttname"><a href="../../d0/d19/a00273.html#a2d97561f1631fe994afe1802b45a4160">BetaProyecto.Models.ListaPersonalizada.IdUsuario</a></div><div class="ttdeci">string IdUsuario</div><div class="ttdef"><b>Definition</b> <a href="#l00033">ListaPersonalizada.cs:33</a></div></div>
+<div class="ttc" id="aa00273_html_a385496fe2f1c51c87e93245e8237ebd6"><div class="ttname"><a href="../../d0/d19/a00273.html#a385496fe2f1c51c87e93245e8237ebd6">BetaProyecto.Models.ListaPersonalizada.Descripcion</a></div><div class="ttdeci">string Descripcion</div><div class="ttdef"><b>Definition</b> <a href="#l00021">ListaPersonalizada.cs:21</a></div></div>
+<div class="ttc" id="aa00273_html_a4c21e54834cbd9021de89e9ed2c62cb6"><div class="ttname"><a href="../../d0/d19/a00273.html#a4c21e54834cbd9021de89e9ed2c62cb6">BetaProyecto.Models.ListaPersonalizada.Id</a></div><div class="ttdeci">string Id</div><div class="ttdef"><b>Definition</b> <a href="#l00015">ListaPersonalizada.cs:15</a></div></div>
+<div class="ttc" id="aa00273_html_a77dbf502bd6dbfc0822f1ca295fd52c0"><div class="ttname"><a href="../../d0/d19/a00273.html#a77dbf502bd6dbfc0822f1ca295fd52c0">BetaProyecto.Models.ListaPersonalizada.IdsCanciones</a></div><div class="ttdeci">List&lt; string &gt; IdsCanciones</div><div class="ttdef"><b>Definition</b> <a href="#l00029">ListaPersonalizada.cs:29</a></div></div>
+<div class="ttc" id="aa00273_html_a93dd47abf6a0f0143533e4f50017c6ba"><div class="ttname"><a href="../../d0/d19/a00273.html#a93dd47abf6a0f0143533e4f50017c6ba">BetaProyecto.Models.ListaPersonalizada.CancionesCompletas</a></div><div class="ttdeci">List&lt; Canciones &gt; CancionesCompletas</div><div class="ttdef"><b>Definition</b> <a href="#l00037">ListaPersonalizada.cs:37</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_185e83519e12721b061570a464b09f2f.html">BetaProyecto</a></li><li class="navelem"><a href="../../dir_511c059a34a29316872d504560faaf2a.html">Models</a></li><li class="navelem"><a href="../../db/db2/a00020.html">ListaPersonalizada.cs</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

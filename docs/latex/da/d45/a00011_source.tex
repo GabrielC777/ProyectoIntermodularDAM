@@ -1,0 +1,61 @@
+\doxysubsection{Texto\+Traducido\+Converter.\+cs}
+\hypertarget{a00011_source}{}\label{a00011_source}\index{BetaProyecto/Helpers/TextoTraducidoConverter.cs@{BetaProyecto/Helpers/TextoTraducidoConverter.cs}}
+\doxymbox{\hyperlink{a00011}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00001}00001\ \textcolor{keyword}{using\ }Avalonia;}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00002}00002\ \textcolor{keyword}{using\ }Avalonia.Data;}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00003}00003\ \textcolor{keyword}{using\ }Avalonia.Data.Converters;}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00004}00004\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00005}00005\ \textcolor{keyword}{using\ }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00006}00006\ \textcolor{keyword}{using\ }System.Globalization;}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00007}00007\ \textcolor{keyword}{using\ }System.Linq;}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00008}00008\ \textcolor{keyword}{using\ }System.Text;}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00009}00009\ \textcolor{keyword}{using\ }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{a00011_source_l00011}00011\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{a00176}{BetaProyecto.Helpers}}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00012}00012\ \{}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00013}00013\ \ \ \ \ \textcolor{comment}{//\ Este\ convertidor\ recibe\ una\ CLAVE\ (string)\ y\ devuelve\ el\ TEXTO\ traducido\ del\ diccionario}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00014}\doxymbox{\hyperlink{a00253}{00014}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00253}{TextoTraducidoConverter}}\ :\ IValueConverter}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00015}00015\ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00016}00016\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00017}00017\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Traduce\ dinámicamente\ una\ clave\ de\ recurso\ en\ su\ valor\ correspondiente\ definido\ en\ los\ diccionarios\ de\ la\ aplicación.}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00018}00018\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00019}00019\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00020}00020\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Este\ convertidor\ facilita\ la\ internacionalización\ (i18n)\ en\ la\ capa\ de\ vista\ mediante\ los\ siguientes\ pasos:}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00021}00021\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <list\ type="{}number"{}>}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00022}00022\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Validación:</b>\ Verifica\ si\ el\ valor\ de\ entrada\ es\ una\ cadena\ de\ texto\ válida\ (la\ clave\ del\ recurso).</item>}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00023}00023\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Búsqueda:</b>\ Consulta\ el\ diccionario\ de\ recursos\ activo\ de\ <see\ cref="{}Application.Current"{}/>\ intentando\ localizar\ la\ clave.</item>}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00024}00024\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Resolución:</b>\ Si\ encuentra\ el\ recurso\ (ej.\ una\ traducción\ o\ una\ ruta\ de\ imagen),\ lo\ devuelve;\ de\ lo\ contrario,\ retorna\ la\ clave\ original\ como\ valor\ de\ respaldo\ (fallback).</item>}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00025}00025\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </list>}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00026}00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Es\ ideal\ para\ enlazar\ propiedades\ de\ texto\ en\ XAML\ que\ deben\ reaccionar\ a\ cambios\ de\ idioma\ en\ tiempo\ de\ ejecución.}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00027}00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00028}00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}value"{}>La\ clave\ del\ recurso\ (string)\ que\ se\ desea\ localizar.</param>}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00029}00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}targetType"{}>El\ tipo\ de\ la\ propiedad\ de\ destino.</param>}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00030}00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}parameter"{}>Parámetro\ opcional\ (no\ utilizado).</param>}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00031}00031\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}culture"{}>Información\ de\ cultura\ (no\ utilizada,\ se\ prioriza\ el\ diccionario\ activo).</param>}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00032}00032\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <returns>El\ objeto\ localizado\ encontrado\ en\ los\ recursos\ o\ el\ texto\ original\ si\ no\ existe\ coincidencia.</returns>}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00033}\doxymbox{\hyperlink{a00253_a355f369100497d5c421cc4561f16b85f}{00033}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{object}?\ \doxymbox{\hyperlink{a00253_a355f369100497d5c421cc4561f16b85f}{Convert}}(\textcolor{keywordtype}{object}?\ value,\ Type\ targetType,\ \textcolor{keywordtype}{object}?\ parameter,\ CultureInfo\ culture)}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00034}00034\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ el\ valor\ es\ nulo\ o\ no\ es\ string,\ no\ hacemos\ nada}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ is\ not\ \textcolor{keywordtype}{string}\ claveRecurso)}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ value;}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{a00011_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Intentamos\ buscar\ la\ clave\ en\ los\ recursos\ de\ la\ App}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Application.Current\ !=\ \textcolor{keyword}{null}\ \&\&}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Application.Current.TryGetResource(claveRecurso,\ \textcolor{keyword}{null},\ out\ var\ recursoEncontrado))}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ recursoEncontrado;}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{a00011_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ no\ se\ encuentra\ (o\ si\ es\ un\ texto\ normal),\ devolvemos\ el\ texto\ original}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ claveRecurso;}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00048}00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{comment}{//ConvertBack\ no\ lo\ necesitamos\ porque\ solo\ es\ para\ mostrar\ texto,\ no\ para\ editarlo,\ así\ que\ devolvemos\ UnsetValue\ para\ indicar\ que\ no\ se\ puede\ convertir\ hacia\ atrás.}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00050}\doxymbox{\hyperlink{a00253_adf241c07c8ce56fd3469e0a06c69d4d3}{00050}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{object}?\ \doxymbox{\hyperlink{a00253_adf241c07c8ce56fd3469e0a06c69d4d3}{ConvertBack}}(\textcolor{keywordtype}{object}?\ value,\ Type\ targetType,\ \textcolor{keywordtype}{object}?\ parameter,\ CultureInfo\ culture)}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00051}00051\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ BindingNotification.UnsetValue;}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00053}00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00011_source_l00055}00055\ \}}
+
+\end{DoxyCode}

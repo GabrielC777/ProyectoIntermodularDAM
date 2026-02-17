@@ -1,0 +1,66 @@
+\doxysubsection{Reportes.\+cs}
+\hypertarget{a00026_source}{}\label{a00026_source}\index{BetaProyecto/Models/Reportes.cs@{BetaProyecto/Models/Reportes.cs}}
+\doxymbox{\hyperlink{a00026}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00001}00001\ \textcolor{keyword}{using\ }MongoDB.Bson;}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00002}00002\ \textcolor{keyword}{using\ }MongoDB.Bson.Serialization.Attributes;}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00003}00003\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00004}00004\ \textcolor{keyword}{using\ }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00005}00005\ \textcolor{keyword}{using\ }System.Linq;}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00006}00006\ \textcolor{keyword}{using\ }System.Text;}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00007}00007\ \textcolor{keyword}{using\ }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{a00026_source_l00009}00009\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{a00177}{BetaProyecto.Models}}}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00010}00010\ \{}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00011}\doxymbox{\hyperlink{a00281}{00011}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00281}{Reportes}}}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00012}00012\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00013}00013\ \ \ \ \ \ \ \ \ [BsonId]}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00014}00014\ \ \ \ \ \ \ \ \ [BsonRepresentation(BsonType.ObjectId)]}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00015}\doxymbox{\hyperlink{a00281_a5ae48ab363b54474b96f1058b0727f73}{00015}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00281_a5ae48ab363b54474b96f1058b0727f73}{Id}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{a00026_source_l00017}00017\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}tipo\_problema"{}})]}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00018}\doxymbox{\hyperlink{a00281_ab9ac3a3678ad4f4203166d2ff2b7918c}{00018}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00281_ab9ac3a3678ad4f4203166d2ff2b7918c}{TipoProblema}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{a00026_source_l00020}00020\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}descripcion"{}})]}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00021}\doxymbox{\hyperlink{a00281_a0e013e4d9466da1e78eaa7853300e464}{00021}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00281_a0e013e4d9466da1e78eaa7853300e464}{Descripcion}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{a00026_source_l00023}00023\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}estado"{}})]}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00024}\doxymbox{\hyperlink{a00281_af24dbe6985881ffe7f3bde8600120bba}{00024}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00281_af24dbe6985881ffe7f3bde8600120bba}{Estado}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \textcolor{stringliteral}{"{}Pendiente"{}};}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{a00026_source_l00026}00026\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}referencias"{}})]}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00027}\doxymbox{\hyperlink{a00281_a9e8bd17b60309c457ce23b0928ec61a2}{00027}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{a00285}{ReferenciasReporte}}\ \doxymbox{\hyperlink{a00281_a9e8bd17b60309c457ce23b0928ec61a2}{Referencias}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{a00026_source_l00029}00029\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}fecha\_creacion"{}})]}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00030}\doxymbox{\hyperlink{a00281_a6de467d11639972a222a17cdf0cd6b8c}{00030}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ DateTime\ \doxymbox{\hyperlink{a00281_a6de467d11639972a222a17cdf0cd6b8c}{FechaCreacion}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ DateTime.UtcNow;}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{a00026_source_l00032}00032\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}resolucion"{}})]}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00033}\doxymbox{\hyperlink{a00281_a79667999ef1acc1e520abded5d5e0749}{00033}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00281_a79667999ef1acc1e520abded5d5e0749}{Resolucion}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Campos\ calculados\ en\ la\ aplicación,\ no\ se\ almacenan\ en\ la\ BD}}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00035}00035\ \ \ \ \ \ \ \ \ [BsonIgnore]}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00036}\doxymbox{\hyperlink{a00281_aae558e4cab7dadcb48fd536b25880d33}{00036}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00281_aae558e4cab7dadcb48fd536b25880d33}{NombreReportante}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \textcolor{stringliteral}{"{}Usuario\ Desconocido"{}};}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{a00026_source_l00038}00038\ \ \ \ \ \ \ \ \ [BsonIgnore]}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00039}\doxymbox{\hyperlink{a00281_a131b33afe741ccaf544ece4225746e11}{00039}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00281_a131b33afe741ccaf544ece4225746e11}{TituloCancionReportada}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \textcolor{stringliteral}{"{}Canción\ Desconocida"{}};}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{a00026_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Propiedad\ para\ cambiar\ el\ color\ de\ la\ tarjeta\ según\ estado}}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00042}00042\ \ \ \ \ \ \ \ \ [BsonIgnore]}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00043}\doxymbox{\hyperlink{a00281_aeacaade2d93515cc1f2ff2c6248ded86}{00043}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00281_aeacaade2d93515cc1f2ff2c6248ded86}{ColorEstado}}\ =>\ \doxymbox{\hyperlink{a00281_af24dbe6985881ffe7f3bde8600120bba}{Estado}}\ \textcolor{keywordflow}{switch}}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00044}00044\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Pendiente"{}}\ =>\ \textcolor{stringliteral}{"{}\#FF5252"{}},\ \ \ \ \ \ \textcolor{comment}{//\ Rojo}}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Investigando"{}}\ =>\ \textcolor{stringliteral}{"{}\#FFB300"{}},\ \ \ \textcolor{comment}{//\ Naranja}}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Finalizado"{}}\ =>\ \textcolor{stringliteral}{"{}\#4CAF50"{}},\ \ \ \ \ \textcolor{comment}{//\ Verde}}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \_\ =>\ \textcolor{stringliteral}{"{}Gray"{}}}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00049}00049\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00050}00050\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{a00026_source_l00052}\doxymbox{\hyperlink{a00285}{00052}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00285}{ReferenciasReporte}}}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00053}00053\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00054}00054\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}usuario\_reportante\_id"{}})]}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00055}\doxymbox{\hyperlink{a00285_ac8e3c3ec72b2fe5576de9f41c4cc377d}{00055}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00285_ac8e3c3ec72b2fe5576de9f41c4cc377d}{UsuarioReportanteId}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{a00026_source_l00057}00057\ \ \ \ \ \ \ \ \ [BsonElement(\textcolor{stringliteral}{"{}cancion\_reportada\_id"{}})]}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00058}\doxymbox{\hyperlink{a00285_aabc836531be9de3ec3c7805fce3a83b0}{00058}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00285_aabc836531be9de3ec3c7805fce3a83b0}{CancionReportadaId}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00059}00059\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00026_source_l00060}00060\ \}}
+
+\end{DoxyCode}

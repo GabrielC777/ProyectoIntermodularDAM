@@ -1,0 +1,103 @@
+\doxysubsection{Referencia de la clase Beta\+Proyecto.\+Services.\+Audio\+Service}
+\hypertarget{a00325}{}\label{a00325}\index{BetaProyecto.Services.AudioService@{BetaProyecto.Services.AudioService}}
+
+
+\doxysubsubsection{Detalles}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00050_source_l00011}{11}} del archivo \doxymbox{\hyperlink{a00050_source}{Audio\+Service.\+cs}}.
+
+\doxysubsubsubsection*{Métodos}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{a00325_aad4ed21a732455dc21a8f841d8c42b76}{Audio\+Service}} ()
+\item 
+async Task$<$ \doxymbox{\hyperlink{a00329}{Info\+Cancion\+Nube}} $>$ \doxymbox{\hyperlink{a00325_a055a82e08bb605bfbce3aecd707eb5c3}{Obtener\+Mp3}} (string url\+Youtube)
+\begin{DoxyCompactList}\small\item\em Solicita de forma asíncrona la extracción y el análisis de metadatos de un recurso de You\+Tube a través de una \doxylink{a00174}{API} externa. \end{DoxyCompactList}\item 
+async Task$<$ string $>$ \doxymbox{\hyperlink{a00325_afbf728ba83d0b3776470151bb77d13ab}{Obtener\+Ruta\+Audio\+Segura}} (string url, string id\+Cancion)
+\begin{DoxyCompactList}\small\item\em Gestiona la descarga, protección mediante cifrado y recuperación de archivos de audio en el almacenamiento local. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+class \doxymbox{\hyperlink{a00329}{Info\+Cancion\+Nube}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{a00325_doc-constructors}
+\doxysubsubsection{Constructores}
+\Hypertarget{a00325_aad4ed21a732455dc21a8f841d8c42b76}\index{BetaProyecto.Services.AudioService@{BetaProyecto.Services.AudioService}!AudioService@{AudioService}}
+\index{AudioService@{AudioService}!BetaProyecto.Services.AudioService@{BetaProyecto.Services.AudioService}}
+\doxyparagraph{\texorpdfstring{AudioService()}{AudioService()}}
+{\footnotesize\ttfamily \label{a00325_aad4ed21a732455dc21a8f841d8c42b76} 
+Beta\+Proyecto.\+Services.\+Audio\+Service.\+Audio\+Service (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00050_source_l00023}{23}} del archivo \doxymbox{\hyperlink{a00050_source}{Audio\+Service.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{a00325_doc-func-members}
+\doxysubsubsection{Funciones}
+\Hypertarget{a00325_a055a82e08bb605bfbce3aecd707eb5c3}\index{BetaProyecto.Services.AudioService@{BetaProyecto.Services.AudioService}!ObtenerMp3@{ObtenerMp3}}
+\index{ObtenerMp3@{ObtenerMp3}!BetaProyecto.Services.AudioService@{BetaProyecto.Services.AudioService}}
+\doxyparagraph{\texorpdfstring{ObtenerMp3()}{ObtenerMp3()}}
+{\footnotesize\ttfamily \label{a00325_a055a82e08bb605bfbce3aecd707eb5c3} 
+async Task$<$ \doxymbox{\hyperlink{a00329}{Info\+Cancion\+Nube}} $>$ Beta\+Proyecto.\+Services.\+Audio\+Service.\+Obtener\+Mp3 (\begin{DoxyParamCaption}\item[{string}]{url\+Youtube}{}\end{DoxyParamCaption})}
+
+
+
+Solicita de forma asíncrona la extracción y el análisis de metadatos de un recurso de You\+Tube a través de una \doxylink{a00174}{API} externa. 
+
+Este método gestiona la comunicación con el microservicio de streaming mediante los siguientes pasos:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Construcción:\+}} Genera una URI de consulta codificando la {\itshape url\+Youtube}  como parámetro. 
+\item {\bfseries{Petición:\+}} Realiza una llamada GET utilizando el {\ttfamily Http\+Client} configurado. 
+\item {\bfseries{Procesamiento:\+}} Si la respuesta es exitosa, deserializa el cuerpo JSON para extraer la URL del flujo de audio y la duración total en segundos. 
+\end{DoxyEnumerate}En caso de fallo en la red o error en el servidor, captura la excepción y devuelve {\ttfamily null} para evitar cierres inesperados. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em url\+Youtube} & La dirección URL completa del video de You\+Tube que se desea procesar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un objeto \doxylink{a00329}{Info\+Cancion\+Nube} con la URL de streaming y la duración; devuelve {\ttfamily null} si la \doxylink{a00174}{API} no responde correctamente o el recurso no es válido. 
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00050_source_l00048}{48}} del archivo \doxymbox{\hyperlink{a00050_source}{Audio\+Service.\+cs}}.
+
+\Hypertarget{a00325_afbf728ba83d0b3776470151bb77d13ab}\index{BetaProyecto.Services.AudioService@{BetaProyecto.Services.AudioService}!ObtenerRutaAudioSegura@{ObtenerRutaAudioSegura}}
+\index{ObtenerRutaAudioSegura@{ObtenerRutaAudioSegura}!BetaProyecto.Services.AudioService@{BetaProyecto.Services.AudioService}}
+\doxyparagraph{\texorpdfstring{ObtenerRutaAudioSegura()}{ObtenerRutaAudioSegura()}}
+{\footnotesize\ttfamily \label{a00325_afbf728ba83d0b3776470151bb77d13ab} 
+async Task$<$ string $>$ Beta\+Proyecto.\+Services.\+Audio\+Service.\+Obtener\+Ruta\+Audio\+Segura (\begin{DoxyParamCaption}\item[{string}]{url}{, }\item[{string}]{id\+Cancion}{}\end{DoxyParamCaption})}
+
+
+
+Gestiona la descarga, protección mediante cifrado y recuperación de archivos de audio en el almacenamiento local. 
+
+Este método implementa un sistema de seguridad y caché distribuido en dos niveles:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Caché persistente (.enc):\+}} Si el archivo no existe, se descarga de internet, se cifra mediante AES y se guarda en la carpeta de datos locales de la aplicación. 
+\item {\bfseries{Caché temporal (.mp3):\+}} Para permitir la reproducción en el motor de audio (VLC), el archivo se desencripta "{}on-\/the-\/fly"{} hacia una ruta temporal volátil. 
+\item {\bfseries{Optimización:\+}} Si el archivo ya ha sido procesado previamente, evita la descarga redundante y prioriza la recuperación desde el disco. 
+\end{DoxyEnumerate}En caso de error crítico durante el cifrado o acceso a disco, el método retorna la URL original como mecanismo de contingencia. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em url} & La dirección URL de origen del flujo de audio.\\
+\hline
+{\em id\+Cancion} & Identificador único de la canción, utilizado para nombrar los archivos en el almacenamiento físico.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Una cadena con la ruta local al archivo MP3 desencriptado listo para su reproducción, o la URL original si ocurre una excepción. 
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00050_source_l00099}{99}} del archivo \doxymbox{\hyperlink{a00050_source}{Audio\+Service.\+cs}}.
+

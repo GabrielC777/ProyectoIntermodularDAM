@@ -1,0 +1,38 @@
+\doxysubsection{Ventana\+Confirmacion\+View\+Model.\+cs}
+\hypertarget{a00101_source}{}\label{a00101_source}\index{BetaProyecto/ViewModels/VentanaConfirmacionViewModel.cs@{BetaProyecto/ViewModels/VentanaConfirmacionViewModel.cs}}
+\doxymbox{\hyperlink{a00101}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00001}00001\ \textcolor{keyword}{using\ }ReactiveUI;}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00002}00002\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00003}00003\ \textcolor{keyword}{using\ }System.Reactive;}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{a00101_source_l00005}00005\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{a00180}{BetaProyecto.ViewModels}}}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00006}00006\ \{}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00007}\doxymbox{\hyperlink{a00397}{00007}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00397_a3c81486908c4761e6c68a0b1e8c5b80f}{VentanaConfirmacionViewModel}}\ :\ \doxymbox{\hyperlink{a00453}{ViewModelBase}}}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00008}00008\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00009}00009\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Propiedades\ de\ texto}}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00010}\doxymbox{\hyperlink{a00397_abb6b8d4d039db40db1b162f6cbf83c1f}{00010}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00397_abb6b8d4d039db40db1b162f6cbf83c1f}{TituloCabecera}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00011}\doxymbox{\hyperlink{a00397_a3b5871e23019e1e374f920c62dfd273d}{00011}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00397_a3b5871e23019e1e374f920c62dfd273d}{MensajeCuerpo}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00012}\doxymbox{\hyperlink{a00397_ac19ccbdbdffbea7023be0cb3ce2d751e}{00012}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00397_ac19ccbdbdffbea7023be0cb3ce2d751e}{TextoBotonSi}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00013}\doxymbox{\hyperlink{a00397_a5cc3466950db3500fde27589ac8c1bf3}{00013}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00397_a5cc3466950db3500fde27589ac8c1bf3}{TextoBotonNo}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{a00101_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Comandos\ Reactive}}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00016}\doxymbox{\hyperlink{a00397_a82a755ad3039bb7d2ad5ac871ae1db97}{00016}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ReactiveCommand<Unit,\ Unit>\ \doxymbox{\hyperlink{a00397_a82a755ad3039bb7d2ad5ac871ae1db97}{BtnSi}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00017}\doxymbox{\hyperlink{a00397_aae63df23571bc804f82baa64d3630bfd}{00017}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ReactiveCommand<Unit,\ Unit>\ \doxymbox{\hyperlink{a00397_aae63df23571bc804f82baa64d3630bfd}{BtnNo}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{a00101_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ La\ acción\ recibe\ un\ bool:\ true\ (Si)\ o\ false\ (No)}}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00020}\doxymbox{\hyperlink{a00397_a3c81486908c4761e6c68a0b1e8c5b80f}{00020}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{a00397_a3c81486908c4761e6c68a0b1e8c5b80f}{VentanaConfirmacionViewModel}}(\textcolor{keywordtype}{string}\ titulo,\ \textcolor{keywordtype}{string}\ mensaje,\ \textcolor{keywordtype}{string}\ textoSi,\ \textcolor{keywordtype}{string}\ textoNo,\ Action<bool>\ cerrarConResultado)}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00021}00021\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00397_abb6b8d4d039db40db1b162f6cbf83c1f}{TituloCabecera}}\ =\ titulo;}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00397_a3b5871e23019e1e374f920c62dfd273d}{MensajeCuerpo}}\ =\ mensaje;}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00397_ac19ccbdbdffbea7023be0cb3ce2d751e}{TextoBotonSi}}\ =\ textoSi;}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00397_a5cc3466950db3500fde27589ac8c1bf3}{TextoBotonNo}}\ =\ textoNo;}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{a00101_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Configuramos\ comandos\ reactive}}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00397_a82a755ad3039bb7d2ad5ac871ae1db97}{BtnSi}}\ =\ ReactiveCommand.Create(()\ =>\ cerrarConResultado(\textcolor{keyword}{true}));}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00397_aae63df23571bc804f82baa64d3630bfd}{BtnNo}}\ =\ ReactiveCommand.Create(()\ =>\ cerrarConResultado(\textcolor{keyword}{false}));}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00030}00030\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00031}00031\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00101_source_l00032}00032\ \}}
+
+\end{DoxyCode}

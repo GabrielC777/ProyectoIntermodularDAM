@@ -1,0 +1,119 @@
+\doxysubsection{View\+Crear\+Reporte\+View\+Model.\+cs}
+\hypertarget{a00116_source}{}\label{a00116_source}\index{BetaProyecto/ViewModels/ViewCrearReporteViewModel.cs@{BetaProyecto/ViewModels/ViewCrearReporteViewModel.cs}}
+\doxymbox{\hyperlink{a00116}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00001}00001\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{a00177}{BetaProyecto.Models}};}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00002}00002\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{a00179}{BetaProyecto.Singleton}};}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00003}00003\ \textcolor{keyword}{using\ }ReactiveUI;}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00004}00004\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00005}00005\ \textcolor{keyword}{using\ }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00006}00006\ \textcolor{keyword}{using\ }System.Reactive;}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00007}00007\ \textcolor{keyword}{using\ }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{a00116_source_l00009}00009\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{a00180}{BetaProyecto.ViewModels}}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00010}00010\ \{}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00011}\doxymbox{\hyperlink{a00417}{00011}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00417_a90b5f3c19b93a3179915890471f00462}{ViewCrearReporteViewModel}}\ :\ \doxymbox{\hyperlink{a00453}{ViewModelBase}}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00012}00012\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Variables}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00014}\doxymbox{\hyperlink{a00417_a0d0ddf39409a5f7535f60c1573062cd9}{00014}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \doxymbox{\hyperlink{a00257}{Canciones}}\ \doxymbox{\hyperlink{a00417_a0d0ddf39409a5f7535f60c1573062cd9}{\_cancionAReportar}};}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00015}\doxymbox{\hyperlink{a00417_a9d7da5bd748e85f85ad686796f19a08c}{00015}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{a00257}{Canciones}}\ \doxymbox{\hyperlink{a00417_a9d7da5bd748e85f85ad686796f19a08c}{CancionAReportar}}\ =>\ \doxymbox{\hyperlink{a00417_a0d0ddf39409a5f7535f60c1573062cd9}{\_cancionAReportar}};}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{a00116_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Actions\ }}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00018}\doxymbox{\hyperlink{a00417_a7018ceb9ffc0c54f4299d0d4aae848e2}{00018}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ readonly\ Action\ \doxymbox{\hyperlink{a00417_a7018ceb9ffc0c54f4299d0d4aae848e2}{\_Volver}};}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{a00116_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{a00116_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Bidings}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00022}\doxymbox{\hyperlink{a00417_acadc410bfd1ccbb2c16d8ba92c3fd917}{00022}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ List<string>\ \doxymbox{\hyperlink{a00417_acadc410bfd1ccbb2c16d8ba92c3fd917}{TiposDeProblema}}\ \{\ \textcolor{keyword}{get};\ \}\ =\ \textcolor{keyword}{new}\ List<string>}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00023}00023\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Copyright\ /\ Derechos\ de\ autor"{}},}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Contenido\ ofensivo\ o\ inapropiado"{}},}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Audio\ defectuoso\ o\ silencio"{}},}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Spam\ /\ Información\ falsa"{}},}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Otro"{}}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00029}00029\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{a00116_source_l00031}\doxymbox{\hyperlink{a00417_a31efee489b2b8a89c51da5a0130eb676}{00031}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00417_a31efee489b2b8a89c51da5a0130eb676}{\_tipoSeleccionado}};}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00032}\doxymbox{\hyperlink{a00417_a1ae8adc9a77f159e1137a3f33f9333fb}{00032}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00417_a1ae8adc9a77f159e1137a3f33f9333fb}{TipoSeleccionado}}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00033}00033\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \doxymbox{\hyperlink{a00417_a31efee489b2b8a89c51da5a0130eb676}{\_tipoSeleccionado}};}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ this.RaiseAndSetIfChanged(ref\ \doxymbox{\hyperlink{a00417_a31efee489b2b8a89c51da5a0130eb676}{\_tipoSeleccionado}},\ value);}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00036}00036\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{a00116_source_l00038}\doxymbox{\hyperlink{a00417_a2dd2826e82327512ed758a681eb8e39b}{00038}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00417_a2dd2826e82327512ed758a681eb8e39b}{\_descripcionTexto}};}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00039}\doxymbox{\hyperlink{a00417_ad544235e522239623c67d0efb3e89dd6}{00039}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00417_ad544235e522239623c67d0efb3e89dd6}{DescripcionTexto}}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00040}00040\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \doxymbox{\hyperlink{a00417_a2dd2826e82327512ed758a681eb8e39b}{\_descripcionTexto}};}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ this.RaiseAndSetIfChanged(ref\ \doxymbox{\hyperlink{a00417_a2dd2826e82327512ed758a681eb8e39b}{\_descripcionTexto}},\ value);}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00043}00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{a00116_source_l00045}\doxymbox{\hyperlink{a00417_a2dae4ee5bb1e5829a2bca3b99c4641d1}{00045}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00417_a2dae4ee5bb1e5829a2bca3b99c4641d1}{\_mensajeEstado}};}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00046}\doxymbox{\hyperlink{a00417_a5c49843949715cc31551cc12f8a2771c}{00046}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00417_a5c49843949715cc31551cc12f8a2771c}{MensajeEstado}}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00047}00047\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \doxymbox{\hyperlink{a00417_a2dae4ee5bb1e5829a2bca3b99c4641d1}{\_mensajeEstado}};}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ this.RaiseAndSetIfChanged(ref\ \doxymbox{\hyperlink{a00417_a2dae4ee5bb1e5829a2bca3b99c4641d1}{\_mensajeEstado}},\ value);}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00050}00050\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{a00116_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Comandos\ reactive}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00053}\doxymbox{\hyperlink{a00417_aee530e6e8ba7fa2d6568964f1cb207ca}{00053}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ReactiveCommand<Unit,\ Unit>\ \doxymbox{\hyperlink{a00417_aee530e6e8ba7fa2d6568964f1cb207ca}{BtnEnviarReporte}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00054}\doxymbox{\hyperlink{a00417_a0b792acd8d5a785a4f44b9ed75a9d1d9}{00054}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ReactiveCommand<Unit,\ Unit>\ \doxymbox{\hyperlink{a00417_a0b792acd8d5a785a4f44b9ed75a9d1d9}{BtnCancelar}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{a00116_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Constructor}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00057}\doxymbox{\hyperlink{a00417_a90b5f3c19b93a3179915890471f00462}{00057}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{a00417_a90b5f3c19b93a3179915890471f00462}{ViewCrearReporteViewModel}}(\doxymbox{\hyperlink{a00257}{Canciones}}\ cancion,\ Action\ accionVolver)}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00058}00058\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00417_a0d0ddf39409a5f7535f60c1573062cd9}{\_cancionAReportar}}\ =\ cancion;}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00417_a7018ceb9ffc0c54f4299d0d4aae848e2}{\_Volver}}\ =\ accionVolver;}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{a00116_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Validación}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ var\ validacionCampos\ =\ this.WhenAnyValue(}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ =>\ x.TipoSeleccionado,}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ =>\ x.DescripcionTexto,}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (tipo,\ desc)\ =>\ !\textcolor{keywordtype}{string}.IsNullOrEmpty(tipo)\ \&\&\ !\textcolor{keywordtype}{string}.IsNullOrWhiteSpace(desc)}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{a00116_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Comandos\ reactive}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00417_aee530e6e8ba7fa2d6568964f1cb207ca}{BtnEnviarReporte}}\ =\ ReactiveCommand.CreateFromTask(\doxymbox{\hyperlink{a00417_af91f395c3d6959c49de7d1ced9ac0d72}{EnviarReporteAsync}},\ canExecute:\ validacionCampos);}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00417_a0b792acd8d5a785a4f44b9ed75a9d1d9}{BtnCancelar}}\ =\ ReactiveCommand.Create(accionVolver);}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00072}00072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00074}00074\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00075}00075\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Envía\ un\ informe\ de\ forma\ asíncrona\ utilizando\ los\ detalles\ del\ informe\ actual\ y\ actualiza\ el\ mensaje\ de\ estado\ en\ función\ del}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00076}00076\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ resultado.}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00077}00077\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00078}00078\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>Si\ el\ informe\ se\ envía\ con\ éxito,\ se\ actualiza\ el\ mensaje\ de\ estado\ para\ indicar\ que\ ha\ tenido\ éxito.}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00079}00079\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ y\ el\ método\ navega\ de\ regreso\ después\ de\ un\ breve\ retraso.\ Si\ se\ produce\ un\ error,\ el\ mensaje\ de\ estado\ se\ actualiza\ a}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00080}00080\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ indica\ el\ fallo.\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00081}00081\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <returns>Devuelve\ una\ tarea\ que\ representa\ la\ operación\ asíncrona.\ </returns>}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00082}\doxymbox{\hyperlink{a00417_af91f395c3d6959c49de7d1ced9ac0d72}{00082}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ async\ Task\ \doxymbox{\hyperlink{a00417_af91f395c3d6959c49de7d1ced9ac0d72}{EnviarReporteAsync}}()}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00083}00083\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ reporte\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{a00281}{Reportes}}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TipoProblema\ =\ \doxymbox{\hyperlink{a00417_a1ae8adc9a77f159e1137a3f33f9333fb}{TipoSeleccionado}},}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Descripcion\ =\ \doxymbox{\hyperlink{a00417_ad544235e522239623c67d0efb3e89dd6}{DescripcionTexto}},}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Estado\ =\ \textcolor{stringliteral}{"{}Pendiente"{}},}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FechaCreacion\ =\ DateTime.UtcNow,}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Referencias\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{a00285}{ReferenciasReporte}}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CancionReportadaId\ =\ \doxymbox{\hyperlink{a00417_a0d0ddf39409a5f7535f60c1573062cd9}{\_cancionAReportar}}.Id,}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UsuarioReportanteId\ =\ GlobalData.Instance.UserIdGD}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{a00116_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ \doxymbox{\hyperlink{a00353}{MongoClientSingleton}}.\doxymbox{\hyperlink{a00353_ad0067cc765141c80b254d1a39395f529}{Instance}}.\doxymbox{\hyperlink{a00353_a275ea6d123352f803782b0ff26216fc6}{Cliente}}.EnviarReporte(reporte);}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{a00116_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00417_a5c49843949715cc31551cc12f8a2771c}{MensajeEstado}}\ =\ \textcolor{stringliteral}{"{}Msg\_Exito\_Reporte"{}};}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{a00116_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ Task.Delay(1500);}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00417_a7018ceb9ffc0c54f4299d0d4aae848e2}{\_Volver}}();}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00417_a5c49843949715cc31551cc12f8a2771c}{MensajeEstado}}\ =\ \textcolor{stringliteral}{"{}Msg\_Error\_Reporte"{}};}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.Diagnostics.Debug.WriteLine(ex.Message);}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00111}00111\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00112}00112\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00116_source_l00113}00113\ \}}
+
+\end{DoxyCode}

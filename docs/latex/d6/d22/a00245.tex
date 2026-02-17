@@ -1,0 +1,147 @@
+\doxysubsection{Referencia de la clase Beta\+Proyecto.\+Helpers.\+Controlador\+Diccionarios}
+\hypertarget{a00245}{}\label{a00245}\index{BetaProyecto.Helpers.ControladorDiccionarios@{BetaProyecto.Helpers.ControladorDiccionarios}}
+
+
+\doxysubsubsection{Detalles}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00005_source_l00009}{9}} del archivo \doxymbox{\hyperlink{a00005_source}{Controlador\+Diccionarios.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{a00245_doc-func-members}
+\doxysubsubsection{Funciones}
+\Hypertarget{a00245_a0de7c906a49bff85b84afd4e5191c53a}\index{BetaProyecto.Helpers.ControladorDiccionarios@{BetaProyecto.Helpers.ControladorDiccionarios}!AplicarFuente@{AplicarFuente}}
+\index{AplicarFuente@{AplicarFuente}!BetaProyecto.Helpers.ControladorDiccionarios@{BetaProyecto.Helpers.ControladorDiccionarios}}
+\doxyparagraph{\texorpdfstring{AplicarFuente()}{AplicarFuente()}}
+{\footnotesize\ttfamily \label{a00245_a0de7c906a49bff85b84afd4e5191c53a} 
+void Beta\+Proyecto.\+Helpers.\+Controlador\+Diccionarios.\+Aplicar\+Fuente (\begin{DoxyParamCaption}\item[{string}]{fuente}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Cambia dinámicamente la familia tipográfica global de la aplicación cargando el diccionario de estilos correspondiente. 
+
+Este método gestiona la identidad visual a través de las fuentes mediante los siguientes pasos:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Asignación por Defecto:\+}} Si el parámetro {\itshape fuente}  es nulo o vacío, se utiliza "{}\+Lexend"{} como tipografía base del sistema. 
+\item {\bfseries{Normalización de Nombre:\+}} Verifica si el nombre de la fuente incluye el prefijo "{}\+Fuente"{}. Si no es así, lo concatena para coincidir con la nomenclatura de los archivos {\ttfamily .axaml} de estilos. 
+\item {\bfseries{Construcción de URI:\+}} Genera la ruta de acceso al recurso dentro de la carpeta {\ttfamily Assets/\+\+Styles/\+}. 
+\item {\bfseries{Aplicación de Estilo:\+}} Invoca a \doxylink{a00245_ae5a6df67be09829681950fe814550363}{Reemplazar\+Recurso} para sustituir el diccionario con el alias "{}\+Styles"{}, actualizando la fuente en toda la interfaz de usuario en tiempo de ejecución. 
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parámetros}
+{\em fuente} & El nombre de la fuente o del archivo de estilo (ej. "{}\+Lexend"{}, "{}\+Roboto"{}, "{}\+Fuente\+Inter"{}).\\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00005_source_l00080}{80}} del archivo \doxymbox{\hyperlink{a00005_source}{Controlador\+Diccionarios.\+cs}}.
+
+\Hypertarget{a00245_a84b8ae19949c6228d3972f9209f846f8}\index{BetaProyecto.Helpers.ControladorDiccionarios@{BetaProyecto.Helpers.ControladorDiccionarios}!AplicarIdioma@{AplicarIdioma}}
+\index{AplicarIdioma@{AplicarIdioma}!BetaProyecto.Helpers.ControladorDiccionarios@{BetaProyecto.Helpers.ControladorDiccionarios}}
+\doxyparagraph{\texorpdfstring{AplicarIdioma()}{AplicarIdioma()}}
+{\footnotesize\ttfamily \label{a00245_a84b8ae19949c6228d3972f9209f846f8} 
+void Beta\+Proyecto.\+Helpers.\+Controlador\+Diccionarios.\+Aplicar\+Idioma (\begin{DoxyParamCaption}\item[{string}]{idioma}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Cambia dinámicamente el idioma de la interfaz de usuario cargando el diccionario de recursos de traducción correspondiente. 
+
+Este método orquestra la localización de la aplicación mediante los siguientes pasos:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Normalización:\+}} Si el parámetro {\itshape idioma}  no está definido, se establece "{}\+Spanish"{} como idioma base predeterminado. 
+\item {\bfseries{Construcción de Ruta:\+}} Genera una URI de recurso de Avalonia que apunta a los diccionarios de idiomas situados en la carpeta {\ttfamily Assets/\+\+Language/\+}. 
+\item {\bfseries{Actualización de Recursos:\+}} Invoca a \doxylink{a00245_ae5a6df67be09829681950fe814550363}{Reemplazar\+Recurso} para sustituir el diccionario identificado con la clave "{}\+Language"{}, desencadenando la actualización inmediata de todas las etiquetas vinculadas mediante el convertidor de localización. 
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parámetros}
+{\em idioma} & El nombre del archivo de idioma (sin extensión) que se desea aplicar (ej. "{}\+Spanish"{}, "{}\+English"{}).\\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00005_source_l00061}{61}} del archivo \doxymbox{\hyperlink{a00005_source}{Controlador\+Diccionarios.\+cs}}.
+
+\Hypertarget{a00245_a2c2c44aab8ee7d5f0c0189ed70d000d0}\index{BetaProyecto.Helpers.ControladorDiccionarios@{BetaProyecto.Helpers.ControladorDiccionarios}!AplicarTema@{AplicarTema}}
+\index{AplicarTema@{AplicarTema}!BetaProyecto.Helpers.ControladorDiccionarios@{BetaProyecto.Helpers.ControladorDiccionarios}}
+\doxyparagraph{\texorpdfstring{AplicarTema()}{AplicarTema()}}
+{\footnotesize\ttfamily \label{a00245_a2c2c44aab8ee7d5f0c0189ed70d000d0} 
+void Beta\+Proyecto.\+Helpers.\+Controlador\+Diccionarios.\+Aplicar\+Tema (\begin{DoxyParamCaption}\item[{string}]{tema}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Cambia dinámicamente el aspecto visual de la aplicación cargando y aplicando un diccionario de recursos de tema específico. 
+
+Este método gestiona el motor de estilos mediante los siguientes pasos:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Validación:\+}} Si el parámetro {\itshape tema}  es nulo o vacío, se establece "{}\+Modo\+Claro"{} como valor predeterminado por seguridad. 
+\item {\bfseries{Construcción de URI:\+}} Genera una ruta de recurso de Avalonia (URI) apuntando a los archivos {\ttfamily .axaml} de la carpeta {\ttfamily Assets/\+\+Interfaces/\+}. 
+\item {\bfseries{Inyección de Estilos:\+}} Delega en \doxylink{a00245_ae5a6df67be09829681950fe814550363}{Reemplazar\+Recurso} para sustituir el diccionario actual identificado con el alias "{}\+Interfaces"{} por el nuevo tema cargado. 
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parámetros}
+{\em tema} & El nombre del tema que se desea aplicar (ej. "{}\+Modo\+Oscuro"{}, "{}\+Modo\+Claro"{}). Este debe coincidir con el nombre del archivo .axaml en los activos.\\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00005_source_l00043}{43}} del archivo \doxymbox{\hyperlink{a00005_source}{Controlador\+Diccionarios.\+cs}}.
+
+\Hypertarget{a00245_a59f7cfd7fe3bbb82eb4441a8078c8fbc}\index{BetaProyecto.Helpers.ControladorDiccionarios@{BetaProyecto.Helpers.ControladorDiccionarios}!CargarConfiguracionInicial@{CargarConfiguracionInicial}}
+\index{CargarConfiguracionInicial@{CargarConfiguracionInicial}!BetaProyecto.Helpers.ControladorDiccionarios@{BetaProyecto.Helpers.ControladorDiccionarios}}
+\doxyparagraph{\texorpdfstring{CargarConfiguracionInicial()}{CargarConfiguracionInicial()}}
+{\footnotesize\ttfamily \label{a00245_a59f7cfd7fe3bbb82eb4441a8078c8fbc} 
+void Beta\+Proyecto.\+Helpers.\+Controlador\+Diccionarios.\+Cargar\+Configuracion\+Inicial (\begin{DoxyParamCaption}\item[{string}]{tema}{, }\item[{string}]{idioma}{, }\item[{string}]{fuente}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Establece el entorno visual y regional de la aplicación al iniciar. 
+
+Este método centraliza la carga de preferencias del usuario, invocando secuencialmente las funciones de localización (idioma), estilo (tema oscuro/\+claro) y tipografía. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em tema} & Nombre del recurso de estilo a aplicar (ej. "{}\+Dark"{} o "{}\+Light"{}).\\
+\hline
+{\em idioma} & Código de cultura o nombre del archivo de traducción.\\
+\hline
+{\em fuente} & Nombre de la familia tipográfica global de la interfaz.\\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00005_source_l00022}{22}} del archivo \doxymbox{\hyperlink{a00005_source}{Controlador\+Diccionarios.\+cs}}.
+
+\Hypertarget{a00245_ae5a6df67be09829681950fe814550363}\index{BetaProyecto.Helpers.ControladorDiccionarios@{BetaProyecto.Helpers.ControladorDiccionarios}!ReemplazarRecurso@{ReemplazarRecurso}}
+\index{ReemplazarRecurso@{ReemplazarRecurso}!BetaProyecto.Helpers.ControladorDiccionarios@{BetaProyecto.Helpers.ControladorDiccionarios}}
+\doxyparagraph{\texorpdfstring{ReemplazarRecurso()}{ReemplazarRecurso()}}
+{\footnotesize\ttfamily \label{a00245_ae5a6df67be09829681950fe814550363} 
+void Beta\+Proyecto.\+Helpers.\+Controlador\+Diccionarios.\+Reemplazar\+Recurso (\begin{DoxyParamCaption}\item[{string}]{uri\+Nueva}{, }\item[{string}]{carpeta\+Identificadora}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Localiza y sustituye un diccionario de recursos específico dentro de la colección global de la aplicación. 
+
+Este método es el motor de la personalización dinámica y opera mediante los siguientes pasos:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Acceso Global:\+}} Obtiene la instancia actual de la aplicación y accede a su colección Resource\+Dictionary.\+Merged\+Dictionaries. 
+\item {\bfseries{Identificación:\+}} Escanea los diccionarios cargados buscando un objeto Resource\+Include cuya propiedad {\ttfamily Source} contenga la cadena definida en {\itshape carpeta\+Identificadora}  (ej. "{}\+Language"{}, "{}\+Interfaces"{}, "{}\+Styles"{}). 
+\item {\bfseries{Limpieza:\+}} Si se encuentra un recurso previo del mismo tipo, se elimina de la colección para evitar conflictos de claves de recursos. 
+\item {\bfseries{Inyección:\+}} Instancia un nuevo Resource\+Include con la {\itshape uri\+Nueva}  y lo añade a la colección global. 
+\end{DoxyEnumerate}Si la URI es inválida o el archivo no existe, el error se captura en el bloque {\ttfamily catch} para mantener la estabilidad de la interfaz de usuario. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em uri\+Nueva} & La ruta absoluta del nuevo archivo AXAML que se desea cargar.\\
+\hline
+{\em carpeta\+Identificadora} & La palabra clave (nombre de la subcarpeta) que identifica qué tipo de recurso se está reemplazando.\\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00005_source_l00107}{107}} del archivo \doxymbox{\hyperlink{a00005_source}{Controlador\+Diccionarios.\+cs}}.
+

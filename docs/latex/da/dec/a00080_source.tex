@@ -1,0 +1,120 @@
+\doxysubsection{Login\+View\+Model.\+cs}
+\hypertarget{a00080_source}{}\label{a00080_source}\index{BetaProyecto/ViewModels/LoginViewModel.cs@{BetaProyecto/ViewModels/LoginViewModel.cs}}
+\doxymbox{\hyperlink{a00080}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00001}00001\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{a00176}{BetaProyecto.Helpers}};}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00002}00002\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{a00178}{BetaProyecto.Services}};}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00003}00003\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{a00179}{BetaProyecto.Singleton}};}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00004}00004\ \textcolor{keyword}{using\ }ReactiveUI;}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00005}00005\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00006}00006\ \textcolor{keyword}{using\ }System.Reactive;}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00007}00007\ \textcolor{keyword}{using\ }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{a00080_source_l00009}00009\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{a00180}{BetaProyecto.ViewModels}}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00010}00010\ \{}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00011}\doxymbox{\hyperlink{a00369}{00011}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00369_a5aeada9f0152332c2a51c8614304e714}{LoginViewModel}}\ :\ \doxymbox{\hyperlink{a00453}{ViewModelBase}}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00012}00012\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Servicios}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00014}\doxymbox{\hyperlink{a00369_af6c788068b78cd22dc10acff0c4e8a52}{00014}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ readonly\ \doxymbox{\hyperlink{a00337}{IDialogoService}}\ \doxymbox{\hyperlink{a00369_af6c788068b78cd22dc10acff0c4e8a52}{\_dialogoService}};}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{a00080_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Action\ para\ cambiar\ el\ contenido\ del\ marco}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00017}\doxymbox{\hyperlink{a00369_aa9be63ac62bf5086c1118b200ca6be77}{00017}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ Action?\ \doxymbox{\hyperlink{a00369_aa9be63ac62bf5086c1118b200ca6be77}{AlCompletarLogin}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00018}\doxymbox{\hyperlink{a00369_a8f5a6c72444b3b602c4888d79013804a}{00018}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ Action?\ \doxymbox{\hyperlink{a00369_a8f5a6c72444b3b602c4888d79013804a}{IrARegistarUser}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{a00080_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Bidings\ \ }}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00021}\doxymbox{\hyperlink{a00369_a7d0086d6bf7c42b8a841932256e81fb8}{00021}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00369_a7d0086d6bf7c42b8a841932256e81fb8}{\_userText}}\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00022}\doxymbox{\hyperlink{a00369_aeccf5c08efce825218dcf9f1fbac3356}{00022}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00369_aeccf5c08efce825218dcf9f1fbac3356}{TxtUsuario}}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00023}00023\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \doxymbox{\hyperlink{a00369_a7d0086d6bf7c42b8a841932256e81fb8}{\_userText}};}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ this.RaiseAndSetIfChanged(ref\ \doxymbox{\hyperlink{a00369_a7d0086d6bf7c42b8a841932256e81fb8}{\_userText}},\ value);}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00026}00026\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{a00080_source_l00028}\doxymbox{\hyperlink{a00369_ab840fdb2423075bc5f9026ffc0c4804d}{00028}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00369_ab840fdb2423075bc5f9026ffc0c4804d}{\_passText}}\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00029}\doxymbox{\hyperlink{a00369_a026802496d8767b0318709ebfcbdec66}{00029}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00369_a026802496d8767b0318709ebfcbdec66}{TxtPass}}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00030}00030\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \doxymbox{\hyperlink{a00369_ab840fdb2423075bc5f9026ffc0c4804d}{\_passText}};}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ this.RaiseAndSetIfChanged(ref\ \doxymbox{\hyperlink{a00369_ab840fdb2423075bc5f9026ffc0c4804d}{\_passText}},\ value);}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00033}00033\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{a00080_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{a00080_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Comandos\ Reactive\ }}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00037}\doxymbox{\hyperlink{a00369_a07869a455b82490f041e25e441cf63f4}{00037}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ReactiveCommand<Unit,\ Unit>\ \doxymbox{\hyperlink{a00369_a07869a455b82490f041e25e441cf63f4}{Login}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00038}\doxymbox{\hyperlink{a00369_ad74c9a5fb6ef4915ca01f213b81eb145}{00038}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ReactiveCommand<Unit,\ Unit>\ \doxymbox{\hyperlink{a00369_ad74c9a5fb6ef4915ca01f213b81eb145}{BtnRegistarUser}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{a00080_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Este\ constructor\ vacío\ es\ solo\ para\ el\ diseñador\ de\ Avalonia\ funcione}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00041}\doxymbox{\hyperlink{a00369_a5aeada9f0152332c2a51c8614304e714}{00041}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{a00369_a5aeada9f0152332c2a51c8614304e714}{LoginViewModel}}()\ :\ this(null!)}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00042}00042\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00043}00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{a00080_source_l00045}\doxymbox{\hyperlink{a00369_a46e4cccf3cf3778de3f9e9feed418206}{00045}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{a00369_a46e4cccf3cf3778de3f9e9feed418206}{LoginViewModel}}(\doxymbox{\hyperlink{a00337}{IDialogoService}}\ dialogoService)}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00046}00046\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00369_af6c788068b78cd22dc10acff0c4e8a52}{\_dialogoService}}\ =\ dialogoService;}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{a00080_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Validamos\ que\ ambos\ campos\ tengan\ texto\ para\ habilitar\ el\ botón\ de\ login}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ var\ validacionLogin\ =\ this.WhenAnyValue(}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ =>\ x.TxtUsuario,}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ =>\ x.TxtPass,}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (usuario,\ pass)\ =>\ !\textcolor{keywordtype}{string}.IsNullOrWhiteSpace(usuario)\ \&\&\ !\textcolor{keywordtype}{string}.IsNullOrWhiteSpace(pass)}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{a00080_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Inicializamos\ el\ comando\ apuntando\ a\ la\ función\ asíncrona\ para\ evitar\ que\ la\ interfaz\ se\ congele}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00369_a07869a455b82490f041e25e441cf63f4}{Login}}\ =\ ReactiveCommand.CreateFromTask(\doxymbox{\hyperlink{a00369_a5238b81439b03429f446647f9f9fc194}{IntentarLogin}},\ validacionLogin);}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00369_ad74c9a5fb6ef4915ca01f213b81eb145}{BtnRegistarUser}}\ =\ ReactiveCommand.Create(()\ =>}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00369_a8f5a6c72444b3b602c4888d79013804a}{IrARegistarUser}}?.Invoke();}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00062}00062\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00063}00063\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00064}00064\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Intenta\ iniciar\ sesión\ al\ usuario\ conectándose\ a\ la\ base\ de\ datos\ y\ validando\ las\ credenciales\ proporcionadas.}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00065}00065\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00066}00066\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>Si\ el\ inicio\ de\ sesión\ tiene\ éxito,\ se\ cargan\ los\ datos\ del\ usuario\ y\ la\ configuración,\ y\ la\ vista\ es}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00067}00067\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ notificado\ para\ proceder.\ Si\ el\ inicio\ de\ sesión\ falla\ debido\ a\ credenciales\ incorrectas\ o\ problemas\ de\ conexión,\ una\ alerta\ es}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00068}00068\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ se\ muestra\ para\ informar\ al\ usuario.\ Este\ método\ no\ devuelve\ un\ resultado;\ realiza\ efectos\ secundarios\ como}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00069}00069\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ actualización\ del\ estado\ global\ y\ visualización\ de\ alertas.\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00070}00070\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <returns>Devuelve\ una\ tarea\ que\ representa\ la\ operación\ de\ inicio\ de\ sesión\ asíncrono.\ La\ tarea\ se\ completa\ cuando\ el\ intento\ de\ inicio\ de\ sesión\ tiene}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00071}00071\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ terminado,\ independientemente\ del\ éxito\ o\ el\ fracaso.\ </returns>}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00072}\doxymbox{\hyperlink{a00369_a5238b81439b03429f446647f9f9fc194}{00072}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ async\ Task\ \doxymbox{\hyperlink{a00369_a5238b81439b03429f446647f9f9fc194}{IntentarLogin}}()}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00073}00073\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Conectamos\ a\ la\ base\ de\ datos}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ conectado\ =\ await\ \doxymbox{\hyperlink{a00353}{MongoClientSingleton}}.\doxymbox{\hyperlink{a00353_ad0067cc765141c80b254d1a39395f529}{Instance}}.\doxymbox{\hyperlink{a00353_a275ea6d123352f803782b0ff26216fc6}{Cliente}}.\doxymbox{\hyperlink{a00341_a835455d58efc82784facaa3ed7d85ebe}{Conectar}}();}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{a00080_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (conectado)}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Si\ hay\ conexión\ procedemos\ a\ verificar\ si\ existe\ el\ usuario\ y\ si\ es\ correcta\ la\ contraseña}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ usuario\ =\ await\ \doxymbox{\hyperlink{a00353}{MongoClientSingleton}}.\doxymbox{\hyperlink{a00353_ad0067cc765141c80b254d1a39395f529}{Instance}}.\doxymbox{\hyperlink{a00353_a275ea6d123352f803782b0ff26216fc6}{Cliente}}.\doxymbox{\hyperlink{a00341_a6d8ba1f32e260236a1b7eae9db558d84}{LoginUsuario}}(\doxymbox{\hyperlink{a00369_aeccf5c08efce825218dcf9f1fbac3356}{TxtUsuario}},\ \doxymbox{\hyperlink{a00369_a026802496d8767b0318709ebfcbdec66}{TxtPass}});}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{a00080_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Comprobamos\ si\ ha\ encontrado\ el\ usuario}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (usuario\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Guardamos\ en\ el\ Singleton}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00349}{GlobalData}}.\doxymbox{\hyperlink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Instance}}.\doxymbox{\hyperlink{a00349_acc5bad500a9ad8e41345b089ba2f3122}{SetUserData}}(usuario);}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{a00080_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Cargamos\ los\ diccionarios\ de\ configuración\ del\ usuario}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{a00080_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00245}{ControladorDiccionarios}}.\doxymbox{\hyperlink{a00245_a59f7cfd7fe3bbb82eb4441a8078c8fbc}{CargarConfiguracionInicial}}(}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00349}{GlobalData}}.\doxymbox{\hyperlink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Instance}}.\doxymbox{\hyperlink{a00349_ae8adb530fa3a363f4a92e8c6e8b3ca95}{DiccionarioTemaGD}},}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00349}{GlobalData}}.\doxymbox{\hyperlink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Instance}}.\doxymbox{\hyperlink{a00349_ae9c826582471d1d5712703ec2d719194}{DiccionarioIdiomaGD}},}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00349}{GlobalData}}.\doxymbox{\hyperlink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Instance}}.\doxymbox{\hyperlink{a00349_abd9cbf4cd0b770eceaaf28ac3ce9588b}{DiccionarioFuenteGD}}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{a00080_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Avisamos\ a\ la\ vista\ para\ que\ cambie\ de\ pantalla}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00369_aa9be63ac62bf5086c1118b200ca6be77}{AlCompletarLogin}}?.Invoke();}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{a00080_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00369_af6c788068b78cd22dc10acff0c4e8a52}{\_dialogoService}}.MostrarAlerta(\textcolor{stringliteral}{"{}Se\ a\ conectado\ correctamente\ con\ el\ usuario\ "{}}\ +\ \doxymbox{\hyperlink{a00349}{GlobalData}}.\doxymbox{\hyperlink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Instance}}.\doxymbox{\hyperlink{a00349_aab0aaf02f0ee9e57b35a60acbac54a0b}{UsernameGD}}.ToString());}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Conectó\ bien,\ pero\ usuario/pass\ están\ mal}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00369_af6c788068b78cd22dc10acff0c4e8a52}{\_dialogoService}}.MostrarAlerta(\textcolor{stringliteral}{"{}Usuario\ o\ contraseña\ incorrectos.\ Inténtelo\ de\ nuevo."{}});}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ No\ hay\ internet\ o\ la\ BD\ está\ caída}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00369_af6c788068b78cd22dc10acff0c4e8a52}{\_dialogoService}}.MostrarAlerta(\textcolor{stringliteral}{"{}No\ se\ ha\ podido\ conectar\ con\ el\ servidor.\ Compruebe\ su\ conexión\ a\ Internet\ e\ inténtelo\ de\ nuevo\ más\ tarde."{}});}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00112}00112\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00113}00113\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00080_source_l00114}00114\ \}}
+
+\end{DoxyCode}

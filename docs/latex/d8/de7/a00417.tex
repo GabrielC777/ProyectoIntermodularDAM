@@ -1,0 +1,157 @@
+\doxysubsection{Referencia de la clase Beta\+Proyecto.\+View\+Models.\+View\+Crear\+Reporte\+View\+Model}
+\hypertarget{a00417}{}\label{a00417}\index{BetaProyecto.ViewModels.ViewCrearReporteViewModel@{BetaProyecto.ViewModels.ViewCrearReporteViewModel}}
+
+
+\doxysubsubsection{Detalles}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00116_source_l00011}{11}} del archivo \doxymbox{\hyperlink{a00116_source}{View\+Crear\+Reporte\+View\+Model.\+cs}}.
+
+\doxysubsubsubsection*{Métodos}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{a00417_a90b5f3c19b93a3179915890471f00462}{View\+Crear\+Reporte\+View\+Model}} (\doxymbox{\hyperlink{a00257}{Canciones}} cancion, Action accion\+Volver)
+\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Propiedades}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{a00257}{Canciones}} \doxymbox{\hyperlink{a00417_a9d7da5bd748e85f85ad686796f19a08c}{Cancion\+AReportar}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\item 
+List$<$ string $>$ \doxymbox{\hyperlink{a00417_acadc410bfd1ccbb2c16d8ba92c3fd917}{Tipos\+De\+Problema}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\item 
+string \doxymbox{\hyperlink{a00417_a1ae8adc9a77f159e1137a3f33f9333fb}{Tipo\+Seleccionado}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+string \doxymbox{\hyperlink{a00417_ad544235e522239623c67d0efb3e89dd6}{Descripcion\+Texto}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+string \doxymbox{\hyperlink{a00417_a5c49843949715cc31551cc12f8a2771c}{Mensaje\+Estado}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+Reactive\+Command$<$ Unit, Unit $>$ \doxymbox{\hyperlink{a00417_aee530e6e8ba7fa2d6568964f1cb207ca}{Btn\+Enviar\+Reporte}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\item 
+Reactive\+Command$<$ Unit, Unit $>$ \doxymbox{\hyperlink{a00417_a0b792acd8d5a785a4f44b9ed75a9d1d9}{Btn\+Cancelar}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{a00417_doc-constructors}
+\doxysubsubsection{Constructores}
+\Hypertarget{a00417_a90b5f3c19b93a3179915890471f00462}\index{BetaProyecto.ViewModels.ViewCrearReporteViewModel@{BetaProyecto.ViewModels.ViewCrearReporteViewModel}!ViewCrearReporteViewModel@{ViewCrearReporteViewModel}}
+\index{ViewCrearReporteViewModel@{ViewCrearReporteViewModel}!BetaProyecto.ViewModels.ViewCrearReporteViewModel@{BetaProyecto.ViewModels.ViewCrearReporteViewModel}}
+\doxyparagraph{\texorpdfstring{ViewCrearReporteViewModel()}{ViewCrearReporteViewModel()}}
+{\footnotesize\ttfamily \label{a00417_a90b5f3c19b93a3179915890471f00462} 
+Beta\+Proyecto.\+View\+Models.\+View\+Crear\+Reporte\+View\+Model.\+View\+Crear\+Reporte\+View\+Model (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{a00257}{Canciones}}}]{cancion}{, }\item[{Action}]{accion\+Volver}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00116_source_l00057}{57}} del archivo \doxymbox{\hyperlink{a00116_source}{View\+Crear\+Reporte\+View\+Model.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{a00417_doc-func-members}
+\doxysubsubsection{Funciones}
+\Hypertarget{a00417_af91f395c3d6959c49de7d1ced9ac0d72}\index{BetaProyecto.ViewModels.ViewCrearReporteViewModel@{BetaProyecto.ViewModels.ViewCrearReporteViewModel}!EnviarReporteAsync@{EnviarReporteAsync}}
+\index{EnviarReporteAsync@{EnviarReporteAsync}!BetaProyecto.ViewModels.ViewCrearReporteViewModel@{BetaProyecto.ViewModels.ViewCrearReporteViewModel}}
+\doxyparagraph{\texorpdfstring{EnviarReporteAsync()}{EnviarReporteAsync()}}
+{\footnotesize\ttfamily \label{a00417_af91f395c3d6959c49de7d1ced9ac0d72} 
+async Task Beta\+Proyecto.\+View\+Models.\+View\+Crear\+Reporte\+View\+Model.\+Enviar\+Reporte\+Async (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Envía un informe de forma asíncrona utilizando los detalles del informe actual y actualiza el mensaje de estado en función del resultado. 
+
+Si el informe se envía con éxito, se actualiza el mensaje de estado para indicar que ha tenido éxito. y el método navega de regreso después de un breve retraso. Si se produce un error, el mensaje de estado se actualiza a indica el fallo. 
+
+\begin{DoxyReturn}{Devuelve}
+Devuelve una tarea que representa la operación asíncrona. 
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00116_source_l00082}{82}} del archivo \doxymbox{\hyperlink{a00116_source}{View\+Crear\+Reporte\+View\+Model.\+cs}}.
+
+
+
+\label{doc-property-members}
+\Hypertarget{a00417_doc-property-members}
+\doxysubsubsection{Propiedades}
+\Hypertarget{a00417_a0b792acd8d5a785a4f44b9ed75a9d1d9}\index{BetaProyecto.ViewModels.ViewCrearReporteViewModel@{BetaProyecto.ViewModels.ViewCrearReporteViewModel}!BtnCancelar@{BtnCancelar}}
+\index{BtnCancelar@{BtnCancelar}!BetaProyecto.ViewModels.ViewCrearReporteViewModel@{BetaProyecto.ViewModels.ViewCrearReporteViewModel}}
+\doxyparagraph{\texorpdfstring{BtnCancelar}{BtnCancelar}}
+{\footnotesize\ttfamily \label{a00417_a0b792acd8d5a785a4f44b9ed75a9d1d9} 
+Reactive\+Command$<$Unit, Unit$>$ Beta\+Proyecto.\+View\+Models.\+View\+Crear\+Reporte\+View\+Model.\+Btn\+Cancelar\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00116_source_l00054}{54}} del archivo \doxymbox{\hyperlink{a00116_source}{View\+Crear\+Reporte\+View\+Model.\+cs}}.
+
+\Hypertarget{a00417_aee530e6e8ba7fa2d6568964f1cb207ca}\index{BetaProyecto.ViewModels.ViewCrearReporteViewModel@{BetaProyecto.ViewModels.ViewCrearReporteViewModel}!BtnEnviarReporte@{BtnEnviarReporte}}
+\index{BtnEnviarReporte@{BtnEnviarReporte}!BetaProyecto.ViewModels.ViewCrearReporteViewModel@{BetaProyecto.ViewModels.ViewCrearReporteViewModel}}
+\doxyparagraph{\texorpdfstring{BtnEnviarReporte}{BtnEnviarReporte}}
+{\footnotesize\ttfamily \label{a00417_aee530e6e8ba7fa2d6568964f1cb207ca} 
+Reactive\+Command$<$Unit, Unit$>$ Beta\+Proyecto.\+View\+Models.\+View\+Crear\+Reporte\+View\+Model.\+Btn\+Enviar\+Reporte\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00116_source_l00053}{53}} del archivo \doxymbox{\hyperlink{a00116_source}{View\+Crear\+Reporte\+View\+Model.\+cs}}.
+
+\Hypertarget{a00417_a9d7da5bd748e85f85ad686796f19a08c}\index{BetaProyecto.ViewModels.ViewCrearReporteViewModel@{BetaProyecto.ViewModels.ViewCrearReporteViewModel}!CancionAReportar@{CancionAReportar}}
+\index{CancionAReportar@{CancionAReportar}!BetaProyecto.ViewModels.ViewCrearReporteViewModel@{BetaProyecto.ViewModels.ViewCrearReporteViewModel}}
+\doxyparagraph{\texorpdfstring{CancionAReportar}{CancionAReportar}}
+{\footnotesize\ttfamily \label{a00417_a9d7da5bd748e85f85ad686796f19a08c} 
+\doxymbox{\hyperlink{a00257}{Canciones}} Beta\+Proyecto.\+View\+Models.\+View\+Crear\+Reporte\+View\+Model.\+Cancion\+AReportar\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00116_source_l00015}{15}} del archivo \doxymbox{\hyperlink{a00116_source}{View\+Crear\+Reporte\+View\+Model.\+cs}}.
+
+\Hypertarget{a00417_ad544235e522239623c67d0efb3e89dd6}\index{BetaProyecto.ViewModels.ViewCrearReporteViewModel@{BetaProyecto.ViewModels.ViewCrearReporteViewModel}!DescripcionTexto@{DescripcionTexto}}
+\index{DescripcionTexto@{DescripcionTexto}!BetaProyecto.ViewModels.ViewCrearReporteViewModel@{BetaProyecto.ViewModels.ViewCrearReporteViewModel}}
+\doxyparagraph{\texorpdfstring{DescripcionTexto}{DescripcionTexto}}
+{\footnotesize\ttfamily \label{a00417_ad544235e522239623c67d0efb3e89dd6} 
+string Beta\+Proyecto.\+View\+Models.\+View\+Crear\+Reporte\+View\+Model.\+Descripcion\+Texto\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00116_source_l00039}{39}} del archivo \doxymbox{\hyperlink{a00116_source}{View\+Crear\+Reporte\+View\+Model.\+cs}}.
+
+\Hypertarget{a00417_a5c49843949715cc31551cc12f8a2771c}\index{BetaProyecto.ViewModels.ViewCrearReporteViewModel@{BetaProyecto.ViewModels.ViewCrearReporteViewModel}!MensajeEstado@{MensajeEstado}}
+\index{MensajeEstado@{MensajeEstado}!BetaProyecto.ViewModels.ViewCrearReporteViewModel@{BetaProyecto.ViewModels.ViewCrearReporteViewModel}}
+\doxyparagraph{\texorpdfstring{MensajeEstado}{MensajeEstado}}
+{\footnotesize\ttfamily \label{a00417_a5c49843949715cc31551cc12f8a2771c} 
+string Beta\+Proyecto.\+View\+Models.\+View\+Crear\+Reporte\+View\+Model.\+Mensaje\+Estado\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00116_source_l00046}{46}} del archivo \doxymbox{\hyperlink{a00116_source}{View\+Crear\+Reporte\+View\+Model.\+cs}}.
+
+\Hypertarget{a00417_acadc410bfd1ccbb2c16d8ba92c3fd917}\index{BetaProyecto.ViewModels.ViewCrearReporteViewModel@{BetaProyecto.ViewModels.ViewCrearReporteViewModel}!TiposDeProblema@{TiposDeProblema}}
+\index{TiposDeProblema@{TiposDeProblema}!BetaProyecto.ViewModels.ViewCrearReporteViewModel@{BetaProyecto.ViewModels.ViewCrearReporteViewModel}}
+\doxyparagraph{\texorpdfstring{TiposDeProblema}{TiposDeProblema}}
+{\footnotesize\ttfamily \label{a00417_acadc410bfd1ccbb2c16d8ba92c3fd917} 
+List$<$string$>$ Beta\+Proyecto.\+View\+Models.\+View\+Crear\+Reporte\+View\+Model.\+Tipos\+De\+Problema\hspace{0.3cm}{\ttfamily [get]}}
+
+{\bfseries Valor inicial:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \textcolor{keyword}{new}\ List<string>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Copyright\ /\ Derechos\ de\ autor"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Contenido\ ofensivo\ o\ inapropiado"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Audio\ defectuoso\ o\ silencio"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Spam\ /\ Información\ falsa"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Otro"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00116_source_l00022}{22}} del archivo \doxymbox{\hyperlink{a00116_source}{View\+Crear\+Reporte\+View\+Model.\+cs}}.
+
+\Hypertarget{a00417_a1ae8adc9a77f159e1137a3f33f9333fb}\index{BetaProyecto.ViewModels.ViewCrearReporteViewModel@{BetaProyecto.ViewModels.ViewCrearReporteViewModel}!TipoSeleccionado@{TipoSeleccionado}}
+\index{TipoSeleccionado@{TipoSeleccionado}!BetaProyecto.ViewModels.ViewCrearReporteViewModel@{BetaProyecto.ViewModels.ViewCrearReporteViewModel}}
+\doxyparagraph{\texorpdfstring{TipoSeleccionado}{TipoSeleccionado}}
+{\footnotesize\ttfamily \label{a00417_a1ae8adc9a77f159e1137a3f33f9333fb} 
+string Beta\+Proyecto.\+View\+Models.\+View\+Crear\+Reporte\+View\+Model.\+Tipo\+Seleccionado\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00116_source_l00032}{32}} del archivo \doxymbox{\hyperlink{a00116_source}{View\+Crear\+Reporte\+View\+Model.\+cs}}.
+

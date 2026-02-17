@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['url_0',['Url',['../dd/d4e/a00329.html#a3a51230203c8a68976b91746e05a69da',1,'BetaProyecto::Services::AudioService::InfoCancionNube']]],
+  ['urlcancion_1',['UrlCancion',['../d9/d39/a00257.html#ab1c33a951dfc7dc8d8f5e5b1e71c80f8',1,'BetaProyecto::Models::Canciones']]],
+  ['urlfotoperfilgd_2',['UrlFotoPerfilGD',['../d7/dfc/a00349.html#a3255e26ace80c5945c109d730df438b7',1,'BetaProyecto::Singleton::GlobalData']]],
+  ['urlportada_3',['UrlPortada',['../d0/d19/a00273.html#a1d7c0c26d71876d0c17b03cc0147739b',1,'BetaProyecto::Models::ListaPersonalizada']]],
+  ['useauthorization_4',['UseAuthorization',['../dd/d72/a00541.html#af6f72d752b2e73aa0292f74bd13237ab',1,'Program.cs']]],
+  ['usehttpsredirection_5',['UseHttpsRedirection',['../dd/d72/a00541.html#aa4d447fc3129a3aa301d736b8bd04ae9',1,'Program.cs']]],
+  ['useridgd_6',['UserIdGD',['../d7/dfc/a00349.html#adb38cdfb6b5c5f427b3a1250eca88a29',1,'BetaProyecto::Singleton::GlobalData']]],
+  ['username_7',['Username',['../da/d50/a00301.html#abb41b5cb0ae4aaabd4c0134ddc29da89',1,'BetaProyecto::Models::Usuarios']]],
+  ['usernamegd_8',['UsernameGD',['../d7/dfc/a00349.html#aab0aaf02f0ee9e57b35a60acbac54a0b',1,'BetaProyecto::Singleton::GlobalData']]],
+  ['useswagger_9',['UseSwagger',['../dd/d72/a00541.html#a9a5cfe7fee09f478241b98af703affea',1,'Program.cs']]],
+  ['useswaggerui_10',['UseSwaggerUI',['../dd/d72/a00541.html#a968f30949d31f6febdcf7f3fe40bfa42',1,'Program.cs']]],
+  ['useurls_11',['UseUrls',['../dd/d72/a00541.html#aa79a8b421f1d10bf1eb22e0159112c5d',1,'Program.cs']]],
+  ['usuario_12',['Usuario',['../d4/d66/a00289.html#aefb23be1c31f251aa09a44ed81f75c9f',1,'BetaProyecto.Models.Roles.Usuario'],['../dc/ddf/a00469.html#a76bf54ba088fba1dbd08a17fd97ba313',1,'BetaProyecto.ViewModels.ViewUsuariosViewModel.Usuario']]],
+  ['usuarioreportanteid_13',['UsuarioReportanteId',['../d3/d58/a00285.html#ac8e3c3ec72b2fe5576de9f41c4cc377d',1,'BetaProyecto::Models::ReferenciasReporte']]],
+  ['usuarios_14',['Usuarios',['../da/d50/a00301.html',1,'BetaProyecto::Models']]],
+  ['usuarios_2ecs_15',['Usuarios.cs',['../d8/d41/a00038.html',1,'']]]
+];

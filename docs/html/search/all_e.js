@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['obtenercacionesnovedades_0',['ObtenerCacionesNovedades',['../d3/d93/a00341.html#a43e7075d77d5614b2a44278070287678',1,'BetaProyecto::Services::MongoAtlas']]],
+  ['obtenercanciones_1',['ObtenerCanciones',['../d3/d93/a00341.html#ac8e61caf0a93f90f99e9ce573bd01a5a',1,'BetaProyecto::Services::MongoAtlas']]],
+  ['obtenercancionesfavoritos_2',['ObtenerCancionesFavoritos',['../d3/d93/a00341.html#aff88c646fe54fe223cce1b65df8ae46d',1,'BetaProyecto::Services::MongoAtlas']]],
+  ['obtenercancionesporautor_3',['ObtenerCancionesPorAutor',['../d3/d93/a00341.html#a5ea7eec2b0189b4d78dfa52f10a29add',1,'BetaProyecto::Services::MongoAtlas']]],
+  ['obtenercancionesporbusqueda_4',['ObtenerCancionesPorBusqueda',['../d3/d93/a00341.html#a9e1cd3a3a1a14d1fcea59e15a36ad0d9',1,'BetaProyecto::Services::MongoAtlas']]],
+  ['obtenercancionesporgenero_5',['ObtenerCancionesPorGenero',['../d3/d93/a00341.html#ad94222735daff4ead92649645928c8b5',1,'BetaProyecto::Services::MongoAtlas']]],
+  ['obtenercancionesporlistaids_6',['ObtenerCancionesPorListaIds',['../d3/d93/a00341.html#a6adc826a3a2077d0bcecf593f726ace6',1,'BetaProyecto::Services::MongoAtlas']]],
+  ['obtenerduracionlocal_7',['ObtenerDuracionLocal',['../d4/da8/a00437.html#af799a4ecf4dc22d09685bd36838ae241',1,'BetaProyecto::ViewModels::ViewGestionarBDViewModel']]],
+  ['obtenerduracionmp3_8',['ObtenerDuracionMp3',['../d5/d5f/a00461.html#a64a5dbc81dc76b68c32503239f96bbea',1,'BetaProyecto::ViewModels::ViewPublicarCancionViewModel']]],
+  ['obtenergeneroscompletos_9',['ObtenerGenerosCompletos',['../d3/d93/a00341.html#ad12a39c2cd4d2e273d669be8681a81b7',1,'BetaProyecto::Services::MongoAtlas']]],
+  ['obtenerlistasreproduccion_10',['ObtenerListasReproduccion',['../d3/d93/a00341.html#adf30dd79b8d13c64e47a8024a7db2b02',1,'BetaProyecto::Services::MongoAtlas']]],
+  ['obtenermixporgenero_11',['ObtenerMixPorGenero',['../d3/d93/a00341.html#a6992907ff50bf8a92a611e2324e9eb8a',1,'BetaProyecto::Services::MongoAtlas']]],
+  ['obtenermp3_12',['ObtenerMp3',['../de/dc8/a00325.html#a055a82e08bb605bfbce3aecd707eb5c3',1,'BetaProyecto::Services::AudioService']]],
+  ['obtenernombresgeneros_13',['ObtenerNombresGeneros',['../d3/d93/a00341.html#a831b1f89de8363f28fdf2a25a3440fff',1,'BetaProyecto::Services::MongoAtlas']]],
+  ['obtenerplaylistsporcreador_14',['ObtenerPlaylistsPorCreador',['../d3/d93/a00341.html#a02b5755f4d1e38e31897c6b99b1c4669',1,'BetaProyecto::Services::MongoAtlas']]],
+  ['obtenerpublicid_15',['ObtenerPublicId',['../d4/d08/a00237.html#a4c3b1ef95cd4dc240ecc29d0fcf24582',1,'BetaProyecto::API::Controllers::StorageController']]],
+  ['obtenerreportes_16',['ObtenerReportes',['../d3/d93/a00341.html#acebd6beb5817ff2365be22bf07a690df',1,'BetaProyecto::Services::MongoAtlas']]],
+  ['obtenerrutaaudiosegura_17',['ObtenerRutaAudioSegura',['../de/dc8/a00325.html#afbf728ba83d0b3776470151bb77d13ab',1,'BetaProyecto::Services::AudioService']]],
+  ['obtenertodoslosusuarios_18',['ObtenerTodosLosUsuarios',['../d3/d93/a00341.html#a45e99c3e0723f4bf4afb7812b46fcc0f',1,'BetaProyecto::Services::MongoAtlas']]],
+  ['obtenerusuariosporbusqueda_19',['ObtenerUsuariosPorBusqueda',['../d3/d93/a00341.html#a9f802e6629b4ac6853bc439b2bc9d38d',1,'BetaProyecto::Services::MongoAtlas']]],
+  ['obtenerusuariosporlistaids_20',['ObtenerUsuariosPorListaIds',['../d3/d93/a00341.html#a87698d483367c5aa67cb4d3a6fc2def2',1,'BetaProyecto::Services::MongoAtlas']]],
+  ['opcionesestado_21',['OpcionesEstado',['../dd/d47/a00445.html#a1b276ff0012e5c6fab3f3c0945467cd2',1,'BetaProyecto::ViewModels::ViewGestionarReportesViewModel']]]
+];

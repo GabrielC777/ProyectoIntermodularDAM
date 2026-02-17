@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MusicSearch: Archivo de código fuente BetaProyecto.API/Controllers/StorageController.cs</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(function() { init_search(); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../LogoApp (4).png"/></td>
+  <td id="projectalign">
+   <div id="projectname">MusicSearch<span id="projectnumber">&#160;1.1.2</span>
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d6/d7d/a00161_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">StorageController.cs</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d6/d7d/a00161.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">using </span>CloudinaryDotNet;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">using </span>CloudinaryDotNet.Actions;</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">using </span>Microsoft.AspNetCore.Mvc;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">using </span>Newtonsoft.Json.Linq;</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../de/d45/a00175.html">BetaProyecto.API.Controllers</a></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    [Route(<span class="stringliteral">&quot;api/[controller]&quot;</span>)]</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    [ApiController]</div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="../../d4/d08/a00237.html">   10</a></span>    <span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_function" href="../../d4/d08/a00237.html#adf96fbc4142299e5638bdff6f9fa0aad">StorageController</a> : ControllerBase</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <span class="comment">// CLAVES PARA IMGBB (FOTOS)</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../d4/d08/a00237.html#aa87bc5c94794340731cf776b5137c618">   13</a></span>        <span class="keyword">private</span> <span class="keyword">const</span> <span class="keywordtype">string</span> <a class="code hl_variable" href="../../d4/d08/a00237.html#aa87bc5c94794340731cf776b5137c618">ImgbbApiKey</a> = <span class="stringliteral">&quot;718db7c8748de9625904739b3e6a4265&quot;</span>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <span class="comment">// CLAVES PARA CLOUDINARY (AUDIO)</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d4/d08/a00237.html#ac3d47a171ba0bdb402830f1ba4f7daac">   16</a></span>        <span class="keyword">private</span> <span class="keyword">const</span> <span class="keywordtype">string</span> <a class="code hl_variable" href="../../d4/d08/a00237.html#ac3d47a171ba0bdb402830f1ba4f7daac">CloudName</a> = <span class="stringliteral">&quot;dyyi9sb9v&quot;</span>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../d4/d08/a00237.html#aec8101b26df0811d823ab9885cd679b5">   17</a></span>        <span class="keyword">private</span> <span class="keyword">const</span> <span class="keywordtype">string</span> <a class="code hl_variable" href="../../d4/d08/a00237.html#aec8101b26df0811d823ab9885cd679b5">ApiKey</a> = <span class="stringliteral">&quot;926712452194393&quot;</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d4/d08/a00237.html#a6403e32cf0423b1364871521edfd4865">   18</a></span>        <span class="keyword">private</span> <span class="keyword">const</span> <span class="keywordtype">string</span> <a class="code hl_variable" href="../../d4/d08/a00237.html#a6403e32cf0423b1364871521edfd4865">ApiSecret</a> = <span class="stringliteral">&quot;VCgQV20lLbnA5DO9I9NGMdKvjII&quot;</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d4/d08/a00237.html#aac1ff8004855ce5ac1e42a766e534f86">   20</a></span>        <span class="keyword">private</span> readonly Cloudinary <a class="code hl_variable" href="../../d4/d08/a00237.html#aac1ff8004855ce5ac1e42a766e534f86">_cloudinary</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="}">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../d4/d08/a00237.html#adf96fbc4142299e5638bdff6f9fa0aad">   22</a></span>        <span class="keyword">public</span> <a class="code hl_function" href="../../d4/d08/a00237.html#adf96fbc4142299e5638bdff6f9fa0aad">StorageController</a>()</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            <span class="comment">// Creamos un objeto &#39;Account&#39; empaquetando nuestras 3 claves.</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            var account = <span class="keyword">new</span> Account(<a class="code hl_variable" href="../../d4/d08/a00237.html#ac3d47a171ba0bdb402830f1ba4f7daac">CloudName</a>, <a class="code hl_variable" href="../../d4/d08/a00237.html#aec8101b26df0811d823ab9885cd679b5">ApiKey</a>, <a class="code hl_variable" href="../../d4/d08/a00237.html#a6403e32cf0423b1364871521edfd4865">ApiSecret</a>);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            <span class="comment">// Creamos la conexión real con Cloudinary usando esa cuenta.</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            <a class="code hl_variable" href="../../d4/d08/a00237.html#aac1ff8004855ce5ac1e42a766e534f86">_cloudinary</a> = <span class="keyword">new</span> Cloudinary(account);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <span class="comment">// Obligamos a que la conexión use HTTPS (seguridad, candado verde).</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            _cloudinary.Api.Secure = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        }<span class="comment"></span></div>
+</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">        /// &lt;summary&gt;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">        /// Recibe un archivo de imagen, lo procesa en memoria y lo carga en el servicio externo ImgBB.</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">        /// &lt;/summary&gt;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">        /// &lt;remarks&gt;</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">        /// Este endpoint actúa como un puente (proxy) entre la aplicación cliente y ImgBB:</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">        /// &lt;list type=&quot;number&quot;&gt;</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Validación:&lt;/b&gt; Asegura que el archivo no sea nulo.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Conversión:&lt;/b&gt; Transforma la imagen binaria a una cadena Base64 (texto), que es el formato requerido por la API de ImgBB.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Transmisión:&lt;/b&gt; Realiza una petición POST segura enviando la API Key y el contenido.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Resolución:&lt;/b&gt; Extrae la URL directa de la respuesta JSON para que la App pueda guardarla en su base de datos.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">        /// &lt;/list&gt;</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">        /// &lt;/remarks&gt;</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">        /// &lt;param name=&quot;archivo&quot;&gt;El archivo de imagen enviado desde el formulario (IFormFile).&lt;/param&gt;</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">        /// &lt;returns&gt;Un objeto JSON con la URL pública de la imagen alojada.&lt;/returns&gt;</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="comment">// ENDPOINT 1: SUBIR IMAGEN -&gt; Va a ImgBB</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        [HttpPost(<span class="stringliteral">&quot;subir-imagen&quot;</span>)] <span class="comment">//ruta --&gt; api/Storage/subir-imagen</span></div>
+<div class="foldopen" id="foldopen00047" data-start="{" data-end="}">
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="../../d4/d08/a00237.html#a49f2731f9ff8882feeb00ac406d2eaa6">   47</a></span>        <span class="keyword">public</span> async Task&lt;IActionResult&gt; <a class="code hl_function" href="../../d4/d08/a00237.html#a49f2731f9ff8882feeb00ac406d2eaa6">SubirImagen</a>(IFormFile archivo)</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="comment">// Verificación de seguridad: ¿El archivo existe y tiene datos?</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <span class="keywordflow">if</span> (archivo == <span class="keyword">null</span> || archivo.Length == 0) <span class="keywordflow">return</span> BadRequest(<span class="stringliteral">&quot;No hay imagen&quot;</span>);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            <span class="keywordflow">try</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                <span class="comment">// &#39;using&#39;: Crea un cliente HTTP (un navegador web invisible) y lo destruye al terminar para ahorrar RAM.</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                <span class="keyword">using</span> (var client = <span class="keyword">new</span> HttpClient())</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                    <span class="comment">// ImgBB necesita Base64</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                    <span class="comment">// Variable para guardar la imagen convertida a texto.</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                    <span class="keywordtype">string</span> base64Image;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                    <span class="comment">// Abrimos un flujo de memoria temporal en la RAM.</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                    <span class="keyword">using</span> (var ms = <span class="keyword">new</span> MemoryStream())</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                    {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                        <span class="comment">// Copiamos el archivo que llegó de internet(nuestra aplicación) a la memoria RAM.</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                        await archivo.CopyToAsync(ms);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                        <span class="comment">//Convertimos los bytes de la imagen a una cadena de texto Base64.</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                        base64Image = Convert.ToBase64String(ms.ToArray());</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                    }</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                    <span class="comment">// Preparamos el &quot;formulario&quot; virtual para enviar.</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                    var content = <span class="keyword">new</span> FormUrlEncodedContent(<span class="keyword">new</span>[]</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                    {</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                        <span class="comment">// Campo 1: La clave API.</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                        <span class="keyword">new</span> KeyValuePair&lt;string, string&gt;(<span class="stringliteral">&quot;key&quot;</span>, <a class="code hl_variable" href="../../d4/d08/a00237.html#aa87bc5c94794340731cf776b5137c618">ImgbbApiKey</a>),</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                        <span class="comment">// Campo 2: La imagen convertida a texto.</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                        <span class="keyword">new</span> KeyValuePair&lt;string, string&gt;(<span class="stringliteral">&quot;image&quot;</span>, base64Image)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                    });</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                    <span class="comment">// Enviamos la petición POST a la URL de ImgBB con el formulario.</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                    var response = await client.PostAsync(<span class="stringliteral">&quot;https://api.imgbb.com/1/upload&quot;</span>, content);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                    <span class="comment">// Leemos la respuesta del servidor (que viene en texto JSON).</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                    var jsonString = await response.Content.ReadAsStringAsync();</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                    <span class="comment">// Si ImgBB dice que algo salió mal (código 400 o 500)...</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                    <span class="keywordflow">if</span> (!response.IsSuccessStatusCode)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                        <span class="keywordflow">return</span> StatusCode(500, <span class="stringliteral">&quot;Error ImgBB: &quot;</span> + jsonString);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                    <span class="comment">// Analizamos el texto JSON para convertirlo en objeto.</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                    var json = JObject.Parse(jsonString);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                    <span class="comment">// Buscamos dentro del JSON: objeto &#39;data&#39; -&gt; propiedad &#39;url&#39;.</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                    <span class="keywordtype">string</span> urlFinal = json[<span class="stringliteral">&quot;data&quot;</span>][<span class="stringliteral">&quot;url&quot;</span>].ToString();</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                    <span class="comment">// Devolvemos un código 200 OK con la URL lista para usar.</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                    <span class="keywordflow">return</span> Ok(<span class="keyword">new</span> { url = urlFinal });</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>                }</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            }</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            <span class="keywordflow">catch</span> (Exception ex)</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                <span class="keywordflow">return</span> StatusCode(500, <span class="stringliteral">&quot;Error subiendo imagen: &quot;</span> + ex.Message);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            }</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        }<span class="comment"></span></div>
+</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">        /// &lt;summary&gt;</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">        /// Procesa un archivo multimedia de audio y lo carga de forma asíncrona en el servicio de almacenamiento de Cloudinary.</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">        /// &lt;/summary&gt;</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">        /// &lt;remarks&gt;</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">        /// El flujo de este endpoint incluye:</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">        /// &lt;list type=&quot;number&quot;&gt;</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Validación:&lt;/b&gt; Comprobación de integridad del archivo recibido.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Tratamiento de Stream:&lt;/b&gt; Apertura del archivo como flujo de datos para evitar la carga total en RAM.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Categorización:&lt;/b&gt; Uso de parámetros de video (requeridos por Cloudinary para archivos de audio) y asignación de carpeta destino.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Persistencia:&lt;/b&gt; Obtención de una URL segura (HTTPS) para su almacenamiento en la base de datos.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">        /// &lt;/list&gt;</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">        /// &lt;/remarks&gt;</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">        /// &lt;param name=&quot;archivo&quot;&gt;El archivo de audio (mp3, wav, etc.) enviado a través de la petición HTTP.&lt;/param&gt;</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment">        /// &lt;returns&gt;Un objeto JSON con la URL segura del recurso alojado o un mensaje de error detallado.&lt;/returns&gt;</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="comment">// ENDPOINT 2: SUBIR AUDIO -&gt; Va a Cloudinary</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        [HttpPost(<span class="stringliteral">&quot;subir-audio&quot;</span>)]</div>
+<div class="foldopen" id="foldopen00118" data-start="{" data-end="}">
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="../../d4/d08/a00237.html#acb8d95a8e279bcb28931735da87e6f54">  118</a></span>        <span class="keyword">public</span> async Task&lt;IActionResult&gt; <a class="code hl_function" href="../../d4/d08/a00237.html#acb8d95a8e279bcb28931735da87e6f54">SubirAudio</a>(IFormFile archivo)</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        {</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            <span class="comment">// Verificación: ¿El archivo existe?</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            <span class="keywordflow">if</span> (archivo == <span class="keyword">null</span> || archivo.Length == 0) <span class="keywordflow">return</span> BadRequest(<span class="stringliteral">&quot;No hay audio&quot;</span>);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            <span class="keywordflow">try</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            {</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>                <span class="comment">// Abrimos el archivo como un flujo de lectura (Stream).</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                <span class="keyword">using</span> (var stream = archivo.OpenReadStream())</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>                {</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                    <span class="comment">// CONFIGURACIÓN CLAVE:</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>                    <span class="comment">// Usamos &#39;VideoUploadParams&#39; porque Cloudinary trata el audio como video.</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>                    var uploadParams = <span class="keyword">new</span> VideoUploadParams()</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>                    {</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>                        <span class="comment">// Adjuntamos el archivo (Nombre + Flujo de datos).</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>                        File = <span class="keyword">new</span> FileDescription(archivo.FileName, stream),</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                        <span class="comment">// Carpeta en Cloudinary</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>                        Folder = <span class="stringliteral">&quot;musicsearch_audios&quot;</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                    };</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>                    <span class="comment">// Llamamos a la librería para que suba el archivo.</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>                    <span class="comment">// Esto hace todo el proceso de conexión y subida por nosotros.</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>                    var uploadResult = await <a class="code hl_variable" href="../../d4/d08/a00237.html#aac1ff8004855ce5ac1e42a766e534f86">_cloudinary</a>.UploadAsync(uploadParams);</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>                    <span class="comment">// Verificamos si la librería reportó algún error interno.</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>                    <span class="keywordflow">if</span> (uploadResult.Error != <span class="keyword">null</span>)</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>                        <span class="keywordflow">return</span> StatusCode(500, <span class="stringliteral">&quot;Error Cloudinary: &quot;</span> + uploadResult.Error.Message);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>                    <span class="comment">// Si todo fue bien, devolvemos la &#39;SecureUrl&#39; (la dirección HTTPS del audio).</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>                    <span class="keywordflow">return</span> Ok(<span class="keyword">new</span> { url = uploadResult.SecureUrl.ToString() });</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                }</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>            }</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            <span class="keywordflow">catch</span> (Exception ex)</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>            {</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>                <span class="keywordflow">return</span> StatusCode(500, <span class="stringliteral">&quot;Error subiendo audio: &quot;</span> + ex.Message);</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>            }</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        }<span class="comment"></span></div>
+</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment">        /// &lt;summary&gt;</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="comment">        /// Solicita la eliminación permanente de un recurso multimedia alojado en Cloudinary a partir de su URL pública.</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment">        /// &lt;/summary&gt;</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment">        /// &lt;remarks&gt;</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment">        /// Este endpoint implementa una lógica de filtrado y limpieza:</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment">        /// &lt;list type=&quot;number&quot;&gt;</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Discriminación de dominio:&lt;/b&gt; Solo procesa eliminaciones si la URL pertenece a Cloudinary, ignorando otros proveedores (como ImgBB) para evitar errores de API.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Extracción de Identificador:&lt;/b&gt; Procesa la URL para obtener el &lt;c&gt;PublicId&lt;/c&gt;, que es la clave única que Cloudinary necesita para localizar el archivo.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Borrado por tipo de recurso:&lt;/b&gt; Define específicamente el &lt;c&gt;ResourceType.Video&lt;/c&gt; (usado para audio en tu configuración) para asegurar que el motor de búsqueda de Cloudinary encuentre el objeto.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="comment">        /// &lt;/list&gt;</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="comment">        /// &lt;/remarks&gt;</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="comment">        /// &lt;param name=&quot;url&quot;&gt;La dirección URL completa del archivo que se desea eliminar.&lt;/param&gt;</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="comment">        /// &lt;returns&gt;Un mensaje de confirmación de éxito o un error detallado si la operación falla.&lt;/returns&gt;</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        [HttpDelete(<span class="stringliteral">&quot;eliminar&quot;</span>)]</div>
+<div class="foldopen" id="foldopen00169" data-start="{" data-end="}">
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="../../d4/d08/a00237.html#a9a06bf7709045c2b0a00e115900be260">  169</a></span>        <span class="keyword">public</span> async Task&lt;IActionResult&gt; <a class="code hl_function" href="../../d4/d08/a00237.html#a9a06bf7709045c2b0a00e115900be260">EliminarArchivo</a>([FromQuery] <span class="keywordtype">string</span> url)</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        {</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>            <span class="keywordflow">if</span> (<span class="keywordtype">string</span>.IsNullOrEmpty(url)) <span class="keywordflow">return</span> BadRequest(<span class="stringliteral">&quot;URL vacía&quot;</span>);</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>            <span class="comment">// Solo borramos cosas de Cloudinary</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            <span class="keywordflow">if</span> (!url.Contains(<span class="stringliteral">&quot;cloudinary.com&quot;</span>))</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>                <span class="keywordflow">return</span> Ok(<span class="keyword">new</span> { mensaje = <span class="stringliteral">&quot;Ignorado (No es Cloudinary)&quot;</span> });</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            <span class="keywordflow">try</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            {</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>                <span class="comment">// Sacamos el ID oculto en la URL</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>                <span class="keywordtype">string</span> publicId = <a class="code hl_function" href="../../d4/d08/a00237.html#a4c3b1ef95cd4dc240ecc29d0fcf24582">ObtenerPublicId</a>(url);</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>                <span class="keywordflow">if</span> (<span class="keywordtype">string</span>.IsNullOrEmpty(publicId)) <span class="keywordflow">return</span> BadRequest(<span class="stringliteral">&quot;URL no válida&quot;</span>);</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>                <span class="comment">// Intentamos borrar como si fuera un video</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>                var paramsVid = <span class="keyword">new</span> DeletionParams(publicId) { ResourceType = ResourceType.Video };</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>                var result = await <a class="code hl_variable" href="../../d4/d08/a00237.html#aac1ff8004855ce5ac1e42a766e534f86">_cloudinary</a>.DestroyAsync(paramsVid);</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>                <span class="keywordflow">if</span> (result.Result == <span class="stringliteral">&quot;ok&quot;</span>) <span class="keywordflow">return</span> Ok(<span class="keyword">new</span> { mensaje = <span class="stringliteral">&quot;Eliminado&quot;</span> });</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>                <span class="keywordflow">else</span> <span class="keywordflow">return</span> StatusCode(500, <span class="stringliteral">&quot;Fallo al borrar: &quot;</span> + result.Result);</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>            }</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>            <span class="keywordflow">catch</span> (Exception ex)</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>            {</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>                <span class="keywordflow">return</span> StatusCode(500, <span class="stringliteral">&quot;Error API: &quot;</span> + ex.Message);</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>            }</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        }</div>
+</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <span class="comment">// Metodos Helpers</span><span class="comment"></span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="comment">        /// &lt;summary&gt;</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="comment">        /// Analiza una URL de Cloudinary y extrae el identificador único (Public ID) necesario para operaciones de gestión.</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="comment">        /// &lt;/summary&gt;</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="comment">        /// &lt;remarks&gt;</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment">        /// El método realiza un &quot;parseo&quot; quirúrgico de la URL siguiendo este algoritmo:</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="comment">        /// &lt;list type=&quot;number&quot;&gt;</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Localización:&lt;/b&gt; Busca el segmento &lt;c&gt;/upload/&lt;/c&gt; que separa la configuración del servidor de los datos del archivo.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Limpieza de Versión:&lt;/b&gt; Omite el componente de versión (ej. &lt;c&gt;v17397... &lt;/c&gt;) que Cloudinary genera automáticamente.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Extracción de Carpeta y Nombre:&lt;/b&gt; Captura la ruta interna y el nombre del archivo.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Remoción de Extensión:&lt;/b&gt; Elimina el sufijo del formato (ej. &lt;c&gt;.mp3&lt;/c&gt;) para obtener el ID limpio que requiere la API de borrado.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="comment">        /// &lt;/list&gt;</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="comment">        /// &lt;/remarks&gt;</span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="comment">        /// &lt;param name=&quot;url&quot;&gt;La dirección URL completa del recurso alojado en Cloudinary.&lt;/param&gt;</span></div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="comment">        /// &lt;returns&gt;El Public ID del recurso (incluyendo carpetas) o &lt;c&gt;null&lt;/c&gt; si el formato de la URL es inválido.&lt;/returns&gt;</span></div>
+<div class="foldopen" id="foldopen00210" data-start="{" data-end="}">
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="../../d4/d08/a00237.html#a4c3b1ef95cd4dc240ecc29d0fcf24582">  210</a></span>        <span class="keyword">private</span> <span class="keywordtype">string</span> <a class="code hl_function" href="../../d4/d08/a00237.html#a4c3b1ef95cd4dc240ecc29d0fcf24582">ObtenerPublicId</a>(<span class="keywordtype">string</span> url)</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        {</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>            <span class="keywordflow">try</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>            {</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>                var uri = <span class="keyword">new</span> Uri(url);</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>                <span class="keywordtype">string</span> path = uri.AbsolutePath;</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>                <span class="comment">// Ejemplo: /dyyi9sb9v/video/upload/v1234/musicsearch_audios/cancion.mp3</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>                <span class="keywordtype">int</span> indexUpload = path.IndexOf(<span class="stringliteral">&quot;/upload/&quot;</span>);</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>                <span class="keywordflow">if</span> (indexUpload == -1) <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>                <span class="comment">// Cortamos todo hasta después de /upload/</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>                <span class="keywordtype">string</span> resto = path.Substring(indexUpload + 8);</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>                <span class="comment">// Saltamos la versión (v12345/...)</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>                <span class="keywordtype">int</span> indexSlash = resto.IndexOf(<span class="charliteral">&#39;/&#39;</span>);</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>                <span class="keywordtype">string</span> idConExt = resto.Substring(indexSlash + 1);</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>                <span class="comment">// Quitamos la extensión (.mp3 o .jpg)</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>                <span class="keywordtype">int</span> indexPunto = idConExt.LastIndexOf(<span class="charliteral">&#39;.&#39;</span>);</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>                <span class="keywordflow">return</span> idConExt.Substring(0, indexPunto);</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>            }</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>            <span class="keywordflow">catch</span> { <span class="keywordflow">return</span> <span class="keyword">null</span>; }</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        }</div>
+</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    }</div>
+</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>}</div>
+<div class="ttc" id="aa00175_html"><div class="ttname"><a href="../../de/d45/a00175.html">BetaProyecto.API.Controllers</a></div><div class="ttdef"><b>Definition</b> <a href="../../d6/db8/a00158_source.html#l00006">MusicController.cs:7</a></div></div>
+<div class="ttc" id="aa00237_html_a49f2731f9ff8882feeb00ac406d2eaa6"><div class="ttname"><a href="../../d4/d08/a00237.html#a49f2731f9ff8882feeb00ac406d2eaa6">BetaProyecto.API.Controllers.StorageController.SubirImagen</a></div><div class="ttdeci">async Task&lt; IActionResult &gt; SubirImagen(IFormFile archivo)</div><div class="ttdoc">Recibe un archivo de imagen, lo procesa en memoria y lo carga en el servicio externo ImgBB.</div><div class="ttdef"><b>Definition</b> <a href="#l00047">StorageController.cs:47</a></div></div>
+<div class="ttc" id="aa00237_html_a4c3b1ef95cd4dc240ecc29d0fcf24582"><div class="ttname"><a href="../../d4/d08/a00237.html#a4c3b1ef95cd4dc240ecc29d0fcf24582">BetaProyecto.API.Controllers.StorageController.ObtenerPublicId</a></div><div class="ttdeci">string ObtenerPublicId(string url)</div><div class="ttdoc">Analiza una URL de Cloudinary y extrae el identificador único (Public ID) necesario para operaciones ...</div><div class="ttdef"><b>Definition</b> <a href="#l00210">StorageController.cs:210</a></div></div>
+<div class="ttc" id="aa00237_html_a6403e32cf0423b1364871521edfd4865"><div class="ttname"><a href="../../d4/d08/a00237.html#a6403e32cf0423b1364871521edfd4865">BetaProyecto.API.Controllers.StorageController.ApiSecret</a></div><div class="ttdeci">const string ApiSecret</div><div class="ttdef"><b>Definition</b> <a href="#l00018">StorageController.cs:18</a></div></div>
+<div class="ttc" id="aa00237_html_a9a06bf7709045c2b0a00e115900be260"><div class="ttname"><a href="../../d4/d08/a00237.html#a9a06bf7709045c2b0a00e115900be260">BetaProyecto.API.Controllers.StorageController.EliminarArchivo</a></div><div class="ttdeci">async Task&lt; IActionResult &gt; EliminarArchivo([FromQuery] string url)</div><div class="ttdoc">Solicita la eliminación permanente de un recurso multimedia alojado en Cloudinary a partir de su URL ...</div><div class="ttdef"><b>Definition</b> <a href="#l00169">StorageController.cs:169</a></div></div>
+<div class="ttc" id="aa00237_html_aa87bc5c94794340731cf776b5137c618"><div class="ttname"><a href="../../d4/d08/a00237.html#aa87bc5c94794340731cf776b5137c618">BetaProyecto.API.Controllers.StorageController.ImgbbApiKey</a></div><div class="ttdeci">const string ImgbbApiKey</div><div class="ttdef"><b>Definition</b> <a href="#l00013">StorageController.cs:13</a></div></div>
+<div class="ttc" id="aa00237_html_aac1ff8004855ce5ac1e42a766e534f86"><div class="ttname"><a href="../../d4/d08/a00237.html#aac1ff8004855ce5ac1e42a766e534f86">BetaProyecto.API.Controllers.StorageController._cloudinary</a></div><div class="ttdeci">readonly Cloudinary _cloudinary</div><div class="ttdef"><b>Definition</b> <a href="#l00020">StorageController.cs:20</a></div></div>
+<div class="ttc" id="aa00237_html_ac3d47a171ba0bdb402830f1ba4f7daac"><div class="ttname"><a href="../../d4/d08/a00237.html#ac3d47a171ba0bdb402830f1ba4f7daac">BetaProyecto.API.Controllers.StorageController.CloudName</a></div><div class="ttdeci">const string CloudName</div><div class="ttdef"><b>Definition</b> <a href="#l00016">StorageController.cs:16</a></div></div>
+<div class="ttc" id="aa00237_html_acb8d95a8e279bcb28931735da87e6f54"><div class="ttname"><a href="../../d4/d08/a00237.html#acb8d95a8e279bcb28931735da87e6f54">BetaProyecto.API.Controllers.StorageController.SubirAudio</a></div><div class="ttdeci">async Task&lt; IActionResult &gt; SubirAudio(IFormFile archivo)</div><div class="ttdoc">Procesa un archivo multimedia de audio y lo carga de forma asíncrona en el servicio de almacenamiento...</div><div class="ttdef"><b>Definition</b> <a href="#l00118">StorageController.cs:118</a></div></div>
+<div class="ttc" id="aa00237_html_adf96fbc4142299e5638bdff6f9fa0aad"><div class="ttname"><a href="../../d4/d08/a00237.html#adf96fbc4142299e5638bdff6f9fa0aad">BetaProyecto.API.Controllers.StorageController.StorageController</a></div><div class="ttdeci">StorageController()</div><div class="ttdef"><b>Definition</b> <a href="#l00022">StorageController.cs:22</a></div></div>
+<div class="ttc" id="aa00237_html_aec8101b26df0811d823ab9885cd679b5"><div class="ttname"><a href="../../d4/d08/a00237.html#aec8101b26df0811d823ab9885cd679b5">BetaProyecto.API.Controllers.StorageController.ApiKey</a></div><div class="ttdeci">const string ApiKey</div><div class="ttdef"><b>Definition</b> <a href="#l00017">StorageController.cs:17</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_f88f0160125cad872ed8beed28e70a0e.html">BetaProyecto.API</a></li><li class="navelem"><a href="../../dir_bab5435ed9a7ba81edeaf29bd3f6b4a9.html">Controllers</a></li><li class="navelem"><a href="../../d6/d7d/a00161.html">StorageController.cs</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

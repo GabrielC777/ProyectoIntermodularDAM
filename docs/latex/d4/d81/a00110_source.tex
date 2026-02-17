@@ -1,0 +1,248 @@
+\doxysubsection{View\+Configuracion\+View\+Model.\+cs}
+\hypertarget{a00110_source}{}\label{a00110_source}\index{BetaProyecto/ViewModels/ViewConfiguracionViewModel.cs@{BetaProyecto/ViewModels/ViewConfiguracionViewModel.cs}}
+\doxymbox{\hyperlink{a00110}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00001}00001\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{a00176}{BetaProyecto.Helpers}};}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00002}00002\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{a00177}{BetaProyecto.Models}};}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00003}00003\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{a00179}{BetaProyecto.Singleton}};}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00004}00004\ \textcolor{keyword}{using\ }ReactiveUI;}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00005}00005\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00006}00006\ \textcolor{keyword}{using\ }System.Reactive;}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{a00110_source_l00008}00008\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{a00180}{BetaProyecto.ViewModels}}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00010}\doxymbox{\hyperlink{a00409}{00010}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00409_a70d984954730fa1e7cc57e8a4c462a07}{ViewConfiguracionViewModel}}\ :\ \doxymbox{\hyperlink{a00453}{ViewModelBase}}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00011}00011\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Actions}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00013}\doxymbox{\hyperlink{a00409_a9a9401488c2d6cdd834d339b50faf4da}{00013}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ readonly\ Action\ \doxymbox{\hyperlink{a00409_a9a9401488c2d6cdd834d339b50faf4da}{\_accionRefrescarTema}};}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{a00110_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Bindings}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{a00110_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ FUENTE:\ 0=Lexend,\ 1=Carlito,\ 2=Arial,\ 3=Gloria,\ 4=OpenSans,\ 5=Roboto}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00018}\doxymbox{\hyperlink{a00409_a4b262a2d630709e817ed2bc682e8cf99}{00018}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{a00409_a4b262a2d630709e817ed2bc682e8cf99}{\_indiceFuente}};}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00019}\doxymbox{\hyperlink{a00409_a8cf26f763cd09f01d74c953cb6a0ff01}{00019}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{a00409_a8cf26f763cd09f01d74c953cb6a0ff01}{IndiceFuente}}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00020}00020\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \doxymbox{\hyperlink{a00409_a4b262a2d630709e817ed2bc682e8cf99}{\_indiceFuente}};}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.RaiseAndSetIfChanged(ref\ \doxymbox{\hyperlink{a00409_a4b262a2d630709e817ed2bc682e8cf99}{\_indiceFuente}},\ value);}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00409_a5a63baa1f2eba5d6f1819d0d91d2d7ab}{AplicarCambioFuente}}(value);}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00027}00027\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{a00110_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ IDIOMA:\ 0\ =\ Español,\ 1\ =\ Inglés}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00030}\doxymbox{\hyperlink{a00409_a769a3b814cf5d202af1d54928251003d}{00030}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{a00409_a769a3b814cf5d202af1d54928251003d}{\_indiceIdioma}};}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00031}\doxymbox{\hyperlink{a00409_a33eebd14ac5a9d5110bdde0d41ba1e94}{00031}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{a00409_a33eebd14ac5a9d5110bdde0d41ba1e94}{IndiceIdioma}}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00032}00032\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \doxymbox{\hyperlink{a00409_a769a3b814cf5d202af1d54928251003d}{\_indiceIdioma}};}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.RaiseAndSetIfChanged(ref\ \doxymbox{\hyperlink{a00409_a769a3b814cf5d202af1d54928251003d}{\_indiceIdioma}},\ value);}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00409_ab17c562c2770a187425b819b637c53cc}{AplicarCambioIdioma}}(value);}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00039}00039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{a00110_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TEMA:\ True\ =\ Claro,\ False\ =\ Oscuro}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00042}\doxymbox{\hyperlink{a00409_ace6434ff15453be25d88b343c5915854}{00042}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{a00409_ace6434ff15453be25d88b343c5915854}{\_indiceTema}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00043}\doxymbox{\hyperlink{a00409_a28b388283f4ec2dabd4bb8698ff9b0a9}{00043}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{a00409_a28b388283f4ec2dabd4bb8698ff9b0a9}{IndiceTema}}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00044}00044\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \doxymbox{\hyperlink{a00409_ace6434ff15453be25d88b343c5915854}{\_indiceTema}};}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.RaiseAndSetIfChanged(ref\ \doxymbox{\hyperlink{a00409_ace6434ff15453be25d88b343c5915854}{\_indiceTema}},\ value);}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00409_aae7c47bfcea448cc22e60b4a1a24fab8}{AplicarCambioTema}}(value);}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00409_a9a9401488c2d6cdd834d339b50faf4da}{\_accionRefrescarTema}}?.Invoke();}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00052}00052\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{a00110_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Para\ cuando\ volvamos\ no\ veamos\ el\ radio\ button\ vacio\ si\ estamos\ en\ modo\ oscuro}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00055}\doxymbox{\hyperlink{a00409_a98199cdbdb0c1cd35e89979b78e03ebc}{00055}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{a00409_a98199cdbdb0c1cd35e89979b78e03ebc}{IndiceTemaOscuro}}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00056}00056\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ !\doxymbox{\hyperlink{a00409_ace6434ff15453be25d88b343c5915854}{\_indiceTema}};}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00409_a28b388283f4ec2dabd4bb8698ff9b0a9}{IndiceTema}}\ =\ !value;}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00062}00062\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{a00110_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Comandos\ Reactive}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00065}\doxymbox{\hyperlink{a00409_a9777d8d56581c25237596f664aff677b}{00065}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ReactiveCommand<Unit,\ Unit>\ \doxymbox{\hyperlink{a00409_a9777d8d56581c25237596f664aff677b}{BtnVolverAtras}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00066}\doxymbox{\hyperlink{a00409_a23af4a0d5f0537683cecab5c26e6c550}{00066}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ReactiveCommand<Unit,\ Unit>\ \doxymbox{\hyperlink{a00409_a23af4a0d5f0537683cecab5c26e6c550}{BtnCerrarSesion}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00067}\doxymbox{\hyperlink{a00409_a3ab4d191a3882bfed045bc9d7cb3abaf}{00067}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ReactiveCommand<Unit,\ Unit>\ \doxymbox{\hyperlink{a00409_a3ab4d191a3882bfed045bc9d7cb3abaf}{BtnSalirApp}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{a00110_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Constructor}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00070}\doxymbox{\hyperlink{a00409_a70d984954730fa1e7cc57e8a4c462a07}{00070}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{a00409_a70d984954730fa1e7cc57e8a4c462a07}{ViewConfiguracionViewModel}}(Action\ accionVolver,\ Action\ accionLogout,\ Action\ accionSalir,\ Action\ accionRefrescar)}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00071}00071\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00409_a9a9401488c2d6cdd834d339b50faf4da}{\_accionRefrescarTema}}\ =\ accionRefrescar;}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{a00110_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Cargar\ el\ estado\ inicial\ basado\ en\ el\ GlobalData}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00409_a18a1b53ba12f6fffe6b2f3c9bec5f870}{CargarEstadoInicial}}();}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{a00110_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuramos\ comandos\ reactive\ }}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00409_a9777d8d56581c25237596f664aff677b}{BtnVolverAtras}}\ =\ ReactiveCommand.Create(()\ =>\ accionVolver?.Invoke());}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{a00110_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00409_a23af4a0d5f0537683cecab5c26e6c550}{BtnCerrarSesion}}\ =\ ReactiveCommand.Create(()\ =>}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00349}{GlobalData}}.\doxymbox{\hyperlink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Instance}}.\doxymbox{\hyperlink{a00349_afa74f47cc44e4cde9cc508cfad2b8074}{ClearUserData}}();}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ accionLogout?.Invoke();}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{a00110_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00409_a3ab4d191a3882bfed045bc9d7cb3abaf}{BtnSalirApp}}\ =\ ReactiveCommand.Create(()\ =>\ accionSalir?.Invoke());}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00087}00087\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00088}00088\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00089}00089\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00090}00090\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Sincroniza\ la\ interfaz\ de\ configuración\ con\ las\ preferencias\ del\ usuario\ almacenadas\ en\ los\ datos\ globales.}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00091}00091\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00092}00092\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00093}00093\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Este\ método\ recupera\ los\ valores\ actuales\ de\ tema,\ idioma\ y\ tipografía\ desde\ <see\ cref="{}GlobalData.Instance"{}/>.\ }}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00094}00094\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Posteriormente,\ traduce\ estas\ cadenas\ de\ texto\ a\ los\ índices\ correspondientes\ que\ utilizan\ los\ selectores\ de\ la\ vista\ }}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00095}00095\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ y\ fuerza\ la\ notificación\ de\ cambio\ de\ propiedades\ mediante\ <c>RaisePropertyChanged</c>\ para\ que\ la\ UI\ }}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00096}00096\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ refleje\ el\ estado\ real\ de\ la\ configuración.}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00097}00097\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00098}\doxymbox{\hyperlink{a00409_a18a1b53ba12f6fffe6b2f3c9bec5f870}{00098}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{a00409_a18a1b53ba12f6fffe6b2f3c9bec5f870}{CargarEstadoInicial}}()}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00099}00099\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Usamos\ las\ variables\ de\ GlobalData\ para\ enseñar\ el\ estado\ actual\ de\ la\ configuración\ al\ usuario}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ var\ tema\ =\ GlobalData.Instance.DiccionarioTemaGD\ ??\ \textcolor{stringliteral}{"{}ModoClaro"{}};}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ var\ idioma\ =\ GlobalData.Instance.DiccionarioIdiomaGD\ ??\ \textcolor{stringliteral}{"{}Spanish"{}};}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ var\ fuente\ =\ GlobalData.Instance.DiccionarioFuenteGD\ ??\ \textcolor{stringliteral}{"{}Lexend"{}};}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{a00110_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sincronizar\ Tema}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00409_ace6434ff15453be25d88b343c5915854}{\_indiceTema}}\ =\ (tema\ ==\ \textcolor{stringliteral}{"{}ModoClaro"{}});}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ this.RaisePropertyChanged(nameof(\doxymbox{\hyperlink{a00409_a28b388283f4ec2dabd4bb8698ff9b0a9}{IndiceTema}}));}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ this.RaisePropertyChanged(nameof(\doxymbox{\hyperlink{a00409_a98199cdbdb0c1cd35e89979b78e03ebc}{IndiceTemaOscuro}}));}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{a00110_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sincronizar\ Idioma}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00409_a769a3b814cf5d202af1d54928251003d}{\_indiceIdioma}}\ =\ (idioma\ ==\ \textcolor{stringliteral}{"{}English"{}})\ ?\ 1\ :\ 0;}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ this.RaisePropertyChanged(nameof(\doxymbox{\hyperlink{a00409_a33eebd14ac5a9d5110bdde0d41ba1e94}{IndiceIdioma}}));}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{a00110_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sincronizar\ Fuente}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00409_a4b262a2d630709e817ed2bc682e8cf99}{\_indiceFuente}}\ =\ fuente\ \textcolor{keywordflow}{switch}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Lexend"{}}\ =>\ 0,}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Carlito"{}}\ =>\ 1,}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Arial"{}}\ =>\ 2,}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}GloriaHallelujah"{}}\ =>\ 3,}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}OpenSans"{}}\ =>\ 4,}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Roboto"{}}\ =>\ 5,}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\ =>\ 0}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ this.RaisePropertyChanged(nameof(\doxymbox{\hyperlink{a00409_a8cf26f763cd09f01d74c953cb6a0ff01}{IndiceFuente}}));}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00126}00126\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00127}00127\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00128}00128\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Ejecuta\ el\ cambio\ de\ apariencia\ visual\ de\ la\ aplicación\ entre\ modo\ claro\ y\ modo\ oscuro.}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00129}00129\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00130}00130\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00131}00131\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Este\ método\ gestiona\ el\ cambio\ de\ tema\ en\ tres\ niveles:}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00132}00132\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <list\ type="{}number"{}>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00133}00133\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Visual:</b>\ Aplica\ el\ diccionario\ de\ recursos\ de\ forma\ instantánea\ mediante\ <see\ cref="{}ControladorDiccionarios"{}/>.</item>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00134}00134\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Persistencia:</b>\ Si\ el\ tema\ es\ distinto\ al\ actual,\ sincroniza\ la\ preferencia\ en\ la\ base\ de\ datos\ MongoDB.</item>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00135}00135\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Estado\ Global:</b>\ Actualiza\ la\ propiedad\ en\ <see\ cref="{}GlobalData.Instance"{}/>\ para\ mantener\ la\ consistencia\ en\ toda\ la\ sesión.</item>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00136}00136\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </list>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00137}00137\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00138}00138\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}esClaro"{}>Indica\ si\ se\ debe\ aplicar\ el\ "{}ModoClaro"{}\ (<c>true</c>)\ o\ el\ "{}ModoOscuro"{}\ (<c>false</c>).</param>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00139}\doxymbox{\hyperlink{a00409_aae7c47bfcea448cc22e60b4a1a24fab8}{00139}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{a00409_aae7c47bfcea448cc22e60b4a1a24fab8}{AplicarCambioTema}}(\textcolor{keywordtype}{bool}\ esClaro)}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00140}00140\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ nuevoTema\ =\ esClaro\ ?\ \textcolor{stringliteral}{"{}ModoClaro"{}}\ :\ \textcolor{stringliteral}{"{}ModoOscuro"{}};}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{a00110_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Aplicamos\ el\ tema\ en\ la\ app}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00245}{ControladorDiccionarios}}.\doxymbox{\hyperlink{a00245_a2c2c44aab8ee7d5f0c0189ed70d000d0}{AplicarTema}}(nuevoTema);}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{a00110_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Comprobamos\ si\ realmente\ cambió\ respecto\ a\ GlobalData}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{a00349}{GlobalData}}.\doxymbox{\hyperlink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Instance}}.\doxymbox{\hyperlink{a00349_ae8adb530fa3a363f4a92e8c6e8b3ca95}{DiccionarioTemaGD}}\ !=\ nuevoTema)}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Guardamos\ en\ Mongo}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00409_afb5a4aabf6c3a37d41fdf11396143adb}{GuardarConfiguracionEnMongo}}(nuevoTema,\ \textcolor{keyword}{null},\ \textcolor{keyword}{null});}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{a00110_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Actualizamos\ GlobalData}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GlobalData.Instance.DiccionarioTemaGD\ =\ nuevoTema;}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00155}00155\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00156}00156\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00157}00157\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Ejecuta\ el\ cambio\ de\ idioma\ de\ la\ interfaz\ de\ usuario\ basándose\ en\ el\ índice\ seleccionado.}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00158}00158\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00159}00159\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00160}00160\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Este\ método\ gestiona\ la\ internacionalización\ en\ tres\ niveles:}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00161}00161\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <list\ type="{}number"{}>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00162}00162\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Visual:</b>\ Cambia\ el\ diccionario\ de\ strings\ de\ forma\ dinámica\ mediante\ <see\ cref="{}ControladorDiccionarios"{}/>.</item>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00163}00163\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Persistencia:</b>\ Si\ el\ idioma\ es\ diferente\ al\ actual,\ sincroniza\ la\ nueva\ preferencia\ en\ la\ base\ de\ datos\ MongoDB.</item>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00164}00164\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Estado\ Global:</b>\ Actualiza\ la\ referencia\ en\ <see\ cref="{}GlobalData.Instance"{}/>\ para\ asegurar\ la\ persistencia\ durante\ la\ sesión\ activa.</item>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00165}00165\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </list>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00166}00166\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00167}00167\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}indice"{}>El\ índice\ del\ selector:\ <c>0</c>\ para\ "{}Spanish"{}\ y\ <c>1</c>\ para\ "{}English"{}.</param>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00168}\doxymbox{\hyperlink{a00409_ab17c562c2770a187425b819b637c53cc}{00168}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{a00409_ab17c562c2770a187425b819b637c53cc}{AplicarCambioIdioma}}(\textcolor{keywordtype}{int}\ indice)}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00169}00169\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ nuevoIdioma\ =\ indice\ ==\ 1\ ?\ \textcolor{stringliteral}{"{}English"{}}\ :\ \textcolor{stringliteral}{"{}Spanish"{}};}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{a00110_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00245}{ControladorDiccionarios}}.\doxymbox{\hyperlink{a00245_a84b8ae19949c6228d3972f9209f846f8}{AplicarIdioma}}(nuevoIdioma);}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{a00110_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{a00349}{GlobalData}}.\doxymbox{\hyperlink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Instance}}.\doxymbox{\hyperlink{a00349_ae9c826582471d1d5712703ec2d719194}{DiccionarioIdiomaGD}}\ !=\ nuevoIdioma)}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00409_afb5a4aabf6c3a37d41fdf11396143adb}{GuardarConfiguracionEnMongo}}(\textcolor{keyword}{null},\ nuevoIdioma,\ \textcolor{keyword}{null});}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GlobalData.Instance.DiccionarioIdiomaGD\ =\ nuevoIdioma;}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00179}00179\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00180}00180\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00181}00181\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Ejecuta\ el\ cambio\ de\ la\ fuente\ tipográfica\ de\ la\ aplicación\ basándose\ en\ el\ índice\ seleccionado.}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00182}00182\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00183}00183\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00184}00184\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Este\ método\ gestiona\ la\ personalización\ visual\ en\ tres\ niveles:}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00185}00185\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <list\ type="{}number"{}>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00186}00186\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Visual:</b>\ Cambia\ el\ diccionario\ de\ estilos\ de\ fuente\ de\ forma\ dinámica\ mediante\ <see\ cref="{}ControladorDiccionarios"{}/>.</item>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00187}00187\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Persistencia:</b>\ Si\ la\ fuente\ es\ diferente\ a\ la\ actual,\ sincroniza\ la\ nueva\ preferencia\ en\ la\ base\ de\ datos\ MongoDB.</item>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00188}00188\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Estado\ Global:</b>\ Actualiza\ la\ referencia\ en\ <see\ cref="{}GlobalData.Instance"{}/>\ para\ asegurar\ que\ la\ tipografía\ se\ mantenga\ durante\ la\ sesión\ activa.</item>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00189}00189\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </list>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00190}00190\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00191}00191\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}indice"{}>El\ índice\ del\ selector\ que\ determina\ la\ familia\ tipográfica\ (0:\ Lexend,\ 1:\ Carlito,\ 2:\ Arial,\ etc.).</param>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00192}\doxymbox{\hyperlink{a00409_a5a63baa1f2eba5d6f1819d0d91d2d7ab}{00192}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{a00409_a5a63baa1f2eba5d6f1819d0d91d2d7ab}{AplicarCambioFuente}}(\textcolor{keywordtype}{int}\ indice)}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00193}00193\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ nuevaFuente\ =\ indice\ \textcolor{keywordflow}{switch}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ =>\ \textcolor{stringliteral}{"{}Lexend"{}},}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ =>\ \textcolor{stringliteral}{"{}Carlito"{}},}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2\ =>\ \textcolor{stringliteral}{"{}Arial"{}},}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3\ =>\ \textcolor{stringliteral}{"{}GloriaHallelujah"{}},}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 4\ =>\ \textcolor{stringliteral}{"{}OpenSans"{}},}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 5\ =>\ \textcolor{stringliteral}{"{}Roboto"{}},}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\ =>\ \textcolor{stringliteral}{"{}Lexend"{}}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{a00110_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00245}{ControladorDiccionarios}}.\doxymbox{\hyperlink{a00245_a0de7c906a49bff85b84afd4e5191c53a}{AplicarFuente}}(nuevaFuente);}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00206}00206\ }
+\DoxyCodeLine{\Hypertarget{a00110_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{a00349}{GlobalData}}.\doxymbox{\hyperlink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Instance}}.\doxymbox{\hyperlink{a00349_abd9cbf4cd0b770eceaaf28ac3ce9588b}{DiccionarioFuenteGD}}\ !=\ nuevaFuente)}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00409_afb5a4aabf6c3a37d41fdf11396143adb}{GuardarConfiguracionEnMongo}}(\textcolor{keyword}{null},\ \textcolor{keyword}{null},\ nuevaFuente);}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GlobalData.Instance.DiccionarioFuenteGD\ =\ nuevaFuente;}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00212}00212\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00213}00213\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00214}00214\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00215}00215\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Sincroniza\ de\ forma\ asíncrona\ las\ preferencias\ de\ personalización\ del\ usuario\ en\ la\ base\ de\ datos\ MongoDB.}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00216}00216\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00217}00217\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00218}00218\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Este\ método\ implementa\ una\ lógica\ de\ actualización\ parcial.\ Construye\ un\ objeto\ de\ configuración\ }}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00219}00219\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ combinando\ los\ nuevos\ valores\ proporcionados\ con\ los\ valores\ actuales\ almacenados\ en\ <see\ cref="{}GlobalData.Instance"{}/>.\ }}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00220}00220\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Si\ un\ parámetro\ se\ recibe\ como\ <c>null</c>,\ se\ preserva\ el\ valor\ existente.\ La\ actualización\ se\ lanza\ }}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00221}00221\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ mediante\ una\ tarea\ en\ segundo\ plano\ para\ no\ bloquear\ la\ interfaz.}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00222}00222\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00223}00223\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}temaNuevo"{}>El\ nombre\ del\ nuevo\ tema\ visual\ o\ <c>null</c>\ si\ no\ ha\ cambiado.</param>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00224}00224\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}idiomaNuevo"{}>El\ nombre\ del\ nuevo\ idioma\ de\ la\ interfaz\ o\ <c>null</c>\ si\ no\ ha\ cambiado.</param>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00225}00225\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}fuenteNuevo"{}>El\ nombre\ de\ la\ nueva\ familia\ tipográfica\ o\ <c>null</c>\ si\ no\ ha\ cambiado.</param>}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00226}\doxymbox{\hyperlink{a00409_afb5a4aabf6c3a37d41fdf11396143adb}{00226}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{a00409_afb5a4aabf6c3a37d41fdf11396143adb}{GuardarConfiguracionEnMongo}}(\textcolor{keywordtype}{string}?\ temaNuevo,\ \textcolor{keywordtype}{string}?\ idiomaNuevo,\ \textcolor{keywordtype}{string}?\ fuenteNuevo)}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00227}00227\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{string}.IsNullOrEmpty(\doxymbox{\hyperlink{a00349}{GlobalData}}.\doxymbox{\hyperlink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Instance}}.\doxymbox{\hyperlink{a00349_adb38cdfb6b5c5f427b3a1250eca88a29}{UserIdGD}}))\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{a00110_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Construimos\ el\ objeto\ Configuración\ mezclando\ lo\ NUEVO\ con\ lo\ VIEJO\ para\ actualizarlo}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ var\ config\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{a00317}{ConfiguracionUser}}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DiccionarioTema\ =\ temaNuevo\ ??\ \doxymbox{\hyperlink{a00349}{GlobalData}}.\doxymbox{\hyperlink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Instance}}.\doxymbox{\hyperlink{a00349_ae8adb530fa3a363f4a92e8c6e8b3ca95}{DiccionarioTemaGD}},}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DiccionarioIdioma\ =\ idiomaNuevo\ ??\ \doxymbox{\hyperlink{a00349}{GlobalData}}.\doxymbox{\hyperlink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Instance}}.\doxymbox{\hyperlink{a00349_ae9c826582471d1d5712703ec2d719194}{DiccionarioIdiomaGD}},}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DiccionarioFuente\ =\ fuenteNuevo\ ??\ GlobalData.Instance.DiccionarioFuenteGD}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{a00110_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ejecutamos\ en\ segundo\ plano\ para\ actualizar\ la\ configuraciñon\ del\ usuario.\ }}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ \_\ =\ \doxymbox{\hyperlink{a00353}{MongoClientSingleton}}.\doxymbox{\hyperlink{a00353_ad0067cc765141c80b254d1a39395f529}{Instance}}.\doxymbox{\hyperlink{a00353_a275ea6d123352f803782b0ff26216fc6}{Cliente}}.ActualizarConfiguracionUsuario(\doxymbox{\hyperlink{a00349}{GlobalData}}.\doxymbox{\hyperlink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Instance}}.\doxymbox{\hyperlink{a00349_adb38cdfb6b5c5f427b3a1250eca88a29}{UserIdGD}},\ config);}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00240}00240\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00241}00241\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00110_source_l00242}00242\ \}}
+
+\end{DoxyCode}

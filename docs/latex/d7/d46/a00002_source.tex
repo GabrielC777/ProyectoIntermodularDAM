@@ -1,0 +1,155 @@
+\doxysubsection{App.\+axaml.\+cs}
+\hypertarget{a00002_source}{}\label{a00002_source}\index{BetaProyecto/App.axaml.cs@{BetaProyecto/App.axaml.cs}}
+\doxymbox{\hyperlink{a00002}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00001}00001\ \textcolor{keyword}{using\ }Avalonia;}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00002}00002\ \textcolor{keyword}{using\ }Avalonia.Controls.ApplicationLifetimes;}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00003}00003\ \textcolor{keyword}{using\ }Avalonia.Markup.Xaml;}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00004}00004\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{a00180}{BetaProyecto.ViewModels}};}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00005}00005\ \textcolor{keyword}{using\ }BetaProyecto.Views.MarcoApp;}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00006}00006\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00007}00007\ \textcolor{keyword}{using\ }System.Diagnostics;}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00008}00008\ \textcolor{keyword}{using\ }System.IO;}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00009}00009\ \textcolor{keyword}{using\ }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00011}00011\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{a00173}{BetaProyecto}}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00012}00012\ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00013}00013\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{partial\ class\ }App\ :\ Application}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00014}00014\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ Process?\ \_apiProcess;}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{override}\ \textcolor{keywordtype}{void}\ Initialize()}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00018}00018\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ AvaloniaXamlLoader.Load(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00020}00020\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{override}\ \textcolor{keywordtype}{void}\ OnFrameworkInitializationCompleted()}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00023}00023\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ApplicationLifetime\ is\ IClassicDesktopStyleApplicationLifetime\ desktop)}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Primero\ inicializamos\ la\ ventana\ que\ vamos\ a\ usar\ como\ si\ fuera\ un\ marco}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ desktop.MainWindow\ =\ \textcolor{keyword}{new}\ MarcoApp}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DataContext\ =\ \textcolor{keyword}{new}\ MarcoAppViewModel(),\ \textcolor{comment}{//Le\ conectamos\ su\ ViewModel\ }}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuramos\ el\ cierre\ de\ la\ API\ para\ que\ solo\ se\ ejecute\ cuando\ el\ usuario\ cierre\ la\ app}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ desktop.Exit\ +=\ (sender,\ args)\ =>\ CerrarApi();}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrancamos\ la\ API\ en\ segundo\ plano}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Task.Run(()\ =>}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Buscar\ si\ ya\ existe\ el\ proceso\ (Puerto\ 7500\ ocupado)\ para\ que\ no\ crashée\ al\ arrancar\ la\ API\ si\ ya\ esta\ ocupado}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ zombies\ =\ Process.GetProcessesByName(\textcolor{stringliteral}{"{}BetaProyecto.API"{}});}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (zombies.Length\ >\ 0)\ \textcolor{comment}{//\ Si\ hay\ procesos\ previos,\ los\ matamos\ para\ liberar\ el\ puerto}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Debug.WriteLine(\$\textcolor{stringliteral}{"{}[App]\ Detectada\ API\ previa\ (\{zombies.Length\}\ procesos).\ Matando\ para\ liberar\ puerto\ 7500..."{}});}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ proc\ \textcolor{keywordflow}{in}\ zombies)}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ proc.Kill();}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ proc.WaitForExit();\ \textcolor{comment}{//\ Esperamos\ a\ que\ Windows\ libere\ el\ puerto}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Debug.WriteLine(\textcolor{stringliteral}{"{}[App]\ Limpieza\ completada."{}});}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Debug.WriteLine(\$\textcolor{stringliteral}{"{}[App]\ Error\ al\ intentar\ matar\ zombies:\ \{ex.Message\}"{}});}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Iniciamos\ API\ una\ vez\ que\ comprobamos\ si\ tenemos\ los\ puertos\ limpios}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IniciarApiNormal();}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ base.OnFrameworkInitializationCompleted();}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00065}00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ IniciarApiNormal()}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00068}00068\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Lógica\ de\ búsqueda\ de\ rutas\ (Desarrollo\ vs\ Producción(App\ real))}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ baseDir\ =\ AppDomain.CurrentDomain.BaseDirectory;}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ apiPath\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Rutas\ posibles\ (En\ desarrollo\ suele\ estar\ en\ la\ carpeta\ del\ proyecto\ API,\ en\ producción(App\ real)\ puede\ estar\ dentro\ de\ una\ subcarpeta\ "{}API"{}\ o\ directamente\ en\ el\ mismo\ nivel\ que\ el\ ejecutable)}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ rutaDev\ =\ Path.GetFullPath(Path.Combine(baseDir,\ \textcolor{stringliteral}{@"{}..\(\backslash\)..\(\backslash\)..\(\backslash\)..\(\backslash\)BetaProyecto.API\(\backslash\)bin\(\backslash\)Debug\(\backslash\)net9.0\(\backslash\)BetaProyecto.API.exe"{}}));}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ rutaProdSubcarpeta\ =\ Path.Combine(baseDir,\ \textcolor{stringliteral}{"{}API"{}},\ \textcolor{stringliteral}{"{}BetaProyecto.API.exe"{}});}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Buscamos\ si\ existen\ las\ rutas\ para\ ver\ si\ estamos\ en\ desarrollo\ o\ producción(App\ real)}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (File.Exists(rutaDev))}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ apiPath\ =\ rutaDev;\ }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (File.Exists(rutaProdSubcarpeta))}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ apiPath\ =\ rutaProdSubcarpeta;}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\textcolor{keywordtype}{string}.IsNullOrEmpty(apiPath))\ \textcolor{comment}{//\ Por\ seguridad,\ solo\ intentamos\ arrancar\ si\ encontramos\ el\ .exe\ para\ evitar\ errores}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ ya\ hay\ un\ proceso\ nuestro\ vivo,\ no\ arrancamos\ otro}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_apiProcess\ !=\ \textcolor{keyword}{null}\ \&\&\ !\_apiProcess.HasExited)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ startInfo\ =\ \textcolor{keyword}{new}\ ProcessStartInfo}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FileName\ =\ apiPath,\ \textcolor{comment}{//\ La\ ruta\ al\ .exe\ de\ la\ API}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UseShellExecute\ =\ \textcolor{keyword}{false},\ \textcolor{comment}{//\ Para\ poder\ controlar\ los\ detalles\ de\ la\ ventana}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CreateNoWindow\ =\ \textcolor{keyword}{false},\ \textcolor{comment}{//\ Crea\ la\ ventana\ interna\ para\ que\ luego\ podamos\ ocultarla}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WindowStyle\ =\ ProcessWindowStyle.Hidden,\ \textcolor{comment}{//\ Ponemos\ la\ ventana\ oculta.\ }}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WorkingDirectory\ =\ Path.GetDirectoryName(apiPath)\ \textcolor{comment}{//\ Para\ que\ encuentre\ pueda\ encontrar\ la\ API\ los\ archivos\ appsettings.json\ y\ cookies.txt\ }}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_apiProcess\ =\ Process.Start(startInfo);\ \textcolor{comment}{//\ Arrancamos\ la\ API}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Debug.WriteLine(\$\textcolor{stringliteral}{"{}[App]\ \ API\ arrancada\ (PID:\ \{\_apiProcess?.Id\})"{}});}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Debug.WriteLine(\textcolor{stringliteral}{"{}[App]\ \ No\ encuentro\ la\ API.\ ¿Compilada?"{}});}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Debug.WriteLine(\$\textcolor{stringliteral}{"{}[App]\ \ Error\ arranque\ API:\ \{ex.Message\}"{}});}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00115}00115\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00117}00117\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ CerrarApi()}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00118}00118\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Matar\ nuestro\ proceso\ hijo\ (La\ API)}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_apiProcess\ !=\ \textcolor{keyword}{null}\ \&\&\ !\_apiProcess.HasExited)}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_apiProcess.Kill();}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_apiProcess\ =\ \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Debug.WriteLine(\textcolor{stringliteral}{"{}[App]\ API\ cerrada\ correctamente."{}});}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Barrido\ de\ seguridad\ por\ si\ acaso\ quedó\ algún\ zombie\ suelto\ de\ un\ crash\ anterior}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ zombies\ =\ Process.GetProcessesByName(\textcolor{stringliteral}{"{}BetaProyecto.API"{}});}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ z\ \textcolor{keywordflow}{in}\ zombies)}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ z.Kill();\ }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Debug.WriteLine(\$\textcolor{stringliteral}{"{}[App]\ Error\ al\ matar\ proceso\ zombie:\ \{ex.Message\}"{}});}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Debug.WriteLine(\$\textcolor{stringliteral}{"{}[App]\ Error\ al\ cerrar\ API:\ \{ex.Message\}"{}});}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00147}00147\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00148}00148\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00149}00149\ \}}
+
+\end{DoxyCode}

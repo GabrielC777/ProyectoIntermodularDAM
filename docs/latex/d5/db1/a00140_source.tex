@@ -1,0 +1,33 @@
+\doxysubsection{View\+Lista\+Personalizada\+View\+Model.\+cs}
+\hypertarget{a00140_source}{}\label{a00140_source}\index{BetaProyecto/ViewModels/ViewListaPersonalizadaViewModel.cs@{BetaProyecto/ViewModels/ViewListaPersonalizadaViewModel.cs}}
+\doxymbox{\hyperlink{a00140}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{a00140_source_l00001}00001\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{a00177}{BetaProyecto.Models}};}
+\DoxyCodeLine{\Hypertarget{a00140_source_l00002}00002\ \textcolor{keyword}{using\ }ReactiveUI;}
+\DoxyCodeLine{\Hypertarget{a00140_source_l00003}00003\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{a00140_source_l00004}00004\ \textcolor{keyword}{using\ }System.Reactive;}
+\DoxyCodeLine{\Hypertarget{a00140_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{a00140_source_l00006}00006\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{a00180}{BetaProyecto.ViewModels}}}
+\DoxyCodeLine{\Hypertarget{a00140_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{a00140_source_l00008}\doxymbox{\hyperlink{a00449}{00008}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00449_a1afa113e6bdae1e8cd66dea36de1fde0}{ViewListaPersonalizadaViewModel}}\ :\ \doxymbox{\hyperlink{a00453}{ViewModelBase}}}
+\DoxyCodeLine{\Hypertarget{a00140_source_l00009}00009\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00140_source_l00010}\doxymbox{\hyperlink{a00449_ae34051c3704ee20b19bbe0a476c33c65}{00010}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{a00273}{ListaPersonalizada}}\ \doxymbox{\hyperlink{a00449_ae34051c3704ee20b19bbe0a476c33c65}{Playlist}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00140_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{a00140_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Comandos\ Reactive}}
+\DoxyCodeLine{\Hypertarget{a00140_source_l00013}\doxymbox{\hyperlink{a00449_ac5881be7395ab5e2b2ea76ded55b6549}{00013}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ReactiveCommand<Unit,\ Unit>\ \doxymbox{\hyperlink{a00449_ac5881be7395ab5e2b2ea76ded55b6549}{BtnVolver}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00140_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{a00140_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Propiedad\ calculada}}
+\DoxyCodeLine{\Hypertarget{a00140_source_l00016}\doxymbox{\hyperlink{a00449_a30a5187a0f7948b3f00061246fe673ac}{00016}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{a00449_a30a5187a0f7948b3f00061246fe673ac}{CantidadCanciones}}\ =>\ \doxymbox{\hyperlink{a00449_ae34051c3704ee20b19bbe0a476c33c65}{Playlist}}.CancionesCompletas?.Count\ ??\ 0;}
+\DoxyCodeLine{\Hypertarget{a00140_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{a00140_source_l00018}\doxymbox{\hyperlink{a00449_a1afa113e6bdae1e8cd66dea36de1fde0}{00018}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{a00449_a1afa113e6bdae1e8cd66dea36de1fde0}{ViewListaPersonalizadaViewModel}}(\doxymbox{\hyperlink{a00273}{ListaPersonalizada}}\ playlist,\ Action\ accionVolver)}
+\DoxyCodeLine{\Hypertarget{a00140_source_l00019}00019\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00140_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00449_ae34051c3704ee20b19bbe0a476c33c65}{Playlist}}\ =\ playlist;}
+\DoxyCodeLine{\Hypertarget{a00140_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{a00140_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuramos\ comando\ reactive}}
+\DoxyCodeLine{\Hypertarget{a00140_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00449_ac5881be7395ab5e2b2ea76ded55b6549}{BtnVolver}}\ =\ ReactiveCommand.Create(accionVolver);}
+\DoxyCodeLine{\Hypertarget{a00140_source_l00024}00024\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00140_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{a00140_source_l00026}00026\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00140_source_l00027}00027\ \}}
+
+\end{DoxyCode}

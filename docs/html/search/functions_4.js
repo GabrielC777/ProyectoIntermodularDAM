@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['ejecutarconcarga_0',['EjecutarConCarga',['../d4/da8/a00437.html#a05d68df4c57d7d141ca6f2057b884f30',1,'BetaProyecto::ViewModels::ViewGestionarBDViewModel']]],
+  ['eliminararchivo_1',['EliminarArchivo',['../d4/d08/a00237.html#a9a06bf7709045c2b0a00e115900be260',1,'BetaProyecto.API.Controllers.StorageController.EliminarArchivo()'],['../d9/d48/a00345.html#a1f2e6861119f57d74e62f496de246be5',1,'BetaProyecto.Services.StorageService.EliminarArchivo()']]],
+  ['eliminarcancion_2',['EliminarCancion',['../da/d9c/a00413.html#a87d37b02fecf568aab208bf5418d1577',1,'BetaProyecto.ViewModels.ViewCrearListaPersonalizadaViewModel.EliminarCancion()'],['../dd/d07/a00433.html#a5699ada299f44fd2d59986684e43848e',1,'BetaProyecto.ViewModels.ViewEditarListaPersonalizadaViewModel.EliminarCancion()'],['../d6/d66/a00441.html#a1d21ff18f1c2e56f3aff43c7c35bac96',1,'BetaProyecto.ViewModels.ViewGestionarCuentaViewModel.EliminarCancion()']]],
+  ['eliminarcancionporid_3',['EliminarCancionPorId',['../d3/d93/a00341.html#a9b1d80b7894adb7554cf0ffbdc2cfedf',1,'BetaProyecto::Services::MongoAtlas']]],
+  ['eliminarcanciontask_4',['EliminarCancionTask',['../d4/da8/a00437.html#af03c146b00a090e8997a68fbb5de62cb',1,'BetaProyecto::ViewModels::ViewGestionarBDViewModel']]],
+  ['eliminardefavorito_5',['EliminarDeFavorito',['../d3/d93/a00341.html#a005c2409a612977ab20af26a5896960e',1,'BetaProyecto::Services::MongoAtlas']]],
+  ['eliminargenero_6',['EliminarGenero',['../d3/d93/a00341.html#aa1fb8b91a0ab9b0a154a5edc3ccfd26b',1,'BetaProyecto.Services.MongoAtlas.EliminarGenero()'],['../d4/d53/a00429.html#a317b977f82e3438f7bc694bdc9a28891',1,'BetaProyecto.ViewModels.ViewEditarCancionViewModel.EliminarGenero()'],['../d4/da8/a00437.html#a3ba170f9af95a2ea71bf6628e63640c6',1,'BetaProyecto.ViewModels.ViewGestionarBDViewModel.EliminarGenero()'],['../d5/d5f/a00461.html#ae75a9748651fdf7e3b3e63bd25b2d831',1,'BetaProyecto.ViewModels.ViewPublicarCancionViewModel.EliminarGenero()']]],
+  ['eliminargenerotask_7',['EliminarGeneroTask',['../d4/da8/a00437.html#ae33f9aba51a9feec6bb095d1a3774c88',1,'BetaProyecto::ViewModels::ViewGestionarBDViewModel']]],
+  ['eliminarplaylist_8',['EliminarPlaylist',['../d6/d66/a00441.html#a6898422a74ae0155ea72ae7fec4b8201',1,'BetaProyecto::ViewModels::ViewGestionarCuentaViewModel']]],
+  ['eliminarplaylistporid_9',['EliminarPlaylistPorId',['../d3/d93/a00341.html#a362afdbc16d7db79934edbffc39d7bfc',1,'BetaProyecto::Services::MongoAtlas']]],
+  ['eliminarplaylisttask_10',['EliminarPlaylistTask',['../d4/da8/a00437.html#a43231445cf6b75d41ed4e47e287c3d1f',1,'BetaProyecto::ViewModels::ViewGestionarBDViewModel']]],
+  ['eliminarreporte_11',['EliminarReporte',['../d3/d93/a00341.html#a894b3e6ae15af24ba3eb8ef2aa72c86a',1,'BetaProyecto::Services::MongoAtlas']]],
+  ['eliminarreportetask_12',['EliminarReporteTask',['../d4/da8/a00437.html#a7b1ea20013f44deb2133bc39330051e6',1,'BetaProyecto::ViewModels::ViewGestionarBDViewModel']]],
+  ['eliminarusuario_13',['EliminarUsuario',['../d3/d93/a00341.html#a62bd6a7f7a6b40f01b537945215e664c',1,'BetaProyecto.Services.MongoAtlas.EliminarUsuario()'],['../d4/d53/a00429.html#a5b611f4c25b6029d34550cdfae68f30b',1,'BetaProyecto.ViewModels.ViewEditarCancionViewModel.EliminarUsuario()'],['../d4/da8/a00437.html#a7fee45eba4cc95c4d86d7ad17eedf6e3',1,'BetaProyecto.ViewModels.ViewGestionarBDViewModel.EliminarUsuario()'],['../d5/d5f/a00461.html#aba11d0127771c078cca80c0a3bcaf19c',1,'BetaProyecto.ViewModels.ViewPublicarCancionViewModel.EliminarUsuario()']]],
+  ['eliminarusuariotask_14',['EliminarUsuarioTask',['../d4/da8/a00437.html#a3dc09e3f20d0566f5bedd55d51f48f9d',1,'BetaProyecto::ViewModels::ViewGestionarBDViewModel']]],
+  ['encriptarbytes_15',['EncriptarBytes',['../de/dbc/a00249.html#a465982b664017a61bfd486465378b909',1,'BetaProyecto::Helpers::Encriptador']]],
+  ['enviara_5fapi_16',['EnviarA_Api',['../d9/d48/a00345.html#a3613a9156b7a0808ca33f01435675521',1,'BetaProyecto::Services::StorageService']]],
+  ['enviarreporte_17',['EnviarReporte',['../d3/d93/a00341.html#a1150c7087a0f30d2e2ae5668c68219f9',1,'BetaProyecto::Services::MongoAtlas']]],
+  ['enviarreporteasync_18',['EnviarReporteAsync',['../d8/de7/a00417.html#af91f395c3d6959c49de7d1ced9ac0d72',1,'BetaProyecto::ViewModels::ViewCrearReporteViewModel']]]
+];

@@ -1,0 +1,186 @@
+\doxysubsection{Storage\+Service.\+cs}
+\hypertarget{a00062_source}{}\label{a00062_source}\index{BetaProyecto/Services/StorageService.cs@{BetaProyecto/Services/StorageService.cs}}
+\doxymbox{\hyperlink{a00062}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00001}00001\ \textcolor{keyword}{using\ }Newtonsoft.Json.Linq;}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00002}00002\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00003}00003\ \textcolor{keyword}{using\ }System.IO;}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00004}00004\ \textcolor{keyword}{using\ }System.Net.Http;}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00005}00005\ \textcolor{keyword}{using\ }System.Net.Http.Headers;}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00006}00006\ \textcolor{keyword}{using\ }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{a00062_source_l00008}00008\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{a00178}{BetaProyecto.Services}}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00010}\doxymbox{\hyperlink{a00345}{00010}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00345}{StorageService}}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00011}00011\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Url\ de\ nuestra\ API}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00013}\doxymbox{\hyperlink{a00345_a17065d857fbb30e8f920130677848c7f}{00013}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00345_a17065d857fbb30e8f920130677848c7f}{ApiUrl}}\ =\ \textcolor{stringliteral}{"{}https://localhost:7500/api/Storage"{}};}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{a00062_source_l00015}00015\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00016}00016\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00017}00017\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Carga\ un\ archivo\ de\ imagen\ desde\ el\ sistema\ de\ archivos\ local\ hacia\ el\ servidor\ de\ almacenamiento\ en\ la\ nube.}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00018}00018\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00019}00019\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00020}00020\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Este\ método\ actúa\ como\ un\ envoltorio\ especializado\ que\ invoca\ la\ lógica\ genérica\ de\ comunicación\ con\ la\ API\ }}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00021}00021\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ utilizando\ el\ endpoint\ específico\ para\ el\ procesamiento\ de\ imágenes.\ Es\ ideal\ para\ la\ gestión\ de\ }}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00022}00022\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ avatares\ de\ usuario,\ portadas\ de\ álbumes\ y\ miniaturas\ de\ playlists.}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00023}00023\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00024}00024\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}rutaArchivoEnTuPc"{}>La\ ruta\ absoluta\ del\ archivo\ de\ imagen\ en\ el\ almacenamiento\ local.</param>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00025}00025\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <returns>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00026}00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Una\ tarea\ que\ representa\ la\ operación\ asíncrona.\ El\ valor\ devuelto\ contiene\ la\ URL\ pública\ }}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00027}00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ generada\ por\ el\ servicio\ de\ almacenamiento\ (Cloudinary)\ si\ la\ carga\ fue\ exitosa.}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00028}00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </returns>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00029}\doxymbox{\hyperlink{a00345_ab02c765868135e40a466b6936f3f6f69}{00029}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ async\ Task<string>\ \doxymbox{\hyperlink{a00345_ab02c765868135e40a466b6936f3f6f69}{SubirImagen}}(\textcolor{keywordtype}{string}\ rutaArchivoEnTuPc)}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00030}00030\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ await\ \doxymbox{\hyperlink{a00345_a3613a9156b7a0808ca33f01435675521}{EnviarA\_Api}}(rutaArchivoEnTuPc,\ \textcolor{stringliteral}{"{}subir-\/imagen"{}});}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00032}00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00033}00033\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00034}00034\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00035}00035\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Carga\ un\ archivo\ de\ audio\ desde\ el\ almacenamiento\ local\ hacia\ el\ servidor\ de\ distribución\ en\ la\ nube.}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00036}00036\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00037}00037\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00038}00038\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Este\ método\ encapsula\ la\ lógica\ de\ transferencia\ de\ archivos\ multimedia\ utilizando\ el\ endpoint\ dedicado\ }}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00039}00039\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ para\ audio.\ El\ proceso\ sigue\ el\ siguiente\ flujo:}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00040}00040\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <list\ type="{}number"{}>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00041}00041\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Empaquetado:</b>\ Invoca\ al\ método\ core\ <c>EnviarA\_Api</c>\ para\ convertir\ el\ archivo\ físico\ en\ un\ flujo\ de\ datos\ (Stream).</item>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00042}00042\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Transmisión:</b>\ Envía\ el\ recurso\ mediante\ una\ petición\ POST\ multipart/form-\/data\ al\ microservicio\ de\ almacenamiento.</item>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00043}00043\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Respuesta:</b>\ Retorna\ la\ URL\ segura\ (HTTPS)\ proporcionada\ por\ Cloudinary,\ necesaria\ para\ la\ persistencia\ en\ la\ base\ de\ datos.</item>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00044}00044\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </list>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00045}00045\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00046}00046\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}rutaArchivoEnTuPc"{}>La\ ruta\ absoluta\ del\ archivo\ de\ audio\ (ej.\ .mp3,\ .wav)\ en\ el\ disco\ local.</param>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00047}00047\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <returns>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00048}00048\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Una\ tarea\ que\ contiene\ la\ URL\ pública\ del\ archivo\ alojado\ si\ la\ operación\ tiene\ éxito;\ }}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00049}00049\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ de\ lo\ contrario,\ devuelve\ una\ cadena\ vacía\ o\ nula.}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00050}00050\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </returns>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00051}\doxymbox{\hyperlink{a00345_a93acfb9b1ba693da4cacc312b88ae681}{00051}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ async\ Task<string>\ \doxymbox{\hyperlink{a00345_a93acfb9b1ba693da4cacc312b88ae681}{SubirCancion}}(\textcolor{keywordtype}{string}\ rutaArchivoEnTuPc)}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00052}00052\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ await\ \doxymbox{\hyperlink{a00345_a3613a9156b7a0808ca33f01435675521}{EnviarA\_Api}}(rutaArchivoEnTuPc,\ \textcolor{stringliteral}{"{}subir-\/audio"{}});}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00054}00054\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{a00062_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ MÉTODO\ PARA\ ELIMINAR\ -\/-\/-\/}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00057}00057\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00058}00058\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Solicita\ de\ forma\ asíncrona\ la\ eliminación\ de\ un\ recurso\ almacenado\ en\ la\ nube\ a\ través\ de\ la\ API\ de\ almacenamiento.}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00059}00059\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00060}00060\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00061}00061\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Este\ método\ gestiona\ la\ baja\ de\ archivos\ (imágenes\ o\ audio)\ siguiendo\ este\ flujo:}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00062}00062\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <list\ type="{}number"{}>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00063}00063\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Validación:</b>\ Verifica\ que\ la\ URL\ proporcionada\ no\ sea\ nula\ o\ vacía.</item>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00064}00064\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Seguridad:</b>\ Configura\ un\ <see\ cref="{}HttpClientHandler"{}/>\ para\ omitir\ la\ validación\ de\ certificados\ SSL,\ permitiendo\ peticiones\ a\ entornos\ <c>localhost</c>\ con\ certificados\ autofirmados.</item>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00065}00065\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Petición:</b>\ Ejecuta\ un\ verbo\ HTTP\ <c>DELETE</c>\ enviando\ la\ URL\ del\ archivo\ como\ parámetro\ de\ consulta.</item>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00066}00066\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Confirmación:</b>\ Evalúa\ la\ respuesta\ de\ la\ API\ para\ confirmar\ si\ el\ archivo\ fue\ removido\ con\ éxito\ del\ proveedor\ externo\ (Cloudinary).</item>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00067}00067\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </list>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00068}00068\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00069}00069\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}urlCompleta"{}>La\ dirección\ URL\ absoluta\ del\ recurso\ que\ se\ desea\ eliminar\ del\ almacenamiento\ remoto.</param>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00070}00070\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <returns>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00071}00071\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Una\ tarea\ que\ devuelve\ <c>true</c>\ si\ el\ servidor\ confirma\ la\ eliminación\ (Success\ Status\ Code);\ }}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00072}00072\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ de\ lo\ contrario,\ <c>false</c>\ si\ el\ recurso\ no\ existe\ o\ hubo\ un\ fallo\ en\ la\ comunicación.}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00073}00073\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </returns>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00074}\doxymbox{\hyperlink{a00345_a1f2e6861119f57d74e62f496de246be5}{00074}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ async\ Task<bool>\ \doxymbox{\hyperlink{a00345_a1f2e6861119f57d74e62f496de246be5}{EliminarArchivo}}(\textcolor{keywordtype}{string}\ urlCompleta)}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00075}00075\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Validación\ básica:\ Si\ no\ hay\ URL,\ no\ hay\ nada\ que\ borrar.}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{string}.IsNullOrEmpty(urlCompleta))\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{a00062_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuración\ para\ aceptar\ certificados\ locales}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ handler\ =\ \textcolor{keyword}{new}\ HttpClientHandler();}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ handler.ServerCertificateCustomValidationCallback\ =\ (message,\ cert,\ chain,\ errors)\ =>\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{a00062_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ client\ =\ \textcolor{keyword}{new}\ HttpClient(handler))}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ LA\ LLAMADA\ (DELETE)}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Construimos\ la\ URL\ así:\ https://localhost:7500/api/Storage/eliminar?url=https://}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ response\ =\ await\ client.DeleteAsync(\$\textcolor{stringliteral}{"{}\{ApiUrl\}/eliminar?url=\{urlCompleta\}"{}});}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{a00062_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ RESULTADO}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Devuelve\ true\ si\ la\ API\ respondió\ 200\ OK\ (Borrado\ exitoso)}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Devuelve\ false\ si\ falló\ (400,\ 500,\ etc.)}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ response.IsSuccessStatusCode;}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ hay\ error\ de\ conexión,\ solo\ lo\ registramos\ y\ devolvemos\ false}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.Diagnostics.Debug.WriteLine(\textcolor{stringliteral}{"{}[StorageService]\ Error\ al\ eliminar:\ "{}}\ +\ ex.Message);}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00103}00103\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{a00062_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Motor\ interno\ para\ enviar\ archivos\ a\ la\ API,\ reutilizado\ por\ ambos\ métodos\ públicos\ (SubirImagen\ y\ SubirCancion).}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00106}00106\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00107}00107\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Realiza\ la\ carga\ física\ de\ un\ archivo\ hacia\ la\ API\ de\ almacenamiento\ mediante\ una\ petición\ POST\ de\ tipo\ multipart/form-\/data.}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00108}00108\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00109}00109\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00110}00110\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Este\ método\ núcleo\ (core)\ orquestra\ la\ transferencia\ de\ archivos\ multimedia\ siguiendo\ este\ flujo:}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00111}00111\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <list\ type="{}number"{}>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00112}00112\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Verificación\ local:</b>\ Valida\ la\ existencia\ del\ archivo\ en\ el\ sistema\ de\ archivos\ del\ cliente\ antes\ de\ iniciar\ la\ conexión.</item>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00113}00113\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Configuración\ de\ Seguridad:</b>\ Implementa\ un\ bypass\ de\ validación\ SSL\ para\ permitir\ el\ desarrollo\ en\ entornos\ locales\ con\ certificados\ no\ firmados.</item>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00114}00114\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Empaquetado\ (Multipart):</b>\ Abre\ el\ archivo\ como\ un\ flujo\ de\ datos\ (<see\ cref="{}StreamContent"{}/>)\ y\ lo\ encapsula\ en\ un\ contenedor\ compatible\ con\ formularios\ web.</item>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00115}00115\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Transmisión\ y\ Respuesta:</b>\ Ejecuta\ la\ petición\ asíncrona\ hacia\ el\ <paramref\ name="{}endpoint"{}/>\ especificado\ y\ procesa\ la\ respuesta\ JSON\ para\ extraer\ la\ URL\ persistente\ generada\ por\ el\ servidor.</item>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00116}00116\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </list>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00117}00117\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00118}00118\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}ruta"{}>La\ ruta\ absoluta\ del\ archivo\ en\ el\ disco\ duro\ local.</param>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00119}00119\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <param\ name="{}endpoint"{}>El\ segmento\ final\ de\ la\ URL\ de\ la\ API\ (ej.\ "{}subir-\/imagen"{}\ o\ "{}subir-\/audio"{}).</param>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00120}00120\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <returns>La\ URL\ pública\ del\ archivo\ cargado\ en\ el\ servidor\ de\ almacenamiento.</returns>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00121}00121\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <exception\ cref="{}FileNotFoundException"{}>Se\ lanza\ si\ la\ ruta\ especificada\ no\ apunta\ a\ un\ archivo\ válido.</exception>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00122}00122\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <exception\ cref="{}Exception"{}>Encapsula\ errores\ de\ conectividad,\ rechazos\ de\ la\ API\ (códigos\ 4xx\ o\ 5xx)\ o\ fallos\ en\ el\ análisis\ del\ JSON.</exception>}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00123}\doxymbox{\hyperlink{a00345_a3613a9156b7a0808ca33f01435675521}{00123}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ async\ Task<string>\ \doxymbox{\hyperlink{a00345_a3613a9156b7a0808ca33f01435675521}{EnviarA\_Api}}(\textcolor{keywordtype}{string}\ ruta,\ \textcolor{keywordtype}{string}\ endpoint)}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00124}00124\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Comprobamos\ si\ existe\ el\ archivo}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!File.Exists(ruta))\ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ FileNotFoundException(\textcolor{stringliteral}{"{}¡No\ encuentro\ el\ archivo\ en\ tu\ PC!"{}});}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{a00062_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Como\ estamos\ en\ desarrollo,\ el\ certificado\ de\ seguridad\ de\ 'localhost'\ no\ es\ oficial.}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Esta\ línea\ le\ dice\ al\ código:\ "{}Confía\ en\ el\ servidor"{}.}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ handler\ =\ \textcolor{keyword}{new}\ HttpClientHandler();}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ handler.ServerCertificateCustomValidationCallback\ =\ (message,\ cert,\ chain,\ errors)\ =>\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{a00062_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Creamos\ el\ cliente\ }}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ client\ =\ \textcolor{keyword}{new}\ HttpClient(handler))}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Preparamos\ el\ paquete\ }}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ content\ =\ \textcolor{keyword}{new}\ MultipartFormDataContent())}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Abrimos\ el\ archivo\ de\ tu\ disco\ duro\ para\ leerlo.}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ fileStream\ =\ File.OpenRead(ruta);}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{a00062_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Convertimos\ el\ archivo\ en\ un\ flujo\ de\ datos\ (StreamContent)\ para\ enviarlo.}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ streamContent\ =\ \textcolor{keyword}{new}\ StreamContent(fileStream);}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{a00062_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Le\ ponemos\ una\ etiqueta\ para\ decirle\ que\ un\ archivo\ de\ datos\ }}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ streamContent.Headers.ContentType\ =\ MediaTypeHeaderValue.Parse(\textcolor{stringliteral}{"{}multipart/form-\/data"{}});}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{a00062_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Metemos\ el\ archivo\ en\ el\ sobre.}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ "{}archivo"{}\ -\/>\ Es\ el\ nombre\ EXACTO\ que\ espera\ nuestra\ API}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ content.Add(streamContent,\ \textcolor{stringliteral}{"{}archivo"{}},\ Path.GetFileName(ruta));}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{a00062_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ El\ envío\ (POST)}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Este\ sale\ hacia:\ https://localhost:7500/api/Storage/subir-\/imagen\ (o\ audio)}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ response\ =\ await\ client.PostAsync(\$\textcolor{stringliteral}{"{}\{ApiUrl\}/\{endpoint\}"{}},\ content);}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{a00062_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Comprueba\ si\ fue\ bien.\ Si\ falla,\ se\ lanza\ HttpRequestException.}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ response.EnsureSuccessStatusCode();}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{a00062_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ llegamos\ aquí,\ es\ que\ todo\ fue\ bien\ (Código\ 200)}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ jsonString\ =\ await\ response.Content.ReadAsStringAsync();}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ json\ =\ JObject.Parse(jsonString);}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ json[\textcolor{stringliteral}{"{}url"{}}].ToString();}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (HttpRequestException\ httpEx)}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Aquí\ atrapamos\ errores\ específicos\ de\ la\ web\ (404,\ 500...)}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ Exception(\$\textcolor{stringliteral}{"{}La\ API\ rechazó\ el\ archivo:\ \{httpEx.Message\}"{}});}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ explota\ la\ conexión\ (servidor\ apagado,\ sin\ internet,\ etc.)}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ Exception(\$\textcolor{stringliteral}{"{}Error\ conectando\ con\ la\ API:\ \{ex.Message\}"{}});}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00178}00178\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00179}00179\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00062_source_l00180}00180\ \}}
+
+\end{DoxyCode}

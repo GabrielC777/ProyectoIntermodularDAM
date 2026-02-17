@@ -1,0 +1,115 @@
+\doxysubsection{Referencia de la clase Beta\+Proyecto.\+View\+Models.\+View\+Perfil\+View\+Model}
+\hypertarget{a00457}{}\label{a00457}\index{BetaProyecto.ViewModels.ViewPerfilViewModel@{BetaProyecto.ViewModels.ViewPerfilViewModel}}
+
+
+\doxysubsubsection{Detalles}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00146_source_l00012}{12}} del archivo \doxymbox{\hyperlink{a00146_source}{View\+Perfil\+View\+Model.\+cs}}.
+
+\doxysubsubsubsection*{Métodos}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{a00457_a85be38cbd0f5e15dcf2d370c23d30083}{View\+Perfil\+View\+Model}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Propiedades}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{a00457_a5d2f1ac6d77bba035913e8e90c007c24}{Nombre\+Usuario}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+string \doxymbox{\hyperlink{a00457_a7c90a9885d2e6c740f759024a73fa515}{Imagen\+Perfil}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+Observable\+Collection$<$ \doxymbox{\hyperlink{a00277}{Lista\+Usuarios}} $>$ \doxymbox{\hyperlink{a00457_afd899af6a120353b28a4a9effdc0d8d2}{Secciones}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+Reactive\+Command$<$ Unit, Unit $>$ \doxymbox{\hyperlink{a00457_a4909170503aec3531bcb099047fdf328}{Btn\+Refrescar}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{a00457_doc-constructors}
+\doxysubsubsection{Constructores}
+\Hypertarget{a00457_a85be38cbd0f5e15dcf2d370c23d30083}\index{BetaProyecto.ViewModels.ViewPerfilViewModel@{BetaProyecto.ViewModels.ViewPerfilViewModel}!ViewPerfilViewModel@{ViewPerfilViewModel}}
+\index{ViewPerfilViewModel@{ViewPerfilViewModel}!BetaProyecto.ViewModels.ViewPerfilViewModel@{BetaProyecto.ViewModels.ViewPerfilViewModel}}
+\doxyparagraph{\texorpdfstring{ViewPerfilViewModel()}{ViewPerfilViewModel()}}
+{\footnotesize\ttfamily \label{a00457_a85be38cbd0f5e15dcf2d370c23d30083} 
+Beta\+Proyecto.\+View\+Models.\+View\+Perfil\+View\+Model.\+View\+Perfil\+View\+Model (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00146_source_l00030}{30}} del archivo \doxymbox{\hyperlink{a00146_source}{View\+Perfil\+View\+Model.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{a00457_doc-func-members}
+\doxysubsubsection{Funciones}
+\Hypertarget{a00457_a7eeead264f517c6f5b68aebae0b8d549}\index{BetaProyecto.ViewModels.ViewPerfilViewModel@{BetaProyecto.ViewModels.ViewPerfilViewModel}!CargarDatos@{CargarDatos}}
+\index{CargarDatos@{CargarDatos}!BetaProyecto.ViewModels.ViewPerfilViewModel@{BetaProyecto.ViewModels.ViewPerfilViewModel}}
+\doxyparagraph{\texorpdfstring{CargarDatos()}{CargarDatos()}}
+{\footnotesize\ttfamily \label{a00457_a7eeead264f517c6f5b68aebae0b8d549} 
+async Task Beta\+Proyecto.\+View\+Models.\+View\+Perfil\+View\+Model.\+Cargar\+Datos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Recupera y organiza de forma asíncrona la información del perfil, artistas sugeridos y usuarios seguidos. 
+
+Este método gestiona la carga de la red social del usuario mediante los siguientes pasos:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Inicialización:\+}} Carga la identidad básica (nombre y foto) desde \doxylink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Global\+Data.\+Instance}. 
+\item {\bfseries{Carga Paralela:\+}} Ejecuta simultáneamente las peticiones a Mongo\+DB para obtener los perfiles seguidos y el catálogo global de usuarios mediante Task.\+When\+All. 
+\item {\bfseries{Categorización:\+}} Estructura los resultados en secciones diferenciadas ("{}\+Descubre Artistas"{} y "{}\+Siguiendo"{}) utilizando claves de traducción para los encabezados. 
+\item {\bfseries{Asignación:\+}} Actualiza la propiedad \doxylink{a00457_afd899af6a120353b28a4a9effdc0d8d2}{Secciones}, lo que dispara la actualización de los controles agrupados en la interfaz. 
+\end{DoxyEnumerate}Cualquier fallo durante la consulta se registra en la consola de depuración para evitar el colapso de la vista. 
+
+\begin{DoxyReturn}{Devuelve}
+Una tarea que representa la operación de carga y estructuración asíncrona.
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00146_source_l00054}{54}} del archivo \doxymbox{\hyperlink{a00146_source}{View\+Perfil\+View\+Model.\+cs}}.
+
+
+
+\label{doc-property-members}
+\Hypertarget{a00457_doc-property-members}
+\doxysubsubsection{Propiedades}
+\Hypertarget{a00457_a4909170503aec3531bcb099047fdf328}\index{BetaProyecto.ViewModels.ViewPerfilViewModel@{BetaProyecto.ViewModels.ViewPerfilViewModel}!BtnRefrescar@{BtnRefrescar}}
+\index{BtnRefrescar@{BtnRefrescar}!BetaProyecto.ViewModels.ViewPerfilViewModel@{BetaProyecto.ViewModels.ViewPerfilViewModel}}
+\doxyparagraph{\texorpdfstring{BtnRefrescar}{BtnRefrescar}}
+{\footnotesize\ttfamily \label{a00457_a4909170503aec3531bcb099047fdf328} 
+Reactive\+Command$<$Unit, Unit$>$ Beta\+Proyecto.\+View\+Models.\+View\+Perfil\+View\+Model.\+Btn\+Refrescar\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00146_source_l00028}{28}} del archivo \doxymbox{\hyperlink{a00146_source}{View\+Perfil\+View\+Model.\+cs}}.
+
+\Hypertarget{a00457_a7c90a9885d2e6c740f759024a73fa515}\index{BetaProyecto.ViewModels.ViewPerfilViewModel@{BetaProyecto.ViewModels.ViewPerfilViewModel}!ImagenPerfil@{ImagenPerfil}}
+\index{ImagenPerfil@{ImagenPerfil}!BetaProyecto.ViewModels.ViewPerfilViewModel@{BetaProyecto.ViewModels.ViewPerfilViewModel}}
+\doxyparagraph{\texorpdfstring{ImagenPerfil}{ImagenPerfil}}
+{\footnotesize\ttfamily \label{a00457_a7c90a9885d2e6c740f759024a73fa515} 
+string Beta\+Proyecto.\+View\+Models.\+View\+Perfil\+View\+Model.\+Imagen\+Perfil\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00146_source_l00019}{19}} del archivo \doxymbox{\hyperlink{a00146_source}{View\+Perfil\+View\+Model.\+cs}}.
+
+\Hypertarget{a00457_a5d2f1ac6d77bba035913e8e90c007c24}\index{BetaProyecto.ViewModels.ViewPerfilViewModel@{BetaProyecto.ViewModels.ViewPerfilViewModel}!NombreUsuario@{NombreUsuario}}
+\index{NombreUsuario@{NombreUsuario}!BetaProyecto.ViewModels.ViewPerfilViewModel@{BetaProyecto.ViewModels.ViewPerfilViewModel}}
+\doxyparagraph{\texorpdfstring{NombreUsuario}{NombreUsuario}}
+{\footnotesize\ttfamily \label{a00457_a5d2f1ac6d77bba035913e8e90c007c24} 
+string Beta\+Proyecto.\+View\+Models.\+View\+Perfil\+View\+Model.\+Nombre\+Usuario\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00146_source_l00016}{16}} del archivo \doxymbox{\hyperlink{a00146_source}{View\+Perfil\+View\+Model.\+cs}}.
+
+\Hypertarget{a00457_afd899af6a120353b28a4a9effdc0d8d2}\index{BetaProyecto.ViewModels.ViewPerfilViewModel@{BetaProyecto.ViewModels.ViewPerfilViewModel}!Secciones@{Secciones}}
+\index{Secciones@{Secciones}!BetaProyecto.ViewModels.ViewPerfilViewModel@{BetaProyecto.ViewModels.ViewPerfilViewModel}}
+\doxyparagraph{\texorpdfstring{Secciones}{Secciones}}
+{\footnotesize\ttfamily \label{a00457_afd899af6a120353b28a4a9effdc0d8d2} 
+Observable\+Collection$<$\doxymbox{\hyperlink{a00277}{Lista\+Usuarios}}$>$ Beta\+Proyecto.\+View\+Models.\+View\+Perfil\+View\+Model.\+Secciones\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00146_source_l00022}{22}} del archivo \doxymbox{\hyperlink{a00146_source}{View\+Perfil\+View\+Model.\+cs}}.
+

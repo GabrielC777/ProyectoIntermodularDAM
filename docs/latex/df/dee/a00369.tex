@@ -1,0 +1,145 @@
+\doxysubsection{Referencia de la clase Beta\+Proyecto.\+View\+Models.\+Login\+View\+Model}
+\hypertarget{a00369}{}\label{a00369}\index{BetaProyecto.ViewModels.LoginViewModel@{BetaProyecto.ViewModels.LoginViewModel}}
+
+
+\doxysubsubsection{Detalles}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00080_source_l00011}{11}} del archivo \doxymbox{\hyperlink{a00080_source}{Login\+View\+Model.\+cs}}.
+
+\doxysubsubsubsection*{Métodos}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{a00369_a5aeada9f0152332c2a51c8614304e714}{Login\+View\+Model}} ()
+\item 
+\doxymbox{\hyperlink{a00369_a46e4cccf3cf3778de3f9e9feed418206}{Login\+View\+Model}} (\doxymbox{\hyperlink{a00337}{IDialogo\+Service}} dialogo\+Service)
+\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Propiedades}
+\begin{DoxyCompactItemize}
+\item 
+Action? \doxymbox{\hyperlink{a00369_aa9be63ac62bf5086c1118b200ca6be77}{Al\+Completar\+Login}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+Action? \doxymbox{\hyperlink{a00369_a8f5a6c72444b3b602c4888d79013804a}{Ir\+ARegistar\+User}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+string \doxymbox{\hyperlink{a00369_aeccf5c08efce825218dcf9f1fbac3356}{Txt\+Usuario}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+string \doxymbox{\hyperlink{a00369_a026802496d8767b0318709ebfcbdec66}{Txt\+Pass}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+Reactive\+Command$<$ Unit, Unit $>$ \doxymbox{\hyperlink{a00369_a07869a455b82490f041e25e441cf63f4}{Login}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\item 
+Reactive\+Command$<$ Unit, Unit $>$ \doxymbox{\hyperlink{a00369_ad74c9a5fb6ef4915ca01f213b81eb145}{Btn\+Registar\+User}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{a00369_doc-constructors}
+\doxysubsubsection{Constructores}
+\Hypertarget{a00369_a5aeada9f0152332c2a51c8614304e714}\index{BetaProyecto.ViewModels.LoginViewModel@{BetaProyecto.ViewModels.LoginViewModel}!LoginViewModel@{LoginViewModel}}
+\index{LoginViewModel@{LoginViewModel}!BetaProyecto.ViewModels.LoginViewModel@{BetaProyecto.ViewModels.LoginViewModel}}
+\doxyparagraph{\texorpdfstring{LoginViewModel()}{LoginViewModel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{a00369_a5aeada9f0152332c2a51c8614304e714} 
+Beta\+Proyecto.\+View\+Models.\+Login\+View\+Model.\+Login\+View\+Model (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00080_source_l00041}{41}} del archivo \doxymbox{\hyperlink{a00080_source}{Login\+View\+Model.\+cs}}.
+
+\Hypertarget{a00369_a46e4cccf3cf3778de3f9e9feed418206}\index{BetaProyecto.ViewModels.LoginViewModel@{BetaProyecto.ViewModels.LoginViewModel}!LoginViewModel@{LoginViewModel}}
+\index{LoginViewModel@{LoginViewModel}!BetaProyecto.ViewModels.LoginViewModel@{BetaProyecto.ViewModels.LoginViewModel}}
+\doxyparagraph{\texorpdfstring{LoginViewModel()}{LoginViewModel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{a00369_a46e4cccf3cf3778de3f9e9feed418206} 
+Beta\+Proyecto.\+View\+Models.\+Login\+View\+Model.\+Login\+View\+Model (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{a00337}{IDialogo\+Service}}}]{dialogo\+Service}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00080_source_l00045}{45}} del archivo \doxymbox{\hyperlink{a00080_source}{Login\+View\+Model.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{a00369_doc-func-members}
+\doxysubsubsection{Funciones}
+\Hypertarget{a00369_a5238b81439b03429f446647f9f9fc194}\index{BetaProyecto.ViewModels.LoginViewModel@{BetaProyecto.ViewModels.LoginViewModel}!IntentarLogin@{IntentarLogin}}
+\index{IntentarLogin@{IntentarLogin}!BetaProyecto.ViewModels.LoginViewModel@{BetaProyecto.ViewModels.LoginViewModel}}
+\doxyparagraph{\texorpdfstring{IntentarLogin()}{IntentarLogin()}}
+{\footnotesize\ttfamily \label{a00369_a5238b81439b03429f446647f9f9fc194} 
+async Task Beta\+Proyecto.\+View\+Models.\+Login\+View\+Model.\+Intentar\+Login (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Intenta iniciar sesión al usuario conectándose a la base de datos y validando las credenciales proporcionadas. 
+
+Si el inicio de sesión tiene éxito, se cargan los datos del usuario y la configuración, y la vista es notificado para proceder. Si el inicio de sesión falla debido a credenciales incorrectas o problemas de conexión, una alerta es se muestra para informar al usuario. Este método no devuelve un resultado; realiza efectos secundarios como actualización del estado global y visualización de alertas. 
+
+\begin{DoxyReturn}{Devuelve}
+Devuelve una tarea que representa la operación de inicio de sesión asíncrono. La tarea se completa cuando el intento de inicio de sesión tiene terminado, independientemente del éxito o el fracaso. 
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00080_source_l00072}{72}} del archivo \doxymbox{\hyperlink{a00080_source}{Login\+View\+Model.\+cs}}.
+
+
+
+\label{doc-property-members}
+\Hypertarget{a00369_doc-property-members}
+\doxysubsubsection{Propiedades}
+\Hypertarget{a00369_aa9be63ac62bf5086c1118b200ca6be77}\index{BetaProyecto.ViewModels.LoginViewModel@{BetaProyecto.ViewModels.LoginViewModel}!AlCompletarLogin@{AlCompletarLogin}}
+\index{AlCompletarLogin@{AlCompletarLogin}!BetaProyecto.ViewModels.LoginViewModel@{BetaProyecto.ViewModels.LoginViewModel}}
+\doxyparagraph{\texorpdfstring{AlCompletarLogin}{AlCompletarLogin}}
+{\footnotesize\ttfamily \label{a00369_aa9be63ac62bf5086c1118b200ca6be77} 
+Action? Beta\+Proyecto.\+View\+Models.\+Login\+View\+Model.\+Al\+Completar\+Login\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00080_source_l00017}{17}} del archivo \doxymbox{\hyperlink{a00080_source}{Login\+View\+Model.\+cs}}.
+
+\Hypertarget{a00369_ad74c9a5fb6ef4915ca01f213b81eb145}\index{BetaProyecto.ViewModels.LoginViewModel@{BetaProyecto.ViewModels.LoginViewModel}!BtnRegistarUser@{BtnRegistarUser}}
+\index{BtnRegistarUser@{BtnRegistarUser}!BetaProyecto.ViewModels.LoginViewModel@{BetaProyecto.ViewModels.LoginViewModel}}
+\doxyparagraph{\texorpdfstring{BtnRegistarUser}{BtnRegistarUser}}
+{\footnotesize\ttfamily \label{a00369_ad74c9a5fb6ef4915ca01f213b81eb145} 
+Reactive\+Command$<$Unit, Unit$>$ Beta\+Proyecto.\+View\+Models.\+Login\+View\+Model.\+Btn\+Registar\+User\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00080_source_l00038}{38}} del archivo \doxymbox{\hyperlink{a00080_source}{Login\+View\+Model.\+cs}}.
+
+\Hypertarget{a00369_a8f5a6c72444b3b602c4888d79013804a}\index{BetaProyecto.ViewModels.LoginViewModel@{BetaProyecto.ViewModels.LoginViewModel}!IrARegistarUser@{IrARegistarUser}}
+\index{IrARegistarUser@{IrARegistarUser}!BetaProyecto.ViewModels.LoginViewModel@{BetaProyecto.ViewModels.LoginViewModel}}
+\doxyparagraph{\texorpdfstring{IrARegistarUser}{IrARegistarUser}}
+{\footnotesize\ttfamily \label{a00369_a8f5a6c72444b3b602c4888d79013804a} 
+Action? Beta\+Proyecto.\+View\+Models.\+Login\+View\+Model.\+Ir\+ARegistar\+User\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00080_source_l00018}{18}} del archivo \doxymbox{\hyperlink{a00080_source}{Login\+View\+Model.\+cs}}.
+
+\Hypertarget{a00369_a07869a455b82490f041e25e441cf63f4}\index{BetaProyecto.ViewModels.LoginViewModel@{BetaProyecto.ViewModels.LoginViewModel}!Login@{Login}}
+\index{Login@{Login}!BetaProyecto.ViewModels.LoginViewModel@{BetaProyecto.ViewModels.LoginViewModel}}
+\doxyparagraph{\texorpdfstring{Login}{Login}}
+{\footnotesize\ttfamily \label{a00369_a07869a455b82490f041e25e441cf63f4} 
+Reactive\+Command$<$Unit, Unit$>$ Beta\+Proyecto.\+View\+Models.\+Login\+View\+Model.\+Login\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00080_source_l00037}{37}} del archivo \doxymbox{\hyperlink{a00080_source}{Login\+View\+Model.\+cs}}.
+
+\Hypertarget{a00369_a026802496d8767b0318709ebfcbdec66}\index{BetaProyecto.ViewModels.LoginViewModel@{BetaProyecto.ViewModels.LoginViewModel}!TxtPass@{TxtPass}}
+\index{TxtPass@{TxtPass}!BetaProyecto.ViewModels.LoginViewModel@{BetaProyecto.ViewModels.LoginViewModel}}
+\doxyparagraph{\texorpdfstring{TxtPass}{TxtPass}}
+{\footnotesize\ttfamily \label{a00369_a026802496d8767b0318709ebfcbdec66} 
+string Beta\+Proyecto.\+View\+Models.\+Login\+View\+Model.\+Txt\+Pass\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00080_source_l00029}{29}} del archivo \doxymbox{\hyperlink{a00080_source}{Login\+View\+Model.\+cs}}.
+
+\Hypertarget{a00369_aeccf5c08efce825218dcf9f1fbac3356}\index{BetaProyecto.ViewModels.LoginViewModel@{BetaProyecto.ViewModels.LoginViewModel}!TxtUsuario@{TxtUsuario}}
+\index{TxtUsuario@{TxtUsuario}!BetaProyecto.ViewModels.LoginViewModel@{BetaProyecto.ViewModels.LoginViewModel}}
+\doxyparagraph{\texorpdfstring{TxtUsuario}{TxtUsuario}}
+{\footnotesize\ttfamily \label{a00369_aeccf5c08efce825218dcf9f1fbac3356} 
+string Beta\+Proyecto.\+View\+Models.\+Login\+View\+Model.\+Txt\+Usuario\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00080_source_l00022}{22}} del archivo \doxymbox{\hyperlink{a00080_source}{Login\+View\+Model.\+cs}}.
+

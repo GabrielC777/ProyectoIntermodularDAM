@@ -1,0 +1,114 @@
+\doxysubsection{Referencia de la clase Beta\+Proyecto.\+API.\+Controllers.\+Music\+Controller}
+\hypertarget{a00233}{}\label{a00233}\index{BetaProyecto.API.Controllers.MusicController@{BetaProyecto.API.Controllers.MusicController}}
+
+
+\doxysubsubsection{Detalles}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00158_source_l00010}{10}} del archivo \doxymbox{\hyperlink{a00158_source}{Music\+Controller.\+cs}}.
+
+\doxysubsubsubsection*{Métodos}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{a00233_a5de4705dac5086b8374cd71a5217d050}{Music\+Controller}} ()
+\item 
+async Task$<$ IAction\+Result $>$ \doxymbox{\hyperlink{a00233_ab07aeabea466161dcf4a58e48eca5d72}{Get\+Stream\+Url}} (\+[From\+Query]\+ string url)
+\begin{DoxyCompactList}\small\item\em Procesa una solicitud HTTP GET para extraer la URL de streaming directo y los metadatos de un video de You\+Tube. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{a00233_doc-constructors}
+\doxysubsubsection{Constructores}
+\Hypertarget{a00233_a5de4705dac5086b8374cd71a5217d050}\index{BetaProyecto.API.Controllers.MusicController@{BetaProyecto.API.Controllers.MusicController}!MusicController@{MusicController}}
+\index{MusicController@{MusicController}!BetaProyecto.API.Controllers.MusicController@{BetaProyecto.API.Controllers.MusicController}}
+\doxyparagraph{\texorpdfstring{MusicController()}{MusicController()}}
+{\footnotesize\ttfamily \label{a00233_a5de4705dac5086b8374cd71a5217d050} 
+Beta\+Proyecto.\+API.\+Controllers.\+Music\+Controller.\+Music\+Controller (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00158_source_l00015}{15}} del archivo \doxymbox{\hyperlink{a00158_source}{Music\+Controller.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{a00233_doc-func-members}
+\doxysubsubsection{Funciones}
+\Hypertarget{a00233_a106038549c13f62c066960d422f6546b}\index{BetaProyecto.API.Controllers.MusicController@{BetaProyecto.API.Controllers.MusicController}!ActualizarYtDlp@{ActualizarYtDlp}}
+\index{ActualizarYtDlp@{ActualizarYtDlp}!BetaProyecto.API.Controllers.MusicController@{BetaProyecto.API.Controllers.MusicController}}
+\doxyparagraph{\texorpdfstring{ActualizarYtDlp()}{ActualizarYtDlp()}}
+{\footnotesize\ttfamily \label{a00233_a106038549c13f62c066960d422f6546b} 
+void Beta\+Proyecto.\+API.\+Controllers.\+Music\+Controller.\+Actualizar\+Yt\+Dlp (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Ejecuta el comando de auto-\/actualización del binario {\ttfamily yt-\/dlp} de forma silenciosa. 
+
+Dado que las plataformas de video cambian sus algoritmos frecuentemente, este método asegura que la herramienta de extracción esté en su versión más reciente mediante los siguientes pasos:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Validación:\+}} Comprueba la existencia del ejecutable antes de intentar la actualización. 
+\item {\bfseries{Ejecución en segundo plano:\+}} Inicia un proceso externo con el argumento {\ttfamily --update} configurado para no mostrar ventanas ({\ttfamily Create\+No\+Window}). 
+\item {\bfseries{Redirección:\+}} Captura las salidas del proceso para evitar bloqueos y espera su finalización síncrona. 
+\item {\bfseries{Resiliencia:\+}} El bloque {\ttfamily catch} ignora silenciosamente fallos (como falta de internet o bloqueos de firewall) para permitir que la aplicación principal siga funcionando incluso si la actualización falla. 
+\end{DoxyEnumerate}
+
+Definición en la línea \doxymbox{\hyperlink{a00158_source_l00103}{103}} del archivo \doxymbox{\hyperlink{a00158_source}{Music\+Controller.\+cs}}.
+
+\Hypertarget{a00233_ab07aeabea466161dcf4a58e48eca5d72}\index{BetaProyecto.API.Controllers.MusicController@{BetaProyecto.API.Controllers.MusicController}!GetStreamUrl@{GetStreamUrl}}
+\index{GetStreamUrl@{GetStreamUrl}!BetaProyecto.API.Controllers.MusicController@{BetaProyecto.API.Controllers.MusicController}}
+\doxyparagraph{\texorpdfstring{GetStreamUrl()}{GetStreamUrl()}}
+{\footnotesize\ttfamily \label{a00233_ab07aeabea466161dcf4a58e48eca5d72} 
+async Task$<$ IAction\+Result $>$ Beta\+Proyecto.\+API.\+Controllers.\+Music\+Controller.\+Get\+Stream\+Url (\begin{DoxyParamCaption}\item[{\+[\+From\+Query]\+ string}]{url}{}\end{DoxyParamCaption})}
+
+
+
+Procesa una solicitud HTTP GET para extraer la URL de streaming directo y los metadatos de un video de You\+Tube. 
+
+El flujo de ejecución de este endpoint es el siguiente:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Validación:\+}} Comprueba que la URL recibida no sea nula y que el binario {\ttfamily yt-\/dlp} esté disponible en el servidor. 
+\item {\bfseries{Preparación de Argumentos:\+}} Configura {\ttfamily yt-\/dlp} con los parámetros {\ttfamily --dump-\/json} (para obtener datos en lugar de descargar) y {\ttfamily --cookies} (usando la versión sanitizada para evitar bloqueos). 
+\item {\bfseries{Ejecución de Proceso:\+}} Inicia un proceso externo de forma asíncrona, capturando la salida estándar codificada en UTF-\/8 para evitar errores con caracteres especiales. 
+\item {\bfseries{Análisis de Datos:\+}} Parsea la salida JSON generada por la herramienta para extraer el enlace directo ({\ttfamily url}) y la duración exacta en segundos ({\ttfamily duration}). 
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parámetros}
+{\em url} & La dirección URL del video de You\+Tube proporcionada como parámetro de consulta (query string).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un objeto JSON que contiene la URL de streaming directo y la duración; o un código de error (400 o 500) con el detalle del fallo. 
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00158_source_l00146}{146}} del archivo \doxymbox{\hyperlink{a00158_source}{Music\+Controller.\+cs}}.
+
+\Hypertarget{a00233_a7f1d65283567f15004e3e04cb72cdccc}\index{BetaProyecto.API.Controllers.MusicController@{BetaProyecto.API.Controllers.MusicController}!InicializarEntorno@{InicializarEntorno}}
+\index{InicializarEntorno@{InicializarEntorno}!BetaProyecto.API.Controllers.MusicController@{BetaProyecto.API.Controllers.MusicController}}
+\doxyparagraph{\texorpdfstring{InicializarEntorno()}{InicializarEntorno()}}
+{\footnotesize\ttfamily \label{a00233_a7f1d65283567f15004e3e04cb72cdccc} 
+void Beta\+Proyecto.\+API.\+Controllers.\+Music\+Controller.\+Inicializar\+Entorno (\begin{DoxyParamCaption}\item[{string}]{app\+Dir}{, }\item[{string}]{user\+Dir}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Configura el entorno de ejecución local, asegurando la presencia de las dependencias binarias y sanitizando archivos de configuración. 
+
+Este método de preparación realiza las siguientes operaciones críticas:\+ 
+\begin{DoxyEnumerate}
+\item {\bfseries{Despliegue de Binarios:\+}} Verifica la existencia de {\ttfamily yt-\/dlp.\+exe} en la ruta de ejecución. Si no está presente o el archivo está dañado (0 bytes), realiza una copia desde el directorio de instalación. 
+\item {\bfseries{Sanitización de Cookies:\+}} Procesa el archivo {\ttfamily cookies.\+txt} para eliminar la marca de orden de bytes (BOM). Esto es indispensable ya que {\ttfamily yt-\/dlp} requiere una codificación UTF-\/8 pura para validar sesiones de usuario. 
+\item {\bfseries{Normalización de Rutas:\+}} Centraliza los archivos operativos en carpetas de datos de usuario para evitar problemas de permisos de escritura. 
+\end{DoxyEnumerate}Cualquier error durante el acceso a archivos o escritura de disco se captura y se registra en la consola para facilitar el diagnóstico. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em app\+Dir} & Directorio raíz donde se encuentran los archivos originales de la aplicación.\\
+\hline
+{\em user\+Dir} & Directorio de datos de usuario (App\+Data) donde se desplegará el entorno de trabajo.\\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00158_source_l00048}{48}} del archivo \doxymbox{\hyperlink{a00158_source}{Music\+Controller.\+cs}}.
+

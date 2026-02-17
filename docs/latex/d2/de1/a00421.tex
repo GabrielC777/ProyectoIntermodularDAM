@@ -1,0 +1,168 @@
+\doxysubsection{Referencia de la clase Beta\+Proyecto.\+View\+Models.\+View\+Crear\+Usuario\+View\+Model}
+\hypertarget{a00421}{}\label{a00421}\index{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel@{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}}
+
+
+\doxysubsubsection{Detalles}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00119_source_l00014}{14}} del archivo \doxymbox{\hyperlink{a00119_source}{View\+Crear\+Usuario\+View\+Model.\+cs}}.
+
+\doxysubsubsubsection*{Métodos}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{a00421_a38bf3b75fb33aacfba77f1e4740bc99e}{View\+Crear\+Usuario\+View\+Model}} (Action accion\+Volver)
+\item 
+void \doxymbox{\hyperlink{a00421_ad30d9ed3bbf849f47b2fef39089a8d22}{Cargar\+Imagen\+Previa}} (string ruta)
+\begin{DoxyCompactList}\small\item\em Carga una imagen de vista previa desde la ruta del archivo especificada y actualiza la referencia de imagen de perfil del usuario. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Propiedades}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{a00301}{Usuarios}} \doxymbox{\hyperlink{a00421_a2e2bc9967d4164bfe0c9e1e604c6e085}{Nuevo\+Usuario}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+string \doxymbox{\hyperlink{a00421_ad70bc7338c3c6130df979f638f894cb9}{Confirmar\+Pass}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+bool \doxymbox{\hyperlink{a00421_a3f362b4fe7ae751e7f8d4f0f94b7b2b9}{Esta\+Cargando}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+Bitmap? \doxymbox{\hyperlink{a00421_a3022a42e15d1bfeaac6bab530606811f}{Foto\+Perfil\+Bitmap}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\item 
+List$<$ string $>$ \doxymbox{\hyperlink{a00421_ac4470288dba515e5a00346e1a0338190}{Lista\+Paises}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\item 
+Reactive\+Command$<$ Unit, Unit $>$ \doxymbox{\hyperlink{a00421_a89309809b9df718c9d807e1dd30d5b93}{Btn\+Registrarse}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\item 
+Reactive\+Command$<$ Unit, Unit $>$ \doxymbox{\hyperlink{a00421_a6bae54160565bae44814abc233e0d3f0}{Btn\+Volver}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{a00421_doc-constructors}
+\doxysubsubsection{Constructores}
+\Hypertarget{a00421_a38bf3b75fb33aacfba77f1e4740bc99e}\index{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel@{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}!ViewCrearUsuarioViewModel@{ViewCrearUsuarioViewModel}}
+\index{ViewCrearUsuarioViewModel@{ViewCrearUsuarioViewModel}!BetaProyecto.ViewModels.ViewCrearUsuarioViewModel@{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}}
+\doxyparagraph{\texorpdfstring{ViewCrearUsuarioViewModel()}{ViewCrearUsuarioViewModel()}}
+{\footnotesize\ttfamily \label{a00421_a38bf3b75fb33aacfba77f1e4740bc99e} 
+Beta\+Proyecto.\+View\+Models.\+View\+Crear\+Usuario\+View\+Model.\+View\+Crear\+Usuario\+View\+Model (\begin{DoxyParamCaption}\item[{Action}]{accion\+Volver}{}\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00119_source_l00061}{61}} del archivo \doxymbox{\hyperlink{a00119_source}{View\+Crear\+Usuario\+View\+Model.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{a00421_doc-func-members}
+\doxysubsubsection{Funciones}
+\Hypertarget{a00421_ad30d9ed3bbf849f47b2fef39089a8d22}\index{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel@{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}!CargarImagenPrevia@{CargarImagenPrevia}}
+\index{CargarImagenPrevia@{CargarImagenPrevia}!BetaProyecto.ViewModels.ViewCrearUsuarioViewModel@{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}}
+\doxyparagraph{\texorpdfstring{CargarImagenPrevia()}{CargarImagenPrevia()}}
+{\footnotesize\ttfamily \label{a00421_ad30d9ed3bbf849f47b2fef39089a8d22} 
+void Beta\+Proyecto.\+View\+Models.\+View\+Crear\+Usuario\+View\+Model.\+Cargar\+Imagen\+Previa (\begin{DoxyParamCaption}\item[{string}]{ruta}{}\end{DoxyParamCaption})}
+
+
+
+Carga una imagen de vista previa desde la ruta del archivo especificada y actualiza la referencia de imagen de perfil del usuario. 
+
+Si el archivo no existe o no es una imagen válida, la imagen de previsualización se borra. El método no genera una excepción si la carga falla. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em ruta} & La ruta del archivo de la imagen a cargar como una vista previa. Debe hacer referencia a un archivo existente. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00119_source_l00199}{199}} del archivo \doxymbox{\hyperlink{a00119_source}{View\+Crear\+Usuario\+View\+Model.\+cs}}.
+
+\Hypertarget{a00421_aaa2471505a434c26fdb92e710367d818}\index{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel@{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}!RegistrarseTask@{RegistrarseTask}}
+\index{RegistrarseTask@{RegistrarseTask}!BetaProyecto.ViewModels.ViewCrearUsuarioViewModel@{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}}
+\doxyparagraph{\texorpdfstring{RegistrarseTask()}{RegistrarseTask()}}
+{\footnotesize\ttfamily \label{a00421_aaa2471505a434c26fdb92e710367d818} 
+async Task Beta\+Proyecto.\+View\+Models.\+View\+Crear\+Usuario\+View\+Model.\+Registrarse\+Task (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gestiona el proceso de registro de usuarios de forma asíncrona, incluida la validación, la carga de imágenes de perfil y creación de cuenta. 
+
+Muestra las alertas apropiadas al usuario en caso de errores de validación, problemas de conexión o resultados del registro. Si el registro es exitoso, se notifica al usuario y se lo redirige a la cuenta. pantalla. Este método evita los intentos de registro simultáneos comprobando y configurando una carga estado. 
+
+\begin{DoxyReturn}{Devuelve}
+Devuelve una tarea que representa la operación de registro asíncrono. 
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{a00119_source_l00109}{109}} del archivo \doxymbox{\hyperlink{a00119_source}{View\+Crear\+Usuario\+View\+Model.\+cs}}.
+
+
+
+\label{doc-property-members}
+\Hypertarget{a00421_doc-property-members}
+\doxysubsubsection{Propiedades}
+\Hypertarget{a00421_a89309809b9df718c9d807e1dd30d5b93}\index{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel@{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}!BtnRegistrarse@{BtnRegistrarse}}
+\index{BtnRegistrarse@{BtnRegistrarse}!BetaProyecto.ViewModels.ViewCrearUsuarioViewModel@{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}}
+\doxyparagraph{\texorpdfstring{BtnRegistrarse}{BtnRegistrarse}}
+{\footnotesize\ttfamily \label{a00421_a89309809b9df718c9d807e1dd30d5b93} 
+Reactive\+Command$<$Unit, Unit$>$ Beta\+Proyecto.\+View\+Models.\+View\+Crear\+Usuario\+View\+Model.\+Btn\+Registrarse\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00119_source_l00058}{58}} del archivo \doxymbox{\hyperlink{a00119_source}{View\+Crear\+Usuario\+View\+Model.\+cs}}.
+
+\Hypertarget{a00421_a6bae54160565bae44814abc233e0d3f0}\index{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel@{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}!BtnVolver@{BtnVolver}}
+\index{BtnVolver@{BtnVolver}!BetaProyecto.ViewModels.ViewCrearUsuarioViewModel@{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}}
+\doxyparagraph{\texorpdfstring{BtnVolver}{BtnVolver}}
+{\footnotesize\ttfamily \label{a00421_a6bae54160565bae44814abc233e0d3f0} 
+Reactive\+Command$<$Unit, Unit$>$ Beta\+Proyecto.\+View\+Models.\+View\+Crear\+Usuario\+View\+Model.\+Btn\+Volver\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00119_source_l00059}{59}} del archivo \doxymbox{\hyperlink{a00119_source}{View\+Crear\+Usuario\+View\+Model.\+cs}}.
+
+\Hypertarget{a00421_ad70bc7338c3c6130df979f638f894cb9}\index{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel@{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}!ConfirmarPass@{ConfirmarPass}}
+\index{ConfirmarPass@{ConfirmarPass}!BetaProyecto.ViewModels.ViewCrearUsuarioViewModel@{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}}
+\doxyparagraph{\texorpdfstring{ConfirmarPass}{ConfirmarPass}}
+{\footnotesize\ttfamily \label{a00421_ad70bc7338c3c6130df979f638f894cb9} 
+string Beta\+Proyecto.\+View\+Models.\+View\+Crear\+Usuario\+View\+Model.\+Confirmar\+Pass\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00119_source_l00033}{33}} del archivo \doxymbox{\hyperlink{a00119_source}{View\+Crear\+Usuario\+View\+Model.\+cs}}.
+
+\Hypertarget{a00421_a3f362b4fe7ae751e7f8d4f0f94b7b2b9}\index{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel@{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}!EstaCargando@{EstaCargando}}
+\index{EstaCargando@{EstaCargando}!BetaProyecto.ViewModels.ViewCrearUsuarioViewModel@{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}}
+\doxyparagraph{\texorpdfstring{EstaCargando}{EstaCargando}}
+{\footnotesize\ttfamily \label{a00421_a3f362b4fe7ae751e7f8d4f0f94b7b2b9} 
+bool Beta\+Proyecto.\+View\+Models.\+View\+Crear\+Usuario\+View\+Model.\+Esta\+Cargando\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00119_source_l00041}{41}} del archivo \doxymbox{\hyperlink{a00119_source}{View\+Crear\+Usuario\+View\+Model.\+cs}}.
+
+\Hypertarget{a00421_a3022a42e15d1bfeaac6bab530606811f}\index{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel@{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}!FotoPerfilBitmap@{FotoPerfilBitmap}}
+\index{FotoPerfilBitmap@{FotoPerfilBitmap}!BetaProyecto.ViewModels.ViewCrearUsuarioViewModel@{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}}
+\doxyparagraph{\texorpdfstring{FotoPerfilBitmap}{FotoPerfilBitmap}}
+{\footnotesize\ttfamily \label{a00421_a3022a42e15d1bfeaac6bab530606811f} 
+Bitmap? Beta\+Proyecto.\+View\+Models.\+View\+Crear\+Usuario\+View\+Model.\+Foto\+Perfil\+Bitmap\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00119_source_l00048}{48}} del archivo \doxymbox{\hyperlink{a00119_source}{View\+Crear\+Usuario\+View\+Model.\+cs}}.
+
+\Hypertarget{a00421_ac4470288dba515e5a00346e1a0338190}\index{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel@{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}!ListaPaises@{ListaPaises}}
+\index{ListaPaises@{ListaPaises}!BetaProyecto.ViewModels.ViewCrearUsuarioViewModel@{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}}
+\doxyparagraph{\texorpdfstring{ListaPaises}{ListaPaises}}
+{\footnotesize\ttfamily \label{a00421_ac4470288dba515e5a00346e1a0338190} 
+List$<$string$>$ Beta\+Proyecto.\+View\+Models.\+View\+Crear\+Usuario\+View\+Model.\+Lista\+Paises\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00119_source_l00055}{55}} del archivo \doxymbox{\hyperlink{a00119_source}{View\+Crear\+Usuario\+View\+Model.\+cs}}.
+
+\Hypertarget{a00421_a2e2bc9967d4164bfe0c9e1e604c6e085}\index{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel@{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}!NuevoUsuario@{NuevoUsuario}}
+\index{NuevoUsuario@{NuevoUsuario}!BetaProyecto.ViewModels.ViewCrearUsuarioViewModel@{BetaProyecto.ViewModels.ViewCrearUsuarioViewModel}}
+\doxyparagraph{\texorpdfstring{NuevoUsuario}{NuevoUsuario}}
+{\footnotesize\ttfamily \label{a00421_a2e2bc9967d4164bfe0c9e1e604c6e085} 
+\doxymbox{\hyperlink{a00301}{Usuarios}} Beta\+Proyecto.\+View\+Models.\+View\+Crear\+Usuario\+View\+Model.\+Nuevo\+Usuario\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definición en la línea \doxymbox{\hyperlink{a00119_source_l00025}{25}} del archivo \doxymbox{\hyperlink{a00119_source}{View\+Crear\+Usuario\+View\+Model.\+cs}}.
+

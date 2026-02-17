@@ -1,0 +1,158 @@
+\doxysubsection{View\+Cuenta\+View\+Model.\+cs}
+\hypertarget{a00122_source}{}\label{a00122_source}\index{BetaProyecto/ViewModels/ViewCuentaViewModel.cs@{BetaProyecto/ViewModels/ViewCuentaViewModel.cs}}
+\doxymbox{\hyperlink{a00122}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00001}00001\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{a00178}{BetaProyecto.Services}};}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00002}00002\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{a00179}{BetaProyecto.Singleton}};}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00003}00003\ \textcolor{keyword}{using\ }ReactiveUI;}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00004}00004\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00005}00005\ \textcolor{keyword}{using\ }System.Reactive;}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00006}00006\ \textcolor{keyword}{using\ }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{a00122_source_l00008}00008\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{a00180}{BetaProyecto.ViewModels}}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00010}\doxymbox{\hyperlink{a00425}{00010}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{a00425_a320caa12098d91872bdbc51f0fccf540}{ViewCuentaViewModel}}\ :\ \doxymbox{\hyperlink{a00453}{ViewModelBase}}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00011}00011\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Servicios\ }}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00013}\doxymbox{\hyperlink{a00425_a35109df43e3c44d1f6bdd9246746d917}{00013}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ readonly\ \doxymbox{\hyperlink{a00337}{IDialogoService}}\ \doxymbox{\hyperlink{a00425_a35109df43e3c44d1f6bdd9246746d917}{\_dialogoService}};}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{a00122_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Bidings\ }}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00016}\doxymbox{\hyperlink{a00425_ace168728f7ca3fd1a1e3efd9648acbdf}{00016}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00425_ace168728f7ca3fd1a1e3efd9648acbdf}{\_nombreUsuario}};}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00017}\doxymbox{\hyperlink{a00425_a350715b7d39b7a1df9e646f79ab3873d}{00017}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00425_a350715b7d39b7a1df9e646f79ab3873d}{NombreUsuario}}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00018}00018\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \doxymbox{\hyperlink{a00425_ace168728f7ca3fd1a1e3efd9648acbdf}{\_nombreUsuario}};}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ this.RaiseAndSetIfChanged(ref\ \doxymbox{\hyperlink{a00425_ace168728f7ca3fd1a1e3efd9648acbdf}{\_nombreUsuario}},\ value);}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00021}00021\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{a00122_source_l00023}\doxymbox{\hyperlink{a00425_ac7fe283cfa9a7b08c9858a42744865d7}{00023}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00425_ac7fe283cfa9a7b08c9858a42744865d7}{\_email}};}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00024}\doxymbox{\hyperlink{a00425_ab4a1f1f59cea50cc32689315ac746cc2}{00024}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00425_ab4a1f1f59cea50cc32689315ac746cc2}{Email}}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00025}00025\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \doxymbox{\hyperlink{a00425_ac7fe283cfa9a7b08c9858a42744865d7}{\_email}};}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ this.RaiseAndSetIfChanged(ref\ \doxymbox{\hyperlink{a00425_ac7fe283cfa9a7b08c9858a42744865d7}{\_email}},\ value);}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00028}00028\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{a00122_source_l00030}\doxymbox{\hyperlink{a00425_a8432dc23abc03d52ab658d15469057e7}{00030}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00425_a8432dc23abc03d52ab658d15469057e7}{\_pais}};}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00031}\doxymbox{\hyperlink{a00425_a1468c98106f4adc11dbbfe1c7bf9e524}{00031}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{a00425_a1468c98106f4adc11dbbfe1c7bf9e524}{Pais}}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00032}00032\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \doxymbox{\hyperlink{a00425_a8432dc23abc03d52ab658d15469057e7}{\_pais}};}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ this.RaiseAndSetIfChanged(ref\ \doxymbox{\hyperlink{a00425_a8432dc23abc03d52ab658d15469057e7}{\_pais}},\ value);}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00035}00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{a00122_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ El\ DatePicker\ de\ Avalonia\ usa\ DateTimeOffset?}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00038}\doxymbox{\hyperlink{a00425_a708e52097e829d1a3d2887ac622875eb}{00038}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ DateTimeOffset?\ \doxymbox{\hyperlink{a00425_a708e52097e829d1a3d2887ac622875eb}{\_fechaNacimiento}};}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00039}\doxymbox{\hyperlink{a00425_a97da9c6cdd1bca3883ce37eeca4a0650}{00039}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ DateTimeOffset?\ \doxymbox{\hyperlink{a00425_a97da9c6cdd1bca3883ce37eeca4a0650}{FechaNacimiento}}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00040}00040\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \doxymbox{\hyperlink{a00425_a708e52097e829d1a3d2887ac622875eb}{\_fechaNacimiento}};}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ this.RaiseAndSetIfChanged(ref\ \doxymbox{\hyperlink{a00425_a708e52097e829d1a3d2887ac622875eb}{\_fechaNacimiento}},\ value);}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00043}00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{a00122_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 0\ =\ Privada,\ 1\ =\ Pública}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00046}\doxymbox{\hyperlink{a00425_abe942fb53c523caf364c3d47e478b1e4}{00046}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{a00425_abe942fb53c523caf364c3d47e478b1e4}{\_indexPrivacidad}};}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00047}\doxymbox{\hyperlink{a00425_ad68eb704d680906aca83e28df6b1b926}{00047}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{a00425_ad68eb704d680906aca83e28df6b1b926}{IndexPrivacidad}}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00048}00048\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \doxymbox{\hyperlink{a00425_abe942fb53c523caf364c3d47e478b1e4}{\_indexPrivacidad}};}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ this.RaiseAndSetIfChanged(ref\ \doxymbox{\hyperlink{a00425_abe942fb53c523caf364c3d47e478b1e4}{\_indexPrivacidad}},\ value);}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00051}00051\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{a00122_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Comandos\ Reactive\ }}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00054}\doxymbox{\hyperlink{a00425_aebd61500ee0f39860c927fc7b9fa3db5}{00054}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ReactiveCommand<Unit,\ Unit>\ \doxymbox{\hyperlink{a00425_aebd61500ee0f39860c927fc7b9fa3db5}{BtnGuardar}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00055}\doxymbox{\hyperlink{a00425_a416895d7726cb802e234a83c7e730ea6}{00055}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ReactiveCommand<Unit,\ Unit>\ \doxymbox{\hyperlink{a00425_a416895d7726cb802e234a83c7e730ea6}{BtnRefrescar}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{a00122_source_l00057}\doxymbox{\hyperlink{a00425_a320caa12098d91872bdbc51f0fccf540}{00057}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{a00425_a320caa12098d91872bdbc51f0fccf540}{ViewCuentaViewModel}}()}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00058}00058\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Incializamos\ servicios}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00425_a35109df43e3c44d1f6bdd9246746d917}{\_dialogoService}}\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{a00333}{DialogoService}}();}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{a00122_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuramos\ comandos}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00425_aebd61500ee0f39860c927fc7b9fa3db5}{BtnGuardar}}\ =\ ReactiveCommand.CreateFromTask(\doxymbox{\hyperlink{a00425_a1a546a28e8f321cc5d95f746d583eb68}{GuardarCambios}});}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00425_a416895d7726cb802e234a83c7e730ea6}{BtnRefrescar}}\ =\ ReactiveCommand.Create(\doxymbox{\hyperlink{a00425_a9d975c7a19f8c9833be729115ff3885e}{CargarDatos}});\ }
+\DoxyCodeLine{\Hypertarget{a00122_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{a00122_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Cargamos\ datos\ }}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00425_a9d975c7a19f8c9833be729115ff3885e}{CargarDatos}}();}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00068}00068\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00069}00069\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00070}00070\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Recupera\ y\ sincroniza\ la\ información\ del\ perfil\ del\ usuario\ desde\ los\ datos\ globales\ para\ su\ edición\ en\ la\ interfaz.}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00071}00071\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00072}00072\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00073}00073\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Este\ método\ actúa\ como\ un\ mapeador\ entre\ <see\ cref="{}GlobalData.Instance"{}/>\ y\ las\ propiedades\ vinculadas\ de\ la\ vista.\ }}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00074}00074\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Realiza\ conversiones\ de\ tipos\ necesarias,\ como\ la\ transformación\ de\ <see\ cref="{}DateTime"{}/>\ a\ <see\ cref="{}DateTimeOffset"{}/>\ }}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00075}00075\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ para\ el\ selector\ de\ fecha,\ y\ traduce\ el\ estado\ booleano\ de\ privacidad\ a\ un\ índice\ numérico\ compatible\ con\ }}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00076}00076\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ los\ controles\ de\ selección\ de\ la\ UI.}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00077}00077\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00078}\doxymbox{\hyperlink{a00425_a9d975c7a19f8c9833be729115ff3885e}{00078}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{a00425_a9d975c7a19f8c9833be729115ff3885e}{CargarDatos}}()}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00079}00079\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Leemos\ del\ Singleton\ (GlobalData)}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00425_a350715b7d39b7a1df9e646f79ab3873d}{NombreUsuario}}\ =\ \doxymbox{\hyperlink{a00349}{GlobalData}}.\doxymbox{\hyperlink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Instance}}.\doxymbox{\hyperlink{a00349_aab0aaf02f0ee9e57b35a60acbac54a0b}{UsernameGD}};}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00425_ab4a1f1f59cea50cc32689315ac746cc2}{Email}}\ =\ \doxymbox{\hyperlink{a00349}{GlobalData}}.\doxymbox{\hyperlink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Instance}}.\doxymbox{\hyperlink{a00349_acd878323262efab79a3d7d5d7f4a28d6}{EmailGD}};}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00425_a1468c98106f4adc11dbbfe1c7bf9e524}{Pais}}\ =\ \doxymbox{\hyperlink{a00349}{GlobalData}}.\doxymbox{\hyperlink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Instance}}.\doxymbox{\hyperlink{a00349_a33b369be130f2cf47aa3a86263206441}{PaisGD}};}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{a00122_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Conversión\ de\ Fechas}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{a00349}{GlobalData}}.\doxymbox{\hyperlink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Instance}}.\doxymbox{\hyperlink{a00349_a5d8737c78af055cbeb734d12a15f8c2a}{FechaNacimientoGD}}\ !=\ DateTime.MinValue)}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00425_a97da9c6cdd1bca3883ce37eeca4a0650}{FechaNacimiento}}\ =\ \textcolor{keyword}{new}\ DateTimeOffset(\doxymbox{\hyperlink{a00349}{GlobalData}}.\doxymbox{\hyperlink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Instance}}.\doxymbox{\hyperlink{a00349_a5d8737c78af055cbeb734d12a15f8c2a}{FechaNacimientoGD}});}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00425_a97da9c6cdd1bca3883ce37eeca4a0650}{FechaNacimiento}}\ =\ DateTimeOffset.Now;}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{a00122_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Conversión\ de\ Privacidad\ (True\ =\ Privada\ =\ Index\ 0)}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00425_ad68eb704d680906aca83e28df6b1b926}{IndexPrivacidad}}\ =\ GlobalData.Instance.Es\_PrivadaGD\ ?\ 0\ :\ 1;}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00097}00097\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00098}00098\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <summary>}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00099}00099\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Procesa\ y\ persiste\ de\ forma\ asíncrona\ las\ modificaciones\ realizadas\ en\ el\ perfil\ del\ usuario\ tanto\ en\ la\ base\ de\ datos\ como\ en\ el\ estado\ global.}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00100}00100\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </summary>}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00101}00101\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <remarks>}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00102}00102\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Este\ método\ realiza\ una\ validación\ y\ transformación\ de\ datos\ antes\ de\ la\ persistencia:}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00103}00103\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <list\ type="{}number"{}>}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00104}00104\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Conversión:</b>\ Transforma\ el\ objeto\ <see\ cref="{}DateTimeOffset"{}/>\ de\ la\ interfaz\ a\ <see\ cref="{}DateTime"{}/>\ y\ el\ índice\ de\ privacidad\ a\ un\ valor\ booleano.</item>}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00105}00105\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Sincronización\ remota:</b>\ Invoca\ al\ cliente\ de\ MongoDB\ para\ actualizar\ los\ documentos\ en\ la\ nube.</item>}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00106}00106\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <item><b>Actualización\ local:</b>\ Si\ la\ operación\ remota\ es\ exitosa,\ sincroniza\ los\ nuevos\ valores\ en\ <see\ cref="{}GlobalData.Instance"{}/>\ para\ mantener\ la\ consistencia\ en\ la\ sesión\ actual.</item>}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00107}00107\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </list>}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00108}00108\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Notifica\ el\ resultado\ de\ la\ operación\ al\ usuario\ mediante\ el\ servicio\ de\ diálogos\ y\ registra\ errores\ críticos\ en\ la\ consola\ de\ depuración.}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00109}00109\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ </remarks>}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00110}00110\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ <returns>Una\ tarea\ que\ representa\ la\ operación\ de\ guardado\ asíncrona.</returns>}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00111}\doxymbox{\hyperlink{a00425_a1a546a28e8f321cc5d95f746d583eb68}{00111}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ async\ Task\ \doxymbox{\hyperlink{a00425_a1a546a28e8f321cc5d95f746d583eb68}{GuardarCambios}}()}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00112}00112\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Convertimos\ los\ datos\ de\ la\ vista\ a\ los\ formatos\ de\ BD}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ fechaParaGuardar\ =\ \doxymbox{\hyperlink{a00425_a97da9c6cdd1bca3883ce37eeca4a0650}{FechaNacimiento}}?.DateTime\ ??\ DateTime.Now;}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ esCuentaPrivada\ =\ (\doxymbox{\hyperlink{a00425_ad68eb704d680906aca83e28df6b1b926}{IndexPrivacidad}}\ ==\ 0);}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{a00122_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ exito\ =\ await\ \doxymbox{\hyperlink{a00353}{MongoClientSingleton}}.\doxymbox{\hyperlink{a00353_ad0067cc765141c80b254d1a39395f529}{Instance}}.\doxymbox{\hyperlink{a00353_a275ea6d123352f803782b0ff26216fc6}{Cliente}}.\doxymbox{\hyperlink{a00341_a4342f5c1311b705ebdbfb545237d3796}{ActualizarPerfilUsuario}}(}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00349}{GlobalData}}.\doxymbox{\hyperlink{a00349_a9e2c3551655ac39eac433318a7e87ba4}{Instance}}.\doxymbox{\hyperlink{a00349_adb38cdfb6b5c5f427b3a1250eca88a29}{UserIdGD}},\ }
+\DoxyCodeLine{\Hypertarget{a00122_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00425_a350715b7d39b7a1df9e646f79ab3873d}{NombreUsuario}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{a00122_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00425_ab4a1f1f59cea50cc32689315ac746cc2}{Email}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{a00122_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00425_a1468c98106f4adc11dbbfe1c7bf9e524}{Pais}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{a00122_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fechaParaGuardar,\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{a00122_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ esCuentaPrivada\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{a00122_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{a00122_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Comprobamos\ si\ se\ actualizo\ correctamente\ y\ reflajamos\ los\ cambios\ en\ el\ Singleton\ (GlobalData)\ }}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (exito)}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GlobalData.Instance.UsernameGD\ =\ \doxymbox{\hyperlink{a00425_a350715b7d39b7a1df9e646f79ab3873d}{NombreUsuario}};}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GlobalData.Instance.EmailGD\ =\ \doxymbox{\hyperlink{a00425_ab4a1f1f59cea50cc32689315ac746cc2}{Email}};}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GlobalData.Instance.PaisGD\ =\ \doxymbox{\hyperlink{a00425_a1468c98106f4adc11dbbfe1c7bf9e524}{Pais}};}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GlobalData.Instance.FechaNacimientoGD\ =\ fechaParaGuardar;}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GlobalData.Instance.Es\_PrivadaGD\ =\ esCuentaPrivada;}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{a00122_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00425_a35109df43e3c44d1f6bdd9246746d917}{\_dialogoService}}.MostrarAlerta(\textcolor{stringliteral}{"{}MsgExitoActualizarPerfil"{}});}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.Diagnostics.Debug.WriteLine(\textcolor{stringliteral}{"{}¡Perfil\ actualizado\ en\ BD\ y\ Memoria!"{}});}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{a00425_a35109df43e3c44d1f6bdd9246746d917}{\_dialogoService}}.MostrarAlerta(\textcolor{stringliteral}{"{}MsgErrorActualizarPerfil"{}});}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.Diagnostics.Debug.WriteLine(\textcolor{stringliteral}{"{}Fallo\ al\ actualizar\ en\ Mongo."{}});}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.Diagnostics.Debug.WriteLine(\textcolor{stringliteral}{"{}Error\ crítico\ al\ guardar\ perfil:\ "{}}\ +\ ex.Message);}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00150}00150\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00151}00151\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{a00122_source_l00152}00152\ \}}
+
+\end{DoxyCode}

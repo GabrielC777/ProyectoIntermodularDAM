@@ -1,0 +1,45 @@
+<doxygenlayout version="1.0">
+  <header>
+    <title title=""/>
+    <searchbox/>
+  </header>
+
+  <navindex>
+    <tab type="usergroup" title="Solución">
+       <tab type="classlist" visible="yes" title="Clases"/>
+    </tab>
+  </navindex>
+
+  <class>
+    <briefdescription visible="yes"/>
+    <detaileddescription title="Detalles"/>
+    <memberdecl>
+      <publicmethods title="Métodos"/>
+      <properties title="Propiedades"/>
+      <nestedclasses visible="yes" title=""/>
+    </memberdecl>
+    <memberdef>
+      <constructors title="Constructores"/>
+      <functions title="Funciones"/>
+      <properties title="Propiedades"/>
+    </memberdef>
+    <allmemberslink visible="yes"/>
+  </class>
+
+  <namespace>
+    <briefdescription visible="yes"/>
+    <detaileddescription title="Detalles"/>
+    <memberdecl>
+      <nestedcompounds visible="yes" title="Clases"/>
+      <namespaces visible="yes" title="Espacios de nombres"/>
+    </memberdecl>
+  </namespace>
+
+  <directory>
+    <briefdescription visible="yes"/>
+    <memberdecl>
+      <dirs visible="yes" title="Directorios"/>
+      <files visible="yes" title="Archivos"/>
+    </memberdecl>
+  </directory>
+</doxygenlayout>

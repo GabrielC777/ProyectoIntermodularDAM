@@ -1,0 +1,1039 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Documentación de directorios}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Referencia del directorio Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Referencia del directorio Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Referencia del directorio Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controllers}{2}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Referencia del directorio Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug}{2}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Referencia del directorio Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug}{2}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Referencia del directorio Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Helpers}{2}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}Referencia del directorio Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models}{2}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.8}Referencia del directorio Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}net9.0}{3}{subsection.1.8}%
+\contentsline {subsection}{\numberline {1.9}Referencia del directorio Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Release/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}net9.0}{3}{subsection.1.9}%
+\contentsline {subsection}{\numberline {1.10}Referencia del directorio Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}net9.0}{3}{subsection.1.10}%
+\contentsline {subsection}{\numberline {1.11}Referencia del directorio Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Release/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}net9.0}{3}{subsection.1.11}%
+\contentsline {subsection}{\numberline {1.12}Referencia del directorio Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj}{3}{subsection.1.12}%
+\contentsline {subsection}{\numberline {1.13}Referencia del directorio Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj}{4}{subsection.1.13}%
+\contentsline {subsection}{\numberline {1.14}Referencia del directorio Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Release}{4}{subsection.1.14}%
+\contentsline {subsection}{\numberline {1.15}Referencia del directorio Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Release}{4}{subsection.1.15}%
+\contentsline {subsection}{\numberline {1.16}Referencia del directorio Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Services}{4}{subsection.1.16}%
+\contentsline {subsection}{\numberline {1.17}Referencia del directorio Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Singleton}{4}{subsection.1.17}%
+\contentsline {subsection}{\numberline {1.18}Referencia del directorio Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models}{5}{subsection.1.18}%
+\contentsline {subsection}{\numberline {1.19}Referencia del directorio Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Release/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}net9.0/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}win-\/x64}{5}{subsection.1.19}%
+\contentsline {subsection}{\numberline {1.20}Referencia del directorio Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Release/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}net9.0/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}win-\/x64}{5}{subsection.1.20}%
+\contentsline {section}{\numberline {2}Documentación de espacios de nombres}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Referencia del espacio de nombres Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto}{6}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Referencia del espacio de nombres Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API}{6}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Referencia del espacio de nombres Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controllers}{6}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Referencia del espacio de nombres Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Helpers}{6}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Referencia del espacio de nombres Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models}{6}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Referencia del espacio de nombres Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Services}{6}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Referencia del espacio de nombres Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Singleton}{6}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Referencia del espacio de nombres Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models}{6}{subsection.2.8}%
+\contentsline {section}{\numberline {3}Documentación de clases}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Services.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Audio\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Service}{6}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Detalles}{6}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Constructores}{6}{subsubsection.3.1.2}%
+\contentsline {paragraph}{AudioService()}{6}{section*.27}%
+\contentsline {subsubsection}{\numberline {3.1.3}Funciones}{7}{subsubsection.3.1.3}%
+\contentsline {paragraph}{ObtenerMp3()}{7}{section*.28}%
+\contentsline {paragraph}{ObtenerRutaAudioSegura()}{7}{section*.29}%
+\contentsline {subsection}{\numberline {3.2}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Canciones}{8}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Detalles}{8}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Propiedades}{8}{subsubsection.3.2.2}%
+\contentsline {paragraph}{AutoresIds}{8}{section*.31}%
+\contentsline {paragraph}{Datos}{8}{section*.32}%
+\contentsline {paragraph}{Id}{9}{section*.33}%
+\contentsline {paragraph}{ImagenPortadaUrl}{9}{section*.34}%
+\contentsline {paragraph}{ListaArtistasIndividuales}{9}{section*.35}%
+\contentsline {paragraph}{Metricas}{9}{section*.36}%
+\contentsline {paragraph}{NombreArtista}{9}{section*.37}%
+\contentsline {paragraph}{Titulo}{9}{section*.38}%
+\contentsline {paragraph}{UrlCancion}{9}{section*.39}%
+\contentsline {subsection}{\numberline {3.3}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Central\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tab\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Control\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{9}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Detalles}{9}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Constructores}{10}{subsubsection.3.3.2}%
+\contentsline {paragraph}{CentralTabControlViewModel()}{10}{section*.42}%
+\contentsline {subsubsection}{\numberline {3.3.3}Propiedades}{10}{subsubsection.3.3.3}%
+\contentsline {paragraph}{BtnAyuda}{10}{section*.43}%
+\contentsline {paragraph}{BtnConfiguracion}{11}{section*.44}%
+\contentsline {paragraph}{BtnCrearPlaylist}{11}{section*.45}%
+\contentsline {paragraph}{BtnCuenta}{11}{section*.46}%
+\contentsline {paragraph}{BtnGestionarCuenta}{11}{section*.47}%
+\contentsline {paragraph}{BtnPerfil}{11}{section*.48}%
+\contentsline {paragraph}{BtnPublicarCancion}{11}{section*.49}%
+\contentsline {paragraph}{BtnReproducir}{11}{section*.50}%
+\contentsline {paragraph}{BtnSobreNosotros}{11}{section*.51}%
+\contentsline {paragraph}{BuscadorVM}{12}{section*.52}%
+\contentsline {paragraph}{ImagenPerfil}{12}{section*.53}%
+\contentsline {paragraph}{InicioVM}{12}{section*.54}%
+\contentsline {paragraph}{IrAAyuda}{12}{section*.55}%
+\contentsline {paragraph}{IrAConfig}{12}{section*.56}%
+\contentsline {paragraph}{IrACrearPlaylist}{12}{section*.57}%
+\contentsline {paragraph}{IrACrearReporte}{12}{section*.58}%
+\contentsline {paragraph}{IrACuenta}{12}{section*.59}%
+\contentsline {paragraph}{IrADetallesCancion}{13}{section*.60}%
+\contentsline {paragraph}{IrADetallesPlaylist}{13}{section*.61}%
+\contentsline {paragraph}{IrAGestionarCuenta}{13}{section*.62}%
+\contentsline {paragraph}{IrAPerfil}{13}{section*.63}%
+\contentsline {paragraph}{IrAPublicarCancion}{13}{section*.64}%
+\contentsline {paragraph}{IrASobreNosotros}{13}{section*.65}%
+\contentsline {paragraph}{IrAVerArtista}{13}{section*.66}%
+\contentsline {paragraph}{PopularesVM}{13}{section*.67}%
+\contentsline {paragraph}{SolicitudCancion}{14}{section*.68}%
+\contentsline {subsection}{\numberline {3.4}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Configuracion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}User}{14}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Detalles}{14}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Propiedades}{14}{subsubsection.3.4.2}%
+\contentsline {paragraph}{DiccionarioFuente}{14}{section*.70}%
+\contentsline {paragraph}{DiccionarioIdioma}{14}{section*.71}%
+\contentsline {paragraph}{DiccionarioTema}{14}{section*.72}%
+\contentsline {subsection}{\numberline {3.5}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Helpers.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controlador\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Diccionarios}{14}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Detalles}{14}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}Funciones}{15}{subsubsection.3.5.2}%
+\contentsline {paragraph}{AplicarFuente()}{15}{section*.73}%
+\contentsline {paragraph}{AplicarIdioma()}{15}{section*.74}%
+\contentsline {paragraph}{AplicarTema()}{16}{section*.75}%
+\contentsline {paragraph}{CargarConfiguracionInicial()}{16}{section*.76}%
+\contentsline {paragraph}{ReemplazarRecurso()}{17}{section*.77}%
+\contentsline {subsection}{\numberline {3.6}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Datos\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Cancion}{17}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}Detalles}{17}{subsubsection.3.6.1}%
+\contentsline {subsubsection}{\numberline {3.6.2}Propiedades}{17}{subsubsection.3.6.2}%
+\contentsline {paragraph}{DuracionSegundos}{17}{section*.79}%
+\contentsline {paragraph}{FechaLanzamiento}{18}{section*.80}%
+\contentsline {paragraph}{Generos}{18}{section*.81}%
+\contentsline {paragraph}{GenerosTexto}{18}{section*.82}%
+\contentsline {subsection}{\numberline {3.7}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Services.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dialogo\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Service}{18}{subsection.3.7}%
+\contentsline {subsubsection}{\numberline {3.7.1}Detalles}{18}{subsubsection.3.7.1}%
+\contentsline {subsubsection}{\numberline {3.7.2}Funciones}{18}{subsubsection.3.7.2}%
+\contentsline {paragraph}{MostrarAlerta()}{18}{section*.84}%
+\contentsline {paragraph}{Preguntar()}{18}{section*.85}%
+\contentsline {subsection}{\numberline {3.8}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Helpers.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Encriptador}{19}{subsection.3.8}%
+\contentsline {subsubsection}{\numberline {3.8.1}Detalles}{19}{subsubsection.3.8.1}%
+\contentsline {subsubsection}{\numberline {3.8.2}Funciones}{19}{subsubsection.3.8.2}%
+\contentsline {paragraph}{DesencriptarArchivo()}{19}{section*.86}%
+\contentsline {paragraph}{EncriptarBytes()}{20}{section*.87}%
+\contentsline {paragraph}{HashPassword()}{20}{section*.88}%
+\contentsline {subsection}{\numberline {3.9}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Estadisticas\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usuario}{21}{subsection.3.9}%
+\contentsline {subsubsection}{\numberline {3.9.1}Detalles}{21}{subsubsection.3.9.1}%
+\contentsline {subsubsection}{\numberline {3.9.2}Propiedades}{21}{subsubsection.3.9.2}%
+\contentsline {paragraph}{NumCancionesSubidas}{21}{section*.90}%
+\contentsline {subsection}{\numberline {3.10}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Generos}{21}{subsection.3.10}%
+\contentsline {subsubsection}{\numberline {3.10.1}Detalles}{21}{subsubsection.3.10.1}%
+\contentsline {subsubsection}{\numberline {3.10.2}Propiedades}{22}{subsubsection.3.10.2}%
+\contentsline {paragraph}{Id}{22}{section*.92}%
+\contentsline {paragraph}{Nombre}{22}{section*.93}%
+\contentsline {subsection}{\numberline {3.11}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Singleton.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Global\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data}{22}{subsection.3.11}%
+\contentsline {subsubsection}{\numberline {3.11.1}Detalles}{22}{subsubsection.3.11.1}%
+\contentsline {subsubsection}{\numberline {3.11.2}Constructores}{23}{subsubsection.3.11.2}%
+\contentsline {paragraph}{GlobalData()}{23}{section*.96}%
+\contentsline {subsubsection}{\numberline {3.11.3}Funciones}{23}{subsubsection.3.11.3}%
+\contentsline {paragraph}{ClearUserData()}{23}{section*.97}%
+\contentsline {paragraph}{GetUsuarioObject()}{23}{section*.98}%
+\contentsline {paragraph}{SetUserData()}{23}{section*.99}%
+\contentsline {subsubsection}{\numberline {3.11.4}Propiedades}{24}{subsubsection.3.11.4}%
+\contentsline {paragraph}{DiccionarioFuenteGD}{24}{section*.100}%
+\contentsline {paragraph}{DiccionarioIdiomaGD}{24}{section*.101}%
+\contentsline {paragraph}{DiccionarioTemaGD}{24}{section*.102}%
+\contentsline {paragraph}{EmailGD}{24}{section*.103}%
+\contentsline {paragraph}{Es\_PrivadaGD}{24}{section*.104}%
+\contentsline {paragraph}{FavoritosGD}{24}{section*.105}%
+\contentsline {paragraph}{Fecha\_registroGD}{25}{section*.106}%
+\contentsline {paragraph}{FechaNacimientoGD}{25}{section*.107}%
+\contentsline {paragraph}{Instance}{25}{section*.108}%
+\contentsline {paragraph}{Num\_canciones\_subidasGD}{25}{section*.109}%
+\contentsline {paragraph}{PaisGD}{25}{section*.110}%
+\contentsline {paragraph}{PasswordGD}{25}{section*.111}%
+\contentsline {paragraph}{RolGD}{25}{section*.112}%
+\contentsline {paragraph}{SeguidoresGD}{25}{section*.113}%
+\contentsline {paragraph}{UrlFotoPerfilGD}{26}{section*.114}%
+\contentsline {paragraph}{UserIdGD}{26}{section*.115}%
+\contentsline {paragraph}{UsernameGD}{26}{section*.116}%
+\contentsline {subsection}{\numberline {3.12}Referencia de la interface Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Services.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}IDialogo\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Service}{26}{subsection.3.12}%
+\contentsline {subsubsection}{\numberline {3.12.1}Detalles}{26}{subsubsection.3.12.1}%
+\contentsline {subsubsection}{\numberline {3.12.2}Funciones}{26}{subsubsection.3.12.2}%
+\contentsline {paragraph}{MostrarAlerta()}{26}{section*.118}%
+\contentsline {paragraph}{Preguntar()}{26}{section*.119}%
+\contentsline {subsection}{\numberline {3.13}Referencia de la interface Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}INavegable}{27}{subsection.3.13}%
+\contentsline {subsubsection}{\numberline {3.13.1}Detalles}{27}{subsubsection.3.13.1}%
+\contentsline {subsubsection}{\numberline {3.13.2}Propiedades}{27}{subsubsection.3.13.2}%
+\contentsline {paragraph}{VolverAtras}{27}{section*.121}%
+\contentsline {subsection}{\numberline {3.14}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Services.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Audio\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Service.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Cancion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Nube}{27}{subsection.3.14}%
+\contentsline {subsubsection}{\numberline {3.14.1}Detalles}{27}{subsubsection.3.14.1}%
+\contentsline {subsubsection}{\numberline {3.14.2}Propiedades}{27}{subsubsection.3.14.2}%
+\contentsline {paragraph}{DuracionSegundos}{27}{section*.123}%
+\contentsline {paragraph}{Url}{27}{section*.124}%
+\contentsline {subsection}{\numberline {3.15}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Lista\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Personalizada}{28}{subsection.3.15}%
+\contentsline {subsubsection}{\numberline {3.15.1}Detalles}{28}{subsubsection.3.15.1}%
+\contentsline {subsubsection}{\numberline {3.15.2}Propiedades}{28}{subsubsection.3.15.2}%
+\contentsline {paragraph}{CancionesCompletas}{28}{section*.126}%
+\contentsline {paragraph}{Descripcion}{28}{section*.127}%
+\contentsline {paragraph}{Id}{28}{section*.128}%
+\contentsline {paragraph}{IdsCanciones}{28}{section*.129}%
+\contentsline {paragraph}{IdUsuario}{28}{section*.130}%
+\contentsline {paragraph}{Nombre}{29}{section*.131}%
+\contentsline {paragraph}{UrlPortada}{29}{section*.132}%
+\contentsline {subsection}{\numberline {3.16}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Listas\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usuario}{29}{subsection.3.16}%
+\contentsline {subsubsection}{\numberline {3.16.1}Detalles}{29}{subsubsection.3.16.1}%
+\contentsline {subsubsection}{\numberline {3.16.2}Propiedades}{29}{subsubsection.3.16.2}%
+\contentsline {paragraph}{Favoritos}{29}{section*.134}%
+\contentsline {paragraph}{Seguidores}{29}{section*.135}%
+\contentsline {subsection}{\numberline {3.17}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Lista\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usuarios}{29}{subsection.3.17}%
+\contentsline {subsubsection}{\numberline {3.17.1}Detalles}{29}{subsubsection.3.17.1}%
+\contentsline {subsubsection}{\numberline {3.17.2}Constructores}{30}{subsubsection.3.17.2}%
+\contentsline {paragraph}{ListaUsuarios()}{30}{section*.138}%
+\contentsline {subsubsection}{\numberline {3.17.3}Propiedades}{30}{subsubsection.3.17.3}%
+\contentsline {paragraph}{Lista}{30}{section*.139}%
+\contentsline {paragraph}{Titulo}{30}{section*.140}%
+\contentsline {subsection}{\numberline {3.18}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Login\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{30}{subsection.3.18}%
+\contentsline {subsubsection}{\numberline {3.18.1}Detalles}{30}{subsubsection.3.18.1}%
+\contentsline {subsubsection}{\numberline {3.18.2}Constructores}{31}{subsubsection.3.18.2}%
+\contentsline {paragraph}{LoginViewModel()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{31}{section*.143}%
+\contentsline {paragraph}{LoginViewModel()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{31}{section*.144}%
+\contentsline {subsubsection}{\numberline {3.18.3}Funciones}{31}{subsubsection.3.18.3}%
+\contentsline {paragraph}{IntentarLogin()}{31}{section*.145}%
+\contentsline {subsubsection}{\numberline {3.18.4}Propiedades}{31}{subsubsection.3.18.4}%
+\contentsline {paragraph}{AlCompletarLogin}{31}{section*.146}%
+\contentsline {paragraph}{BtnRegistarUser}{32}{section*.147}%
+\contentsline {paragraph}{IrARegistarUser}{32}{section*.148}%
+\contentsline {paragraph}{Login}{32}{section*.149}%
+\contentsline {paragraph}{TxtPass}{32}{section*.150}%
+\contentsline {paragraph}{TxtUsuario}{32}{section*.151}%
+\contentsline {subsection}{\numberline {3.19}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Marco\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}App\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{32}{subsection.3.19}%
+\contentsline {subsubsection}{\numberline {3.19.1}Detalles}{32}{subsubsection.3.19.1}%
+\contentsline {subsubsection}{\numberline {3.19.2}Constructores}{34}{subsubsection.3.19.2}%
+\contentsline {paragraph}{MarcoAppViewModel()}{34}{section*.154}%
+\contentsline {subsubsection}{\numberline {3.19.3}Funciones}{34}{subsubsection.3.19.3}%
+\contentsline {paragraph}{AccionarPlayPause()}{34}{section*.155}%
+\contentsline {paragraph}{ActivarVolverAtras()}{34}{section*.156}%
+\contentsline {paragraph}{ActualizarIconoAleatorio()}{35}{section*.157}%
+\contentsline {paragraph}{ActualizarIconoNextBack()}{35}{section*.158}%
+\contentsline {paragraph}{AlterarFavorito()}{35}{section*.159}%
+\contentsline {paragraph}{AlternarAleatorio()}{36}{section*.160}%
+\contentsline {paragraph}{BackCancion()}{36}{section*.161}%
+\contentsline {paragraph}{CargarYReproducir()}{36}{section*.162}%
+\contentsline {paragraph}{CerrarAplicacion()}{37}{section*.163}%
+\contentsline {paragraph}{CerrarSesion()}{37}{section*.164}%
+\contentsline {paragraph}{IrAAyuda()}{37}{section*.165}%
+\contentsline {paragraph}{IrACrearPlaylist()}{37}{section*.166}%
+\contentsline {paragraph}{IrACrearReporte()}{38}{section*.167}%
+\contentsline {paragraph}{IrACrearUsuario()}{38}{section*.168}%
+\contentsline {paragraph}{IrADetallesCancion()}{38}{section*.169}%
+\contentsline {paragraph}{IrADetallesPlaylist()}{38}{section*.170}%
+\contentsline {paragraph}{IrAEditarCancion()}{39}{section*.171}%
+\contentsline {paragraph}{IrAEditarPlaylist()}{39}{section*.172}%
+\contentsline {paragraph}{IrAlCentralTabControl()}{39}{section*.173}%
+\contentsline {paragraph}{IrAPanelUsuario()}{40}{section*.174}%
+\contentsline {paragraph}{IrAPublicarCancion()}{40}{section*.175}%
+\contentsline {paragraph}{IrASobreNosotros()}{40}{section*.176}%
+\contentsline {paragraph}{IrAVerArtista()}{41}{section*.177}%
+\contentsline {paragraph}{LimpiarArchivoTemporal()}{41}{section*.178}%
+\contentsline {paragraph}{NextCancion()}{41}{section*.179}%
+\contentsline {paragraph}{RefrescarIconos()}{41}{section*.180}%
+\contentsline {paragraph}{ReproducirCancion()}{42}{section*.181}%
+\contentsline {paragraph}{Timer\_Tick()}{42}{section*.182}%
+\contentsline {subsubsection}{\numberline {3.19.4}Propiedades}{42}{subsubsection.3.19.4}%
+\contentsline {paragraph}{BarraVisible}{42}{section*.183}%
+\contentsline {paragraph}{BtnAleatorioCommand}{43}{section*.184}%
+\contentsline {paragraph}{BtnBackCommand}{43}{section*.185}%
+\contentsline {paragraph}{BtnFavCommand}{43}{section*.186}%
+\contentsline {paragraph}{BtnNextCommand}{43}{section*.187}%
+\contentsline {paragraph}{BtnPlayPauseCommand}{43}{section*.188}%
+\contentsline {paragraph}{IconoAleatorio}{43}{section*.189}%
+\contentsline {paragraph}{IconoBack}{43}{section*.190}%
+\contentsline {paragraph}{IconoLike}{43}{section*.191}%
+\contentsline {paragraph}{IconoNext}{44}{section*.192}%
+\contentsline {paragraph}{IconoPlayPause}{44}{section*.193}%
+\contentsline {paragraph}{ImagenCancionActual}{44}{section*.194}%
+\contentsline {paragraph}{NombreArtistaActual}{44}{section*.195}%
+\contentsline {paragraph}{NombreCancionActual}{44}{section*.196}%
+\contentsline {paragraph}{PopupActual}{44}{section*.197}%
+\contentsline {paragraph}{PopupVisible}{44}{section*.198}%
+\contentsline {paragraph}{TiempoActualCancion}{44}{section*.199}%
+\contentsline {paragraph}{TiempoTotalCancion}{45}{section*.200}%
+\contentsline {paragraph}{ValorSliderCancion}{45}{section*.201}%
+\contentsline {paragraph}{ValorSliderVolumen}{45}{section*.202}%
+\contentsline {paragraph}{VistaActual}{45}{section*.203}%
+\contentsline {subsection}{\numberline {3.20}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Metricas\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Cancion}{45}{subsection.3.20}%
+\contentsline {subsubsection}{\numberline {3.20.1}Detalles}{45}{subsubsection.3.20.1}%
+\contentsline {subsubsection}{\numberline {3.20.2}Propiedades}{45}{subsubsection.3.20.2}%
+\contentsline {paragraph}{PuntuacionTendencia}{45}{section*.205}%
+\contentsline {paragraph}{TotalMegustas}{46}{section*.206}%
+\contentsline {paragraph}{TotalReproducciones}{46}{section*.207}%
+\contentsline {subsection}{\numberline {3.21}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Services.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Mongo\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Atlas}{46}{subsection.3.21}%
+\contentsline {subsubsection}{\numberline {3.21.1}Detalles}{46}{subsubsection.3.21.1}%
+\contentsline {subsubsection}{\numberline {3.21.2}Constructores}{47}{subsubsection.3.21.2}%
+\contentsline {paragraph}{MongoAtlas()}{47}{section*.210}%
+\contentsline {subsubsection}{\numberline {3.21.3}Funciones}{48}{subsubsection.3.21.3}%
+\contentsline {paragraph}{ActualizarCancion()}{48}{section*.211}%
+\contentsline {paragraph}{ActualizarConfiguracionUsuario()}{48}{section*.212}%
+\contentsline {paragraph}{ActualizarEstadoReporte()}{48}{section*.213}%
+\contentsline {paragraph}{ActualizarGenero()}{48}{section*.214}%
+\contentsline {paragraph}{ActualizarPerfilUsuario()}{48}{section*.215}%
+\contentsline {paragraph}{ActualizarPlaylist()}{49}{section*.216}%
+\contentsline {paragraph}{ActualizarTendencia()}{49}{section*.217}%
+\contentsline {paragraph}{ActualizarUsuario()}{49}{section*.218}%
+\contentsline {paragraph}{AgregarAFavorito()}{50}{section*.219}%
+\contentsline {paragraph}{Conectar()}{50}{section*.220}%
+\contentsline {paragraph}{CrearGenero()}{51}{section*.221}%
+\contentsline {paragraph}{CrearListaReproduccion()}{51}{section*.222}%
+\contentsline {paragraph}{CrearUsuario()}{51}{section*.223}%
+\contentsline {paragraph}{DejarDeSeguirUsuario()}{52}{section*.224}%
+\contentsline {paragraph}{EliminarCancionPorId()}{52}{section*.225}%
+\contentsline {paragraph}{EliminarDeFavorito()}{52}{section*.226}%
+\contentsline {paragraph}{EliminarGenero()}{53}{section*.227}%
+\contentsline {paragraph}{EliminarPlaylistPorId()}{53}{section*.228}%
+\contentsline {paragraph}{EliminarReporte()}{53}{section*.229}%
+\contentsline {paragraph}{EliminarUsuario()}{54}{section*.230}%
+\contentsline {paragraph}{EnviarReporte()}{54}{section*.231}%
+\contentsline {paragraph}{IncrementarContadorCancionesUsuario()}{54}{section*.232}%
+\contentsline {paragraph}{IncrementarMetricaCancion()}{54}{section*.233}%
+\contentsline {paragraph}{LoginUsuario()}{55}{section*.234}%
+\contentsline {paragraph}{ObtenerCacionesNovedades()}{55}{section*.235}%
+\contentsline {paragraph}{ObtenerCanciones()}{55}{section*.236}%
+\contentsline {paragraph}{ObtenerCancionesFavoritos()}{55}{section*.237}%
+\contentsline {paragraph}{ObtenerCancionesPorAutor()}{55}{section*.238}%
+\contentsline {paragraph}{ObtenerCancionesPorBusqueda()}{55}{section*.239}%
+\contentsline {paragraph}{ObtenerCancionesPorGenero()}{55}{section*.240}%
+\contentsline {paragraph}{ObtenerCancionesPorListaIds()}{56}{section*.241}%
+\contentsline {paragraph}{ObtenerGenerosCompletos()}{56}{section*.242}%
+\contentsline {paragraph}{ObtenerListasReproduccion()}{56}{section*.243}%
+\contentsline {paragraph}{ObtenerMixPorGenero()}{56}{section*.244}%
+\contentsline {paragraph}{ObtenerNombresGeneros()}{56}{section*.245}%
+\contentsline {paragraph}{ObtenerPlaylistsPorCreador()}{57}{section*.246}%
+\contentsline {paragraph}{ObtenerReportes()}{57}{section*.247}%
+\contentsline {paragraph}{ObtenerTodosLosUsuarios()}{57}{section*.248}%
+\contentsline {paragraph}{ObtenerUsuariosPorBusqueda()}{57}{section*.249}%
+\contentsline {paragraph}{ObtenerUsuariosPorListaIds()}{57}{section*.250}%
+\contentsline {paragraph}{PublicarCancion()}{58}{section*.251}%
+\contentsline {paragraph}{RellenarNombresDeArtistas()}{58}{section*.252}%
+\contentsline {paragraph}{SeguirUsuario()}{58}{section*.253}%
+\contentsline {subsubsection}{\numberline {3.21.4}Propiedades}{58}{subsubsection.3.21.4}%
+\contentsline {paragraph}{Database}{58}{section*.254}%
+\contentsline {subsection}{\numberline {3.22}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Singleton.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Mongo\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Singleton}{59}{subsection.3.22}%
+\contentsline {subsubsection}{\numberline {3.22.1}Detalles}{59}{subsubsection.3.22.1}%
+\contentsline {subsubsection}{\numberline {3.22.2}Constructores}{59}{subsubsection.3.22.2}%
+\contentsline {paragraph}{MongoClientSingleton()}{59}{section*.256}%
+\contentsline {subsubsection}{\numberline {3.22.3}Propiedades}{59}{subsubsection.3.22.3}%
+\contentsline {paragraph}{Cliente}{59}{section*.257}%
+\contentsline {paragraph}{Instance}{59}{section*.258}%
+\contentsline {subsection}{\numberline {3.23}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controllers.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Music\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller}{59}{subsection.3.23}%
+\contentsline {subsubsection}{\numberline {3.23.1}Detalles}{59}{subsubsection.3.23.1}%
+\contentsline {subsubsection}{\numberline {3.23.2}Constructores}{60}{subsubsection.3.23.2}%
+\contentsline {paragraph}{MusicController()}{60}{section*.260}%
+\contentsline {subsubsection}{\numberline {3.23.3}Funciones}{60}{subsubsection.3.23.3}%
+\contentsline {paragraph}{ActualizarYtDlp()}{60}{section*.261}%
+\contentsline {paragraph}{GetStreamUrl()}{60}{section*.262}%
+\contentsline {paragraph}{InicializarEntorno()}{61}{section*.263}%
+\contentsline {subsection}{\numberline {3.24}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Panel\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{61}{subsection.3.24}%
+\contentsline {subsubsection}{\numberline {3.24.1}Detalles}{61}{subsubsection.3.24.1}%
+\contentsline {subsubsection}{\numberline {3.24.2}Constructores}{62}{subsubsection.3.24.2}%
+\contentsline {paragraph}{PanelUsuarioViewModel()}{62}{section*.266}%
+\contentsline {subsubsection}{\numberline {3.24.3}Funciones}{62}{subsubsection.3.24.3}%
+\contentsline {paragraph}{ConfigurarPermisos()}{62}{section*.267}%
+\contentsline {subsubsection}{\numberline {3.24.4}Propiedades}{62}{subsubsection.3.24.4}%
+\contentsline {paragraph}{AccionLogout}{62}{section*.268}%
+\contentsline {paragraph}{AccionRefrescarDesdePadre}{63}{section*.269}%
+\contentsline {paragraph}{AccionSalir}{63}{section*.270}%
+\contentsline {paragraph}{IndiceTab}{63}{section*.271}%
+\contentsline {paragraph}{IrAEditarCancion}{63}{section*.272}%
+\contentsline {paragraph}{IrAEditarPlaylist}{63}{section*.273}%
+\contentsline {paragraph}{PuedeVerBD}{63}{section*.274}%
+\contentsline {paragraph}{PuedeVerReportes}{63}{section*.275}%
+\contentsline {paragraph}{ViewConfiguracionVM}{63}{section*.276}%
+\contentsline {paragraph}{ViewCuentaVM}{64}{section*.277}%
+\contentsline {paragraph}{ViewGestionarBDVM}{64}{section*.278}%
+\contentsline {paragraph}{ViewGestionarCuentaVM}{64}{section*.279}%
+\contentsline {paragraph}{ViewGestionarReportesVM}{64}{section*.280}%
+\contentsline {paragraph}{ViewPerfilVM}{64}{section*.281}%
+\contentsline {paragraph}{VolverAtras}{64}{section*.282}%
+\contentsline {subsection}{\numberline {3.25}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Perfil\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usuario}{64}{subsection.3.25}%
+\contentsline {subsubsection}{\numberline {3.25.1}Detalles}{64}{subsubsection.3.25.1}%
+\contentsline {subsubsection}{\numberline {3.25.2}Propiedades}{65}{subsubsection.3.25.2}%
+\contentsline {paragraph}{EsPrivada}{65}{section*.284}%
+\contentsline {paragraph}{FechaNacimiento}{65}{section*.285}%
+\contentsline {paragraph}{ImagenUrl}{65}{section*.286}%
+\contentsline {paragraph}{Pais}{65}{section*.287}%
+\contentsline {subsection}{\numberline {3.26}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Referencias\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reporte}{65}{subsection.3.26}%
+\contentsline {subsubsection}{\numberline {3.26.1}Detalles}{65}{subsubsection.3.26.1}%
+\contentsline {subsubsection}{\numberline {3.26.2}Propiedades}{66}{subsubsection.3.26.2}%
+\contentsline {paragraph}{CancionReportadaId}{66}{section*.289}%
+\contentsline {paragraph}{UsuarioReportanteId}{66}{section*.290}%
+\contentsline {subsection}{\numberline {3.27}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reportes}{66}{subsection.3.27}%
+\contentsline {subsubsection}{\numberline {3.27.1}Detalles}{66}{subsubsection.3.27.1}%
+\contentsline {subsubsection}{\numberline {3.27.2}Propiedades}{66}{subsubsection.3.27.2}%
+\contentsline {paragraph}{ColorEstado}{66}{section*.292}%
+\contentsline {paragraph}{Descripcion}{66}{section*.293}%
+\contentsline {paragraph}{Estado}{67}{section*.294}%
+\contentsline {paragraph}{FechaCreacion}{67}{section*.295}%
+\contentsline {paragraph}{Id}{67}{section*.296}%
+\contentsline {paragraph}{NombreReportante}{67}{section*.297}%
+\contentsline {paragraph}{Referencias}{67}{section*.298}%
+\contentsline {paragraph}{Resolucion}{67}{section*.299}%
+\contentsline {paragraph}{TipoProblema}{67}{section*.300}%
+\contentsline {paragraph}{TituloCancionReportada}{67}{section*.301}%
+\contentsline {subsection}{\numberline {3.28}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Roles}{68}{subsection.3.28}%
+\contentsline {subsubsection}{\numberline {3.28.1}Detalles}{68}{subsubsection.3.28.1}%
+\contentsline {subsection}{\numberline {3.29}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controllers.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Storage\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller}{68}{subsection.3.29}%
+\contentsline {subsubsection}{\numberline {3.29.1}Detalles}{68}{subsubsection.3.29.1}%
+\contentsline {subsubsection}{\numberline {3.29.2}Constructores}{68}{subsubsection.3.29.2}%
+\contentsline {paragraph}{StorageController()}{68}{section*.303}%
+\contentsline {subsubsection}{\numberline {3.29.3}Funciones}{68}{subsubsection.3.29.3}%
+\contentsline {paragraph}{EliminarArchivo()}{68}{section*.304}%
+\contentsline {paragraph}{ObtenerPublicId()}{69}{section*.305}%
+\contentsline {paragraph}{SubirAudio()}{70}{section*.306}%
+\contentsline {paragraph}{SubirImagen()}{70}{section*.307}%
+\contentsline {subsection}{\numberline {3.30}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Services.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Storage\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Service}{71}{subsection.3.30}%
+\contentsline {subsubsection}{\numberline {3.30.1}Detalles}{71}{subsubsection.3.30.1}%
+\contentsline {subsubsection}{\numberline {3.30.2}Funciones}{71}{subsubsection.3.30.2}%
+\contentsline {paragraph}{EliminarArchivo()}{71}{section*.309}%
+\contentsline {paragraph}{EnviarA\_Api()}{72}{section*.310}%
+\contentsline {paragraph}{SubirCancion()}{73}{section*.311}%
+\contentsline {paragraph}{SubirImagen()}{73}{section*.312}%
+\contentsline {subsection}{\numberline {3.31}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tab\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Item\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Buscador\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{74}{subsection.3.31}%
+\contentsline {subsubsection}{\numberline {3.31.1}Detalles}{74}{subsubsection.3.31.1}%
+\contentsline {subsubsection}{\numberline {3.31.2}Constructores}{74}{subsubsection.3.31.2}%
+\contentsline {paragraph}{TabItemBuscadorViewModel()}{74}{section*.315}%
+\contentsline {subsubsection}{\numberline {3.31.3}Funciones}{74}{subsubsection.3.31.3}%
+\contentsline {paragraph}{BuscarEnBD()}{74}{section*.316}%
+\contentsline {subsubsection}{\numberline {3.31.4}Propiedades}{75}{subsubsection.3.31.4}%
+\contentsline {paragraph}{BtnBuscar}{75}{section*.317}%
+\contentsline {paragraph}{ListaBusqueda}{75}{section*.318}%
+\contentsline {paragraph}{TxtBusqueda}{75}{section*.319}%
+\contentsline {paragraph}{TxtContador}{75}{section*.320}%
+\contentsline {paragraph}{TxtInfoResultado}{75}{section*.321}%
+\contentsline {subsection}{\numberline {3.32}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tab\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Item\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Inicio\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{75}{subsection.3.32}%
+\contentsline {subsubsection}{\numberline {3.32.1}Detalles}{75}{subsubsection.3.32.1}%
+\contentsline {subsubsection}{\numberline {3.32.2}Constructores}{76}{subsubsection.3.32.2}%
+\contentsline {paragraph}{TabItemInicioViewModel()}{76}{section*.324}%
+\contentsline {subsubsection}{\numberline {3.32.3}Funciones}{76}{subsubsection.3.32.3}%
+\contentsline {paragraph}{CargarDatosCanciones()}{76}{section*.325}%
+\contentsline {paragraph}{IrAArtistaDesdeBoton()}{77}{section*.326}%
+\contentsline {paragraph}{ReproducirDesdeBoton()}{77}{section*.327}%
+\contentsline {paragraph}{ReproducirPlaylist()}{77}{section*.328}%
+\contentsline {subsubsection}{\numberline {3.32.4}Propiedades}{78}{subsubsection.3.32.4}%
+\contentsline {paragraph}{BtnIrAArtista}{78}{section*.329}%
+\contentsline {paragraph}{BtnIrADetalleCancion}{78}{section*.330}%
+\contentsline {paragraph}{BtnIrADetallesPlaylist}{78}{section*.331}%
+\contentsline {paragraph}{BtnIrAReportar}{78}{section*.332}%
+\contentsline {paragraph}{BtnRefrescar}{78}{section*.333}%
+\contentsline {paragraph}{BtnReproducirDesdeTarjeta}{78}{section*.334}%
+\contentsline {paragraph}{BtnReproducirPlaylist}{79}{section*.335}%
+\contentsline {paragraph}{EnviarReproduccion}{79}{section*.336}%
+\contentsline {paragraph}{Playlists}{79}{section*.337}%
+\contentsline {paragraph}{SolicitudCrearReporte}{79}{section*.338}%
+\contentsline {paragraph}{SolicitudVerArtista}{79}{section*.339}%
+\contentsline {paragraph}{SolicitudVerDetallasPlaylist}{79}{section*.340}%
+\contentsline {paragraph}{SolicitudVerDetalles}{79}{section*.341}%
+\contentsline {paragraph}{Tarjetas}{80}{section*.342}%
+\contentsline {paragraph}{TxtFav}{80}{section*.343}%
+\contentsline {subsection}{\numberline {3.33}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tab\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Item\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Populares\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{80}{subsection.3.33}%
+\contentsline {subsubsection}{\numberline {3.33.1}Detalles}{80}{subsubsection.3.33.1}%
+\contentsline {subsubsection}{\numberline {3.33.2}Constructores}{80}{subsubsection.3.33.2}%
+\contentsline {paragraph}{TabItemPopularesViewModel()}{80}{section*.346}%
+\contentsline {subsubsection}{\numberline {3.33.3}Funciones}{81}{subsubsection.3.33.3}%
+\contentsline {paragraph}{CargarCancionesPorGenero()}{81}{section*.347}%
+\contentsline {paragraph}{CargarGeneros()}{81}{section*.348}%
+\contentsline {subsubsection}{\numberline {3.33.4}Propiedades}{81}{subsubsection.3.33.4}%
+\contentsline {paragraph}{GeneroSeleccionado}{81}{section*.349}%
+\contentsline {paragraph}{ListaGeneros}{82}{section*.350}%
+\contentsline {paragraph}{ListaPopulares}{82}{section*.351}%
+\contentsline {paragraph}{TxtGeneroMostrado}{82}{section*.352}%
+\contentsline {paragraph}{TxtInfo}{82}{section*.353}%
+\contentsline {subsection}{\numberline {3.34}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tarjetas\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Canciones}{82}{subsection.3.34}%
+\contentsline {subsubsection}{\numberline {3.34.1}Detalles}{82}{subsubsection.3.34.1}%
+\contentsline {subsubsection}{\numberline {3.34.2}Constructores}{82}{subsubsection.3.34.2}%
+\contentsline {paragraph}{TarjetasCanciones()}{82}{section*.356}%
+\contentsline {subsubsection}{\numberline {3.34.3}Propiedades}{83}{subsubsection.3.34.3}%
+\contentsline {paragraph}{ListaCanciones}{83}{section*.357}%
+\contentsline {paragraph}{TituloSeccion}{83}{section*.358}%
+\contentsline {subsection}{\numberline {3.35}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tarjetas\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Listas}{83}{subsection.3.35}%
+\contentsline {subsubsection}{\numberline {3.35.1}Detalles}{83}{subsubsection.3.35.1}%
+\contentsline {subsubsection}{\numberline {3.35.2}Constructores}{83}{subsubsection.3.35.2}%
+\contentsline {paragraph}{TarjetasListas()}{83}{section*.361}%
+\contentsline {subsubsection}{\numberline {3.35.3}Propiedades}{83}{subsubsection.3.35.3}%
+\contentsline {paragraph}{Listas}{83}{section*.362}%
+\contentsline {paragraph}{TituloSeccion}{84}{section*.363}%
+\contentsline {subsection}{\numberline {3.36}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Helpers.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Texto\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Traducido\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Converter}{84}{subsection.3.36}%
+\contentsline {subsubsection}{\numberline {3.36.1}Detalles}{84}{subsubsection.3.36.1}%
+\contentsline {subsubsection}{\numberline {3.36.2}Funciones}{84}{subsubsection.3.36.2}%
+\contentsline {paragraph}{Convert()}{84}{section*.365}%
+\contentsline {paragraph}{ConvertBack()}{85}{section*.366}%
+\contentsline {subsection}{\numberline {3.37}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usuarios}{85}{subsection.3.37}%
+\contentsline {subsubsection}{\numberline {3.37.1}Detalles}{85}{subsubsection.3.37.1}%
+\contentsline {subsubsection}{\numberline {3.37.2}Propiedades}{85}{subsubsection.3.37.2}%
+\contentsline {paragraph}{Configuracion}{85}{section*.368}%
+\contentsline {paragraph}{Email}{86}{section*.369}%
+\contentsline {paragraph}{Estadisticas}{86}{section*.370}%
+\contentsline {paragraph}{FechaRegistro}{86}{section*.371}%
+\contentsline {paragraph}{Id}{86}{section*.372}%
+\contentsline {paragraph}{Listas}{86}{section*.373}%
+\contentsline {paragraph}{Password}{86}{section*.374}%
+\contentsline {paragraph}{Perfil}{86}{section*.375}%
+\contentsline {paragraph}{Rol}{86}{section*.376}%
+\contentsline {paragraph}{Username}{87}{section*.377}%
+\contentsline {subsection}{\numberline {3.38}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Ventana\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Aviso\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{87}{subsection.3.38}%
+\contentsline {subsubsection}{\numberline {3.38.1}Detalles}{87}{subsubsection.3.38.1}%
+\contentsline {subsubsection}{\numberline {3.38.2}Constructores}{87}{subsubsection.3.38.2}%
+\contentsline {paragraph}{VentanaAvisoViewModel()}{87}{section*.380}%
+\contentsline {subsubsection}{\numberline {3.38.3}Propiedades}{87}{subsubsection.3.38.3}%
+\contentsline {paragraph}{BtnAceptar}{87}{section*.381}%
+\contentsline {paragraph}{Mensaje}{87}{section*.382}%
+\contentsline {subsection}{\numberline {3.39}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Ventana\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Confirmacion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{88}{subsection.3.39}%
+\contentsline {subsubsection}{\numberline {3.39.1}Detalles}{88}{subsubsection.3.39.1}%
+\contentsline {subsubsection}{\numberline {3.39.2}Constructores}{88}{subsubsection.3.39.2}%
+\contentsline {paragraph}{VentanaConfirmacionViewModel()}{88}{section*.385}%
+\contentsline {subsubsection}{\numberline {3.39.3}Propiedades}{88}{subsubsection.3.39.3}%
+\contentsline {paragraph}{BtnNo}{88}{section*.386}%
+\contentsline {paragraph}{BtnSi}{88}{section*.387}%
+\contentsline {paragraph}{MensajeCuerpo}{89}{section*.388}%
+\contentsline {paragraph}{TextoBotonNo}{89}{section*.389}%
+\contentsline {paragraph}{TextoBotonSi}{89}{section*.390}%
+\contentsline {paragraph}{TituloCabecera}{89}{section*.391}%
+\contentsline {subsection}{\numberline {3.40}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Ayuda\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{89}{subsection.3.40}%
+\contentsline {subsubsection}{\numberline {3.40.1}Detalles}{89}{subsubsection.3.40.1}%
+\contentsline {subsubsection}{\numberline {3.40.2}Constructores}{89}{subsubsection.3.40.2}%
+\contentsline {paragraph}{ViewAyudaViewModel()}{89}{section*.394}%
+\contentsline {subsubsection}{\numberline {3.40.3}Propiedades}{90}{subsubsection.3.40.3}%
+\contentsline {paragraph}{btnVolverAtras}{90}{section*.395}%
+\contentsline {paragraph}{VolverAtras}{90}{section*.396}%
+\contentsline {subsection}{\numberline {3.41}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Canciones\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{90}{subsection.3.41}%
+\contentsline {subsubsection}{\numberline {3.41.1}Detalles}{90}{subsubsection.3.41.1}%
+\contentsline {subsubsection}{\numberline {3.41.2}Constructores}{90}{subsubsection.3.41.2}%
+\contentsline {paragraph}{ViewCancionesViewModel()}{90}{section*.399}%
+\contentsline {subsubsection}{\numberline {3.41.3}Funciones}{91}{subsubsection.3.41.3}%
+\contentsline {paragraph}{ActualizarIconoLike()}{91}{section*.400}%
+\contentsline {paragraph}{IniciarHiloActualizacion()}{91}{section*.401}%
+\contentsline {subsubsection}{\numberline {3.41.4}Propiedades}{91}{subsubsection.3.41.4}%
+\contentsline {paragraph}{BtnLike}{91}{section*.402}%
+\contentsline {paragraph}{BtnReproducir}{91}{section*.403}%
+\contentsline {paragraph}{BtnVolver}{92}{section*.404}%
+\contentsline {paragraph}{Cancion}{92}{section*.405}%
+\contentsline {paragraph}{DuracionFormateada}{92}{section*.406}%
+\contentsline {paragraph}{FechaLanzamientoFormateada}{92}{section*.407}%
+\contentsline {paragraph}{IconoLike}{92}{section*.408}%
+\contentsline {paragraph}{TxtMensajeTimer}{92}{section*.409}%
+\contentsline {paragraph}{TxtVariableTimer}{92}{section*.410}%
+\contentsline {subsection}{\numberline {3.42}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Configuracion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{92}{subsection.3.42}%
+\contentsline {subsubsection}{\numberline {3.42.1}Detalles}{92}{subsubsection.3.42.1}%
+\contentsline {subsubsection}{\numberline {3.42.2}Constructores}{93}{subsubsection.3.42.2}%
+\contentsline {paragraph}{ViewConfiguracionViewModel()}{93}{section*.413}%
+\contentsline {subsubsection}{\numberline {3.42.3}Funciones}{93}{subsubsection.3.42.3}%
+\contentsline {paragraph}{AplicarCambioFuente()}{93}{section*.414}%
+\contentsline {paragraph}{AplicarCambioIdioma()}{94}{section*.415}%
+\contentsline {paragraph}{AplicarCambioTema()}{94}{section*.416}%
+\contentsline {paragraph}{CargarEstadoInicial()}{95}{section*.417}%
+\contentsline {paragraph}{GuardarConfiguracionEnMongo()}{95}{section*.418}%
+\contentsline {subsubsection}{\numberline {3.42.4}Propiedades}{95}{subsubsection.3.42.4}%
+\contentsline {paragraph}{BtnCerrarSesion}{95}{section*.419}%
+\contentsline {paragraph}{BtnSalirApp}{95}{section*.420}%
+\contentsline {paragraph}{BtnVolverAtras}{96}{section*.421}%
+\contentsline {paragraph}{IndiceFuente}{96}{section*.422}%
+\contentsline {paragraph}{IndiceIdioma}{96}{section*.423}%
+\contentsline {paragraph}{IndiceTema}{96}{section*.424}%
+\contentsline {paragraph}{IndiceTemaOscuro}{96}{section*.425}%
+\contentsline {subsection}{\numberline {3.43}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Crear\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Lista\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Personalizada\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{96}{subsection.3.43}%
+\contentsline {subsubsection}{\numberline {3.43.1}Detalles}{96}{subsubsection.3.43.1}%
+\contentsline {subsubsection}{\numberline {3.43.2}Constructores}{97}{subsubsection.3.43.2}%
+\contentsline {paragraph}{ViewCrearListaPersonalizadaViewModel()}{97}{section*.428}%
+\contentsline {subsubsection}{\numberline {3.43.3}Funciones}{97}{subsubsection.3.43.3}%
+\contentsline {paragraph}{AgregarCancion()}{97}{section*.429}%
+\contentsline {paragraph}{BuscarCanciones()}{98}{section*.430}%
+\contentsline {paragraph}{CargarImagenLocal()}{98}{section*.431}%
+\contentsline {paragraph}{CrearLista()}{98}{section*.432}%
+\contentsline {paragraph}{EliminarCancion()}{99}{section*.433}%
+\contentsline {subsubsection}{\numberline {3.43.4}Propiedades}{99}{subsubsection.3.43.4}%
+\contentsline {paragraph}{BtnAgregarCancion}{99}{section*.434}%
+\contentsline {paragraph}{BtnBuscarCanciones}{99}{section*.435}%
+\contentsline {paragraph}{BtnCrear}{99}{section*.436}%
+\contentsline {paragraph}{BtnEliminarCancion}{99}{section*.437}%
+\contentsline {paragraph}{BtnVolverAtras}{100}{section*.438}%
+\contentsline {paragraph}{EstaCargando}{100}{section*.439}%
+\contentsline {paragraph}{ImagenPortada}{100}{section*.440}%
+\contentsline {paragraph}{ListaCancionesSeleccionadas}{100}{section*.441}%
+\contentsline {paragraph}{ListaResultados}{100}{section*.442}%
+\contentsline {paragraph}{RutaImagen}{100}{section*.443}%
+\contentsline {paragraph}{TieneImagen}{100}{section*.444}%
+\contentsline {paragraph}{TxtBusqueda}{101}{section*.445}%
+\contentsline {paragraph}{TxtDescripcion}{101}{section*.446}%
+\contentsline {paragraph}{TxtNombre}{101}{section*.447}%
+\contentsline {subsection}{\numberline {3.44}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Crear\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reporte\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{101}{subsection.3.44}%
+\contentsline {subsubsection}{\numberline {3.44.1}Detalles}{101}{subsubsection.3.44.1}%
+\contentsline {subsubsection}{\numberline {3.44.2}Constructores}{101}{subsubsection.3.44.2}%
+\contentsline {paragraph}{ViewCrearReporteViewModel()}{101}{section*.450}%
+\contentsline {subsubsection}{\numberline {3.44.3}Funciones}{102}{subsubsection.3.44.3}%
+\contentsline {paragraph}{EnviarReporteAsync()}{102}{section*.451}%
+\contentsline {subsubsection}{\numberline {3.44.4}Propiedades}{102}{subsubsection.3.44.4}%
+\contentsline {paragraph}{BtnCancelar}{102}{section*.452}%
+\contentsline {paragraph}{BtnEnviarReporte}{102}{section*.453}%
+\contentsline {paragraph}{CancionAReportar}{102}{section*.454}%
+\contentsline {paragraph}{DescripcionTexto}{102}{section*.455}%
+\contentsline {paragraph}{MensajeEstado}{102}{section*.456}%
+\contentsline {paragraph}{TiposDeProblema}{103}{section*.457}%
+\contentsline {paragraph}{TipoSeleccionado}{103}{section*.458}%
+\contentsline {subsection}{\numberline {3.45}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Crear\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{103}{subsection.3.45}%
+\contentsline {subsubsection}{\numberline {3.45.1}Detalles}{103}{subsubsection.3.45.1}%
+\contentsline {subsubsection}{\numberline {3.45.2}Constructores}{103}{subsubsection.3.45.2}%
+\contentsline {paragraph}{ViewCrearUsuarioViewModel()}{103}{section*.461}%
+\contentsline {subsubsection}{\numberline {3.45.3}Funciones}{104}{subsubsection.3.45.3}%
+\contentsline {paragraph}{CargarImagenPrevia()}{104}{section*.462}%
+\contentsline {paragraph}{RegistrarseTask()}{104}{section*.463}%
+\contentsline {subsubsection}{\numberline {3.45.4}Propiedades}{104}{subsubsection.3.45.4}%
+\contentsline {paragraph}{BtnRegistrarse}{104}{section*.464}%
+\contentsline {paragraph}{BtnVolver}{104}{section*.465}%
+\contentsline {paragraph}{ConfirmarPass}{105}{section*.466}%
+\contentsline {paragraph}{EstaCargando}{105}{section*.467}%
+\contentsline {paragraph}{FotoPerfilBitmap}{105}{section*.468}%
+\contentsline {paragraph}{ListaPaises}{105}{section*.469}%
+\contentsline {paragraph}{NuevoUsuario}{105}{section*.470}%
+\contentsline {subsection}{\numberline {3.46}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Cuenta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{105}{subsection.3.46}%
+\contentsline {subsubsection}{\numberline {3.46.1}Detalles}{105}{subsubsection.3.46.1}%
+\contentsline {subsubsection}{\numberline {3.46.2}Constructores}{106}{subsubsection.3.46.2}%
+\contentsline {paragraph}{ViewCuentaViewModel()}{106}{section*.473}%
+\contentsline {subsubsection}{\numberline {3.46.3}Funciones}{106}{subsubsection.3.46.3}%
+\contentsline {paragraph}{CargarDatos()}{106}{section*.474}%
+\contentsline {paragraph}{GuardarCambios()}{106}{section*.475}%
+\contentsline {subsubsection}{\numberline {3.46.4}Propiedades}{107}{subsubsection.3.46.4}%
+\contentsline {paragraph}{BtnGuardar}{107}{section*.476}%
+\contentsline {paragraph}{BtnRefrescar}{107}{section*.477}%
+\contentsline {paragraph}{Email}{107}{section*.478}%
+\contentsline {paragraph}{FechaNacimiento}{107}{section*.479}%
+\contentsline {paragraph}{IndexPrivacidad}{107}{section*.480}%
+\contentsline {paragraph}{NombreUsuario}{107}{section*.481}%
+\contentsline {paragraph}{Pais}{107}{section*.482}%
+\contentsline {subsection}{\numberline {3.47}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Editar\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Cancion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{108}{subsection.3.47}%
+\contentsline {subsubsection}{\numberline {3.47.1}Detalles}{108}{subsubsection.3.47.1}%
+\contentsline {subsubsection}{\numberline {3.47.2}Constructores}{108}{subsubsection.3.47.2}%
+\contentsline {paragraph}{ViewEditarCancionViewModel()}{108}{section*.485}%
+\contentsline {subsubsection}{\numberline {3.47.3}Funciones}{109}{subsubsection.3.47.3}%
+\contentsline {paragraph}{AgregarGenero()}{109}{section*.486}%
+\contentsline {paragraph}{AgregarUsuario()}{109}{section*.487}%
+\contentsline {paragraph}{BuscarUsuarios()}{110}{section*.488}%
+\contentsline {paragraph}{CargarColaboradoresOriginales()}{110}{section*.489}%
+\contentsline {paragraph}{CargarGenerosDisponibles()}{110}{section*.490}%
+\contentsline {paragraph}{CargarImagenDesdeUrl()}{111}{section*.491}%
+\contentsline {paragraph}{CargarImagenLocal()}{111}{section*.492}%
+\contentsline {paragraph}{EliminarGenero()}{112}{section*.493}%
+\contentsline {paragraph}{EliminarUsuario()}{112}{section*.494}%
+\contentsline {paragraph}{GuardarCambios()}{113}{section*.495}%
+\contentsline {subsubsection}{\numberline {3.47.4}Propiedades}{113}{subsubsection.3.47.4}%
+\contentsline {paragraph}{BtnAgregarGenero}{113}{section*.496}%
+\contentsline {paragraph}{BtnAgregarUsuario}{113}{section*.497}%
+\contentsline {paragraph}{BtnBuscarUsuarios}{114}{section*.498}%
+\contentsline {paragraph}{BtnCancelar}{114}{section*.499}%
+\contentsline {paragraph}{BtnEliminarGenero}{114}{section*.500}%
+\contentsline {paragraph}{BtnEliminarUsuario}{114}{section*.501}%
+\contentsline {paragraph}{BtnGuardar}{114}{section*.502}%
+\contentsline {paragraph}{EstaCargando}{114}{section*.503}%
+\contentsline {paragraph}{GeneroSeleccionado}{114}{section*.504}%
+\contentsline {paragraph}{ImagenPortada}{114}{section*.505}%
+\contentsline {paragraph}{ListaArtistas}{115}{section*.506}%
+\contentsline {paragraph}{ListaGeneros}{115}{section*.507}%
+\contentsline {paragraph}{ListaGenerosSeleccionados}{115}{section*.508}%
+\contentsline {paragraph}{ListaResultados}{115}{section*.509}%
+\contentsline {paragraph}{RutaImagen}{115}{section*.510}%
+\contentsline {paragraph}{TieneImagen}{115}{section*.511}%
+\contentsline {paragraph}{TxtBusqueda}{115}{section*.512}%
+\contentsline {paragraph}{TxtTitulo}{115}{section*.513}%
+\contentsline {subsection}{\numberline {3.48}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Editar\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Lista\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Personalizada\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{116}{subsection.3.48}%
+\contentsline {subsubsection}{\numberline {3.48.1}Detalles}{116}{subsubsection.3.48.1}%
+\contentsline {subsubsection}{\numberline {3.48.2}Constructores}{116}{subsubsection.3.48.2}%
+\contentsline {paragraph}{ViewEditarListaPersonalizadaViewModel()}{116}{section*.516}%
+\contentsline {subsubsection}{\numberline {3.48.3}Funciones}{117}{subsubsection.3.48.3}%
+\contentsline {paragraph}{AgregarCancion()}{117}{section*.517}%
+\contentsline {paragraph}{BuscarCanciones()}{117}{section*.518}%
+\contentsline {paragraph}{CargarImagenDesdeUrl()}{118}{section*.519}%
+\contentsline {paragraph}{CargarImagenLocal()}{118}{section*.520}%
+\contentsline {paragraph}{EliminarCancion()}{119}{section*.521}%
+\contentsline {paragraph}{GuardarCambios()}{119}{section*.522}%
+\contentsline {subsubsection}{\numberline {3.48.4}Propiedades}{120}{subsubsection.3.48.4}%
+\contentsline {paragraph}{BtnAgregarCancion}{120}{section*.523}%
+\contentsline {paragraph}{BtnAtras}{120}{section*.524}%
+\contentsline {paragraph}{BtnBuscarCanciones}{120}{section*.525}%
+\contentsline {paragraph}{BtnEliminarCancion}{120}{section*.526}%
+\contentsline {paragraph}{BtnGuardar}{120}{section*.527}%
+\contentsline {paragraph}{EstaCargando}{120}{section*.528}%
+\contentsline {paragraph}{ImagenPortada}{120}{section*.529}%
+\contentsline {paragraph}{ListaCancionesSeleccionadas}{121}{section*.530}%
+\contentsline {paragraph}{ListaResultados}{121}{section*.531}%
+\contentsline {paragraph}{RutaImagen}{121}{section*.532}%
+\contentsline {paragraph}{TieneImagen}{121}{section*.533}%
+\contentsline {paragraph}{TxtBusqueda}{121}{section*.534}%
+\contentsline {paragraph}{TxtDescripcion}{121}{section*.535}%
+\contentsline {paragraph}{TxtNombre}{121}{section*.536}%
+\contentsline {subsection}{\numberline {3.49}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Gestionar\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}BDView\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{122}{subsection.3.49}%
+\contentsline {subsubsection}{\numberline {3.49.1}Detalles}{122}{subsubsection.3.49.1}%
+\contentsline {subsubsection}{\numberline {3.49.2}Constructores}{123}{subsubsection.3.49.2}%
+\contentsline {paragraph}{ViewGestionarBDViewModel()}{123}{section*.539}%
+\contentsline {subsubsection}{\numberline {3.49.3}Funciones}{124}{subsubsection.3.49.3}%
+\contentsline {paragraph}{AgregarCancionAPlaylist()}{124}{section*.540}%
+\contentsline {paragraph}{AgregarGenero()}{124}{section*.541}%
+\contentsline {paragraph}{AgregarGeneroBD()}{124}{section*.542}%
+\contentsline {paragraph}{AgregarUsuario()}{124}{section*.543}%
+\contentsline {paragraph}{BuscarCanciones()}{124}{section*.544}%
+\contentsline {paragraph}{BuscarUsuarios()}{125}{section*.545}%
+\contentsline {paragraph}{CargarDatosEditarCancion()}{125}{section*.546}%
+\contentsline {paragraph}{CargarDatosEditarPlaylist()}{125}{section*.547}%
+\contentsline {paragraph}{CargarTodo()}{125}{section*.548}%
+\contentsline {paragraph}{CrearCancionTask()}{126}{section*.549}%
+\contentsline {paragraph}{CrearPlaylistTask()}{126}{section*.550}%
+\contentsline {paragraph}{CrearReporteTask()}{126}{section*.551}%
+\contentsline {paragraph}{CrearUsuarioTask()}{126}{section*.552}%
+\contentsline {paragraph}{EjecutarConCarga()}{126}{section*.553}%
+\contentsline {paragraph}{EliminarCancionTask()}{127}{section*.554}%
+\contentsline {paragraph}{EliminarGenero()}{127}{section*.555}%
+\contentsline {paragraph}{EliminarGeneroTask()}{127}{section*.556}%
+\contentsline {paragraph}{EliminarPlaylistTask()}{127}{section*.557}%
+\contentsline {paragraph}{EliminarReporteTask()}{127}{section*.558}%
+\contentsline {paragraph}{EliminarUsuario()}{127}{section*.559}%
+\contentsline {paragraph}{EliminarUsuarioTask()}{128}{section*.560}%
+\contentsline {paragraph}{GuardarSeleccionado()}{128}{section*.561}%
+\contentsline {paragraph}{ObtenerDuracionLocal()}{128}{section*.562}%
+\contentsline {paragraph}{ResetearBorradores()}{128}{section*.563}%
+\contentsline {subsubsection}{\numberline {3.49.4}Propiedades}{129}{subsubsection.3.49.4}%
+\contentsline {paragraph}{BtnAgregarCancionPlaylistCrear}{129}{section*.564}%
+\contentsline {paragraph}{BtnAgregarCancionPlaylistEditar}{129}{section*.565}%
+\contentsline {paragraph}{BtnAgregarGeneroCrear}{129}{section*.566}%
+\contentsline {paragraph}{BtnAgregarGeneroEditar}{129}{section*.567}%
+\contentsline {paragraph}{BtnAgregarUsuarioCrear}{129}{section*.568}%
+\contentsline {paragraph}{BtnAgregarUsuarioEditar}{129}{section*.569}%
+\contentsline {paragraph}{BtnBuscarCancionesCrear}{129}{section*.570}%
+\contentsline {paragraph}{BtnBuscarCancionesEditar}{130}{section*.571}%
+\contentsline {paragraph}{BtnBuscarUsuariosCrear}{130}{section*.572}%
+\contentsline {paragraph}{BtnBuscarUsuariosEditar}{130}{section*.573}%
+\contentsline {paragraph}{BtnCrearCancion}{130}{section*.574}%
+\contentsline {paragraph}{BtnCrearGenero}{130}{section*.575}%
+\contentsline {paragraph}{BtnCrearPlaylist}{130}{section*.576}%
+\contentsline {paragraph}{BtnCrearReporte}{130}{section*.577}%
+\contentsline {paragraph}{BtnCrearUsuario}{130}{section*.578}%
+\contentsline {paragraph}{BtnEliminarCancion}{131}{section*.579}%
+\contentsline {paragraph}{BtnEliminarCancionPlaylistCrear}{131}{section*.580}%
+\contentsline {paragraph}{BtnEliminarCancionPlaylistEditar}{131}{section*.581}%
+\contentsline {paragraph}{BtnEliminarGenero}{131}{section*.582}%
+\contentsline {paragraph}{BtnEliminarGeneroCrear}{131}{section*.583}%
+\contentsline {paragraph}{BtnEliminarGeneroEditar}{131}{section*.584}%
+\contentsline {paragraph}{BtnEliminarPlaylist}{131}{section*.585}%
+\contentsline {paragraph}{BtnEliminarReporte}{132}{section*.586}%
+\contentsline {paragraph}{BtnEliminarUsuario}{132}{section*.587}%
+\contentsline {paragraph}{BtnEliminarUsuarioCrear}{132}{section*.588}%
+\contentsline {paragraph}{BtnEliminarUsuarioEditar}{132}{section*.589}%
+\contentsline {paragraph}{BtnGuardarCambios}{132}{section*.590}%
+\contentsline {paragraph}{BtnRecargar}{132}{section*.591}%
+\contentsline {paragraph}{EsArchivoLocal}{132}{section*.592}%
+\contentsline {paragraph}{EsArchivoLocalEditar}{133}{section*.593}%
+\contentsline {paragraph}{EstaCargando}{133}{section*.594}%
+\contentsline {paragraph}{EstadosReporte}{133}{section*.595}%
+\contentsline {paragraph}{EsYoutube}{133}{section*.596}%
+\contentsline {paragraph}{EsYoutubeEditar}{133}{section*.597}%
+\contentsline {paragraph}{GeneroSeleccionadoCrear}{133}{section*.598}%
+\contentsline {paragraph}{GeneroSeleccionadoEditar}{133}{section*.599}%
+\contentsline {paragraph}{HayResultadosCancionCrear}{134}{section*.600}%
+\contentsline {paragraph}{HayResultadosCancionEditar}{134}{section*.601}%
+\contentsline {paragraph}{HayResultadosCrear}{134}{section*.602}%
+\contentsline {paragraph}{HayResultadosEditar}{134}{section*.603}%
+\contentsline {paragraph}{IndiceTab}{134}{section*.604}%
+\contentsline {paragraph}{ListaArtistasCrear}{134}{section*.605}%
+\contentsline {paragraph}{ListaArtistasEditar}{134}{section*.606}%
+\contentsline {paragraph}{ListaCanciones}{134}{section*.607}%
+\contentsline {paragraph}{ListaCancionesPlaylistCrear}{135}{section*.608}%
+\contentsline {paragraph}{ListaCancionesPlaylistEditar}{135}{section*.609}%
+\contentsline {paragraph}{ListaGeneros}{135}{section*.610}%
+\contentsline {paragraph}{ListaGenerosCombox}{135}{section*.611}%
+\contentsline {paragraph}{ListaGenerosSeleccionadosCrear}{135}{section*.612}%
+\contentsline {paragraph}{ListaGenerosSeleccionadosEditar}{135}{section*.613}%
+\contentsline {paragraph}{ListaPlaylists}{135}{section*.614}%
+\contentsline {paragraph}{ListaReportes}{136}{section*.615}%
+\contentsline {paragraph}{ListaResultadosCancionesCrear}{136}{section*.616}%
+\contentsline {paragraph}{ListaResultadosCancionesEditar}{136}{section*.617}%
+\contentsline {paragraph}{ListaResultadosCrear}{136}{section*.618}%
+\contentsline {paragraph}{ListaResultadosEditar}{136}{section*.619}%
+\contentsline {paragraph}{ListaTipoProblema}{136}{section*.620}%
+\contentsline {paragraph}{ListaUsuarios}{136}{section*.621}%
+\contentsline {paragraph}{MensajeCarga}{137}{section*.622}%
+\contentsline {paragraph}{NoEstaCargando}{137}{section*.623}%
+\contentsline {paragraph}{NuevaCancion}{137}{section*.624}%
+\contentsline {paragraph}{NuevaPlaylist}{137}{section*.625}%
+\contentsline {paragraph}{NuevoGeneroTxt}{137}{section*.626}%
+\contentsline {paragraph}{NuevoReporte}{137}{section*.627}%
+\contentsline {paragraph}{NuevoUsuario}{137}{section*.628}%
+\contentsline {paragraph}{RolesDisponibles}{137}{section*.629}%
+\contentsline {paragraph}{SelectedCancion}{138}{section*.630}%
+\contentsline {paragraph}{SelectedGenero}{138}{section*.631}%
+\contentsline {paragraph}{SelectedPlaylist}{138}{section*.632}%
+\contentsline {paragraph}{SelectedReporte}{138}{section*.633}%
+\contentsline {paragraph}{SelectedUsuario}{138}{section*.634}%
+\contentsline {paragraph}{TipoProblema}{138}{section*.635}%
+\contentsline {paragraph}{TxtBusquedaCancionCrear}{138}{section*.636}%
+\contentsline {paragraph}{TxtBusquedaCancionEditar}{139}{section*.637}%
+\contentsline {paragraph}{TxtBusquedaCrear}{139}{section*.638}%
+\contentsline {paragraph}{TxtBusquedaEditar}{139}{section*.639}%
+\contentsline {paragraph}{TxtRutaArchivoEditar}{139}{section*.640}%
+\contentsline {paragraph}{TxtUrlYoutubeEditar}{139}{section*.641}%
+\contentsline {subsection}{\numberline {3.50}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Gestionar\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Cuenta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{139}{subsection.3.50}%
+\contentsline {subsubsection}{\numberline {3.50.1}Detalles}{139}{subsubsection.3.50.1}%
+\contentsline {subsubsection}{\numberline {3.50.2}Constructores}{140}{subsubsection.3.50.2}%
+\contentsline {paragraph}{ViewGestionarCuentaViewModel()}{140}{section*.644}%
+\contentsline {subsubsection}{\numberline {3.50.3}Funciones}{140}{subsubsection.3.50.3}%
+\contentsline {paragraph}{CargarContenidoUsuario()}{140}{section*.645}%
+\contentsline {paragraph}{EliminarCancion()}{141}{section*.646}%
+\contentsline {paragraph}{EliminarPlaylist()}{141}{section*.647}%
+\contentsline {subsubsection}{\numberline {3.50.4}Propiedades}{142}{subsubsection.3.50.4}%
+\contentsline {paragraph}{BtnEditarCancion}{142}{section*.648}%
+\contentsline {paragraph}{BtnEditarPlaylist}{142}{section*.649}%
+\contentsline {paragraph}{BtnEliminarCancion}{142}{section*.650}%
+\contentsline {paragraph}{BtnEliminarPlaylist}{142}{section*.651}%
+\contentsline {paragraph}{BtnRefrescar}{142}{section*.652}%
+\contentsline {paragraph}{MisCanciones}{143}{section*.653}%
+\contentsline {paragraph}{MisPlaylists}{143}{section*.654}%
+\contentsline {paragraph}{SolicitudIrAEditarCanciones}{143}{section*.655}%
+\contentsline {paragraph}{SolicitudIrAEditarPlaylist}{143}{section*.656}%
+\contentsline {subsection}{\numberline {3.51}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Gestionar\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reportes\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{143}{subsection.3.51}%
+\contentsline {subsubsection}{\numberline {3.51.1}Detalles}{143}{subsubsection.3.51.1}%
+\contentsline {subsubsection}{\numberline {3.51.2}Constructores}{144}{subsubsection.3.51.2}%
+\contentsline {paragraph}{ViewGestionarReportesViewModel()}{144}{section*.659}%
+\contentsline {subsubsection}{\numberline {3.51.3}Funciones}{144}{subsubsection.3.51.3}%
+\contentsline {paragraph}{CargarDatos()}{144}{section*.660}%
+\contentsline {paragraph}{GuardarCambios()}{144}{section*.661}%
+\contentsline {subsubsection}{\numberline {3.51.4}Propiedades}{145}{subsubsection.3.51.4}%
+\contentsline {paragraph}{BtnGuardar}{145}{section*.662}%
+\contentsline {paragraph}{BtnRefrescar}{145}{section*.663}%
+\contentsline {paragraph}{EstadoEdit}{145}{section*.664}%
+\contentsline {paragraph}{ListaFinalizados}{145}{section*.665}%
+\contentsline {paragraph}{ListaInvestigando}{145}{section*.666}%
+\contentsline {paragraph}{ListaPendientes}{145}{section*.667}%
+\contentsline {paragraph}{OpcionesEstado}{145}{section*.668}%
+\contentsline {paragraph}{ReporteSeleccionado}{146}{section*.669}%
+\contentsline {paragraph}{ResolucionEdit}{146}{section*.670}%
+\contentsline {paragraph}{SelectedFinalizado}{146}{section*.671}%
+\contentsline {paragraph}{SelectedInvestigando}{146}{section*.672}%
+\contentsline {paragraph}{SelectedPendiente}{146}{section*.673}%
+\contentsline {subsection}{\numberline {3.52}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Lista\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Personalizada\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{146}{subsection.3.52}%
+\contentsline {subsubsection}{\numberline {3.52.1}Detalles}{146}{subsubsection.3.52.1}%
+\contentsline {subsubsection}{\numberline {3.52.2}Constructores}{147}{subsubsection.3.52.2}%
+\contentsline {paragraph}{ViewListaPersonalizadaViewModel()}{147}{section*.676}%
+\contentsline {subsubsection}{\numberline {3.52.3}Propiedades}{147}{subsubsection.3.52.3}%
+\contentsline {paragraph}{BtnVolver}{147}{section*.677}%
+\contentsline {paragraph}{CantidadCanciones}{147}{section*.678}%
+\contentsline {paragraph}{Playlist}{147}{section*.679}%
+\contentsline {subsection}{\numberline {3.53}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Base}{147}{subsection.3.53}%
+\contentsline {subsubsection}{\numberline {3.53.1}Detalles}{147}{subsubsection.3.53.1}%
+\contentsline {subsection}{\numberline {3.54}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Perfil\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{147}{subsection.3.54}%
+\contentsline {subsubsection}{\numberline {3.54.1}Detalles}{147}{subsubsection.3.54.1}%
+\contentsline {subsubsection}{\numberline {3.54.2}Constructores}{148}{subsubsection.3.54.2}%
+\contentsline {paragraph}{ViewPerfilViewModel()}{148}{section*.682}%
+\contentsline {subsubsection}{\numberline {3.54.3}Funciones}{148}{subsubsection.3.54.3}%
+\contentsline {paragraph}{CargarDatos()}{148}{section*.683}%
+\contentsline {subsubsection}{\numberline {3.54.4}Propiedades}{148}{subsubsection.3.54.4}%
+\contentsline {paragraph}{BtnRefrescar}{148}{section*.684}%
+\contentsline {paragraph}{ImagenPerfil}{149}{section*.685}%
+\contentsline {paragraph}{NombreUsuario}{149}{section*.686}%
+\contentsline {paragraph}{Secciones}{149}{section*.687}%
+\contentsline {subsection}{\numberline {3.55}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Publicar\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Cancion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{149}{subsection.3.55}%
+\contentsline {subsubsection}{\numberline {3.55.1}Detalles}{149}{subsubsection.3.55.1}%
+\contentsline {subsubsection}{\numberline {3.55.2}Constructores}{150}{subsubsection.3.55.2}%
+\contentsline {paragraph}{ViewPublicarCancionViewModel()}{150}{section*.690}%
+\contentsline {subsubsection}{\numberline {3.55.3}Funciones}{150}{subsubsection.3.55.3}%
+\contentsline {paragraph}{AgregarGenero()}{150}{section*.691}%
+\contentsline {paragraph}{AgregarUsuario()}{150}{section*.692}%
+\contentsline {paragraph}{BuscarUsuarios()}{150}{section*.693}%
+\contentsline {paragraph}{CargarGeneros()}{151}{section*.694}%
+\contentsline {paragraph}{CargarImagenLocal()}{151}{section*.695}%
+\contentsline {paragraph}{EliminarGenero()}{151}{section*.696}%
+\contentsline {paragraph}{EliminarUsuario()}{152}{section*.697}%
+\contentsline {paragraph}{ObtenerDuracionMp3()}{152}{section*.698}%
+\contentsline {paragraph}{PublicarCancion()}{152}{section*.699}%
+\contentsline {subsubsection}{\numberline {3.55.4}Propiedades}{153}{subsubsection.3.55.4}%
+\contentsline {paragraph}{BtnAgregarGenero}{153}{section*.700}%
+\contentsline {paragraph}{BtnAgregarUsuario}{153}{section*.701}%
+\contentsline {paragraph}{BtnBuscarUsuarios}{153}{section*.702}%
+\contentsline {paragraph}{BtnEliminarGenero}{153}{section*.703}%
+\contentsline {paragraph}{BtnEliminarUsuario}{153}{section*.704}%
+\contentsline {paragraph}{BtnPublicar}{153}{section*.705}%
+\contentsline {paragraph}{BtnVolverAtras}{154}{section*.706}%
+\contentsline {paragraph}{EsArchivo}{154}{section*.707}%
+\contentsline {paragraph}{EstaCargando}{154}{section*.708}%
+\contentsline {paragraph}{EsYoutube}{154}{section*.709}%
+\contentsline {paragraph}{GeneroSeleccionado}{154}{section*.710}%
+\contentsline {paragraph}{ImagenPortada}{154}{section*.711}%
+\contentsline {paragraph}{LinkYoutube}{154}{section*.712}%
+\contentsline {paragraph}{ListaArtistas}{154}{section*.713}%
+\contentsline {paragraph}{ListaGeneros}{155}{section*.714}%
+\contentsline {paragraph}{ListaGenerosSeleccionados}{155}{section*.715}%
+\contentsline {paragraph}{ListaResultados}{155}{section*.716}%
+\contentsline {paragraph}{RutaImagen}{155}{section*.717}%
+\contentsline {paragraph}{RutaMp3}{155}{section*.718}%
+\contentsline {paragraph}{TieneImagen}{155}{section*.719}%
+\contentsline {paragraph}{TxtBusqueda}{155}{section*.720}%
+\contentsline {paragraph}{TxtTitulo}{155}{section*.721}%
+\contentsline {subsection}{\numberline {3.56}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sobre\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Nosotros\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{156}{subsection.3.56}%
+\contentsline {subsubsection}{\numberline {3.56.1}Detalles}{156}{subsubsection.3.56.1}%
+\contentsline {subsubsection}{\numberline {3.56.2}Constructores}{156}{subsubsection.3.56.2}%
+\contentsline {paragraph}{ViewSobreNosotrosViewModel()}{156}{section*.724}%
+\contentsline {subsubsection}{\numberline {3.56.3}Propiedades}{156}{subsubsection.3.56.3}%
+\contentsline {paragraph}{BtnAbrirGitHub}{156}{section*.725}%
+\contentsline {paragraph}{btnVolverAtras}{156}{section*.726}%
+\contentsline {paragraph}{VolverAtras}{156}{section*.727}%
+\contentsline {subsection}{\numberline {3.57}Referencia de la clase Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usuarios\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model}{157}{subsection.3.57}%
+\contentsline {subsubsection}{\numberline {3.57.1}Detalles}{157}{subsubsection.3.57.1}%
+\contentsline {subsubsection}{\numberline {3.57.2}Constructores}{157}{subsubsection.3.57.2}%
+\contentsline {paragraph}{ViewUsuariosViewModel()}{157}{section*.730}%
+\contentsline {subsubsection}{\numberline {3.57.3}Funciones}{157}{subsubsection.3.57.3}%
+\contentsline {paragraph}{ActualizarBtnSeguir()}{157}{section*.731}%
+\contentsline {paragraph}{AlterarSeguimiento()}{158}{section*.732}%
+\contentsline {paragraph}{CargarListasDetalladas()}{158}{section*.733}%
+\contentsline {paragraph}{CargarUsuario()}{158}{section*.734}%
+\contentsline {paragraph}{IniciarHiloActualizacion()}{159}{section*.735}%
+\contentsline {subsubsection}{\numberline {3.57.4}Propiedades}{159}{subsubsection.3.57.4}%
+\contentsline {paragraph}{BtnSeguir}{159}{section*.736}%
+\contentsline {paragraph}{BtnVolver}{159}{section*.737}%
+\contentsline {paragraph}{CancionesSubidas}{159}{section*.738}%
+\contentsline {paragraph}{CantidadCanciones}{159}{section*.739}%
+\contentsline {paragraph}{ColorBotonSeguir}{159}{section*.740}%
+\contentsline {paragraph}{EsSeguido}{160}{section*.741}%
+\contentsline {paragraph}{FechaNacimientoFormateada}{160}{section*.742}%
+\contentsline {paragraph}{PlaylistsCreadas}{160}{section*.743}%
+\contentsline {paragraph}{TextoBotonSeguir}{160}{section*.744}%
+\contentsline {paragraph}{TxtMensajeTimer}{160}{section*.745}%
+\contentsline {paragraph}{TxtVariableTimer}{160}{section*.746}%
+\contentsline {paragraph}{Usuario}{160}{section*.747}%
+\contentsline {section}{\numberline {4}Documentación de archivos}{161}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controllers/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Music\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller.cs}{161}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Music\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{161}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controllers/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Storage\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller.cs}{163}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Storage\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{163}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}net9.0/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.API.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{166}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{166}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Release/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}net9.0/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.API.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{167}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.8}Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{167}{subsection.4.8}%
+\contentsline {subsection}{\numberline {4.9}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Release/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}net9.0/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}win-\/x64/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.API.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{167}{subsection.4.9}%
+\contentsline {subsection}{\numberline {4.10}Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{167}{subsection.4.10}%
+\contentsline {subsection}{\numberline {4.11}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}net9.0/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.API.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Global\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usings.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{168}{subsection.4.11}%
+\contentsline {subsection}{\numberline {4.12}Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Global\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usings.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{168}{subsection.4.12}%
+\contentsline {subsection}{\numberline {4.13}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Release/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}net9.0/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.API.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Global\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usings.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{168}{subsection.4.13}%
+\contentsline {subsection}{\numberline {4.14}Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Global\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usings.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{168}{subsection.4.14}%
+\contentsline {subsection}{\numberline {4.15}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Release/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}net9.0/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}win-\/x64/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.API.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Global\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usings.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{169}{subsection.4.15}%
+\contentsline {subsection}{\numberline {4.16}Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Global\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usings.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{169}{subsection.4.16}%
+\contentsline {subsection}{\numberline {4.17}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}net9.0/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.API.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Mvc\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Application\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Parts\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{169}{subsection.4.17}%
+\contentsline {subsection}{\numberline {4.18}Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Mvc\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Application\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Parts\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{169}{subsection.4.18}%
+\contentsline {subsection}{\numberline {4.19}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Release/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}net9.0/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}win-\/x64/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.API.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Mvc\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Application\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Parts\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{169}{subsection.4.19}%
+\contentsline {subsection}{\numberline {4.20}Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Mvc\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Application\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Parts\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{169}{subsection.4.20}%
+\contentsline {subsection}{\numberline {4.21}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}App.axaml.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{170}{subsection.4.21}%
+\contentsline {subsection}{\numberline {4.22}App.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}axaml.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{170}{subsection.4.22}%
+\contentsline {subsection}{\numberline {4.23}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Helpers/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controlador\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Diccionarios.cs}{171}{subsection.4.23}%
+\contentsline {subsection}{\numberline {4.24}Controlador\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Diccionarios.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{171}{subsection.4.24}%
+\contentsline {subsection}{\numberline {4.25}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Helpers/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Encriptador.cs}{173}{subsection.4.25}%
+\contentsline {subsection}{\numberline {4.26}Encriptador.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{173}{subsection.4.26}%
+\contentsline {subsection}{\numberline {4.27}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Helpers/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Texto\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Traducido\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Converter.cs}{176}{subsection.4.27}%
+\contentsline {subsection}{\numberline {4.28}Texto\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Traducido\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Converter.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{176}{subsection.4.28}%
+\contentsline {subsection}{\numberline {4.29}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Canciones.cs}{176}{subsection.4.29}%
+\contentsline {subsection}{\numberline {4.30}Canciones.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{176}{subsection.4.30}%
+\contentsline {subsection}{\numberline {4.31}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Generos.cs}{178}{subsection.4.31}%
+\contentsline {subsection}{\numberline {4.32}Generos.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{178}{subsection.4.32}%
+\contentsline {subsection}{\numberline {4.33}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Lista\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Personalizada.cs}{178}{subsection.4.33}%
+\contentsline {subsection}{\numberline {4.34}Lista\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Personalizada.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{178}{subsection.4.34}%
+\contentsline {subsection}{\numberline {4.35}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Lista\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usuarios.cs}{179}{subsection.4.35}%
+\contentsline {subsection}{\numberline {4.36}Lista\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usuarios.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{179}{subsection.4.36}%
+\contentsline {subsection}{\numberline {4.37}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reportes.cs}{179}{subsection.4.37}%
+\contentsline {subsection}{\numberline {4.38}Reportes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{179}{subsection.4.38}%
+\contentsline {subsection}{\numberline {4.39}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Roles.cs}{180}{subsection.4.39}%
+\contentsline {subsection}{\numberline {4.40}Roles.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{180}{subsection.4.40}%
+\contentsline {subsection}{\numberline {4.41}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tarjetas\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Canciones.cs}{180}{subsection.4.41}%
+\contentsline {subsection}{\numberline {4.42}Tarjetas\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Canciones.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{180}{subsection.4.42}%
+\contentsline {subsection}{\numberline {4.43}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tarjetas\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Listas.cs}{181}{subsection.4.43}%
+\contentsline {subsection}{\numberline {4.44}Tarjetas\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Listas.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{181}{subsection.4.44}%
+\contentsline {subsection}{\numberline {4.45}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usuarios.cs}{181}{subsection.4.45}%
+\contentsline {subsection}{\numberline {4.46}Usuarios.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{181}{subsection.4.46}%
+\contentsline {subsection}{\numberline {4.47}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}net9.0/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}.NETCore\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}App,Version=v9.0.Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Attributes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{182}{subsection.4.47}%
+\contentsline {subsection}{\numberline {4.48}.NETCore\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}App,Version=v9.0.Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Attributes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{182}{subsection.4.48}%
+\contentsline {subsection}{\numberline {4.49}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Release/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}net9.0/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}.NETCore\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}App,Version=v9.0.Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Attributes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{182}{subsection.4.49}%
+\contentsline {subsection}{\numberline {4.50}.NETCore\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}App,Version=v9.0.Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Attributes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{182}{subsection.4.50}%
+\contentsline {subsection}{\numberline {4.51}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Release/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}net9.0/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}win-\/x64/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}.NETCore\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}App,Version=v9.0.Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Attributes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{183}{subsection.4.51}%
+\contentsline {subsection}{\numberline {4.52}.NETCore\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}App,Version=v9.0.Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Attributes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{183}{subsection.4.52}%
+\contentsline {subsection}{\numberline {4.53}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}net9.0/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}.NETCore\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}App,Version=v9.0.Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Attributes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{183}{subsection.4.53}%
+\contentsline {subsection}{\numberline {4.54}.NETCore\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}App,Version=v9.0.Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Attributes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{183}{subsection.4.54}%
+\contentsline {subsection}{\numberline {4.55}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Release/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}net9.0/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}.NETCore\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}App,Version=v9.0.Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Attributes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{183}{subsection.4.55}%
+\contentsline {subsection}{\numberline {4.56}.NETCore\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}App,Version=v9.0.Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Attributes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{183}{subsection.4.56}%
+\contentsline {subsection}{\numberline {4.57}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Release/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}net9.0/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}win-\/x64/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}.NETCore\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}App,Version=v9.0.Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Attributes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{183}{subsection.4.57}%
+\contentsline {subsection}{\numberline {4.58}.NETCore\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}App,Version=v9.0.Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Attributes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{183}{subsection.4.58}%
+\contentsline {subsection}{\numberline {4.59}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}net9.0/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{184}{subsection.4.59}%
+\contentsline {subsection}{\numberline {4.60}Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{184}{subsection.4.60}%
+\contentsline {subsection}{\numberline {4.61}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Release/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}net9.0/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{184}{subsection.4.61}%
+\contentsline {subsection}{\numberline {4.62}Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{184}{subsection.4.62}%
+\contentsline {subsection}{\numberline {4.63}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Release/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}net9.0/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}win-\/x64/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{184}{subsection.4.63}%
+\contentsline {subsection}{\numberline {4.64}Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{184}{subsection.4.64}%
+\contentsline {subsection}{\numberline {4.65}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}API/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Program.cs}{185}{subsection.4.65}%
+\contentsline {subsection}{\numberline {4.66}Program.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{185}{subsection.4.66}%
+\contentsline {subsection}{\numberline {4.67}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Program.cs}{185}{subsection.4.67}%
+\contentsline {subsection}{\numberline {4.68}Program.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{185}{subsection.4.68}%
+\contentsline {subsection}{\numberline {4.69}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Services/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Audio\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Service.cs}{186}{subsection.4.69}%
+\contentsline {subsection}{\numberline {4.70}Audio\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Service.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{186}{subsection.4.70}%
+\contentsline {subsection}{\numberline {4.71}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Services/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dialogo\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Service.cs}{188}{subsection.4.71}%
+\contentsline {subsection}{\numberline {4.72}Dialogo\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Service.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{188}{subsection.4.72}%
+\contentsline {subsection}{\numberline {4.73}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Services/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}IDialogo\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Service.cs}{189}{subsection.4.73}%
+\contentsline {subsection}{\numberline {4.74}IDialogo\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Service.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{189}{subsection.4.74}%
+\contentsline {subsection}{\numberline {4.75}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Services/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Mongo\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Atlas.cs}{189}{subsection.4.75}%
+\contentsline {subsection}{\numberline {4.76}Mongo\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Atlas.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{189}{subsection.4.76}%
+\contentsline {subsection}{\numberline {4.77}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Services/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Storage\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Service.cs}{208}{subsection.4.77}%
+\contentsline {subsection}{\numberline {4.78}Storage\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Service.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{208}{subsection.4.78}%
+\contentsline {subsection}{\numberline {4.79}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Singleton/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Global\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.cs}{210}{subsection.4.79}%
+\contentsline {subsection}{\numberline {4.80}Global\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{210}{subsection.4.80}%
+\contentsline {subsection}{\numberline {4.81}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Singleton/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Mongo\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Singleton.cs}{212}{subsection.4.81}%
+\contentsline {subsection}{\numberline {4.82}Mongo\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Singleton.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{212}{subsection.4.82}%
+\contentsline {subsection}{\numberline {4.83}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Locator.cs}{213}{subsection.4.83}%
+\contentsline {subsection}{\numberline {4.84}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Locator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{213}{subsection.4.84}%
+\contentsline {subsection}{\numberline {4.85}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Central\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tab\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Control\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{213}{subsection.4.85}%
+\contentsline {subsection}{\numberline {4.86}Central\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tab\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Control\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{213}{subsection.4.86}%
+\contentsline {subsection}{\numberline {4.87}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}INavegable.cs}{215}{subsection.4.87}%
+\contentsline {subsection}{\numberline {4.88}INavegable.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{215}{subsection.4.88}%
+\contentsline {subsection}{\numberline {4.89}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Login\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{215}{subsection.4.89}%
+\contentsline {subsection}{\numberline {4.90}Login\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{215}{subsection.4.90}%
+\contentsline {subsection}{\numberline {4.91}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Marco\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}App\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{217}{subsection.4.91}%
+\contentsline {subsection}{\numberline {4.92}Marco\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}App\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{217}{subsection.4.92}%
+\contentsline {subsection}{\numberline {4.93}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Panel\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{231}{subsection.4.93}%
+\contentsline {subsection}{\numberline {4.94}Panel\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{231}{subsection.4.94}%
+\contentsline {subsection}{\numberline {4.95}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tab\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Item\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Buscador\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{233}{subsection.4.95}%
+\contentsline {subsection}{\numberline {4.96}Tab\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Item\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Buscador\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{233}{subsection.4.96}%
+\contentsline {subsection}{\numberline {4.97}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tab\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Item\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Inicio\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{234}{subsection.4.97}%
+\contentsline {subsection}{\numberline {4.98}Tab\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Item\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Inicio\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{234}{subsection.4.98}%
+\contentsline {subsection}{\numberline {4.99}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tab\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Item\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Populares\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{238}{subsection.4.99}%
+\contentsline {subsection}{\numberline {4.100}Tab\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Item\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Populares\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{238}{subsection.4.100}%
+\contentsline {subsection}{\numberline {4.101}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Ventana\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Aviso\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{239}{subsection.4.101}%
+\contentsline {subsection}{\numberline {4.102}Ventana\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Aviso\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{239}{subsection.4.102}%
+\contentsline {subsection}{\numberline {4.103}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Ventana\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Confirmacion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{240}{subsection.4.103}%
+\contentsline {subsection}{\numberline {4.104}Ventana\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Confirmacion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{240}{subsection.4.104}%
+\contentsline {subsection}{\numberline {4.105}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Ayuda\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{240}{subsection.4.105}%
+\contentsline {subsection}{\numberline {4.106}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Ayuda\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{240}{subsection.4.106}%
+\contentsline {subsection}{\numberline {4.107}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Canciones\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{241}{subsection.4.107}%
+\contentsline {subsection}{\numberline {4.108}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Canciones\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{241}{subsection.4.108}%
+\contentsline {subsection}{\numberline {4.109}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Configuracion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{243}{subsection.4.109}%
+\contentsline {subsection}{\numberline {4.110}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Configuracion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{243}{subsection.4.110}%
+\contentsline {subsection}{\numberline {4.111}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Crear\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Lista\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Personalizada\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{246}{subsection.4.111}%
+\contentsline {subsection}{\numberline {4.112}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Crear\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Lista\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Personalizada\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{246}{subsection.4.112}%
+\contentsline {subsection}{\numberline {4.113}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Crear\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reporte\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{250}{subsection.4.113}%
+\contentsline {subsection}{\numberline {4.114}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Crear\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reporte\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{250}{subsection.4.114}%
+\contentsline {subsection}{\numberline {4.115}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Crear\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{251}{subsection.4.115}%
+\contentsline {subsection}{\numberline {4.116}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Crear\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{251}{subsection.4.116}%
+\contentsline {subsection}{\numberline {4.117}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Cuenta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{254}{subsection.4.117}%
+\contentsline {subsection}{\numberline {4.118}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Cuenta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{254}{subsection.4.118}%
+\contentsline {subsection}{\numberline {4.119}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Editar\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Cancion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{256}{subsection.4.119}%
+\contentsline {subsection}{\numberline {4.120}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Editar\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Cancion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{256}{subsection.4.120}%
+\contentsline {subsection}{\numberline {4.121}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Editar\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Lista\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Personalizada\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{262}{subsection.4.121}%
+\contentsline {subsection}{\numberline {4.122}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Editar\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Lista\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Personalizada\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{262}{subsection.4.122}%
+\contentsline {subsection}{\numberline {4.123}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Gestionar\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}BDView\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{266}{subsection.4.123}%
+\contentsline {subsection}{\numberline {4.124}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Gestionar\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}BDView\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{266}{subsection.4.124}%
+\contentsline {subsection}{\numberline {4.125}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Gestionar\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Cuenta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{286}{subsection.4.125}%
+\contentsline {subsection}{\numberline {4.126}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Gestionar\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Cuenta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{286}{subsection.4.126}%
+\contentsline {subsection}{\numberline {4.127}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Gestionar\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reportes\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{289}{subsection.4.127}%
+\contentsline {subsection}{\numberline {4.128}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Gestionar\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reportes\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{289}{subsection.4.128}%
+\contentsline {subsection}{\numberline {4.129}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Lista\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Personalizada\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{291}{subsection.4.129}%
+\contentsline {subsection}{\numberline {4.130}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Lista\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Personalizada\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{291}{subsection.4.130}%
+\contentsline {subsection}{\numberline {4.131}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Base.cs}{292}{subsection.4.131}%
+\contentsline {subsection}{\numberline {4.132}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Base.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{292}{subsection.4.132}%
+\contentsline {subsection}{\numberline {4.133}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Perfil\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{292}{subsection.4.133}%
+\contentsline {subsection}{\numberline {4.134}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Perfil\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{292}{subsection.4.134}%
+\contentsline {subsection}{\numberline {4.135}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Publicar\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Cancion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{293}{subsection.4.135}%
+\contentsline {subsection}{\numberline {4.136}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Publicar\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Cancion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{293}{subsection.4.136}%
+\contentsline {subsection}{\numberline {4.137}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sobre\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Nosotros\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{299}{subsection.4.137}%
+\contentsline {subsection}{\numberline {4.138}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sobre\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Nosotros\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{299}{subsection.4.138}%
+\contentsline {subsection}{\numberline {4.139}Referencia del archivo Beta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proyecto/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usuarios\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs}{300}{subsection.4.139}%
+\contentsline {subsection}{\numberline {4.140}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usuarios\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{300}{subsection.4.140}%
+\contentsline {section}{Índice alfabético}{305}{section*.748}%

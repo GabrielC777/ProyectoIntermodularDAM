@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['mapcontrollers_0',['MapControllers',['../dd/d72/a00541.html#a9e2ee3170aa6279b68eefd1651f7d96c',1,'Program.cs']]],
+  ['marcoappviewmodel_1',['MarcoAppViewModel',['../dc/de3/a00373.html',1,'BetaProyecto.ViewModels.MarcoAppViewModel'],['../dc/de3/a00373.html#a88209ffb7d8d60fe50d230a01d9f75ea',1,'BetaProyecto.ViewModels.MarcoAppViewModel.MarcoAppViewModel()']]],
+  ['marcoappviewmodel_2ecs_2',['MarcoAppViewModel.cs',['../d2/d1f/a00083.html',1,'']]],
+  ['mensaje_3',['Mensaje',['../da/dbf/a00393.html#ae18d3c756521565d3dd0d028087623a4',1,'BetaProyecto::ViewModels::VentanaAvisoViewModel']]],
+  ['mensajecarga_4',['MensajeCarga',['../d4/da8/a00437.html#adef70729ae75ad39ac70e256359f956c',1,'BetaProyecto::ViewModels::ViewGestionarBDViewModel']]],
+  ['mensajecuerpo_5',['MensajeCuerpo',['../d7/d93/a00397.html#a3b5871e23019e1e374f920c62dfd273d',1,'BetaProyecto::ViewModels::VentanaConfirmacionViewModel']]],
+  ['mensajeestado_6',['MensajeEstado',['../d8/de7/a00417.html#a5c49843949715cc31551cc12f8a2771c',1,'BetaProyecto::ViewModels::ViewCrearReporteViewModel']]],
+  ['metricas_7',['Metricas',['../d9/d39/a00257.html#a4cf3261d1f83f1f318c1e8b61ef5a89f',1,'BetaProyecto::Models::Canciones']]],
+  ['metricascancion_8',['MetricasCancion',['../da/d53/a00265.html',1,'BetaProyecto::Models']]],
+  ['miscanciones_9',['MisCanciones',['../d6/d66/a00441.html#aace79513b2f6d04a74a356bca758219c',1,'BetaProyecto::ViewModels::ViewGestionarCuentaViewModel']]],
+  ['misplaylists_10',['MisPlaylists',['../d6/d66/a00441.html#ac1655f713359cce47f6df5ab9509996c',1,'BetaProyecto::ViewModels::ViewGestionarCuentaViewModel']]],
+  ['mongoatlas_11',['MongoAtlas',['../d3/d93/a00341.html',1,'BetaProyecto.Services.MongoAtlas'],['../d3/d93/a00341.html#aaf0d372a419870e4069263665968b9f8',1,'BetaProyecto.Services.MongoAtlas.MongoAtlas()']]],
+  ['mongoatlas_2ecs_12',['MongoAtlas.cs',['../d3/d8b/a00059.html',1,'']]],
+  ['mongoclientsingleton_13',['MongoClientSingleton',['../db/ddc/a00353.html',1,'BetaProyecto.Singleton.MongoClientSingleton'],['../db/ddc/a00353.html#ad898ba07f15cb9a762b0eed9876e8353',1,'BetaProyecto.Singleton.MongoClientSingleton.MongoClientSingleton()']]],
+  ['mongoclientsingleton_2ecs_14',['MongoClientSingleton.cs',['../da/d24/a00068.html',1,'']]],
+  ['mostraralerta_15',['MostrarAlerta',['../d2/d0a/a00333.html#a2eab2d9a4dfd2265c82120abf08489d5',1,'BetaProyecto.Services.DialogoService.MostrarAlerta()'],['../d4/dce/a00337.html#abf05d0ac66b2bf099058006554a6dac2',1,'BetaProyecto.Services.IDialogoService.MostrarAlerta()']]],
+  ['musiccontroller_16',['MusicController',['../d6/de1/a00233.html',1,'BetaProyecto.API.Controllers.MusicController'],['../d6/de1/a00233.html#a5de4705dac5086b8374cd71a5217d050',1,'BetaProyecto.API.Controllers.MusicController.MusicController()']]],
+  ['musiccontroller_2ecs_17',['MusicController.cs',['../d6/db8/a00158.html',1,'']]]
+];

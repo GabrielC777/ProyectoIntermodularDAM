@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MusicSearch: Archivo de código fuente BetaProyecto/Helpers/TextoTraducidoConverter.cs</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(function() { init_search(); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../LogoApp (4).png"/></td>
+  <td id="projectalign">
+   <div id="projectname">MusicSearch<span id="projectnumber">&#160;1.1.2</span>
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('da/d45/a00011_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">TextoTraducidoConverter.cs</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../da/d45/a00011.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">using </span>Avalonia;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">using </span>Avalonia.Data;</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">using </span>Avalonia.Data.Converters;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">using </span>System;</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">using </span>System.Collections.Generic;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">using </span>System.Globalization;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">using </span>System.Linq;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">using </span>System.Text;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">using </span>System.Threading.Tasks;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d5/de9/a00176.html">BetaProyecto.Helpers</a></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="comment">// Este convertidor recibe una CLAVE (string) y devuelve el TEXTO traducido del diccionario</span></div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../d0/d3e/a00253.html">   14</a></span>    <span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="../../d0/d3e/a00253.html">TextoTraducidoConverter</a> : IValueConverter</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    {<span class="comment"></span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">        /// &lt;summary&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">        /// Traduce dinámicamente una clave de recurso en su valor correspondiente definido en los diccionarios de la aplicación.</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">        /// &lt;/summary&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">        /// &lt;remarks&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">        /// Este convertidor facilita la internacionalización (i18n) en la capa de vista mediante los siguientes pasos:</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">        /// &lt;list type=&quot;number&quot;&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Validación:&lt;/b&gt; Verifica si el valor de entrada es una cadena de texto válida (la clave del recurso).&lt;/item&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Búsqueda:&lt;/b&gt; Consulta el diccionario de recursos activo de &lt;see cref=&quot;Application.Current&quot;/&gt; intentando localizar la clave.&lt;/item&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">        /// &lt;item&gt;&lt;b&gt;Resolución:&lt;/b&gt; Si encuentra el recurso (ej. una traducción o una ruta de imagen), lo devuelve; de lo contrario, retorna la clave original como valor de respaldo (fallback).&lt;/item&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">        /// &lt;/list&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">        /// Es ideal para enlazar propiedades de texto en XAML que deben reaccionar a cambios de idioma en tiempo de ejecución.</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">        /// &lt;/remarks&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">        /// &lt;param name=&quot;value&quot;&gt;La clave del recurso (string) que se desea localizar.&lt;/param&gt;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">        /// &lt;param name=&quot;targetType&quot;&gt;El tipo de la propiedad de destino.&lt;/param&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">        /// &lt;param name=&quot;parameter&quot;&gt;Parámetro opcional (no utilizado).&lt;/param&gt;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">        /// &lt;param name=&quot;culture&quot;&gt;Información de cultura (no utilizada, se prioriza el diccionario activo).&lt;/param&gt;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">        /// &lt;returns&gt;El objeto localizado encontrado en los recursos o el texto original si no existe coincidencia.&lt;/returns&gt;</span></div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="}">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../d0/d3e/a00253.html#a355f369100497d5c421cc4561f16b85f">   33</a></span>        <span class="keyword">public</span> <span class="keywordtype">object</span>? <a class="code hl_function" href="../../d0/d3e/a00253.html#a355f369100497d5c421cc4561f16b85f">Convert</a>(<span class="keywordtype">object</span>? value, Type targetType, <span class="keywordtype">object</span>? parameter, CultureInfo culture)</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            <span class="comment">// Si el valor es nulo o no es string, no hacemos nada</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            <span class="keywordflow">if</span> (value is not <span class="keywordtype">string</span> claveRecurso)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>                <span class="keywordflow">return</span> value;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            <span class="comment">// Intentamos buscar la clave en los recursos de la App</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <span class="keywordflow">if</span> (Application.Current != <span class="keyword">null</span> &amp;&amp;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                Application.Current.TryGetResource(claveRecurso, <span class="keyword">null</span>, out var recursoEncontrado))</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                <span class="keywordflow">return</span> recursoEncontrado;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            }</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <span class="comment">// Si no se encuentra (o si es un texto normal), devolvemos el texto original</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <span class="keywordflow">return</span> claveRecurso;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        }</div>
+</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="comment">//ConvertBack no lo necesitamos porque solo es para mostrar texto, no para editarlo, así que devolvemos UnsetValue para indicar que no se puede convertir hacia atrás.</span></div>
+<div class="foldopen" id="foldopen00050" data-start="{" data-end="}">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../d0/d3e/a00253.html#adf241c07c8ce56fd3469e0a06c69d4d3">   50</a></span>        <span class="keyword">public</span> <span class="keywordtype">object</span>? <a class="code hl_function" href="../../d0/d3e/a00253.html#adf241c07c8ce56fd3469e0a06c69d4d3">ConvertBack</a>(<span class="keywordtype">object</span>? value, Type targetType, <span class="keywordtype">object</span>? parameter, CultureInfo culture)</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            <span class="keywordflow">return</span> BindingNotification.UnsetValue;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        }</div>
+</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    }</div>
+</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
+<div class="ttc" id="aa00176_html"><div class="ttname"><a href="../../d5/de9/a00176.html">BetaProyecto.Helpers</a></div><div class="ttdef"><b>Definition</b> <a href="../../dd/dad/a00005_source.html#l00007">ControladorDiccionarios.cs:8</a></div></div>
+<div class="ttc" id="aa00253_html"><div class="ttname"><a href="../../d0/d3e/a00253.html">BetaProyecto.Helpers.TextoTraducidoConverter</a></div><div class="ttdef"><b>Definition</b> <a href="#l00014">TextoTraducidoConverter.cs:15</a></div></div>
+<div class="ttc" id="aa00253_html_a355f369100497d5c421cc4561f16b85f"><div class="ttname"><a href="../../d0/d3e/a00253.html#a355f369100497d5c421cc4561f16b85f">BetaProyecto.Helpers.TextoTraducidoConverter.Convert</a></div><div class="ttdeci">object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)</div><div class="ttdoc">Traduce dinámicamente una clave de recurso en su valor correspondiente definido en los diccionarios d...</div><div class="ttdef"><b>Definition</b> <a href="#l00033">TextoTraducidoConverter.cs:33</a></div></div>
+<div class="ttc" id="aa00253_html_adf241c07c8ce56fd3469e0a06c69d4d3"><div class="ttname"><a href="../../d0/d3e/a00253.html#adf241c07c8ce56fd3469e0a06c69d4d3">BetaProyecto.Helpers.TextoTraducidoConverter.ConvertBack</a></div><div class="ttdeci">object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)</div><div class="ttdef"><b>Definition</b> <a href="#l00050">TextoTraducidoConverter.cs:50</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_185e83519e12721b061570a464b09f2f.html">BetaProyecto</a></li><li class="navelem"><a href="../../dir_3c5fc1c420b3479299d1a14aa7ad3489.html">Helpers</a></li><li class="navelem"><a href="../../da/d45/a00011.html">TextoTraducidoConverter.cs</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>
